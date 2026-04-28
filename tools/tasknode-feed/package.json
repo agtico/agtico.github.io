@@ -1,0 +1,16 @@
+{
+  "name": "@agtico/tasknode-feed",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Publish anonymized Task Node updates for the AGTI static site.",
+  "scripts": {
+    "publish": "node src/cli.js publish",
+    "publish:fixture": "TASKNODE_FEED_SOURCE=fixture node src/cli.js publish",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,72 @@
+name: Publish Task Node Feed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tasknode-feed
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || vars.TASKNODE_FEED_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/tasknode-feed
+    env:
+      TASKNODE_FEED_SOURCE: ${{ vars.TASKNODE_FEED_SOURCE || 'postgres' }}
+      TASKNODE_DATABASE_URL: ${{ secrets.TASKNODE_DATABASE_URL }}
+      PFTASKS_DATABASE_URL: ${{ secrets.PFTASKS_DATABASE_URL }}
+      TASKNODE_DATABASE_SSL: ${{ vars.TASKNODE_DATABASE_SSL }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      SPRS_DEEPSEEK_API_KEY: ${{ secrets.SPRS_DEEPSEEK_API_KEY }}
+      SPRS_TELEGRAM_DEEPSEEK_API_KEY: ${{ secrets.SPRS_TELEGRAM_DEEPSEEK_API_KEY }}
+      DEEPSEEK_API_BASE: ${{ vars.DEEPSEEK_API_BASE }}
+      SPRS_DEEPSEEK_API_BASE: ${{ vars.SPRS_DEEPSEEK_API_BASE }}
+      SPRS_TELEGRAM_DEEPSEEK_API_BASE: ${{ vars.SPRS_TELEGRAM_DEEPSEEK_API_BASE }}
+      DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
+      SPRS_TELEGRAM_CONTEXT_SUMMARY_MODEL: ${{ vars.SPRS_TELEGRAM_CONTEXT_SUMMARY_MODEL }}
+      DEEPSEEK_DO_NOT_TRAIN: ${{ vars.DEEPSEEK_DO_NOT_TRAIN || '1' }}
+      FEED_ANON_PEPPER: ${{ secrets.FEED_ANON_PEPPER }}
+      PFTL_EXPLORER_BASE: ${{ vars.PFTL_EXPLORER_BASE }}
+      TASKNODE_FEED_REDACT_TERMS: ${{ secrets.TASKNODE_FEED_REDACT_TERMS }}
+      TASKNODE_FEED_LIMIT: ${{ vars.TASKNODE_FEED_LIMIT || '24' }}
+      TASKNODE_FEED_LOOKBACK_DAYS: ${{ vars.TASKNODE_FEED_LOOKBACK_DAYS || '14' }}
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: tools/tasknode-feed/package-lock.json
+
+      - name: Install publisher dependencies
+        run: npm ci
+
+      - name: Run publisher tests
+        run: npm test
+
+      - name: Publish feed artifacts
+        run: npm run publish
+
+      - name: Commit updated feed
+        run: |
+          cd ../..
+          git config user.name "agtico-feed-bot"
+          git config user.email "agtico-feed-bot@users.noreply.github.com"
+          git add assets/data/tasknode-feed.json _data/tasknode_feed.json
+          if git diff --cached --quiet; then
+            echo "No feed changes to publish."
+            exit 0
+          fi
+          git commit -m "Update Task Node feed"
+          git push

@@ -1,0 +1,85 @@
+---
+title: Task Node Feed
+description: Semi-anonymized Task Node updates, ticker tags, and PFTL proof links from AGTI.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | escape }} - AGTI</title>
+  <meta name="description" content="{{ page.description | escape }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="AGTI home">
+        <div class="brand-mark">+</div>
+        <div>
+          <div class="brand-word">AGTI</div>
+          <div class="brand-sub">Automated Genetic<br/>Trading Intelligence</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/task-node-feed/' | relative_url }}" aria-current="page">Task Feed</a>
+        <a href="{{ '/intelligence-reports/' | relative_url }}">Reports</a>
+        <a href="{{ '/#telegram-bot' | relative_url }}">Telegram Bot</a>
+      </nav>
+      <a class="request" href="{{ '/#infrastructure' | relative_url }}">Join the Task Node <span>&rsaquo;</span></a>
+    </header>
+
+    <main class="feed-page">
+      <section class="feed-hero" aria-labelledby="feed-title">
+        <div>
+          <div class="eyebrow">Task Node Feed</div>
+          <h1 id="feed-title">Live operating signal from the Task Node.</h1>
+          <p class="lead">Semi-anonymized task updates with ticker tags and PFTL proof links where the underlying task produced an on-chain reference.</p>
+        </div>
+        <aside class="feed-status" aria-label="Feed status">
+          <span>Published Items</span>
+          <strong>{{ site.data.tasknode_feed.items | size }}</strong>
+          <p>Generated {{ site.data.tasknode_feed.generated_at | default: "offline" }} using {{ site.data.tasknode_feed.model | default: "local fallback" }}.</p>
+        </aside>
+      </section>
+
+      <section class="feed-list" aria-label="Task Node updates">
+        {% assign feed_items = site.data.tasknode_feed.items %}
+        {% for item in feed_items %}
+        <article class="feed-item">
+          <div>
+            <time class="feed-time" datetime="{{ item.timestamp }}">{{ item.timestamp | date: "%b %-d, %Y %H:%M UTC" }}</time>
+            <span class="feed-actor">{{ item.actor }}</span>
+          </div>
+          <div>
+            <div class="feed-category">{{ item.category | default: item.type }}</div>
+            <h2>{{ item.title | escape }}</h2>
+            <p>{{ item.summary | escape }}</p>
+            <div class="feed-meta">
+              {% for ticker in item.tickers %}
+              <span class="ticker-chip">${{ ticker }}</span>
+              {% endfor %}
+              <span class="feed-chip">{{ item.status }}</span>
+              <span class="feed-chip">{{ item.type | replace: "_", " " }}</span>
+            </div>
+            {% if item.links and item.links.size > 0 %}
+            <div class="feed-links">
+              {% for link in item.links %}
+              <a class="feed-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }} &rsaquo;</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </article>
+        {% else %}
+        <div class="feed-empty">No Task Node feed items have been published yet.</div>
+        {% endfor %}
+      </section>
+    </main>
+
+    <footer>AGTI // Task Node Feed // Semi-anonymous updates</footer>
+  </div>
+</body>
+</html>
