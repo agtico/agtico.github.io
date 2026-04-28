@@ -70,10 +70,12 @@ LEFT JOIN LATERAL (
   ORDER BY ts.created_at DESC
   LIMIT 1
 ) latest_submission ON true
-WHERE COALESCE(ace.posted_at, ace.created_at) >= now() - ($2::int * interval '1 day')
+WHERE ace.status = 'posted'
+  AND ace.posted_at IS NOT NULL
+  AND ace.posted_at >= now() - ($2::int * interval '1 day')
   AND NULLIF(BTRIM(COALESCE(ace.anonymized_summary, '')), '') IS NOT NULL
   AND COALESCE(t.status, '') NOT IN ('cancelled', 'expired', 'rejected')
-ORDER BY COALESCE(ace.posted_at, ace.created_at) DESC, ace.created_at DESC
+ORDER BY ace.posted_at DESC, ace.created_at DESC
 LIMIT $1::int
 \`;
 

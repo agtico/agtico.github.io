@@ -4,7 +4,7 @@ import { normalizeTxHash, buildExplorerUrl } from '../src/links/pftl.js';
 import { redactText, hasPublicLeak } from '../src/privacy/redaction.js';
 import { anonymizeEvent } from '../src/privacy/anonymize.js';
 import { extractTickers } from '../src/tickers/extract.js';
-import { buildTaskTickerContext, resolveEventTickers } from '../src/pipeline.js';
+import { resolveEventTickers } from '../src/pipeline.js';
 
 test('redacts direct identifiers before public rendering', () => {
   const redacted = redactText('Client: Acme Capital. Email me@test.com. Wallet rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN. Task 6f2d0db5-7d28-41d0-a088-cc0cf3c49f7b.');
@@ -77,32 +77,22 @@ test('does not infer Post Fiat tickers from casual public text mentions', () => 
   assert.deepEqual(extractTickers(event), []);
 });
 
-test('carries ticker context across events for the same task', () => {
-  const events = [
-    {
-      id: 'reward-event',
-      task_id: 'task-1',
-      title: 'Delivered lifecycle follow-up',
-      activity_tickers: null,
-      activity_created_at: '2026-04-28T16:20:00.000Z',
-    },
-    {
-      id: 'evidence-event',
-      task_id: 'task-1',
-      title: 'Submitted Telegram bot evidence',
-      activity_tickers: ['TON CRYPTO'],
-      activity_created_at: '2026-04-28T16:10:00.000Z',
-    },
-    {
-      id: 'generated-event',
-      task_id: 'task-1',
-      title: 'Older generated task context',
-      activity_tickers: ['AMZN US EQUITY', 'MSFT US EQUITY'],
-      activity_created_at: '2026-04-28T13:00:00.000Z',
-    },
-  ];
-  const context = buildTaskTickerContext(events);
-  assert.deepEqual(resolveEventTickers(events[0], context), ['TON']);
+test('uses activity-channel tickers as the canonical website tags', () => {
+  const event = {
+    activity_anonymized_summary: 'Submitted evidence for a Telegram bot workflow.',
+    activity_tickers: ['TON CRYPTO', 'TON CRYPTO'],
+    title: 'Submitted evidence for a Telegram bot workflow',
+  };
+  assert.deepEqual(resolveEventTickers(event), ['TON']);
+});
+
+test('does not reclassify website tickers when activity-channel returned none', () => {
+  const event = {
+    activity_anonymized_summary: 'Recorded proof on PFTL with $PFT mention.',
+    activity_tickers: null,
+    title: 'Recorded proof on PFTL with $PFT mention',
+  };
+  assert.deepEqual(resolveEventTickers(event), []);
 });
 
 test('validates and formats PFTL explorer links', () => {
