@@ -199,6 +199,7 @@ h1 {
   font-weight: 400;
   letter-spacing: -.055em;
   color: var(--text);
+  overflow-wrap: anywhere;
 }
 
 .lead {
@@ -207,6 +208,7 @@ h1 {
   color: rgba(220,229,224,.72);
   font-size: clamp(17px, 1.35vw, 22px);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .index-panel {
@@ -303,6 +305,12 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
+.feed-hero > *,
+.feed-item > *,
+.feed-status {
+  min-width: 0;
+}
+
 .feed-status {
   border: 1px solid var(--line-strong);
   background: linear-gradient(135deg, rgba(255,255,255,.055), transparent 36%), var(--panel);
@@ -328,6 +336,7 @@ h1 {
   margin: 16px 0 0;
   color: rgba(220,229,224,.68);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .feed-list {
@@ -367,6 +376,7 @@ h1 {
   color: var(--text);
   font: 400 clamp(25px, 3vw, 38px)/1.05 var(--mono);
   letter-spacing: -.035em;
+  overflow-wrap: anywhere;
 }
 
 .feed-item p {
@@ -374,6 +384,7 @@ h1 {
   max-width: 830px;
   color: rgba(220,229,224,.72);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .feed-meta {
@@ -502,16 +513,27 @@ footer {
 
 @media (max-width: 680px) {
   .page { width: 100%; margin: 0; border-inline: 0; }
+  header { gap: 18px; padding-inline: 18px; }
   .brand { min-width: 0; }
   .brand-word { font-size: 27px; }
+  .request {
+    min-width: 0;
+    justify-content: center;
+    gap: 12px;
+    padding-inline: 16px;
+    font-size: 10px;
+    letter-spacing: .15em;
+  }
   .reports-page, .report-page, .feed-page { padding: 38px 18px 46px; }
   .reports-hero, .feed-hero { gap: 22px; padding-bottom: 28px; }
-  h1 { font-size: 40px; line-height: 1.05; }
+  h1 { font-size: clamp(34px, 9.7vw, 40px); line-height: 1.05; letter-spacing: -.035em; }
   .lead { margin-top: 18px; }
   .index-panel, .feed-status { min-height: 0; padding: 18px; }
   .index-panel strong, .feed-status strong { margin-top: 10px; font-size: 26px; }
   .index-panel p, .feed-status p { margin-top: 12px; font-size: 15px; line-height: 1.45; }
   .reports-list, .feed-list { margin-top: 18px; }
+  .feed-item { gap: 16px; padding: 18px; }
+  .feed-item h2 { font-size: 27px; letter-spacing: -.025em; }
   .report-card a { grid-template-columns: 1fr; gap: 14px; min-height: 0; }
   .read-more { white-space: normal; }
 }

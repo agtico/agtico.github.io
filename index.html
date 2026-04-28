@@ -605,15 +605,15 @@ layout: null
 
     @media (max-width: 720px) {
       .page { width: 100%; margin: 0; border-inline: 0; }
-      header { height: auto; flex-direction: column; align-items: flex-start; gap: 18px; padding-block: 20px; }
+      header { height: auto; flex-direction: column; align-items: flex-start; gap: 18px; padding-block: 20px; padding-inline: 18px; }
       .brand { min-width: 0; }
-      .request { width: 100%; justify-content: space-between; }
+      .request { width: 100%; min-width: 0; justify-content: center; gap: 12px; padding-inline: 16px; font-size: 10px; letter-spacing: .15em; }
       .hero { display: block; min-height: 610px; overflow: hidden; padding: 42px 18px 34px; }
       .hero::before { z-index: 3; opacity: .55; }
       .copy { width: calc(100vw - 36px); max-width: 100%; }
-      h1 { font-size: 39px; line-height: 1.03; letter-spacing: -.055em; text-shadow: 0 2px 18px rgba(0,0,0,.72), 0 0 30px rgba(255,45,32,.08); }
+      h1 { font-size: 39px; line-height: 1.03; letter-spacing: -.045em; overflow-wrap: anywhere; text-shadow: 0 2px 18px rgba(0,0,0,.72), 0 0 30px rgba(255,45,32,.08); }
       .mobile-break { display: block; }
-      .subhead { max-width: 100%; text-shadow: 0 2px 14px rgba(0,0,0,.72); }
+      .subhead { max-width: 100%; overflow-wrap: anywhere; text-shadow: 0 2px 14px rgba(0,0,0,.72); }
       .buttons { flex-direction: column; }
       .btn { width: 100%; }
       .tagline { text-shadow: 0 2px 12px rgba(0,0,0,.72); }
