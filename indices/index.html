@@ -1,0 +1,391 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGTI - Auditable Indices</title>
+  <meta name="description" content="Auditable Post Fiat indices published to IPFS and signaled on PFTL." />
+  <style>
+    :root {
+      --bg: #020303;
+      --panel: rgba(9, 13, 14, 0.84);
+      --text: #f3f5f1;
+      --muted: #9aa2a0;
+      --red: #ff2d20;
+      --red-2: #ff5a42;
+      --amber: #ff9f45;
+      --line: rgba(229, 238, 235, 0.14);
+      --line-strong: rgba(229, 238, 235, 0.30);
+      --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: #000;
+      color: var(--text);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 45, 32, 0.13), transparent 30%),
+        radial-gradient(circle at 82% 0%, rgba(255, 159, 69, 0.06), transparent 30%),
+        linear-gradient(180deg, #060a0a 0%, #020303 58%, #000 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.28));
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1240px, calc(100% - 40px));
+      margin: 24px auto 40px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(135deg, rgba(255,255,255,.04), transparent 26%), rgba(0,0,0,.54);
+      box-shadow: 0 40px 140px rgba(0,0,0,.78), inset 0 0 85px rgba(255,45,32,.025);
+      overflow: hidden;
+    }
+
+    header {
+      min-height: 86px;
+      padding: 22px clamp(22px, 3vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(0,0,0,.30);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .brand strong {
+      font: 800 28px/1 var(--mono);
+      letter-spacing: .28em;
+    }
+
+    .brand span,
+    nav {
+      color: rgba(206,214,211,.68);
+      font: 800 10px/1.4 var(--mono);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    nav a:hover,
+    .link:hover {
+      color: white;
+      text-shadow: 0 0 18px rgba(255,45,32,.55);
+    }
+
+    main {
+      padding: clamp(34px, 5vw, 68px) clamp(20px, 4vw, 56px) 64px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 18px;
+      color: var(--red-2);
+      font: 900 11px var(--mono);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--red);
+      box-shadow: 0 0 16px var(--red);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font: 400 clamp(48px, 7vw, 86px)/.99 var(--mono);
+      letter-spacing: -.065em;
+    }
+
+    .lead {
+      max-width: 840px;
+      margin: 22px 0 0;
+      color: rgba(220,229,224,.72);
+      font-size: clamp(17px, 1.35vw, 22px);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      position: relative;
+      min-width: 232px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(255,255,255,.025);
+      font: 900 12px var(--mono);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.52);
+      box-shadow: 0 14px 32px rgba(0,0,0,.36);
+    }
+
+    .btn.primary {
+      border-color: rgba(255,45,32,.85);
+      background: linear-gradient(90deg, #b71711, rgba(255,45,32,.52));
+      box-shadow: inset 0 0 18px rgba(255,255,255,.08), 0 0 32px rgba(255,45,32,.18);
+    }
+
+    .register {
+      margin-top: 42px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(135deg, rgba(255,255,255,.055), transparent 36%), var(--panel);
+      box-shadow: inset 0 0 42px rgba(255,255,255,.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 14px;
+      height: 14px;
+      border-left: 1px solid rgba(255,255,255,.48);
+      border-top: 1px solid rgba(255,255,255,.48);
+    }
+
+    .register-head {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .register-head h2 {
+      margin: 0;
+      font: 400 clamp(30px, 3vw, 44px)/1.08 var(--mono);
+      letter-spacing: -.04em;
+    }
+
+    .status {
+      color: var(--amber);
+      font: 900 10px var(--mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .index-card {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(360px, 1.05fr);
+      gap: 26px;
+    }
+
+    .index-card h3 {
+      margin: 0 0 12px;
+      font: 900 19px var(--mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .index-card p {
+      margin: 0;
+      color: rgba(220,228,224,.70);
+      line-height: 1.52;
+    }
+
+    .holdings {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .holdings span {
+      border: 1px solid rgba(255,45,32,.42);
+      color: var(--red-2);
+      padding: 7px 9px;
+      font: 900 10px var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: minmax(132px, .38fr) minmax(0, 1fr);
+      gap: 13px 18px;
+      margin: 0;
+    }
+
+    dt {
+      color: rgba(210,220,216,.62);
+      font: 900 10px var(--mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 0;
+      color: rgba(244,249,246,.84);
+      font: 800 12px/1.45 var(--mono);
+      overflow-wrap: anywhere;
+    }
+
+    .link {
+      color: var(--red-2);
+      font: 900 10px var(--mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .note {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: rgba(220,228,224,.62);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: 100%; margin: 0; border-inline: 0; }
+      header { align-items: flex-start; flex-direction: column; }
+      nav { justify-content: flex-start; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; min-width: 0; }
+      .register-head { align-items: flex-start; flex-direction: column; }
+      .index-card { grid-template-columns: 1fr; padding: 22px 18px; }
+      dl { grid-template-columns: 1fr; }
+      dd { margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="/" aria-label="AGTI home">
+        <strong>AGTI</strong>
+        <span>Post Fiat Indices</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/task-node-feed/">Task Feed</a>
+        <a href="/intelligence-reports/">Reports</a>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="indices-title">
+        <div class="eyebrow">Auditable Indices</div>
+        <h1 id="indices-title">Public index artifacts with PFTL proof.</h1>
+        <p class="lead">AGTI indices describe holdings as of a date, cache the artifact on IPFS, and record the content address in a Post Fiat ledger transaction. Public artifacts are readable immediately; delayed subscriber releases can publish decryption keys later by tier.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://ipfs.io/ipfs/bafkreiexpmbwj3fdfm2hkaoq4m7tpvgjvmrkwdojrsebtz7ht2xtvm3aye" target="_blank" rel="noopener">Open Artifact <span>›</span></a>
+          <a class="btn" href="/">Back to AGTI <span>›</span></a>
+        </div>
+      </section>
+
+      <section class="register" aria-labelledby="register-title">
+        <div class="register-head">
+          <h2 id="register-title">Index Register</h2>
+          <div class="status">Public / Unencrypted</div>
+        </div>
+        <article class="index-card">
+          <div>
+            <h3>IGV Top 10 Example</h3>
+            <p>Sample index using iShares Expanded Tech-Software Sector ETF holdings as of Apr 27, 2026. The artifact encodes canonical names, tickers, exchanges, weights, internal shares, prices, currencies, FX rates, dollar amounts, locations, asset classes, and identifiers where available.</p>
+            <div class="holdings" aria-label="Top holdings preview">
+              <span>ORCL 9.08%</span>
+              <span>MSFT 8.99%</span>
+              <span>PLTR 8.08%</span>
+              <span>CRM 6.69%</span>
+              <span>PANW 5.86%</span>
+            </div>
+            <p class="note">This first artifact was published without an encryption wrapper. Future subscriber tiers can use encrypted artifacts with delayed key release schedules such as T+1 or T+3.</p>
+          </div>
+
+          <dl>
+            <dt>Index ID</dt>
+            <dd>igv-top10-example-2026-04-27</dd>
+            <dt>As Of</dt>
+            <dd>2026-04-27</dd>
+            <dt>Schema</dt>
+            <dd>pft-index-v0</dd>
+            <dt>IPFS CID</dt>
+            <dd>bafkreiexpmbwj3fdfm2hkaoq4m7tpvgjvmrkwdojrsebtz7ht2xtvm3aye</dd>
+            <dt>IPFS URI</dt>
+            <dd>ipfs://bafkreiexpmbwj3fdfm2hkaoq4m7tpvgjvmrkwdojrsebtz7ht2xtvm3aye</dd>
+            <dt>Artifact SHA-256</dt>
+            <dd>a764d5c0d251d5c0e6263c8b943291d5a76443116be66a192c313d5adc2330c0</dd>
+            <dt>PFTL TX Hash</dt>
+            <dd>8FAC80F6B358E190663028402F69CC06684B0CA77B4E10D154D20693547F7206</dd>
+            <dt>Ledger Result</dt>
+            <dd>tesSUCCESS</dd>
+            <dt>Ledger Index</dt>
+            <dd>2329638</dd>
+            <dt>Signer</dt>
+            <dd>rPo8GkCA9YMKzuJGTHbj11kdVfPqSJHxNx</dd>
+            <dt>Destination</dt>
+            <dd>rwdm72S9YVKkZjeADKU2bbUMuY4vPnSfH7</dd>
+            <dt>Gateway</dt>
+            <dd><a class="link" href="https://ipfs.io/ipfs/bafkreiexpmbwj3fdfm2hkaoq4m7tpvgjvmrkwdojrsebtz7ht2xtvm3aye" target="_blank" rel="noopener">Open IPFS Gateway <span>›</span></a></dd>
+          </dl>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
