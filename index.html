@@ -190,6 +190,11 @@
       color: rgba(255,255,255,.34);
     }
 
+    .copy {
+      position: relative;
+      z-index: 2;
+    }
+
     .eyebrow {
       display: flex;
       align-items: center;
@@ -219,6 +224,7 @@
     }
 
     h1 .hot { color: #ff5142; text-shadow: 0 0 28px rgba(255,45,32,.23); }
+    .mobile-break { display: none; }
 
     .subhead {
       max-width: 680px;
@@ -284,6 +290,7 @@
 
     .sigil-stage {
       position: relative;
+      z-index: 1;
       min-height: 514px;
       overflow: hidden;
       border-left: 1px solid rgba(255,255,255,.06);
@@ -519,10 +526,28 @@
       header { height: auto; flex-direction: column; align-items: flex-start; gap: 18px; padding-block: 20px; }
       .brand { min-width: 0; }
       .request { width: 100%; justify-content: space-between; }
-      h1 { font-size: 43px; }
+      .hero { display: block; min-height: 610px; overflow: hidden; padding: 42px 18px 34px; }
+      .hero::before { z-index: 3; opacity: .55; }
+      .copy { width: calc(100vw - 36px); max-width: 100%; }
+      h1 { font-size: 39px; line-height: 1.03; letter-spacing: -.055em; text-shadow: 0 2px 18px rgba(0,0,0,.72), 0 0 30px rgba(255,45,32,.08); }
+      .mobile-break { display: block; }
+      .subhead { max-width: 100%; text-shadow: 0 2px 14px rgba(0,0,0,.72); }
       .buttons { flex-direction: column; }
       .btn { width: 100%; }
-      .sigil-stage { min-height: 365px; }
+      .tagline { text-shadow: 0 2px 12px rgba(0,0,0,.72); }
+      .sigil-stage {
+        position: absolute;
+        z-index: 0;
+        inset: 74px -130px auto -112px;
+        height: 430px;
+        min-height: 0;
+        border: 0;
+        opacity: .58;
+        pointer-events: none;
+      }
+      .sigil-stage::before { inset: 0; opacity: .52; }
+      .sigil-svg { opacity: .58; }
+      .hero-logo { width: min(340px, 84vw); opacity: .46; }
       .metrics { grid-template-columns: 1fr; }
       .metric { border-right: 0; border-bottom: 1px solid var(--line); }
       .steps { grid-template-columns: 1fr; gap: 24px; }
@@ -549,14 +574,14 @@
         <a href="#telegram-bot">Telegram Bot</a>
         <a href="#access">Access</a>
       </nav>
-      <a class="request" href="#access">Request Access <span>›</span></a>
+      <a class="request" href="#infrastructure">Join the Task Node <span>›</span></a>
     </header>
 
     <main>
       <section class="hero" id="research">
         <div class="copy">
           <div class="eyebrow">Post-Fiat Market Engine</div>
-          <h1>Automated Genetic<br/>Trading <span class="hot">Intelligence</span></h1>
+          <h1>Automated <br class="mobile-break"/>Genetic<br/>Trading <br class="mobile-break"/><span class="hot">Intelligence</span></h1>
           <p class="subhead">Cybernetic capital compounding: AGTI is the capital and development engine for applications of the Post Fiat Network - the first AI hive mind.</p>
           <div class="buttons">
             <a class="btn primary" href="#access">Enter the System <span>›</span></a>
@@ -695,7 +720,7 @@
       </section>
     </main>
 
-    <div class="ticker" id="access"><span>AGTI // AUTOMATED GENETIC TRADING INTELLIGENCE // POST-FIAT CHAOS MARK ONLINE // SIGNAL PATH OPEN // SELECTION PRESSURE RISING // CAPITAL LEARNS // REQUEST ACCESS //</span></div>
+    <div class="ticker" id="access"><span>AGTI // AUTOMATED GENETIC TRADING INTELLIGENCE // POST-FIAT CHAOS MARK ONLINE // SIGNAL PATH OPEN // SELECTION PRESSURE RISING // CAPITAL LEARNS // JOIN THE TASK NODE //</span></div>
   </div>
 </body>
 </html>
