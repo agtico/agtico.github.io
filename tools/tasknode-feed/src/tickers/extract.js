@@ -1,5 +1,5 @@
 const MAX_TICKERS = 8;
-const COMMON_FALSE_POSITIVES = new Set([
+const STRUCTURED_FALSE_POSITIVES = new Set([
   'AGTI',
   'API',
   'AI',
@@ -10,12 +10,16 @@ const COMMON_FALSE_POSITIVES = new Set([
   'KPI',
   'LLM',
   'NFT',
-  'PFT',
   'PFTL',
   'ROI',
   'SQL',
   'URL',
   'UX',
+]);
+
+const TEXT_FALSE_POSITIVES = new Set([
+  ...STRUCTURED_FALSE_POSITIVES,
+  'PFT',
 ]);
 
 export function normalizeTickerSymbol(value) {
@@ -32,9 +36,9 @@ export function normalizeTickerSymbol(value) {
   return raw;
 }
 
-function addTicker(target, value) {
+function addTicker(target, value, { falsePositives = STRUCTURED_FALSE_POSITIVES } = {}) {
   const symbol = normalizeTickerSymbol(value);
-  if (!symbol || COMMON_FALSE_POSITIVES.has(symbol) || target.has(symbol)) {
+  if (!symbol || falsePositives.has(symbol) || target.has(symbol)) {
     return;
   }
   target.add(symbol);
@@ -79,7 +83,7 @@ export function extractTickers(event, maxTickers = MAX_TICKERS) {
   ].filter(Boolean).join(' ');
 
   for (const match of text.matchAll(/(?:\$|#)([A-Za-z][A-Za-z0-9.\-]{1,14})\b/g)) {
-    addTicker(tickers, match[1]);
+    addTicker(tickers, match[1], { falsePositives: TEXT_FALSE_POSITIVES });
   }
 
   return Array.from(tickers).slice(0, maxTickers);

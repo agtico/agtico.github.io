@@ -60,6 +60,22 @@ test('extracts ticker tags from metadata and task text', () => {
   assert.deepEqual(extractTickers(event), ['BTC', 'COIN', 'XRP', 'NAV', 'GOOGL', 'MSFT']);
 });
 
+test('preserves structured Post Fiat tickers from activity metadata', () => {
+  const event = {
+    title: 'Delivered Task Node queue-health work on PFTL',
+    activity_tickers: ['PFT CRYPTO', 'XRP CRYPTO'],
+  };
+  assert.deepEqual(extractTickers(event), ['PFT', 'XRP']);
+});
+
+test('does not infer Post Fiat tickers from casual public text mentions', () => {
+  const event = {
+    title: 'Recorded proof on PFTL with $PFT mention',
+    description: 'No structured ticker metadata was supplied.',
+  };
+  assert.deepEqual(extractTickers(event), []);
+});
+
 test('validates and formats PFTL explorer links', () => {
   const hash = 'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890';
   assert.equal(normalizeTxHash(hash), hash.toUpperCase());
