@@ -23,6 +23,11 @@ function readBool(name, fallback = false) {
   return ['1', 'true', 'yes', 'on'].includes(String(raw).trim().toLowerCase());
 }
 
+function readMs(name, fallback) {
+  const parsed = readInt(name, fallback);
+  return parsed > 0 ? parsed : fallback;
+}
+
 function splitCsv(value) {
   return String(value || '')
     .split(',')
@@ -44,6 +49,10 @@ export function loadConfig() {
     repoRoot: REPO_ROOT,
     toolRoot: TOOL_ROOT,
     source,
+    sourceLabel: process.env.TASKNODE_FEED_SOURCE_LABEL || '',
+    flyApp: process.env.TASKNODE_FEED_FLY_APP || 'pftasks-api',
+    flyctlPath: process.env.TASKNODE_FEED_FLYCTL || 'flyctl',
+    flyTimeoutMs: readMs('TASKNODE_FEED_FLY_TIMEOUT_MS', 120_000),
     databaseUrl,
     limit: readInt('TASKNODE_FEED_LIMIT', 24),
     lookbackDays: readInt('TASKNODE_FEED_LOOKBACK_DAYS', 14),

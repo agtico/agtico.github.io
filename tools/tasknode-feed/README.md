@@ -9,7 +9,7 @@ It writes two artifacts:
 
 ## Pipeline
 
-1. Read recent task records from `pftasks` Postgres, or from the fixture source for local work.
+1. Read recent Task Node activity rows from the `pftasks-api` Fly app, direct Postgres, or the fixture source for local work.
 2. Prefer existing `activity_channel_events` enrichment when present, including anonymized Discord summaries, ticker arrays, and PFTL hashes.
 3. Redact direct identifiers, configured sensitive terms, URLs, wallets, emails, phone numbers, UUIDs, and transaction hashes from text.
 4. Convert task IDs and actor IDs into stable HMAC aliases such as `task:8a7f2c31` and `node:1b2c3d4e`.
@@ -37,7 +37,17 @@ Run tests:
 npm test
 ```
 
-Publish from Postgres:
+Publish from Fly:
+
+```bash
+TASKNODE_FEED_SOURCE=fly \
+TASKNODE_FEED_SOURCE_LABEL=fly-postgres \
+TASKNODE_FEED_FLY_APP=pftasks-api \
+FEED_ANON_PEPPER='stable-secret-pepper' \
+npm run publish
+```
+
+Publish from a directly reachable Postgres database:
 
 ```bash
 TASKNODE_FEED_SOURCE=postgres \
@@ -50,7 +60,7 @@ npm run publish
 
 Required for live mode:
 
-- `TASKNODE_DATABASE_URL`: read-only database URL for the `pftasks` Postgres database.
+- `TASKNODE_FEED_SOURCE=fly` with `flyctl` auth, or `TASKNODE_DATABASE_URL` for a directly reachable `pftasks` Postgres database.
 - `FEED_ANON_PEPPER`: stable secret used to generate public HMAC aliases.
 
 Recommended:
@@ -61,7 +71,9 @@ Recommended:
 
 Optional:
 
-- `TASKNODE_FEED_SOURCE`: `postgres`, `fixture`, or `auto`.
+- `TASKNODE_FEED_SOURCE`: `fly`, `postgres`, `fixture`, or `auto`.
+- `TASKNODE_FEED_FLY_APP`: Fly app that can reach the `pftasks` database. Defaults to `pftasks-api`.
+- `TASKNODE_FEED_SOURCE_LABEL`: public source label written to the feed artifact. Defaults to the selected source.
 - `TASKNODE_FEED_LIMIT`: max items to publish. Defaults to `24`.
 - `TASKNODE_FEED_LOOKBACK_DAYS`: recent task window. Defaults to `14`.
 - `DEEPSEEK_MODEL`: defaults to `deepseek-v4-flash`.
@@ -76,7 +88,7 @@ The `Publish Task Node Feed` workflow runs every 30 minutes when repository vari
 
 Set these repository values before enabling the schedule:
 
-- Secrets: `TASKNODE_DATABASE_URL` or `PFTASKS_DATABASE_URL`, `FEED_ANON_PEPPER`, and optionally `DEEPSEEK_API_KEY`, `SPRS_DEEPSEEK_API_KEY`, `SPRS_TELEGRAM_DEEPSEEK_API_KEY`, `TASKNODE_FEED_REDACT_TERMS`.
-- Variables: `TASKNODE_FEED_ENABLED=true`, optionally `PFTL_EXPLORER_BASE`, `TASKNODE_FEED_LIMIT`, `TASKNODE_FEED_LOOKBACK_DAYS`, `DEEPSEEK_MODEL`.
+- Secrets: `FLY_API_TOKEN`, `FEED_ANON_PEPPER`, and optionally `DEEPSEEK_API_KEY`, `SPRS_DEEPSEEK_API_KEY`, `SPRS_TELEGRAM_DEEPSEEK_API_KEY`, `TASKNODE_FEED_REDACT_TERMS`.
+- Variables: `TASKNODE_FEED_ENABLED=true`, optionally `TASKNODE_FEED_FLY_APP`, `PFTL_EXPLORER_BASE`, `TASKNODE_FEED_LIMIT`, `TASKNODE_FEED_LOOKBACK_DAYS`, `DEEPSEEK_MODEL`.
 
 The workflow does not run on every push, so feed bot commits do not create a publish loop. GitHub Pages will rebuild the site from the updated JSON files after the commit lands.

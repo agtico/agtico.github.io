@@ -48,7 +48,7 @@ test('extracts ticker tags from metadata and task text', () => {
   const event = {
     title: 'Build $XRP and $NAV scan',
     description: 'Include $MSFT comparison but ignore UX acronym.',
-    activity_tickers: ['BTC'],
+    activity_tickers: ['BTC CRYPTO', 'COIN US EQUITY'],
     task_metadata: {
       alpha_tickers: ['xrp', 'NAV'],
       security_mapping: { tickers: ['MSFT'] },
@@ -57,7 +57,7 @@ test('extracts ticker tags from metadata and task text', () => {
       associated_tickers: [{ symbol: 'GOOGL' }],
     },
   };
-  assert.deepEqual(extractTickers(event), ['BTC', 'XRP', 'NAV', 'GOOGL', 'MSFT']);
+  assert.deepEqual(extractTickers(event), ['BTC', 'COIN', 'XRP', 'NAV', 'GOOGL', 'MSFT']);
 });
 
 test('validates and formats PFTL explorer links', () => {

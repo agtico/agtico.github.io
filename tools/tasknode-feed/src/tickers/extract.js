@@ -22,7 +22,10 @@ export function normalizeTickerSymbol(value) {
   if (value === null || value === undefined) {
     return '';
   }
-  const raw = String(value).trim().toUpperCase();
+  let raw = String(value).trim().toUpperCase();
+  if (raw.includes(' ')) {
+    raw = raw.split(/\s+/)[0] || raw;
+  }
   if (!raw || !/^[A-Z0-9.\-]{1,15}$/.test(raw)) {
     return '';
   }

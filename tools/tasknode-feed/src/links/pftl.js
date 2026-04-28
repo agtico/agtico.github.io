@@ -28,7 +28,7 @@ export function buildPftlLinks(event, explorerBase) {
     ['activity', event.activity_pftl_tx_hash],
     ['submission', event.submission_pftl_tx_hash || event.pftl_tx_hash],
     ['reward', event.submission_reward_tx_hash || event.reward_tx_hash],
-    ['verification', event.verification_tx_hash],
+    ['verification', event.submission_verification_tx_hash || event.verification_tx_hash],
   ];
   const seen = new Set();
   const links = [];

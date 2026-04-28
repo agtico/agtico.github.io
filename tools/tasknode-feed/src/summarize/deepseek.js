@@ -18,6 +18,23 @@ function fallbackSummary(event) {
   return cleanedBody.length <= 220 ? cleanedBody : `${cleanedBody.slice(0, 217).trim()}...`;
 }
 
+function fallbackTitle(event) {
+  const title = String(event.title || '').trim();
+  if (title && title !== 'Task Node update') {
+    return title.length <= 92 ? title : `${title.slice(0, 89).trim()}...`;
+  }
+
+  const summary = fallbackSummary(event)
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!summary) {
+    return 'Task Node update';
+  }
+  const firstSentence = summary.split(/(?<=[.!?])\s+/)[0] || summary;
+  const cleaned = firstSentence.replace(/[.!?]+$/, '').trim();
+  return cleaned.length <= 92 ? cleaned : `${cleaned.slice(0, 89).trim()}...`;
+}
+
 function parseSummaryPayload(text) {
   const raw = String(text || '').trim();
   if (!raw) {
@@ -46,7 +63,7 @@ function parseSummaryPayload(text) {
 export async function summarizeEvent(event, config) {
   if (!config.deepseekEnabled || !config.deepseekApiKey) {
     return {
-      title: event.title,
+      title: fallbackTitle(event),
       summary: fallbackSummary(event),
       category: event.department,
       tags: [],

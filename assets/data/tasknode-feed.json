@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-04-28T14:49:33.957Z",
-  "source": "fixture",
-  "model": "local-redacted-fallback",
+  "generated_at": "2026-04-28T15:15:35.120Z",
+  "source": "fly-postgres",
+  "model": "tasknode-activity-channel",
   "privacy": {
     "mode": "semi-anonymous",
     "raw_task_content_published": false,
@@ -10,87 +10,953 @@
   },
   "items": [
     {
-      "id": "task:9792fdf3",
-      "timestamp": "2026-04-28T13:22:00.000Z",
+      "id": "task:4a4fe559",
+      "timestamp": "2026-04-28T15:14:16.857Z",
       "type": "task_published",
-      "status": "active",
-      "actor": "node:59b8717c",
-      "category": "market",
-      "title": "Build a catalyst scan for $XRP and $NAV",
-      "summary": "Compile a compact catalyst scan for $XRP and $NAV, include likely demand, regulation, and liquidity drivers.",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Requested verification for a configurable delta-hedging trigger bot with clamped hedge si...",
+      "summary": "Requested verification for a configurable delta-hedging trigger bot with clamped hedge sizing.",
       "tickers": [
-        "XRP",
-        "NAV"
+        "BTC",
+        "ETH"
       ],
       "tags": [
         "task-node",
-        "market",
-        "$XRP",
-        "$NAV"
+        "personal",
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890",
-          "url": "https://livenet.xrpl.org/transactions/ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890"
+          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
+          "url": "https://livenet.xrpl.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:9792fdf3"
+        "source_id": "task:4a4fe559"
       }
     },
     {
-      "id": "task:d2e0f78b",
-      "timestamp": "2026-04-28T13:05:00.000Z",
-      "type": "task_completed",
-      "status": "completed",
-      "actor": "node:391ab72a",
-      "category": "market",
-      "title": "Compare AI infrastructure read-throughs for $NVDA and $MSFT",
-      "summary": "Create a semi-public update comparing AI infrastructure demand signals. Remove partner names and private deployment references.",
+      "id": "task:33abc1cb",
+      "timestamp": "2026-04-28T15:13:49.260Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Recorded proof of a configurable delta-hedging trigger bot on PFTL",
+      "summary": "Recorded proof of a configurable delta-hedging trigger bot on PFTL.",
       "tickers": [
-        "NVDA",
+        "XRP",
+        "COIN"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP",
+        "$COIN"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
+          "url": "https://livenet.xrpl.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:33abc1cb"
+      }
+    },
+    {
+      "id": "task:24941e79",
+      "timestamp": "2026-04-28T15:13:47.363Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Submitted evidence for a configurable delta-hedging trigger bot design",
+      "summary": "Submitted evidence for a configurable delta-hedging trigger bot design.",
+      "tickers": [
+        "CME",
+        "ICE",
+        "CBOE"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$CME",
+        "$ICE",
+        "$CBOE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
+          "url": "https://livenet.xrpl.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:24941e79"
+      }
+    },
+    {
+      "id": "task:4f9d0f85",
+      "timestamp": "2026-04-28T14:02:18.303Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Delivered a Telegram risk monitor update for pending futures exposure and earned a reward",
+      "summary": "Delivered a Telegram risk monitor update for pending futures exposure and earned a reward.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:4f9d0f85"
+      }
+    },
+    {
+      "id": "task:cad5e903",
+      "timestamp": "2026-04-28T14:01:51.181Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Recorded a verification response for a Telegram risk monitor update that tracks futures l...",
+      "summary": "Recorded a verification response for a Telegram risk monitor update that tracks futures limit-order exposure and post-fill delta.",
+      "tickers": [
+        "XRP",
+        "BTC"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cad5e903"
+      }
+    },
+    {
+      "id": "task:fa12d7e2",
+      "timestamp": "2026-04-28T14:01:48.188Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Uploaded follow-up evidence for adding futures limit-order exposure to the Telegram risk...",
+      "summary": "Uploaded follow-up evidence for adding futures limit-order exposure to the Telegram risk monitor.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:fa12d7e2"
+      }
+    },
+    {
+      "id": "task:820c65ca",
+      "timestamp": "2026-04-28T13:53:52.608Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Submitted evidence for a Telegram risk monitor update that adds futures limit-order expos...",
+      "summary": "Submitted evidence for a Telegram risk monitor update that adds futures limit-order exposure tracking.",
+      "tickers": [
+        "BTC",
+        "ETH",
+        "COIN"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH",
+        "$COIN"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:820c65ca"
+      }
+    },
+    {
+      "id": "task:11dee548",
+      "timestamp": "2026-04-28T13:53:50.186Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Recorded proof for a Telegram risk monitor update that shows open futures orders alongsid...",
+      "summary": "Recorded proof for a Telegram risk monitor update that shows open futures orders alongside filled positions.",
+      "tickers": [
+        "BTC",
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$BTC",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:11dee548"
+      }
+    },
+    {
+      "id": "task:943f5049",
+      "timestamp": "2026-04-28T13:53:47.402Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Requested verification for Telegram risk monitor updates to show pending futures exposure...",
+      "summary": "Requested verification for Telegram risk monitor updates to show pending futures exposure and post-fill exposure estimates.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526",
+          "url": "https://livenet.xrpl.org/transactions/63D1FFABBFF428B3BBA51B015397F461802D4528389982DCF2B4D5F125A14526"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01",
+          "url": "https://livenet.xrpl.org/transactions/267657204BE3B15D756A8A34135715F6E8CC5B867679ADE3F342FC9FBAB9ED01"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB",
+          "url": "https://livenet.xrpl.org/transactions/78B645D725572E9CEAC4EA521675FDEDA10A5B14F7A815DA1E62312E75A48AFB"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:943f5049"
+      }
+    },
+    {
+      "id": "task:8c1b32da",
+      "timestamp": "2026-04-28T13:50:46.688Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:b4e24f89",
+      "category": "personal",
+      "title": "Passed on launching a public AGTI website with a Task Node link",
+      "summary": "Passed on launching a public AGTI website with a Task Node link.",
+      "tickers": [],
+      "tags": [
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8c1b32da"
+      }
+    },
+    {
+      "id": "task:c9832366",
+      "timestamp": "2026-04-28T13:39:47.231Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:c8ff8d57",
+      "category": "network",
+      "title": "Planning a collaborative review of task handoff friction and acceptance criteria for futu...",
+      "summary": "Planning a collaborative review of task handoff friction and acceptance criteria for future network improvements.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "network",
+        "$XRP"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c9832366"
+      }
+    },
+    {
+      "id": "task:9a769339",
+      "timestamp": "2026-04-28T13:18:47.558Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Delivered audit trail artifacts for Dynamic UNL Phase 2 and earned a reward",
+      "summary": "Delivered audit trail artifacts for Dynamic UNL Phase 2 and earned a reward.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "network",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9a769339"
+      }
+    },
+    {
+      "id": "task:bbb74c8f",
+      "timestamp": "2026-04-28T13:18:20.932Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for LLM scoring audit trail artifacts and prompt privacy cont...",
+      "summary": "Uploaded follow-up evidence for LLM scoring audit trail artifacts and prompt privacy controls.",
+      "tickers": [
+        "XRP",
         "MSFT"
       ],
       "tags": [
         "task-node",
-        "market",
-        "$NVDA",
+        "network",
+        "$XRP",
         "$MSFT"
       ],
       "links": [
         {
           "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF",
-          "url": "https://livenet.xrpl.org/transactions/1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF"
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:d2e0f78b"
+        "source_id": "task:bbb74c8f"
       }
     },
     {
-      "id": "task:bf0ded65",
-      "timestamp": "2026-04-28T11:58:00.000Z",
-      "type": "task_published",
-      "status": "published",
-      "actor": "node:507169c6",
-      "category": "product",
-      "title": "Publish onboarding friction notes",
-      "summary": "Summarize recurring Task Node onboarding friction and turn it into an implementation-ready UX issue list.",
-      "tickers": [],
+      "id": "task:09f9c5e8",
+      "timestamp": "2026-04-28T13:18:17.312Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for LLM audit trail artifacts, confirming prompt privacy boun...",
+      "summary": "Uploaded follow-up evidence for LLM audit trail artifacts, confirming prompt privacy boundaries and anonymous validator mapping on PFTL.",
+      "tickers": [
+        "XRP"
+      ],
       "tags": [
         "task-node",
-        "product"
+        "network",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:09f9c5e8"
+      }
+    },
+    {
+      "id": "task:fd4b45ab",
+      "timestamp": "2026-04-28T13:16:20.608Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for publishing LLM reproducibility artifacts in the network scoring pi...",
+      "summary": "Submitted evidence for publishing LLM reproducibility artifacts in the network scoring pipeline.",
+      "tickers": [
+        "XRP",
+        "MSFT"
+      ],
+      "tags": [
+        "task-node",
+        "network",
+        "$XRP",
+        "$MSFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:fd4b45ab"
+      }
+    },
+    {
+      "id": "task:df2a5d46",
+      "timestamp": "2026-04-28T13:16:18.608Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Requested verification for audit trail artifacts in the network scoring pipeline",
+      "summary": "Requested verification for audit trail artifacts in the network scoring pipeline.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "network",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:df2a5d46"
+      }
+    },
+    {
+      "id": "task:a701b0a0",
+      "timestamp": "2026-04-28T13:16:17.064Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded proof of LLM reproducibility audit artifacts on PFTL",
+      "summary": "Recorded proof of LLM reproducibility audit artifacts on PFTL.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "network",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075",
+          "url": "https://livenet.xrpl.org/transactions/6BB2120A6EFCE76109128D1861787A696EF67BA06150190F46AF708DFBE2A075"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2",
+          "url": "https://livenet.xrpl.org/transactions/BF0D5399D59B5CAC95D4BF83AF3D069C89168ABF760492ED65D77AD58016F3B2"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E",
+          "url": "https://livenet.xrpl.org/transactions/05123738E8BFB39F778972DCB57D149EC9AE648129DEF20C8484893FC5FBAB8E"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a701b0a0"
+      }
+    },
+    {
+      "id": "task:95ba3d73",
+      "timestamp": "2026-04-28T13:02:47.669Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "personal",
+      "title": "Delivered a retrieval quality evaluation set for a local RAG project and earned a reward",
+      "summary": "Delivered a retrieval quality evaluation set for a local RAG project and earned a reward.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7",
+          "url": "https://livenet.xrpl.org/transactions/1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477",
+          "url": "https://livenet.xrpl.org/transactions/BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22",
+          "url": "https://livenet.xrpl.org/transactions/1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:95ba3d73"
+      }
+    },
+    {
+      "id": "task:163c67e4",
+      "timestamp": "2026-04-28T13:02:19.029Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "personal",
+      "title": "Uploaded follow-up evidence for a local RAG retrieval evaluation set and identified a fai...",
+      "summary": "Uploaded follow-up evidence for a local RAG retrieval evaluation set and identified a failure in answer extraction.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477",
+          "url": "https://livenet.xrpl.org/transactions/BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7",
+          "url": "https://livenet.xrpl.org/transactions/1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22",
+          "url": "https://livenet.xrpl.org/transactions/1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:163c67e4"
+      }
+    },
+    {
+      "id": "task:689b75a8",
+      "timestamp": "2026-04-28T13:02:17.182Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "personal",
+      "title": "Recorded a verification response for a retrieval evaluation set on PFTL",
+      "summary": "Recorded a verification response for a retrieval evaluation set on PFTL.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22",
+          "url": "https://livenet.xrpl.org/transactions/1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477",
+          "url": "https://livenet.xrpl.org/transactions/BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7",
+          "url": "https://livenet.xrpl.org/transactions/1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:689b75a8"
+      }
+    },
+    {
+      "id": "task:d5bd82f7",
+      "timestamp": "2026-04-28T13:00:49.403Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "personal",
+      "title": "Planning to respawn a customer agent on a fresh VPS and restore its runtime, secrets, con...",
+      "summary": "Planning to respawn a customer agent on a fresh VPS and restore its runtime, secrets, config, and service supervision.",
+      "tickers": [
+        "AMZN",
+        "MSFT",
+        "NET"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$AMZN",
+        "$MSFT",
+        "$NET"
       ],
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:bf0ded65"
+        "source_id": "task:d5bd82f7"
+      }
+    },
+    {
+      "id": "task:ba4ccceb",
+      "timestamp": "2026-04-28T13:00:47.222Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "personal",
+      "title": "Delivered targeted Osaka hospitality outreach and earned a reward",
+      "summary": "Delivered targeted Osaka hospitality outreach and earned a reward.",
+      "tickers": [
+        "XRP"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "6742AE35FA56FA0C1884261B7B0D298E94DD01E66B13D4BB66CA02E3193F5FBA",
+          "url": "https://livenet.xrpl.org/transactions/6742AE35FA56FA0C1884261B7B0D298E94DD01E66B13D4BB66CA02E3193F5FBA"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "ADA7C3134BAF5051642691A544213E9189A1EDC1010BCD1A627DEB921431B83C",
+          "url": "https://livenet.xrpl.org/transactions/ADA7C3134BAF5051642691A544213E9189A1EDC1010BCD1A627DEB921431B83C"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "9D041F0DBAD4B714886F3464320EEC796F7492771134A7E21D8F620DB91C2C6E",
+          "url": "https://livenet.xrpl.org/transactions/9D041F0DBAD4B714886F3464320EEC796F7492771134A7E21D8F620DB91C2C6E"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ba4ccceb"
+      }
+    },
+    {
+      "id": "task:56a45fe9",
+      "timestamp": "2026-04-28T13:00:28.018Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "personal",
+      "title": "Submitted evidence for a local RAG evaluation set with labeled query results and prioriti...",
+      "summary": "Submitted evidence for a local RAG evaluation set with labeled query results and prioritized fixes.",
+      "tickers": [
+        "MSFT",
+        "AMZN",
+        "GOOGL"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$MSFT",
+        "$AMZN",
+        "$GOOGL"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477",
+          "url": "https://livenet.xrpl.org/transactions/BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7",
+          "url": "https://livenet.xrpl.org/transactions/1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22",
+          "url": "https://livenet.xrpl.org/transactions/1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:56a45fe9"
+      }
+    },
+    {
+      "id": "task:aff163cf",
+      "timestamp": "2026-04-28T13:00:25.099Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "personal",
+      "title": "Recorded proof of a local RAG evaluation set and fix list on PFTL",
+      "summary": "Recorded proof of a local RAG evaluation set and fix list on PFTL.",
+      "tickers": [
+        "XRP",
+        "MSFT",
+        "AMZN",
+        "GOOGL"
+      ],
+      "tags": [
+        "task-node",
+        "personal",
+        "$XRP",
+        "$MSFT",
+        "$AMZN",
+        "$GOOGL"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477",
+          "url": "https://livenet.xrpl.org/transactions/BA20A7AB0A3DB22553FD2417DF6559F4C443B63BAE7EFE393E25A5202D071477"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7",
+          "url": "https://livenet.xrpl.org/transactions/1F77F5596B78C856108CCFB6157124B80D124648057C60D08475DAD73E672CF7"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22",
+          "url": "https://livenet.xrpl.org/transactions/1E62B8DD6E5B3048D8305FF1BBA7335AF8407110FEFB5338BB26BB42BA72CD22"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:aff163cf"
       }
     }
   ]

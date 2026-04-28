@@ -20,7 +20,10 @@ jobs:
       run:
         working-directory: tools/tasknode-feed
     env:
-      TASKNODE_FEED_SOURCE: ${{ vars.TASKNODE_FEED_SOURCE || 'postgres' }}
+      TASKNODE_FEED_SOURCE: ${{ vars.TASKNODE_FEED_SOURCE || 'fly' }}
+      TASKNODE_FEED_SOURCE_LABEL: ${{ vars.TASKNODE_FEED_SOURCE_LABEL || 'fly-postgres' }}
+      TASKNODE_FEED_FLY_APP: ${{ vars.TASKNODE_FEED_FLY_APP || 'pftasks-api' }}
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
       TASKNODE_DATABASE_URL: ${{ secrets.TASKNODE_DATABASE_URL }}
       PFTASKS_DATABASE_URL: ${{ secrets.PFTASKS_DATABASE_URL }}
       TASKNODE_DATABASE_SSL: ${{ vars.TASKNODE_DATABASE_SSL }}
@@ -48,6 +51,10 @@ jobs:
           node-version: "22"
           cache: npm
           cache-dependency-path: tools/tasknode-feed/package-lock.json
+
+      - name: Set up Flyctl
+        if: env.TASKNODE_FEED_SOURCE == 'fly'
+        uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Install publisher dependencies
         run: npm ci

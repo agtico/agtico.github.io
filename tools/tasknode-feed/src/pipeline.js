@@ -13,6 +13,10 @@ async function loadEvents(config) {
     const { loadPostgresEvents } = await import('./ingest/postgres.js');
     return loadPostgresEvents(config);
   }
+  if (config.source === 'fly') {
+    const { loadFlyEvents } = await import('./ingest/fly.js');
+    return loadFlyEvents(config);
+  }
   throw new Error(`Unsupported TASKNODE_FEED_SOURCE: ${config.source}`);
 }
 
@@ -46,9 +50,20 @@ function assertPublicSafe(item) {
   }
 }
 
+function modelLabel(config) {
+  if (config.deepseekEnabled && config.deepseekApiKey) {
+    return config.deepseekModel;
+  }
+  if (config.source === 'fly' || config.source === 'postgres') {
+    return 'tasknode-activity-channel';
+  }
+  return 'local-redacted-fallback';
+}
+
 export async function buildFeed(config) {
   const rawEvents = await loadEvents(config);
   const items = [];
+  const publicSource = config.sourceLabel || config.source;
 
   for (const rawEvent of rawEvents.slice(0, config.limit)) {
     const anonymized = anonymizeEvent(rawEvent, config);
@@ -79,8 +94,8 @@ export async function buildFeed(config) {
   return {
     version: 1,
     generated_at: new Date().toISOString(),
-    source: config.source,
-    model: config.deepseekEnabled && config.deepseekApiKey ? config.deepseekModel : 'local-redacted-fallback',
+    source: publicSource,
+    model: modelLabel(config),
     privacy: {
       mode: 'semi-anonymous',
       raw_task_content_published: false,

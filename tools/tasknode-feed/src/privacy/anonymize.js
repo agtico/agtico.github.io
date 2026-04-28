@@ -20,7 +20,10 @@ function eventTimestamp(event) {
 }
 
 export function anonymizeEvent(event, options = {}) {
-  const titleSource = event.board_user_title || event.user_title || event.title || 'Task Node update';
+  const hasActivitySummary = Boolean(String(event.activity_anonymized_summary || '').trim());
+  const titleSource = hasActivitySummary
+    ? 'Task Node update'
+    : (event.board_user_title || event.user_title || event.title || 'Task Node update');
   const descriptionSource = event.activity_anonymized_summary
     || event.board_user_description
     || event.user_description
@@ -40,13 +43,17 @@ export function anonymizeEvent(event, options = {}) {
     department: String(event.board_department || event.department || event.task_category || 'task-node'),
     title: redactText(titleSource, options),
     body: redactText(descriptionSource, options),
-    raw_context: redactText([
-      titleSource,
-      descriptionSource,
-      event.board_task_details,
-      event.board_expected_impact,
-      event.activity_anonymized_summary,
-      event.reward_summary,
-    ].filter(Boolean).join('\n'), options),
+    raw_context: redactText(
+      (hasActivitySummary
+        ? [titleSource, descriptionSource]
+        : [
+            titleSource,
+            descriptionSource,
+            event.board_task_details,
+            event.board_expected_impact,
+            event.reward_summary,
+          ]).filter(Boolean).join('\n'),
+      options
+    ),
   };
 }
