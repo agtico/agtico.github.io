@@ -29,6 +29,12 @@ test('privacy leak checks are deterministic across repeated calls', () => {
   assert.equal(hasPublicLeak(redactText(leaked)), false);
 });
 
+test('privacy leak checks do not treat arxiv identifiers as phone numbers', () => {
+  const publicIdentifier = 'Planning a public teardown of arXiv 2604.24640.';
+  assert.equal(hasPublicLeak(publicIdentifier), false);
+  assert.equal(redactText(publicIdentifier), publicIdentifier);
+});
+
 test('anonymizes actor and task references deterministically', () => {
   const event = {
     id: '6f2d0db5-7d28-41d0-a088-cc0cf3c49f7b',

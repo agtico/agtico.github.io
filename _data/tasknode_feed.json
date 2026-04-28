@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-04-28T16:59:02.336Z",
-  "source": "fly-postgres",
+  "generated_at": "2026-04-28T18:07:02.173Z",
+  "source": "fly-activity-channel",
   "model": "tasknode-activity-channel",
   "privacy": {
     "mode": "semi-anonymous",
@@ -10,18 +10,301 @@
   },
   "items": [
     {
+      "id": "task:a882536a",
+      "timestamp": "2026-04-28T17:56:22.647Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:c98ec89e",
+      "category": "content",
+      "title": "Planning a Task Node splash video edit that explains Portable Reputation with proof-focused v...",
+      "summary": "Planning a Task Node splash video edit that explains Portable Reputation with proof-focused visuals.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "content",
+        "task-node",
+        "network",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a882536a"
+      }
+    },
+    {
+      "id": "task:3d774ac8",
+      "timestamp": "2026-04-28T17:08:21.385Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Delivered a manual provisioning and payment CLI and earned a reward.",
+      "summary": "Delivered a manual provisioning and payment CLI and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3d774ac8"
+      }
+    },
+    {
+      "id": "task:9a40e976",
+      "timestamp": "2026-04-28T17:07:22.410Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Recorded a verification response for a manual provisioning and payment CLI idempotency check...",
+      "summary": "Recorded a verification response for a manual provisioning and payment CLI idempotency check on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9a40e976"
+      }
+    },
+    {
+      "id": "task:5e4577fc",
+      "timestamp": "2026-04-28T17:07:20.336Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Uploaded follow-up evidence for a manual provisioning and payment CLI, including an idempoten...",
+      "summary": "Uploaded follow-up evidence for a manual provisioning and payment CLI, including an idempotency gate for renewal commands.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5e4577fc"
+      }
+    },
+    {
+      "id": "task:3b42ffed",
+      "timestamp": "2026-04-28T17:03:25.723Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Requested verification for a manual provisioning and payment CLI.",
+      "summary": "Requested verification for a manual provisioning and payment CLI.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3b42ffed"
+      }
+    },
+    {
+      "id": "task:554adc29",
+      "timestamp": "2026-04-28T17:03:23.813Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Submitted evidence for a manual provisioning and payment CLI admin guide.",
+      "summary": "Submitted evidence for a manual provisioning and payment CLI admin guide.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:554adc29"
+      }
+    },
+    {
+      "id": "task:82b59943",
+      "timestamp": "2026-04-28T17:03:20.902Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:41d208da",
+      "category": "ops",
+      "title": "Recorded proof of manual provisioning and payment CLI on PFTL.",
+      "summary": "Recorded proof of manual provisioning and payment CLI on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:82b59943"
+      }
+    },
+    {
       "id": "task:99563069",
       "timestamp": "2026-04-28T16:52:23.828Z",
       "type": "task_published",
       "status": "in_progress",
       "actor": "node:be85ea6f",
-      "category": "personal",
-      "title": "Planning a public teardown of arXiv redacted context on AI-assisted quantum error correction",
-      "summary": "Planning a public teardown of arXiv redacted context on AI-assisted quantum error correction.",
+      "category": "content",
+      "title": "Planning a public teardown of arXiv 2604.24640 on AI-assisted quantum error correction.",
+      "summary": "Planning a public teardown of arXiv 2604.24640 on AI-assisted quantum error correction.",
       "tickers": [
         "GOOGL"
       ],
       "tags": [
+        "content",
         "task-node",
         "personal",
         "$GOOGL"
@@ -38,13 +321,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Delivered a fresh VPS agent restore and earned a reward",
+      "category": "ops",
+      "title": "Delivered a fresh VPS agent restore and earned a reward.",
       "summary": "Delivered a fresh VPS agent restore and earned a reward.",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "ops",
         "task-node",
         "personal",
         "$TON"
@@ -80,13 +364,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Uploaded follow-up evidence for restoring a paid customer agent on a fresh VPS",
+      "category": "ops",
+      "title": "Uploaded follow-up evidence for restoring a paid customer agent on a fresh VPS.",
       "summary": "Uploaded follow-up evidence for restoring a paid customer agent on a fresh VPS.",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "ops",
         "task-node",
         "personal",
         "$TON"
@@ -122,13 +407,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Uploaded follow-up evidence for restoring a customer agent on a fresh VPS",
+      "category": "ops",
+      "title": "Uploaded follow-up evidence for restoring a customer agent on a fresh VPS.",
       "summary": "Uploaded follow-up evidence for restoring a customer agent on a fresh VPS.",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "ops",
         "task-node",
         "personal",
         "$TON"
@@ -164,13 +450,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Requested verification for rebuilding a customer agent on a fresh VPS and confirming one...",
+      "category": "infra",
+      "title": "Requested verification for rebuilding a customer agent on a fresh VPS and confirming one test...",
       "summary": "Requested verification for rebuilding a customer agent on a fresh VPS and confirming one test command response.",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "infra",
         "task-node",
         "personal",
         "$TON"
@@ -207,14 +494,14 @@
       "status": "in_progress",
       "actor": "node:3ca5ce63",
       "category": "network",
-      "title": "Planning a Python module to audit refusal and cancellation patterns in Task Node work",
+      "title": "Planning a Python module to audit refusal and cancellation patterns in Task Node work.",
       "summary": "Planning a Python module to audit refusal and cancellation patterns in Task Node work.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [],
@@ -229,13 +516,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
+      "category": "ops",
       "title": "Recorded proof of restoring a customer agent on a fresh VPS on PFTL",
       "summary": "Recorded proof of restoring a customer agent on a fresh VPS on PFTL",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "ops",
         "task-node",
         "personal",
         "$TON"
@@ -271,13 +559,14 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Submitted evidence for restoring a customer agent on a fresh VPS and confirming the servi...",
+      "category": "infra",
+      "title": "Submitted evidence for restoring a customer agent on a fresh VPS and confirming the service i...",
       "summary": "Submitted evidence for restoring a customer agent on a fresh VPS and confirming the service is running.",
       "tickers": [
         "TON"
       ],
       "tags": [
+        "infra",
         "task-node",
         "personal",
         "$TON"
@@ -314,14 +603,14 @@
       "status": "rewarded",
       "actor": "node:3ca5ce63",
       "category": "network",
-      "title": "Delivered a deterministic queue-aging auditor for Task Node and earned a reward on PFTL",
+      "title": "Delivered a deterministic queue-aging auditor for Task Node and earned a reward on PFTL.",
       "summary": "Delivered a deterministic queue-aging auditor for Task Node and earned a reward on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -356,14 +645,14 @@
       "status": "rewarded",
       "actor": "node:3ca5ce63",
       "category": "network",
-      "title": "Recorded a verification response for a Python task-risk auditor on PFTL",
+      "title": "Recorded a verification response for a Python task-risk auditor on PFTL.",
       "summary": "Recorded a verification response for a Python task-risk auditor on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -398,14 +687,14 @@
       "status": "rewarded",
       "actor": "node:3ca5ce63",
       "category": "network",
-      "title": "Uploaded follow-up evidence for a Python task aging risk auditor with queue-health rollup...",
+      "title": "Uploaded follow-up evidence for a Python task aging risk auditor with queue-health rollup logic.",
       "summary": "Uploaded follow-up evidence for a Python task aging risk auditor with queue-health rollup logic.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -436,18 +725,38 @@
     {
       "id": "task:4922f76c",
       "timestamp": "2026-04-28T15:33:17.173Z",
-      "type": "task_published",
-      "status": "in_progress",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Planning a CLI for customer VPS provisioning and payment tracking",
+      "category": "infra",
+      "title": "Planning a CLI for customer VPS provisioning and payment tracking.",
       "summary": "Planning a CLI for customer VPS provisioning and payment tracking.",
       "tickers": [],
       "tags": [
+        "infra",
         "task-node",
         "personal"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2125BC2B175A73B6A8AD80506BEE3067E63E6AAD142707139A7CCB44C2CB8DA7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/858DA9B5238976D47588376C3E4258DC6832E3ACF73E254B6846DF3B74A400E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/888BF9A02676933C874C34C967CE50A579532B6180FF3FF84ABC360354CC9D3F/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:4922f76c"
@@ -460,14 +769,14 @@
       "status": "rewarded",
       "actor": "node:d740c368",
       "category": "network",
-      "title": "Delivered an evidence guard retrieval adapter demo and earned a reward on PFTL",
+      "title": "Delivered an evidence guard retrieval adapter demo and earned a reward on PFTL.",
       "summary": "Delivered an evidence guard retrieval adapter demo and earned a reward on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -502,14 +811,14 @@
       "status": "rewarded",
       "actor": "node:d740c368",
       "category": "network",
-      "title": "Uploaded follow-up evidence for a retrieval adapter demo that screens untrusted evidence...",
+      "title": "Uploaded follow-up evidence for a retrieval adapter demo that screens untrusted evidence befo...",
       "summary": "Uploaded follow-up evidence for a retrieval adapter demo that screens untrusted evidence before it enters agent context.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -544,14 +853,14 @@
       "status": "rewarded",
       "actor": "node:d740c368",
       "category": "network",
-      "title": "Recorded a verification response for a code adapter demo on PFTL",
+      "title": "Recorded a verification response for a code adapter demo on PFTL.",
       "summary": "Recorded a verification response for a code adapter demo on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "task-node",
         "network",
+        "task-node",
         "$PFT"
       ],
       "links": [
@@ -585,8 +894,8 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Delivered a production-safe delta-hedging trigger bot and earned a reward",
+      "category": "trading",
+      "title": "Delivered a production-safe delta-hedging trigger bot and earned a reward.",
       "summary": "Delivered a production-safe delta-hedging trigger bot and earned a reward.",
       "tickers": [
         "CME",
@@ -594,6 +903,7 @@
         "SCHW"
       ],
       "tags": [
+        "trading",
         "task-node",
         "personal",
         "$CME",
@@ -631,8 +941,8 @@
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Recorded a verification response for a configurable delta-hedging trigger bot on PFTL",
+      "category": "trading",
+      "title": "Recorded a verification response for a configurable delta-hedging trigger bot on PFTL.",
       "summary": "Recorded a verification response for a configurable delta-hedging trigger bot on PFTL.",
       "tickers": [
         "CME",
@@ -640,6 +950,7 @@
         "SCHW"
       ],
       "tags": [
+        "trading",
         "task-node",
         "personal",
         "$CME",
@@ -669,316 +980,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:b581c06d"
-      }
-    },
-    {
-      "id": "task:f04f4d67",
-      "timestamp": "2026-04-28T15:23:17.714Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Uploaded follow-up evidence for a configurable delta-hedging trigger bot with hard-limit...",
-      "summary": "Uploaded follow-up evidence for a configurable delta-hedging trigger bot with hard-limit checks and sign-safe hedge sizing.",
-      "tickers": [
-        "CME",
-        "IBKR",
-        "SCHW"
-      ],
-      "tags": [
-        "task-node",
-        "personal",
-        "$CME",
-        "$IBKR",
-        "$SCHW"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f04f4d67"
-      }
-    },
-    {
-      "id": "task:3439f5f4",
-      "timestamp": "2026-04-28T15:20:19.332Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:d740c368",
-      "category": "network",
-      "title": "Requested verification for an evidence guard retrieval adapter demo with code snippet han...",
-      "summary": "Requested verification for an evidence guard retrieval adapter demo with code snippet handling.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "task-node",
-        "network",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58",
-          "url": "https://explorer.testnet.postfiat.org/transactions/96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954",
-          "url": "https://explorer.testnet.postfiat.org/transactions/15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:3439f5f4"
-      }
-    },
-    {
-      "id": "task:ac7849e5",
-      "timestamp": "2026-04-28T15:19:53.473Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:d740c368",
-      "category": "network",
-      "title": "Recorded proof of a retrieval-ingestion evidence guard demo on PFTL",
-      "summary": "Recorded proof of a retrieval-ingestion evidence guard demo on PFTL",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "task-node",
-        "network",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58",
-          "url": "https://explorer.testnet.postfiat.org/transactions/96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954",
-          "url": "https://explorer.testnet.postfiat.org/transactions/15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ac7849e5"
-      }
-    },
-    {
-      "id": "task:15b8dc9e",
-      "timestamp": "2026-04-28T15:19:48.473Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:d740c368",
-      "category": "network",
-      "title": "Submitted evidence for a retrieval-ingestion adapter that screens untrusted Task Node and...",
-      "summary": "Submitted evidence for a retrieval-ingestion adapter that screens untrusted Task Node and Journal Node artifacts before agent context.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "task-node",
-        "network",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E3B7DC209D04C4D74DFBFEEA27BD0AD361B79AE369E75FFF4A5FD9C407673BD7/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58",
-          "url": "https://explorer.testnet.postfiat.org/transactions/96E56A201BE556D172CC2306F267EDBAC2C5F3B1933222DF2B35FCECF1DF1B58/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954",
-          "url": "https://explorer.testnet.postfiat.org/transactions/15D91D988B11A51423903CC87111D4F586DCF5A2D468A52E4282B5D060283954/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:15b8dc9e"
-      }
-    },
-    {
-      "id": "task:80c8aacf",
-      "timestamp": "2026-04-28T15:14:16.857Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Requested verification for a configurable delta-hedging trigger bot with clamped hedge si...",
-      "summary": "Requested verification for a configurable delta-hedging trigger bot with clamped hedge sizing.",
-      "tickers": [
-        "CME",
-        "IBKR",
-        "SCHW"
-      ],
-      "tags": [
-        "task-node",
-        "personal",
-        "$CME",
-        "$IBKR",
-        "$SCHW"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:80c8aacf"
-      }
-    },
-    {
-      "id": "task:d6258adf",
-      "timestamp": "2026-04-28T15:13:49.260Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Recorded proof of a configurable delta-hedging trigger bot on PFTL",
-      "summary": "Recorded proof of a configurable delta-hedging trigger bot on PFTL.",
-      "tickers": [
-        "CME",
-        "IBKR",
-        "SCHW"
-      ],
-      "tags": [
-        "task-node",
-        "personal",
-        "$CME",
-        "$IBKR",
-        "$SCHW"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d6258adf"
-      }
-    },
-    {
-      "id": "task:672998c3",
-      "timestamp": "2026-04-28T15:13:47.363Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:41d208da",
-      "category": "personal",
-      "title": "Submitted evidence for a configurable delta-hedging trigger bot design",
-      "summary": "Submitted evidence for a configurable delta-hedging trigger bot design.",
-      "tickers": [
-        "CME",
-        "IBKR",
-        "SCHW"
-      ],
-      "tags": [
-        "task-node",
-        "personal",
-        "$CME",
-        "$IBKR",
-        "$SCHW"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11FB6465FAB2C0818ACDCD4030A07BA2B793B1D9CE4A6CBF75A65EF727642FB2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BE46B2DDBCF07CF197DB741D3342031D4027C6F389B13BAA1AFB2CB6607C47B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/35A42DD2D03AEEE54929079DC61EDCF6BE8D949E6CF6C84F8BAD61182CD8AAA3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:672998c3"
       }
     }
   ]

@@ -1,13 +1,33 @@
 const EMAIL_PATTERN = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
-const PHONE_PATTERN = /(?:\+?\d[\d\s().-]{7,}\d)/g;
+const PHONE_PATTERN = /(?:\+?\d[\d\s().-]{8,}\d)/g;
 const UUID_PATTERN = /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/gi;
 const WALLET_PATTERN = /\br[1-9A-HJ-NP-Za-km-z]{25,35}\b/g;
 const TX_PATTERN = /\b[A-Fa-f0-9]{32,128}\b/g;
 const URL_PATTERN = /\bhttps?:\/\/[^\s<>"']+/gi;
 const CLIENT_FIELD_PATTERN = /\b(client|customer|company|organization|org|account|contact)\s*[:=]\s*([^.;\n\r]+)/gi;
 
+function isLikelyPhone(value) {
+  return String(value || '').replace(/\D/g, '').length >= 10;
+}
+
+function redactPhone(value) {
+  return isLikelyPhone(value) ? '[redacted-phone]' : value;
+}
+
 function escapeRegex(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function containsPattern(pattern, text, predicate = () => true) {
+  pattern.lastIndex = 0;
+  let match = pattern.exec(text);
+  while (match) {
+    if (predicate(match[0])) {
+      return true;
+    }
+    match = pattern.exec(text);
+  }
+  return false;
 }
 
 export function redactText(value, options = {}) {
@@ -18,7 +38,7 @@ export function redactText(value, options = {}) {
 
   text = text
     .replace(EMAIL_PATTERN, '[redacted-email]')
-    .replace(PHONE_PATTERN, '[redacted-phone]')
+    .replace(PHONE_PATTERN, redactPhone)
     .replace(URL_PATTERN, '[redacted-url]')
     .replace(WALLET_PATTERN, '[redacted-wallet]')
     .replace(UUID_PATTERN, '[redacted-id]')
@@ -39,12 +59,8 @@ export function redactText(value, options = {}) {
 
 export function hasPublicLeak(value) {
   const text = String(value || '');
-  EMAIL_PATTERN.lastIndex = 0;
-  PHONE_PATTERN.lastIndex = 0;
-  WALLET_PATTERN.lastIndex = 0;
-  UUID_PATTERN.lastIndex = 0;
-  return EMAIL_PATTERN.test(text)
-    || PHONE_PATTERN.test(text)
-    || WALLET_PATTERN.test(text)
-    || UUID_PATTERN.test(text);
+  return containsPattern(EMAIL_PATTERN, text)
+    || containsPattern(PHONE_PATTERN, text, isLikelyPhone)
+    || containsPattern(WALLET_PATTERN, text)
+    || containsPattern(UUID_PATTERN, text);
 }
