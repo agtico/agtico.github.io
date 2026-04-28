@@ -69,7 +69,8 @@ export async function loadPostgresEvents(config) {
   });
 
   try {
-    const result = await pool.query(RECENT_ACTIVITY_QUERY, [config.limit, config.lookbackDays]);
+    const queryLimit = Math.min(Math.max(config.limit * 4, config.limit), 100);
+    const result = await pool.query(RECENT_ACTIVITY_QUERY, [queryLimit, config.lookbackDays]);
     return result.rows;
   } finally {
     await pool.end();

@@ -7,7 +7,8 @@ const MARKER = '__TASKNODE_FEED_JSON__';
 const REMOTE_SCRIPT = `
 const { Pool } = require('pg');
 
-const limit = Math.max(1, Math.min(Number.parseInt(process.argv[1] || '24', 10) || 24, 100));
+const requestedLimit = Math.max(1, Math.min(Number.parseInt(process.argv[1] || '24', 10) || 24, 100));
+const limit = Math.min(Math.max(requestedLimit * 4, requestedLimit), 100);
 const lookbackDays = Math.max(1, Math.min(Number.parseInt(process.argv[2] || '14', 10) || 14, 90));
 const connectionString = process.env.DATABASE_READONLY || process.env.DATABASE_URL;
 

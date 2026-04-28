@@ -38,6 +38,50 @@ function buildTags(summaryTags, tickers, event) {
   return Array.from(tags).slice(0, 12);
 }
 
+function taskContextKey(event) {
+  return event?.task_id || event?.taskId || event?.board_task_id || event?.id || '';
+}
+
+function eventTime(event) {
+  const raw = event?.feed_timestamp
+    || event?.activity_created_at
+    || event?.created_at
+    || event?.submitted_at
+    || event?.verified_at
+    || '';
+  const parsed = Date.parse(raw);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+export function buildTaskTickerContext(events) {
+  const context = new Map();
+  const sortedEvents = [...(events || [])].sort((a, b) => eventTime(b) - eventTime(a));
+  for (const event of sortedEvents) {
+    const key = taskContextKey(event);
+    if (!key || context.has(key)) {
+      continue;
+    }
+    const tickers = extractTickers(event);
+    if (!tickers.length) {
+      continue;
+    }
+    context.set(key, tickers.slice(0, 8));
+  }
+  return context;
+}
+
+export function resolveEventTickers(event, tickerContext) {
+  const directTickers = extractTickers(event);
+  if (directTickers.length) {
+    return directTickers;
+  }
+  const key = taskContextKey(event);
+  if (!key || !tickerContext?.has(key)) {
+    return [];
+  }
+  return tickerContext.get(key).slice(0, 8);
+}
+
 function assertPublicSafe(item) {
   const probe = JSON.stringify({
     title: item.title,
@@ -64,11 +108,12 @@ export async function buildFeed(config) {
   const rawEvents = await loadEvents(config);
   const items = [];
   const publicSource = config.sourceLabel || config.source;
+  const tickerContext = buildTaskTickerContext(rawEvents);
 
   for (const rawEvent of rawEvents.slice(0, config.limit)) {
     const anonymized = anonymizeEvent(rawEvent, config);
     const summary = await summarizeEvent(anonymized, config);
-    const tickers = extractTickers(rawEvent);
+    const tickers = resolveEventTickers(rawEvent, tickerContext);
     const links = buildPftlLinks(rawEvent, config.explorerBase);
     const item = {
       id: anonymized.task_ref,
