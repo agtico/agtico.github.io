@@ -375,6 +375,8 @@ layout: null
     }
 
     .feed-preview-item {
+      display: flex;
+      flex-direction: column;
       min-height: 176px;
       border: 1px solid var(--line-strong);
       background: linear-gradient(135deg, rgba(255,255,255,.05), transparent 38%), var(--panel);
@@ -416,6 +418,22 @@ layout: null
       font: 900 9px var(--mono);
       letter-spacing: .14em;
       text-transform: uppercase;
+    }
+
+    .feed-preview-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .feed-preview-link {
+      color: var(--red-2);
+      font: 900 10px var(--mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     .card, .metrics, .architecture, .manifesto {
@@ -770,6 +788,13 @@ layout: null
             <div class="feed-preview-tags">
               {% for ticker in item.tickers limit: 4 %}
               <span>${{ ticker }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if item.links and item.links.size > 0 %}
+            <div class="feed-preview-links">
+              {% for link in item.links limit: 2 %}
+              <a class="feed-preview-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label | default: "Block Explorer" }} <span>›</span></a>
               {% endfor %}
             </div>
             {% endif %}
