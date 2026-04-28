@@ -3,7 +3,7 @@ import { buildPftlLinks } from './links/pftl.js';
 import { anonymizeEvent } from './privacy/anonymize.js';
 import { hasPublicLeak } from './privacy/redaction.js';
 import { summarizeEvent } from './summarize/deepseek.js';
-import { classifyTaskTickers } from './tickers/classify.js';
+import { extractTickers } from './tickers/extract.js';
 
 async function loadEvents(config) {
   if (config.source === 'fixture') {
@@ -68,7 +68,7 @@ export async function buildFeed(config) {
   for (const rawEvent of rawEvents.slice(0, config.limit)) {
     const anonymized = anonymizeEvent(rawEvent, config);
     const summary = await summarizeEvent(anonymized, config);
-    const tickers = classifyTaskTickers(rawEvent, summary);
+    const tickers = extractTickers(rawEvent);
     const links = buildPftlLinks(rawEvent, config.explorerBase);
     const item = {
       id: anonymized.task_ref,

@@ -4,7 +4,6 @@ import { normalizeTxHash, buildExplorerUrl } from '../src/links/pftl.js';
 import { redactText, hasPublicLeak } from '../src/privacy/redaction.js';
 import { anonymizeEvent } from '../src/privacy/anonymize.js';
 import { extractTickers } from '../src/tickers/extract.js';
-import { classifyTaskTickers } from '../src/tickers/classify.js';
 
 test('redacts direct identifiers before public rendering', () => {
   const redacted = redactText('Client: Acme Capital. Email me@test.com. Wallet rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN. Task 6f2d0db5-7d28-41d0-a088-cc0cf3c49f7b.');
@@ -67,41 +66,5 @@ test('validates and formats PFTL explorer links', () => {
   assert.equal(
     buildExplorerUrl(hash, 'https://explorer.test/tx/{hash}'),
     `https://explorer.test/tx/${hash.toUpperCase()}`
-  );
-});
-
-test('classifies Telegram futures work to TON and exchange tickers', () => {
-  const event = {
-    task_category: 'personal',
-    activity_anonymized_summary: 'Requested verification for Telegram risk monitor updates to show pending futures exposure and post-fill exposure estimates.',
-    activity_tickers: ['BTC CRYPTO', 'ETH CRYPTO', 'XRP CRYPTO'],
-  };
-  assert.deepEqual(
-    classifyTaskTickers(event, { title: event.activity_anonymized_summary, summary: event.activity_anonymized_summary }),
-    ['TON', 'HYPE', 'BNB', 'COIN', 'CME', 'ICE', 'CBOE']
-  );
-});
-
-test('does not preserve generic underlyings without direct textual support', () => {
-  const event = {
-    task_category: 'personal',
-    activity_anonymized_summary: 'Submitted evidence for a configurable delta-hedging trigger bot design.',
-    activity_tickers: ['BTC CRYPTO', 'ETH CRYPTO'],
-  };
-  assert.deepEqual(
-    classifyTaskTickers(event, { title: event.activity_anonymized_summary, summary: event.activity_anonymized_summary }),
-    ['HYPE', 'BNB', 'COIN', 'CME', 'ICE', 'CBOE']
-  );
-});
-
-test('does not treat future planning language as futures trading signal', () => {
-  const event = {
-    task_category: 'network',
-    activity_anonymized_summary: 'Planning a collaborative review of task handoff friction and acceptance criteria for future network improvements.',
-    activity_tickers: ['XRP CRYPTO'],
-  };
-  assert.deepEqual(
-    classifyTaskTickers(event, { title: event.activity_anonymized_summary, summary: event.activity_anonymized_summary }),
-    ['PFT', 'XRP']
   );
 });

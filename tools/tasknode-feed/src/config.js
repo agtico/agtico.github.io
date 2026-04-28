@@ -58,7 +58,7 @@ export function loadConfig() {
     lookbackDays: readInt('TASKNODE_FEED_LOOKBACK_DAYS', 14),
     anonPepper: process.env.FEED_ANON_PEPPER || process.env.TASKNODE_FEED_ANON_PEPPER || 'public-fixture-pepper',
     redactionTerms: splitCsv(process.env.TASKNODE_FEED_REDACT_TERMS),
-    explorerBase: process.env.PFTL_EXPLORER_BASE || 'https://livenet.xrpl.org/transactions',
+    explorerBase: process.env.PFTL_EXPLORER_BASE || 'https://explorer.testnet.postfiat.org/transactions/{hash}/detailed',
     deepseekApiBase: process.env.DEEPSEEK_API_BASE
       || process.env.DEEPSEEK_BASE_URL
       || process.env.TASKNODE_DEEPSEEK_API_BASE
