@@ -632,6 +632,24 @@ layout: null
       .hero-logo { width: min(340px, 84vw); opacity: .46; }
       .feed-header { align-items: flex-start; flex-direction: column; }
       .feed-header a { white-space: normal; }
+      .live-feed { padding-inline: 0; overflow: hidden; }
+      .feed-header { padding-inline: 18px; }
+      .feed-preview {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        padding: 0 18px 12px;
+        scroll-padding-inline: 18px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .feed-preview::-webkit-scrollbar { display: none; }
+      .feed-preview-item {
+        flex: 0 0 min(84vw, 360px);
+        min-height: 218px;
+        scroll-snap-align: start;
+      }
       .metrics { grid-template-columns: 1fr; }
       .metric { border-right: 0; border-bottom: 1px solid var(--line); }
       .steps { grid-template-columns: 1fr; gap: 24px; }

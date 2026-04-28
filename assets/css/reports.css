@@ -532,7 +532,24 @@ footer {
   .index-panel strong, .feed-status strong { margin-top: 10px; font-size: 26px; }
   .index-panel p, .feed-status p { margin-top: 12px; font-size: 15px; line-height: 1.45; }
   .reports-list, .feed-list { margin-top: 18px; }
-  .feed-item { gap: 16px; padding: 18px; }
+  .feed-list {
+    display: flex;
+    gap: 14px;
+    margin-inline: -18px;
+    overflow-x: auto;
+    padding: 0 18px 12px;
+    scroll-padding-inline: 18px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .feed-list::-webkit-scrollbar { display: none; }
+  .feed-item {
+    flex: 0 0 min(86vw, 380px);
+    gap: 16px;
+    padding: 18px;
+    scroll-snap-align: start;
+  }
   .feed-item h2 { font-size: 27px; letter-spacing: -.025em; }
   .report-card a { grid-template-columns: 1fr; gap: 14px; min-height: 0; }
   .read-more { white-space: normal; }
