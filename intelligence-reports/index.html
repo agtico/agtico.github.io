@@ -1,0 +1,71 @@
+---
+title: Intelligence Reports
+description: Signals, research, and operating notes from Automated Genetic Trading Intelligence.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | escape }} - AGTI</title>
+  <meta name="description" content="{{ page.description | escape }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="AGTI home">
+        <div class="brand-mark">+</div>
+        <div>
+          <div class="brand-word">AGTI</div>
+          <div class="brand-sub">Automated Genetic<br/>Trading Intelligence</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/intelligence-reports/' | relative_url }}" aria-current="page">Reports</a>
+        <a href="{{ '/#infrastructure' | relative_url }}">Task Node</a>
+        <a href="{{ '/#telegram-bot' | relative_url }}">Telegram Bot</a>
+      </nav>
+      <a class="request" href="{{ '/#infrastructure' | relative_url }}">Join the Task Node <span>&rsaquo;</span></a>
+    </header>
+
+    <main class="reports-page">
+      <section class="reports-hero" aria-labelledby="reports-title">
+        <div>
+          <div class="eyebrow">Intelligence Reports</div>
+          <h1 id="reports-title">Signals, research, and operating notes from AGTI.</h1>
+          <p class="lead">A Jekyll-backed publication channel for market intelligence, model notes, Task Node updates, and Post Fiat Network research.</p>
+        </div>
+        <aside class="index-panel" aria-label="Reports index status">
+          <span>Indexed Reports</span>
+          <strong>{{ site.posts | size }}</strong>
+          <p>Posts are generated from dated Markdown files in <code>_posts</code>, with stable URLs, an RSS feed, and a sitemap for crawlers.</p>
+        </aside>
+      </section>
+
+      <section class="reports-list" aria-label="Published intelligence reports">
+        {% for post in site.posts %}
+        <article class="report-card">
+          <a href="{{ post.url | relative_url }}">
+            <time class="report-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <div>
+              <div class="report-kicker">{{ post.category | default: "Report" }}</div>
+              <h2>{{ post.title | escape }}</h2>
+              <p>{{ post.summary | default: post.excerpt | strip_html | strip | truncate: 220 }}</p>
+            </div>
+            <span class="read-more">Read Report &rsaquo;</span>
+          </a>
+        </article>
+        {% else %}
+        <div class="empty-state">No intelligence reports have been published yet.</div>
+        {% endfor %}
+      </section>
+    </main>
+
+    <footer>AGTI // Intelligence Reports // RSS online</footer>
+  </div>
+</body>
+</html>

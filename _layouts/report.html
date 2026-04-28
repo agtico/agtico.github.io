@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | escape }} - AGTI Intelligence Reports</title>
+  <meta name="description" content="{{ page.summary | default: page.excerpt | strip_html | strip | truncate: 180 | escape }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="AGTI home">
+        <div class="brand-mark">+</div>
+        <div>
+          <div class="brand-word">AGTI</div>
+          <div class="brand-sub">Automated Genetic<br/>Trading Intelligence</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/intelligence-reports/' | relative_url }}" aria-current="page">Reports</a>
+        <a href="{{ '/#infrastructure' | relative_url }}">Task Node</a>
+        <a href="{{ '/#telegram-bot' | relative_url }}">Telegram Bot</a>
+      </nav>
+      <a class="request" href="{{ '/#infrastructure' | relative_url }}">Join the Task Node <span>&rsaquo;</span></a>
+    </header>
+
+    <main class="report-page">
+      <article class="report-article">
+        <a class="back-link" href="{{ '/intelligence-reports/' | relative_url }}">&larr; Intelligence Reports</a>
+        <div class="eyebrow">{{ page.category | default: "AGTI Report" }}</div>
+        <h1>{{ page.title | escape }}</h1>
+        <div class="article-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+          {% for tag in page.tags %}
+          <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="report-content">
+          {{ content }}
+        </div>
+      </article>
+    </main>
+
+    <footer>AGTI // Intelligence Reports // {{ page.date | date: "%Y.%m.%d" }}</footer>
+  </div>
+</body>
+</html>
