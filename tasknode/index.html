@@ -383,15 +383,83 @@
       gap: 18px;
     }
 
+    .signal-item,
     .benefit-card,
     .tool-card,
-    .loop-step {
+    .loop-step,
+    .feed-row {
+      --card-img: linear-gradient(135deg, rgba(12, 22, 21, 0.94), rgba(0, 0, 0, 0.92));
+      --card-pos: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 38%),
         var(--panel);
       box-shadow: inset 0 0 48px rgba(255, 255, 255, 0.018);
+    }
+
+    .signal-item {
+      border-radius: 0;
+    }
+
+    .feed-row {
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      border-radius: 0;
+    }
+
+    .signal-item::before,
+    .benefit-card::before,
+    .tool-card::before,
+    .loop-step::before,
+    .feed-row::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.88)),
+        linear-gradient(125deg, rgba(255, 56, 43, 0.24), transparent 44%, rgba(98, 216, 255, 0.18)),
+        var(--card-img) var(--card-pos) / cover no-repeat;
+      opacity: 0.82;
+      transform: scale(1.025);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .signal-item > *,
+    .benefit-card > *,
+    .tool-card > *,
+    .loop-step > *,
+    .feed-row > * {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.92);
+    }
+
+    .bg-router { --card-img: url("/assets/img/tasknode/cards/03-decision-router.webp"); --card-pos: center 52%; }
+    .bg-context { --card-img: url("/assets/img/tasknode/cards/05-context-os.webp"); --card-pos: center 54%; }
+    .bg-task { --card-img: url("/assets/img/tasknode/cards/06-task-engine.webp"); --card-pos: center 52%; }
+    .bg-proof { --card-img: url("/assets/img/tasknode/cards/07-evidence.webp"); --card-pos: center 54%; }
+    .bg-modules { --card-img: url("/assets/img/tasknode/cards/08-modules.webp"); --card-pos: center 52%; }
+    .bg-telegram { --card-img: url("/assets/img/tasknode/cards/09-telegram.webp"); --card-pos: center 55%; }
+    .bg-capital { --card-img: url("/assets/img/tasknode/cards/10-collective-capital.webp"); --card-pos: center 58%; }
+    .bg-hive { --card-img: url("/assets/img/tasknode/cards/11-hive-mind.webp"); --card-pos: center 50%; }
+    .bg-loop { --card-img: url("/assets/img/tasknode/cards/12-product-loop.webp"); --card-pos: center 55%; }
+
+    @media (hover: hover) {
+      .signal-item:hover::before,
+      .benefit-card:hover::before,
+      .tool-card:hover::before,
+      .loop-step:hover::before,
+      .feed-row:hover::before {
+        opacity: 0.98;
+        transform: scale(1.06);
+      }
     }
 
     .benefit-card {
@@ -463,6 +531,7 @@
     .loop-step::after {
       content: "";
       position: absolute;
+      z-index: 1;
       left: 24px;
       right: 24px;
       bottom: 24px;
@@ -555,6 +624,8 @@
     }
 
     .capital-model {
+      --card-img: url("/assets/img/tasknode/cards/10-collective-capital.webp");
+      --card-pos: center 58%;
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       background:
@@ -570,8 +641,23 @@
       content: "";
       position: absolute;
       inset: 18px;
+      z-index: 1;
       border: 1px solid rgba(255, 255, 255, 0.08);
       pointer-events: none;
+    }
+
+    .capital-model::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.90)),
+        linear-gradient(125deg, rgba(98, 216, 255, 0.16), transparent 45%, rgba(255, 56, 43, 0.18)),
+        var(--card-img) var(--card-pos) / cover no-repeat;
+      opacity: 0.88;
+      transform: scale(1.02);
     }
 
     .capital-readout {
@@ -976,10 +1062,10 @@
 
       <section class="signal-strip" aria-label="Task Node operating loop">
         <div class="signal-grid">
-          <div class="signal-item"><span>Operating Layer</span><strong>Context</strong></div>
-          <div class="signal-item"><span>Execution Unit</span><strong>Task</strong></div>
-          <div class="signal-item"><span>Settlement Layer</span><strong>Proof</strong></div>
-          <div class="signal-item"><span>Network Output</span><strong>Capital Signal</strong></div>
+          <div class="signal-item bg-context"><span>Operating Layer</span><strong>Context</strong></div>
+          <div class="signal-item bg-task"><span>Execution Unit</span><strong>Task</strong></div>
+          <div class="signal-item bg-proof"><span>Settlement Layer</span><strong>Proof</strong></div>
+          <div class="signal-item bg-capital"><span>Network Output</span><strong>Capital Signal</strong></div>
         </div>
       </section>
 
@@ -992,17 +1078,17 @@
           <p>The Task Node is not a to-do app. It is a context-aware work network that turns values, strategies, and tactics into accepted tasks with evidence, verification, social signal, and token settlement.</p>
         </div>
         <div class="benefit-grid">
-          <article class="benefit-card">
+          <article class="benefit-card bg-hive">
             <span class="num">01</span>
             <h3>Professional pseudonymous community</h3>
             <p>Build a work graph around what you ship, what you know, and what you can help the network understand. Reputation forms from verified activity.</p>
           </article>
-          <article class="benefit-card">
+          <article class="benefit-card bg-capital">
             <span class="num">02</span>
             <h3>Rewards in native token</h3>
             <p>Tasks can settle in PFT. Personal, network, and alpha tasks give the system a clean path from contribution to reward.</p>
           </article>
-          <article class="benefit-card">
+          <article class="benefit-card bg-context">
             <span class="num">03</span>
             <h3>Improved planning</h3>
             <p>The AI reads your context, recent chats, task history, verification feedback, and constraints so the next task is less generic and more executable.</p>
@@ -1019,27 +1105,27 @@
           <p>Every useful task has two outputs: an artifact for the user and signal for the hive mind. As the shared reservoir grows, the system gets better at routing attention, discovering expertise, and informing capital allocation.</p>
         </div>
         <div class="loop-grid">
-          <article class="loop-step">
+          <article class="loop-step bg-context">
             <span class="num">01</span>
             <h3>Write context</h3>
             <p>Define values, strategies, tactics, constraints, and what the AI is allowed to challenge.</p>
           </article>
-          <article class="loop-step">
+          <article class="loop-step bg-task">
             <span class="num">02</span>
             <h3>Request tasks</h3>
             <p>Task Chat turns your context into personal work, network work, or alpha contribution.</p>
           </article>
-          <article class="loop-step">
+          <article class="loop-step bg-proof">
             <span class="num">03</span>
             <h3>Submit proof</h3>
             <p>Evidence makes execution machine-readable: links, files, transactions, notes, and shipped artifacts.</p>
           </article>
-          <article class="loop-step">
+          <article class="loop-step bg-capital">
             <span class="num">04</span>
             <h3>Earn rewards</h3>
             <p>Verified work builds reputation and can settle in native token.</p>
           </article>
-          <article class="loop-step">
+          <article class="loop-step bg-hive">
             <span class="num">05</span>
             <h3>Feed signal</h3>
             <p>Aggregate task activity becomes a private-to-public intelligence stream for the network.</p>
@@ -1077,32 +1163,32 @@
             <p>The product is designed to keep your context alive across the surfaces where execution actually happens: browser, wallet, Telegram, Discord, profiles, and chat modules.</p>
           </div>
           <div class="tool-grid">
-            <article class="tool-card">
+            <article class="tool-card bg-router">
               <span class="num">Chat</span>
               <h3>Task Chat</h3>
               <p>Request personal, network, and alpha tasks with context-aware task cards.</p>
             </article>
-            <article class="tool-card">
+            <article class="tool-card bg-modules">
               <span class="num">Mode</span>
               <h3>Modules</h3>
               <p>Use focused cognitive modes for planning, clarity, challenge, rewrites, and coaching.</p>
             </article>
-            <article class="tool-card">
+            <article class="tool-card bg-telegram">
               <span class="num">Bot</span>
               <h3>Telegram coach</h3>
               <p>Carry task history, context, trading journal, and coaching into the pocket terminal.</p>
             </article>
-            <article class="tool-card">
+            <article class="tool-card bg-hive">
               <span class="num">Social</span>
               <h3>Discord feed</h3>
               <p>Optional anonymized updates let the community see real work without exposing identity.</p>
             </article>
-            <article class="tool-card">
+            <article class="tool-card bg-capital">
               <span class="num">Wallet</span>
               <h3>PFT wallet</h3>
               <p>Rewards, transactions, task forensics, and network identity live with the wallet layer.</p>
             </article>
-            <article class="tool-card">
+            <article class="tool-card bg-loop">
               <span class="num">Profile</span>
               <h3>Expertise map</h3>
               <p>Completed work helps surface capabilities, ticker knowledge, and collaboration edges.</p>
@@ -1145,7 +1231,7 @@
           </div>
           <p class="capital-note" id="capital-note">More users with strong context create more task completions, more expertise tags, and a better map of who can help the network.</p>
         </div>
-        <div class="capital-model" role="group" aria-label="Capital compounding model">
+        <div class="capital-model bg-capital" role="group" aria-label="Capital compounding model">
           <div class="capital-readout">
             <span>Participants<strong id="metric-users">1,000</strong></span>
             <span>Verified Tasks<strong id="metric-tasks">18,400</strong></span>
@@ -1172,21 +1258,21 @@
             </div>
           </div>
           <div class="feed-preview" role="group" aria-label="Example Task Node feed items">
-            <article class="feed-row">
+            <article class="feed-row bg-hive">
               <span>Network task</span>
               <div>
                 <strong>Verified work becomes public operating signal</strong>
                 <p>Semi-anonymized updates show shipped work, proof links, and categories without exposing private context.</p>
               </div>
             </article>
-            <article class="feed-row">
+            <article class="feed-row bg-router">
               <span>Alpha signal</span>
               <div>
                 <strong>Ticker and product tags accumulate from execution</strong>
                 <p>The network can learn which tools, companies, and assets appear in real operator workflows.</p>
               </div>
             </article>
-            <article class="feed-row">
+            <article class="feed-row bg-proof">
               <span>PFT proof</span>
               <div>
                 <strong>Rewards and task forensics connect work to settlement</strong>
