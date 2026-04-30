@@ -164,6 +164,7 @@ layout: null
       display: inline-flex;
       align-items: center;
       gap: 28px;
+      flex: 0 0 auto;
       height: 42px;
       padding: 0 24px;
       border: 1px solid rgba(255,45,32,.72);
@@ -681,6 +682,22 @@ layout: null
     @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
     .rotating { transform-origin: 50% 50%; animation: rotateSlow 80s linear infinite; }
     .pulse { animation: pulse 2.8s ease-in-out infinite; }
+
+    @media (max-width: 1240px) and (min-width: 721px) {
+      header {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        padding-block: 18px;
+      }
+      .brand { flex: 1 1 300px; }
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+      .request { margin-left: auto; }
+    }
 
     @media (max-width: 1120px) {
       nav { display: none; }

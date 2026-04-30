@@ -825,12 +825,14 @@
       .loop-grid,
       .feed-panel,
       .cta {
-        width: min(100% - 32px, 1480px);
+        width: calc(100vw - 32px);
+        max-width: calc(100vw - 32px);
       }
       .hero-content { padding: 46px 0 34px; }
       h1 { font-size: 46px; line-height: 1.02; }
       .hero-kicker {
-        max-width: 340px;
+        width: 100%;
+        max-width: 100%;
         font-size: 18px;
       }
       .hero-proof,
@@ -857,6 +859,9 @@
       .btn {
         width: 100%;
         min-width: 0;
+        max-width: 100%;
+        gap: 12px;
+        padding-inline: 18px;
       }
       .section { padding: 64px 0; }
       .loop-band { padding: 64px 0; }
