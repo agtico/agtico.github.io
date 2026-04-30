@@ -203,7 +203,7 @@
       background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.62) 42%, rgba(0, 0, 0, 0.12) 100%),
         linear-gradient(0deg, rgba(3, 5, 5, 0.98) 0%, rgba(3, 5, 5, 0.18) 44%, rgba(3, 5, 5, 0.34) 100%),
-        url("/assets/img/tasknode/collective-capital.webp") center / cover no-repeat;
+        url("/assets/img/tasknode/journey/01-cold-open.webp") center / cover no-repeat;
       transform: scale(1.02);
     }
 
@@ -321,7 +321,9 @@
     .signal-item {
       min-height: 122px;
       padding: 24px;
-      background: rgba(5, 9, 8, 0.92);
+      border: 1px solid rgba(232, 241, 236, 0.14);
+      background: rgba(5, 9, 8, 0.76);
+      backdrop-filter: blur(6px);
     }
 
     .signal-item span {
@@ -342,6 +344,93 @@
     section {
       position: relative;
       z-index: 1;
+    }
+
+    .journey-bg {
+      --journey-layer: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .journey-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      z-index: 0;
+      width: 100vw;
+      transform: translateX(-50%) scale(1.02);
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.52) 44%, rgba(0, 0, 0, 0.92) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.40) 48%, rgba(0, 0, 0, 0.82)),
+        var(--journey-layer);
+      opacity: 0.76;
+    }
+
+    .journey-bg::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      z-index: 0;
+      width: 100vw;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+      opacity: 0.34;
+    }
+
+    .journey-bg > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-curve {
+      --journey-layer:
+        url("/assets/img/tasknode/journey/13-failure-modes.webp") right 44% / auto 100% no-repeat,
+        url("/assets/img/tasknode/journey/02-the-curve.webp") center 52% / cover no-repeat;
+    }
+
+    .journey-router {
+      --journey-layer: url("/assets/img/tasknode/journey/03-decision-router.webp") center 54% / cover no-repeat;
+    }
+
+    .journey-context {
+      --journey-layer: url("/assets/img/tasknode/journey/05-context-os.webp") center 54% / cover no-repeat;
+    }
+
+    .journey-proof {
+      --journey-layer:
+        url("/assets/img/tasknode/journey/04-codex-throughput.webp") left 52% / auto 100% no-repeat,
+        url("/assets/img/tasknode/journey/07-evidence.webp") center 54% / cover no-repeat;
+    }
+
+    .journey-modules {
+      --journey-layer:
+        url("/assets/img/tasknode/journey/09-telegram.webp") right 56% / auto 100% no-repeat,
+        url("/assets/img/tasknode/journey/08-modules.webp") center 52% / cover no-repeat;
+    }
+
+    .journey-capital {
+      --journey-layer: url("/assets/img/tasknode/journey/10-collective-capital.webp") center 58% / cover no-repeat;
+    }
+
+    .journey-hive {
+      --journey-layer: url("/assets/img/tasknode/journey/11-hive-mind.webp") center 50% / cover no-repeat;
+    }
+
+    .journey-loop {
+      --journey-layer:
+        url("/assets/img/tasknode/journey/06-task-engine.webp") right 52% / auto 100% no-repeat,
+        url("/assets/img/tasknode/journey/12-product-loop.webp") center 56% / cover no-repeat;
     }
 
     .section {
@@ -383,83 +472,16 @@
       gap: 18px;
     }
 
-    .signal-item,
     .benefit-card,
     .tool-card,
-    .loop-step,
-    .feed-row {
-      --card-img: linear-gradient(135deg, rgba(12, 22, 21, 0.94), rgba(0, 0, 0, 0.92));
-      --card-pos: center;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+    .loop-step {
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 38%),
-        var(--panel);
+        rgba(6, 13, 12, 0.74);
+      backdrop-filter: blur(8px);
       box-shadow: inset 0 0 48px rgba(255, 255, 255, 0.018);
-    }
-
-    .signal-item {
-      border-radius: 0;
-    }
-
-    .feed-row {
-      border-right: 0;
-      border-bottom: 0;
-      border-left: 0;
-      border-radius: 0;
-    }
-
-    .signal-item::before,
-    .benefit-card::before,
-    .tool-card::before,
-    .loop-step::before,
-    .feed-row::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.88)),
-        linear-gradient(125deg, rgba(255, 56, 43, 0.24), transparent 44%, rgba(98, 216, 255, 0.18)),
-        var(--card-img) var(--card-pos) / cover no-repeat;
-      opacity: 0.82;
-      transform: scale(1.025);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-
-    .signal-item > *,
-    .benefit-card > *,
-    .tool-card > *,
-    .loop-step > *,
-    .feed-row > * {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.92);
-    }
-
-    .bg-router { --card-img: url("/assets/img/tasknode/cards/03-decision-router.webp"); --card-pos: center 52%; }
-    .bg-context { --card-img: url("/assets/img/tasknode/cards/05-context-os.webp"); --card-pos: center 54%; }
-    .bg-task { --card-img: url("/assets/img/tasknode/cards/06-task-engine.webp"); --card-pos: center 52%; }
-    .bg-proof { --card-img: url("/assets/img/tasknode/cards/07-evidence.webp"); --card-pos: center 54%; }
-    .bg-modules { --card-img: url("/assets/img/tasknode/cards/08-modules.webp"); --card-pos: center 52%; }
-    .bg-telegram { --card-img: url("/assets/img/tasknode/cards/09-telegram.webp"); --card-pos: center 55%; }
-    .bg-capital { --card-img: url("/assets/img/tasknode/cards/10-collective-capital.webp"); --card-pos: center 58%; }
-    .bg-hive { --card-img: url("/assets/img/tasknode/cards/11-hive-mind.webp"); --card-pos: center 50%; }
-    .bg-loop { --card-img: url("/assets/img/tasknode/cards/12-product-loop.webp"); --card-pos: center 55%; }
-
-    @media (hover: hover) {
-      .signal-item:hover::before,
-      .benefit-card:hover::before,
-      .tool-card:hover::before,
-      .loop-step:hover::before,
-      .feed-row:hover::before {
-        opacity: 0.98;
-        transform: scale(1.06);
-      }
     }
 
     .benefit-card {
@@ -624,13 +646,12 @@
     }
 
     .capital-model {
-      --card-img: url("/assets/img/tasknode/cards/10-collective-capital.webp");
-      --card-pos: center 58%;
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       background:
         linear-gradient(135deg, rgba(98, 216, 255, 0.09), transparent 32%),
-        rgba(0, 0, 0, 0.42);
+        rgba(0, 0, 0, 0.58);
+      backdrop-filter: blur(8px);
       min-height: 520px;
       padding: 26px;
       overflow: hidden;
@@ -641,23 +662,8 @@
       content: "";
       position: absolute;
       inset: 18px;
-      z-index: 1;
       border: 1px solid rgba(255, 255, 255, 0.08);
       pointer-events: none;
-    }
-
-    .capital-model::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.90)),
-        linear-gradient(125deg, rgba(98, 216, 255, 0.16), transparent 45%, rgba(255, 56, 43, 0.18)),
-        var(--card-img) var(--card-pos) / cover no-repeat;
-      opacity: 0.88;
-      transform: scale(1.02);
     }
 
     .capital-readout {
@@ -840,7 +846,7 @@
       background:
         linear-gradient(180deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.58) 42%, rgba(0, 0, 0, 0.98) 100%),
         linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.42) 48%, rgba(0, 0, 0, 0.88)),
-        url("/assets/img/tasknode/hive-mind.webp") center 52% / cover no-repeat;
+        url("/assets/img/tasknode/journey/14-the-harness.webp") center 52% / cover no-repeat;
       opacity: 0.96;
     }
 
@@ -939,7 +945,7 @@
         background:
           linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.42) 72%, rgba(0, 0, 0, 0.16) 100%),
           linear-gradient(180deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.92) 66%, rgba(0, 0, 0, 0.98) 100%),
-          url("/assets/img/tasknode/collective-capital.webp") center / cover no-repeat;
+          url("/assets/img/tasknode/journey/01-cold-open.webp") center / cover no-repeat;
       }
       .hero-content,
       .section,
@@ -1060,16 +1066,16 @@
         </div>
       </section>
 
-      <section class="signal-strip" aria-label="Task Node operating loop">
+      <section class="signal-strip journey-bg journey-router" aria-label="Task Node operating loop">
         <div class="signal-grid">
-          <div class="signal-item bg-context"><span>Operating Layer</span><strong>Context</strong></div>
-          <div class="signal-item bg-task"><span>Execution Unit</span><strong>Task</strong></div>
-          <div class="signal-item bg-proof"><span>Settlement Layer</span><strong>Proof</strong></div>
-          <div class="signal-item bg-capital"><span>Network Output</span><strong>Capital Signal</strong></div>
+          <div class="signal-item"><span>Operating Layer</span><strong>Context</strong></div>
+          <div class="signal-item"><span>Execution Unit</span><strong>Task</strong></div>
+          <div class="signal-item"><span>Settlement Layer</span><strong>Proof</strong></div>
+          <div class="signal-item"><span>Network Output</span><strong>Capital Signal</strong></div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="benefits-title">
+      <section class="section journey-bg journey-curve" aria-labelledby="benefits-title">
         <div class="section-header">
           <div>
             <div class="eyebrow">Why Join</div>
@@ -1078,17 +1084,17 @@
           <p>The Task Node is not a to-do app. It is a context-aware work network that turns values, strategies, and tactics into accepted tasks with evidence, verification, social signal, and token settlement.</p>
         </div>
         <div class="benefit-grid">
-          <article class="benefit-card bg-hive">
+          <article class="benefit-card">
             <span class="num">01</span>
             <h3>Professional pseudonymous community</h3>
             <p>Build a work graph around what you ship, what you know, and what you can help the network understand. Reputation forms from verified activity.</p>
           </article>
-          <article class="benefit-card bg-capital">
+          <article class="benefit-card">
             <span class="num">02</span>
             <h3>Rewards in native token</h3>
             <p>Tasks can settle in PFT. Personal, network, and alpha tasks give the system a clean path from contribution to reward.</p>
           </article>
-          <article class="benefit-card bg-context">
+          <article class="benefit-card">
             <span class="num">03</span>
             <h3>Improved planning</h3>
             <p>The AI reads your context, recent chats, task history, verification feedback, and constraints so the next task is less generic and more executable.</p>
@@ -1096,7 +1102,7 @@
         </div>
       </section>
 
-      <section class="loop-band" aria-labelledby="loop-title">
+      <section class="loop-band journey-bg journey-loop" aria-labelledby="loop-title">
         <div class="section-header section loop-intro">
           <div>
             <div class="eyebrow">The Loop</div>
@@ -1105,27 +1111,27 @@
           <p>Every useful task has two outputs: an artifact for the user and signal for the hive mind. As the shared reservoir grows, the system gets better at routing attention, discovering expertise, and informing capital allocation.</p>
         </div>
         <div class="loop-grid">
-          <article class="loop-step bg-context">
+          <article class="loop-step">
             <span class="num">01</span>
             <h3>Write context</h3>
             <p>Define values, strategies, tactics, constraints, and what the AI is allowed to challenge.</p>
           </article>
-          <article class="loop-step bg-task">
+          <article class="loop-step">
             <span class="num">02</span>
             <h3>Request tasks</h3>
             <p>Task Chat turns your context into personal work, network work, or alpha contribution.</p>
           </article>
-          <article class="loop-step bg-proof">
+          <article class="loop-step">
             <span class="num">03</span>
             <h3>Submit proof</h3>
             <p>Evidence makes execution machine-readable: links, files, transactions, notes, and shipped artifacts.</p>
           </article>
-          <article class="loop-step bg-capital">
+          <article class="loop-step">
             <span class="num">04</span>
             <h3>Earn rewards</h3>
             <p>Verified work builds reputation and can settle in native token.</p>
           </article>
-          <article class="loop-step bg-hive">
+          <article class="loop-step">
             <span class="num">05</span>
             <h3>Feed signal</h3>
             <p>Aggregate task activity becomes a private-to-public intelligence stream for the network.</p>
@@ -1133,7 +1139,7 @@
         </div>
       </section>
 
-      <section class="section product-split" aria-labelledby="context-title">
+      <section class="section product-split journey-bg journey-context" aria-labelledby="context-title">
         <div class="split-copy">
           <div class="eyebrow">Context OS</div>
           <h2 id="context-title">Align execution with your values, strategies, and tactics.</h2>
@@ -1153,7 +1159,7 @@
         </div>
       </section>
 
-      <section class="tools-band" aria-labelledby="tools-title">
+      <section class="tools-band journey-bg journey-modules" aria-labelledby="tools-title">
         <div class="section">
           <div class="section-header">
             <div>
@@ -1163,32 +1169,32 @@
             <p>The product is designed to keep your context alive across the surfaces where execution actually happens: browser, wallet, Telegram, Discord, profiles, and chat modules.</p>
           </div>
           <div class="tool-grid">
-            <article class="tool-card bg-router">
+            <article class="tool-card">
               <span class="num">Chat</span>
               <h3>Task Chat</h3>
               <p>Request personal, network, and alpha tasks with context-aware task cards.</p>
             </article>
-            <article class="tool-card bg-modules">
+            <article class="tool-card">
               <span class="num">Mode</span>
               <h3>Modules</h3>
               <p>Use focused cognitive modes for planning, clarity, challenge, rewrites, and coaching.</p>
             </article>
-            <article class="tool-card bg-telegram">
+            <article class="tool-card">
               <span class="num">Bot</span>
               <h3>Telegram coach</h3>
               <p>Carry task history, context, trading journal, and coaching into the pocket terminal.</p>
             </article>
-            <article class="tool-card bg-hive">
+            <article class="tool-card">
               <span class="num">Social</span>
               <h3>Discord feed</h3>
               <p>Optional anonymized updates let the community see real work without exposing identity.</p>
             </article>
-            <article class="tool-card bg-capital">
+            <article class="tool-card">
               <span class="num">Wallet</span>
               <h3>PFT wallet</h3>
               <p>Rewards, transactions, task forensics, and network identity live with the wallet layer.</p>
             </article>
-            <article class="tool-card bg-loop">
+            <article class="tool-card">
               <span class="num">Profile</span>
               <h3>Expertise map</h3>
               <p>Completed work helps surface capabilities, ticker knowledge, and collaboration edges.</p>
@@ -1197,7 +1203,7 @@
         </div>
       </section>
 
-      <section class="section product-split" aria-labelledby="modules-title">
+      <section class="section product-split journey-bg journey-proof" aria-labelledby="modules-title">
         <div class="product-stack">
           <figure class="product-shot">
             <img src="/assets/img/tasknode/module-chat.png" alt="Task Node module chat showing cognitive modes">
@@ -1219,7 +1225,7 @@
         </div>
       </section>
 
-      <section class="section capital-split" aria-labelledby="capital-title">
+      <section class="section capital-split journey-bg journey-capital" aria-labelledby="capital-title">
         <div class="capital-copy">
           <div class="eyebrow">Capital Compounding</div>
           <h2 id="capital-title">The hive mind compounds from verified user action.</h2>
@@ -1231,7 +1237,7 @@
           </div>
           <p class="capital-note" id="capital-note">More users with strong context create more task completions, more expertise tags, and a better map of who can help the network.</p>
         </div>
-        <div class="capital-model bg-capital" role="group" aria-label="Capital compounding model">
+        <div class="capital-model" role="group" aria-label="Capital compounding model">
           <div class="capital-readout">
             <span>Participants<strong id="metric-users">1,000</strong></span>
             <span>Verified Tasks<strong id="metric-tasks">18,400</strong></span>
@@ -1247,7 +1253,7 @@
         </div>
       </section>
 
-      <section class="feed-band" aria-labelledby="feed-title">
+      <section class="feed-band journey-bg journey-hive" aria-labelledby="feed-title">
         <div class="feed-panel">
           <div>
             <div class="eyebrow">Live Work</div>
@@ -1258,21 +1264,21 @@
             </div>
           </div>
           <div class="feed-preview" role="group" aria-label="Example Task Node feed items">
-            <article class="feed-row bg-hive">
+            <article class="feed-row">
               <span>Network task</span>
               <div>
                 <strong>Verified work becomes public operating signal</strong>
                 <p>Semi-anonymized updates show shipped work, proof links, and categories without exposing private context.</p>
               </div>
             </article>
-            <article class="feed-row bg-router">
+            <article class="feed-row">
               <span>Alpha signal</span>
               <div>
                 <strong>Ticker and product tags accumulate from execution</strong>
                 <p>The network can learn which tools, companies, and assets appear in real operator workflows.</p>
               </div>
             </article>
-            <article class="feed-row bg-proof">
+            <article class="feed-row">
               <span>PFT proof</span>
               <div>
                 <strong>Rewards and task forensics connect work to settlement</strong>
