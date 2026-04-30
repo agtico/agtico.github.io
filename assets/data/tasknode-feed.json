@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-30T09:55:14.264Z",
+  "generated_at": "2026-04-30T11:21:43.090Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,96 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:aeddc779",
+      "timestamp": "2026-04-30T11:12:25.137Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Requested verification for the PFT Ledger testnet rolling upgrade and sidecar logging.",
+      "summary": "Requested verification for the PFT Ledger testnet rolling upgrade and sidecar logging.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386",
+          "url": "https://explorer.testnet.postfiat.org/transactions/149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:aeddc779"
+      }
+    },
+    {
+      "id": "task:44430f1e",
+      "timestamp": "2026-04-30T11:12:22.559Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded proof of the PFT Ledger testnet rolling upgrade on PFTL.",
+      "summary": "Recorded proof of the PFT Ledger testnet rolling upgrade on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386",
+          "url": "https://explorer.testnet.postfiat.org/transactions/149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:44430f1e"
+      }
+    },
+    {
+      "id": "task:c672bced",
+      "timestamp": "2026-04-30T11:11:55.267Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for the PFT Ledger testnet rolling upgrade to version 1.0.4, with validato...",
+      "summary": "Submitted evidence for the PFT Ledger testnet rolling upgrade to version 1.0.4, with validators and RPC nodes verified after rollout.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386",
+          "url": "https://explorer.testnet.postfiat.org/transactions/149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c672bced"
+      }
+    },
     {
       "id": "task:ab5c07b3",
       "timestamp": "2026-04-30T09:43:53.781Z",
@@ -559,7 +649,7 @@
       "id": "task:27b9e201",
       "timestamp": "2026-04-30T08:49:53.166Z",
       "type": "task_published",
-      "status": "in_progress",
+      "status": "pending_verification",
       "actor": "node:a53e54bc",
       "category": "network",
       "title": "Planning a rolling upgrade of the PFT Ledger testnet validators and RPC nodes to version 1.0.4.",
@@ -574,7 +664,14 @@
         "$PFT",
         "$XRP"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386",
+          "url": "https://explorer.testnet.postfiat.org/transactions/149D7646DAE6E4C4CE89D4C1D606F4CF160F0B022F22CE2BB9E78AA905A6D386/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:27b9e201"
@@ -895,126 +992,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:6974050f"
-      }
-    },
-    {
-      "id": "task:9e6ff586",
-      "timestamp": "2026-04-30T07:29:23.879Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "general",
-      "title": "Uploaded follow-up evidence for formalizing hunting calculator implementation constraints.",
-      "summary": "Uploaded follow-up evidence for formalizing hunting calculator implementation constraints.",
-      "tickers": [],
-      "tags": [
-        "general",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9e6ff586"
-      }
-    },
-    {
-      "id": "task:6300d685",
-      "timestamp": "2026-04-30T07:29:22.320Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "general",
-      "title": "Uploaded follow-up evidence for formalizing calculator rules for hunting readiness inputs and...",
-      "summary": "Uploaded follow-up evidence for formalizing calculator rules for hunting readiness inputs and merged log rows.",
-      "tickers": [],
-      "tags": [
-        "general",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:6300d685"
-      }
-    },
-    {
-      "id": "task:f5d0e332",
-      "timestamp": "2026-04-30T07:28:21.541Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "general",
-      "title": "Requested verification for a portable rule set covering hunting readiness calculator constrai...",
-      "summary": "Requested verification for a portable rule set covering hunting readiness calculator constraints and input-merging precedence.",
-      "tickers": [],
-      "tags": [
-        "general",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/11CD9F79F8EB48EBC9079A241F6F0EA96FDA388A462079F215D80552E27BC6F2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ECD2F96C7C0DB01D71617C70B85A26A81253C45FD32FD381ACDC76A5658EE80/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C7BF0BB5B4A78A6453BA9A93E94D90C6B6994A9A2F0F36431AA1490DBC75E3B2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f5d0e332"
       }
     }
   ]
