@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-30T20:47:41.600Z",
+  "generated_at": "2026-04-30T21:44:32.828Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:7b2e03c1",
+      "timestamp": "2026-04-30T20:48:15.968Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Planning a preflight linter to flag unsafe task prompts, scope collisions, and verification-r...",
+      "summary": "Planning a preflight linter to flag unsafe task prompts, scope collisions, and verification-rule violations before issuance.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7b2e03c1"
+      }
+    },
     {
       "id": "task:0b256cc6",
       "timestamp": "2026-04-30T20:15:17.215Z",
@@ -890,48 +913,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:f2639ec2"
-      }
-    },
-    {
-      "id": "task:1a110048",
-      "timestamp": "2026-04-30T17:23:46.384Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Delivered a Task Node friction triage handoff and earned a reward.",
-      "summary": "Delivered a Task Node friction triage handoff and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "12DB69BA7ABDAB8EAAE5533E87F8EF95DDA6930396135AC65C94F2B3A2669BE7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/12DB69BA7ABDAB8EAAE5533E87F8EF95DDA6930396135AC65C94F2B3A2669BE7/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D943F40C3DD621E7D05923E4B017F56CD4D32FEE81CBE355E997FDFE75CFF7E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D943F40C3DD621E7D05923E4B017F56CD4D32FEE81CBE355E997FDFE75CFF7E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1A664A2734F9A053114E2F98D9C4DFC620B287F62E6BCFFA6130BC5FEF499697",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1A664A2734F9A053114E2F98D9C4DFC620B287F62E6BCFFA6130BC5FEF499697/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1a110048"
       }
     }
   ]
