@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-01T10:51:55.647Z",
+  "generated_at": "2026-05-01T11:49:29.659Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:76b78aac",
+      "timestamp": "2026-05-01T11:41:37.748Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:bc847e68",
+      "category": "content",
+      "title": "Planning an April market report draft for a Substack newsletter focused on U.S. stocks and se...",
+      "summary": "Planning an April market report draft for a Substack newsletter focused on U.S. stocks and select cross-asset context.",
+      "tickers": [
+        "SPY"
+      ],
+      "tags": [
+        "content",
+        "task-node",
+        "personal",
+        "$SPY"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:76b78aac"
+      }
+    },
     {
       "id": "task:91297371",
       "timestamp": "2026-05-01T08:03:46.210Z",
@@ -975,48 +999,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:20f5729b"
-      }
-    },
-    {
-      "id": "task:fc29d074",
-      "timestamp": "2026-05-01T06:46:38.539Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Requested verification for a Qwen3.6 Modal/SGLang feasibility evaluation.",
-      "summary": "Requested verification for a Qwen3.6 Modal/SGLang feasibility evaluation.",
-      "tickers": [
-        "BABA"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$BABA"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1B9BA76BFAC39941F3BDDAF6EBB5BD29217F744522A4CC66DA0D077D2081576D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1B9BA76BFAC39941F3BDDAF6EBB5BD29217F744522A4CC66DA0D077D2081576D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "A6129E2AD4885A0200F012AE6C85DA3F825ABFF97063BA7673864A27DD1764C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A6129E2AD4885A0200F012AE6C85DA3F825ABFF97063BA7673864A27DD1764C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "57B795C63811A316ECDEECB716497D635E1DB5EE4310130AF4E2B64BD4F14C33",
-          "url": "https://explorer.testnet.postfiat.org/transactions/57B795C63811A316ECDEECB716497D635E1DB5EE4310130AF4E2B64BD4F14C33/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:fc29d074"
       }
     }
   ]
