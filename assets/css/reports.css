@@ -437,6 +437,216 @@ h1 {
   color: rgba(220,229,224,.72);
 }
 
+.validator-page {
+  padding: clamp(42px, 6vw, 78px) clamp(22px, 4vw, 58px) 58px;
+}
+
+.validator-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: end;
+  padding-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
+
+.validator-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.validator-link {
+  min-height: 44px;
+  padding-inline: 16px;
+}
+
+.validator-link.secondary {
+  border-color: rgba(255,255,255,.22);
+  color: rgba(242,245,241,.82);
+}
+
+.validator-status {
+  position: relative;
+  min-height: 240px;
+  display: grid;
+  align-content: end;
+  border: 1px solid rgba(255,45,32,.46);
+  background:
+    radial-gradient(circle at 72% 18%, rgba(110,229,143,.14), transparent 35%),
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 34%),
+    var(--panel);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.validator-status::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255,255,255,.07);
+  pointer-events: none;
+}
+
+.status-light {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #6ee58f;
+  box-shadow: 0 0 18px rgba(110,229,143,.76), 0 0 42px rgba(110,229,143,.22);
+}
+
+.validator-status span:not(.status-light),
+.proof-label,
+.verification-strip span {
+  display: block;
+  color: var(--muted);
+  font: 900 10px var(--mono);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.validator-status strong {
+  display: block;
+  margin-top: 14px;
+  color: #6ee58f;
+  font: 900 34px/1 var(--mono);
+}
+
+.validator-status p,
+.proof-card p,
+.verification-strip p {
+  margin: 16px 0 0;
+  color: rgba(220,229,224,.70);
+  line-height: 1.55;
+}
+
+.validator-status code,
+.proof-card code,
+.verification-strip code {
+  color: rgba(242,245,241,.92);
+  font-family: var(--mono);
+}
+
+.validator-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.proof-card {
+  min-width: 0;
+  min-height: 210px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.052), transparent 38%),
+    var(--panel);
+  padding: 24px;
+}
+
+.proof-card.featured {
+  grid-column: span 3;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 88% 24%, rgba(255,45,32,.12), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 36%),
+    var(--panel);
+}
+
+.proof-value {
+  margin-top: 14px;
+  color: var(--text);
+  font: 400 clamp(26px, 3vw, 38px)/1.05 var(--mono);
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.key-block {
+  margin: 18px 0 0;
+  padding: 18px;
+  border: 1px solid rgba(255,45,32,.38);
+  background: rgba(0,0,0,.28);
+  color: var(--red-2);
+  font: 900 clamp(18px, 3vw, 34px)/1.18 var(--mono);
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.inline-proof {
+  color: var(--red-2);
+  border-bottom: 1px solid rgba(255,90,66,.45);
+}
+
+.proof-console {
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.48);
+  box-shadow: inset 0 0 45px rgba(255,45,32,.045);
+}
+
+.console-bar {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 18px;
+  color: rgba(220,229,224,.64);
+  font: 900 10px var(--mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.console-bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+}
+
+.console-bar span:first-child { background: var(--red); }
+.console-bar span:nth-child(2) { background: var(--amber); }
+.console-bar span:nth-child(3) { background: #6ee58f; }
+.console-bar strong { margin-left: 8px; }
+
+.proof-console pre {
+  margin: 0;
+  padding: 24px;
+  overflow-x: auto;
+  color: rgba(242,245,241,.84);
+  font: 900 13px/1.65 var(--mono);
+}
+
+.verification-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 18px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.verification-strip div {
+  min-height: 170px;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.045), transparent 42%),
+    rgba(5,9,8,.78);
+}
+
+.verification-strip strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--text);
+  font: 400 26px/1.05 var(--mono);
+  letter-spacing: -.035em;
+}
+
 .report-page {
   padding: clamp(42px, 6vw, 78px) clamp(22px, 4vw, 58px) 58px;
 }
@@ -507,7 +717,7 @@ footer {
   header { align-items: flex-start; flex-direction: column; }
   nav { display: none; }
   .request { width: 100%; }
-  .reports-hero, .feed-hero { grid-template-columns: 1fr; }
+  .reports-hero, .feed-hero, .validator-hero { grid-template-columns: 1fr; }
   .feed-item { grid-template-columns: 1fr; }
 }
 
@@ -538,8 +748,8 @@ footer {
     font-size: 10px;
     letter-spacing: .15em;
   }
-  .reports-page, .report-page, .feed-page { padding: 38px 18px 46px; }
-  .reports-hero, .feed-hero { gap: 22px; padding-bottom: 28px; }
+  .reports-page, .report-page, .feed-page, .validator-page { padding: 38px 18px 46px; }
+  .reports-hero, .feed-hero, .validator-hero { gap: 22px; padding-bottom: 28px; }
   h1 { font-size: clamp(34px, 9.7vw, 40px); line-height: 1.05; letter-spacing: -.035em; }
   .lead { margin-top: 18px; }
   .index-panel, .feed-status { min-height: 0; padding: 18px; }
@@ -567,4 +777,12 @@ footer {
   .feed-item h2 { font-size: 27px; letter-spacing: -.025em; }
   .report-card a { grid-template-columns: 1fr; gap: 14px; min-height: 0; }
   .read-more { white-space: normal; }
+  .validator-status { min-height: 0; padding: 18px; }
+  .validator-status::before { inset: 12px; }
+  .validator-grid, .verification-strip { grid-template-columns: 1fr; }
+  .proof-card.featured { grid-column: span 1; }
+  .proof-card { min-height: 0; padding: 18px; }
+  .key-block { padding: 14px; font-size: 16px; }
+  .proof-console pre { padding: 18px; font-size: 11px; }
+  .console-bar { letter-spacing: .12em; }
 }

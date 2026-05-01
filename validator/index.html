@@ -1,0 +1,116 @@
+---
+title: Post Fiat Validator
+description: Public validator identity and domain proof for the AGTI Post Fiat testnet validator.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | escape }} - AGTI</title>
+  <meta name="description" content="{{ page.description | escape }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="AGTI home">
+        <div class="brand-mark">+</div>
+        <div>
+          <div class="brand-word">AGTI</div>
+          <div class="brand-sub">Automated Genetic<br/>Trading Intelligence</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/task-node-feed/' | relative_url }}">Task Feed</a>
+        <a href="{{ '/intelligence-reports/' | relative_url }}">Reports</a>
+        <a href="{{ '/validator/' | relative_url }}" aria-current="page">Validator</a>
+        <a href="{{ '/tasknode/' | relative_url }}">Task Node</a>
+      </nav>
+      <a class="request" href="{{ '/.well-known/pft-ledger.toml' | relative_url }}">Open Proof <span>&rsaquo;</span></a>
+    </header>
+
+    <main class="validator-page">
+      <section class="validator-hero" aria-labelledby="validator-title">
+        <div>
+          <div class="eyebrow">Post Fiat Validator</div>
+          <h1 id="validator-title">A public trust anchor for AGTI on testnet.</h1>
+          <p class="lead">This page publishes the AGTI validator identity, the domain proof served from this website, and the exact public key currently configured in the local Post Fiat validator.</p>
+          <div class="validator-actions">
+            <a class="request validator-link" href="{{ '/.well-known/pft-ledger.toml' | relative_url }}">Machine Proof <span>&rsaquo;</span></a>
+            <a class="request validator-link secondary" href="https://postfiat.org/validator-setup/" target="_blank" rel="noopener">Validator Guide <span>&rsaquo;</span></a>
+          </div>
+        </div>
+        <aside class="validator-status" aria-label="Validator status summary">
+          <span class="status-light"></span>
+          <div>
+            <span>Network State</span>
+            <strong>Proposing</strong>
+            <p>Local node verified on May 1, 2026 with build <code>1.0.4</code>, domain <code>agtico.github.io</code>, and consensus participation enabled.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="validator-grid" aria-label="Validator identity details">
+        <article class="proof-card featured">
+          <div class="proof-label">Validator Public Key</div>
+          <p class="key-block">nHUzVW1uviFL8YKAARxihiST1shYdKWKTgJTpTFDDgBxUydURwbE</p>
+          <p>This is the public master key reported by <code>validator_info</code> and published in the domain proof.</p>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-label">Domain Binding</div>
+          <div class="proof-value">agtico.github.io</div>
+          <p>The validator manifest binds the key to this GitHub Pages domain.</p>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-label">Network</div>
+          <div class="proof-value">Post Fiat Testnet</div>
+          <p>Peer traffic is served on TCP <code>2559</code>; admin interfaces are kept loopback-only on the host.</p>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-label">Public Attestation</div>
+          <div class="proof-value">Live TOML</div>
+          <p><a class="inline-proof" href="{{ '/.well-known/pft-ledger.toml' | relative_url }}">Open the canonical <code>pft-ledger.toml</code> proof</a>.</p>
+        </article>
+      </section>
+
+      <section class="proof-console" aria-label="Published validator proof">
+        <div class="console-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>/.well-known/pft-ledger.toml</strong>
+        </div>
+        <pre><code>[[VALIDATORS]]
+public_key = "nHUzVW1uviFL8YKAARxihiST1shYdKWKTgJTpTFDDgBxUydURwbE"
+attestation = "7A8C39608A8CEFB4C91BA87FD88DECF1F21222F7DCA977AD43B3BC242D10AD84EE83D7F9472D39465CEFEFD442AAB431E4FF703085F2834CF1F523784D5D3D0C"</code></pre>
+      </section>
+
+      <section class="verification-strip" aria-label="Verification path">
+        <div>
+          <span>01</span>
+          <strong>Read the proof</strong>
+          <p>Fetch the TOML file from this same domain.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Match the key</strong>
+          <p>Confirm the public key equals the validator master key.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Check consensus</strong>
+          <p>Confirm the node reports <code>validating: true</code> and <code>proposing: true</code>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>AGTI // Post Fiat Validator // Public domain proof online</footer>
+  </div>
+</body>
+</html>

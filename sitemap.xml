@@ -23,6 +23,10 @@ layout: null
     <loc>{{ '/task-node-feed/' | absolute_url }}</loc>
     <changefreq>hourly</changefreq>
   </url>
+  <url>
+    <loc>{{ '/validator/' | absolute_url }}</loc>
+    <changefreq>weekly</changefreq>
+  </url>
   {% for post in site.posts %}
   <url>
     <loc>{{ post.url | absolute_url }}</loc>
