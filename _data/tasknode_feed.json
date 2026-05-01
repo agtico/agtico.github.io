@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-01T12:49:34.421Z",
+  "generated_at": "2026-05-01T14:11:57.039Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,10 +10,286 @@
   },
   "items": [
     {
-      "id": "task:794c4550",
-      "timestamp": "2026-05-01T12:25:37.329Z",
+      "id": "task:1a77f3b4",
+      "timestamp": "2026-05-01T14:05:08.038Z",
       "type": "task_published",
       "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a modular refactor of a Deribit strategy daemon and gradual perp execution staging.",
+      "summary": "Planning a modular refactor of a Deribit strategy daemon and gradual perp execution staging.",
+      "tickers": [
+        "DBX"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$DBX"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1a77f3b4"
+      }
+    },
+    {
+      "id": "task:1d3bbce1",
+      "timestamp": "2026-05-01T13:43:38.791Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded a verification response for the Qwen3.6 devnet scoring update on PFTL.",
+      "summary": "Recorded a verification response for the Qwen3.6 devnet scoring update on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1d3bbce1"
+      }
+    },
+    {
+      "id": "task:a3c9139d",
+      "timestamp": "2026-05-01T13:43:37.141Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Delivered a Qwen3.6 devnet scoring update and earned a reward.",
+      "summary": "Delivered a Qwen3.6 devnet scoring update and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a3c9139d"
+      }
+    },
+    {
+      "id": "task:420aa81c",
+      "timestamp": "2026-05-01T13:43:07.780Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a Qwen3.6 scoring client update.",
+      "summary": "Uploaded follow-up evidence for a Qwen3.6 scoring client update.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:420aa81c"
+      }
+    },
+    {
+      "id": "task:cafccb1e",
+      "timestamp": "2026-05-01T13:42:37.445Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Requested verification for a code snippet updating the Qwen3.6 scoring client.",
+      "summary": "Requested verification for a code snippet updating the Qwen3.6 scoring client.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cafccb1e"
+      }
+    },
+    {
+      "id": "task:ad717e45",
+      "timestamp": "2026-05-01T13:42:12.074Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for a commit promoting Qwen3.6 as the active scoring model in the Dynamic...",
+      "summary": "Submitted evidence for a commit promoting Qwen3.6 as the active scoring model in the Dynamic UNL scoring repo.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ad717e45"
+      }
+    },
+    {
+      "id": "task:9dabd69a",
+      "timestamp": "2026-05-01T13:42:10.005Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted a commit promoting Qwen3.6 as the active scoring model in the Dynamic UNL scoring r...",
+      "summary": "Submitted a commit promoting Qwen3.6 as the active scoring model in the Dynamic UNL scoring repo.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9dabd69a"
+      }
+    },
+    {
+      "id": "task:794c4550",
+      "timestamp": "2026-05-01T12:25:37.329Z",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:a53e54bc",
       "category": "network",
       "title": "Planning an update to the Dynamic UNL scoring repo for Qwen3.6 model metadata and Modal reque...",
@@ -26,7 +302,26 @@
         "task-node",
         "$PFT"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BD1880601FB123E4ED291390B0F26D33E318EC73A72968D274C2AF926B695D54/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29375FDA381D947EB9EBBBAD9D5A719FA03A8C60CBF0E0D2263C3C60663FE866/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7D4C31F8E14C47164384988E7BAFE6E117E48CDD3E0EB8A1543DA08D12FF9CED/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:794c4550"
@@ -671,302 +966,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:18702532"
-      }
-    },
-    {
-      "id": "task:6365f14e",
-      "timestamp": "2026-05-01T08:01:38.228Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Submitted evidence for a validator details update that makes Dynamic UNL status the source of...",
-      "summary": "Submitted evidence for a validator details update that makes Dynamic UNL status the source of truth.",
-      "tickers": [
-        "XRP"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$XRP"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "435163C1204734BD585205628FA72E6A9E9204041E435F8BCAC72ABF0AE9DA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/435163C1204734BD585205628FA72E6A9E9204041E435F8BCAC72ABF0AE9DA9C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "472CF6410729F0CB1EB7AA202DB4852A013C0CA3EC1B65C9C7734ADBAE3612A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/472CF6410729F0CB1EB7AA202DB4852A013C0CA3EC1B65C9C7734ADBAE3612A2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "57E070F80CAEB7F41543783262F6894B2EC90BC2B5A5EBC233CE865B8CBBD207",
-          "url": "https://explorer.testnet.postfiat.org/transactions/57E070F80CAEB7F41543783262F6894B2EC90BC2B5A5EBC233CE865B8CBBD207/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:6365f14e"
-      }
-    },
-    {
-      "id": "task:2494f014",
-      "timestamp": "2026-05-01T07:43:10.771Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a validator details update to make Dynamic UNL status the source of truth and keep s...",
-      "summary": "Planning a validator details update to make Dynamic UNL status the source of truth and keep scoring round deep links intact.",
-      "tickers": [
-        "COIN",
-        "XRP"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$COIN",
-        "$XRP"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "435163C1204734BD585205628FA72E6A9E9204041E435F8BCAC72ABF0AE9DA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/435163C1204734BD585205628FA72E6A9E9204041E435F8BCAC72ABF0AE9DA9C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "472CF6410729F0CB1EB7AA202DB4852A013C0CA3EC1B65C9C7734ADBAE3612A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/472CF6410729F0CB1EB7AA202DB4852A013C0CA3EC1B65C9C7734ADBAE3612A2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "57E070F80CAEB7F41543783262F6894B2EC90BC2B5A5EBC233CE865B8CBBD207",
-          "url": "https://explorer.testnet.postfiat.org/transactions/57E070F80CAEB7F41543783262F6894B2EC90BC2B5A5EBC233CE865B8CBBD207/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:2494f014"
-      }
-    },
-    {
-      "id": "task:2071fce2",
-      "timestamp": "2026-05-01T07:32:08.347Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Delivered a validator failure response manifest and earned a reward.",
-      "summary": "Delivered a validator failure response manifest and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:2071fce2"
-      }
-    },
-    {
-      "id": "task:35681c3b",
-      "timestamp": "2026-05-01T07:31:38.657Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a validator failure response manifest.",
-      "summary": "Uploaded follow-up evidence for a validator failure response manifest.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:35681c3b"
-      }
-    },
-    {
-      "id": "task:d3e73133",
-      "timestamp": "2026-05-01T07:31:36.650Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded a verification response for a validator failure response manifest on PFTL.",
-      "summary": "Recorded a verification response for a validator failure response manifest on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d3e73133"
-      }
-    },
-    {
-      "id": "task:8f4a5ab5",
-      "timestamp": "2026-05-01T07:19:36.710Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Requested verification for a validator failure response manifest.",
-      "summary": "Requested verification for a validator failure response manifest.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:8f4a5ab5"
-      }
-    },
-    {
-      "id": "task:0aaeaaf3",
-      "timestamp": "2026-05-01T07:19:08.189Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded proof of a validator failure response manifest on PFTL.",
-      "summary": "Recorded proof of a validator failure response manifest on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ACB7E8F7C44B681ABF83CA9E28568BDE59838292FE216EA4DA651AD47275A4E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9EE6CECD24ED53EC0DFE5A70E813BC4BE9A5C5818DEDBD50AAF089B3EA006521/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E33169D0CF2DD10F6E8341AF440FB2E1FF30AEBB003251A7AADC054B6AEB3382/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0aaeaaf3"
       }
     }
   ]
