@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-01T19:58:45.057Z",
+  "generated_at": "2026-05-01T20:50:01.628Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,10 +10,34 @@
   },
   "items": [
     {
+      "id": "task:3ba43ce6",
+      "timestamp": "2026-05-01T20:20:10.527Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:f80ea623",
+      "category": "network",
+      "title": "Planning a public registry of reusable Post Fiat artifacts in GitHub.",
+      "summary": "Planning a public registry of reusable Post Fiat artifacts in GitHub.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "product",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3ba43ce6"
+      }
+    },
+    {
       "id": "task:b6d356bc",
       "timestamp": "2026-05-01T19:47:08.607Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "in_progress",
       "actor": "node:36ba1736",
       "category": "infra",
       "title": "Planning a delivery outbox slice to add queued retries and duplicate-send protection for gene...",
@@ -950,29 +974,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:2f080fcd"
-      }
-    },
-    {
-      "id": "task:49183ae8",
-      "timestamp": "2026-05-01T15:18:39.416Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:88ad000e",
-      "category": "network",
-      "title": "Planning a privacy-safe lint pack for Hive Mind task-writing rules and rewrites.",
-      "summary": "Planning a privacy-safe lint pack for Hive Mind task-writing rules and rewrites.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:49183ae8"
       }
     }
   ]
