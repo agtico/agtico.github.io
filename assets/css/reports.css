@@ -692,10 +692,56 @@ h1 {
   letter-spacing: -.035em;
 }
 
+.report-content h3 {
+  margin: 32px 0 10px;
+  color: rgba(242,245,241,.94);
+  font: 400 24px/1.18 var(--mono);
+  letter-spacing: -.025em;
+}
+
 .report-content p { margin: 0 0 22px; }
 .report-content a { color: var(--red-2); border-bottom: 1px solid rgba(255,90,66,.45); }
 .report-content ul { margin: 0 0 26px; padding-left: 22px; }
 .report-content li + li { margin-top: 10px; }
+.report-content hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 36px 0;
+}
+.report-content code {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  padding: 2px 6px;
+  color: rgba(242,245,241,.9);
+  font: .88em var(--mono);
+}
+.report-content table {
+  display: block;
+  width: 100%;
+  margin: 30px 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.report-content th,
+.report-content td {
+  border: 1px solid rgba(229,238,235,.16);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.report-content th {
+  color: var(--text);
+  background: rgba(255,45,32,.09);
+  font: 900 11px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.report-content td {
+  color: rgba(232,238,235,.78);
+  background: rgba(255,255,255,.018);
+}
 .report-content blockquote {
   margin: 34px 0;
   padding: 20px 24px;
