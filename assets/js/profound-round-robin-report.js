@@ -49,6 +49,17 @@
     return '$' + Number(value).toFixed(2);
   }
 
+  function formatCost(value) {
+    if (value == null || !Number.isFinite(Number(value))) return 'n/a';
+    var number = Number(value);
+    var abs = Math.abs(number);
+    if (abs === 0) return '$0';
+    if (abs < 0.0001) return '<$0.0001';
+    if (abs < 0.01) return '$' + number.toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+    if (abs < 1) return '$' + number.toFixed(4);
+    return formatUsd(number, { decimals: 2 });
+  }
+
   function formatPct(value, decimals) {
     if (value == null || !Number.isFinite(Number(value))) return 'n/a';
     return Number(value).toFixed(decimals == null ? 1 : decimals) + '%';
@@ -210,10 +221,11 @@
     return (payload.ticker_focus || []).map(function (ticker) {
       var stock = stocksByTicker[ticker] || { ticker: ticker };
       var aiValue = stock.ai_labs_value_usd == null ? 'unpriced' : formatUsd(stock.ai_labs_value_usd);
+      var aiPct = stock.ai_labs_value_pct_of_market_cap == null ? '' : ' / ' + formatPct(stock.ai_labs_value_pct_of_market_cap, 1);
       return (
         '<span class="prr-chip">' +
           '<strong>' + escapeHtml(ticker) + '</strong>' +
-          '<span>' + escapeHtml(aiValue) + ' AI labs</span>' +
+          '<span>' + escapeHtml(aiValue + aiPct) + ' AI labs</span>' +
         '</span>'
       );
     }).join('');
@@ -242,14 +254,21 @@
         '</div>' +
       '</section>' +
       renderConclusions(payload) +
+      renderLabValuation(payload) +
       renderBenchmarkSection(payload) +
+      renderReasoningSection(payload) +
+      renderCostAdvantage(payload) +
       renderStatements(payload) +
+      renderPriceAction(payload) +
       renderSotp(payload, sotp) +
       renderMarketTable(payload) +
       renderMethodology(payload);
 
-    renderScatter('prr-score-cost-scatter', benchmark.leaderboard || []);
+    renderScatter('prr-score-cost-scatter', benchmark.leaderboard || [], benchmark.efficient_frontier || []);
+    renderLabScatter('prr-lab-valuation-scatter', benchmark.lab_score_valuation || []);
     renderRankBars('prr-rank-bars', (benchmark.leaderboard || []).slice(0, 15));
+    renderLineChart('prr-sbg-nikkei-chart', (((payload.market || {}).price_series || {}).softbank_vs_nikkei || []));
+    renderLineChart('prr-arm-sp500-chart', (((payload.market || {}).price_series || {}).arm_vs_sp500 || []));
     mountModelTable(payload);
     mountStockTable(payload);
   }
@@ -272,6 +291,35 @@
     );
   }
 
+  function renderLabValuation(payload) {
+    var rows = ((payload.benchmark || {}).lab_score_valuation || []).slice(0, 14);
+    return (
+      '<section class="prr-section">' +
+        '<h2>Lab Score vs Valuation</h2>' +
+        '<div class="prr-grid-2">' +
+          '<div class="prr-chart">' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">Top Model Score / Lab Value</p><span class="prr-chart-sub">x = valuation, log scale</span></div>' +
+            '<svg id="prr-lab-valuation-scatter" class="prr-svg" role="img" aria-label="Lab score versus valuation"></svg>' +
+          '</div>' +
+          '<div class="prr-mini-table">' +
+            '<table class="prr-table compact"><thead><tr><th>Lab</th><th>Top model</th><th class="num">Score</th><th class="num">Value</th></tr></thead><tbody>' +
+              rows.map(function (row) {
+                return (
+                  '<tr>' +
+                    '<td><div class="prr-model-cell">' + escapeHtml(row.provider) + '</div><span class="prr-muted">' + escapeHtml(row.valuation_type) + '</span></td>' +
+                    '<td>' + escapeHtml(shortModel(row.top_model_id)) + '</td>' +
+                    '<td class="num">' + formatNum(row.top_score, 2) + '</td>' +
+                    '<td class="num">' + formatUsd(row.valuation_usd) + '</td>' +
+                  '</tr>'
+                );
+              }).join('') +
+            '</tbody></table>' +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   function renderBenchmarkSection(payload) {
     var corr = ((payload.benchmark || {}).pairwise_correlations || []).slice(0, 6);
     return (
@@ -279,7 +327,7 @@
         '<h2>Benchmark Tape</h2>' +
         '<div class="prr-grid-2">' +
           '<div class="prr-chart">' +
-            '<div class="prr-chart-head"><p class="prr-chart-title">Score vs Cost</p><span class="prr-chart-sub">bubble = latency</span></div>' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">Score vs Cost</p><span class="prr-chart-sub">line = efficient frontier</span></div>' +
             '<svg id="prr-score-cost-scatter" class="prr-svg" role="img" aria-label="Model score versus generation cost"></svg>' +
           '</div>' +
           '<div class="prr-chart">' +
@@ -301,6 +349,80 @@
     );
   }
 
+  function renderReasoningSection(payload) {
+    var benchmark = payload.benchmark || {};
+    var judges = (benchmark.judge_economics || []).slice().sort(function (a, b) {
+      return Number(b.total_reasoning_tokens || 0) - Number(a.total_reasoning_tokens || 0);
+    }).slice(0, 10);
+    return (
+      '<section class="prr-section">' +
+        '<h2>Reasoning Token Tape</h2>' +
+        '<div class="prr-callouts">' +
+          '<article class="prr-callout"><span class="prr-label">All Runs</span><p>' + escapeHtml(formatNum(benchmark.total_reasoning_tokens_all_runs, 0) + ' reasoning tokens, ' + formatPct(benchmark.reasoning_share_pct_all_runs, 1) + ' of total token volume.') + '</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">Why It Matters</span><p>Published price per million tokens is only the sticker. Reasoning-heavy models can burn hidden completion tokens, so realized cost per benchmark point is the cleaner workflow metric.</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">Deployment Read</span><p>Use premium frontier endpoints when the extra intelligence matters; use frontier-line cheap models for repeated tasks where marginal quality is not worth a 10x-100x cost delta.</p></article>' +
+        '</div>' +
+        '<div class="prr-table-wrap">' +
+          '<table class="prr-table compact"><thead><tr><th>Judge</th><th class="num">Votes</th><th class="num">Avg cost</th><th class="num">Avg tokens</th><th class="num">Reasoning</th><th class="num">Latency</th></tr></thead><tbody>' +
+            judges.map(function (row) {
+              return (
+                '<tr>' +
+                  '<td><div class="prr-model-cell">' + escapeHtml(row.judge_model_id) + '</div></td>' +
+                  '<td class="num">' + formatNum(row.vote_count, 0) + '</td>' +
+                  '<td class="num">' + formatCost(row.avg_cost_per_vote_usd) + '</td>' +
+                  '<td class="num">' + formatNum(row.avg_total_tokens_per_vote, 0) + '</td>' +
+                  '<td class="num">' + formatPct(row.reasoning_share_pct, 1) + '</td>' +
+                  '<td class="num">' + formatNum(row.avg_latency_ms / 1000, 2) + 's</td>' +
+                '</tr>'
+              );
+            }).join('') +
+          '</tbody></table>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function renderCostAdvantage(payload) {
+    var tape = (payload.benchmark || {}).cost_advantage || {};
+    var cheap = tape.cheap_competent || [];
+    var expensive = tape.expensive_models || [];
+    var range = tape.top_cluster_cost_range || {};
+    return (
+      '<section class="prr-section">' +
+        '<h2>Cost Advantage</h2>' +
+        '<div class="prr-callouts">' +
+          '<article class="prr-callout"><span class="prr-label">Top Cluster Range</span><p>' + escapeHtml(formatCost(range.min_cost_usd) + ' to ' + formatCost(range.max_cost_usd) + ' per generation among models within three points of the top score.') + '</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">China Tape</span><p>Several Chinese and China-adjacent providers clear the quality bar at tiny realized costs. That matters for margins if the use case is repeated agent work rather than one trophy response.</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">Premium Tape</span><p>Anthropic and OpenAI premium endpoints still define much of the ceiling, but the bill is real: reasoning tokens and higher output tariffs can dominate total workflow spend.</p></article>' +
+        '</div>' +
+        '<div class="prr-grid-2">' +
+          renderCostList('Cheap Competent', cheap) +
+          renderCostList('Most Expensive', expensive) +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function renderCostList(title, rows) {
+    return (
+      '<div class="prr-mini-table">' +
+        '<span class="prr-label">' + escapeHtml(title) + '</span>' +
+        '<table class="prr-table compact"><thead><tr><th>Model</th><th class="num">Score</th><th class="num">Cost</th><th class="num">$/1M tokens</th></tr></thead><tbody>' +
+          rows.map(function (row) {
+            return (
+              '<tr>' +
+                '<td><div class="prr-model-cell">' + escapeHtml(shortModel(row.model_id)) + '</div></td>' +
+                '<td class="num">' + formatNum(row.avg_score_mean, 2) + '</td>' +
+                '<td class="num">' + formatCost(row.avg_generation_cost_usd) + '</td>' +
+                '<td class="num">' + formatUsd(row.generation_cost_per_1m_tokens_usd, { decimals: 1 }) + '</td>' +
+              '</tr>'
+            );
+          }).join('') +
+        '</tbody></table>' +
+      '</div>'
+    );
+  }
+
   function renderStatements(payload) {
     var rows = ((payload.benchmark || {}).profound_statements || []).slice(0, 12);
     return (
@@ -308,9 +430,10 @@
         '<h2>Profound Statements</h2>' +
         '<div class="prr-statements">' +
           rows.map(function (row) {
+            var score = row.statement_score_mean == null ? '' : ' / score ' + formatNum(row.statement_score_mean, 1) + ' n=' + formatNum(row.statement_score_count, 0);
             return (
               '<article class="prr-statement">' +
-                '<div class="prr-statement-meta">#' + escapeHtml(row.rank) + ' ' + escapeHtml(shortModel(row.model_id)) + ' / round ' + escapeHtml(row.round) + '</div>' +
+                '<div class="prr-statement-meta">#' + escapeHtml(row.rank) + ' ' + escapeHtml(shortModel(row.model_id)) + ' / round ' + escapeHtml(row.round) + escapeHtml(score) + '</div>' +
                 '<p>' + escapeHtml(row.text) + '</p>' +
               '</article>'
             );
@@ -320,10 +443,29 @@
     );
   }
 
-  function renderSotp(payload, sotp) {
+  function renderPriceAction(payload) {
     return (
       '<section class="prr-section">' +
-        '<h2>SoftBank SOTP</h2>' +
+        '<h2>Public Price Action</h2>' +
+        '<div class="prr-grid-2">' +
+          '<div class="prr-chart">' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">SoftBank vs Nikkei</p><span class="prr-chart-sub">1Y normalized</span></div>' +
+            '<svg id="prr-sbg-nikkei-chart" class="prr-svg" role="img" aria-label="SoftBank versus Nikkei normalized price action"></svg>' +
+          '</div>' +
+          '<div class="prr-chart">' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">ARM vs S&amp;P 500</p><span class="prr-chart-sub">1Y normalized</span></div>' +
+            '<svg id="prr-arm-sp500-chart" class="prr-svg" role="img" aria-label="Arm versus S&P 500 normalized price action"></svg>' +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function renderSotp(payload, sotp) {
+    var debt = ((payload.market || {}).softbank_debt_analysis || {});
+    return (
+      '<section class="prr-section">' +
+        '<h2>SoftBank SOTP and Financing</h2>' +
         '<div class="prr-sotp-grid">' +
           '<div>' +
             '<span class="prr-sotp-number">' + formatPct((sotp.implied_openai_percent_of_marked_value || 0) * 100, 1) + '</span>' +
@@ -340,6 +482,15 @@
             '<p>' + escapeHtml(sotp.interpretation || '') + '</p>' +
           '</article>' +
         '</div>' +
+        '<div class="prr-grid-2 prr-debt-grid">' +
+          '<div><span class="prr-label">OpenAI Stake Structure</span><ul class="prr-list">' +
+            (debt.openai_stake_structure || []).map(function (item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') +
+          '</ul></div>' +
+          '<div><span class="prr-label">Debt Stack</span><ul class="prr-list">' +
+            (debt.debt_stack || []).map(function (item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') +
+          '</ul></div>' +
+        '</div>' +
+        '<p class="prr-sotp-caption">' + escapeHtml(debt.headline || '') + '</p>' +
       '</section>'
     );
   }
@@ -420,6 +571,9 @@
             header('avg_rank', 'Avg Rank') +
             header('avg_generation_latency_ms', 'Latency') +
             header('avg_generation_cost_usd', 'Cost') +
+            header('avg_generation_total_tokens', 'Tokens') +
+            header('generation_reasoning_share_pct', 'Reasoning') +
+            header('generation_cost_per_1m_tokens_usd', '$/1M Tok') +
             header('avg_vote_count', 'Votes') +
           '</tr></thead><tbody>' +
           ordered.map(function (row) {
@@ -432,7 +586,10 @@
                 '<td class="num">' + formatNum(row.score_mean_stdev, 2) + '</td>' +
                 '<td class="num">' + formatNum(row.avg_rank, 2) + '</td>' +
                 '<td class="num">' + formatNum(row.avg_generation_latency_ms / 1000, 2) + 's</td>' +
-                '<td class="num">' + formatUsd(row.avg_generation_cost_usd, { decimals: 4 }) + '</td>' +
+                '<td class="num">' + formatCost(row.avg_generation_cost_usd) + '</td>' +
+                '<td class="num">' + formatNum(row.avg_generation_total_tokens, 0) + '</td>' +
+                '<td class="num">' + formatPct(row.generation_reasoning_share_pct, 1) + '</td>' +
+                '<td class="num">' + formatUsd(row.generation_cost_per_1m_tokens_usd, { decimals: 1 }) + '</td>' +
                 '<td class="num">' + formatNum(row.avg_vote_count, 0) + '</td>' +
               '</tr>'
             );
@@ -474,6 +631,7 @@
             header('company', 'Company') +
             header('market_cap_usd', 'Market Cap') +
             header('ai_labs_value_usd', 'AI Labs') +
+            header('ai_labs_value_pct_of_market_cap', 'AI %') +
             header('market_cap_ex_ai_labs_usd', 'Ex AI Labs') +
             header('one_year_return_pct', '1Y') +
             header('one_year_excess_vs_smh_pct', 'Vs SMH') +
@@ -485,6 +643,7 @@
                 '<td>' + escapeHtml(row.company) + '</td>' +
                 '<td class="num">' + formatUsd(row.market_cap_usd) + '</td>' +
                 '<td class="num">' + (row.ai_labs_value_usd == null ? escapeHtml((row.unpriced_ai_labs || []).join(', ') || 'n/a') : formatUsd(row.ai_labs_value_usd)) + '</td>' +
+                '<td class="num">' + formatPct(row.ai_labs_value_pct_of_market_cap, 1) + '</td>' +
                 '<td class="num">' + formatUsd(row.market_cap_ex_ai_labs_usd) + '</td>' +
                 '<td class="num">' + formatPct(row.one_year_return_pct, 1) + '</td>' +
                 '<td class="num">' + formatPct(row.one_year_excess_vs_smh_pct, 1) + '</td>' +
@@ -518,7 +677,7 @@
     return '<th data-key="' + escapeHtml(key) + '">' + escapeHtml(label) + '</th>';
   }
 
-  function renderScatter(id, rows) {
+  function renderScatter(id, rows, frontier) {
     var svg = document.getElementById(id);
     if (!svg || !rows.length) return;
     var width = svg.clientWidth || 640;
@@ -547,6 +706,12 @@
       html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
       html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
     });
+    var frontierPoints = (frontier || []).map(function (row) {
+      return xScale(Math.log10(Number(row.avg_generation_cost_usd || 0) + 0.00001)).toFixed(2) + ',' + yScale(Number(row.avg_score_mean || 0)).toFixed(2);
+    }).join(' ');
+    if (frontierPoints) {
+      html.push('<polyline class="prr-frontier-line" points="' + frontierPoints + '"></polyline>');
+    }
     rows.forEach(function (row, index) {
       var x = xScale(xs[index]);
       var y = yScale(ys[index]);
@@ -560,7 +725,7 @@
     svg.querySelectorAll('.prr-point').forEach(function (point) {
       point.addEventListener('mousemove', function (event) {
         var row = rows[Number(point.getAttribute('data-index'))];
-        showTooltip(event, '<strong>' + escapeHtml(row.model_id) + '</strong><span>Score ' + formatNum(row.avg_score_mean, 2) + ' / cost ' + formatUsd(row.avg_generation_cost_usd, { decimals: 4 }) + ' / latency ' + formatNum(row.avg_generation_latency_ms / 1000, 2) + 's</span>');
+        showTooltip(event, '<strong>' + escapeHtml(row.model_id) + '</strong><span>Score ' + formatNum(row.avg_score_mean, 2) + ' / cost ' + formatCost(row.avg_generation_cost_usd) + ' / reasoning ' + formatPct(row.generation_reasoning_share_pct, 1) + ' / latency ' + formatNum(row.avg_generation_latency_ms / 1000, 2) + 's</span>');
       });
       point.addEventListener('mouseleave', hideTooltip);
     });
@@ -584,6 +749,100 @@
       html.push('<rect class="prr-bar" x="' + pad.left + '" y="' + y + '" width="' + w + '" height="10"></rect>');
       html.push('<text x="' + (pad.left + w + 7) + '" y="' + (y + 10) + '">' + formatNum(row.avg_score_mean, 1) + '</text>');
     });
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    svg.innerHTML = html.join('');
+  }
+
+  function renderLabScatter(id, rows) {
+    var svg = document.getElementById(id);
+    if (!svg || !rows.length) return;
+    var width = svg.clientWidth || 640;
+    var height = svg.clientHeight || 320;
+    var pad = { left: 48, right: 20, top: 18, bottom: 38 };
+    var xs = rows.map(function (row) { return Math.log10(Number(row.valuation_usd || 1)); });
+    var ys = rows.map(function (row) { return Number(row.top_score || 0); });
+    var minX = Math.min.apply(null, xs);
+    var maxX = Math.max.apply(null, xs);
+    var minY = Math.floor(Math.min.apply(null, ys) / 5) * 5;
+    var maxY = Math.ceil(Math.max.apply(null, ys) / 5) * 5;
+    var xScale = function (x) {
+      return pad.left + ((x - minX) / Math.max(maxX - minX, 0.00001)) * (width - pad.left - pad.right);
+    };
+    var yScale = function (y) {
+      return height - pad.bottom - ((y - minY) / Math.max(maxY - minY, 0.00001)) * (height - pad.top - pad.bottom);
+    };
+    var html = [
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + (height - pad.bottom) + '" x2="' + (width - pad.right) + '" y2="' + (height - pad.bottom) + '"></line>',
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + pad.top + '" x2="' + pad.left + '" y2="' + (height - pad.bottom) + '"></line>',
+    ];
+    [minY, (minY + maxY) / 2, maxY].forEach(function (tick) {
+      var y = yScale(tick);
+      html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
+      html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
+    });
+    rows.forEach(function (row, index) {
+      var x = xScale(xs[index]);
+      var y = yScale(ys[index]);
+      var radius = row.top_rank <= 5 ? 9 : 6;
+      html.push('<circle class="prr-point ' + (row.top_rank <= 5 ? 'top' : '') + '" data-index="' + index + '" cx="' + x + '" cy="' + y + '" r="' + radius + '"></circle>');
+      html.push('<text x="' + (x + 10) + '" y="' + (y + 4) + '">' + escapeHtml(row.provider) + '</text>');
+    });
+    html.push('<text x="' + pad.left + '" y="' + (height - 8) + '">lab valuation / parent market cap, log scale</text>');
+    html.push('<text x="' + (width - 128) + '" y="14">top score</text>');
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    svg.innerHTML = html.join('');
+    svg.querySelectorAll('.prr-point').forEach(function (point) {
+      point.addEventListener('mousemove', function (event) {
+        var row = rows[Number(point.getAttribute('data-index'))];
+        showTooltip(event, '<strong>' + escapeHtml(row.entity) + '</strong><span>' + escapeHtml(shortModel(row.top_model_id)) + ' / score ' + formatNum(row.top_score, 2) + ' / value ' + formatUsd(row.valuation_usd) + '</span>');
+      });
+      point.addEventListener('mouseleave', hideTooltip);
+    });
+  }
+
+  function renderLineChart(id, seriesRows) {
+    var svg = document.getElementById(id);
+    if (!svg || !seriesRows.length) return;
+    var width = svg.clientWidth || 640;
+    var height = svg.clientHeight || 320;
+    var pad = { left: 44, right: 18, top: 18, bottom: 36 };
+    var points = [];
+    seriesRows.forEach(function (series) {
+      (series.points || []).forEach(function (point) {
+        points.push({ date: new Date(point.date).getTime(), value: Number(point.value || 0) });
+      });
+    });
+    if (!points.length) return;
+    var minT = Math.min.apply(null, points.map(function (point) { return point.date; }));
+    var maxT = Math.max.apply(null, points.map(function (point) { return point.date; }));
+    var minY = Math.floor(Math.min.apply(null, points.map(function (point) { return point.value; })) / 10) * 10;
+    var maxY = Math.ceil(Math.max.apply(null, points.map(function (point) { return point.value; })) / 10) * 10;
+    var xScale = function (time) {
+      return pad.left + ((time - minT) / Math.max(maxT - minT, 1)) * (width - pad.left - pad.right);
+    };
+    var yScale = function (value) {
+      return height - pad.bottom - ((value - minY) / Math.max(maxY - minY, 0.00001)) * (height - pad.top - pad.bottom);
+    };
+    var colors = ['#7ff0d8', '#ff5a42', '#f8d56b', '#9db7ff'];
+    var html = [
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + (height - pad.bottom) + '" x2="' + (width - pad.right) + '" y2="' + (height - pad.bottom) + '"></line>',
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + pad.top + '" x2="' + pad.left + '" y2="' + (height - pad.bottom) + '"></line>',
+    ];
+    [minY, 100, maxY].forEach(function (tick) {
+      var y = yScale(tick);
+      html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
+      html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
+    });
+    seriesRows.forEach(function (series, index) {
+      var path = (series.points || []).map(function (point, pointIndex) {
+        var x = xScale(new Date(point.date).getTime()).toFixed(2);
+        var y = yScale(Number(point.value || 0)).toFixed(2);
+        return (pointIndex === 0 ? 'M' : 'L') + x + ',' + y;
+      }).join(' ');
+      html.push('<path class="prr-line-series" d="' + path + '" stroke="' + colors[index % colors.length] + '"></path>');
+      html.push('<text x="' + (pad.left + 8) + '" y="' + (pad.top + 14 + index * 15) + '" fill="' + colors[index % colors.length] + '">' + escapeHtml(series.label || series.symbol) + '</text>');
+    });
+    html.push('<text x="' + pad.left + '" y="' + (height - 8) + '">indexed to 100 one year ago</text>');
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
     svg.innerHTML = html.join('');
   }

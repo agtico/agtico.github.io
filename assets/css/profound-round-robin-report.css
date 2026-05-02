@@ -263,6 +263,21 @@
   fill: rgba(255,90,66,.86);
 }
 
+.prr-frontier-line {
+  fill: none;
+  stroke: rgba(248, 213, 107, .92);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.prr-line-series {
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .prr-bar-track {
   fill: rgba(255,255,255,.055);
 }
@@ -325,6 +340,10 @@
   min-width: 900px;
 }
 
+.prr-table.compact {
+  min-width: 0;
+}
+
 .prr-table th,
 .prr-table td {
   border-bottom: 1px solid rgba(255,255,255,.09);
@@ -358,6 +377,21 @@
 
 .prr-provider {
   color: #7ff0d8;
+}
+
+.prr-muted {
+  display: block;
+  margin-top: 4px;
+  color: rgba(232,238,235,.46);
+  font: 900 10px/1.35 var(--mono);
+  overflow-wrap: anywhere;
+}
+
+.prr-mini-table {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+  padding: 14px;
+  overflow-x: auto;
 }
 
 .prr-statements {
@@ -427,6 +461,10 @@
 .prr-sotp-caption {
   margin-top: 10px;
   color: rgba(232,238,235,.66);
+}
+
+.prr-debt-grid {
+  margin-top: 20px;
 }
 
 .prr-source-list {
