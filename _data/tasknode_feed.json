@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-02T09:37:05.105Z",
+  "generated_at": "2026-05-02T10:39:30.102Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,32 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:034b1fc4",
+      "timestamp": "2026-05-02T10:20:41.065Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a port of the hybrid range executor to HyperLiquid with dry-run perp execution insid...",
+      "summary": "Planning a port of the hybrid range executor to HyperLiquid with dry-run perp execution inside a Deribit-derived range.",
+      "tickers": [
+        "HYPE",
+        "DBR"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE",
+        "$DBR"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:034b1fc4"
+      }
+    },
     {
       "id": "task:4f2df3fd",
       "timestamp": "2026-05-02T08:41:41.180Z",
@@ -961,48 +987,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:82447502"
-      }
-    },
-    {
-      "id": "task:8dc55548",
-      "timestamp": "2026-05-02T05:13:44.198Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a Python guard that blocks deprecated Hive Mind task sco...",
-      "summary": "Recorded a verification response for a Python guard that blocks deprecated Hive Mind task scopes on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "6CA23615A590D8FB60A6A10B06DB6C8027C46F632586A69FD35A75E9CB30088F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6CA23615A590D8FB60A6A10B06DB6C8027C46F632586A69FD35A75E9CB30088F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "27C2CFE702503794B4944C0158E1F82056AC389503C0B7DA913330420F56F2B0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/27C2CFE702503794B4944C0158E1F82056AC389503C0B7DA913330420F56F2B0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "F11EE2DF92FB228A25D307E79144A780BCD5FB6DA172CD1EFE5246202FE7F057",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F11EE2DF92FB228A25D307E79144A780BCD5FB6DA172CD1EFE5246202FE7F057/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:8dc55548"
       }
     }
   ]
