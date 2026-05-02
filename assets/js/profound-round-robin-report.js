@@ -73,6 +73,11 @@
     });
   }
 
+  function formatKrwTrn(value) {
+    if (value == null || !Number.isFinite(Number(value))) return 'n/a';
+    return 'KRW ' + Number(value).toFixed(2) + 'T';
+  }
+
   function shortModel(modelId) {
     var value = String(modelId || '');
     if (value.length <= 34) return value;
@@ -254,6 +259,7 @@
         '</div>' +
       '</section>' +
       renderConclusions(payload) +
+      renderWrittenAnalysis(payload) +
       renderLabValuation(payload) +
       renderBenchmarkSection(payload) +
       renderReasoningSection(payload) +
@@ -262,6 +268,7 @@
       renderPriceAction(payload) +
       renderSotp(payload, sotp) +
       renderMarketTable(payload) +
+      renderSkTelecomDeepDive(payload) +
       renderMethodology(payload);
 
     renderScatter('prr-score-cost-scatter', benchmark.leaderboard || [], benchmark.efficient_frontier || []);
@@ -283,6 +290,28 @@
               '<article class="prr-callout">' +
                 '<span class="prr-label">Conclusion ' + (index + 1) + '</span>' +
                 '<p>' + escapeHtml(text) + '</p>' +
+              '</article>'
+            );
+          }).join('') +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function renderWrittenAnalysis(payload) {
+    var sections = payload.written_analysis || [];
+    if (!sections.length) return '';
+    return (
+      '<section class="prr-section">' +
+        '<h2>Written Analysis</h2>' +
+        '<div class="prr-analysis-stack">' +
+          sections.map(function (section) {
+            return (
+              '<article class="prr-analysis-block">' +
+                '<span class="prr-label">' + escapeHtml(section.title || '') + '</span>' +
+                (section.paragraphs || []).map(function (text) {
+                  return '<p>' + escapeHtml(text) + '</p>';
+                }).join('') +
               '</article>'
             );
           }).join('') +
@@ -504,6 +533,63 @@
           '<button class="prr-small-action" id="prr-stock-reset" type="button">Market Cap Sort</button>' +
         '</div>' +
         '<div id="prr-stock-table" class="prr-table-wrap"></div>' +
+      '</section>'
+    );
+  }
+
+  function renderSkTelecomDeepDive(payload) {
+    var deep = ((payload.market || {}).sk_telecom_deep_dive || {});
+    var rows = deep.comp_rows || [];
+    var sensitivity = deep.anthropic_sensitivity || [];
+    if (!rows.length) return '';
+    return (
+      '<section class="prr-section">' +
+        '<h2>SK Telecom Deep Dive</h2>' +
+        '<div class="prr-callouts">' +
+          '<article class="prr-callout"><span class="prr-label">Unadjusted Multiple</span><p>SKT trades at ' + formatNum(rows[0].ev_ebitda, 2) + 'x EV/EBITDA versus ' + formatNum(deep.peer_average_ev_ebitda_ex_skt, 2) + 'x for KT and LG Uplus.</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">Premium</span><p>The unadjusted SKT premium to Korean telecom peers is ' + formatPct(deep.sk_premium_to_peer_avg_pct, 1) + ', so the Anthropic stake has to do real explanatory work.</p></article>' +
+          '<article class="prr-callout"><span class="prr-label">Source Method</span><p>' + escapeHtml(deep.source_method || '') + '</p></article>' +
+        '</div>' +
+        '<div class="prr-grid-2">' +
+          '<div class="prr-mini-table">' +
+            '<span class="prr-label">Korean Telecom Comps</span>' +
+            '<table class="prr-table compact"><thead><tr><th>Company</th><th class="num">EV</th><th class="num">EBITDA</th><th class="num">EV/EBITDA</th><th class="num">Debt/EBITDA</th><th class="num">FCF Yield</th></tr></thead><tbody>' +
+              rows.map(function (row) {
+                return (
+                  '<tr>' +
+                    '<td><div class="prr-model-cell">' + escapeHtml(row.company) + '</div><span class="prr-muted">' + escapeHtml(row.ticker) + '</span></td>' +
+                    '<td class="num">' + formatKrwTrn(row.enterprise_value_krw_trn) + '</td>' +
+                    '<td class="num">' + formatKrwTrn(row.ttm_ebitda_krw_trn) + '</td>' +
+                    '<td class="num">' + formatNum(row.ev_ebitda, 2) + 'x</td>' +
+                    '<td class="num">' + formatNum(row.debt_ebitda, 2) + 'x</td>' +
+                    '<td class="num">' + formatPct(row.fcf_yield_pct, 1) + '</td>' +
+                  '</tr>'
+                );
+              }).join('') +
+            '</tbody></table>' +
+          '</div>' +
+          '<div class="prr-mini-table">' +
+            '<span class="prr-label">Anthropic Stake Sensitivity</span>' +
+            '<table class="prr-table compact"><thead><tr><th>Stake</th><th class="num">Value</th><th class="num">% Mkt Cap</th><th class="num">Adj. EV/EBITDA</th><th class="num">Peer Premium</th></tr></thead><tbody>' +
+              sensitivity.map(function (row) {
+                return (
+                  '<tr>' +
+                    '<td><div class="prr-model-cell">' + formatPct(row.ownership_percent, 2) + '</div><span class="prr-muted">' + escapeHtml(row.note || '') + '</span></td>' +
+                    '<td class="num">' + formatUsd(row.stake_value_usd) + '</td>' +
+                    '<td class="num">' + formatPct(row.stake_value_pct_of_market_cap, 1) + '</td>' +
+                    '<td class="num">' + formatNum(row.adjusted_core_ev_ebitda, 2) + 'x</td>' +
+                    '<td class="num">' + formatPct(row.premium_to_kt_lgu_peer_avg_pct, 1) + '</td>' +
+                  '</tr>'
+                );
+              }).join('') +
+            '</tbody></table>' +
+          '</div>' +
+        '</div>' +
+        '<div class="prr-analysis-stack">' +
+          (deep.thesis || []).map(function (text) {
+            return '<article class="prr-analysis-block"><p>' + escapeHtml(text) + '</p></article>';
+          }).join('') +
+        '</div>' +
       '</section>'
     );
   }
