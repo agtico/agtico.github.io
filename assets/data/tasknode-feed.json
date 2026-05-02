@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-02T16:04:39.301Z",
+  "generated_at": "2026-05-02T17:10:40.080Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:94918fe9",
+      "timestamp": "2026-05-02T16:45:11.711Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:dcf76286",
+      "category": "network",
+      "title": "Planning a Python QA pack to validate Alpha Registry submissions for Post Fiat's machine-read...",
+      "summary": "Planning a Python QA pack to validate Alpha Registry submissions for Post Fiat's machine-readable intelligence layer.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:94918fe9"
+      }
+    },
     {
       "id": "task:f9e86c9b",
       "timestamp": "2026-05-02T15:35:43.647Z",
@@ -932,49 +955,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:4f2df3fd"
-      }
-    },
-    {
-      "id": "task:26f80358",
-      "timestamp": "2026-05-02T07:36:10.212Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "general",
-      "title": "Delivered a PRD for signal curation and earned a reward.",
-      "summary": "Delivered a PRD for signal curation and earned a reward.",
-      "tickers": [
-        "IBIT"
-      ],
-      "tags": [
-        "general",
-        "task-node",
-        "personal",
-        "$IBIT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B6CF122913EDE6340477F10F28BCFEABD80CA2813ECA0B85149A421D0E8965AF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B6CF122913EDE6340477F10F28BCFEABD80CA2813ECA0B85149A421D0E8965AF/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F62698B66B1FF003BB7F3FC88CE35CBC6D155AC2DEB399A4999826C8BA36A778",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F62698B66B1FF003BB7F3FC88CE35CBC6D155AC2DEB399A4999826C8BA36A778/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "599012ECE24C8B3FA0A5A49A10E5A16A1EC6C81CDAB628C6A599A35251288142",
-          "url": "https://explorer.testnet.postfiat.org/transactions/599012ECE24C8B3FA0A5A49A10E5A16A1EC6C81CDAB628C6A599A35251288142/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:26f80358"
       }
     }
   ]
