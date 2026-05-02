@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-02T08:16:04.809Z",
+  "generated_at": "2026-05-02T09:37:05.105Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:4f2df3fd",
+      "timestamp": "2026-05-02T08:41:41.180Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:be9847b4",
+      "category": "ai",
+      "title": "Planning a versioned BioMaps GPT context bridge for consistent source processing and schema u...",
+      "summary": "Planning a versioned BioMaps GPT context bridge for consistent source processing and schema updates.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:4f2df3fd"
+      }
+    },
     {
       "id": "task:26f80358",
       "timestamp": "2026-05-02T07:36:10.212Z",
@@ -982,48 +1003,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:8dc55548"
-      }
-    },
-    {
-      "id": "task:643af02c",
-      "timestamp": "2026-05-02T05:13:42.642Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a Python guard that blocks deprecated Hive Mind task scopes.",
-      "summary": "Uploaded follow-up evidence for a Python guard that blocks deprecated Hive Mind task scopes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "27C2CFE702503794B4944C0158E1F82056AC389503C0B7DA913330420F56F2B0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/27C2CFE702503794B4944C0158E1F82056AC389503C0B7DA913330420F56F2B0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "F11EE2DF92FB228A25D307E79144A780BCD5FB6DA172CD1EFE5246202FE7F057",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F11EE2DF92FB228A25D307E79144A780BCD5FB6DA172CD1EFE5246202FE7F057/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6CA23615A590D8FB60A6A10B06DB6C8027C46F632586A69FD35A75E9CB30088F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6CA23615A590D8FB60A6A10B06DB6C8027C46F632586A69FD35A75E9CB30088F/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:643af02c"
       }
     }
   ]
