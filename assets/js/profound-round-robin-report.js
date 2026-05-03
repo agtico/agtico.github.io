@@ -274,7 +274,7 @@
       renderMethodology(payload);
 
     renderScatter('prr-score-cost-scatter', benchmark.leaderboard || [], benchmark.efficient_frontier || []);
-    renderLineChart('prr-search-share-chart', searchShareSeries(payload.search_share || {}));
+    renderSearchTrendChart('prr-search-share-chart', payload.search_share || {});
     renderLabScatter('prr-lab-valuation-scatter', benchmark.lab_score_valuation || []);
     renderRankBars('prr-rank-bars', (benchmark.leaderboard || []).slice(0, 15));
     renderLineChart('prr-sbg-nikkei-chart', (((payload.market || {}).price_series || {}).softbank_vs_nikkei || []));
@@ -383,31 +383,33 @@
     if (!trend.available) return '';
     var summary = trend.summary || {};
     var latest = summary.latest_complete || {};
-    var trough = summary.min_complete_ratio || {};
+    var latestMa = summary.latest_7d_ma || latest;
+    var trough = summary.min_7d_ratio || summary.min_complete_ratio || {};
+    var latestRatio = summary.latest_7d_ratio || latestMa.chatgpt_to_claude_ratio_7d_ma || summary.latest_daily_ratio;
     return (
       '<section class="prr-section prr-search-share">' +
         '<div class="prr-section-head">' +
           '<div>' +
-            '<span class="prr-label">San Francisco Search Tape</span>' +
+            '<span class="prr-label">San Francisco Topic Tape</span>' +
             '<h2>OpenAI Retakes Local Search Mindshare</h2>' +
           '</div>' +
           '<a class="prr-source-pill" href="' + escapeHtml(trend.source_url || '#') + '" rel="noopener noreferrer" target="_blank">Google Trends</a>' +
         '</div>' +
         '<div class="prr-grid-2">' +
           '<div class="prr-chart">' +
-            '<div class="prr-chart-head"><p class="prr-chart-title">90-Day ChatGPT / Claude Ratio</p><span class="prr-chart-sub">daily observations, geo 807</span></div>' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">Topic Interest 7D MA + Ratio</p><span class="prr-chart-sub">raw export, geo 807</span></div>' +
             '<svg id="prr-search-share-chart" class="prr-svg" role="img" aria-label="ChatGPT to Claude Google Trends ratio"></svg>' +
           '</div>' +
           '<div class="prr-search-summary">' +
-            '<div class="prr-search-big">' + formatNum(summary.latest_daily_ratio, 2) + 'x</div>' +
-            '<p>Latest complete daily ChatGPT/Claude ratio on the 90-day Google Trends chart in the ' + escapeHtml(trend.geo_label || 'selected region') + '.</p>' +
+            '<div class="prr-search-big">' + formatNum(latestRatio, 2) + 'x</div>' +
+            '<p>Latest complete 7-day moving-average ChatGPT/Claude topic ratio on the 90-day Google Trends chart in the ' + escapeHtml(trend.geo_label || 'selected region') + '.</p>' +
             '<div class="prr-search-metrics">' +
-              metric('Latest Complete', formatNum(latest.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml((latest.date || '') + ' daily ratio')) +
-              metric('90D Trough', formatNum(trough.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml(trough.date || 'lowest complete day')) +
-              metric('90D Mean', formatNum(summary.mean_complete_ratio, 2) + 'x', escapeHtml(summary.complete_row_count + ' complete days')) +
-              metric('Raw Index', formatNum(latest.chatgpt_interest, 0) + ' / ' + formatNum(latest.claude_interest, 0), 'ChatGPT / Claude') +
+              metric('ChatGPT 7D MA', formatNum(latestMa.chatgpt_interest_7d_ma, 1), escapeHtml(latestMa.date || 'latest complete day')) +
+              metric('Claude 7D MA', formatNum(latestMa.claude_interest_7d_ma, 1), escapeHtml(latestMa.date || 'latest complete day')) +
+              metric('7D Ratio Trough', formatNum(trough.chatgpt_to_claude_ratio_7d_ma || trough.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml(trough.date || 'lowest complete day')) +
+              metric('Raw Latest', formatNum(latest.chatgpt_interest, 0) + ' / ' + formatNum(latest.claude_interest, 0), escapeHtml((latest.date || '') + ' ChatGPT / Claude')) +
             '</div>' +
-            '<p class="prr-sotp-caption">' + escapeHtml((trend.interpretation || [])[2] || trend.note || '') + '</p>' +
+            '<p class="prr-sotp-caption">' + escapeHtml((trend.interpretation || [])[1] || trend.note || '') + '</p>' +
           '</div>' +
         '</div>' +
       '</section>'
@@ -1015,6 +1017,64 @@
       });
       point.addEventListener('mouseleave', hideTooltip);
     });
+  }
+
+  function renderSearchTrendChart(id, trend) {
+    var svg = document.getElementById(id);
+    var rows = (trend.rows || []).filter(function (row) {
+      return !row.is_partial && row.chatgpt_interest_7d_ma != null && row.claude_interest_7d_ma != null;
+    });
+    if (!svg || !rows.length) return;
+    var width = svg.clientWidth || 640;
+    var height = svg.clientHeight || 320;
+    var pad = { left: 44, right: 58, top: 18, bottom: 36 };
+    var times = rows.map(function (row) { return new Date(row.date).getTime(); });
+    var ratios = rows.map(function (row) { return Number(row.chatgpt_to_claude_ratio_7d_ma || 0); }).filter(function (value) { return value > 0; });
+    var minT = Math.min.apply(null, times);
+    var maxT = Math.max.apply(null, times);
+    var minRatio = Math.floor((Math.min.apply(null, ratios) - 0.05) * 10) / 10;
+    var maxRatio = Math.ceil((Math.max.apply(null, ratios) + 0.05) * 10) / 10;
+    var xScale = function (time) {
+      return pad.left + ((time - minT) / Math.max(maxT - minT, 1)) * (width - pad.left - pad.right);
+    };
+    var leftScale = function (value) {
+      return height - pad.bottom - ((value - 0) / 100) * (height - pad.top - pad.bottom);
+    };
+    var rightScale = function (value) {
+      return height - pad.bottom - ((value - minRatio) / Math.max(maxRatio - minRatio, 0.00001)) * (height - pad.top - pad.bottom);
+    };
+    var html = [
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + (height - pad.bottom) + '" x2="' + (width - pad.right) + '" y2="' + (height - pad.bottom) + '"></line>',
+      '<line class="prr-axis" x1="' + pad.left + '" y1="' + pad.top + '" x2="' + pad.left + '" y2="' + (height - pad.bottom) + '"></line>',
+      '<line class="prr-axis prr-axis-right" x1="' + (width - pad.right) + '" y1="' + pad.top + '" x2="' + (width - pad.right) + '" y2="' + (height - pad.bottom) + '"></line>',
+    ];
+    [0, 25, 50, 75, 100].forEach(function (tick) {
+      var y = leftScale(tick);
+      html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
+      html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
+    });
+    [minRatio, (minRatio + maxRatio) / 2, maxRatio].forEach(function (tick) {
+      var y = rightScale(tick);
+      html.push('<text x="' + (width - pad.right + 8) + '" y="' + (y + 4) + '" style="fill:#f8d56b">' + formatNum(tick, 1) + 'x</text>');
+    });
+    var series = [
+      { label: 'ChatGPT 7D MA', color: '#7ff0d8', scale: leftScale, value: 'chatgpt_interest_7d_ma' },
+      { label: 'Claude 7D MA', color: '#ff5a42', scale: leftScale, value: 'claude_interest_7d_ma' },
+      { label: 'Ratio, right axis', color: '#f8d56b', scale: rightScale, value: 'chatgpt_to_claude_ratio_7d_ma', dash: true },
+    ];
+    series.forEach(function (entry, index) {
+      var path = rows.map(function (row, pointIndex) {
+        var x = xScale(new Date(row.date).getTime()).toFixed(2);
+        var y = entry.scale(Number(row[entry.value] || 0)).toFixed(2);
+        return (pointIndex === 0 ? 'M' : 'L') + x + ',' + y;
+      }).join(' ');
+      html.push('<path class="prr-line-series" d="' + path + '" stroke="' + entry.color + '"' + (entry.dash ? ' stroke-dasharray="6 5"' : '') + '></path>');
+      html.push('<text x="' + (pad.left + 8) + '" y="' + (pad.top + 14 + index * 15) + '" style="fill:' + entry.color + '">' + escapeHtml(entry.label) + '</text>');
+    });
+    html.push('<text x="' + pad.left + '" y="' + (height - 8) + '">topic interest, 7d moving average</text>');
+    html.push('<text x="' + (width - pad.right - 102) + '" y="14" style="fill:#f8d56b">ratio axis</text>');
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    svg.innerHTML = html.join('');
   }
 
   function renderLineChart(id, seriesRows) {
