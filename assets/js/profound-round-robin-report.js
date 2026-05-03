@@ -322,12 +322,24 @@
         '</div>'
       );
     }
+    var publication = cache.publication || {};
+    var method = cache.methodology || {};
+    var txHash = publication.pftl_tx_hash || '';
+    var txLabel = txHash ? txHash.slice(0, 10) + '...' + txHash.slice(-8) : 'not published';
     return (
       '<div class="prr-cache-strip">' +
         '<div>' +
           '<span class="prr-label">agti_0 Cache</span>' +
           '<strong>' + escapeHtml(cache.snapshot_id || '') + '</strong>' +
           '<span>' + escapeHtml((cache.content_hash || '').slice(0, 16)) + ' content hash prefix</span>' +
+          '<div class="prr-cache-proof">' +
+            '<span class="prr-label">PFTL Publication</span>' +
+            (publication.pftl_explorer_url ?
+              '<a href="' + escapeHtml(publication.pftl_explorer_url) + '" rel="noopener noreferrer" target="_blank">' + escapeHtml(txLabel) + '</a>' :
+              '<strong>' + escapeHtml(txLabel) + '</strong>') +
+            '<span>' + escapeHtml(publication.content_cid ? 'IPFS CID ' + publication.content_cid : 'No CID recorded') + '</span>' +
+            '<span>' + escapeHtml(publication.encrypted_payload_hash ? publication.encrypted_payload_hash.slice(0, 16) + ' encrypted payload hash prefix' : '') + '</span>' +
+          '</div>' +
         '</div>' +
         '<div class="prr-position-strip">' +
           positions.map(function (row) {
@@ -339,6 +351,13 @@
               '</article>'
             );
           }).join('') +
+        '</div>' +
+        '<div class="prr-cache-methodology">' +
+          '<span class="prr-label">Indexing Methodology</span>' +
+          '<strong>' + escapeHtml((method.methodology_id || 'agti.methodology.tracker.v1') + ' / ' + (method.methodology_version || '1.0.0')) + '</strong>' +
+          '<ul class="prr-list">' +
+            (cache.methodology_summary || []).map(function (item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') +
+          '</ul>' +
         '</div>' +
       '</div>'
     );

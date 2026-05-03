@@ -272,6 +272,31 @@
   font-size: 13px;
 }
 
+.prr-cache-proof {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(127,240,216,.18);
+}
+
+.prr-cache-proof a {
+  color: #7ff0d8;
+  font: 900 12px/1.35 var(--mono);
+  overflow-wrap: anywhere;
+}
+
+.prr-cache-methodology {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.025);
+  padding: 14px;
+}
+
+.prr-cache-methodology strong {
+  margin-bottom: 12px;
+}
+
 .prr-position-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
