@@ -14,7 +14,7 @@ gated_content_url: /gated-content/reports/profound-round-robin-ai-sotp-2026-05-0
 gated_access_manifest_url: /gated-content/reports/profound-round-robin-ai-sotp-2026-05-02.access-manifest.v0.json
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/profound-round-robin-report.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/profound-round-robin-report.css' | relative_url }}?v=20260503-mobile" />
 
 <div class="prr-report-shell">
   <div class="prr-lock-panel" id="prr-lock-panel">
