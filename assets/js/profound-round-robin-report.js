@@ -305,7 +305,7 @@
     if (!trend.available) return '';
     var summary = trend.summary || {};
     var latest = summary.latest_complete || {};
-    var trough = summary.trough_7d_ratio || summary.min_complete_ratio || {};
+    var trough = summary.min_complete_ratio || {};
     return (
       '<section class="prr-section prr-search-share">' +
         '<div class="prr-section-head">' +
@@ -317,16 +317,16 @@
         '</div>' +
         '<div class="prr-grid-2">' +
           '<div class="prr-chart">' +
-            '<div class="prr-chart-head"><p class="prr-chart-title">ChatGPT / Claude Search Ratio</p><span class="prr-chart-sub">geo 807, 3 months</span></div>' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">90-Day ChatGPT / Claude Ratio</p><span class="prr-chart-sub">daily observations, geo 807</span></div>' +
             '<svg id="prr-search-share-chart" class="prr-svg" role="img" aria-label="ChatGPT to Claude Google Trends ratio"></svg>' +
           '</div>' +
           '<div class="prr-search-summary">' +
-            '<div class="prr-search-big">' + formatNum(summary.latest_7d_ratio, 2) + 'x</div>' +
-            '<p>Latest complete 7-day average ChatGPT/Claude ratio in the ' + escapeHtml(trend.geo_label || 'selected region') + '.</p>' +
+            '<div class="prr-search-big">' + formatNum(summary.latest_daily_ratio, 2) + 'x</div>' +
+            '<p>Latest complete daily ChatGPT/Claude ratio on the 90-day Google Trends chart in the ' + escapeHtml(trend.geo_label || 'selected region') + '.</p>' +
             '<div class="prr-search-metrics">' +
               metric('Latest Complete', formatNum(latest.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml((latest.date || '') + ' daily ratio')) +
-              metric('From Trough', formatPct(summary.latest_7d_ratio_change_from_trough_pct, 1), escapeHtml('vs ' + (trough.date || 'local trough'))) +
-              metric('Mean Ratio', formatNum(summary.mean_complete_ratio, 2) + 'x', escapeHtml(summary.complete_row_count + ' complete days')) +
+              metric('90D Trough', formatNum(trough.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml(trough.date || 'lowest complete day')) +
+              metric('90D Mean', formatNum(summary.mean_complete_ratio, 2) + 'x', escapeHtml(summary.complete_row_count + ' complete days')) +
               metric('Raw Index', formatNum(latest.chatgpt_interest, 0) + ' / ' + formatNum(latest.claude_interest, 0), 'ChatGPT / Claude') +
             '</div>' +
             '<p class="prr-sotp-caption">' + escapeHtml((trend.interpretation || [])[2] || trend.note || '') + '</p>' +
@@ -343,20 +343,11 @@
     return [
       {
         symbol: 'CHATGPT_CLAUDE_RATIO',
-        label: 'Daily ratio',
+        label: '90d daily ratio',
         points: rows.map(function (row) {
           return { date: row.date, value: Number(row.chatgpt_to_claude_ratio || 0) };
         }),
-      },
-      {
-        symbol: 'CHATGPT_CLAUDE_RATIO_7D',
-        label: '7d avg',
-        points: rows.filter(function (row) {
-          return row.chatgpt_to_claude_ratio_7d_ma != null;
-        }).map(function (row) {
-          return { date: row.date, value: Number(row.chatgpt_to_claude_ratio_7d_ma || 0) };
-        }),
-      },
+      }
     ];
   }
 
@@ -852,7 +843,7 @@
     [minY, (minY + maxY) / 2, maxY].forEach(function (tick) {
       var y = yScale(tick);
       html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
-      html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
+      html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, id === 'prr-search-share-chart' ? 1 : 0) + '</text>');
     });
     var frontierPoints = (frontier || []).map(function (row) {
       return xScale(Math.log10(Number(row.avg_generation_cost_usd || 0) + 0.00001)).toFixed(2) + ',' + yScale(Number(row.avg_score_mean || 0)).toFixed(2);
