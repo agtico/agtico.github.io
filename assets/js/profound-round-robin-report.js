@@ -258,6 +258,7 @@
           metric('Wall Time', formatNum(totalWall, 1) + ' min', 'sum of completed game wall clocks') +
         '</div>' +
       '</section>' +
+      renderOpeningTradeUpdate(payload) +
       renderSearchShare(payload) +
       renderConclusions(payload) +
       renderWrittenAnalysis(payload) +
@@ -280,6 +281,83 @@
     renderLineChart('prr-arm-sp500-chart', (((payload.market || {}).price_series || {}).arm_vs_sp500 || []));
     mountModelTable(payload);
     mountStockTable(payload);
+  }
+
+  function renderOpeningTradeUpdate(payload) {
+    var update = payload.opening_trade_update || {};
+    if (!update.headline) return '';
+    var trade = update.trade || {};
+    var cache = update.index_cache || {};
+    var positions = cache.positions || [];
+    return (
+      '<section class="prr-section prr-trade-update">' +
+        '<div class="prr-section-head">' +
+          '<div>' +
+            '<span class="prr-label">Index Update</span>' +
+            '<h2>' + escapeHtml(update.headline) + '</h2>' +
+          '</div>' +
+          '<div class="prr-trade-badge">' + escapeHtml(trade.data_provider ? 'Data: ' + trade.data_provider : 'Bloomberg') + '</div>' +
+        '</div>' +
+        '<div class="prr-trade-brief">' +
+          '<strong>' + escapeHtml(trade.position || '') + '</strong>' +
+          '<span>' + escapeHtml(trade.implementation || '') + '</span>' +
+        '</div>' +
+        '<div class="prr-analysis-stack">' +
+          (update.paragraphs || []).map(function (text) {
+            return '<article class="prr-analysis-block prr-thesis-text"><p>' + escapeHtml(text) + '</p></article>';
+          }).join('') +
+        '</div>' +
+        renderIndexCache(cache, positions) +
+        renderSupportImages(update.support_images || []) +
+      '</section>'
+    );
+  }
+
+  function renderIndexCache(cache, positions) {
+    if (!cache.available) {
+      return (
+        '<div class="prr-cache-strip missing">' +
+          '<span class="prr-label">agti_0 Cache</span>' +
+          '<p>' + escapeHtml(cache.error || 'Index cache unavailable in this build.') + '</p>' +
+        '</div>'
+      );
+    }
+    return (
+      '<div class="prr-cache-strip">' +
+        '<div>' +
+          '<span class="prr-label">agti_0 Cache</span>' +
+          '<strong>' + escapeHtml(cache.snapshot_id || '') + '</strong>' +
+          '<span>' + escapeHtml((cache.content_hash || '').slice(0, 16)) + ' content hash prefix</span>' +
+        '</div>' +
+        '<div class="prr-position-strip">' +
+          positions.map(function (row) {
+            return (
+              '<article>' +
+                '<span class="prr-label">' + escapeHtml(row.side || '') + '</span>' +
+                '<strong>' + escapeHtml(row.bloomberg_symbol || '') + '</strong>' +
+                '<span>' + escapeHtml((row.weight_percent || '') + '% / ' + (row.base_currency_value || '') + ' USD target') + '</span>' +
+              '</article>'
+            );
+          }).join('') +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderSupportImages(images) {
+    if (!images.length) return '';
+    return (
+      '<div class="prr-proof-grid">' +
+        images.map(function (image) {
+          return (
+            '<figure>' +
+              '<img src="' + escapeHtml(image.url || '') + '" alt="' + escapeHtml(image.label || 'supporting screenshot') + '" loading="lazy">' +
+              '<figcaption><span class="prr-label">' + escapeHtml(image.label || '') + '</span>' + escapeHtml(image.caption || '') + '</figcaption>' +
+            '</figure>'
+          );
+        }).join('') +
+      '</div>'
+    );
   }
 
   function renderConclusions(payload) {
