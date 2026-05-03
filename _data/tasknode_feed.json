@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-03T16:05:34.171Z",
+  "generated_at": "2026-05-03T17:12:22.927Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,446 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:ac21dceb",
+      "timestamp": "2026-05-03T16:57:15.647Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "ai",
+      "title": "Planning regression tests for a local RAG demo to add repeatable quality checks.",
+      "summary": "Planning regression tests for a local RAG demo to add repeatable quality checks.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ac21dceb"
+      }
+    },
+    {
+      "id": "task:03ead30c",
+      "timestamp": "2026-05-03T16:46:16.062Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a diagnostic harness for HyperLiquid digital options pricing and market discrepancy...",
+      "summary": "Planning a diagnostic harness for HyperLiquid digital options pricing and market discrepancy checks.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:03ead30c"
+      }
+    },
+    {
+      "id": "task:bd2b38b1",
+      "timestamp": "2026-05-03T16:17:19.211Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:fce8523b",
+      "category": "trading",
+      "title": "Delivered a 13F signal reverse-engineering report and earned a reward.",
+      "summary": "Delivered a 13F signal reverse-engineering report and earned a reward.",
+      "tickers": [
+        "INTC",
+        "BE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$INTC",
+        "$BE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:bd2b38b1"
+      }
+    },
+    {
+      "id": "task:a966e6f7",
+      "timestamp": "2026-05-03T16:17:16.185Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:fce8523b",
+      "category": "trading",
+      "title": "Recorded a verification response for a 13F signal-reverse-engineering report.",
+      "summary": "Recorded a verification response for a 13F signal-reverse-engineering report.",
+      "tickers": [
+        "INTC",
+        "BE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$INTC",
+        "$BE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a966e6f7"
+      }
+    },
+    {
+      "id": "task:b1d9998e",
+      "timestamp": "2026-05-03T16:16:46.242Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:fce8523b",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a 13F signal-reverse-engineering report.",
+      "summary": "Uploaded follow-up evidence for a 13F signal-reverse-engineering report.",
+      "tickers": [
+        "INTC",
+        "BE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$INTC",
+        "$BE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B5E38BAAFF48AA177DAF1B17AA436B959EA1AA72D95293ED6497E792908E56C8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/29A483572A37D8D69E4927E7133D6FCB2473F43543D0BAE90CEAC2A08CD696C7/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b1d9998e"
+      }
+    },
+    {
+      "id": "task:9d63d8a5",
+      "timestamp": "2026-05-03T16:15:18.862Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Delivered a Hyperliquid exotic options pricing update and earned a reward.",
+      "summary": "Delivered a Hyperliquid exotic options pricing update and earned a reward.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9d63d8a5"
+      }
+    },
+    {
+      "id": "task:baf44b13",
+      "timestamp": "2026-05-03T16:14:47.518Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a Hyperliquid exotic options pricing update.",
+      "summary": "Uploaded follow-up evidence for a Hyperliquid exotic options pricing update.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:baf44b13"
+      }
+    },
+    {
+      "id": "task:01f7d370",
+      "timestamp": "2026-05-03T16:14:45.915Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a Hyperliquid exotic options pricing update.",
+      "summary": "Uploaded follow-up evidence for a Hyperliquid exotic options pricing update.",
+      "tickers": [
+        "HYPE",
+        "DERIBIT"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE",
+        "$DERIBIT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:01f7d370"
+      }
+    },
+    {
+      "id": "task:42c0cc2e",
+      "timestamp": "2026-05-03T16:13:17.199Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Requested verification for a Hyperliquid exotic options pricing update.",
+      "summary": "Requested verification for a Hyperliquid exotic options pricing update.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:42c0cc2e"
+      }
+    },
+    {
+      "id": "task:6cccc5f9",
+      "timestamp": "2026-05-03T16:12:47.726Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Submitted evidence for a Hyperliquid exotic options pricing update.",
+      "summary": "Submitted evidence for a Hyperliquid exotic options pricing update.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6cccc5f9"
+      }
+    },
+    {
+      "id": "task:f4495a7e",
+      "timestamp": "2026-05-03T16:12:45.978Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Recorded proof of a Hyperliquid exotic options pricing update on PFTL.",
+      "summary": "Recorded proof of a Hyperliquid exotic options pricing update on PFTL.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f4495a7e"
+      }
+    },
     {
       "id": "task:74cb700e",
       "timestamp": "2026-05-03T15:32:16.200Z",
@@ -313,8 +753,8 @@
     {
       "id": "task:6bfc0745",
       "timestamp": "2026-05-03T14:11:45.989Z",
-      "type": "task_published",
-      "status": "in_progress",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:13944212",
       "category": "trading",
       "title": "Planning a pricing-tool update for Hyperliquid exotic options with Deribit vanilla benchmarks...",
@@ -328,7 +768,26 @@
         "personal",
         "$HYPE"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2B75AB01DC411CA9718F7CD0D7B3D8D2FEAA5BBA0FE6189DA528955CF91B9F4F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45203062C78A21EA679734B8C59DC0A2CF119378FE7BC96D3BA99C8BDFA122BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ED3D09940215A847FB4BE499DF99DB27A925C9D319A0B9C70C81C46417FA04C3/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:6bfc0745"
@@ -516,436 +975,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:e62f8a4b"
-      }
-    },
-    {
-      "id": "task:ef095f5e",
-      "timestamp": "2026-05-03T11:51:45.698Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Requested verification for a versioned BioMaps Custom GPT context bridge and duplicate-risk h...",
-      "summary": "Requested verification for a versioned BioMaps Custom GPT context bridge and duplicate-risk handling rules.",
-      "tickers": [],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D0F0AE64B6A4E517FD4971D2357628AE1FB8E4871113B34813BBFBB93D3F430F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D0F0AE64B6A4E517FD4971D2357628AE1FB8E4871113B34813BBFBB93D3F430F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "EB67FF008FA3A6C3684A48AA48F3204748B79EBB542556C63563A5EB3FAE5B98",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EB67FF008FA3A6C3684A48AA48F3204748B79EBB542556C63563A5EB3FAE5B98/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "778919865978596A8023A394D07140A93B81B6B08C13BF9DCF67C05AC08B8E6F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/778919865978596A8023A394D07140A93B81B6B08C13BF9DCF67C05AC08B8E6F/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ef095f5e"
-      }
-    },
-    {
-      "id": "task:4d87726f",
-      "timestamp": "2026-05-03T11:51:15.600Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Submitted evidence for a versioned Custom GPT context bridge for BioMaps.",
-      "summary": "Submitted evidence for a versioned Custom GPT context bridge for BioMaps.",
-      "tickers": [],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D0F0AE64B6A4E517FD4971D2357628AE1FB8E4871113B34813BBFBB93D3F430F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D0F0AE64B6A4E517FD4971D2357628AE1FB8E4871113B34813BBFBB93D3F430F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "EB67FF008FA3A6C3684A48AA48F3204748B79EBB542556C63563A5EB3FAE5B98",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EB67FF008FA3A6C3684A48AA48F3204748B79EBB542556C63563A5EB3FAE5B98/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "778919865978596A8023A394D07140A93B81B6B08C13BF9DCF67C05AC08B8E6F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/778919865978596A8023A394D07140A93B81B6B08C13BF9DCF67C05AC08B8E6F/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:4d87726f"
-      }
-    },
-    {
-      "id": "task:b6e47581",
-      "timestamp": "2026-05-03T09:43:14.663Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered an agent replay coverage gate and earned a reward.",
-      "summary": "Delivered an agent replay coverage gate and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b6e47581"
-      }
-    },
-    {
-      "id": "task:f0239be0",
-      "timestamp": "2026-05-03T09:42:46.848Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for an agent replay coverage gate that checks structured out...",
-      "summary": "Recorded a verification response for an agent replay coverage gate that checks structured outputs, tool calls, refusals, and triage cases on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f0239be0"
-      }
-    },
-    {
-      "id": "task:8d3e548e",
-      "timestamp": "2026-05-03T09:42:17.424Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for an agent replay coverage gate auditing structured outputs, to...",
-      "summary": "Uploaded follow-up evidence for an agent replay coverage gate auditing structured outputs, tool calls, refusals, and triage classes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:8d3e548e"
-      }
-    },
-    {
-      "id": "task:46eec6db",
-      "timestamp": "2026-05-03T09:30:45.022Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for an agent replay coverage gate that audits structured outputs, tool...",
-      "summary": "Requested verification for an agent replay coverage gate that audits structured outputs, tool calls, refusals, and triage classes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:46eec6db"
-      }
-    },
-    {
-      "id": "task:c337780e",
-      "timestamp": "2026-05-03T09:30:16.578Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for an agent replay coverage gate that audits structured outputs, tool cal...",
-      "summary": "Submitted evidence for an agent replay coverage gate that audits structured outputs, tool calls, refusals, and triage classes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c337780e"
-      }
-    },
-    {
-      "id": "task:9d3bede1",
-      "timestamp": "2026-05-03T09:30:14.952Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of an agent replay coverage gate on PFTL, covering structured outputs, tool ca...",
-      "summary": "Recorded proof of an agent replay coverage gate on PFTL, covering structured outputs, tool calls, refusals, and triage classes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9d3bede1"
-      }
-    },
-    {
-      "id": "task:294e98ee",
-      "timestamp": "2026-05-03T09:07:17.277Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a Python utility to audit agent replay coverage for structured outputs, tool calls,...",
-      "summary": "Planning a Python utility to audit agent replay coverage for structured outputs, tool calls, refusals, and issue triage.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1F5972DDA33EEAB2C5F6C7F0633799B16696AA0BA7A612BF96B5E68AB069AD52/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6939263B29B238992829C9B53424C4B6C22E3179D9BE00FB67881A8B3000CDC0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775",
-          "url": "https://explorer.testnet.postfiat.org/transactions/427B146EBEB4E18EDCC155D51F587B1070C0DE3B30A55F6A8C5A6436586E7775/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:294e98ee"
-      }
-    },
-    {
-      "id": "task:8639a65f",
-      "timestamp": "2026-05-03T03:00:44.374Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:fce8523b",
-      "category": "trading",
-      "title": "Requested verification for a report on 13F signal reverse-engineering and a repeatable interp...",
-      "summary": "Requested verification for a report on 13F signal reverse-engineering and a repeatable interpretation playbook.",
-      "tickers": [],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147",
-          "url": "https://explorer.testnet.postfiat.org/transactions/56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:8639a65f"
-      }
-    },
-    {
-      "id": "task:d1986dab",
-      "timestamp": "2026-05-03T03:00:16.039Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:fce8523b",
-      "category": "trading",
-      "title": "Recorded proof of a situational-awareness 13F analysis report on PFTL.",
-      "summary": "Recorded proof of a situational-awareness 13F analysis report on PFTL.",
-      "tickers": [],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147",
-          "url": "https://explorer.testnet.postfiat.org/transactions/56E8175EB486F8D51D86F569258557857C74FE80B2A639836A2C3DAF6041A147/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d1986dab"
       }
     }
   ]
