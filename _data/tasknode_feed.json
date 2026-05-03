@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-02T23:06:20.207Z",
+  "generated_at": "2026-05-03T00:04:19.750Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,32 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:65d765c5",
+      "timestamp": "2026-05-02T23:28:43.238Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:fce8523b",
+      "category": "trading",
+      "title": "Planning an SPX factor attribution backtest with rolling 60-day OLS and macro proxies to test...",
+      "summary": "Planning an SPX factor attribution backtest with rolling 60-day OLS and macro proxies to test live regime signals.",
+      "tickers": [
+        "SPY",
+        "TLT"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$SPY",
+        "$TLT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:65d765c5"
+      }
+    },
     {
       "id": "task:656245b8",
       "timestamp": "2026-05-02T22:58:44.037Z",
@@ -855,48 +881,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:1c17b76a"
-      }
-    },
-    {
-      "id": "task:d642700d",
-      "timestamp": "2026-05-02T21:00:43.955Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Submitted a privacy-safe adoption metrics snapshot for Post Fiat network participation.",
-      "summary": "Submitted a privacy-safe adoption metrics snapshot for Post Fiat network participation.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "DD57408C2EF42886ABAE2410FC8FF19A064E02B7DA5055D638D12871F4EC88FB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DD57408C2EF42886ABAE2410FC8FF19A064E02B7DA5055D638D12871F4EC88FB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "41B64CF787E8300940070A93E3EA7CD7C7692A8080327B9DB7B997AAFBDE70A1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/41B64CF787E8300940070A93E3EA7CD7C7692A8080327B9DB7B997AAFBDE70A1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "18F5529ACEABB9D3D50197110D4B59EC893D0C97F62750F0B13796BAE49268CF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/18F5529ACEABB9D3D50197110D4B59EC893D0C97F62750F0B13796BAE49268CF/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d642700d"
       }
     }
   ]
