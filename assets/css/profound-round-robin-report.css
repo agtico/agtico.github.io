@@ -186,6 +186,29 @@
   letter-spacing: -.035em;
 }
 
+.prr-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.prr-section-head h2 {
+  margin-bottom: 0;
+}
+
+.prr-source-pill {
+  border: 1px solid rgba(127,240,216,.38);
+  color: #7ff0d8;
+  padding: 8px 10px;
+  background: rgba(127,240,216,.045);
+  font: 900 10px var(--mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
 .prr-callouts,
 .prr-grid-2 {
   display: grid;
@@ -237,6 +260,33 @@
   position: relative;
   min-height: 390px;
   padding: 18px;
+}
+
+.prr-search-summary {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+  padding: 18px;
+}
+
+.prr-search-big {
+  color: var(--text);
+  font: 400 clamp(44px, 6vw, 76px)/.96 var(--mono);
+  letter-spacing: -.045em;
+}
+
+.prr-search-summary p {
+  color: rgba(232,238,235,.76);
+}
+
+.prr-search-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.prr-search-metrics .prr-metric {
+  min-height: 98px;
 }
 
 .prr-chart-head {
@@ -522,8 +572,13 @@
   .prr-lock-grid,
   .prr-callouts,
   .prr-statements,
-  .prr-scoreboard {
+  .prr-scoreboard,
+  .prr-search-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .prr-section-head {
+    display: grid;
   }
 
   .prr-chart {

@@ -258,6 +258,7 @@
           metric('Wall Time', formatNum(totalWall, 1) + ' min', 'sum of completed game wall clocks') +
         '</div>' +
       '</section>' +
+      renderSearchShare(payload) +
       renderConclusions(payload) +
       renderWrittenAnalysis(payload) +
       renderLabValuation(payload) +
@@ -272,6 +273,7 @@
       renderMethodology(payload);
 
     renderScatter('prr-score-cost-scatter', benchmark.leaderboard || [], benchmark.efficient_frontier || []);
+    renderLineChart('prr-search-share-chart', searchShareSeries(payload.search_share || {}));
     renderLabScatter('prr-lab-valuation-scatter', benchmark.lab_score_valuation || []);
     renderRankBars('prr-rank-bars', (benchmark.leaderboard || []).slice(0, 15));
     renderLineChart('prr-sbg-nikkei-chart', (((payload.market || {}).price_series || {}).softbank_vs_nikkei || []));
@@ -296,6 +298,66 @@
         '</div>' +
       '</section>'
     );
+  }
+
+  function renderSearchShare(payload) {
+    var trend = payload.search_share || {};
+    if (!trend.available) return '';
+    var summary = trend.summary || {};
+    var latest = summary.latest_complete || {};
+    var trough = summary.trough_7d_ratio || summary.min_complete_ratio || {};
+    return (
+      '<section class="prr-section prr-search-share">' +
+        '<div class="prr-section-head">' +
+          '<div>' +
+            '<span class="prr-label">San Francisco Search Tape</span>' +
+            '<h2>OpenAI Retakes Local Search Mindshare</h2>' +
+          '</div>' +
+          '<a class="prr-source-pill" href="' + escapeHtml(trend.source_url || '#') + '" rel="noopener noreferrer" target="_blank">Google Trends</a>' +
+        '</div>' +
+        '<div class="prr-grid-2">' +
+          '<div class="prr-chart">' +
+            '<div class="prr-chart-head"><p class="prr-chart-title">ChatGPT / Claude Search Ratio</p><span class="prr-chart-sub">geo 807, 3 months</span></div>' +
+            '<svg id="prr-search-share-chart" class="prr-svg" role="img" aria-label="ChatGPT to Claude Google Trends ratio"></svg>' +
+          '</div>' +
+          '<div class="prr-search-summary">' +
+            '<div class="prr-search-big">' + formatNum(summary.latest_7d_ratio, 2) + 'x</div>' +
+            '<p>Latest complete 7-day average ChatGPT/Claude ratio in the ' + escapeHtml(trend.geo_label || 'selected region') + '.</p>' +
+            '<div class="prr-search-metrics">' +
+              metric('Latest Complete', formatNum(latest.chatgpt_to_claude_ratio, 2) + 'x', escapeHtml((latest.date || '') + ' daily ratio')) +
+              metric('From Trough', formatPct(summary.latest_7d_ratio_change_from_trough_pct, 1), escapeHtml('vs ' + (trough.date || 'local trough'))) +
+              metric('Mean Ratio', formatNum(summary.mean_complete_ratio, 2) + 'x', escapeHtml(summary.complete_row_count + ' complete days')) +
+              metric('Raw Index', formatNum(latest.chatgpt_interest, 0) + ' / ' + formatNum(latest.claude_interest, 0), 'ChatGPT / Claude') +
+            '</div>' +
+            '<p class="prr-sotp-caption">' + escapeHtml((trend.interpretation || [])[2] || trend.note || '') + '</p>' +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function searchShareSeries(trend) {
+    var rows = (trend.rows || []).filter(function (row) {
+      return row.chatgpt_to_claude_ratio != null;
+    });
+    return [
+      {
+        symbol: 'CHATGPT_CLAUDE_RATIO',
+        label: 'Daily ratio',
+        points: rows.map(function (row) {
+          return { date: row.date, value: Number(row.chatgpt_to_claude_ratio || 0) };
+        }),
+      },
+      {
+        symbol: 'CHATGPT_CLAUDE_RATIO_7D',
+        label: '7d avg',
+        points: rows.filter(function (row) {
+          return row.chatgpt_to_claude_ratio_7d_ma != null;
+        }).map(function (row) {
+          return { date: row.date, value: Number(row.chatgpt_to_claude_ratio_7d_ma || 0) };
+        }),
+      },
+    ];
   }
 
   function renderWrittenAnalysis(payload) {
@@ -914,7 +976,10 @@
       '<line class="prr-axis" x1="' + pad.left + '" y1="' + (height - pad.bottom) + '" x2="' + (width - pad.right) + '" y2="' + (height - pad.bottom) + '"></line>',
       '<line class="prr-axis" x1="' + pad.left + '" y1="' + pad.top + '" x2="' + pad.left + '" y2="' + (height - pad.bottom) + '"></line>',
     ];
-    [minY, 100, maxY].forEach(function (tick) {
+    var ticks = [minY];
+    if (minY < 100 && maxY > 100) ticks.push(100);
+    ticks.push(maxY);
+    ticks.forEach(function (tick) {
       var y = yScale(tick);
       html.push('<line class="prr-gridline" x1="' + pad.left + '" y1="' + y + '" x2="' + (width - pad.right) + '" y2="' + y + '"></line>');
       html.push('<text x="8" y="' + (y + 4) + '">' + formatNum(tick, 0) + '</text>');
@@ -928,7 +993,7 @@
       html.push('<path class="prr-line-series" d="' + path + '" stroke="' + colors[index % colors.length] + '"></path>');
       html.push('<text x="' + (pad.left + 8) + '" y="' + (pad.top + 14 + index * 15) + '" fill="' + colors[index % colors.length] + '">' + escapeHtml(series.label || series.symbol) + '</text>');
     });
-    html.push('<text x="' + pad.left + '" y="' + (height - 8) + '">indexed to 100 one year ago</text>');
+    html.push('<text x="' + pad.left + '" y="' + (height - 8) + '">' + (id === 'prr-search-share-chart' ? 'ratio, ChatGPT / Claude' : 'indexed to 100 one year ago') + '</text>');
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
     svg.innerHTML = html.join('');
   }
