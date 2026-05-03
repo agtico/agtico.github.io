@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-03T20:29:56.786Z",
+  "generated_at": "2026-05-03T21:10:28.410Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:5bc2ad99",
+      "timestamp": "2026-05-03T20:34:18.132Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:f80ea623",
+      "category": "network",
+      "title": "Planning a public methodology card for the validator scoring system.",
+      "summary": "Planning a public methodology card for the validator scoring system.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5bc2ad99"
+      }
+    },
     {
       "id": "task:ea78927d",
       "timestamp": "2026-05-03T20:11:17.823Z",
@@ -951,49 +974,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:71074a83"
-      }
-    },
-    {
-      "id": "task:9aa4655d",
-      "timestamp": "2026-05-03T17:46:46.387Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "infra",
-      "title": "Uploaded follow-up evidence for a delivery outbox patch with retry and duplicate-send protect...",
-      "summary": "Uploaded follow-up evidence for a delivery outbox patch with retry and duplicate-send protection.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5FF3E9B8672EDA9A835E36F9FFE55BAEBB540875618656B821F2E6690269A731",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5FF3E9B8672EDA9A835E36F9FFE55BAEBB540875618656B821F2E6690269A731/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5A94590606D57506F3D8D5114C36B2F0111AF35B59C9E7BBC591F3C24524C808",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5A94590606D57506F3D8D5114C36B2F0111AF35B59C9E7BBC591F3C24524C808/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "A31FE5C75AECE30D3D17784D444B93CAF5A2AECC5A0F8FB4C81C885480593E92",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A31FE5C75AECE30D3D17784D444B93CAF5A2AECC5A0F8FB4C81C885480593E92/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9aa4655d"
       }
     }
   ]
