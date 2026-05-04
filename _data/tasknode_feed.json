@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-03T23:08:04.856Z",
+  "generated_at": "2026-05-04T00:07:42.048Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,305 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:a0dd54d4",
+      "timestamp": "2026-05-03T23:48:47.235Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:f80ea623",
+      "category": "insurance",
+      "title": "Planning an amendment to clarify naming of specialty insurance platforms in the alpha thesis.",
+      "summary": "Planning an amendment to clarify naming of specialty insurance platforms in the alpha thesis.",
+      "tickers": [
+        "HIG"
+      ],
+      "tags": [
+        "insurance",
+        "task-node",
+        "alpha",
+        "$HIG"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a0dd54d4"
+      }
+    },
+    {
+      "id": "task:0573a458",
+      "timestamp": "2026-05-03T23:35:18.104Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Planning a preflight harness to flag draft tasks that may stall before issuance.",
+      "summary": "Planning a preflight harness to flag draft tasks that may stall before issuance.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:0573a458"
+      }
+    },
+    {
+      "id": "task:a6edecf4",
+      "timestamp": "2026-05-03T23:28:17.492Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Delivered a Task Node scope-collision guard and earned a reward.",
+      "summary": "Delivered a Task Node scope-collision guard and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a6edecf4"
+      }
+    },
+    {
+      "id": "task:f7978667",
+      "timestamp": "2026-05-03T23:27:47.286Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Recorded a verification response for a Task Node scope-collision guard on PFTL.",
+      "summary": "Recorded a verification response for a Task Node scope-collision guard on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f7978667"
+      }
+    },
+    {
+      "id": "task:e3462340",
+      "timestamp": "2026-05-03T23:26:47.287Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a Task Node scope-collision guard with clearer config validat...",
+      "summary": "Uploaded follow-up evidence for a Task Node scope-collision guard with clearer config validation and exit handling.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e3462340"
+      }
+    },
+    {
+      "id": "task:ec7841c2",
+      "timestamp": "2026-05-03T23:22:19.479Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Recorded proof of a scope-collision guard for Task Node on PFTL.",
+      "summary": "Recorded proof of a scope-collision guard for Task Node on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ec7841c2"
+      }
+    },
+    {
+      "id": "task:56c5f491",
+      "timestamp": "2026-05-03T23:22:17.440Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Requested verification for a scope-collision guard that screens task rows before new network...",
+      "summary": "Requested verification for a scope-collision guard that screens task rows before new network tasks are issued.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:56c5f491"
+      }
+    },
+    {
+      "id": "task:d7219e32",
+      "timestamp": "2026-05-03T23:21:47.577Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Submitted evidence for a scope-collision guard that screens task rows before new network task...",
+      "summary": "Submitted evidence for a scope-collision guard that screens task rows before new network tasks are issued.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8EAE19A97392D70B819A207A67718E3BCB12917EFF0E3CAE8F4B50F61FC192E2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C8BF277DAA144A03CD952C998AF994D51EC09C348A59B478FAC73CACE36BC057/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78",
+          "url": "https://explorer.testnet.postfiat.org/transactions/ECADDFA734468B2FC6D46F6317742B2840147294B54469FE15362F20DABE3D78/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d7219e32"
+      }
+    },
     {
       "id": "task:42ff0252",
       "timestamp": "2026-05-03T21:43:16.915Z",
@@ -655,322 +954,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:0fef94a7"
-      }
-    },
-    {
-      "id": "task:04950f7f",
-      "timestamp": "2026-05-03T19:23:19.585Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "finance",
-      "title": "Requested verification for a report analyzing signaled tokens by market-cap cohort and outcom...",
-      "summary": "Requested verification for a report analyzing signaled tokens by market-cap cohort and outcome quality.",
-      "tickers": [],
-      "tags": [
-        "finance",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "783677886B85567B1909B3A003DE60D5E7646F8EC78679938891646C5E619F6D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/783677886B85567B1909B3A003DE60D5E7646F8EC78679938891646C5E619F6D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C803E846E8B8F822A184F638A57B3300F8293495B0ED01C6BA89B9F891A7089D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C803E846E8B8F822A184F638A57B3300F8293495B0ED01C6BA89B9F891A7089D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "5EB48D696526E2E46DE4510ED83E35054B0B837B308D1DC7C6F6A0534F0C5952",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5EB48D696526E2E46DE4510ED83E35054B0B837B308D1DC7C6F6A0534F0C5952/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:04950f7f"
-      }
-    },
-    {
-      "id": "task:11643390",
-      "timestamp": "2026-05-03T19:23:17.938Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "finance",
-      "title": "Recorded proof of a market-cap cohort analysis report on PFTL.",
-      "summary": "Recorded proof of a market-cap cohort analysis report on PFTL.",
-      "tickers": [],
-      "tags": [
-        "finance",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "783677886B85567B1909B3A003DE60D5E7646F8EC78679938891646C5E619F6D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/783677886B85567B1909B3A003DE60D5E7646F8EC78679938891646C5E619F6D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C803E846E8B8F822A184F638A57B3300F8293495B0ED01C6BA89B9F891A7089D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C803E846E8B8F822A184F638A57B3300F8293495B0ED01C6BA89B9F891A7089D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "5EB48D696526E2E46DE4510ED83E35054B0B837B308D1DC7C6F6A0534F0C5952",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5EB48D696526E2E46DE4510ED83E35054B0B837B308D1DC7C6F6A0534F0C5952/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:11643390"
-      }
-    },
-    {
-      "id": "task:a06438ac",
-      "timestamp": "2026-05-03T19:20:46.547Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Requested verification for a HyperLiquid digital pricer discrepancy harness.",
-      "summary": "Requested verification for a HyperLiquid digital pricer discrepancy harness.",
-      "tickers": [
-        "HYPE"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$HYPE"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495",
-          "url": "https://explorer.testnet.postfiat.org/transactions/372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:a06438ac"
-      }
-    },
-    {
-      "id": "task:e7c4bf76",
-      "timestamp": "2026-05-03T19:20:16.265Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Recorded proof of a Hyperliquid option pricer discrepancy harness on PFTL.",
-      "summary": "Recorded proof of a Hyperliquid option pricer discrepancy harness on PFTL.",
-      "tickers": [
-        "HYPE"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$HYPE"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495",
-          "url": "https://explorer.testnet.postfiat.org/transactions/372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e7c4bf76"
-      }
-    },
-    {
-      "id": "task:bdcc2471",
-      "timestamp": "2026-05-03T19:19:46.613Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Submitted evidence for a Hyperliquid option pricer discrepancy harness using market snapshots...",
-      "summary": "Submitted evidence for a Hyperliquid option pricer discrepancy harness using market snapshots and Deribit benchmarks.",
-      "tickers": [
-        "HYPE"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$HYPE"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FC373E8D4C08E558C1291FEBEC08C555365A94FCC19EFF3BD388667CDA966057/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495",
-          "url": "https://explorer.testnet.postfiat.org/transactions/372B52EDD42CD393BBCB53D19CC62218183FE90428CFF7EFFFF2BA5CBF319495/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1D37E0EDB4CF4E95051ECA217D8BBF2E0328F6B366872785C72BB37AD80C0BC8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:bdcc2471"
-      }
-    },
-    {
-      "id": "task:a643336e",
-      "timestamp": "2026-05-03T18:39:46.550Z",
-      "type": "task_published",
-      "status": "refused",
-      "actor": "node:b4e24f89",
-      "category": "trading",
-      "title": "Planning to finalize a fundamental pre-catalyst backtest conclusion and turn it into a decisi...",
-      "summary": "Planning to finalize a fundamental pre-catalyst backtest conclusion and turn it into a decision-grade artifact.",
-      "tickers": [],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:a643336e"
-      }
-    },
-    {
-      "id": "task:96f04a8d",
-      "timestamp": "2026-05-03T18:22:46.717Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:fce8523b",
-      "category": "trading",
-      "title": "Delivered an SPX factor attribution backtest and earned a reward.",
-      "summary": "Delivered an SPX factor attribution backtest and earned a reward.",
-      "tickers": [
-        "SPY"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$SPY"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "02D6B5A0057BD44ACFF8DF553261A730132F9B414FB1566FDC6B4478A8DCB8BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/02D6B5A0057BD44ACFF8DF553261A730132F9B414FB1566FDC6B4478A8DCB8BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "A00D2EF3060153D433A69F936676207C9B48D8AFB57FDF9E4464E17293BDF8A8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A00D2EF3060153D433A69F936676207C9B48D8AFB57FDF9E4464E17293BDF8A8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8A7EA5C0B64778229E4E3D83F7D8E6FDE87D82887E7CE057BFD49CCE542C8D75",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8A7EA5C0B64778229E4E3D83F7D8E6FDE87D82887E7CE057BFD49CCE542C8D75/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:96f04a8d"
-      }
-    },
-    {
-      "id": "task:7f0386a1",
-      "timestamp": "2026-05-03T18:22:19.394Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:fce8523b",
-      "category": "trading",
-      "title": "Uploaded follow-up evidence for an SPX factor attribution backtest after fixing macro data av...",
-      "summary": "Uploaded follow-up evidence for an SPX factor attribution backtest after fixing macro data availability timing.",
-      "tickers": [
-        "SPY"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$SPY"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "A00D2EF3060153D433A69F936676207C9B48D8AFB57FDF9E4464E17293BDF8A8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A00D2EF3060153D433A69F936676207C9B48D8AFB57FDF9E4464E17293BDF8A8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "02D6B5A0057BD44ACFF8DF553261A730132F9B414FB1566FDC6B4478A8DCB8BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/02D6B5A0057BD44ACFF8DF553261A730132F9B414FB1566FDC6B4478A8DCB8BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8A7EA5C0B64778229E4E3D83F7D8E6FDE87D82887E7CE057BFD49CCE542C8D75",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8A7EA5C0B64778229E4E3D83F7D8E6FDE87D82887E7CE057BFD49CCE542C8D75/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:7f0386a1"
       }
     }
   ]
