@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-05T11:56:13.581Z",
+  "generated_at": "2026-05-05T13:10:26.383Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,141 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:39cab17f",
+      "timestamp": "2026-05-05T13:08:27.378Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Recorded proof of a Deribit regime detector update with configurable DVOL settings and dry-ru...",
+      "summary": "Recorded proof of a Deribit regime detector update with configurable DVOL settings and dry-run safe gating on PFTL.",
+      "tickers": [
+        "DB1"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$DB1"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:39cab17f"
+      }
+    },
+    {
+      "id": "task:2f661aa1",
+      "timestamp": "2026-05-05T13:08:25.063Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Requested verification for a Deribit regime detector update with configurable DVOL settings a...",
+      "summary": "Requested verification for a Deribit regime detector update with configurable DVOL settings and a dry-run safe gate.",
+      "tickers": [
+        "DB1"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$DB1"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:2f661aa1"
+      }
+    },
+    {
+      "id": "task:212dbdc9",
+      "timestamp": "2026-05-05T13:07:54.560Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Submitted evidence for a Deribit regime detector update with configurable DVOL metric and loo...",
+      "summary": "Submitted evidence for a Deribit regime detector update with configurable DVOL metric and lookback, plus a dry-run safe gate integration.",
+      "tickers": [
+        "DB1"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$DB1"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671",
+          "url": "https://explorer.testnet.postfiat.org/transactions/8F781C6BB07A06DAF5A4EFBDFD1536D716AEA2013792B56AD670D5FCAB69C671/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:212dbdc9"
+      }
+    },
+    {
+      "id": "task:23e73657",
+      "timestamp": "2026-05-05T12:12:53.992Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:36ba1736",
+      "category": "infra",
+      "title": "Planning durable queued analysis jobs with idempotent retries and persisted state.",
+      "summary": "Planning durable queued analysis jobs with idempotent retries and persisted state.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:23e73657"
+      }
+    },
+    {
+      "id": "task:64d52424",
+      "timestamp": "2026-05-05T12:11:55.696Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:36ba1736",
+      "category": "ops",
+      "title": "Passed on queueing baseline wallet intel runs because the work was already done.",
+      "summary": "Passed on queueing baseline wallet intel runs because the work was already done.",
+      "tickers": [],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:64d52424"
+      }
+    },
     {
       "id": "task:e653ad14",
       "timestamp": "2026-05-05T11:54:53.012Z",
@@ -560,7 +695,7 @@
       "id": "task:a4625c76",
       "timestamp": "2026-05-05T11:31:53.002Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "refused",
       "actor": "node:36ba1736",
       "category": "infra",
       "title": "Planning a queued baseline run for wallet intelligence without changing the output contract.",
@@ -775,217 +910,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:702f4e6c"
-      }
-    },
-    {
-      "id": "task:f975502a",
-      "timestamp": "2026-05-05T11:24:22.827Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "backend",
-      "title": "Recorded proof of a Flow event bus slice on PFTL.",
-      "summary": "Recorded proof of a Flow event bus slice on PFTL.",
-      "tickers": [],
-      "tags": [
-        "backend",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "12D21C85118DC243F2ADD5392283E32E002D7F9F132EF5E4842AA822A1058F9B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/12D21C85118DC243F2ADD5392283E32E002D7F9F132EF5E4842AA822A1058F9B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "2148B72C4273FA5AA4467A803F818C37C220316EC381A3CC3A92133A3633809B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2148B72C4273FA5AA4467A803F818C37C220316EC381A3CC3A92133A3633809B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "5F8C2E8C6BFCFFA3997314C702D4DD9B1EE26DB3C022681489F6237B07DCE961",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5F8C2E8C6BFCFFA3997314C702D4DD9B1EE26DB3C022681489F6237B07DCE961/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f975502a"
-      }
-    },
-    {
-      "id": "task:e7693557",
-      "timestamp": "2026-05-05T11:22:53.825Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a Round reasoning block for the public UNL Scoring page, using existing network summ...",
-      "summary": "Planning a Round reasoning block for the public UNL Scoring page, using existing network summary data and validator links.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "09EC7444018BFDCA2BB38755F28B8B7E983A417824CD06E99EAB1F60FF074894",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09EC7444018BFDCA2BB38755F28B8B7E983A417824CD06E99EAB1F60FF074894/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B8965F241276B607CE2B1456BB3C831D22E236547A837098F0C98561E292532E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B8965F241276B607CE2B1456BB3C831D22E236547A837098F0C98561E292532E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4EB12A11A6085DD0F50FF995B0F648F8AE86A844A96B195B0E94B841DAE8B03E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4EB12A11A6085DD0F50FF995B0F648F8AE86A844A96B195B0E94B841DAE8B03E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e7693557"
-      }
-    },
-    {
-      "id": "task:aebd88dd",
-      "timestamp": "2026-05-05T11:07:53.353Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Delivered a PostFiat explorer UI update and earned a reward for handling memo-failed validato...",
-      "summary": "Delivered a PostFiat explorer UI update and earned a reward for handling memo-failed validator rounds as published warnings.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:aebd88dd"
-      }
-    },
-    {
-      "id": "task:d52fa99e",
-      "timestamp": "2026-05-05T11:07:25.752Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Uploaded follow-up evidence for a PostFiat explorer UI update that shows memo-failed validato...",
-      "summary": "Uploaded follow-up evidence for a PostFiat explorer UI update that shows memo-failed validator rounds as published warnings.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d52fa99e"
-      }
-    },
-    {
-      "id": "task:5fd258be",
-      "timestamp": "2026-05-05T11:07:23.781Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded a verification response for a PostFiat explorer UI update that shows memo-failed val...",
-      "summary": "Recorded a verification response for a PostFiat explorer UI update that shows memo-failed validator rounds as published warnings.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D4B9754DEAAAEAE4D3CFD9740ECDB0860FD2471E9868C6C18DB514D919F5C42C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09FF8CD1537278EE3F1805BAA55E15D3ABE69C02B1565F9490E513B88877C15B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3F91196C4C5D60C99C8A17F821DD2CD73480D167A272A81AF0B692B55BC8EF17/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5fd258be"
       }
     }
   ]
