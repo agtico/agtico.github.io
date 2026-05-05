@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-05T21:31:49.433Z",
+  "generated_at": "2026-05-05T22:42:55.101Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:9a9bb168",
+      "timestamp": "2026-05-05T21:51:56.386Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC perpetual session annotation using a self-directed market read.",
+      "summary": "Planning a BTC perpetual session annotation using a self-directed market read.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9a9bb168"
+      }
+    },
     {
       "id": "task:a2407605",
       "timestamp": "2026-05-05T21:02:54.487Z",
@@ -857,48 +881,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:457e422e"
-      }
-    },
-    {
-      "id": "task:d51a1774",
-      "timestamp": "2026-05-05T19:40:57.315Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:b0aa83c1",
-      "category": "network",
-      "title": "Recorded proof of a Python preflight guard for Hive Mind network-task duplicate and terminal-...",
-      "summary": "Recorded proof of a Python preflight guard for Hive Mind network-task duplicate and terminal-state checks on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E8345D1E4FB4276B09BD0DD280653AECE7DFABCC811DAA71956B5B82B58430E7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E8345D1E4FB4276B09BD0DD280653AECE7DFABCC811DAA71956B5B82B58430E7/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C0B5BFD8B62BD64B537F13B5EB88A2DA9A7ED57CB5C2D8BCC2594580577E1360",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C0B5BFD8B62BD64B537F13B5EB88A2DA9A7ED57CB5C2D8BCC2594580577E1360/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E5264254A99020E0EBD5CBF8B07FA2ECF4599344E31145BA47E479C543873E9F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E5264254A99020E0EBD5CBF8B07FA2ECF4599344E31145BA47E479C543873E9F/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d51a1774"
       }
     }
   ]
