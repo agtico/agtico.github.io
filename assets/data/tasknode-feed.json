@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-06T21:50:26.993Z",
+  "generated_at": "2026-05-06T22:37:48.855Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:413ee71b",
+      "timestamp": "2026-05-06T22:29:01.034Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC perpetual session review with outcome labels.",
+      "summary": "Planning a BTC perpetual session review with outcome labels.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:413ee71b"
+      }
+    },
     {
       "id": "task:4d602253",
       "timestamp": "2026-05-06T21:31:29.654Z",
@@ -951,49 +975,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:bf2ced29"
-      }
-    },
-    {
-      "id": "task:c962e29e",
-      "timestamp": "2026-05-06T19:08:46.543Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "finance",
-      "title": "Recorded a verification response for the BioMaps investability classifier script on PFTL.",
-      "summary": "Recorded a verification response for the BioMaps investability classifier script on PFTL.",
-      "tickers": [
-        "IBB"
-      ],
-      "tags": [
-        "finance",
-        "task-node",
-        "personal",
-        "$IBB"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9A35460388FDE9E53890FCF3ABE8BD7A04608C3292AA0A6EFCE15A37381F2B94",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9A35460388FDE9E53890FCF3ABE8BD7A04608C3292AA0A6EFCE15A37381F2B94/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E8D0C580EB6FAE99C21FC2CC1872CA4B2353F5C30A3FAED58DFC706DA6ABA21F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E8D0C580EB6FAE99C21FC2CC1872CA4B2353F5C30A3FAED58DFC706DA6ABA21F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "E24DC33F95F6038EA9B3FE401EFFC36866553B86F5E9F34526222A6322DD7C06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E24DC33F95F6038EA9B3FE401EFFC36866553B86F5E9F34526222A6322DD7C06/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c962e29e"
       }
     }
   ]
