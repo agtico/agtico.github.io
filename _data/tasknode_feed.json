@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T11:15:08.936Z",
+  "generated_at": "2026-05-08T12:51:31.681Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,99 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:8c01833e",
+      "timestamp": "2026-05-08T12:42:37.144Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Passed on backend regression coverage for public-visibility boundaries due to wrong scope.",
+      "summary": "Passed on backend regression coverage for public-visibility boundaries due to wrong scope.",
+      "tickers": [
+        "COIN"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$COIN"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8c01833e"
+      }
+    },
+    {
+      "id": "task:05ff07d6",
+      "timestamp": "2026-05-08T12:33:09.372Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning backend regression coverage to keep private dry-run executions out of public scoring...",
+      "summary": "Planning backend regression coverage to keep private dry-run executions out of public scoring rounds.",
+      "tickers": [
+        "COIN"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$COIN"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:05ff07d6"
+      }
+    },
+    {
+      "id": "task:7b7eeb24",
+      "timestamp": "2026-05-08T12:28:07.822Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning removal of public dry-run completion UI from the PostFiat explorer and related scori...",
+      "summary": "Planning removal of public dry-run completion UI from the PostFiat explorer and related scoring tests.",
+      "tickers": [
+        "MSFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$MSFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7b7eeb24"
+      }
+    },
+    {
+      "id": "task:34a47402",
+      "timestamp": "2026-05-08T12:21:07.538Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:6825fa53",
+      "category": "ai",
+      "title": "Planning a QEC teardown of arXiv 2605.06101 for public publishing.",
+      "summary": "Planning a QEC teardown of arXiv 2605.06101 for public publishing.",
+      "tickers": [
+        "GOOGL"
+      ],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal",
+        "$GOOGL"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:34a47402"
+      }
+    },
     {
       "id": "task:02bed7fa",
       "timestamp": "2026-05-08T11:00:10.046Z",
@@ -857,139 +950,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:a5c501f5"
-      }
-    },
-    {
-      "id": "task:f320c169",
-      "timestamp": "2026-05-08T10:10:08.493Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "backend",
-      "title": "Planning a private dry-run lifecycle refactor for Dynamic UNL scoring in postfiatorg/dynamic-...",
-      "summary": "Planning a private dry-run lifecycle refactor for Dynamic UNL scoring in postfiatorg/dynamic-unl-scoring.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "backend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F4489CB6BF950266D89960E3ED660F271C1C0296EBE371EE9952DE2ED44231E6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F4489CB6BF950266D89960E3ED660F271C1C0296EBE371EE9952DE2ED44231E6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6187D98B16BBB4A6A62C92963CB060B63AC28DD6BFE1842B1350AAD0ADE23329",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6187D98B16BBB4A6A62C92963CB060B63AC28DD6BFE1842B1350AAD0ADE23329/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6AB79BB527C1733891F409B56ECEDB2FA63F41E28890F81C02CC833CEC91A87A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6AB79BB527C1733891F409B56ECEDB2FA63F41E28890F81C02CC833CEC91A87A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f320c169"
-      }
-    },
-    {
-      "id": "task:3bbec788",
-      "timestamp": "2026-05-08T09:24:37.435Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic BYO-app mock question sender that dispatches synth...",
-      "summary": "Requested verification for a deterministic BYO-app mock question sender that dispatches synthetic payloads and returns stable receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:3bbec788"
-      }
-    },
-    {
-      "id": "task:adb13b26",
-      "timestamp": "2026-05-08T09:24:10.645Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a deterministic BYO-app mock question sender that dispatches synthetic...",
-      "summary": "Submitted evidence for a deterministic BYO-app mock question sender that dispatches synthetic payloads and returns stable receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:adb13b26"
-      }
-    },
-    {
-      "id": "task:d9f43001",
-      "timestamp": "2026-05-08T09:24:07.842Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of the BYO-app mock question sender on PFTL.",
-      "summary": "Recorded proof of the BYO-app mock question sender on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7C3C634597EBE0412B8BA9CFD29366183AA9B3D7CF53F23453F6D68635B1F3A6/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d9f43001"
       }
     }
   ]
