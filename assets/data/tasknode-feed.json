@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-09T18:10:55.671Z",
+  "generated_at": "2026-05-09T19:37:49.588Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,31 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:d551a135",
+      "timestamp": "2026-05-09T18:32:10.152Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "network",
+      "title": "Planning a BTC session gist for the Post Fiat signal marketplace using a refined JSON workflow.",
+      "summary": "Planning a BTC session gist for the Post Fiat signal marketplace using a refined JSON workflow.",
+      "tickers": [
+        "BTC",
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$BTC",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d551a135"
+      }
+    },
     {
       "id": "task:b25c9f30",
       "timestamp": "2026-05-09T17:10:11.790Z",
@@ -951,49 +976,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:d5896c79"
-      }
-    },
-    {
-      "id": "task:4e8015e0",
-      "timestamp": "2026-05-09T15:43:41.590Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "frontend",
-      "title": "Recorded a verification response for redesigning the Superclaro.ai landing page into a pitch-...",
-      "summary": "Recorded a verification response for redesigning the Superclaro.ai landing page into a pitch-deck style one-pager on PFTL.",
-      "tickers": [
-        "GOOGL"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$GOOGL"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E9FB0F4FB401B98120F85EF9E3DB20DF31A9E086CA127E41D85C780F2685B1A6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E9FB0F4FB401B98120F85EF9E3DB20DF31A9E086CA127E41D85C780F2685B1A6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "EB59676F0E3D5E73DB98577BB2759EA59BB36299906C03769B83085DFA91B60D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EB59676F0E3D5E73DB98577BB2759EA59BB36299906C03769B83085DFA91B60D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "28BC4124E8F1EA31B4333635D5BC3240E74F02C75919A02C3C6F4B1F6474D007",
-          "url": "https://explorer.testnet.postfiat.org/transactions/28BC4124E8F1EA31B4333635D5BC3240E74F02C75919A02C3C6F4B1F6474D007/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:4e8015e0"
       }
     }
   ]
