@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-09T07:04:23.448Z",
+  "generated_at": "2026-05-09T08:55:59.876Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:590c54f6",
+      "timestamp": "2026-05-09T08:33:37.557Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "frontend",
+      "title": "Starting a one-page pitch-deck landing page redesign for Superclaro.ai.",
+      "summary": "Starting a one-page pitch-deck landing page redesign for Superclaro.ai.",
+      "tickers": [],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:590c54f6"
+      }
+    },
     {
       "id": "task:8f188098",
       "timestamp": "2026-05-09T05:32:08.954Z",
@@ -973,48 +994,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:933de909"
-      }
-    },
-    {
-      "id": "task:9f08859f",
-      "timestamp": "2026-05-09T02:15:07.617Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded a verification response for a public schema for logging multi-AI routing decisions o...",
-      "summary": "Recorded a verification response for a public schema for logging multi-AI routing decisions on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "19AD59CBF955B6A359E7B054582CC28AAE60D5A850FA1D5803285BD11898C031",
-          "url": "https://explorer.testnet.postfiat.org/transactions/19AD59CBF955B6A359E7B054582CC28AAE60D5A850FA1D5803285BD11898C031/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "39E65ECBF6B1B83AD6982E0B0BB876AD3F31688D62E3E88768122B1F2B29CF49",
-          "url": "https://explorer.testnet.postfiat.org/transactions/39E65ECBF6B1B83AD6982E0B0BB876AD3F31688D62E3E88768122B1F2B29CF49/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "4D4F2A51E61688441CE8C40851ECD2BCDCF2417BA3D11791185B1C14B1CF91FC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4D4F2A51E61688441CE8C40851ECD2BCDCF2417BA3D11791185B1C14B1CF91FC/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9f08859f"
       }
     }
   ]
