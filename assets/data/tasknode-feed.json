@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-10T20:35:06.204Z",
+  "generated_at": "2026-05-10T21:36:38.572Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,96 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:3b9f102f",
+      "timestamp": "2026-05-10T21:24:47.241Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Requested verification for a refactor that pins multi-agent VPS port allocations across idemp...",
+      "summary": "Requested verification for a refactor that pins multi-agent VPS port allocations across idempotent runs.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3b9f102f"
+      }
+    },
+    {
+      "id": "task:b3058084",
+      "timestamp": "2026-05-10T21:24:45.954Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Recorded proof of a dry-run planner for multi-agent VPS hosting on PFTL",
+      "summary": "Recorded proof of a dry-run planner for multi-agent VPS hosting on PFTL",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b3058084"
+      }
+    },
+    {
+      "id": "task:440e496e",
+      "timestamp": "2026-05-10T21:24:15.477Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Submitted evidence for a dry-run VPS layout planner for multi-agent provisioning.",
+      "summary": "Submitted evidence for a dry-run VPS layout planner for multi-agent provisioning.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BA3902EB0E24D050D302698A86E53302C73E744EFEB5FDB2EFD9A0ED30B5C455/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:440e496e"
+      }
+    },
     {
       "id": "task:6baf40e0",
       "timestamp": "2026-05-10T20:16:43.239Z",
@@ -718,132 +808,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:3ecc4f81"
-      }
-    },
-    {
-      "id": "task:770412c8",
-      "timestamp": "2026-05-10T15:12:13.294Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "infra",
-      "title": "Recorded proof of a holistic queue hardening audit on PFTL, covering duplicate suppression, r...",
-      "summary": "Recorded proof of a holistic queue hardening audit on PFTL, covering duplicate suppression, replay, restart recovery, and operator CLI gaps.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1E7C0E474148B34517805C08FB25C1A1873EAC74D30DF3CF321118DBE9E9978D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1E7C0E474148B34517805C08FB25C1A1873EAC74D30DF3CF321118DBE9E9978D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "A937B7F6D8220BC52155867DF50298390007E358046335487A303012D6198846",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A937B7F6D8220BC52155867DF50298390007E358046335487A303012D6198846/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "EAC8FE2F9F960BFB2E2C7774BC9BDD46FD6EBE7B6135D92FBC743FDD6B050E85",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EAC8FE2F9F960BFB2E2C7774BC9BDD46FD6EBE7B6135D92FBC743FDD6B050E85/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:770412c8"
-      }
-    },
-    {
-      "id": "task:1b42df1f",
-      "timestamp": "2026-05-10T15:11:42.529Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:36ba1736",
-      "category": "infra",
-      "title": "Submitted evidence for a holistic queue hardening audit of the Flow queue system.",
-      "summary": "Submitted evidence for a holistic queue hardening audit of the Flow queue system.",
-      "tickers": [],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1E7C0E474148B34517805C08FB25C1A1873EAC74D30DF3CF321118DBE9E9978D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1E7C0E474148B34517805C08FB25C1A1873EAC74D30DF3CF321118DBE9E9978D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "A937B7F6D8220BC52155867DF50298390007E358046335487A303012D6198846",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A937B7F6D8220BC52155867DF50298390007E358046335487A303012D6198846/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "EAC8FE2F9F960BFB2E2C7774BC9BDD46FD6EBE7B6135D92FBC743FDD6B050E85",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EAC8FE2F9F960BFB2E2C7774BC9BDD46FD6EBE7B6135D92FBC743FDD6B050E85/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1b42df1f"
-      }
-    },
-    {
-      "id": "task:545a123e",
-      "timestamp": "2026-05-10T15:08:44.414Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Delivered a retrieval-safety portfolio case study and earned a reward.",
-      "summary": "Delivered a retrieval-safety portfolio case study and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B06489A57792C944CD2E7107B9773CFA5415633B3DFF68A67A8BFABB19E6D9AF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B06489A57792C944CD2E7107B9773CFA5415633B3DFF68A67A8BFABB19E6D9AF/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "777A2A669FFEE74C65F2DC88BAC693997A5E3A4571D78C4BD37E69FCCD73A0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/777A2A669FFEE74C65F2DC88BAC693997A5E3A4571D78C4BD37E69FCCD73A0A2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "A1256450F7F9D140B1398199AD6F8E39EE0146D7E6126907456D37AD82755D53",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A1256450F7F9D140B1398199AD6F8E39EE0146D7E6126907456D37AD82755D53/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:545a123e"
       }
     }
   ]
