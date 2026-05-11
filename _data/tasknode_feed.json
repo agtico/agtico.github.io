@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-11T11:54:17.255Z",
+  "generated_at": "2026-05-11T14:16:33.050Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,270 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:45c60aaf",
+      "timestamp": "2026-05-11T12:35:34.027Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:a53e54bc",
+      "category": "security",
+      "title": "Planning a Modal auth hardening commit for the Dynamic UNL scoring endpoint.",
+      "summary": "Planning a Modal auth hardening commit for the Dynamic UNL scoring endpoint.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "security",
+        "task-node",
+        "network",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:45c60aaf"
+      }
+    },
+    {
+      "id": "task:bf727140",
+      "timestamp": "2026-05-11T12:02:37.888Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "ops",
+      "title": "Recorded a verification response for the WhatsApp provisioning test on PFTL.",
+      "summary": "Recorded a verification response for the WhatsApp provisioning test on PFTL.",
+      "tickers": [],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:bf727140"
+      }
+    },
+    {
+      "id": "task:28375c77",
+      "timestamp": "2026-05-11T12:02:35.980Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Delivered a go/no-go test for WhatsApp VPS provisioning and shipped a Telegram-only fallback...",
+      "summary": "Delivered a go/no-go test for WhatsApp VPS provisioning and shipped a Telegram-only fallback after pairing failed.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:28375c77"
+      }
+    },
+    {
+      "id": "task:b8b507eb",
+      "timestamp": "2026-05-11T12:02:03.532Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Uploaded follow-up evidence for a VPS WhatsApp provisioning test after WhatsApp pairing was b...",
+      "summary": "Uploaded follow-up evidence for a VPS WhatsApp provisioning test after WhatsApp pairing was blocked and the site stayed non-live.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b8b507eb"
+      }
+    },
+    {
+      "id": "task:c6e1cfcc",
+      "timestamp": "2026-05-11T11:59:34.268Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Requested verification for a VPS provisioning go/no-go test on WhatsApp to Telegram-only fall...",
+      "summary": "Requested verification for a VPS provisioning go/no-go test on WhatsApp to Telegram-only fallback.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c6e1cfcc"
+      }
+    },
+    {
+      "id": "task:ac8ebc1e",
+      "timestamp": "2026-05-11T11:59:07.073Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "infra",
+      "title": "Recorded proof of a VPS WhatsApp go-no-go test on PFTL.",
+      "summary": "Recorded proof of a VPS WhatsApp go-no-go test on PFTL.",
+      "tickers": [],
+      "tags": [
+        "infra",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ac8ebc1e"
+      }
+    },
+    {
+      "id": "task:84fa2d38",
+      "timestamp": "2026-05-11T11:59:05.417Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "ops",
+      "title": "Submitted evidence for a final VPS provisioning test focused on WhatsApp or Telegram launch r...",
+      "summary": "Submitted evidence for a final VPS provisioning test focused on WhatsApp or Telegram launch readiness.",
+      "tickers": [],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
+          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:84fa2d38"
+      }
+    },
     {
       "id": "task:ff0d136e",
       "timestamp": "2026-05-11T11:07:36.617Z",
@@ -672,300 +936,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:bca90c46"
-      }
-    },
-    {
-      "id": "task:99525f64",
-      "timestamp": "2026-05-11T07:28:04.876Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a Python normalizer that standardizes Task Node refusal...",
-      "summary": "Recorded a verification response for a Python normalizer that standardizes Task Node refusal intake on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:99525f64"
-      }
-    },
-    {
-      "id": "task:03816abb",
-      "timestamp": "2026-05-11T07:28:02.983Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a Python normalizer that standardizes Task Node refusal intake.",
-      "summary": "Uploaded follow-up evidence for a Python normalizer that standardizes Task Node refusal intake.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:03816abb"
-      }
-    },
-    {
-      "id": "task:cef59439",
-      "timestamp": "2026-05-11T07:19:04.179Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of a Python normalizer for Task Node refusal intake on PFTL.",
-      "summary": "Recorded proof of a Python normalizer for Task Node refusal intake on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:cef59439"
-      }
-    },
-    {
-      "id": "task:675b8fad",
-      "timestamp": "2026-05-11T07:19:02.716Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a Python normalizer that standardizes Task Node refusal intake and...",
-      "summary": "Requested verification for a Python normalizer that standardizes Task Node refusal intake and canonical reason codes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:675b8fad"
-      }
-    },
-    {
-      "id": "task:35edbb89",
-      "timestamp": "2026-05-11T07:18:32.811Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a Python normalizer that standardizes Task Node refusal intake and can...",
-      "summary": "Submitted evidence for a Python normalizer that standardizes Task Node refusal intake and canonical reason codes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:35edbb89"
-      }
-    },
-    {
-      "id": "task:dfedbfe1",
-      "timestamp": "2026-05-11T07:10:33.354Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a Python normalizer for Task Node refusal intake and canonical reason codes.",
-      "summary": "Planning a Python normalizer for Task Node refusal intake and canonical reason codes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:dfedbfe1"
-      }
-    },
-    {
-      "id": "task:dc4ba5b9",
-      "timestamp": "2026-05-11T06:19:32.594Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered a deterministic Python linter for Post Fiat rejection reason codes and earned a rew...",
-      "summary": "Delivered a deterministic Python linter for Post Fiat rejection reason codes and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "811E309E9ECFBBF22FA17FDBA21F512FCC57DEECDA9C217206793A58D827FACA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/811E309E9ECFBBF22FA17FDBA21F512FCC57DEECDA9C217206793A58D827FACA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "CE5DDF1DDA936C2713AA712C19A6BCF568C92C8E66E46BD9F9C2E19B53511DF9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CE5DDF1DDA936C2713AA712C19A6BCF568C92C8E66E46BD9F9C2E19B53511DF9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "67998F0E2CEB0204816DDE65DB8AEFC0CBAA9CA2DC16892A9CC2827B746917C7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67998F0E2CEB0204816DDE65DB8AEFC0CBAA9CA2DC16892A9CC2827B746917C7/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:dc4ba5b9"
       }
     }
   ]
