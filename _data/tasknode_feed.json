@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-11T14:16:33.050Z",
+  "generated_at": "2026-05-11T17:07:13.944Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,14 +10,14 @@
   },
   "items": [
     {
-      "id": "task:45c60aaf",
-      "timestamp": "2026-05-11T12:35:34.027Z",
-      "type": "task_published",
-      "status": "in_progress",
+      "id": "task:9a0281fd",
+      "timestamp": "2026-05-11T16:59:04.790Z",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:a53e54bc",
       "category": "security",
-      "title": "Planning a Modal auth hardening commit for the Dynamic UNL scoring endpoint.",
-      "summary": "Planning a Modal auth hardening commit for the Dynamic UNL scoring endpoint.",
+      "title": "Delivered proxy-auth hardening for the scoring service and earned a reward.",
+      "summary": "Delivered proxy-auth hardening for the scoring service and earned a reward.",
       "tickers": [
         "PFT"
       ],
@@ -27,266 +27,45 @@
         "network",
         "$PFT"
       ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:45c60aaf"
-      }
-    },
-    {
-      "id": "task:bf727140",
-      "timestamp": "2026-05-11T12:02:37.888Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "ops",
-      "title": "Recorded a verification response for the WhatsApp provisioning test on PFTL.",
-      "summary": "Recorded a verification response for the WhatsApp provisioning test on PFTL.",
-      "tickers": [],
-      "tags": [
-        "ops",
-        "task-node",
-        "personal"
-      ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:bf727140"
-      }
-    },
-    {
-      "id": "task:28375c77",
-      "timestamp": "2026-05-11T12:02:35.980Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "infra",
-      "title": "Delivered a go/no-go test for WhatsApp VPS provisioning and shipped a Telegram-only fallback...",
-      "summary": "Delivered a go/no-go test for WhatsApp VPS provisioning and shipped a Telegram-only fallback after pairing failed.",
-      "tickers": [],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:28375c77"
+        "source_id": "task:9a0281fd"
       }
     },
     {
-      "id": "task:b8b507eb",
-      "timestamp": "2026-05-11T12:02:03.532Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "infra",
-      "title": "Uploaded follow-up evidence for a VPS WhatsApp provisioning test after WhatsApp pairing was b...",
-      "summary": "Uploaded follow-up evidence for a VPS WhatsApp provisioning test after WhatsApp pairing was blocked and the site stayed non-live.",
-      "tickers": [],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b8b507eb"
-      }
-    },
-    {
-      "id": "task:c6e1cfcc",
-      "timestamp": "2026-05-11T11:59:34.268Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "infra",
-      "title": "Requested verification for a VPS provisioning go/no-go test on WhatsApp to Telegram-only fall...",
-      "summary": "Requested verification for a VPS provisioning go/no-go test on WhatsApp to Telegram-only fallback.",
-      "tickers": [],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c6e1cfcc"
-      }
-    },
-    {
-      "id": "task:ac8ebc1e",
-      "timestamp": "2026-05-11T11:59:07.073Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "infra",
-      "title": "Recorded proof of a VPS WhatsApp go-no-go test on PFTL.",
-      "summary": "Recorded proof of a VPS WhatsApp go-no-go test on PFTL.",
-      "tickers": [],
-      "tags": [
-        "infra",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ac8ebc1e"
-      }
-    },
-    {
-      "id": "task:84fa2d38",
-      "timestamp": "2026-05-11T11:59:05.417Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "ops",
-      "title": "Submitted evidence for a final VPS provisioning test focused on WhatsApp or Telegram launch r...",
-      "summary": "Submitted evidence for a final VPS provisioning test focused on WhatsApp or Telegram launch readiness.",
-      "tickers": [],
-      "tags": [
-        "ops",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/21E90FAACA5830F976059585E5FCA21B2B7A89A01246ECED1E06A65A62839ECD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B7DC620884ABF81CE84F4A094D5E957AC0F0F6767A62997B32BF13B7EBE320E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE4C43F44BC3D055944C3A0F2943BF95224284F2B58F5E9C3EE713EC93FCAA1A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:84fa2d38"
-      }
-    },
-    {
-      "id": "task:ff0d136e",
-      "timestamp": "2026-05-11T11:07:36.617Z",
+      "id": "task:f7b054a9",
+      "timestamp": "2026-05-11T16:58:36.290Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Delivered a Modal container cap for SGLang scoring endpoints and earned a reward.",
-      "summary": "Delivered a Modal container cap for SGLang scoring endpoints and earned a reward.",
+      "category": "security",
+      "title": "Uploaded follow-up evidence for Modal proxy-auth hardening in the scoring service.",
+      "summary": "Uploaded follow-up evidence for Modal proxy-auth hardening in the scoring service.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "security",
         "task-node",
         "network",
         "$PFT"
@@ -295,41 +74,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
+          "label": "PFTL reward",
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:ff0d136e"
+        "source_id": "task:f7b054a9"
       }
     },
     {
-      "id": "task:18f5e5f9",
-      "timestamp": "2026-05-11T11:07:34.637Z",
+      "id": "task:385fcf57",
+      "timestamp": "2026-05-11T16:58:34.544Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded a verification response for capping Modal SGLang scoring containers on PFTL.",
-      "summary": "Recorded a verification response for capping Modal SGLang scoring containers on PFTL.",
+      "category": "security",
+      "title": "Recorded a verification response for Modal proxy-auth hardening on PFTL.",
+      "summary": "Recorded a verification response for Modal proxy-auth hardening on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "security",
         "task-node",
         "network",
         "$PFT"
@@ -338,41 +117,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:18f5e5f9"
+        "source_id": "task:385fcf57"
       }
     },
     {
-      "id": "task:4cc55226",
-      "timestamp": "2026-05-11T11:07:04.741Z",
+      "id": "task:fd9f6816",
+      "timestamp": "2026-05-11T16:57:09.793Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Uploaded follow-up evidence for capping Modal SGLang scoring containers in the public deploym...",
-      "summary": "Uploaded follow-up evidence for capping Modal SGLang scoring containers in the public deployment config.",
+      "category": "security",
+      "title": "Recorded proof of a Modal proxy-auth hardening commit on PFTL.",
+      "summary": "Recorded proof of a Modal proxy-auth hardening commit on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "security",
         "task-node",
         "network",
         "$PFT"
@@ -381,41 +160,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:4cc55226"
+        "source_id": "task:fd9f6816"
       }
     },
     {
-      "id": "task:529348a5",
-      "timestamp": "2026-05-11T11:06:08.089Z",
+      "id": "task:cf0571c6",
+      "timestamp": "2026-05-11T16:57:08.033Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Requested verification for capping Modal SGLang scoring containers in the public deployment c...",
-      "summary": "Requested verification for capping Modal SGLang scoring containers in the public deployment config.",
+      "category": "security",
+      "title": "Submitted evidence for a Modal auth hardening commit on the scoring endpoint.",
+      "summary": "Submitted evidence for a Modal auth hardening commit on the scoring endpoint.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "security",
         "task-node",
         "network",
         "$PFT"
@@ -424,41 +203,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:529348a5"
+        "source_id": "task:cf0571c6"
       }
     },
     {
-      "id": "task:f7c67a82",
-      "timestamp": "2026-05-11T11:06:06.418Z",
+      "id": "task:0d61ea5a",
+      "timestamp": "2026-05-11T16:57:06.274Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Submitted evidence for capping Modal SGLang scoring containers in the public deployment config.",
-      "summary": "Submitted evidence for capping Modal SGLang scoring containers in the public deployment config.",
+      "category": "security",
+      "title": "Requested verification for a Modal auth hardening commit on the scoring endpoint.",
+      "summary": "Requested verification for a Modal auth hardening commit on the scoring endpoint.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "security",
         "task-node",
         "network",
         "$PFT"
@@ -467,167 +246,108 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
+          "hash": "7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7C90A9BA781613245F0F2A7F70E46425E8EB68B382EF57A57E90FF86D02CE652/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
+          "hash": "F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F6E109993BDAD2D393165DEEBBCB0B1EFD041E4440D1BB48331D18C738A8EC98/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
+          "hash": "46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/46E293961616EE29E24969EDBF415DEB2E30A5D421FB9AA0EE55C66A860D610D/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:f7c67a82"
+        "source_id": "task:0d61ea5a"
       }
     },
     {
-      "id": "task:ed411342",
-      "timestamp": "2026-05-11T11:06:03.637Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded proof of capping Modal SGLang scoring containers in the public deployment config on...",
-      "summary": "Recorded proof of capping Modal SGLang scoring containers in the public deployment config on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "network",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ed411342"
-      }
-    },
-    {
-      "id": "task:922c81af",
-      "timestamp": "2026-05-11T10:04:35.045Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a shared Modal deployment config update for SGLang scoring containers with an enviro...",
-      "summary": "Planning a shared Modal deployment config update for SGLang scoring containers with an environment-driven max_containers cap.",
-      "tickers": [],
-      "tags": [
-        "network",
-        "task-node"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5D2EBC06D6E5AA602DEF86B4CB8BC8562DA9DD10CC68095C71FDDD9E37F781DB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/09154660911B6563A7511FB2E38F80D75B96FACBEE8C5F696A82661A2811FA9C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DF1F5A649D5687C5450BB5B7668495DD292B3AF971030132643C8AA2EFED41C1/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:922c81af"
-      }
-    },
-    {
-      "id": "task:3c3fdcf4",
-      "timestamp": "2026-05-11T09:07:05.765Z",
+      "id": "task:20f41e6d",
+      "timestamp": "2026-05-11T16:46:35.209Z",
       "type": "task_published",
-      "status": "refused",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Passed on a Python linter for agent-report grounding after no response.",
-      "summary": "Passed on a Python linter for agent-report grounding after no response.",
-      "tickers": [
-        "PFT"
-      ],
+      "status": "in_progress",
+      "actor": "node:9c6e663e",
+      "category": "business-development",
+      "title": "Planning a teaming meeting brief for an RFP discussion.",
+      "summary": "Planning a teaming meeting brief for an RFP discussion.",
+      "tickers": [],
       "tags": [
-        "network",
+        "business-development",
         "task-node",
-        "$PFT"
+        "personal"
       ],
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:3c3fdcf4"
+        "source_id": "task:20f41e6d"
       }
     },
     {
-      "id": "task:d0affba5",
-      "timestamp": "2026-05-11T08:06:33.019Z",
+      "id": "task:7b4de7be",
+      "timestamp": "2026-05-11T15:48:35.904Z",
       "type": "task_published",
-      "status": "refused",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a Python linter to ground agent reports before Task Node routing.",
-      "summary": "Planning a Python linter to ground agent reports before Task Node routing.",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a HyperLiquid universe factor backtesting harness for carry, momentum, value, and co...",
+      "summary": "Planning a HyperLiquid universe factor backtesting harness for carry, momentum, value, and composite ranks.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7b4de7be"
+      }
+    },
+    {
+      "id": "task:4c6bf9ff",
+      "timestamp": "2026-05-11T15:38:35.744Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "infra",
+      "title": "Planning a manual validator health check using existing observability tools.",
+      "summary": "Planning a manual validator health check using existing observability tools.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "network",
+        "infra",
         "task-node",
+        "personal",
         "$PFT"
       ],
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:d0affba5"
+        "source_id": "task:4c6bf9ff"
       }
     },
     {
-      "id": "task:4c9f441a",
-      "timestamp": "2026-05-11T07:49:32.886Z",
+      "id": "task:6414bfa0",
+      "timestamp": "2026-05-11T15:33:35.160Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Delivered eight BioMaps GPT intake packs and earned a reward.",
-      "summary": "Delivered eight BioMaps GPT intake packs and earned a reward.",
+      "actor": "node:88ad000e",
+      "category": "research",
+      "title": "Delivered a social trend source feasibility sweep and earned a reward.",
+      "summary": "Delivered a social trend source feasibility sweep and earned a reward.",
       "tickers": [],
       "tags": [
-        "ai",
+        "research",
         "task-node",
         "personal"
       ],
@@ -635,76 +355,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:4c9f441a"
+        "source_id": "task:6414bfa0"
       }
     },
     {
-      "id": "task:1250302f",
-      "timestamp": "2026-05-11T07:49:04.046Z",
+      "id": "task:dbaf2809",
+      "timestamp": "2026-05-11T15:33:06.538Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Uploaded follow-up evidence for the BioMaps GPT intake pack set.",
-      "summary": "Uploaded follow-up evidence for the BioMaps GPT intake pack set.",
-      "tickers": [],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1250302f"
-      }
-    },
-    {
-      "id": "task:2e836cf1",
-      "timestamp": "2026-05-11T07:49:02.677Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
+      "actor": "node:88ad000e",
       "category": "content",
-      "title": "Recorded a verification response for BioMaps GPT intake pack preparation on PFTL.",
-      "summary": "Recorded a verification response for BioMaps GPT intake pack preparation on PFTL.",
+      "title": "Recorded a verification response for a social trend source feasibility check.",
+      "summary": "Recorded a verification response for a social trend source feasibility check.",
       "tickers": [],
       "tags": [
         "content",
@@ -715,39 +395,39 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:2e836cf1"
+        "source_id": "task:dbaf2809"
       }
     },
     {
-      "id": "task:c1b0510c",
-      "timestamp": "2026-05-11T07:46:36.798Z",
+      "id": "task:6eb83ba6",
+      "timestamp": "2026-05-11T15:33:04.967Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Submitted evidence for preparing eight BioMaps GPT intake packs.",
-      "summary": "Submitted evidence for preparing eight BioMaps GPT intake packs.",
+      "actor": "node:88ad000e",
+      "category": "content",
+      "title": "Uploaded follow-up evidence for a social trend source feasibility sweep.",
+      "summary": "Uploaded follow-up evidence for a social trend source feasibility sweep.",
       "tickers": [],
       "tags": [
-        "ai",
+        "content",
         "task-node",
         "personal"
       ],
@@ -755,39 +435,39 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:c1b0510c"
+        "source_id": "task:6eb83ba6"
       }
     },
     {
-      "id": "task:313d88c6",
-      "timestamp": "2026-05-11T07:46:35.287Z",
+      "id": "task:1f66e64c",
+      "timestamp": "2026-05-11T15:31:04.081Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Recorded proof of eight BioMaps GPT intake packs on PFTL.",
-      "summary": "Recorded proof of eight BioMaps GPT intake packs on PFTL.",
+      "actor": "node:88ad000e",
+      "category": "ops",
+      "title": "Requested verification for a Google Trends feasibility check in a social trend source sweep.",
+      "summary": "Requested verification for a Google Trends feasibility check in a social trend source sweep.",
       "tickers": [],
       "tags": [
-        "ai",
+        "ops",
         "task-node",
         "personal"
       ],
@@ -795,39 +475,39 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:313d88c6"
+        "source_id": "task:1f66e64c"
       }
     },
     {
-      "id": "task:4dac43d9",
-      "timestamp": "2026-05-11T07:46:32.968Z",
+      "id": "task:92c1fa89",
+      "timestamp": "2026-05-11T15:30:36.882Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Requested verification for eight BioMaps GPT intake packs using spreadsheet-guided source_url...",
-      "summary": "Requested verification for eight BioMaps GPT intake packs using spreadsheet-guided source_url context.",
+      "actor": "node:88ad000e",
+      "category": "content",
+      "title": "Submitted a source feasibility report for a social trend monitor, covering Google Trends, Red...",
+      "summary": "Submitted a source feasibility report for a social trend monitor, covering Google Trends, Reddit, X, TikTok, and Instagram.",
       "tickers": [],
       "tags": [
-        "ai",
+        "content",
         "task-node",
         "personal"
       ],
@@ -835,39 +515,39 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:4dac43d9"
+        "source_id": "task:92c1fa89"
       }
     },
     {
-      "id": "task:184baf7d",
-      "timestamp": "2026-05-11T07:38:32.833Z",
+      "id": "task:9182b78b",
+      "timestamp": "2026-05-11T15:30:34.819Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "ai",
-      "title": "Planning eight BioMaps GPT intake packs from the spreadsheet for downstream processing.",
-      "summary": "Planning eight BioMaps GPT intake packs from the spreadsheet for downstream processing.",
+      "actor": "node:88ad000e",
+      "category": "content",
+      "title": "Submitted evidence for a social trend source feasibility report covering Google Trends, Reddi...",
+      "summary": "Submitted evidence for a social trend source feasibility report covering Google Trends, Reddit, X, TikTok, and Instagram.",
       "tickers": [],
       "tags": [
-        "ai",
+        "content",
         "task-node",
         "personal"
       ],
@@ -875,36 +555,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93DEDC5C65BED7382E7B46739E15C342B307CE14D0B04D969EA8F6760BF61F8F/detailed"
+          "hash": "357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369",
+          "url": "https://explorer.testnet.postfiat.org/transactions/357466EE6A4BD313A90DCEC65ABD146A1C9C7640D2E4B2F711874EE34A9C6369/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6681D5DEF72632DA7446C724E8375D0AAFE3D5C6255022667DA2AD4E825F1CCE/detailed"
+          "hash": "D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D69DF78615E22A0783C1423BFEFCF6DBF85E6E59913BC2599EAED66C284E816A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/77252CE0435605EAF56FDA8D14EF2B2EDA54E2D7247FDA4A2C2ADEBE6550CD4D/detailed"
+          "hash": "A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844",
+          "url": "https://explorer.testnet.postfiat.org/transactions/A8B6C093FE6E9D4ADC069DAFF0BEE0D7959F3A8FE458897D2B8A17807912F844/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:184baf7d"
+        "source_id": "task:9182b78b"
       }
     },
     {
-      "id": "task:bca90c46",
-      "timestamp": "2026-05-11T07:28:32.935Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "id": "task:2d69c560",
+      "timestamp": "2026-05-11T15:11:04.204Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
       "category": "network",
-      "title": "Delivered a deterministic Python normalizer for Task Node refusal intake and earned a reward.",
-      "summary": "Delivered a deterministic Python normalizer for Task Node refusal intake and earned a reward.",
+      "title": "Planning a Python exporter that turns refusal records into a deterministic rule manifest for...",
+      "summary": "Planning a Python exporter that turns refusal records into a deterministic rule manifest for generator preflight use.",
       "tickers": [
         "PFT"
       ],
@@ -913,29 +593,354 @@
         "task-node",
         "$PFT"
       ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:2d69c560"
+      }
+    },
+    {
+      "id": "task:14998a42",
+      "timestamp": "2026-05-11T15:01:05.908Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Delivered a production crypto factor module for Hyperliquid and earned a reward.",
+      "summary": "Delivered a production crypto factor module for Hyperliquid and earned a reward.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5CB57937146A867198E0E80438F51BF4A1EC812F81F7157817C79B860EC4D41/detailed"
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/32D2B1C888AA8CC711FCD469979B4E19C3E6BAA02BF39631E2651CB9628E92F8/detailed"
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4CD374378D7E8389D1F150A4464F69979DC1021E28D9E9FCAE1B7E4ABD414CB9/detailed"
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:bca90c46"
+        "source_id": "task:14998a42"
+      }
+    },
+    {
+      "id": "task:e10b80f0",
+      "timestamp": "2026-05-11T15:00:36.896Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a production crypto factor module for Hyperliquid's trading u...",
+      "summary": "Uploaded follow-up evidence for a production crypto factor module for Hyperliquid's trading universe.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e10b80f0"
+      }
+    },
+    {
+      "id": "task:8df9a370",
+      "timestamp": "2026-05-11T15:00:35.294Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a production crypto factor module for Hyperliquid's trading u...",
+      "summary": "Uploaded follow-up evidence for a production crypto factor module for Hyperliquid's trading universe.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8df9a370"
+      }
+    },
+    {
+      "id": "task:cea06da9",
+      "timestamp": "2026-05-11T14:58:05.665Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Requested verification for a production crypto factor module for Hyperliquid's trading universe.",
+      "summary": "Requested verification for a production crypto factor module for Hyperliquid's trading universe.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cea06da9"
+      }
+    },
+    {
+      "id": "task:65a51a60",
+      "timestamp": "2026-05-11T14:57:39.905Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Recorded proof of a production crypto factor module for Hyperliquid's trading universe on PFTL.",
+      "summary": "Recorded proof of a production crypto factor module for Hyperliquid's trading universe on PFTL.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:65a51a60"
+      }
+    },
+    {
+      "id": "task:16af6cbb",
+      "timestamp": "2026-05-11T14:57:36.200Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Submitted evidence for a production crypto factor module for Hyperliquid's trading universe.",
+      "summary": "Submitted evidence for a production crypto factor module for Hyperliquid's trading universe.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/77BE29F22222440FEB5355A52D6B3DC8BCEC1F186690B52C9D8C622EA4357C2C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F",
+          "url": "https://explorer.testnet.postfiat.org/transactions/220B0F0B1669F4B3C0C882501A51FE113A42517D1A88DEFD4048E435659EC46F/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D81133619DC60A9EE73C65EBCE03B4B6800BE74F3CF971E3AE163B90094B6839/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:16af6cbb"
+      }
+    },
+    {
+      "id": "task:0634c7ce",
+      "timestamp": "2026-05-11T14:57:10.055Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a HyperLiquid daemon fix on cycle-transition zone accounting.",
+      "summary": "Uploaded follow-up evidence for a HyperLiquid daemon fix on cycle-transition zone accounting.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "4D63156CCD54AFF8E53CB5DF9CD6BE93815BD3B03A37F2C9C8144B41C6685526",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4D63156CCD54AFF8E53CB5DF9CD6BE93815BD3B03A37F2C9C8144B41C6685526/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "54AA655B13E8BA475DD8D1DB59D2DC3FBD95815ED752A77DCA48B0F2E6166227",
+          "url": "https://explorer.testnet.postfiat.org/transactions/54AA655B13E8BA475DD8D1DB59D2DC3FBD95815ED752A77DCA48B0F2E6166227/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "C2392C3603C477AC01524F4A04ECB87DD12657192A0A0C609072358F465FC61D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C2392C3603C477AC01524F4A04ECB87DD12657192A0A0C609072358F465FC61D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:0634c7ce"
+      }
+    },
+    {
+      "id": "task:5be7d4cc",
+      "timestamp": "2026-05-11T14:57:08.072Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a HyperLiquid daemon fix on cycle-transition zone accounting.",
+      "summary": "Uploaded follow-up evidence for a HyperLiquid daemon fix on cycle-transition zone accounting.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C2392C3603C477AC01524F4A04ECB87DD12657192A0A0C609072358F465FC61D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C2392C3603C477AC01524F4A04ECB87DD12657192A0A0C609072358F465FC61D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "4D63156CCD54AFF8E53CB5DF9CD6BE93815BD3B03A37F2C9C8144B41C6685526",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4D63156CCD54AFF8E53CB5DF9CD6BE93815BD3B03A37F2C9C8144B41C6685526/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "54AA655B13E8BA475DD8D1DB59D2DC3FBD95815ED752A77DCA48B0F2E6166227",
+          "url": "https://explorer.testnet.postfiat.org/transactions/54AA655B13E8BA475DD8D1DB59D2DC3FBD95815ED752A77DCA48B0F2E6166227/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5be7d4cc"
       }
     }
   ]
