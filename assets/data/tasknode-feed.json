@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-12T07:21:36.386Z",
+  "generated_at": "2026-05-12T10:02:32.893Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,10 +10,346 @@
   },
   "items": [
     {
+      "id": "task:f386449f",
+      "timestamp": "2026-05-12T10:02:08.217Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Starting RFQ orchestrator state hardening for idempotent execution and terminal-state handling.",
+      "summary": "Starting RFQ orchestrator state hardening for idempotent execution and terminal-state handling.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f386449f"
+      }
+    },
+    {
+      "id": "task:e70443a9",
+      "timestamp": "2026-05-12T09:59:37.010Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "security",
+      "title": "Starting security hardening for same-VPS agent isolation and negative tests.",
+      "summary": "Starting security hardening for same-VPS agent isolation and negative tests.",
+      "tickers": [],
+      "tags": [
+        "security",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e70443a9"
+      }
+    },
+    {
+      "id": "task:d486760f",
+      "timestamp": "2026-05-12T09:58:07.485Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "security",
+      "title": "Starting a security review to harden VPS provisioning and isolate agent hosts.",
+      "summary": "Starting a security review to harden VPS provisioning and isolate agent hosts.",
+      "tickers": [],
+      "tags": [
+        "security",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d486760f"
+      }
+    },
+    {
+      "id": "task:7ef826be",
+      "timestamp": "2026-05-12T07:32:36.894Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Delivered a Python gate for board-agent training-example coverage and earned a reward.",
+      "summary": "Delivered a Python gate for board-agent training-example coverage and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7ef826be"
+      }
+    },
+    {
+      "id": "task:449df76a",
+      "timestamp": "2026-05-12T07:32:09.484Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Recorded a verification response for a Python gate that checks board-agent training-example c...",
+      "summary": "Recorded a verification response for a Python gate that checks board-agent training-example coverage on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:449df76a"
+      }
+    },
+    {
+      "id": "task:94896932",
+      "timestamp": "2026-05-12T07:32:07.774Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a deterministic Python gate that checks board-agent training-...",
+      "summary": "Uploaded follow-up evidence for a deterministic Python gate that checks board-agent training-example coverage.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:94896932"
+      }
+    },
+    {
+      "id": "task:889e5f5b",
+      "timestamp": "2026-05-12T07:31:38.783Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:be9847b4",
+      "category": "ai",
+      "title": "Planning methodology-hardening work to reduce false-positive rankings in BioMaps.",
+      "summary": "Planning methodology-hardening work to reduce false-positive rankings in BioMaps.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:889e5f5b"
+      }
+    },
+    {
+      "id": "task:8e4604b6",
+      "timestamp": "2026-05-12T07:29:08.016Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Requested verification for a deterministic Python gate for board-agent training-example cover...",
+      "summary": "Requested verification for a deterministic Python gate for board-agent training-example coverage.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8e4604b6"
+      }
+    },
+    {
+      "id": "task:504f8639",
+      "timestamp": "2026-05-12T07:28:39.066Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Recorded proof of a deterministic Python gate for board-agent training-example coverage on PFTL",
+      "summary": "Recorded proof of a deterministic Python gate for board-agent training-example coverage on PFTL",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:504f8639"
+      }
+    },
+    {
+      "id": "task:e968c337",
+      "timestamp": "2026-05-12T07:28:37.133Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Submitted evidence for a deterministic Python gate that screens board-agent training examples...",
+      "summary": "Submitted evidence for a deterministic Python gate that screens board-agent training examples for coverage and privacy issues.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e968c337"
+      }
+    },
+    {
       "id": "task:b86fdab7",
       "timestamp": "2026-05-12T07:20:36.890Z",
-      "type": "task_published",
-      "status": "pending",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:2f99eb53",
       "category": "network",
       "title": "Planning a deterministic Python gate for board-agent training examples and task issuance.",
@@ -26,7 +362,26 @@
         "task-node",
         "$PFT"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D304FDD2ABBA04E7D68EBA0796157E1E1EAEDAF862CE3C8FCD139810FF42F26D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF",
+          "url": "https://explorer.testnet.postfiat.org/transactions/FBBF17A4B787C8525910A29F2EFBAB60F98CE59EED7519E5B086F7EF09CE5DAF/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7EF25F0778DA8A5D22DFD2912BCE58F4534FCC86F047281EA7534627AFCC9B74/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:b86fdab7"
@@ -564,424 +919,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:2c38bbf0"
-      }
-    },
-    {
-      "id": "task:76543f17",
-      "timestamp": "2026-05-12T05:22:06.095Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered a deterministic Hive Mind agent-health router and earned a reward.",
-      "summary": "Delivered a deterministic Hive Mind agent-health router and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:76543f17"
-      }
-    },
-    {
-      "id": "task:aa04dc99",
-      "timestamp": "2026-05-12T05:21:38.049Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "content",
-      "title": "Planning a reviewer evidence pack for the BioMaps methodology and network analysis pipeline.",
-      "summary": "Planning a reviewer evidence pack for the BioMaps methodology and network analysis pipeline.",
-      "tickers": [],
-      "tags": [
-        "content",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0C080DBB79E239677F3CC93548C87713C7A41B0EB57CE766E62E137E16BE895C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0C080DBB79E239677F3CC93548C87713C7A41B0EB57CE766E62E137E16BE895C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "590EAFC7CAB4A89EDA569801ABF0234B3C058E166134AE461947AFD15B16AAE0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/590EAFC7CAB4A89EDA569801ABF0234B3C058E166134AE461947AFD15B16AAE0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "154CC7734BF2CC644ABB4AC7418E0E0B41116DB36E2FE4048D73CE4819E4DD7E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/154CC7734BF2CC644ABB4AC7418E0E0B41116DB36E2FE4048D73CE4819E4DD7E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:aa04dc99"
-      }
-    },
-    {
-      "id": "task:4fd856a4",
-      "timestamp": "2026-05-12T05:21:36.388Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a deterministic Hive Mind agent-health router on PFTL.",
-      "summary": "Recorded a verification response for a deterministic Hive Mind agent-health router on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:4fd856a4"
-      }
-    },
-    {
-      "id": "task:ddccf28f",
-      "timestamp": "2026-05-12T05:21:09.760Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Hive Mind agent-health router.",
-      "summary": "Uploaded follow-up evidence for a deterministic Hive Mind agent-health router.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ddccf28f"
-      }
-    },
-    {
-      "id": "task:f1522140",
-      "timestamp": "2026-05-12T05:19:37.917Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic Hive Mind agent-health router.",
-      "summary": "Requested verification for a deterministic Hive Mind agent-health router.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f1522140"
-      }
-    },
-    {
-      "id": "task:112bcdaf",
-      "timestamp": "2026-05-12T05:19:09.726Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of a deterministic Hive Mind agent-health router on PFTL.",
-      "summary": "Recorded proof of a deterministic Hive Mind agent-health router on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:112bcdaf"
-      }
-    },
-    {
-      "id": "task:74b59d14",
-      "timestamp": "2026-05-12T05:19:08.432Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a deterministic Hive Mind agent-health router in Python.",
-      "summary": "Submitted evidence for a deterministic Hive Mind agent-health router in Python.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:74b59d14"
-      }
-    },
-    {
-      "id": "task:49573430",
-      "timestamp": "2026-05-12T05:14:06.006Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a deterministic Python router for Hive Mind agent-health snapshots.",
-      "summary": "Planning a deterministic Python router for Hive Mind agent-health snapshots.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9B68879415E573F5FD489934AB8D2C2499E57EACE304051BAB46F4825251088D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C5B4E664D24FD34F2B969E4B0B621C9977AFDB89AB4A04F8956EC2D8136EF91C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B37EB3D54A556826E8FA62D8C4E868B4FDE96BC7809A4F582835FD6AC4C54442/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:49573430"
-      }
-    },
-    {
-      "id": "task:b4efb6a5",
-      "timestamp": "2026-05-12T04:40:37.131Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:5f58cdc7",
-      "category": "network",
-      "title": "Delivered a Discord contributor adoption flow page and earned a reward.",
-      "summary": "Delivered a Discord contributor adoption flow page and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "74F494AE09F624566D1D2AEC61BB7B308759C6F042CAB6538D66E21537C138A3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/74F494AE09F624566D1D2AEC61BB7B308759C6F042CAB6538D66E21537C138A3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00379DDADDC6C86BED63D408457610BE52CF5C31559ADCDFDA915806E5423AF3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00379DDADDC6C86BED63D408457610BE52CF5C31559ADCDFDA915806E5423AF3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "83860FDB556BE354C05AE5E8DB59899C3DB3949C186AB6DEE7BD693EC08AFAB5",
-          "url": "https://explorer.testnet.postfiat.org/transactions/83860FDB556BE354C05AE5E8DB59899C3DB3949C186AB6DEE7BD693EC08AFAB5/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b4efb6a5"
-      }
-    },
-    {
-      "id": "task:63ca9311",
-      "timestamp": "2026-05-12T04:40:07.920Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:5f58cdc7",
-      "category": "network",
-      "title": "Recorded a verification response for a Discord contributor adoption flow page on PFTL.",
-      "summary": "Recorded a verification response for a Discord contributor adoption flow page on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "83860FDB556BE354C05AE5E8DB59899C3DB3949C186AB6DEE7BD693EC08AFAB5",
-          "url": "https://explorer.testnet.postfiat.org/transactions/83860FDB556BE354C05AE5E8DB59899C3DB3949C186AB6DEE7BD693EC08AFAB5/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00379DDADDC6C86BED63D408457610BE52CF5C31559ADCDFDA915806E5423AF3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00379DDADDC6C86BED63D408457610BE52CF5C31559ADCDFDA915806E5423AF3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "74F494AE09F624566D1D2AEC61BB7B308759C6F042CAB6538D66E21537C138A3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/74F494AE09F624566D1D2AEC61BB7B308759C6F042CAB6538D66E21537C138A3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:63ca9311"
       }
     }
   ]
