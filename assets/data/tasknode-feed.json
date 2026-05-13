@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-13T13:33:47.843Z",
+  "generated_at": "2026-05-13T16:12:31.257Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,37 +10,125 @@
   },
   "items": [
     {
-      "id": "task:dd80899f",
-      "timestamp": "2026-05-13T13:33:40.024Z",
+      "id": "task:7abf4b70",
+      "timestamp": "2026-05-13T16:09:04.333Z",
       "type": "task_published",
-      "status": "pending",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning PFTL Snap activation funding updates for the PostFiat HTTPS service and chainId 2025.",
-      "summary": "Planning PFTL Snap activation funding updates for the PostFiat HTTPS service and chainId 2025.",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Recorded proof of a Hyperliquid daemon patch that refreshes exposure in-process and rechecks...",
+      "summary": "Recorded proof of a Hyperliquid daemon patch that refreshes exposure in-process and rechecks execution state.",
       "tickers": [
-        "PFT"
+        "HYPE"
       ],
       "tags": [
-        "network",
+        "trading",
         "task-node",
-        "$PFT"
+        "personal",
+        "$HYPE"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:dd80899f"
+        "source_id": "task:7abf4b70"
       }
     },
     {
-      "id": "task:2725d62b",
-      "timestamp": "2026-05-13T13:26:09.016Z",
+      "id": "task:93338529",
+      "timestamp": "2026-05-13T16:09:02.501Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Requested verification for a Hyperliquid daemon patch that refreshes exposure state and order...",
+      "summary": "Requested verification for a Hyperliquid daemon patch that refreshes exposure state and order execution in-process.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:93338529"
+      }
+    },
+    {
+      "id": "task:47509b0f",
+      "timestamp": "2026-05-13T16:09:01.043Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Submitted evidence for a Hyperliquid daemon patch that refreshes exposure state and order exe...",
+      "summary": "Submitted evidence for a Hyperliquid daemon patch that refreshes exposure state and order execution in-process.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:47509b0f"
+      }
+    },
+    {
+      "id": "task:f2a4983f",
+      "timestamp": "2026-05-13T16:07:02.499Z",
       "type": "task_published",
       "status": "in_progress",
-      "actor": "node:88ad000e",
+      "actor": "node:5f58cdc7",
       "category": "network",
-      "title": "Planning a Python reducer to score active Task Node aging and recommend one intervention per...",
-      "summary": "Planning a Python reducer to score active Task Node aging and recommend one intervention per task.",
+      "title": "Planning a public Growth Alignment Brief that turns existing Post Fiat assets into a compact...",
+      "summary": "Planning a public Growth Alignment Brief that turns existing Post Fiat assets into a compact growth decision page.",
       "tickers": [
         "PFT"
       ],
@@ -52,821 +140,317 @@
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:2725d62b"
+        "source_id": "task:f2a4983f"
       }
     },
     {
-      "id": "task:5cd0aba0",
-      "timestamp": "2026-05-13T13:23:11.410Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Delivered a Python validator for raw trend-scoring output and earned a reward.",
-      "summary": "Delivered a Python validator for raw trend-scoring output and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5cd0aba0"
-      }
-    },
-    {
-      "id": "task:cd1e4166",
-      "timestamp": "2026-05-13T13:23:09.224Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Recorded a verification response for a Python validator that parses raw trend-scoring output...",
-      "summary": "Recorded a verification response for a Python validator that parses raw trend-scoring output and returns rule-based decisions on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:cd1e4166"
-      }
-    },
-    {
-      "id": "task:c967fed4",
-      "timestamp": "2026-05-13T13:22:39.754Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Uploaded follow-up evidence for a Python validator that strips code fences and parses raw tre...",
-      "summary": "Uploaded follow-up evidence for a Python validator that strips code fences and parses raw trend-scoring output.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c967fed4"
-      }
-    },
-    {
-      "id": "task:68375aea",
-      "timestamp": "2026-05-13T13:21:49.096Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Requested verification for a Python validator that strips code fences and parses raw trend-sc...",
-      "summary": "Requested verification for a Python validator that strips code fences and parses raw trend-scoring output.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:68375aea"
-      }
-    },
-    {
-      "id": "task:e03c74c8",
-      "timestamp": "2026-05-13T13:21:45.159Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Recorded proof of a Python validator for social trend scoring on PFTL.",
-      "summary": "Recorded proof of a Python validator for social trend scoring on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e03c74c8"
-      }
-    },
-    {
-      "id": "task:0eb3f712",
-      "timestamp": "2026-05-13T13:21:39.379Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "ai",
-      "title": "Submitted evidence for a Python validator that checks trend scoring output and returns determ...",
-      "summary": "Submitted evidence for a Python validator that checks trend scoring output and returns deterministic accept, review, or reject decisions.",
-      "tickers": [],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77",
-          "url": "https://explorer.testnet.postfiat.org/transactions/64FE6370745774FD68F90A2B1C89AAA393A70310359DB0997054FE7361DD6A77/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AE23DD0CA6CFF1173E80817E6B7D1D8D1B7107B69496228FF2910CD57DE9B2BC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D5BF780166E6CD90320718B4002907FD1AC6E38892C787136721ACBFAD57595/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0eb3f712"
-      }
-    },
-    {
-      "id": "task:47dcf2ad",
-      "timestamp": "2026-05-13T13:02:10.102Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered a deterministic Python selector for Hive Mind weak-role patch routing and earned a...",
-      "summary": "Delivered a deterministic Python selector for Hive Mind weak-role patch routing and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:47dcf2ad"
-      }
-    },
-    {
-      "id": "task:8f42697f",
-      "timestamp": "2026-05-13T13:01:40.956Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Python selector that blocks malformed Hive Mi...",
-      "summary": "Uploaded follow-up evidence for a deterministic Python selector that blocks malformed Hive Mind weak-role records.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:8f42697f"
-      }
-    },
-    {
-      "id": "task:4ec3d392",
-      "timestamp": "2026-05-13T13:01:38.868Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a deterministic Python selector for Hive Mind weak-role...",
-      "summary": "Recorded a verification response for a deterministic Python selector for Hive Mind weak-role patch decisions on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:4ec3d392"
-      }
-    },
-    {
-      "id": "task:bb8caab1",
-      "timestamp": "2026-05-13T12:57:09.160Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic Python selector for Hive Mind weak-role patch deci...",
-      "summary": "Requested verification for a deterministic Python selector for Hive Mind weak-role patch decisions.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:bb8caab1"
-      }
-    },
-    {
-      "id": "task:1485b3d7",
-      "timestamp": "2026-05-13T12:56:42.030Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of a deterministic Python selector for Hive Mind weak-role patch decisions on...",
-      "summary": "Recorded proof of a deterministic Python selector for Hive Mind weak-role patch decisions on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1485b3d7"
-      }
-    },
-    {
-      "id": "task:d4f78e5b",
-      "timestamp": "2026-05-13T12:56:39.826Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a deterministic Python selector that routes Hive Mind weak-role patch...",
-      "summary": "Submitted evidence for a deterministic Python selector that routes Hive Mind weak-role patch decisions.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d4f78e5b"
-      }
-    },
-    {
-      "id": "task:5ca3edd4",
-      "timestamp": "2026-05-13T12:49:40.884Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a deterministic Python selector for Hive Mind weak-role patch routing.",
-      "summary": "Planning a deterministic Python selector for Hive Mind weak-role patch routing.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F89C27EA4F586807768FAC6F581EAAA9C5EDE2CCCDFB5627FE9EF443C3E038C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55537D4E10C7EED1AB470DDC2024AD725879714E2BA6B2558B63D6DF7EF56A44/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E0677533F2B98A8B34E28CDC9C2E726836CC5D9A02ECEC3B0E10E66140504303/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5ca3edd4"
-      }
-    },
-    {
-      "id": "task:2bd6e66a",
-      "timestamp": "2026-05-13T12:31:38.297Z",
+      "id": "task:c48cb340",
+      "timestamp": "2026-05-13T15:35:00.876Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Delivered a PFTL Snap endpoint drift guard and earned a reward.",
-      "summary": "Delivered a PFTL Snap endpoint drift guard and earned a reward.",
+      "category": "network",
+      "title": "Delivered PFTL Snap copy cleanup and earned a reward.",
+      "summary": "Delivered PFTL Snap copy cleanup and earned a reward.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "network",
         "task-node",
-        "personal",
         "$PFT"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:2bd6e66a"
+        "source_id": "task:c48cb340"
       }
     },
     {
-      "id": "task:b1a978aa",
-      "timestamp": "2026-05-13T12:31:15.833Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "content",
-      "title": "Recorded a verification response for a social trend scoring report on PFTL.",
-      "summary": "Recorded a verification response for a social trend scoring report on PFTL.",
-      "tickers": [],
-      "tags": [
-        "content",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b1a978aa"
-      }
-    },
-    {
-      "id": "task:b3a89ac6",
-      "timestamp": "2026-05-13T12:31:13.531Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "content",
-      "title": "Uploaded follow-up evidence for trend-signal scoring and ranked output review.",
-      "summary": "Uploaded follow-up evidence for trend-signal scoring and ranked output review.",
-      "tickers": [],
-      "tags": [
-        "content",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b3a89ac6"
-      }
-    },
-    {
-      "id": "task:b41be07a",
-      "timestamp": "2026-05-13T12:31:11.631Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "content",
-      "title": "Delivered a ranked trend-signal report and earned a reward.",
-      "summary": "Delivered a ranked trend-signal report and earned a reward.",
-      "tickers": [],
-      "tags": [
-        "content",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/05599BA3B87306874476EE6E0C4745AEB6AA43B5A633BC7DEC23ACE394578BD9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8B7C7CCF5F66D49D6BF71550A51C017D33551DBE67A77337E1D7CF10A792A9D2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E51A2431B04A69785148F893718AF36E0ACE0F7C26ECDC762F0CD97C0C311412/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b41be07a"
-      }
-    },
-    {
-      "id": "task:9a28ef12",
-      "timestamp": "2026-05-13T12:31:09.816Z",
+      "id": "task:6a1f26ac",
+      "timestamp": "2026-05-13T15:34:33.908Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded a verification response for a PFTL Snap endpoint drift guard on PFTL.",
-      "summary": "Recorded a verification response for a PFTL Snap endpoint drift guard on PFTL.",
+      "category": "network",
+      "title": "Recorded a verification response for PFTL Snap copy cleanup on PFTL.",
+      "summary": "Recorded a verification response for PFTL Snap copy cleanup on PFTL.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "network",
         "task-node",
-        "personal",
         "$PFT"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:9a28ef12"
+        "source_id": "task:6a1f26ac"
       }
     },
     {
-      "id": "task:95e30b7f",
-      "timestamp": "2026-05-13T12:31:07.859Z",
+      "id": "task:11916b5d",
+      "timestamp": "2026-05-13T15:34:32.094Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Uploaded follow-up evidence for a PFTL Snap endpoint drift guard.",
-      "summary": "Uploaded follow-up evidence for a PFTL Snap endpoint drift guard.",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a PFTL Snap copy cleanup.",
+      "summary": "Uploaded follow-up evidence for a PFTL Snap copy cleanup.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "network",
         "task-node",
-        "personal",
         "$PFT"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:95e30b7f"
+        "source_id": "task:11916b5d"
       }
     },
     {
-      "id": "task:cf99d944",
-      "timestamp": "2026-05-13T12:29:20.579Z",
+      "id": "task:dc1c9fe4",
+      "timestamp": "2026-05-13T15:34:02.806Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded proof of a PFTL Snap endpoint drift guard on PFTL.",
-      "summary": "Recorded proof of a PFTL Snap endpoint drift guard on PFTL.",
+      "category": "network",
+      "title": "Requested verification for a PFTL Snap copy cleanup.",
+      "summary": "Requested verification for a PFTL Snap copy cleanup.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:dc1c9fe4"
+      }
+    },
+    {
+      "id": "task:46ea7574",
+      "timestamp": "2026-05-13T15:33:33.970Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded proof of a PFTL Snap copy cleanup on PFTL.",
+      "summary": "Recorded proof of a PFTL Snap copy cleanup on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:46ea7574"
+      }
+    },
+    {
+      "id": "task:d0da66e5",
+      "timestamp": "2026-05-13T15:33:32.088Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for a PFTL Snap copy cleanup that removes legacy XRP and XRPL branding fro...",
+      "summary": "Submitted evidence for a PFTL Snap copy cleanup that removes legacy XRP and XRPL branding from user-facing text.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d0da66e5"
+      }
+    },
+    {
+      "id": "task:c3ca57f1",
+      "timestamp": "2026-05-13T15:04:02.010Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning a PFTL Snap copy cleanup to remove legacy XRP and XRPL branding from user-facing UI...",
+      "summary": "Planning a PFTL Snap copy cleanup to remove legacy XRP and XRPL branding from user-facing UI text.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
+          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c3ca57f1"
+      }
+    },
+    {
+      "id": "task:851bd11b",
+      "timestamp": "2026-05-13T15:00:30.403Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Delivered a Snap review link update and earned a reward on PFTL.",
+      "summary": "Delivered a Snap review link update and earned a reward on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
         "task-node",
         "personal",
         "$PFT"
@@ -875,41 +459,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
         },
         {
           "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:cf99d944"
+        "source_id": "task:851bd11b"
       }
     },
     {
-      "id": "task:1024fb26",
-      "timestamp": "2026-05-13T12:29:17.317Z",
+      "id": "task:e3eb0a69",
+      "timestamp": "2026-05-13T15:00:05.010Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Requested verification for a PFTL Snap regression guard on endpoint consistency.",
-      "summary": "Requested verification for a PFTL Snap regression guard on endpoint consistency.",
+      "category": "frontend",
+      "title": "Recorded a verification response for a Snap review link update on PFTL, removing the external...",
+      "summary": "Recorded a verification response for a Snap review link update on PFTL, removing the external review link until a Post Fiat route exists.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "frontend",
         "task-node",
         "personal",
         "$PFT"
@@ -918,41 +502,41 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:1024fb26"
+        "source_id": "task:e3eb0a69"
       }
     },
     {
-      "id": "task:3403b1cb",
-      "timestamp": "2026-05-13T12:29:14.975Z",
+      "id": "task:e147762f",
+      "timestamp": "2026-05-13T15:00:03.399Z",
       "type": "task_completed",
       "status": "rewarded",
       "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Submitted evidence for a PFTL Snap regression guard that keeps endpoint config and test fixtu...",
-      "summary": "Submitted evidence for a PFTL Snap regression guard that keeps endpoint config and test fixtures aligned.",
+      "category": "frontend",
+      "title": "Uploaded follow-up evidence for a Snap review link update, showing the external review link w...",
+      "summary": "Uploaded follow-up evidence for a Snap review link update, showing the external review link was removed until a Post Fiat route exists.",
       "tickers": [
         "PFT"
       ],
       "tags": [
-        "infra",
+        "frontend",
         "task-node",
         "personal",
         "$PFT"
@@ -961,25 +545,449 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9FE5B5D1A0F0616B7ED6AD57A0429E59EE7D23B0CB760CA6E344BA38EA319B06/detailed"
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3272BEF4534D993F55B8AF891839C842E56365AD5AD9D60C59E3F9F35663D0A2/detailed"
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C16D28CF954D135A0B397796408C43B37A0F0ACA64EAB03E9ABA95386036B326/detailed"
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:3403b1cb"
+        "source_id": "task:e147762f"
+      }
+    },
+    {
+      "id": "task:fccf23ea",
+      "timestamp": "2026-05-13T14:46:08.951Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Requested verification for a Snap review link update to the Post Fiat route.",
+      "summary": "Requested verification for a Snap review link update to the Post Fiat route.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:fccf23ea"
+      }
+    },
+    {
+      "id": "task:b58f2c1a",
+      "timestamp": "2026-05-13T14:45:41.675Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Recorded proof of a Snap review link update on PFTL.",
+      "summary": "Recorded proof of a Snap review link update on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b58f2c1a"
+      }
+    },
+    {
+      "id": "task:f13d2b37",
+      "timestamp": "2026-05-13T14:45:39.553Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Submitted evidence for a Snap-side review link update to route transaction dialogs to the Pos...",
+      "summary": "Submitted evidence for a Snap-side review link update to route transaction dialogs to the Post Fiat review surface.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f13d2b37"
+      }
+    },
+    {
+      "id": "task:b8ccbde8",
+      "timestamp": "2026-05-13T14:18:37.806Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Planning a Snap-side review link update to route transaction dialogs to the Post Fiat review...",
+      "summary": "Planning a Snap-side review link update to route transaction dialogs to the Post Fiat review surface.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b8ccbde8"
+      }
+    },
+    {
+      "id": "task:3296f2c4",
+      "timestamp": "2026-05-13T14:16:41.710Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Recorded a verification response for PFTL Snap explorer-link routing tests on PFTL.",
+      "summary": "Recorded a verification response for PFTL Snap explorer-link routing tests on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
+          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
+          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3296f2c4"
+      }
+    },
+    {
+      "id": "task:827497bd",
+      "timestamp": "2026-05-13T14:16:39.889Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Uploaded follow-up evidence for PFTL Snap explorer-link routing tests.",
+      "summary": "Uploaded follow-up evidence for PFTL Snap explorer-link routing tests.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
+          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
+          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:827497bd"
+      }
+    },
+    {
+      "id": "task:2a93f91e",
+      "timestamp": "2026-05-13T14:16:38.066Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Delivered PFTL Snap explorer-link routing and earned a reward.",
+      "summary": "Delivered PFTL Snap explorer-link routing and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
+          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
+          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:2a93f91e"
+      }
+    },
+    {
+      "id": "task:622ee72e",
+      "timestamp": "2026-05-13T14:15:07.643Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a Hyperliquid daemon fix for subzone exposure refresh and order execution.",
+      "summary": "Planning a Hyperliquid daemon fix for subzone exposure refresh and order execution.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:622ee72e"
+      }
+    },
+    {
+      "id": "task:cac8e991",
+      "timestamp": "2026-05-13T14:14:38.416Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Requested verification for PFTL Snap explorer-link routing on PFTL.",
+      "summary": "Requested verification for PFTL Snap explorer-link routing on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
+          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
+          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cac8e991"
+      }
+    },
+    {
+      "id": "task:96290b4f",
+      "timestamp": "2026-05-13T14:14:10.590Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "frontend",
+      "title": "Recorded proof of PFTL Snap explorer-link routing on PFTL.",
+      "summary": "Recorded proof of PFTL Snap explorer-link routing on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
+          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
+          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:96290b4f"
       }
     }
   ]
