@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-13T16:12:31.257Z",
+  "generated_at": "2026-05-13T18:21:01.722Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,984 +10,1038 @@
   },
   "items": [
     {
-      "id": "task:7abf4b70",
-      "timestamp": "2026-05-13T16:09:04.333Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:13944212",
+      "id": "task:e0e02a89",
+      "timestamp": "2026-05-13T18:12:06.052Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
       "category": "trading",
-      "title": "Recorded proof of a Hyperliquid daemon patch that refreshes exposure in-process and rechecks...",
-      "summary": "Recorded proof of a Hyperliquid daemon patch that refreshes exposure in-process and rechecks execution state.",
+      "title": "Delivered a BTC/ETH replay-vs-paper signal audit and earned a reward.",
+      "summary": "Delivered a BTC/ETH replay-vs-paper signal audit and earned a reward.",
       "tickers": [
-        "HYPE"
+        "BTC",
+        "ETH"
       ],
       "tags": [
         "trading",
         "task-node",
         "personal",
-        "$HYPE"
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:7abf4b70"
+        "source_id": "task:e0e02a89"
       }
     },
     {
-      "id": "task:93338529",
-      "timestamp": "2026-05-13T16:09:02.501Z",
+      "id": "task:b001ac96",
+      "timestamp": "2026-05-13T18:12:04.551Z",
       "type": "task_published",
       "status": "pending_verification",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Requested verification for a Hyperliquid daemon patch that refreshes exposure state and order...",
-      "summary": "Requested verification for a Hyperliquid daemon patch that refreshes exposure state and order execution in-process.",
+      "actor": "node:b4e24f89",
+      "category": "network",
+      "title": "Recorded proof of a Product Goblin feedback intake fix on PFTL.",
+      "summary": "Recorded proof of a Product Goblin feedback intake fix on PFTL.",
       "tickers": [
-        "HYPE"
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b001ac96"
+      }
+    },
+    {
+      "id": "task:5f1e2ba3",
+      "timestamp": "2026-05-13T18:12:03.017Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:b4e24f89",
+      "category": "network",
+      "title": "Requested verification for a Product Goblin feedback intake fix that returns structured issue...",
+      "summary": "Requested verification for a Product Goblin feedback intake fix that returns structured issues or a clear non-ingestion state.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5f1e2ba3"
+      }
+    },
+    {
+      "id": "task:320a0fec",
+      "timestamp": "2026-05-13T18:11:35.833Z",
+      "type": "task_published",
+      "status": "pending_verification",
+      "actor": "node:b4e24f89",
+      "category": "network",
+      "title": "Submitted evidence for a Product Goblin feedback intake fix that now returns either a structu...",
+      "summary": "Submitted evidence for a Product Goblin feedback intake fix that now returns either a structured issue or a clear non-ingestion state.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5B106B7496E5C239D88E59F84EC04A070C35EEA25E078A38F522607F91960325/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:320a0fec"
+      }
+    },
+    {
+      "id": "task:c7735f7f",
+      "timestamp": "2026-05-13T18:11:34.113Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a BTC/ETH replay-vs-paper signal audit.",
+      "summary": "Uploaded follow-up evidence for a BTC/ETH replay-vs-paper signal audit.",
+      "tickers": [
+        "BTC",
+        "ETH"
       ],
       "tags": [
         "trading",
         "task-node",
         "personal",
-        "$HYPE"
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:93338529"
+        "source_id": "task:c7735f7f"
       }
     },
     {
-      "id": "task:47509b0f",
-      "timestamp": "2026-05-13T16:09:01.043Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:13944212",
+      "id": "task:c1fc9aca",
+      "timestamp": "2026-05-13T18:11:32.720Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
       "category": "trading",
-      "title": "Submitted evidence for a Hyperliquid daemon patch that refreshes exposure state and order exe...",
-      "summary": "Submitted evidence for a Hyperliquid daemon patch that refreshes exposure state and order execution in-process.",
+      "title": "Uploaded a verification response for a BTC/ETH replay-vs-paper signal audit.",
+      "summary": "Uploaded a verification response for a BTC/ETH replay-vs-paper signal audit.",
       "tickers": [
-        "HYPE"
+        "BTC",
+        "ETH"
       ],
       "tags": [
         "trading",
         "task-node",
         "personal",
-        "$HYPE"
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:47509b0f"
-      }
-    },
-    {
-      "id": "task:f2a4983f",
-      "timestamp": "2026-05-13T16:07:02.499Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:5f58cdc7",
-      "category": "network",
-      "title": "Planning a public Growth Alignment Brief that turns existing Post Fiat assets into a compact...",
-      "summary": "Planning a public Growth Alignment Brief that turns existing Post Fiat assets into a compact growth decision page.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f2a4983f"
-      }
-    },
-    {
-      "id": "task:c48cb340",
-      "timestamp": "2026-05-13T15:35:00.876Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Delivered PFTL Snap copy cleanup and earned a reward.",
-      "summary": "Delivered PFTL Snap copy cleanup and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c48cb340"
-      }
-    },
-    {
-      "id": "task:6a1f26ac",
-      "timestamp": "2026-05-13T15:34:33.908Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Recorded a verification response for PFTL Snap copy cleanup on PFTL.",
-      "summary": "Recorded a verification response for PFTL Snap copy cleanup on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:6a1f26ac"
+        "source_id": "task:c1fc9aca"
       }
     },
     {
-      "id": "task:11916b5d",
-      "timestamp": "2026-05-13T15:34:32.094Z",
+      "id": "task:ec02fbd0",
+      "timestamp": "2026-05-13T18:07:34.197Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a PFTL Snap copy cleanup.",
-      "summary": "Uploaded follow-up evidence for a PFTL Snap copy cleanup.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:11916b5d"
-      }
-    },
-    {
-      "id": "task:dc1c9fe4",
-      "timestamp": "2026-05-13T15:34:02.806Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Requested verification for a PFTL Snap copy cleanup.",
-      "summary": "Requested verification for a PFTL Snap copy cleanup.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:dc1c9fe4"
-      }
-    },
-    {
-      "id": "task:46ea7574",
-      "timestamp": "2026-05-13T15:33:33.970Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Recorded proof of a PFTL Snap copy cleanup on PFTL.",
-      "summary": "Recorded proof of a PFTL Snap copy cleanup on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:46ea7574"
-      }
-    },
-    {
-      "id": "task:d0da66e5",
-      "timestamp": "2026-05-13T15:33:32.088Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Submitted evidence for a PFTL Snap copy cleanup that removes legacy XRP and XRPL branding fro...",
-      "summary": "Submitted evidence for a PFTL Snap copy cleanup that removes legacy XRP and XRPL branding from user-facing text.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d0da66e5"
-      }
-    },
-    {
-      "id": "task:c3ca57f1",
-      "timestamp": "2026-05-13T15:04:02.010Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a PFTL Snap copy cleanup to remove legacy XRP and XRPL branding from user-facing UI...",
-      "summary": "Planning a PFTL Snap copy cleanup to remove legacy XRP and XRPL branding from user-facing UI text.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051",
-          "url": "https://explorer.testnet.postfiat.org/transactions/45541F6F9B21DAF84FCA48CC288DFBF9D21C16FB47EC1D614C877AD693246051/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/24FC684A08D978D58DA8ECFC47D9CCD4D54C90B763FBE3C4D0CB1D6B7D7639C3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E26F6A12DCD08A87ABA35C64E87717B536A16059CC2CA14A36DFD26456ECC91/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c3ca57f1"
-      }
-    },
-    {
-      "id": "task:851bd11b",
-      "timestamp": "2026-05-13T15:00:30.403Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Delivered a Snap review link update and earned a reward on PFTL.",
-      "summary": "Delivered a Snap review link update and earned a reward on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:851bd11b"
-      }
-    },
-    {
-      "id": "task:e3eb0a69",
-      "timestamp": "2026-05-13T15:00:05.010Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Recorded a verification response for a Snap review link update on PFTL, removing the external...",
-      "summary": "Recorded a verification response for a Snap review link update on PFTL, removing the external review link until a Post Fiat route exists.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e3eb0a69"
-      }
-    },
-    {
-      "id": "task:e147762f",
-      "timestamp": "2026-05-13T15:00:03.399Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Uploaded follow-up evidence for a Snap review link update, showing the external review link w...",
-      "summary": "Uploaded follow-up evidence for a Snap review link update, showing the external review link was removed until a Post Fiat route exists.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e147762f"
-      }
-    },
-    {
-      "id": "task:fccf23ea",
-      "timestamp": "2026-05-13T14:46:08.951Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Requested verification for a Snap review link update to the Post Fiat route.",
-      "summary": "Requested verification for a Snap review link update to the Post Fiat route.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:fccf23ea"
-      }
-    },
-    {
-      "id": "task:b58f2c1a",
-      "timestamp": "2026-05-13T14:45:41.675Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Recorded proof of a Snap review link update on PFTL.",
-      "summary": "Recorded proof of a Snap review link update on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b58f2c1a"
-      }
-    },
-    {
-      "id": "task:f13d2b37",
-      "timestamp": "2026-05-13T14:45:39.553Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Submitted evidence for a Snap-side review link update to route transaction dialogs to the Pos...",
-      "summary": "Submitted evidence for a Snap-side review link update to route transaction dialogs to the Post Fiat review surface.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f13d2b37"
-      }
-    },
-    {
-      "id": "task:b8ccbde8",
-      "timestamp": "2026-05-13T14:18:37.806Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Planning a Snap-side review link update to route transaction dialogs to the Post Fiat review...",
-      "summary": "Planning a Snap-side review link update to route transaction dialogs to the Post Fiat review surface.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/30065EF3B49E9E0B4A3226F0BB879FF8ADB048655754F39D2F9748E39A50EF0B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B3D710399064DD68069E8A779EDC8D9172A73818530B572FC496C565D82A3DC4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/029647F2DFA9806FAD5D450C4F121E93583BF60510D6BCDBE3E2C7F11F9BF8BA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b8ccbde8"
-      }
-    },
-    {
-      "id": "task:3296f2c4",
-      "timestamp": "2026-05-13T14:16:41.710Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Recorded a verification response for PFTL Snap explorer-link routing tests on PFTL.",
-      "summary": "Recorded a verification response for PFTL Snap explorer-link routing tests on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:3296f2c4"
-      }
-    },
-    {
-      "id": "task:827497bd",
-      "timestamp": "2026-05-13T14:16:39.889Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Uploaded follow-up evidence for PFTL Snap explorer-link routing tests.",
-      "summary": "Uploaded follow-up evidence for PFTL Snap explorer-link routing tests.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:827497bd"
-      }
-    },
-    {
-      "id": "task:2a93f91e",
-      "timestamp": "2026-05-13T14:16:38.066Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Delivered PFTL Snap explorer-link routing and earned a reward.",
-      "summary": "Delivered PFTL Snap explorer-link routing and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:2a93f91e"
-      }
-    },
-    {
-      "id": "task:622ee72e",
-      "timestamp": "2026-05-13T14:15:07.643Z",
-      "type": "task_published",
-      "status": "pending_verification",
-      "actor": "node:13944212",
+      "actor": "node:27cbe181",
       "category": "trading",
-      "title": "Planning a Hyperliquid daemon fix for subzone exposure refresh and order execution.",
-      "summary": "Planning a Hyperliquid daemon fix for subzone exposure refresh and order execution.",
+      "title": "Submitted evidence for a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "summary": "Submitted evidence for a replay-vs-paper audit of BTC/ETH signal behavior.",
       "tickers": [
-        "HYPE"
+        "BTC",
+        "ETH"
       ],
       "tags": [
         "trading",
         "task-node",
         "personal",
-        "$HYPE"
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7AF3AC88C9EF0736F6480E4E904A3414DEF0E43062C03DC6E945E6DF9D1BBB1E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CC9F24F43AC04B46AB73C5A8DDE6C5459C2869A9BC648E8F04645E8587312FC9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:622ee72e"
-      }
-    },
-    {
-      "id": "task:cac8e991",
-      "timestamp": "2026-05-13T14:14:38.416Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Requested verification for PFTL Snap explorer-link routing on PFTL.",
-      "summary": "Requested verification for PFTL Snap explorer-link routing on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "frontend",
-        "task-node",
-        "personal",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:cac8e991"
+        "source_id": "task:ec02fbd0"
       }
     },
     {
-      "id": "task:96290b4f",
-      "timestamp": "2026-05-13T14:14:10.590Z",
+      "id": "task:c67cc033",
+      "timestamp": "2026-05-13T18:07:32.659Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "frontend",
-      "title": "Recorded proof of PFTL Snap explorer-link routing on PFTL.",
-      "summary": "Recorded proof of PFTL Snap explorer-link routing on PFTL.",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Submitted evidence for a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "summary": "Submitted evidence for a replay-vs-paper audit of BTC/ETH signal behavior.",
       "tickers": [
-        "PFT"
+        "BTC",
+        "ETH"
       ],
       "tags": [
-        "frontend",
+        "trading",
         "task-node",
         "personal",
-        "$PFT"
+        "$BTC",
+        "$ETH"
       ],
       "links": [
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/352508F7C49CB418C2EAAF6F8D21292DE10C66E28961CB8F61B294B3DE2AA7DC/detailed"
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/734B9AF270F062724DB738A5C7836E17676E3987FE22336660C0115BFCF660D0/detailed"
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3BFA622714540896474CCB81518F16842037576785D910B1465A4DF405BDE3B1/detailed"
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:96290b4f"
+        "source_id": "task:c67cc033"
+      }
+    },
+    {
+      "id": "task:2d6d60e4",
+      "timestamp": "2026-05-13T18:07:31.225Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Requested verification for a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "summary": "Requested verification for a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:2d6d60e4"
+      }
+    },
+    {
+      "id": "task:ee8be797",
+      "timestamp": "2026-05-13T18:06:33.918Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Delivered a replay regime drift stability audit and earned a reward.",
+      "summary": "Delivered a replay regime drift stability audit and earned a reward.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ee8be797"
+      }
+    },
+    {
+      "id": "task:3df56eb0",
+      "timestamp": "2026-05-13T18:06:01.550Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Recorded a verification response for a replay regime drift stability audit on PFTL.",
+      "summary": "Recorded a verification response for a replay regime drift stability audit on PFTL.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3df56eb0"
+      }
+    },
+    {
+      "id": "task:5f5cea92",
+      "timestamp": "2026-05-13T18:05:31.793Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a replay regime drift stability audit using percentage-normal...",
+      "summary": "Uploaded follow-up evidence for a replay regime drift stability audit using percentage-normalized thresholds.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5f5cea92"
+      }
+    },
+    {
+      "id": "task:53c107dc",
+      "timestamp": "2026-05-13T18:05:05.560Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Planning a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "summary": "Planning a replay-vs-paper audit of BTC/ETH signal behavior.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C713F622FADAB03E7F7553F4116CF4DE42D2A9C8FC2593EEF9DB1A8D6EED04AB/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/725094A2B451369704E2EBB68A6D9E0DE96FE1F4C153F9132E81D32E8B56115B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/BBBE52D13E9DE280300B79164DEF3D94EDDB233DC5CC89FCB1F118153983551A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:53c107dc"
+      }
+    },
+    {
+      "id": "task:ff89c12c",
+      "timestamp": "2026-05-13T18:04:33.325Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Requested verification for a replay regime drift stability audit using BTC and ETH replay bat...",
+      "summary": "Requested verification for a replay regime drift stability audit using BTC and ETH replay batches.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ff89c12c"
+      }
+    },
+    {
+      "id": "task:7bd56a0e",
+      "timestamp": "2026-05-13T18:04:05.007Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Submitted evidence for a replay regime drift stability audit using BTC and ETH replay batches.",
+      "summary": "Submitted evidence for a replay regime drift stability audit using BTC and ETH replay batches.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7bd56a0e"
+      }
+    },
+    {
+      "id": "task:1c145538",
+      "timestamp": "2026-05-13T18:04:02.499Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Submitted evidence for a replay regime drift stability audit using BTC and ETH replay batches.",
+      "summary": "Submitted evidence for a replay regime drift stability audit using BTC and ETH replay batches.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1c145538"
+      }
+    },
+    {
+      "id": "task:1ee45b77",
+      "timestamp": "2026-05-13T18:01:37.449Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Delivered a replay regime coverage audit notebook and earned a reward.",
+      "summary": "Delivered a replay regime coverage audit notebook and earned a reward.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1ee45b77"
+      }
+    },
+    {
+      "id": "task:fb828f32",
+      "timestamp": "2026-05-13T18:01:32.739Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "summary": "Uploaded follow-up evidence for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:fb828f32"
+      }
+    },
+    {
+      "id": "task:63ea3e36",
+      "timestamp": "2026-05-13T18:01:31.337Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "summary": "Uploaded follow-up evidence for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:63ea3e36"
+      }
+    },
+    {
+      "id": "task:cf089923",
+      "timestamp": "2026-05-13T18:01:01.113Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Planning a replay regime drift audit for BTC and ETH metrics stability.",
+      "summary": "Planning a replay regime drift audit for BTC and ETH metrics stability.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/56BCF8BEF97666008F77D3F15A86B8E6C2E01872C62A7FDA3D5D49F6EFEA174A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/126E394E080933541614BB052E56963069C6A9910ECFB4178C24882C4F907D1A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B624F2CFC8771C3DE4ED4B4F466720499B36AF6852469758D9E674AB55E6969D/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cf089923"
+      }
+    },
+    {
+      "id": "task:3dd9aaa4",
+      "timestamp": "2026-05-13T18:00:02.418Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Requested verification for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "summary": "Requested verification for a notebook auditing BTC and ETH replay dataset regime coverage.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3dd9aaa4"
+      }
+    },
+    {
+      "id": "task:c576319b",
+      "timestamp": "2026-05-13T17:59:34.971Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Recorded proof of a notebook auditing BTC and ETH replay dataset regime coverage on PFTL.",
+      "summary": "Recorded proof of a notebook auditing BTC and ETH replay dataset regime coverage on PFTL.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c576319b"
+      }
+    },
+    {
+      "id": "task:8f3b8881",
+      "timestamp": "2026-05-13T17:59:33.087Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Submitted evidence for a notebook auditing replay dataset regime coverage for BTC and ETH.",
+      "summary": "Submitted evidence for a notebook auditing replay dataset regime coverage for BTC and ETH.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/87DB7A988A11FA405E3FEAFDB99718CEBF7F97B3C6572541217E287E44ED968B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C873EC68F70777E71D88E505F2788809F3B15D135865AA657B9362BBDA2AC9BA/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2",
+          "url": "https://explorer.testnet.postfiat.org/transactions/0AC08A51973B9571C7048D474E9AA8CEE9251B1A16B479FBE9AE577062A22CC2/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8f3b8881"
+      }
+    },
+    {
+      "id": "task:e6ab3ec8",
+      "timestamp": "2026-05-13T17:57:36.049Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:27cbe181",
+      "category": "trading",
+      "title": "Recorded a verification response for replay dataset expansion after normalizing session times...",
+      "summary": "Recorded a verification response for replay dataset expansion after normalizing session timestamps and rerunning validation.",
+      "tickers": [
+        "BTC",
+        "ETH"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC",
+        "$ETH"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "965822BE9A729557277A8E562BF7B46F9C277DF394A3F8A841FE21B5392DC769",
+          "url": "https://explorer.testnet.postfiat.org/transactions/965822BE9A729557277A8E562BF7B46F9C277DF394A3F8A841FE21B5392DC769/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "E0D371CAEC900A3029822E6C5064F9057B59564AFCB48303126B679866B50BA4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/E0D371CAEC900A3029822E6C5064F9057B59564AFCB48303126B679866B50BA4/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "476E57594246D486A57F0E65C67814735990234ACFDF85FF35E0AAEE1031563A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/476E57594246D486A57F0E65C67814735990234ACFDF85FF35E0AAEE1031563A/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e6ab3ec8"
       }
     }
   ]
