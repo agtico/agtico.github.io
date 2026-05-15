@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-15T19:00:42.460Z",
+  "generated_at": "2026-05-15T20:36:50.611Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:3c330bd0",
+      "timestamp": "2026-05-15T19:32:10.551Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:b4e24f89",
+      "category": "ux",
+      "title": "Passed on the Task Node core-path UX prototype after no response.",
+      "summary": "Passed on the Task Node core-path UX prototype after no response.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ux",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3c330bd0"
+      }
+    },
     {
       "id": "task:afd04a13",
       "timestamp": "2026-05-15T18:46:12.001Z",
@@ -55,7 +79,7 @@
       "id": "task:85bb378c",
       "timestamp": "2026-05-15T18:31:37.178Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "refused",
       "actor": "node:b4e24f89",
       "category": "ux",
       "title": "Planning a Task Node core-path UX prototype for the default task flow.",
@@ -619,46 +643,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:b0812b22"
-      }
-    },
-    {
-      "id": "task:9c7036e3",
-      "timestamp": "2026-05-15T13:48:59.297Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:0ad81ad6",
-      "category": "finance",
-      "title": "Uploaded follow-up evidence for a hotel underwriting workbook review.",
-      "summary": "Uploaded follow-up evidence for a hotel underwriting workbook review.",
-      "tickers": [],
-      "tags": [
-        "finance",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "A98B4F2345B6C20F9DF8B32EFC32CAA9984DF224C46C364E7D2EE93D0D03673C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A98B4F2345B6C20F9DF8B32EFC32CAA9984DF224C46C364E7D2EE93D0D03673C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3F07E816434347E12BF495DA0E4A4AF966DF80DE7DEA1E4647A82C9C07D91A8E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3F07E816434347E12BF495DA0E4A4AF966DF80DE7DEA1E4647A82C9C07D91A8E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "576F0DFE02909C5F636597BFA419C2436B54425BA4DD7C1B069CADA61FE29FE1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/576F0DFE02909C5F636597BFA419C2436B54425BA4DD7C1B069CADA61FE29FE1/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9c7036e3"
       }
     }
   ]
