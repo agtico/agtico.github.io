@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T22:34:05.393Z",
+  "generated_at": "2026-05-16T23:38:49.214Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,54 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:1aa71936",
+      "timestamp": "2026-05-16T22:42:29.212Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:491e4e28",
+      "category": "ops",
+      "title": "Planning a CLI tool that packages PFT task submissions into one deterministic packet with pri...",
+      "summary": "Planning a CLI tool that packages PFT task submissions into one deterministic packet with privacy checks and a final checklist.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "ops",
+        "task-node",
+        "personal",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1aa71936"
+      }
+    },
+    {
+      "id": "task:aaaf0eaa",
+      "timestamp": "2026-05-16T22:39:30.584Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC perpetual session review to mark three thesis invalidation checkpoints.",
+      "summary": "Planning a BTC perpetual session review to mark three thesis invalidation checkpoints.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:aaaf0eaa"
+      }
+    },
     {
       "id": "task:d4f20cf9",
       "timestamp": "2026-05-16T22:22:29.472Z",
@@ -840,86 +888,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:a6592bc2"
-      }
-    },
-    {
-      "id": "task:5914d7bc",
-      "timestamp": "2026-05-16T15:36:44.690Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "general",
-      "title": "Requested verification for a BioMaps network weakness comparison packet.",
-      "summary": "Requested verification for a BioMaps network weakness comparison packet.",
-      "tickers": [],
-      "tags": [
-        "general",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5BFD137645597878A7C6299D447E8E4FC768966652E205CE39FF0332DD8493BD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5BFD137645597878A7C6299D447E8E4FC768966652E205CE39FF0332DD8493BD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "F5FB4978C45ADCA1D44F237EA180452869AB30B21165978418164CB35766A4C4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F5FB4978C45ADCA1D44F237EA180452869AB30B21165978418164CB35766A4C4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D9CCD5E2FB266F3C0905F1938EE12FE67BE0F2C19D0AA48D7E45302ED637A2C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D9CCD5E2FB266F3C0905F1938EE12FE67BE0F2C19D0AA48D7E45302ED637A2C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5914d7bc"
-      }
-    },
-    {
-      "id": "task:15c145a6",
-      "timestamp": "2026-05-16T15:36:16.065Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:be9847b4",
-      "category": "network",
-      "title": "Recorded proof of a BioMaps network weakness comparison packet on PFTL.",
-      "summary": "Recorded proof of a BioMaps network weakness comparison packet on PFTL.",
-      "tickers": [],
-      "tags": [
-        "network",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5BFD137645597878A7C6299D447E8E4FC768966652E205CE39FF0332DD8493BD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5BFD137645597878A7C6299D447E8E4FC768966652E205CE39FF0332DD8493BD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "F5FB4978C45ADCA1D44F237EA180452869AB30B21165978418164CB35766A4C4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F5FB4978C45ADCA1D44F237EA180452869AB30B21165978418164CB35766A4C4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2D9CCD5E2FB266F3C0905F1938EE12FE67BE0F2C19D0AA48D7E45302ED637A2C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D9CCD5E2FB266F3C0905F1938EE12FE67BE0F2C19D0AA48D7E45302ED637A2C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:15c145a6"
       }
     }
   ]
