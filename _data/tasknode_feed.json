@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-15T23:42:26.865Z",
+  "generated_at": "2026-05-16T01:44:01.041Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:5b6bcaf9",
+      "timestamp": "2026-05-16T00:10:37.036Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Planning a read-only Flow decision feed with redacted fields and a stable JSON schema.",
+      "summary": "Planning a read-only Flow decision feed with redacted fields and a stable JSON schema.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5b6bcaf9"
+      }
+    },
     {
       "id": "task:32be588a",
       "timestamp": "2026-05-15T21:46:06.619Z",
@@ -563,40 +586,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:af4c2aa2"
-      }
-    },
-    {
-      "id": "task:c03865ff",
-      "timestamp": "2026-05-15T16:29:04.826Z",
-      "type": "task_published",
-      "status": "overdue",
-      "actor": "node:33226b99",
-      "category": "ops",
-      "title": "Recorded proof of a PM USA max-market expansion ladder on PFTL, with no cap increases recomme...",
-      "summary": "Recorded proof of a PM USA max-market expansion ladder on PFTL, with no cap increases recommended.",
-      "tickers": [],
-      "tags": [
-        "ops",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "EA2F0552CC4C99283E4D36BAC28412FD1B5B668B0AB2FE12AFB8723E995BE5AD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EA2F0552CC4C99283E4D36BAC28412FD1B5B668B0AB2FE12AFB8723E995BE5AD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6C8C9BECE05443553496BAABD57CB2CDD40A62558E101A57D8964FF1C1B3507C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6C8C9BECE05443553496BAABD57CB2CDD40A62558E101A57D8964FF1C1B3507C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c03865ff"
       }
     }
   ]
