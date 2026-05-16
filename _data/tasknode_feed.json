@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T07:29:29.104Z",
+  "generated_at": "2026-05-16T09:10:51.576Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -400,7 +400,7 @@
       "id": "task:1bf6de72",
       "timestamp": "2026-05-15T16:39:00.287Z",
       "type": "task_published",
-      "status": "in_progress",
+      "status": "pending_verification",
       "actor": "node:91f2e54c",
       "category": "frontend",
       "title": "Planning a Telegram bot stock lookup that answers by exact name, alias, not found, out of sto...",
@@ -411,7 +411,14 @@
         "task-node",
         "personal"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7CD7D32B7B9C5664390FF90A7B63BDA0CB3B5789741CAD77831D53E9E05BA404",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7CD7D32B7B9C5664390FF90A7B63BDA0CB3B5789741CAD77831D53E9E05BA404/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:1bf6de72"
