@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T17:44:30.054Z",
+  "generated_at": "2026-05-16T18:44:05.352Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:4cb847e4",
+      "timestamp": "2026-05-16T17:47:44.253Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:91f2e54c",
+      "category": "backend",
+      "title": "Passed on a Telegram bot flow to register services without stock after confirmation.",
+      "summary": "Passed on a Telegram bot flow to register services without stock after confirmation.",
+      "tickers": [
+        "TON"
+      ],
+      "tags": [
+        "backend",
+        "task-node",
+        "personal",
+        "$TON"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:4cb847e4"
+      }
+    },
     {
       "id": "task:52bec646",
       "timestamp": "2026-05-16T16:52:44.393Z",
@@ -574,7 +598,7 @@
       "id": "task:3bfd7bd7",
       "timestamp": "2026-05-16T15:26:15.421Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "refused",
       "actor": "node:91f2e54c",
       "category": "frontend",
       "title": "Planning a Telegram bot flow to register services without stock after confirmation.",
@@ -912,48 +936,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:8fdd011d"
-      }
-    },
-    {
-      "id": "task:9f3fd88b",
-      "timestamp": "2026-05-16T14:19:14.004Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:b4e24f89",
-      "category": "network",
-      "title": "Recorded a verification response for a live Task Node discussion persistence check on PFTL.",
-      "summary": "Recorded a verification response for a live Task Node discussion persistence check on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "13E6AE684B2FFA750E1BA151158DF35BADF08016C666D0F34A13964DAFEB5850",
-          "url": "https://explorer.testnet.postfiat.org/transactions/13E6AE684B2FFA750E1BA151158DF35BADF08016C666D0F34A13964DAFEB5850/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "55B075B88ECA13E717DF39CE4231C781D2216816EB4A475454B2AA63294B8CDF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55B075B88ECA13E717DF39CE4231C781D2216816EB4A475454B2AA63294B8CDF/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "5CE1887C234896BCFC7D9638EDAF1DE0D1582832AD9A76D53F324C16AC71CEBF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5CE1887C234896BCFC7D9638EDAF1DE0D1582832AD9A76D53F324C16AC71CEBF/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9f3fd88b"
       }
     }
   ]
