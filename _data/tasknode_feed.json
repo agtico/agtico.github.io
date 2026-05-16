@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T05:16:47.673Z",
+  "generated_at": "2026-05-16T07:29:29.104Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -37,7 +37,7 @@
       "id": "task:5b6bcaf9",
       "timestamp": "2026-05-16T00:10:37.036Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "refused",
       "actor": "node:36ba1736",
       "category": "network",
       "title": "Planning a read-only Flow decision feed with redacted fields and a stable JSON schema.",
@@ -366,7 +366,7 @@
       "id": "task:f3bc3bc9",
       "timestamp": "2026-05-15T16:45:01.132Z",
       "type": "task_published",
-      "status": "in_progress",
+      "status": "pending_verification",
       "actor": "node:36ba1736",
       "category": "trading",
       "title": "Starting a read-only live-readiness recheck for accepted dry-run trading signals.",
@@ -377,7 +377,20 @@
         "task-node",
         "personal"
       ],
-      "links": [],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "F62A061131B5425620F34D77BABEBE2606FA95790B9322142A586A7F193833D1",
+          "url": "https://explorer.testnet.postfiat.org/transactions/F62A061131B5425620F34D77BABEBE2606FA95790B9322142A586A7F193833D1/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "D675918D56F16F24DFB5F66A1BBD87B5367D8BCD0785D01160B00CD850023146",
+          "url": "https://explorer.testnet.postfiat.org/transactions/D675918D56F16F24DFB5F66A1BBD87B5367D8BCD0785D01160B00CD850023146/detailed"
+        }
+      ],
       "source": {
         "system": "pftasks",
         "source_id": "task:f3bc3bc9"
