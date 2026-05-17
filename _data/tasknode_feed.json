@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T08:05:42.846Z",
+  "generated_at": "2026-05-17T10:02:28.066Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:f41b6269",
+      "timestamp": "2026-05-17T09:54:01.719Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a Databento-based commodity roll-carry dataset slice for futures term-structure rese...",
+      "summary": "Planning a Databento-based commodity roll-carry dataset slice for futures term-structure research.",
+      "tickers": [
+        "CME"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$CME"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f41b6269"
+      }
+    },
     {
       "id": "task:18bebe73",
       "timestamp": "2026-05-17T07:16:01.281Z",
@@ -960,48 +984,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:2cdf7660"
-      }
-    },
-    {
-      "id": "task:5ef02e18",
-      "timestamp": "2026-05-17T00:53:29.300Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a public memo on always-on Post Fiat agent deployment gaps.",
-      "summary": "Uploaded follow-up evidence for a public memo on always-on Post Fiat agent deployment gaps.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F5B362261682BFD0BD567765E0797B65D7EAC9E272CDE893949B765BCA181A37",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F5B362261682BFD0BD567765E0797B65D7EAC9E272CDE893949B765BCA181A37/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "1A414F11D9FDC4EEADCA2DA03B3795BBD7B64B7E542D1FC97914B0B4C19D5C55",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1A414F11D9FDC4EEADCA2DA03B3795BBD7B64B7E542D1FC97914B0B4C19D5C55/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "386CD88D64F648D1C66B854F2B2611A6F491494BC9CD7C5651104C9070E2B5B3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/386CD88D64F648D1C66B854F2B2611A6F491494BC9CD7C5651104C9070E2B5B3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5ef02e18"
       }
     }
   ]
