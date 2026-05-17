@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T11:35:39.681Z",
+  "generated_at": "2026-05-17T12:49:06.359Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,14 +10,14 @@
   },
   "items": [
     {
-      "id": "task:c7d886e2",
-      "timestamp": "2026-05-17T11:33:02.646Z",
-      "type": "task_published",
-      "status": "pending",
+      "id": "task:1279340c",
+      "timestamp": "2026-05-17T12:42:04.502Z",
+      "type": "task_completed",
+      "status": "rewarded",
       "actor": "node:36ba1736",
       "category": "network",
-      "title": "Planning a read-only JSON feed for Flow dry-run decisions with redacted fields and live execu...",
-      "summary": "Planning a read-only JSON feed for Flow dry-run decisions with redacted fields and live execution kept off.",
+      "title": "Recorded a verification response for a safe Flow decision feed on PFTL.",
+      "summary": "Recorded a verification response for a safe Flow decision feed on PFTL.",
       "tickers": [
         "PFT"
       ],
@@ -26,10 +26,302 @@
         "task-node",
         "$PFT"
       ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1279340c"
+      }
+    },
+    {
+      "id": "task:78c305a5",
+      "timestamp": "2026-05-17T12:42:03.078Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Delivered a safe Flow decision feed and earned a reward.",
+      "summary": "Delivered a safe Flow decision feed and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:78c305a5"
+      }
+    },
+    {
+      "id": "task:7a7d6d8d",
+      "timestamp": "2026-05-17T12:41:32.670Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a read-only Flow decision feed with redacted fields and stric...",
+      "summary": "Uploaded follow-up evidence for a read-only Flow decision feed with redacted fields and strict live_execution_enabled checks.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7a7d6d8d"
+      }
+    },
+    {
+      "id": "task:6e3bd67c",
+      "timestamp": "2026-05-17T12:14:06.465Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Submitted evidence for a read-only Flow decision feed with redacted fields and fixture-backed...",
+      "summary": "Submitted evidence for a read-only Flow decision feed with redacted fields and fixture-backed assertions.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6e3bd67c"
+      }
+    },
+    {
+      "id": "task:e80668e9",
+      "timestamp": "2026-05-17T12:14:04.478Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Recorded proof of a Flow-to-Network decision feed on PFTL.",
+      "summary": "Recorded proof of a Flow-to-Network decision feed on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:e80668e9"
+      }
+    },
+    {
+      "id": "task:7bc0bcc2",
+      "timestamp": "2026-05-17T12:14:03.047Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Requested verification for a Flow-to-Network decision feed with redacted fields and a fixture...",
+      "summary": "Requested verification for a Flow-to-Network decision feed with redacted fields and a fixture proving live execution stays off.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7bc0bcc2"
+      }
+    },
+    {
+      "id": "task:3d950a47",
+      "timestamp": "2026-05-17T12:13:32.317Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:36ba1736",
+      "category": "trading",
+      "title": "Planning a trading exit-routing evaluation script for a T+30m shape classifier and cohort rep...",
+      "summary": "Planning a trading exit-routing evaluation script for a T+30m shape classifier and cohort replay.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:c7d886e2"
+        "source_id": "task:3d950a47"
+      }
+    },
+    {
+      "id": "task:924471e0",
+      "timestamp": "2026-05-17T11:36:03.689Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Planning a Flow-to-Network decision feed for Task Node and network agents.",
+      "summary": "Planning a Flow-to-Network decision feed for Task Node and network agents.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11CDC609230A20041F6A03420EA83C3A12EE95C6BB8BB44487FD1EA9050A9223/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/566DB0B00E3F94C2B4DF0179DB2775C0DE0122E5994D07AD4A753182DF158ED7/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017",
+          "url": "https://explorer.testnet.postfiat.org/transactions/7A905FCED1EAAD75063FC8D71933A84D9BB3B2A8DCE48D832FCEBB7DE3844017/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:924471e0"
       }
     },
     {
@@ -671,300 +963,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:40d27074"
-      }
-    },
-    {
-      "id": "task:1b475ebe",
-      "timestamp": "2026-05-17T02:15:31.405Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a public memo on headless Task Node messaging gaps.",
-      "summary": "Uploaded follow-up evidence for a public memo on headless Task Node messaging gaps.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1b475ebe"
-      }
-    },
-    {
-      "id": "task:b91a8752",
-      "timestamp": "2026-05-17T02:15:29.919Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Delivered a public memo on headless Task Node messaging gaps and earned a reward.",
-      "summary": "Delivered a public memo on headless Task Node messaging gaps and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b91a8752"
-      }
-    },
-    {
-      "id": "task:d0446045",
-      "timestamp": "2026-05-17T02:12:32.600Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Submitted evidence for a public memo on headless Task Node messaging gaps and encrypted-messa...",
-      "summary": "Submitted evidence for a public memo on headless Task Node messaging gaps and encrypted-message handling.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:d0446045"
-      }
-    },
-    {
-      "id": "task:32c9ceaa",
-      "timestamp": "2026-05-17T02:12:31.379Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded proof of a public memo on headless Task Node messaging gaps and encrypted-message ha...",
-      "summary": "Recorded proof of a public memo on headless Task Node messaging gaps and encrypted-message handling on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:32c9ceaa"
-      }
-    },
-    {
-      "id": "task:c2bc0316",
-      "timestamp": "2026-05-17T02:12:29.786Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Requested verification for a public memo on headless Task Node messaging gaps and encrypted-m...",
-      "summary": "Requested verification for a public memo on headless Task Node messaging gaps and encrypted-message handling.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c2bc0316"
-      }
-    },
-    {
-      "id": "task:10f26088",
-      "timestamp": "2026-05-17T01:50:01.584Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Planning a public memo on headless Task Node messaging gaps in the current operator flow.",
-      "summary": "Planning a public memo on headless Task Node messaging gaps in the current operator flow.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:10f26088"
-      }
-    },
-    {
-      "id": "task:1bd31932",
-      "timestamp": "2026-05-17T00:53:59.780Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Delivered a memo on Post Fiat agent deployment gaps and earned a reward.",
-      "summary": "Delivered a memo on Post Fiat agent deployment gaps and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1A414F11D9FDC4EEADCA2DA03B3795BBD7B64B7E542D1FC97914B0B4C19D5C55",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1A414F11D9FDC4EEADCA2DA03B3795BBD7B64B7E542D1FC97914B0B4C19D5C55/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "F5B362261682BFD0BD567765E0797B65D7EAC9E272CDE893949B765BCA181A37",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F5B362261682BFD0BD567765E0797B65D7EAC9E272CDE893949B765BCA181A37/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "386CD88D64F648D1C66B854F2B2611A6F491494BC9CD7C5651104C9070E2B5B3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/386CD88D64F648D1C66B854F2B2611A6F491494BC9CD7C5651104C9070E2B5B3/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1bd31932"
       }
     }
   ]
