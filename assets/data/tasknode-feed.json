@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T12:49:06.359Z",
+  "generated_at": "2026-05-17T14:18:58.641Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:a764bf5c",
+      "timestamp": "2026-05-17T13:38:33.755Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:36ba1736",
+      "category": "network",
+      "title": "Planning a network readiness blocker aggregate feed with redacted counts and freshness buckets.",
+      "summary": "Planning a network readiness blocker aggregate feed with redacted counts and freshness buckets.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a764bf5c"
+      }
+    },
     {
       "id": "task:1279340c",
       "timestamp": "2026-05-17T12:42:04.502Z",
@@ -921,48 +944,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:3f03fd2b"
-      }
-    },
-    {
-      "id": "task:40d27074",
-      "timestamp": "2026-05-17T02:15:32.800Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded a verification response for a public memo on headless Task Node messaging gaps.",
-      "summary": "Recorded a verification response for a public memo on headless Task Node messaging gaps.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/144D236670B9ACC2F0A6960592A91440AB0FDC6A8C0F093EDF9EA3A2AA6470E2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BA79AC3C429A30C8B8663CAE8C797A6BA54BC680ACFD2242F2F888112DB6BF23/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/66C436D4669C701887B366AED76FBA951ED53DE764C20D87A6690694982FCE48/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:40d27074"
       }
     }
   ]
