@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-20T22:19:07.568Z",
+  "generated_at": "2026-05-20T23:44:26.148Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:1060e3c3",
+      "timestamp": "2026-05-20T23:12:32.798Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC perpetual session review to map chop zones and filter low-quality entries.",
+      "summary": "Planning a BTC perpetual session review to map chop zones and filter low-quality entries.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1060e3c3"
+      }
+    },
     {
       "id": "task:cafde858",
       "timestamp": "2026-05-20T19:48:32.561Z",
@@ -974,48 +998,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:23c8a784"
-      }
-    },
-    {
-      "id": "task:44d6c9a6",
-      "timestamp": "2026-05-20T18:16:02.027Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:6825fa53",
-      "category": "network",
-      "title": "Recorded proof of a public PQC risk teardown on PFT.",
-      "summary": "Recorded proof of a public PQC risk teardown on PFT.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "920EA9D216ECDAC0B0846614C7502895E007EAF7827B960389006F06C94F54E8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/920EA9D216ECDAC0B0846614C7502895E007EAF7827B960389006F06C94F54E8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "7902EF5ADB8A8177196E7D9F8C006A21D499C1BCC8995320153B3DE7D67AA3AC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7902EF5ADB8A8177196E7D9F8C006A21D499C1BCC8995320153B3DE7D67AA3AC/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "520D70EC555DC52670E98254480FB98A3D6BA43AC23877E4FD57AC84DE7C823D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/520D70EC555DC52670E98254480FB98A3D6BA43AC23877E4FD57AC84DE7C823D/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:44d6c9a6"
       }
     }
   ]
