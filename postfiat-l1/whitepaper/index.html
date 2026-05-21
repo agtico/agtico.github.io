@@ -1,0 +1,3236 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Engineering documentation for the PostFiat L1 controlled-testnet implementation.">
+      
+      
+      
+        <link rel="canonical" href="https://agtico.github.io/postfiat-l1/whitepaper/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../start/first-day/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Whitepaper - PostFiat L1 Engineering Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#postfiat-l1-whitepaper" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PostFiat L1 Engineering Docs" class="md-header__button md-logo" aria-label="PostFiat L1 Engineering Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PostFiat L1 Engineering Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Whitepaper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="teal"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/agticorp/postfiatl1v2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    postfiatl1v2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PostFiat L1 Engineering Docs" class="md-nav__button md-logo" aria-label="PostFiat L1 Engineering Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PostFiat L1 Engineering Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/agticorp/postfiatl1v2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    postfiatl1v2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Whitepaper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Whitepaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-xrp-proved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What XRP Proved
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-new-chain-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why A New Chain Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monetary-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monetary Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validator Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cobalt-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cobalt Governance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-ordering-and-finality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction Ordering And Finality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-resistant-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum-Resistant Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-confidential-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy And Confidential Settlement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-implementation-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust Implementation Rationale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-exists-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Exists Now
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-chain-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How The Chain Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator-and-rpc-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator And RPC Tooling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Anchors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-from-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roadmap From Here
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/first-day/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Day
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/repo-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repo Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/transaction-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/state-and-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State And Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/finality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/evidence-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evidence Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cobalt Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cobalt Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governance/cobalt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plain English Cobalt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governance/cobalt-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governance/cobalt-adversarial-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adversarial Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governance/validator-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validator Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Privacy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/orchard-halo2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchard/Halo2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/deposit-spend-withdraw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deposit, Spend, Withdraw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/disclosure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disclosure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/rpc-and-resource-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC And Resource Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantum Authorization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quantum Authorization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum/authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum/signature-size-and-certificates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signature Size And Certificates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum/wallet-implications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wallet Implications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RPC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc/account-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc/write-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Write Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Client
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Client
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/client-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/wallet-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wallet Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wallets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Wallets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/transparent-wallet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transparent Wallet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/shielded-wallet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shielded Wallet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/custody-and-exchange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custody And Exchange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/history-retention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    History Retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/monitors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validators/emergency-key-rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emergency Key Rotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evidence
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evidence
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/controlled-testnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controlled Testnet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/cobalt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cobalt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/latency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evidence/rpc-and-wallets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC And Wallets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/threat-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/redaction-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redaction Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/public-launch-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public Launch Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-xrp-proved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What XRP Proved
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-new-chain-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why A New Chain Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monetary-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monetary Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validator Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cobalt-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cobalt Governance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-ordering-and-finality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction Ordering And Finality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-resistant-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum-Resistant Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-confidential-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy And Confidential Settlement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-implementation-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust Implementation Rationale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-exists-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Exists Now
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-chain-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How The Chain Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator-and-rpc-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator And RPC Tooling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Anchors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-from-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roadmap From Here
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="postfiat-l1-whitepaper">PostFiat L1 Whitepaper<a class="headerlink" href="#postfiat-l1-whitepaper" title="Permanent link">&para;</a></h1>
+<p>Status: canonical unified whitepaper
+Date: 2026-05-19
+Scope: controlled testnet implementation and public-launch design</p>
+<p>PostFiat is an XRP-style authority-validator settlement chain rebuilt for the
+constraints that now matter: post-quantum authorization, private settlement,
+Cobalt validator governance, fixed supply, fee burn, no native validator
+subsidy, and a memory-safe Rust implementation.</p>
+<p>The premise is simple. XRP proved that a known-validator settlement network can
+carry large economic value without proof-of-work mining rewards or
+proof-of-stake reward markets. PostFiat keeps that useful settlement model and
+rebuilds the parts that are difficult to retrofit into an older network:
+quantum-resistant account and validator signatures, real shielded settlement
+paths, explicit validator trust evolution, modern operator evidence, and a code
+base designed around deterministic Rust protocol execution.</p>
+<p>This paper replaces the earlier split between the technical paper, the
+mathematics paper, and the "why a new XRP-style chain" paper. The old drafts
+are archived under <code>docs/archive/whitepaper-drafts/2026-05-19/</code>.</p>
+<h2 id="what-xrp-proved">What XRP Proved<a class="headerlink" href="#what-xrp-proved" title="Permanent link">&para;</a></h2>
+<p>XRP proved a category:</p>
+<ul>
+<li>fast deterministic settlement can run with known validators;</li>
+<li>a chain can operate without mining rewards;</li>
+<li>a chain can operate without native staking rewards;</li>
+<li>fee burn can price spam without becoming a validator compensation system;</li>
+<li>fixed supply can be part of the monetary promise;</li>
+<li>a low-cost validator network can still matter economically.</li>
+</ul>
+<p>That category is different from Bitcoin and different from proof of stake.
+Bitcoin pays miners because proof of work converts energy and hardware cost
+into settlement security. Proof of stake pays validators or gives them yield
+because stake is the control surface. XRP uses a different assumption:
+validators can be natural stakeholders in the settlement system. Exchanges,
+custodians, market makers, issuers, allocators, infrastructure providers, and
+large users can have a direct business reason to keep the network reliable.</p>
+<p>PostFiat starts from that category instead of pretending every settlement chain
+needs an inflation-funded validator class.</p>
+<h2 id="why-a-new-chain-exists">Why A New Chain Exists<a class="headerlink" href="#why-a-new-chain-exists" title="Permanent link">&para;</a></h2>
+<p>The reason to build a new XRP-style chain is not that the old model was useless.
+The reason is that the old model was incomplete for the next version of
+institutional crypto settlement.</p>
+<p>The missing pieces are:</p>
+<ul>
+<li>post-quantum authorization from genesis, instead of long-lived classical keys
+  and a later emergency migration;</li>
+<li>private settlement for buy-side and capital-markets workflows;</li>
+<li>validator governance that is explicit, signed, replayable, and part of chain
+  state;</li>
+<li>bounded public RPC and wallet tooling that institutions can inspect;</li>
+<li>current-state and partial-history validation so validators do not have to
+  retain every byte forever;</li>
+<li>Rust implementation discipline instead of inheriting a large C++ fork whose
+  assumptions were not written for this design.</li>
+</ul>
+<p>PostFiat is not a clone. It is a rebuild of the authority-validator settlement
+idea around those requirements.</p>
+<h2 id="design-summary">Design Summary<a class="headerlink" href="#design-summary" title="Permanent link">&para;</a></h2>
+<p>PostFiat has six core design decisions.</p>
+<ol>
+<li>Proof of authority. Validators are known infrastructure operators and natural
+   stakeholders, not anonymous miners or reward farmers.</li>
+<li>Privacy. Confidential settlement is a base workflow for institutional
+   finance, not a cosmetic add-on.</li>
+<li>Cobalt governance. Validator trust evolution is handled through explicit
+   Cobalt-derived governance mechanics rather than informal trust-list history.</li>
+<li>Fixed supply. The native unit has a 100 billion genesis supply and no native
+   inflation schedule.</li>
+<li>No native validator rewards. Fees price resource use and are burned; they do
+   not become validator yield.</li>
+<li>Quantum-resistant authorization. The base transparent account and validator
+   paths use ML-DSA-style signatures and accept the size and bandwidth costs.</li>
+</ol>
+<p>These decisions are connected. A fixed-supply chain with no native validator
+subsidy needs low operating costs. A low-cost authority-validator chain needs
+credible validator governance. A settlement chain for buy-side workflows needs
+privacy. A chain built now should not start with cryptography that already has a
+known long-horizon migration problem.</p>
+<h2 id="monetary-model">Monetary Model<a class="headerlink" href="#monetary-model" title="Permanent link">&para;</a></h2>
+<p>The native supply is fixed at 100 billion units.</p>
+<p>PostFiat's monetary rule is:</p>
+<div class="highlight"><pre><span></span><code>genesis_supply = 100_000_000_000
+native_issuance_per_block = 0
+validator_reward_per_block = 0
+supply_next = supply_current - fees_burned
+</code></pre></div>
+<p>Fees exist to price spam, state growth, verifier work, and network resources.
+They are not a mining reward and not a staking yield. The system does not need
+to create a paid native validator class to operate the base chain.</p>
+<p>This is the same broad monetary intuition that made fixed-supply crypto
+legible in the first place: holders should not need to model a future monetary
+committee deciding how much dilution is necessary to pay infrastructure. If
+validators are natural stakeholders and the cost of validation is kept low, the
+chain can buy reliability through alignment rather than permanent issuance.</p>
+<h2 id="validator-model">Validator Model<a class="headerlink" href="#validator-model" title="Permanent link">&para;</a></h2>
+<p>PostFiat uses proof of authority in the literal sense: validators are known
+participants whose keys, manifests, and trust relationships are part of the
+network's operating state.</p>
+<p>The validator job is to:</p>
+<ul>
+<li>verify transactions and batches;</li>
+<li>vote on ordered blocks;</li>
+<li>publish certificates and receipts;</li>
+<li>serve read RPC;</li>
+<li>retain the history needed for their configured role;</li>
+<li>participate in Cobalt governance for validator-set and amendment evolution.</li>
+</ul>
+<p>The validator does not earn a native block reward. The validator's incentive is
+external to protocol issuance: reliable settlement is useful to the operator.
+That is a cleaner fit for institutional settlement than a system whose
+validator economics depend on inflation, reward farming, or MEV extraction.</p>
+<h2 id="cobalt-governance">Cobalt Governance<a class="headerlink" href="#cobalt-governance" title="Permanent link">&para;</a></h2>
+<p>XRP's Unique Node List model solved an important problem: validators do not all
+need to be anonymous and permissionless for a settlement network to work. The
+remaining problem is validator trust evolution. A professional settlement
+network should not depend on informal off-chain trust-list history, ad hoc
+social coordination, or opaque validator-list updates.</p>
+<p>Cobalt was the Ripple-funded XRPL research answer to this problem. Its core
+idea is that participants can have local trust views, those views can overlap
+through essential subsets and thresholds, and the network can still ratify
+governance amendments through Byzantine agreement when the trust graph is
+linked correctly.</p>
+<p>PostFiat separates governance from fast transaction ordering:</p>
+<ul>
+<li>ordinary transactions use the fast certified ordering path;</li>
+<li>Cobalt governs validators, trust graphs, registry roots, amendments, and
+  protocol transitions.</li>
+</ul>
+<p>That separation matters. The chain does not need to run the full Cobalt
+governance path for every payment. It needs Cobalt where trust changes.</p>
+<p>What exists now:</p>
+<ul>
+<li>non-identical trust views;</li>
+<li>essential subsets with <code>t_S</code> and <code>q_S</code> threshold parameters;</li>
+<li>linkedness checking before trust graph activation;</li>
+<li>fail-closed rejection of unsafe trust graphs;</li>
+<li>non-uniform governance certificates;</li>
+<li>reliable broadcast, binary agreement, multi-valued agreement, and democratic
+  atomic broadcast mechanics for amendments;</li>
+<li>validator registry and trust graph transitions ratified through Cobalt;</li>
+<li>stale replay rejection across activated trust graphs;</li>
+<li>deterministic adversarial packets for collusion thresholds, captured groups,
+  trust-graph poisoning, RBC/ABBA equivocation, MVBA/DABC invalid candidates,
+  membership races, partitions, crash/restart, resource DoS, governance spam,
+  amendment replay bundles, parser/canonical-payload fuzzing, and long
+  adversarial soak.</li>
+</ul>
+<p>The controlled-testnet Cobalt mechanics are built and machine-checked. Current
+evidence runs seven logical validators under project-controlled infrastructure.
+Public launch adds stronger placement evidence: more independent host,
+operator, legal-domain, and funding-domain separation. That is a topology and
+public-credibility requirement, not a reason to block the controlled-testnet
+code path.</p>
+<p>Primary code and evidence:</p>
+<ul>
+<li><code>crates/consensus_cobalt/src/lib.rs</code></li>
+<li><code>crates/consensus_cobalt/examples/</code></li>
+<li><code>scripts/testnet-cobalt-controlled-readiness-gate</code></li>
+<li><code>scripts/testnet-cobalt-controlled-launch-gate</code></li>
+<li><code>reports/testnet-cobalt-controlled-readiness-gate/amendment-replay-contract-clean-v0-20260519T145213Z/testnet-cobalt-controlled-readiness-gate.json</code></li>
+<li><code>docs/status/full-cobalt-burndown.md</code></li>
+<li><code>docs/status/cobalt-adversarial-burndown.md</code></li>
+</ul>
+<h2 id="transaction-ordering-and-finality">Transaction Ordering And Finality<a class="headerlink" href="#transaction-ordering-and-finality" title="Permanent link">&para;</a></h2>
+<p>PostFiat orders ordinary transactions through a fast BFT-style certified batch
+path. Validators vote on proposed blocks, certificates bind the quorum evidence,
+and receipts let clients verify finality.</p>
+<p>The latency problem found during launch hardening was not Rust and not quantum
+signatures by themselves. It was harness and hot-path structure: serial vote
+collection, serial certified-batch broadcast, and repeated full block replay on
+the finality path. The current implementation parallelizes vote collection and
+certified broadcast, adds hot-path transaction-finality lookup, and keeps full
+replay as an audit path.</p>
+<p>Current controlled evidence:</p>
+<ul>
+<li>local 5-validator 20-round finality: <code>submit_to_finality</code> p50 1.563s, p95
+  1.709s, p99 1.753s;</li>
+<li>local certified round p50 0.921s, p95 1.043s;</li>
+<li>local <code>tx</code> finality RPC p50 0.062s, p95 0.068s;</li>
+<li>remote 5-validator normal-run peer-certified round p50 1.032s, p95 1.116s,
+  p99 1.139s.</li>
+</ul>
+<p>Evidence:</p>
+<ul>
+<li><code>crates/ordering_fast/src/lib.rs</code></li>
+<li><code>crates/node/src/block_finality.rs</code></li>
+<li><code>scripts/testnet-tx-finality-latency-benchmark</code></li>
+<li><code>reports/testnet-tx-finality-latency-benchmark/local-gate-20round-20260514T142731Z/testnet-tx-finality-latency-benchmark.json</code></li>
+<li><code>reports/testnet-remote-ssh-smoke/optimized-latency-20260514T143534Z/testnet-remote-ssh-smoke.json</code></li>
+</ul>
+<h2 id="quantum-resistant-authorization">Quantum-Resistant Authorization<a class="headerlink" href="#quantum-resistant-authorization" title="Permanent link">&para;</a></h2>
+<p>PostFiat treats quantum risk as an engineering input, not a slogan.</p>
+<p>The base transparent account and validator authorization paths use
+ML-DSA-style signatures. That choice has costs:</p>
+<ul>
+<li>signatures are larger;</li>
+<li>validator certificates are larger;</li>
+<li>bandwidth and storage pressure are higher;</li>
+<li>wallets and custodians cannot simply copy BIP32/ECDSA assumptions.</li>
+</ul>
+<p>Those costs are acceptable for this design because a greenfield settlement
+chain can price them from the start. Retrofitting post-quantum authorization
+after a network has years of classical long-lived keys is a harder problem.</p>
+<p>What exists now:</p>
+<ul>
+<li>post-quantum account signing flows and wallet vectors;</li>
+<li>post-quantum validator transport envelopes;</li>
+<li>certificate handling that accepts larger signature material;</li>
+<li>ML-DSA performance and size evidence;</li>
+<li>RPC and SDK paths that sign, submit, and confirm transparent transfers.</li>
+</ul>
+<p>Primary code and evidence:</p>
+<ul>
+<li><code>crates/crypto_provider/src/lib.rs</code></li>
+<li><code>crates/types/src/lib.rs</code></li>
+<li><code>crates/node/src/transport_cli.rs</code></li>
+<li><code>crates/rpc_sdk/src/lib.rs</code></li>
+<li><code>scripts/testnet-ml-dsa-performance-smoke</code></li>
+<li><code>scripts/testnet-wallet-test-vectors-smoke</code></li>
+<li><code>reports/testnet-ml-dsa-performance/</code></li>
+<li><code>reports/testnet-wallet-test-vectors-smoke/</code></li>
+</ul>
+<h2 id="privacy-and-confidential-settlement">Privacy And Confidential Settlement<a class="headerlink" href="#privacy-and-confidential-settlement" title="Permanent link">&para;</a></h2>
+<p>Transparent ledgers are useful for public audit, but they are a bad default for
+many buy-side and capital-markets workflows. Public settlement leaks balances,
+counterparties, timing, position changes, treasury movement, and execution
+intent. A chain aimed at institutional settlement needs confidential transfers,
+selective disclosure, and public accounting boundaries that do not reveal every
+workflow in cleartext.</p>
+<p>PostFiat uses an Orchard/Halo2 privacy path for shielded value. The design uses
+notes, commitments, nullifiers, retained roots, encrypted outputs, turnstile
+accounting, and selective disclosure packets. Transparent funds can enter the
+Orchard pool, move privately, and withdraw back to transparent accounts through
+bounded signed envelopes.</p>
+<p>What exists now:</p>
+<ul>
+<li>Orchard/Halo2 adapter using the Rust/Zcash Orchard stack;</li>
+<li>direct transparent-to-Orchard deposit envelopes;</li>
+<li>one-note Orchard spend construction;</li>
+<li>one-note Orchard withdraw construction;</li>
+<li>nullifier persistence and duplicate-spend rejection;</li>
+<li>retained roots and scan material for local wallet spending;</li>
+<li><code>orchard-scan</code>, <code>orchard-disclose</code>, and <code>orchard-disclosure-verify</code>;</li>
+<li>public Orchard pool telemetry through <code>orchard_pool_report</code>;</li>
+<li>bounded RPC batch creation for Orchard actions and direct deposits;</li>
+<li>public-edge rejection of raw private witness/key fields;</li>
+<li>malformed-proof, rate-limit, child-isolation, and concurrency-limit evidence;</li>
+<li>live five-validator direct deposit, spend, withdraw, outage, restart,
+  snapshot, soak, and audit-packet evidence.</li>
+</ul>
+<p>The current privacy path is a controlled privacy implementation being hardened
+for semi-production use. Production launch work remains in wallet security,
+custodian flows, compliance policy, longer mixed soaks, external cryptographic
+review, implementation audit, and post-quantum note-encryption migration.</p>
+<p>Primary code and evidence:</p>
+<ul>
+<li><code>crates/privacy/src/lib.rs</code></li>
+<li><code>crates/privacy_orchard/src/lib.rs</code></li>
+<li><code>crates/privacy_orchard/src/types.rs</code></li>
+<li><code>crates/privacy_orchard/src/verify.rs</code></li>
+<li><code>crates/node/src/privacy.rs</code></li>
+<li><code>scripts/testnet-orchard-wallet-finality-smoke</code></li>
+<li><code>scripts/testnet-orchard-peer-certified-smoke</code></li>
+<li><code>scripts/testnet-live-orchard-full-flow-smoke</code></li>
+<li><code>reports/testnet-live-orchard-full-flow/live-orchard-full-flow-20260515T183724Z/testnet-live-orchard-full-flow.json</code></li>
+<li><code>reports/testnet-live-orchard-direct-deposit/current-write-gates-20260517T153630Z-orchard-direct-deposit/testnet-live-orchard-direct-deposit.json</code></li>
+<li><code>reports/testnet-orchard-privacy-audit-packet/orchard-privacy-audit-packet-20260515T185212Z/orchard-privacy-audit-packet.json</code></li>
+<li><code>docs/status/privacy-production-burndown.md</code></li>
+</ul>
+<h2 id="rust-implementation-rationale">Rust Implementation Rationale<a class="headerlink" href="#rust-implementation-rationale" title="Permanent link">&para;</a></h2>
+<p>PostFiat is written in Rust because the protocol needs deterministic execution,
+bounded parsing, explicit serialization, safe key handling boundaries, and
+operator software that is difficult to crash accidentally.</p>
+<p>Rust is not magic. It is still possible to write bad protocol code in Rust. But
+for this design it reduces a large class of memory-safety risk that a C++ fork
+would inherit. It also lets the implementation organize consensus, storage,
+networking, RPC, privacy, and cryptography behind typed interfaces instead of
+threading new assumptions through a codebase built for a different era.</p>
+<p>The core crates are:</p>
+<ul>
+<li><code>crates/types</code> for chain data types;</li>
+<li><code>crates/crypto_provider</code> for signing and verification;</li>
+<li><code>crates/execution</code> for state transitions;</li>
+<li><code>crates/ordering_fast</code> for fast ordering;</li>
+<li><code>crates/consensus_cobalt</code> for Cobalt governance;</li>
+<li><code>crates/privacy</code> and <code>crates/privacy_orchard</code> for shielded settlement;</li>
+<li><code>crates/storage</code> for persistence;</li>
+<li><code>crates/network</code> for validator transport;</li>
+<li><code>crates/node</code> for node execution and CLI/RPC surfaces;</li>
+<li><code>crates/rpc_sdk</code> for client-facing RPC helpers.</li>
+</ul>
+<h2 id="what-exists-now">What Exists Now<a class="headerlink" href="#what-exists-now" title="Permanent link">&para;</a></h2>
+<p>PostFiat currently has a functioning controlled-testnet L1 implementation with
+these components:</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Current capability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transparent settlement</td>
+<td>Accounts, signed transfers, fees, blocks, state roots, receipts, and deterministic replay.</td>
+</tr>
+<tr>
+<td>Fast finality</td>
+<td>Certified BFT-style transaction ordering with local and remote 1-2 second controlled evidence.</td>
+</tr>
+<tr>
+<td>Cobalt governance</td>
+<td>Non-identical trust views, essential subsets, linkage checks, non-uniform certificates, RBC, ABBA, MVBA, DABC, registry transitions, replay bundles, adversarial packets, and readiness gates.</td>
+</tr>
+<tr>
+<td>Quantum resistance</td>
+<td>ML-DSA-style account and validator authorization, wallet vectors, transport envelopes, and certificate-size handling.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Orchard/Halo2 deposit, spend, withdraw, scan, disclose, nullifier, root, pool telemetry, and live five-validator evidence.</td>
+</tr>
+<tr>
+<td>Monetary policy</td>
+<td>100 billion fixed supply, no native inflation, fee burn, and no native validator reward schedule.</td>
+</tr>
+<tr>
+<td>RPC</td>
+<td>Read RPC, controlled write paths, transaction finality lookup, account history, pool reports, RPC doctor, validator doctor, monitor snapshot, and Python RPC client work.</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>Transparent wallet signing and receipts, SDK wallet finality, Orchard keygen/scan/spend/withdraw/disclosure CLI flows.</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Release packages, launch packets, restart drills, outage drills, read-load, edge-load, partial-history validation, and redacted evidence reports.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-the-chain-works">How The Chain Works<a class="headerlink" href="#how-the-chain-works" title="Permanent link">&para;</a></h2>
+<p>The transparent path is:</p>
+<ol>
+<li>a wallet signs a transaction with post-quantum account authorization;</li>
+<li>the transaction enters a controlled write path or validator mempool;</li>
+<li>a proposer forms a block or batch;</li>
+<li>validators verify the proposal and vote;</li>
+<li>quorum signatures form a certificate;</li>
+<li>the block commits, state roots advance, fees burn, and receipts are written;</li>
+<li>clients query <code>tx</code> finality, account state, receipts, and account history
+   through read RPC.</li>
+</ol>
+<p>The privacy path is:</p>
+<ol>
+<li>a transparent account signs a funding transfer into the Orchard turnstile;</li>
+<li>the Orchard action binds deposit metadata into its authorization domain;</li>
+<li>validators verify the Orchard/Halo2 proof and signed envelope;</li>
+<li>the pool records output commitments, encrypted outputs, retained roots, and
+   nullifiers;</li>
+<li>wallets scan encrypted outputs and build spends from retained witnesses;</li>
+<li>disclosure packets can reveal selected facts without exposing spend keys,
+   viewing keys, note seeds, or auth paths.</li>
+</ol>
+<p>The governance path is:</p>
+<ol>
+<li>validators publish signed trust views;</li>
+<li>the chain checks essential subsets, thresholds, and linkedness;</li>
+<li>unsafe trust graphs fail before activation;</li>
+<li>Cobalt amendment mechanics ratify valid registry and trust-graph changes;</li>
+<li>replay bundles make the amendment history inspectable and reject stale or
+   tampered governance artifacts.</li>
+</ol>
+<h2 id="operator-and-rpc-tooling">Operator And RPC Tooling<a class="headerlink" href="#operator-and-rpc-tooling" title="Permanent link">&para;</a></h2>
+<p>The repository includes the tooling needed to inspect and operate the controlled
+network:</p>
+<ul>
+<li><code>scripts/testnet-readiness-gate</code></li>
+<li><code>scripts/testnet-controlled-launch-prep-check</code></li>
+<li><code>scripts/testnet-live-evidence-refresh</code></li>
+<li><code>scripts/testnet-rpc-doctor</code></li>
+<li><code>scripts/testnet-validator-doctor-smoke</code></li>
+<li><code>scripts/testnet-monitor-snapshot-smoke</code></li>
+<li><code>scripts/testnet-live-wallet-finality</code></li>
+<li><code>scripts/postfiat-rpc-account-tx</code></li>
+<li><code>python/postfiat_rpc/</code></li>
+</ul>
+<p>The current public posture is read-first. Persistent unrestricted public write
+RPC is a separate launch surface because it changes abuse, rate-limit, and
+operator-risk assumptions. Controlled writes exist for testnet evidence, wallet
+finality, and privacy-alpha flows.</p>
+<h2 id="launch-boundary">Launch Boundary<a class="headerlink" href="#launch-boundary" title="Permanent link">&para;</a></h2>
+<p>The controlled testnet is an engineering network with project-operated
+validators. It is built to prove protocol correctness, deterministic replay,
+validator behavior, RPC behavior, wallet behavior, privacy behavior, and
+operator runbooks before public launch.</p>
+<p>Public launch adds:</p>
+<ul>
+<li>independent placement evidence across operators, hosts, jurisdictions,
+  legal domains, and funding domains;</li>
+<li>longer mixed transparent and shielded soaks;</li>
+<li>external privacy and implementation review;</li>
+<li>public write-edge policy and abuse controls;</li>
+<li>custodian and exchange wallet flows;</li>
+<li>clearer compliance and selective-disclosure operating policy;</li>
+<li>independent benchmark packets for throughput claims.</li>
+</ul>
+<p>Those are launch requirements. They do not change what has already been built
+in the controlled implementation.</p>
+<h2 id="evidence-anchors">Evidence Anchors<a class="headerlink" href="#evidence-anchors" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controlled transparent launch path exists</td>
+<td><code>docs/status/controlled-testnet-burndown.md</code>; <code>reports/testnet-controlled-launch-evidence-pack/head-56db87a-optimized-latency/testnet-controlled-launch-evidence-pack.json</code></td>
+</tr>
+<tr>
+<td>Local finality is inside XRP-like latency range</td>
+<td><code>reports/testnet-tx-finality-latency-benchmark/local-gate-20round-20260514T142731Z/testnet-tx-finality-latency-benchmark.json</code></td>
+</tr>
+<tr>
+<td>Remote certified rounds are around one second in controlled evidence</td>
+<td><code>reports/testnet-remote-ssh-smoke/optimized-latency-20260514T143534Z/testnet-remote-ssh-smoke.json</code></td>
+</tr>
+<tr>
+<td>Full Cobalt controlled mechanics are built</td>
+<td><code>docs/status/full-cobalt-burndown.md</code>; <code>reports/testnet-cobalt-controlled-readiness-gate/amendment-replay-contract-clean-v0-20260519T145213Z/testnet-cobalt-controlled-readiness-gate.json</code></td>
+</tr>
+<tr>
+<td>Strict public-topology gate fails on known placement deltas</td>
+<td><code>reports/testnet-cobalt-controlled-launch-gate/strict-expected-fail-clean-head-v0-20260519T1438Z/testnet-cobalt-strict-launch-expected-fail.json</code></td>
+</tr>
+<tr>
+<td>Orchard/Halo2 privacy path exists</td>
+<td><code>docs/status/privacy-production-burndown.md</code>; <code>reports/testnet-live-orchard-full-flow/live-orchard-full-flow-20260515T183724Z/testnet-live-orchard-full-flow.json</code></td>
+</tr>
+<tr>
+<td>Privacy audit packet exists</td>
+<td><code>reports/testnet-orchard-privacy-audit-packet/orchard-privacy-audit-packet-20260515T185212Z/orchard-privacy-audit-packet.json</code></td>
+</tr>
+<tr>
+<td>RPC and account-history tooling exist</td>
+<td><code>reports/testnet-rpc-doctor/</code>; <code>reports/testnet-validator-doctor/</code>; <code>reports/testnet-monitor-snapshot/</code>; <code>reports/testnet-six-wallet-account-tx-smoke/</code>; <code>python/postfiat_rpc/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="roadmap-from-here">Roadmap From Here<a class="headerlink" href="#roadmap-from-here" title="Permanent link">&para;</a></h2>
+<p>The next work is not to invent a different chain. It is to harden this one:</p>
+<ol>
+<li>keep the controlled Cobalt readiness gate green while improving placement
+   evidence;</li>
+<li>keep transparent finality inside the current 1-2 second controlled target
+   while extending soak duration;</li>
+<li>turn the Orchard/Halo2 path into a cleaner semi-production privacy release
+   with stronger wallet, custodian, audit, and compliance surfaces;</li>
+<li>formalize public RPC write-edge policy and abuse controls;</li>
+<li>package validator operations so a new operator can launch, inspect, recover,
+   and replay without bespoke help;</li>
+<li>publish benchmark packets only when the workload, hardware, validator count,
+   and write-path policy are attached to the number.</li>
+</ol>
+<p>PostFiat exists because the XRP-style authority-validator settlement model is
+valuable, but the next version of that model needs private settlement,
+post-quantum authorization, explicit Cobalt governance, fixed supply, no
+validator inflation, and modern operator evidence from the start.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
