@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-21T18:49:59.358Z",
+  "generated_at": "2026-05-21T20:28:04.594Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:cea0b261",
+      "timestamp": "2026-05-21T18:59:09.571Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "ai",
+      "title": "Planning a public portfolio index that connects prior AI reliability work into one reviewer-f...",
+      "summary": "Planning a public portfolio index that connects prior AI reliability work into one reviewer-friendly page.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:cea0b261"
+      }
+    },
     {
       "id": "task:e66f5abd",
       "timestamp": "2026-05-21T17:24:05.519Z",
@@ -974,49 +995,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:3553620a"
-      }
-    },
-    {
-      "id": "task:9d2a0924",
-      "timestamp": "2026-05-21T12:06:35.282Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:6825fa53",
-      "category": "ai",
-      "title": "Requested verification for a review of logical qubit claim dilution in quantum workflows.",
-      "summary": "Requested verification for a review of logical qubit claim dilution in quantum workflows.",
-      "tickers": [
-        "IBM"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "alpha",
-        "$IBM"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0947A85AD3807B91DD796AB29BFFEDD820EC762F789A8E556788B476C6CACC79",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0947A85AD3807B91DD796AB29BFFEDD820EC762F789A8E556788B476C6CACC79/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B42E0DA00E3C1B3E515AC460F6932D8A872D0AD5A5563D8FBC365B9FE806B699",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B42E0DA00E3C1B3E515AC460F6932D8A872D0AD5A5563D8FBC365B9FE806B699/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6A33EA118BACF58F40E95C7519BE2C374B724C90F15DB2C7FF4A24B45FF3D63C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6A33EA118BACF58F40E95C7519BE2C374B724C90F15DB2C7FF4A24B45FF3D63C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9d2a0924"
       }
     }
   ]
