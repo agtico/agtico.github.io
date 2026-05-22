@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-21T23:57:58.416Z",
+  "generated_at": "2026-05-22T02:49:47.187Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,392 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:a7257495",
+      "timestamp": "2026-05-22T02:48:37.557Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Planning a Python gate to control task publication volume and block bad task cards before Tas...",
+      "summary": "Planning a Python gate to control task publication volume and block bad task cards before Task Node issuance.",
+      "tickers": [],
+      "tags": [
+        "network",
+        "task-node"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a7257495"
+      }
+    },
+    {
+      "id": "task:d4597e71",
+      "timestamp": "2026-05-22T02:05:07.728Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:36ba1736",
+      "category": "trading",
+      "title": "Passed on a manual sell dry-run for open positions due to wrong scope.",
+      "summary": "Passed on a manual sell dry-run for open positions due to wrong scope.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d4597e71"
+      }
+    },
+    {
+      "id": "task:be5fe97c",
+      "timestamp": "2026-05-22T02:02:40.156Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:36ba1736",
+      "category": "trading",
+      "title": "Planning a manual sell dry-run for open positions with exit-intent checks and blocker codes.",
+      "summary": "Planning a manual sell dry-run for open positions with exit-intent checks and blocker codes.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:be5fe97c"
+      }
+    },
+    {
+      "id": "task:1d2a7374",
+      "timestamp": "2026-05-22T01:57:07.369Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Delivered a BTC m15 session review and earned a reward.",
+      "summary": "Delivered a BTC m15 session review and earned a reward.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1d2a7374"
+      }
+    },
+    {
+      "id": "task:4da7dc2c",
+      "timestamp": "2026-05-22T01:56:37.899Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Recorded a verification response for a BTC m15 session review on time-to-resolution windows.",
+      "summary": "Recorded a verification response for a BTC m15 session review on time-to-resolution windows.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:4da7dc2c"
+      }
+    },
+    {
+      "id": "task:9255860f",
+      "timestamp": "2026-05-22T01:56:36.204Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Uploaded follow-up evidence for a BTC m15 session review on time-to-resolution windows.",
+      "summary": "Uploaded follow-up evidence for a BTC m15 session review on time-to-resolution windows.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9255860f"
+      }
+    },
+    {
+      "id": "task:5a447750",
+      "timestamp": "2026-05-22T01:54:07.946Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Recorded proof for a BTC m15 session review on time-to-resolution windows and structure outco...",
+      "summary": "Recorded proof for a BTC m15 session review on time-to-resolution windows and structure outcomes on PFTL.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5a447750"
+      }
+    },
+    {
+      "id": "task:8b9e53fe",
+      "timestamp": "2026-05-22T01:54:06.374Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Requested verification for a BTC m15 session review on time-to-resolution windows and structu...",
+      "summary": "Requested verification for a BTC m15 session review on time-to-resolution windows and structure outcomes.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8b9e53fe"
+      }
+    },
+    {
+      "id": "task:6bf274ab",
+      "timestamp": "2026-05-22T01:53:36.228Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Submitted evidence for a BTC m15 session review on time-to-resolution windows and structure o...",
+      "summary": "Submitted evidence for a BTC m15 session review on time-to-resolution windows and structure outcomes.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6bf274ab"
+      }
+    },
+    {
+      "id": "task:7c9db381",
+      "timestamp": "2026-05-22T01:50:05.959Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:491e4e28",
+      "category": "network",
+      "title": "Planning a CLI to turn PFT tool runs into deterministic adoption signals.",
+      "summary": "Planning a CLI to turn PFT tool runs into deterministic adoption signals.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:7c9db381"
+      }
+    },
+    {
+      "id": "task:bbf2a3b7",
+      "timestamp": "2026-05-22T00:00:35.949Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Starting a BTC m15 session review on time-to-resolution windows and structure outcomes.",
+      "summary": "Starting a BTC m15 session review on time-to-resolution windows and structure outcomes.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682",
+          "url": "https://explorer.testnet.postfiat.org/transactions/832F7D24FB8B5EF4448AFFB898FF6DA75D4A25A1ACADFF992748D697CC63B682/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9",
+          "url": "https://explorer.testnet.postfiat.org/transactions/11564867AE1E3C3ED4F160C463D8ECD2602D6B5F8486516FE89F28638E7683D9/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8",
+          "url": "https://explorer.testnet.postfiat.org/transactions/2A49E4335CC5882ABD668BD0ABFDD5ED54D6DDC1604051906D6E4130F459F4B8/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:bbf2a3b7"
+      }
+    },
     {
       "id": "task:f4b7b8d6",
       "timestamp": "2026-05-21T21:34:36.542Z",
@@ -470,472 +856,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:4b32d302"
-      }
-    },
-    {
-      "id": "task:ab65509e",
-      "timestamp": "2026-05-21T16:23:09.619Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Requested verification for a Modal packaging fix to resolve Qwen deployment imports.",
-      "summary": "Requested verification for a Modal packaging fix to resolve Qwen deployment imports.",
-      "tickers": [
-        "AMZN"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "network",
-        "$AMZN"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346",
-          "url": "https://explorer.testnet.postfiat.org/transactions/308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ab65509e"
-      }
-    },
-    {
-      "id": "task:df6f194c",
-      "timestamp": "2026-05-21T16:23:07.669Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Recorded proof of a Modal packaging fix for Qwen deployment imports on PFTL.",
-      "summary": "Recorded proof of a Modal packaging fix for Qwen deployment imports on PFTL.",
-      "tickers": [
-        "AMZN"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "network",
-        "$AMZN"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346",
-          "url": "https://explorer.testnet.postfiat.org/transactions/308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:df6f194c"
-      }
-    },
-    {
-      "id": "task:9e25a8a8",
-      "timestamp": "2026-05-21T16:23:05.862Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Submitted evidence for a Modal packaging fix so Qwen deployment imports local infra modules c...",
-      "summary": "Submitted evidence for a Modal packaging fix so Qwen deployment imports local infra modules correctly at runtime.",
-      "tickers": [
-        "AMZN"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "network",
-        "$AMZN"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346",
-          "url": "https://explorer.testnet.postfiat.org/transactions/308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9e25a8a8"
-      }
-    },
-    {
-      "id": "task:9c096275",
-      "timestamp": "2026-05-21T14:37:04.623Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "infra",
-      "title": "Planning a Modal packaging fix for the Qwen deployment path so local infra modules import cor...",
-      "summary": "Planning a Modal packaging fix for the Qwen deployment path so local infra modules import correctly at runtime.",
-      "tickers": [
-        "AMZN"
-      ],
-      "tags": [
-        "infra",
-        "task-node",
-        "network",
-        "$AMZN"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2C7BF1DD21C284DB898D659D23F558934C1213420EF07CB23B7029CFD8A85AAD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5CE32F6E5E4C0D085869C082E0D36CBE25895E94AFD89A2FE3158E046AEF3934/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346",
-          "url": "https://explorer.testnet.postfiat.org/transactions/308F0F650FAD4C9ABC184EADBC8526578B78C0A7468D24E13DC8F48119BF9346/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9c096275"
-      }
-    },
-    {
-      "id": "task:e7afca1f",
-      "timestamp": "2026-05-21T14:11:07.995Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Delivered a Dynamic UNL whitepaper accuracy review and earned a reward.",
-      "summary": "Delivered a Dynamic UNL whitepaper accuracy review and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e7afca1f"
-      }
-    },
-    {
-      "id": "task:db9c5a32",
-      "timestamp": "2026-05-21T14:11:06.260Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "summary": "Uploaded follow-up evidence for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:db9c5a32"
-      }
-    },
-    {
-      "id": "task:223d44d1",
-      "timestamp": "2026-05-21T14:11:04.738Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Recorded a verification response for a whitepaper accuracy review of the Dynamic UNL rollout...",
-      "summary": "Recorded a verification response for a whitepaper accuracy review of the Dynamic UNL rollout on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:223d44d1"
-      }
-    },
-    {
-      "id": "task:cce9a8a4",
-      "timestamp": "2026-05-21T14:09:03.932Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Requested verification for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "summary": "Requested verification for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:cce9a8a4"
-      }
-    },
-    {
-      "id": "task:43d74402",
-      "timestamp": "2026-05-21T14:08:36.776Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Submitted evidence for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "summary": "Submitted evidence for a whitepaper accuracy review of the Dynamic UNL rollout.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:43d74402"
-      }
-    },
-    {
-      "id": "task:0dab1003",
-      "timestamp": "2026-05-21T14:08:34.983Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Recorded proof of a whitepaper accuracy review for the Dynamic UNL rollout on PFTL.",
-      "summary": "Recorded proof of a whitepaper accuracy review for the Dynamic UNL rollout on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0dab1003"
-      }
-    },
-    {
-      "id": "task:795f2438",
-      "timestamp": "2026-05-21T13:55:37.091Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a whitepaper accuracy review for the Dynamic UNL rollout and roadmap.",
-      "summary": "Planning a whitepaper accuracy review for the Dynamic UNL rollout and roadmap.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FE7FCB40B1DE4B5C550B8866335687E17590AE921DDF97E9E36BC5CBB8373F59/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/9D22750F724ACE2616C4CC5C50431EFC95620408637546753DD6D6615355FBCB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17BB51594B562A9A913557C9EFBEB76B3FE64F43F22A3B00FE391207342E6605/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:795f2438"
       }
     }
   ]
