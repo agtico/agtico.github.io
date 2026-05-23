@@ -4,6 +4,7 @@ title: "Pearl PoUW | Useful Work vs. Consensus"
 date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
+pearl_report: true
 tags:
   - AGTI
   - Pearl
@@ -11,10 +12,6 @@ tags:
   - AI Infrastructure
   - Crypto
 ---
-
-<link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v=20260523" />
-
-<div class="pearl-report-shell">
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard good">
@@ -76,8 +73,6 @@ Pearl's [whitepaper](https://pearlresearch.ai/) sells **2-for-1 GPU economics**:
   <p class="pearl-figure-caption">Pearl swaps SHA256 for matmul+ZK. Without the optional vLLM box, the waste structure mirrors Bitcoin — only the opcode changed.</p>
 </div>
 
----
-
 ## 2. Whitepaper promise vs chain rules
 
 <div class="pearl-split">
@@ -109,7 +104,7 @@ Pearl's [whitepaper](https://pearlresearch.ai/) sells **2-for-1 GPU economics**:
     <span class="tag">Economic vs enforced</span>
   </div>
   <div class="pearl-mermaid">
-<pre class="mermaid">
+    <div class="mermaid">
 flowchart LR
   subgraph promise ["Whitepaper story"]
     A1[AI demand] --> A2[GPU runs inference]
@@ -120,7 +115,7 @@ flowchart LR
   subgraph protocol ["What pearld accepts"]
     B1[Block header σ] --> B2[Matrix commitments]
     B2 --> B3[Noisy tiled MatMul]
-    B3 --> B4[Jackpot &lt; difficulty]
+    B3 --> B4[Jackpot under difficulty]
     B4 --> B5[ZK proof valid]
     B5 --> B6[Block accepted]
   end
@@ -129,14 +124,12 @@ flowchart LR
 
   style promise fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
   style protocol fill:#1a1210,stroke:#ff5a42,color:#e8eeeb
-</pre>
+    </div>
   </div>
   <p class="pearl-figure-caption">The dashed line is a deployment choice (vLLM). The protocol path works without ever serving a user.</p>
 </div>
 
 The whitepaper also admits: *"Pearl attracts compute that does not necessarily have useful work."*
-
----
 
 ## 3. How Pearl mining works (PoUW pipeline)
 
@@ -149,11 +142,11 @@ The whitepaper also admits: *"Pearl attracts compute that does not necessarily h
     <div class="pearl-flow-step"><span class="num">1</span><strong>Commit A, B</strong><span>Merkle roots + chain state σ</span></div>
     <div class="pearl-flow-step"><span class="num">2</span><strong>Add noise E, F</strong><span>Low-rank, rank r=32</span></div>
     <div class="pearl-flow-step"><span class="num">3</span><strong>Tile multiply</strong><span>int7×int7→int32 transcript</span></div>
-    <div class="pearl-flow-step"><span class="num">4</span><strong>Jackpot hash</strong><span>BLAKE3(state) &lt; target</span></div>
+    <div class="pearl-flow-step"><span class="num">4</span><strong>Jackpot hash</strong><span>BLAKE3(state) under target</span></div>
     <div class="pearl-flow-step"><span class="num">5</span><strong>ZK prove</strong><span>Plonky2 → block cert</span></div>
   </div>
   <div class="pearl-mermaid" style="margin-top:18px">
-<pre class="mermaid">
+    <div class="mermaid">
 sequenceDiagram
   participant M as Miner
   participant G as pearl-gateway
@@ -167,13 +160,11 @@ sequenceDiagram
   N->>N: verify_zk_proof()
   Note over N: Does NOT ask: inference served?
   N-->>G: Accept / reject
-</pre>
+    </div>
   </div>
 </div>
 
 **Code anchors:** bare search in `zk-pow/src/ffi/mine.rs` · defaults in `node/zkpow/miner.go` (`k=1024`, `rank=32`) · verify in `node/zkpow/verify.go`.
-
----
 
 ## 4. Two miners, one protocol
 
@@ -234,8 +225,6 @@ sequenceDiagram
   </div>
   <p class="pearl-figure-caption">Both paths can win blocks. Only the vLLM path delivers Pearl's stated utility.</p>
 </div>
-
----
 
 ## 5. ASIC economics — when dual-use wins
 
@@ -313,16 +302,15 @@ The whitepaper's ASIC argument is **profitability**, not **impossibility**: a Pe
   <p class="pearl-figure-caption">Illustrative split, not measured mainnet telemetry. Shows why bare mining recenters waste in the PoW bucket.</p>
 </div>
 
----
-
 ## 6. Whitepaper virtuous loop vs reality
 
-<div class="pearl-mermaid">
-<pre class="mermaid">
+<div class="pearl-figure">
+  <div class="pearl-mermaid">
+    <div class="mermaid">
 flowchart TB
   subgraph virtuous ["Whitepaper virtuous loop"]
     direction TB
-    V1[Market demand] --> V2[Subsidy value ↑]
+    V1[Market demand] --> V2[Subsidy value up]
     V2 --> V3[More useful compute deployed]
     V3 --> V4[Stronger security]
     V4 --> V5[Useful inference / training out]
@@ -330,8 +318,8 @@ flowchart TB
   end
 
   subgraph leak ["Protocol leak — no enforcement"]
-    L1[Subsidy value ↑] --> L2[Specialized matmul farms]
-    L2 --> L3[Security ↑]
+    L1[Subsidy value up] --> L2[Specialized matmul farms]
+    L2 --> L3[Security up]
     L3 --> L4[No useful output]
     L4 -.-> L1
   end
@@ -340,10 +328,9 @@ flowchart TB
 
   style virtuous fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
   style leak fill:#2a1010,stroke:#ff5a42,color:#e8eeeb
-</pre>
+    </div>
+  </div>
 </div>
-
----
 
 ## 7. Verdict & due diligence
 
@@ -361,26 +348,6 @@ flowchart TB
 3. ZK proving cost vs search cost at target difficulty
 
 Full source doc with code citations: `agti/docs/pearl_pouw_useful_work_asic_analysis_2026-05-23.md`
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: "dark",
-    themeVariables: {
-      primaryColor: "#142220",
-      primaryTextColor: "#e8eeeb",
-      primaryBorderColor: "#ff5a42",
-      lineColor: "#9aa2a0",
-      secondaryColor: "#1a1210",
-      tertiaryColor: "#0d2818",
-      fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    },
-    flowchart: { curve: "basis", padding: 14 }
-  });
-</script>
 
 ---
 

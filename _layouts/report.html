@@ -8,6 +8,9 @@
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+  {% if page.pearl_report %}
+  <link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v=20260523b" />
+  {% endif %}
 </head>
 <body>
   <div class="page">
@@ -40,7 +43,7 @@
           <span>{{ tag }}</span>
           {% endfor %}
         </div>
-        <div class="report-content">
+        <div class="report-content{% if page.pearl_report %} pearl-report-shell{% endif %}">
           {{ content }}
         </div>
       </article>
@@ -48,5 +51,24 @@
 
     <footer>AGTI // Intelligence Reports // {{ page.date | date: "%Y.%m.%d" }}</footer>
   </div>
+  {% if page.pearl_report %}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "dark",
+      themeVariables: {
+        primaryColor: "#142220",
+        primaryTextColor: "#e8eeeb",
+        primaryBorderColor: "#ff5a42",
+        lineColor: "#9aa2a0",
+        secondaryColor: "#1a1210",
+        tertiaryColor: "#0d2818",
+        fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
+      },
+      flowchart: { curve: "basis", padding: 14 }
+    });
+  </script>
+  {% endif %}
 </body>
 </html>

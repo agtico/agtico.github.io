@@ -348,6 +348,56 @@
   min-width: 520px;
 }
 
+.pearl-mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Markdown prose inside pearl reports */
+.pearl-report-shell > h2 {
+  margin: 42px 0 18px;
+  font: 800 clamp(24px, 3vw, 34px)/1.12 var(--sans);
+  letter-spacing: -0.02em;
+}
+
+.pearl-report-shell > h2:first-of-type {
+  margin-top: 28px;
+}
+
+.pearl-report-shell > p,
+.pearl-report-shell > ul,
+.pearl-report-shell > ol {
+  color: rgba(232, 238, 235, 0.88);
+}
+
+.pearl-report-shell > hr {
+  margin: 36px 0;
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.pearl-report-shell > table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 28px;
+}
+
+.pearl-report-shell > table th,
+.pearl-report-shell > table td {
+  border: 1px solid var(--line-strong);
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pearl-report-shell > table th {
+  background: rgba(255, 45, 32, 0.08);
+  color: var(--red-2);
+  font: 800 11px var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .pearl-legend {
   display: flex;
   flex-wrap: wrap;
