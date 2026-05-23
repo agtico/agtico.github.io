@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-23T20:50:59.022Z",
+  "generated_at": "2026-05-23T21:41:55.719Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:d646d73e",
+      "timestamp": "2026-05-23T21:32:15.279Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:c8ff8d57",
+      "category": "network",
+      "title": "Passed on a Task Node reducer to suppress duplicate task offers after no response expiry.",
+      "summary": "Passed on a Task Node reducer to suppress duplicate task offers after no response expiry.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d646d73e"
+      }
+    },
     {
       "id": "task:959808b1",
       "timestamp": "2026-05-23T19:00:47.246Z",
@@ -961,48 +984,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:671d63a0"
-      }
-    },
-    {
-      "id": "task:10db3051",
-      "timestamp": "2026-05-23T08:54:42.009Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a Dynamic UNL validator retirement receipt gate on PFTL.",
-      "summary": "Recorded a verification response for a Dynamic UNL validator retirement receipt gate on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "51A6580EAB45DA55D4038093E3D14516A42A94378009CE8287B4A38A8A024D7D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/51A6580EAB45DA55D4038093E3D14516A42A94378009CE8287B4A38A8A024D7D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E8E38CEAB1B70272197479F6BC1EAD23D7BE8BF5065608297B92D25E29B0FB48",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E8E38CEAB1B70272197479F6BC1EAD23D7BE8BF5065608297B92D25E29B0FB48/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "C7C6BA4AB97F463C806B53B30F720A76370B3DF22C4E8A48632FDBF1DACA87BE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C7C6BA4AB97F463C806B53B30F720A76370B3DF22C4E8A48632FDBF1DACA87BE/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:10db3051"
       }
     }
   ]
