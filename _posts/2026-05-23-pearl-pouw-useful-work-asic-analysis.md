@@ -547,32 +547,32 @@ flowchart TB
   <div class="pearl-sim-grid">
     <div class="pearl-sim-card">
       <div class="pearl-sim-card-head"><h4>baseline</h4><span class="tag">moderate PRL</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/baseline.png" alt="Baseline scenario: hashrate shares, PRL price, inference revenue fraction over 36 months" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/baseline.png?v=20260524d" alt="Baseline scenario: hashrate shares, PRL price, inference revenue fraction over 36 months" loading="lazy" /></div>
       <p class="pearl-sim-caption">Endogenous PRL mean-reversion cannot stop ASIC crowding once hash/$ advantage compounds.</p>
     </div>
     <div class="pearl-sim-card highlight">
       <div class="pearl-sim-card-head"><h4>inference_boom</h4><span class="tag">best case</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/inference_boom.png" alt="Inference boom scenario: dual-use retains meaningful hashrate when API demand scales" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/inference_boom.png?v=20260524d" alt="Inference boom scenario: dual-use retains meaningful hashrate when API demand scales" loading="lazy" /></div>
       <p class="pearl-sim-caption"><strong>Only scenario</strong> where dual-use hashrate stays double-digit and inference becomes ~half of network revenue.</p>
     </div>
     <div class="pearl-sim-card">
       <div class="pearl-sim-card-head"><h4>prl_pump</h4><span class="tag">subsidy shock</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/prl_pump.png" alt="PRL pump scenario: token price rise attracts ASIC capital" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/prl_pump.png?v=20260524d" alt="PRL pump scenario: token price rise attracts ASIC capital" loading="lazy" /></div>
       <p class="pearl-sim-caption">Higher PRL alone attracts capital into best hash/$ — ASICs and bare GPUs, not vLLM farms.</p>
     </div>
     <div class="pearl-sim-card">
       <div class="pearl-sim-card-head"><h4>asic_creep</h4><span class="tag">hardware curve</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/asic_creep.png" alt="ASIC creep scenario: improving ASIC efficiency drives concentration" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/asic_creep.png?v=20260524d" alt="ASIC creep scenario: improving ASIC efficiency drives concentration" loading="lazy" /></div>
       <p class="pearl-sim-caption">4× ASIC efficiency gain → HHI ≈ 1.0. Matches whitepaper's "compute without useful work" branch.</p>
     </div>
     <div class="pearl-sim-card">
       <div class="pearl-sim-card-head"><h4>together_only</h4><span class="tag">May 2026 shaped</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/together_only.png" alt="Together-only scenario: tiny inference market, dual-use collapses" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/together_only.png?v=20260524d" alt="Together-only scenario: tiny inference market, dual-use collapses" loading="lazy" /></div>
       <p class="pearl-sim-caption">Tiny API demand (~50 GPUs) + low PRL: dual-use starts weak and terminal useful hash → 0.2%.</p>
     </div>
     <div class="pearl-sim-card">
       <div class="pearl-sim-card-head"><h4>bitcoinification</h4><span class="tag">stress test</span></div>
-      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/bitcoinification.png" alt="Bitcoinification scenario: combined PRL pump and ASIC creep with flat inference" loading="lazy" /></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/bitcoinification.png?v=20260524d" alt="Bitcoinification scenario: combined PRL pump and ASIC creep with flat inference" loading="lazy" /></div>
       <p class="pearl-sim-caption">Combined pump + ASIC creep + flat inference — mission collapse. Structurally Bitcoin-shaped.</p>
     </div>
   </div>
