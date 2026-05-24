@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-24T17:48:59.979Z",
+  "generated_at": "2026-05-24T18:56:23.220Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:3fe7076c",
+      "timestamp": "2026-05-24T18:43:47.391Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:bc847e68",
+      "category": "trading",
+      "title": "Starting a study of large-cap earnings straddle candidates using live option-chain data.",
+      "summary": "Starting a study of large-cap earnings straddle candidates using live option-chain data.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3fe7076c"
+      }
+    },
     {
       "id": "task:e01f9ec1",
       "timestamp": "2026-05-24T17:24:47.785Z",
@@ -963,49 +984,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:4eb9e280"
-      }
-    },
-    {
-      "id": "task:e6380c81",
-      "timestamp": "2026-05-24T11:30:17.568Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Delivered a BTC options structure-selection framework and earned a reward.",
-      "summary": "Delivered a BTC options structure-selection framework and earned a reward.",
-      "tickers": [
-        "BTC"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$BTC"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2D45167DE93508592AED6CE6DE285F7778993219B21DED4D4CA8FA5B6CA56815",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2D45167DE93508592AED6CE6DE285F7778993219B21DED4D4CA8FA5B6CA56815/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B4973BD8E417516046C459297F7AC2371B135C618BFC8C7335E2E81C44F25720",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B4973BD8E417516046C459297F7AC2371B135C618BFC8C7335E2E81C44F25720/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "F75F7649FAC050BAF551B2F046D77973E53FC68FE07216E05BB7BDB72621A356",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F75F7649FAC050BAF551B2F046D77973E53FC68FE07216E05BB7BDB72621A356/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e6380c81"
       }
     }
   ]
