@@ -698,4 +698,95 @@
   .pearl-bar-row .pct {
     text-align: left;
   }
+
+  .pearl-sim-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fleet economics simulation charts */
+.pearl-sim-intro {
+  margin: 0 0 18px;
+  color: #b8c4bf;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.pearl-sim-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pearl-sim-card {
+  background: #121816;
+  border: 1px solid #243028;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pearl-sim-card.highlight {
+  border-color: #6ee58f;
+  box-shadow: 0 0 0 1px rgba(110, 229, 143, 0.15);
+}
+
+.pearl-sim-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 12px 0;
+}
+
+.pearl-sim-card-head h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #e8eeeb;
+}
+
+.pearl-sim-card-head .tag {
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #8aa898;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pearl-sim-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0a0e0c;
+}
+
+.pearl-sim-caption {
+  margin: 0;
+  padding: 8px 12px 12px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #8aa898;
+}
+
+.pearl-sim-caption strong {
+  color: #ffb4a8;
+}
+
+.pearl-code-ref {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  background: #0d1210;
+  border: 1px solid #243028;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #9dffc8;
+  overflow-x: auto;
+}
+
+.pearl-code-ref .path {
+  display: block;
+  margin-bottom: 6px;
+  color: #ff9f45;
 }

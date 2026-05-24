@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524b
+report_css_version: 20260524c
 tags:
   - AGTI
   - Pearl
@@ -482,7 +482,137 @@ The whitepaper's ASIC argument is **profitability**, not **impossibility**: a Pe
   <p class="pearl-figure-caption">Illustrative split, not measured mainnet telemetry. Shows why bare mining recenters waste in the PoW bucket.</p>
 </div>
 
-## 6. Adoption & useful-work reality check
+## 6. Fleet dynamics simulation (AGTI model)
+
+The quadrant map above is qualitative. To stress-test **when dual-use wins vs ASIC/bare farms**, AGTI built a monthly **fleet dynamics** model in Python/numpy: three fleet types (dual-use GPU, bare GPU, ASIC) compete on hashrate share, revenue, and profit-driven capacity growth.
+
+<p class="pearl-sim-intro"><strong>Question:</strong> If PRL subsidies rise, inference demand stays flat, and ASIC hash/$ improves, does the network stay on the useful-work path — or converge to matmul lottery farms? <strong>Source:</strong> <a href="https://github.com/postfiatorg/agti/tree/main/research/pearl_economics">agti/research/pearl_economics</a> (<code>simulate.py</code>). Parameters are <em>illustrative</em>, not calibrated to mainnet.</p>
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Model mechanics (monthly loop)</h3>
+    <span class="tag">simulate.py</span>
+  </div>
+  <div class="pearl-mermaid">
+    <div class="mermaid">
+flowchart TB
+  subgraph fleets ["Three fleet types"]
+    D[Dual-use GPU<br/>hash × 0.82 + inference margin]
+    B[Bare GPU<br/>hash × 1.12, mining only]
+    A[ASIC<br/>hash × 3.5–14×, mining only]
+  end
+
+  subgraph month ["Each month"]
+    H[Total hashrate → share split]
+    R[Mining revenue ∝ share × blocks × PRL]
+    I[Inference revenue — dual only, demand-capped]
+    C[Electricity + capex amort + opex]
+    P[Profit margin → grow/shrink capacity]
+    X[PRL mean-reverts to production cost]
+  end
+
+  D --> H
+  B --> H
+  A --> H
+  H --> R --> P
+  I --> P
+  C --> P
+  P --> D
+  P --> B
+  P --> A
+  P --> X
+
+  style fleets fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style month fill:#1a1210,stroke:#ff5a42,color:#e8eeeb
+    </div>
+  </div>
+  <p class="pearl-figure-caption"><strong>Useful-work proxy:</strong> fraction of hashrate from dual-use fleets (serves inference + mining). Not enforced by Pearl consensus — this is the <em>mission</em> metric. <strong>Concentration:</strong> Herfindahl–Hirschman Index (HHI) on hashrate shares.</p>
+</div>
+
+| Scenario | Stress | Month 36: useful hash | ASIC share | Inference % revenue | HHI |
+|----------|--------|----------------------:|-----------:|--------------------:|----:|
+| `baseline` | Moderate PRL ($0.05), 400 GPU demand | 0.3% | 99.7% | 1.1% | 0.995 |
+| `prl_pump` | PRL ramps to ~$0.75; flat demand | 0.7% | 95.6% | 0.5% | 0.916 |
+| `inference_boom` | Demand → 4k GPUs; flat PRL | **11.5%** | 88.5% | **45.0%** | 0.796 |
+| `asic_creep` | ASIC hash/$ → 4× | 0.1% | 99.9% | 0.2% | 0.999 |
+| `together_only` | 50 GPU demand (today-shaped) | 0.2% | 99.6% | 1.3% | 0.992 |
+| `bitcoinification` | PRL pump + ASIC creep + flat inference | 0.1% | 99.7% | 0.4% | 0.995 |
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Scenario charts — 36-month horizon</h3>
+    <span class="tag">AGTI simulation</span>
+  </div>
+
+  <div class="pearl-sim-grid">
+    <div class="pearl-sim-card">
+      <div class="pearl-sim-card-head"><h4>baseline</h4><span class="tag">moderate PRL</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/baseline.png" alt="Baseline scenario: hashrate shares, PRL price, inference revenue fraction over 36 months" loading="lazy" /></div>
+      <p class="pearl-sim-caption">Endogenous PRL mean-reversion cannot stop ASIC crowding once hash/$ advantage compounds.</p>
+    </div>
+    <div class="pearl-sim-card highlight">
+      <div class="pearl-sim-card-head"><h4>inference_boom</h4><span class="tag">best case</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/inference_boom.png" alt="Inference boom scenario: dual-use retains meaningful hashrate when API demand scales" loading="lazy" /></div>
+      <p class="pearl-sim-caption"><strong>Only scenario</strong> where dual-use hashrate stays double-digit and inference becomes ~half of network revenue.</p>
+    </div>
+    <div class="pearl-sim-card">
+      <div class="pearl-sim-card-head"><h4>prl_pump</h4><span class="tag">subsidy shock</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/prl_pump.png" alt="PRL pump scenario: token price rise attracts ASIC capital" loading="lazy" /></div>
+      <p class="pearl-sim-caption">Higher PRL alone attracts capital into best hash/$ — ASICs and bare GPUs, not vLLM farms.</p>
+    </div>
+    <div class="pearl-sim-card">
+      <div class="pearl-sim-card-head"><h4>asic_creep</h4><span class="tag">hardware curve</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/asic_creep.png" alt="ASIC creep scenario: improving ASIC efficiency drives concentration" loading="lazy" /></div>
+      <p class="pearl-sim-caption">4× ASIC efficiency gain → HHI ≈ 1.0. Matches whitepaper's "compute without useful work" branch.</p>
+    </div>
+    <div class="pearl-sim-card">
+      <div class="pearl-sim-card-head"><h4>together_only</h4><span class="tag">May 2026 shaped</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/together_only.png" alt="Together-only scenario: tiny inference market, dual-use collapses" loading="lazy" /></div>
+      <p class="pearl-sim-caption">Tiny API demand (~50 GPUs) + low PRL: dual-use starts weak and terminal useful hash → 0.2%.</p>
+    </div>
+    <div class="pearl-sim-card">
+      <div class="pearl-sim-card-head"><h4>bitcoinification</h4><span class="tag">stress test</span></div>
+      <div class="pearl-sim-chart"><img src="/assets/images/pearl-economics/bitcoinification.png" alt="Bitcoinification scenario: combined PRL pump and ASIC creep with flat inference" loading="lazy" /></div>
+      <p class="pearl-sim-caption">Combined pump + ASIC creep + flat inference — mission collapse. Structurally Bitcoin-shaped.</p>
+    </div>
+  </div>
+</div>
+
+**AGTI read from the sim:** PRL price alone does not preserve useful work. The whitepaper virtuous loop (§8 below) requires **inference demand scaling with subsidies** — the only lever that materially keeps dual-use competitive in this model. Today's adoption profile maps closest to `together_only`.
+
+### Code anchors (reproducible)
+
+<div class="pearl-code-ref"><span class="path">agti/research/pearl_economics/simulate.py — fleet types & unit economics</span>
+dual:  hash_units=1.0,  mining_overhead=18%, inference_margin=$1.2k/GPU-mo
+bare:  hash_units=1.12 (no inference tax)
+asic:  hash_units=3.5× baseline, lower power/capex (illustrative matmul+ZK ASIC)
+</div>
+
+<div class="pearl-code-ref"><span class="path">simulate.py — revenue & capacity adjustment (lines 209–271)</span>
+rev_mine[k] = hashrate_share[k] × blocks × block_reward × PRL_price
+rev_inf   = min(dual_capacity, inference_demand) × inference_margin  # dual only
+cap[k]    *= 1 + clip(growth_rate × profit_margin, shrink..grow bounds)
+</div>
+
+<div class="pearl-code-ref"><span class="path">pearl/miner/vllm-miner/src/vllm_miner/config.yaml — dual-use overhead source</span>
+Mining layers only when m,n,k ≥ 1024 — large layers only; overhead is real but localized.
+</div>
+
+<div class="pearl-code-ref"><span class="path">pearl/node/zkpow/miner.go — consensus does not check inference</span>
+Default k=1024, rank=32 — nodes verify ZK matmul certificates, not API usage.
+</div>
+
+**Run locally:**
+
+```bash
+cd agti/research/pearl_economics
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python simulate.py --all --plot
+```
+
+**Limits:** Not calibrated to Pearl mainnet difficulty (~4.9M), block reward decay, pool variance, or token sell pressure. ASIC is modeled as zero inference utility by definition (protocol allows it). See `README.md` in the research folder.
+
+## 7. Adoption & useful-work reality check
 
 Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn't.** Pearl uses a proprietary int7 / 7-bit noisy stack that only works inside their miner plugin — not standard BF16/FP8 inference.
 
@@ -660,7 +790,7 @@ flowchart TB
   </div>
 </div>
 
-## 8. Verdict & due diligence
+## 9. Verdict & due diligence
 
 | Question | Answer |
 |----------|--------|
@@ -672,7 +802,7 @@ flowchart TB
 
 **Evaluators should track:**
 
-1. Share of hashrate on vLLM vs bare clients
+1. Share of hashrate on vLLM vs bare clients (see **§6 simulation** for equilibrium stress tests)
 2. Whether subsidies dominate inference margins
 3. ZK proving cost vs search cost at target difficulty
 4. Whether Together endpoint traffic grows (only public dual-use off-ramp)
