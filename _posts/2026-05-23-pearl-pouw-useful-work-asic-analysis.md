@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524c
+report_css_version: 20260524e
 tags:
   - AGTI
   - Pearl
@@ -49,7 +49,7 @@ tags:
 |---|---------|--------------|----------|
 | **A** | **PRL coin** | Block rewards + speculative asset | Miners earn it; market buys/sells it |
 | **B** | **Mining software** | `pearld` + vLLM Pearl plugin + gateway | Miners (to compete for PRL) |
-| **C** | **Inference API** (thin) | Normal LLM chat completions, ~25% cheaper | Developers via [Together AI](https://www.together.ai/models/gemma-4-31b-it-pearl) |
+| **C** | **Inference API** (thin) | Normal LLM chat completions; Pearl checkpoint only | Developers via [Together AI](https://www.together.ai/models/gemma-4-31b-it-pearl) — ~25% off **Together list**, not vs OpenRouter |
 
 **Not a product today:** training compute, generic matmul-as-a-service, marketplace GPU rentals ([compute.pearlresearch.ai](https://compute.pearlresearch.ai/) is gated), industry-standard FP8/BF16 stacks.
 
@@ -616,6 +616,58 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn't.** Pearl uses a proprietary int7 / 7-bit noisy stack that only works inside their miner plugin — not standard BF16/FP8 inference.
 
+### Inference API pricing — subsidized vs market?
+
+Together markets [`pearl-ai/gemma-4-31b-it`](https://www.together.ai/models/gemma-4-31b-it-pearl) at **~25% off**, subsidized by Pearl mining. AGTI queried public catalogs **May 24, 2026** ([OpenRouter models API](https://openrouter.ai/api/v1/models), [OpenRouter endpoints](https://openrouter.ai/api/v1/models/google/gemma-4-31b-it/endpoints), [Together model pages](https://www.together.ai/models/gemma-4-31b-it-pearl)).
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Same name on the tin — not the same product</h3>
+    <span class="tag">Not a commodity switch</span>
+  </div>
+  <div class="pearl-mermaid">
+    <div class="mermaid">
+flowchart LR
+  subgraph market ["What developers buy at scale"]
+    M1["google/gemma-4-31b-it<br/>OpenRouter $0.12 / $0.37 per 1M"]
+    M2["Google weights · FP4/FP8<br/>262K context · multimodal"]
+    M3["~295B tokens/week on OR"]
+  end
+
+  subgraph pearl_api ["Pearl Together endpoint"]
+    P1["pearl-ai/gemma-4-31b-it<br/>$0.28 / $0.86 per 1M"]
+    P2["Pearl re-quant checkpoint · INT8<br/>32K context · Pearl plugin stack"]
+    P3["No pearl-ai slug on OpenRouter"]
+  end
+
+  M1 -. "not interchangeable" .- P1
+  M2 -. different weights/q/cap .- P2
+
+  style market fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style pearl_api fill:#1a1210,stroke:#ff5a42,color:#e8eeeb
+    </div>
+  </div>
+  <p class="pearl-figure-caption">Switching from OpenRouter Gemma to Pearl Gemma is <strong>not</strong> a drop-in price arbitrage — different model artifact, quantization, context, and stack. Benchmarks and tool schemas may diverge.</p>
+</div>
+
+| Offering | API slug | Input $/M | Output $/M | Context | Notes |
+|----------|----------|----------:|-----------:|--------:|-------|
+| **OpenRouter (router default)** | `google/gemma-4-31b-it` | **$0.12** | **$0.37** | 262K | Usually routes to DeepInfra-class providers |
+| **OpenRouter → Together (Pearl stack)** | `google/gemma-4-31b-it` | $0.28 | $0.86 | **32K** | Same $/M as Pearl endpoint; one of the **most expensive** OR backends |
+| **Together standard Gemma** | `google/gemma-4-31B-it` | $0.39 | $0.97 | 256K | FP8, full context — Together's list price |
+| **Together Pearl Gemma** | `pearl-ai/gemma-4-31b-it` | $0.28 | $0.86 | 32K | Pearl checkpoint + INT8; marketed ~25% off **Together list** |
+
+**Blended example** (1M input + 200k output tokens): OpenRouter best ≈ **$0.19** · Together Pearl ≈ **$0.45** → Pearl is **~2.3× more expensive** than where Gemma 4 31B actually trades volume today.
+
+**AGTI read:**
+
+1. **The discount is internal.** Pearl is ~23% below Together's own $0.39/$0.97 SKU — that's the "~25% off" claim. It is **not** below OpenRouter's $0.12/$0.37 market.
+2. **Subsidy isn't showing up as market undercut.** If PoUW + PRL emissions were funding cheap inference, Together's Pearl route should compete on **absolute** price. Instead OpenRouter routes **away** from Together to cheaper hosts.
+3. **Not commodity Gemma.** `pearl-ai/gemma-4-31b-it` is a **Pearl re-quantized checkpoint** (HF: [`pearl-ai/Gemma-4-31B-it-pearl`](https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl)), not Google's base weights. INT8 vs FP8, **32K vs 262K** context, Pearl vLLM plugin required. Developers cannot treat it as a fungible swap for `google/gemma-4-31b-it` on OpenRouter — quality, latency, and behavior are **questionable to assume equivalent**.
+4. **No separate OpenRouter listing.** There is no `pearl-ai/*` slug on OpenRouter. Pearl only appears as Together's **32K / $0.28 / $0.86** backend when the router hits that provider.
+
+Reproduce: `agti/research/pearl_economics/compare_inference_pricing.py` (public APIs, no keys).
+
 <div class="pearl-figure">
   <div class="pearl-figure-head">
     <h3>Three different things called "matmul"</h3>
@@ -644,7 +696,7 @@ Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn'
     <rect x="24" y="212" width="200" height="72" fill="#0d2818" stroke="#6ee58f" rx="4"/>
     <text x="124" y="236" fill="#6ee58f" text-anchor="middle" font-size="11" font-weight="700">Together AI</text>
     <text x="124" y="254" fill="#c8e8d4" text-anchor="middle" font-size="10">1 endpoint: Gemma-4-31B-it</text>
-    <text x="124" y="270" fill="#8aa898" text-anchor="middle" font-size="9">25% off via PRL subsidy</text>
+    <text x="124" y="270" fill="#8aa898" text-anchor="middle" font-size="9">not cheaper vs OpenRouter</text>
 
     <rect x="240" y="212" width="200" height="72" fill="#1a1210" stroke="#ff9f45" rx="4"/>
     <text x="340" y="236" fill="#ff9f45" text-anchor="middle" font-size="11" font-weight="700">GPU miners</text>
@@ -756,11 +808,13 @@ flowchart TB
 | **Do HF downloads = users?** | No — likely miner weight pulls; 0 inference providers on Llama-pearl |
 | **Does mainnet = utility?** | No — proves mining; ~2.7k PRL/block is subsidy, not API revenue |
 | **Is useful work enforced?** | No — whitepaper admits non-useful compute; bare `mine()` valid |
+| **Is Pearl API cheaper than market Gemma?** | No — ~2.3× above OpenRouter $0.12/$0.37; discount is vs Together list only |
+| **Same model as google/gemma-4-31b-it?** | No — pearl-ai checkpoint, INT8, 32K ctx; not a commodity switch |
 | **Strongest dual-use case** | [Together × Pearl](https://www.together.ai/blog/together-ai-partners-with-pearl-research-labs) — volume not public |
 
-**AGTI read:** Useful work is **weakly evidenced** and **narrowly compatible**. The chain proves matmul lottery tickets; external AI utility is essentially **one discounted Together endpoint** plus unverified miner-side inference.
+**AGTI read:** Useful work is **weakly evidenced** and **narrowly compatible**. The chain proves matmul lottery tickets; the one external API is **not market-competitive** on price and **not interchangeable** with commodity Gemma 4 31B on OpenRouter.
 
-## 7. Whitepaper virtuous loop vs reality
+## 8. Whitepaper virtuous loop vs reality
 
 <div class="pearl-figure">
   <div class="pearl-mermaid">
