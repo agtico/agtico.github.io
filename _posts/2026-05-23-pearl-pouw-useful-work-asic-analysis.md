@@ -5,6 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
+report_css_version: 20260524
 tags:
   - AGTI
   - Pearl
@@ -302,7 +303,155 @@ The whitepaper's ASIC argument is **profitability**, not **impossibility**: a Pe
   <p class="pearl-figure-caption">Illustrative split, not measured mainnet telemetry. Shows why bare mining recenters waste in the PoW bucket.</p>
 </div>
 
-## 6. Whitepaper virtuous loop vs reality
+## 6. Adoption & useful-work reality check
+
+Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn't.** Pearl uses a proprietary int7 / 7-bit noisy stack that only works inside their miner plugin — not standard BF16/FP8 inference.
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Three different things called "matmul"</h3>
+    <span class="tag">Compatibility map</span>
+  </div>
+  <svg class="pearl-matrix" viewBox="0 0 920 300" role="img" aria-label="Three Pearl matmul stacks versus mainstream AI matmul">
+    <text x="24" y="28" fill="#9aa2a0" font-family="monospace" font-size="11" font-weight="700">MAINSTREAM AI</text>
+    <rect x="24" y="40" width="260" height="36" fill="#3a3f3e" rx="4"/>
+    <text x="154" y="62" fill="#c8d0cc" text-anchor="middle" font-size="12">BF16 / FP8 / FP4</text>
+    <rect x="24" y="84" width="260" height="36" fill="#3a3f3e" rx="4"/>
+    <text x="154" y="106" fill="#c8d0cc" text-anchor="middle" font-size="12">vanilla vLLM · TensorRT · PyTorch</text>
+    <rect x="24" y="128" width="260" height="36" fill="#3a3f3e" rx="4"/>
+    <text x="154" y="150" fill="#c8d0cc" text-anchor="middle" font-size="12">thousands of public models</text>
+
+    <text x="330" y="98" fill="#ff5a42" font-family="monospace" font-size="22" font-weight="700">≠</text>
+
+    <text x="380" y="28" fill="#ff5a42" font-family="monospace" font-size="11" font-weight="700">PEARL ONLY</text>
+    <rect x="380" y="40" width="516" height="36" fill="#2a1010" stroke="#ff5a42" stroke-width="1" rx="4"/>
+    <text x="638" y="62" fill="#ffb4a8" text-anchor="middle" font-size="12" font-weight="700">Consensus: int7×int7 → int32 + noise + ZK (lottery)</text>
+    <rect x="380" y="84" width="516" height="36" fill="#142220" stroke="#6ee58f" stroke-width="1" rx="4"/>
+    <text x="638" y="106" fill="#9dffc8" text-anchor="middle" font-size="12">NoisyGEMM: 7-bit layers, m/n/k ≥ 1024 only</text>
+    <rect x="380" y="128" width="516" height="36" fill="#1a1210" stroke="#ff9f45" stroke-width="1" rx="4"/>
+    <text x="638" y="150" fill="#ffd8a8" text-anchor="middle" font-size="12">3 pearl-ai checkpoints · sm90 H100/H200 · plugin required</text>
+
+    <text x="24" y="200" fill="#9aa2a0" font-family="monospace" font-size="11" font-weight="700">WHO USES IT (MAY 2026)</text>
+    <rect x="24" y="212" width="200" height="72" fill="#0d2818" stroke="#6ee58f" rx="4"/>
+    <text x="124" y="236" fill="#6ee58f" text-anchor="middle" font-size="11" font-weight="700">Together AI</text>
+    <text x="124" y="254" fill="#c8e8d4" text-anchor="middle" font-size="10">1 endpoint: Gemma-4-31B-it</text>
+    <text x="124" y="270" fill="#8aa898" text-anchor="middle" font-size="9">25% off via PRL subsidy</text>
+
+    <rect x="240" y="212" width="200" height="72" fill="#1a1210" stroke="#ff9f45" rx="4"/>
+    <text x="340" y="236" fill="#ff9f45" text-anchor="middle" font-size="11" font-weight="700">GPU miners</text>
+    <text x="340" y="254" fill="#e8d8c8" text-anchor="middle" font-size="10">H200 pods · ~59k blocks</text>
+    <text x="340" y="270" fill="#a89888" text-anchor="middle" font-size="9">minepearl.org guides</text>
+
+    <rect x="456" y="212" width="200" height="72" fill="#141820" stroke="#888" rx="4"/>
+    <text x="556" y="236" fill="#aaa" text-anchor="middle" font-size="11" font-weight="700">Pearl Labs</text>
+    <text x="556" y="254" fill="#ccc" text-anchor="middle" font-size="10">3 HF models · self-dogfood</text>
+    <text x="556" y="270" fill="#888" text-anchor="middle" font-size="9">131k downloads ≠ users</text>
+
+    <rect x="672" y="212" width="224" height="72" fill="#2a1010" stroke="#ff5a42" rx="4"/>
+    <text x="784" y="236" fill="#ff5a42" text-anchor="middle" font-size="11" font-weight="700">Everyone else</text>
+    <text x="784" y="254" fill="#ffb4a8" text-anchor="middle" font-size="10">0 HF inference providers</text>
+    <text x="784" y="270" fill="#a87878" text-anchor="middle" font-size="9">on Llama-pearl models</text>
+  </svg>
+  <p class="pearl-figure-caption">Sources: <a href="https://pearlresearch.ai/">whitepaper §1.1</a>, <a href="https://huggingface.co/pearl-ai">pearl-ai HF org</a>, <a href="https://www.together.ai/models/gemma-4-31b-it-pearl">Together endpoint</a>, <a href="https://explorer.pearlresearch.ai/">explorer</a>.</p>
+</div>
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>On-chain signals vs inference demand</h3>
+    <span class="tag">May 2026 snapshot</span>
+  </div>
+  <div class="pearl-source-grid">
+    <div class="pearl-source-card">
+      <span class="src-label">Mainnet blocks</span>
+      <span class="src-stat">~59,000+</span>
+      <span class="src-note">Live since Apr 27, 2026. ~1 block / 1–2 min recently. <a href="https://explorer.pearlresearch.ai/">explorer</a></span>
+    </div>
+    <div class="pearl-source-card">
+      <span class="src-label">Block reward</span>
+      <span class="src-stat">~2,711 PRL</span>
+      <span class="src-note">Coinbase outputs visible per block — subsidy farming, not API revenue. <a href="https://blockbook.pearlresearch.ai/">blockbook</a></span>
+    </div>
+    <div class="pearl-source-card">
+      <span class="src-label">HF Llama 70B Pearl</span>
+      <span class="src-stat">131k ↓ · 2 ♥</span>
+      <span class="src-note">"Not deployed by any Inference Provider." Downloads ≈ miner setup. <a href="https://huggingface.co/pearl-ai/Llama-3.3-70B-Instruct-pearl">HF</a></span>
+    </div>
+  </div>
+
+  <div class="pearl-adoption-ladder" style="margin-top:20px">
+    <div class="pearl-adoption-rung highlight">
+      <strong>Protocol shipped</strong>
+      <span>pearld + zk-pow + vLLM miner on mainnet</span>
+      <em>confirmed</em>
+    </div>
+    <div class="pearl-adoption-rung highlight">
+      <strong>Mining works</strong>
+      <span>Fast block cadence, rising difficulty (~4.9M)</span>
+      <em>confirmed</em>
+    </div>
+    <div class="pearl-adoption-rung">
+      <strong>External inference</strong>
+      <span>Together AI: <code>pearl-ai/gemma-4-31b-it</code> at 25% discount</span>
+      <em>1 partner</em>
+    </div>
+    <div class="pearl-adoption-rung dim">
+      <strong>Industry matmul adoption</strong>
+      <span>BF16/FP8 stacks unchanged; int-only PoUW today</span>
+      <em>none</em>
+    </div>
+    <div class="pearl-adoption-rung dim">
+      <strong>Proven paid demand</strong>
+      <span>No public marketplace metrics; compute portal gated</span>
+      <em>unverified</em>
+    </div>
+  </div>
+</div>
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Marketing claim vs observed evidence</h3>
+    <span class="tag">Useful work audit</span>
+  </div>
+  <div class="pearl-mermaid">
+    <div class="mermaid">
+flowchart TB
+  subgraph claim ["What Pearl markets"]
+    M1[GPU matmul is AI-native PoW]
+    M2[Same cycles earn coins + serve AI]
+    M3[Industry-compatible useful work]
+  end
+
+  subgraph reality ["What we can verify May 2026"]
+    R1[Proprietary int7 / 7-bit NoisyGEMM]
+    R2[3 pearl-ai models on sm90 only]
+    R3[59k blocks · 2.7k PRL rewards visible]
+    R4[Together: 1 subsidized endpoint]
+    R5[Whitepaper: compute without useful work OK]
+  end
+
+  M1 --> R1
+  M2 --> R3
+  M3 --> R4
+  M3 -.-> R5
+
+  style claim fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style reality fill:#1a1210,stroke:#ff5a42,color:#e8eeeb
+    </div>
+  </div>
+  <p class="pearl-figure-caption">Whitepaper quote: <em>"Pearl attracts compute that does not necessarily have useful work."</em> — <a href="https://pearlresearch.ai/">pearlresearch.ai §1</a>. "Useful MADs" = matmul ops hashed for mining (<a href="https://huggingface.co/pearl-ai/Llama-3.3-70B-Instruct-pearl">HF benchmark table</a>), not MADs sold downstream.</p>
+</div>
+
+| Question | Factual answer (sourced) |
+|----------|------------------------|
+| **Who uses Pearl matmul?** | Pearl Labs, GPU miners, Together AI (Gemma endpoint only) |
+| **Do HF downloads = users?** | No — likely miner weight pulls; 0 inference providers on Llama-pearl |
+| **Does mainnet = utility?** | No — proves mining; ~2.7k PRL/block is subsidy, not API revenue |
+| **Is useful work enforced?** | No — whitepaper admits non-useful compute; bare `mine()` valid |
+| **Strongest dual-use case** | [Together × Pearl](https://www.together.ai/blog/together-ai-partners-with-pearl-research-labs) — volume not public |
+
+**AGTI read:** Useful work is **weakly evidenced** and **narrowly compatible**. The chain proves matmul lottery tickets; external AI utility is essentially **one discounted Together endpoint** plus unverified miner-side inference.
+
+## 7. Whitepaper virtuous loop vs reality
 
 <div class="pearl-figure">
   <div class="pearl-mermaid">
@@ -332,20 +481,23 @@ flowchart TB
   </div>
 </div>
 
-## 7. Verdict & due diligence
+## 8. Verdict & due diligence
 
 | Question | Answer |
 |----------|--------|
 | **Technically serious?** | Yes — full node, zk-pow, CUDA, vLLM plugin |
 | **ASIC feasible?** | Yes — GEMM + BLAKE3 + ZK are acceleratable |
 | **ASIC useful?** | No — secures chain, produces no AI product |
-| **Whitepaper ASIC defense** | Economic only; assumes inference revenue beats subsidy |
+| **Useful work evidenced?** | Thin — 1 Together endpoint; HF downloads ≠ demand |
+| **Industry adopted matmul?** | No — bespoke int7/7-bit plugin, 3 models |
 
 **Evaluators should track:**
 
 1. Share of hashrate on vLLM vs bare clients
 2. Whether subsidies dominate inference margins
 3. ZK proving cost vs search cost at target difficulty
+4. Whether Together endpoint traffic grows (only public dual-use off-ramp)
+5. HF inference provider count on pearl-ai models (still zero on Llama)
 
 Full source doc with code citations: `agti/docs/pearl_pouw_useful_work_asic_analysis_2026-05-23.md`
 

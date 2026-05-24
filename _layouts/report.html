@@ -9,7 +9,7 @@
   <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
   {% if page.pearl_report %}
-  <link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v=20260523b" />
+  <link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v={{ page.report_css_version | default: '20260524' }}" />
   {% endif %}
 </head>
 <body>
