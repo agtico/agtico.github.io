@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524f
+report_css_version: 20260524g
 tags:
   - AGTI
   - Pearl
@@ -620,7 +620,109 @@ Full folder: [agtico.github.io/assets/research/pearl-economics/](https://agtico.
 
 ## 7. Adoption & useful-work reality check
 
-Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn't.** Pearl uses a proprietary int7 / 7-bit noisy stack that only works inside their miner plugin — not standard BF16/FP8 inference.
+Pearl's pitch treats "matmul" as if the AI industry already runs it. **It doesn't.** When Google ships [Gemma 4 31B](https://huggingface.co/google/gemma-4-31b-it), the ecosystem runs **BF16/FP8** weights through **stock vLLM, TensorRT, llama.cpp, SGLang** — thousands of hosts, hundreds of billions of tokens/week on aggregators like OpenRouter. Pearl's stack is a **parallel, incompatible matmul pipeline**: proprietary **7-bit/8-bit integer** paths, **NoisyGEMM** crypto noise, **Blake3 + Plonky2** proofs, and a **Pearl-only vLLM plugin** — today on **three** `pearl-ai/*` checkpoints and **Hopper (sm90) GPUs only**.
+
+**Plain English:** Pearl did not turn "GPU matmul" into a commodity. They built a **specialized lottery algebra** that *resembles* linear layers inside one forked inference stack. Most layers in a Pearl model **never mine**. Most matrix sizes **never mine**. Standard BF16 Gemma on normal vLLM **cannot produce valid Pearl blocks** even if you point it at the same GPU.
+
+### What Pearl matmul actually means (three stacks)
+
+Pearl conflates three different workloads under one brand. Only the first is what `pearld` validates; the second is optional dual-use inference; the third is inference-only inside the plugin.
+
+| Stack | Precision / kernel | What it does | Required to mine? |
+|-------|-------------------|--------------|-------------------|
+| **① Consensus (`zk-pow`)** | **int7×int7→int32** tiles, values in **[-64, 64]**, low-rank noise, Blake3 jackpot, Plonky2 STARK | Block lottery — verifies a noisy matmul **transcript**, not token quality | Yes — this is all `pearld` checks |
+| **② NoisyGEMM (vLLM plugin)** | **7-bit** quant on selected layers; CUTLASS Hopper kernels add commitment + noise + inner-hash PoW extraction | Runs **during** LLM forward pass on large layers | No — deployment choice; only if layer + dims qualify |
+| **③ Vanilla Pearl GEMM** | **8-bit** quant, standard scaled int8 GEMM, **no** noise / hash | Normal inference layers + small 7-bit matmuls | No — **zero PoW** on chain |
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>From LLM forward pass to block — where mining actually happens</h3>
+    <span class="tag">Plugin routing</span>
+  </div>
+  <div class="pearl-mermaid">
+    <div class="mermaid">
+flowchart TB
+  subgraph vllm ["Pearl vLLM plugin"]
+    L7["7-bit mining layer"]
+    L8["8-bit non-mining layer"]
+    TH{"m,n,k ≥ 1024<br/>and mining on?"}
+    NOISY["NoisyGEMM<br/>commit + noise + inner hash"]
+    VAN["Vanilla pearl GEMM<br/>inference only"]
+    L7 --> TH
+    TH -->|yes| NOISY
+    TH -->|no| VAN
+    L8 --> VAN
+  end
+
+  subgraph chain ["pearld consensus"]
+    PP["PlainProof: int7 strips + Merkle"]
+    ZK["Plonky2 verify + difficulty"]
+    PP --> ZK
+  end
+
+  NOISY -.->|optional block submit| PP
+  VAN --> OUT["bf16/fp16 tokens out<br/>no block"]
+
+  style vllm fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style chain fill:#1a1210,stroke:#ff5a42,color:#e8eeeb
+    </div>
+  </div>
+  <p class="pearl-figure-caption">Source: Pearl <code>vllm_kernels.py</code>, <code>config.yaml</code>, <code>zk-pow/verify</code>. Inference can succeed while producing <strong>no</strong> valid blocks.</p>
+</div>
+
+#### Mainstream AI matmul vs Pearl matmul
+
+| Dimension | Industry default (Gemma 4 31B today) | Pearl stack |
+|-----------|--------------------------------------|-------------|
+| **Weights** | Google `google/gemma-4-31b-it` BF16/FP8 checkpoints | **`pearl-ai/*-pearl`** re-quantized artifacts ([HF org](https://huggingface.co/pearl-ai)) |
+| **Runtime** | Stock vLLM, TensorRT, NIM, llama.cpp, OpenRouter backends | **Pearl vLLM plugin** + `pearl-gemm` CUDA + `pearl-gateway` + `pearld` |
+| **Linear ops** | FP16/BF16/FP8/FP4 tensor cores as provider chooses | **int7 mining** + **int8 non-mining** only; output activations back to bf16/fp16 |
+| **Mining** | None | NoisyGEMM on **subset** of layers **and** only when **m,n,k ≥ 1024** |
+| **Chain proof** | N/A | int7 noisy transcript + jackpot hash — **not** "we served tokens" |
+| **GPU gen** | A100–Blackwell, consumer GPUs with quant | **sm90 Hopper only** (H100/H200) per Pearl build |
+| **Model count** | One base model → dozens of hosts | **3** public Pearl checkpoints (May 2026) |
+
+[OpenJarvis model enablement docs](https://open-jarvis.github.io/OpenJarvis/development/pearl-model-enablement/) state explicitly: raw Hugging Face models like `google/gemma-4-31b-it` are **not mineable** — you need `pearl-ai/Gemma-4-31B-it-pearl` with `quantization_config.quant_method = "pearl"`, mining layers tagged for 7-bit NoisyGEMM and attention/MLP down-proj kept on 8-bit vanilla paths.
+
+#### Layer selection rules (why most matmul never mines)
+
+**Model config** — a layer is a "mining layer" only if weights **and** activations are **7-bit**, static channel/tensor weights, dynamic per-token activations, symmetric quant ([`vllm_config.py`](https://github.com/pearl-research-labs/pearl/blob/master/miner/vllm-miner/src/vllm_miner/vllm_config.py)):
+
+<div class="pearl-code-ref"><span class="path">pearl/miner/vllm-miner/src/vllm_miner/vllm_config.py — mining vs non-mining layers</span>
+Mining layer (7-bit):   int7 quant + noisy GEMM (when dims allow)
+Non-mining layer (8-bit): int8 quant + vanilla GEMM only — never submits blocks
+</div>
+
+**Runtime thresholds** — even on 7-bit mining layers, NoisyGEMM (PoW path) runs only when **all** of m, n, k are ≥ **1024** ([`config.yaml`](https://github.com/pearl-research-labs/pearl/blob/master/miner/vllm-miner/src/vllm_miner/config.yaml)). Smaller matmuls (typical of many attention/MLP shapes in a single forward step) fall back to vanilla GEMM → **inference OK, no mining**.
+
+<div class="pearl-code-ref"><span class="path">pearl/miner/vllm-miner/src/vllm_miner/vllm_kernels.py — routing</span>
+if should_use_noisy_gemm(m,n,k) and not no_mining:
+    pearl_gemm_noisy(...)   # commitments + noise + inner hash + optional block
+else:
+    pearl_gemm_vanilla(...) # normal linear — no PoW
+</div>
+
+**Consensus** — separately, `pearld` only accepts **Int7×Int7→Int32** MMA with strip values in **[-64, 64]**, independent of whether anyone ran an LLM ([`verify.rs` / `proof.rs`](https://github.com/pearl-research-labs/pearl/tree/master/zk-pow)). The whitepaper's "arbitrary matmul" is **this fixed lottery format**, not PyTorch `torch.matmul` generically.
+
+#### What breaks if you use standard BF16/FP8 vLLM
+
+| You try… | Result |
+|----------|--------|
+| Run `google/gemma-4-31b-it` on stock vLLM + mine | **No Pearl blocks** — no int7 strips, no noise transcript, no PlainProof |
+| Run `pearl-ai/*-pearl` without Pearl plugin | Cutlass/default kernels — **no NoisyGEMM**, no gateway integration |
+| Use Pearl plugin but `MINER_NO_MINING=true` / small dims | Inference works; **hashrate = 0** |
+| Run on A100 / L40 / consumer GPU | **`pearl-gemm` builds for sm_90a only** — won't compile/run Pearl kernels |
+| Assume Pearl matmul = commodity cloud matmul | **Wrong product category** — different weights, quant, context, behavior |
+
+Pearl's [HF model card](https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl) notes plain vLLM works for **inference-only** (no mining). Mining requires the full Docker stack: `pearld` + gateway + plugin-enabled vLLM.
+
+#### Hardware & precision moat (May 2026)
+
+- **GPU:** Pearl `pearl-gemm` compiles with `arch=compute_90a,code=sm_90a` — **Hopper H100/H200** ([`setup.py`](https://github.com/pearl-research-labs/pearl/blob/master/miner/pearl-gemm/setup.py)).
+- **Precision:** Pearl [whitepaper §1.1](https://pearlresearch.ai/) states today's protocol is exact **INT** matmul; FP/quantized PoUW for modern BF16/FP8 inference is a **future** upgrade — not what mainnet verifies today.
+- **Ecosystem:** Google's Gemma 4 launch targets BF16 on 80GB H100 and **quantized variants on workstation GPUs** via standard runtimes ([Google announcement coverage](https://smbtech.au/news/google-deepmind-releases-gemma-4-its-most-capable-open-source-ai-models/)) — a completely different supply chain from Pearl's int7 plugin.
+
+**AGTI read:** Pearl matmul is **not fungible** with industry matmul. Adopting Pearl means adopting **Pearl-quantized models**, **Hopper-only kernels**, and **accepting divergent behavior** vs the commodity `google/*` endpoints developers already use. That is why "the AI industry runs on Pearl matmul" is misleading — the industry runs BF16/FP8; Pearl runs a **sidecar int lottery** on a tiny model list.
 
 ### Inference API pricing — subsidized vs market?
 
@@ -815,7 +917,8 @@ flowchart TB
 | **Does mainnet = utility?** | No — proves mining; ~2.7k PRL/block is subsidy, not API revenue |
 | **Is useful work enforced?** | No — whitepaper admits non-useful compute; bare `mine()` valid |
 | **Is Pearl API cheaper than market Gemma?** | No — ~2.3× above OpenRouter $0.12/$0.37; discount is vs Together list only |
-| **Same model as google/gemma-4-31b-it?** | No — pearl-ai checkpoint, INT8, 32K ctx; not a commodity switch |
+| **Is Pearl matmul = industry matmul?** | No — int7/8-bit plugin stack vs BF16/FP8; Hopper-only; 3 models |
+| **Can I swap google/gemma for pearl-ai?** | No — different checkpoint, quant, context; model migration not price toggle |
 | **Strongest dual-use case** | [Together × Pearl](https://www.together.ai/blog/together-ai-partners-with-pearl-research-labs) — volume not public |
 
 **AGTI read:** Useful work is **weakly evidenced** and **narrowly compatible**. The chain proves matmul lottery tickets; the one external API is **not market-competitive** on price and **not interchangeable** with commodity Gemma 4 31B on OpenRouter.
