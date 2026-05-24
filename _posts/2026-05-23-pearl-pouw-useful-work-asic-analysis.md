@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl PoUW: int7 matmul is not commodity GPU inference; dual-use vs bare lottery; API pricing vs OpenRouter; fleet simulation."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524h
+report_css_version: 20260524m
 tags:
   - AGTI
   - Pearl

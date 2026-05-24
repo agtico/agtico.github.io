@@ -342,10 +342,14 @@
   border: 1px dashed rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.24);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .pearl-mermaid .mermaid {
-  min-width: 520px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .pearl-mermaid svg {
@@ -378,8 +382,20 @@
 
 .pearl-report-shell > table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 8px 0 28px;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.pearl-report-shell > table thead,
+.pearl-report-shell > table tbody {
+  display: table;
+  width: 100%;
+  min-width: 520px;
 }
 
 .pearl-report-shell > table th,
@@ -388,6 +404,8 @@
   padding: 12px 14px;
   text-align: left;
   vertical-align: top;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .pearl-report-shell > table th {
@@ -792,4 +810,270 @@
 
 .pearl-code-ref .path a:hover {
   text-decoration: underline;
+}
+
+/* ── Mobile / narrow viewports ── */
+
+.report-content.pearl-report-shell {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.report-content.pearl-report-shell img,
+.pearl-report-shell img {
+  max-width: 100%;
+  height: auto;
+}
+
+.report-content.pearl-report-shell pre {
+  margin: 16px 0 24px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.report-content.pearl-report-shell pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+@media (max-width: 680px) {
+  .report-content.pearl-report-shell {
+    font-size: 16px;
+    line-height: 1.62;
+    margin-top: 28px;
+  }
+
+  .pearl-hero-grid {
+    margin: 20px 0 24px;
+    gap: 10px;
+  }
+
+  .pearl-scorecard {
+    min-height: 0;
+    padding: 14px 14px 12px;
+  }
+
+  .pearl-scorecard .value {
+    font-size: 20px;
+  }
+
+  .pearl-scorecard .hint {
+    font-size: 12px;
+  }
+
+  .pearl-verdict-banner {
+    padding: 16px;
+    margin: 24px 0;
+  }
+
+  .pearl-verdict-banner p {
+    font-size: 16px;
+  }
+
+  .pearl-primer-box {
+    padding: 16px;
+    margin: 20px 0 24px;
+  }
+
+  .pearl-primer-box > p:first-of-type {
+    font-size: 15px;
+  }
+
+  .pearl-figure {
+    padding: 14px;
+    margin: 24px 0;
+  }
+
+  .pearl-figure-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .pearl-figure-head h3 {
+    font-size: 17px;
+  }
+
+  .pearl-figure-caption {
+    font-size: 13px;
+  }
+
+  .pearl-report-shell > h2 {
+    margin: 32px 0 14px;
+    font-size: clamp(22px, 6.5vw, 28px);
+  }
+
+  .pearl-report-shell > h3 {
+    margin: 24px 0 10px;
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.25;
+  }
+
+  .pearl-report-shell > table {
+    margin: 8px 0 20px;
+    font-size: 13px;
+  }
+
+  .pearl-report-shell > table thead,
+  .pearl-report-shell > table tbody {
+    min-width: 480px;
+  }
+
+  .pearl-report-shell > table th,
+  .pearl-report-shell > table td {
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .pearl-report-shell > table th {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .pearl-quadrant-wrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px;
+  }
+
+  .pearl-quadrant-y {
+    writing-mode: horizontal-tb;
+    transform: none;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+
+  .pearl-quadrant-x {
+    grid-column: 1;
+    text-align: left;
+    padding-top: 4px;
+  }
+
+  .pearl-quadrant {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    min-height: 0;
+    gap: 10px;
+  }
+
+  .pearl-quadrant-cell {
+    padding: 12px;
+  }
+
+  .pearl-quadrant-cell h5 {
+    font-size: 12px;
+  }
+
+  .pearl-quadrant-cell p {
+    font-size: 12px;
+  }
+
+  .pearl-mermaid {
+    padding: 8px;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .pearl-mermaid .mermaid {
+    font-size: 12px;
+  }
+
+  .pearl-mermaid svg {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .pearl-code-ref {
+    padding: 10px 12px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .pearl-sim-intro {
+    font-size: 14px;
+  }
+
+  .pearl-sim-grid {
+    gap: 12px;
+  }
+
+  .pearl-sim-card-head {
+    flex-wrap: wrap;
+    padding: 8px 10px 0;
+  }
+
+  .pearl-sim-card-head h4 {
+    font-size: 0.85rem;
+  }
+
+  .pearl-sim-caption {
+    font-size: 0.72rem;
+    padding: 8px 10px 10px;
+  }
+
+  .pearl-persona .buys {
+    font-size: 16px;
+  }
+
+  .pearl-persona .story {
+    font-size: 12px;
+  }
+
+  .pearl-world-panel {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .pearl-panel {
+    padding: 12px;
+  }
+
+  .pearl-panel ul {
+    font-size: 13px;
+  }
+
+  .pearl-flow-step {
+    min-height: 0;
+    padding: 14px 12px;
+  }
+
+  .pearl-flow-step:not(:last-child) {
+    margin-bottom: 18px;
+  }
+
+  .pearl-source-card .src-stat {
+    font-size: 18px;
+  }
+
+  .pearl-split {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pearl-report-shell > table thead,
+  .pearl-report-shell > table tbody {
+    min-width: 420px;
+  }
+
+  .pearl-scorecard .value {
+    font-size: 18px;
+  }
+
+  .article-meta span,
+  .article-meta time {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
 }
