@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524
+report_css_version: 20260524b
 tags:
   - AGTI
   - Pearl
@@ -36,6 +36,185 @@ tags:
   <strong>AGTI bottom line</strong>
   <p>Pearl is only non-nonsensical as <em>inference-mining co-location</em>. At the protocol layer it is PoW with matmul puzzles and ZK receipts.</p>
 </div>
+
+## 0. Start here — product, users, and mass adoption
+
+<div class="pearl-primer-box">
+  <p><strong>One-liner:</strong> Pearl is a <em>new proof-of-work cryptocurrency (PRL)</em> whose mining puzzle looks like matrix multiplication. The optional “useful” part is running a special LLM inference stack on the same GPU. <strong>Nobody buys matmul.</strong> They buy coins, or (rarely) discounted API tokens.</p>
+</div>
+
+### What is the product? (there are three, not one)
+
+| # | Product | What you get | Who pays |
+|---|---------|--------------|----------|
+| **A** | **PRL coin** | Block rewards + speculative asset | Miners earn it; market buys/sells it |
+| **B** | **Mining software** | `pearld` + vLLM Pearl plugin + gateway | Miners (to compete for PRL) |
+| **C** | **Inference API** (thin) | Normal LLM chat completions, ~25% cheaper | Developers via [Together AI](https://www.together.ai/models/gemma-4-31b-it-pearl) |
+
+**Not a product today:** training compute, generic matmul-as-a-service, marketplace GPU rentals ([compute.pearlresearch.ai](https://compute.pearlresearch.ai/) is gated), industry-standard FP8/BF16 stacks.
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>What transacts vs what runs under the hood</h3>
+    <span class="tag">Product map</span>
+  </div>
+  <svg class="pearl-matrix" viewBox="0 0 920 240" role="img" aria-label="Pearl product map showing what customers buy versus internal matmul machinery">
+    <text x="40" y="36" fill="#6ee58f" font-family="monospace" font-size="11" font-weight="700">CUSTOMERS ACTUALLY BUY</text>
+    <rect x="40" y="48" width="240" height="52" fill="#0d2818" stroke="#6ee58f" rx="4"/>
+    <text x="160" y="72" fill="#9dffc8" text-anchor="middle" font-size="13" font-weight="700">PRL (coin)</text>
+    <text x="160" y="90" fill="#8aa898" text-anchor="middle" font-size="10">speculation · miner sells</text>
+    <rect x="340" y="48" width="240" height="52" fill="#0d2818" stroke="#6ee58f" rx="4"/>
+    <text x="460" y="72" fill="#9dffc8" text-anchor="middle" font-size="13" font-weight="700">LLM tokens</text>
+    <text x="460" y="90" fill="#8aa898" text-anchor="middle" font-size="10">Together Gemma API only, really</text>
+    <rect x="640" y="48" width="240" height="52" fill="#2a1010" stroke="#ff5a42" rx="4"/>
+    <text x="760" y="72" fill="#ffb4a8" text-anchor="middle" font-size="13" font-weight="700">NOT SOLD</text>
+    <text x="760" y="90" fill="#a87878" text-anchor="middle" font-size="10">matmul · training · raw GPU</text>
+
+    <text x="40" y="140" fill="#ff5a42" font-family="monospace" font-size="11" font-weight="700">INTERNAL (NOT PURCHASED DIRECTLY)</text>
+    <rect x="40" y="152" width="840" height="64" fill="#1a1210" stroke="#ff5a42" rx="4"/>
+    <text x="460" y="178" fill="#ffb4a8" text-anchor="middle" font-size="12">Proprietary int7 / 7-bit NoisyGEMM + Blake3 jackpot + Plonky2 ZK proof</text>
+    <text x="460" y="198" fill="#a87878" text-anchor="middle" font-size="11">Runs on H100/H200 · pearl-ai models · Pearl vLLM fork only</text>
+  </svg>
+</div>
+
+### User stories (four personas)
+
+<div class="pearl-persona-grid">
+  <div class="pearl-persona">
+    <span class="who">Persona 1 — GPU miner</span>
+    <span class="buys">Earns PRL, not AI output</span>
+    <span class="story">Rents H200s → runs Pearl Docker stack → hunts PoW tickets while (maybe) serving Llama-pearl. Primary payoff is ~2,700 PRL/block. LLM is load for matrices, not necessarily customers.</span>
+  </div>
+  <div class="pearl-persona">
+    <span class="who">Persona 2 — Together API customer</span>
+    <span class="buys">Discounted inference tokens</span>
+    <span class="story">Calls <code>pearl-ai/gemma-4-31b-it</code> like any LLM API. Doesn't know or care about matmul. Gets ~25% off because Together mines PRL on same GPUs.</span>
+  </div>
+  <div class="pearl-persona">
+    <span class="who">Persona 3 — PRL holder</span>
+    <span class="buys">Exposure to PoW chain</span>
+    <span class="story">Bets Pearl becomes "Bitcoin for GPUs" — coin tied to mining hashrate. No inference involved.</span>
+  </div>
+  <div class="pearl-persona">
+    <span class="who">Persona 4 — AI lab (vision)</span>
+    <span class="buys">Cheaper GPU hours (future)</span>
+    <span class="story">Whitepaper dream: run training/inference, subsidize capex with mining. <strong>Not live for training.</strong> Requires FP PoUW upgrade + marketplace.</span>
+  </div>
+</div>
+
+### Training or inference?
+
+| | **Today (mainnet)** | **Pearl marketing / future** |
+|--|---------------------|------------------------------|
+| **Training** | ❌ Not supported | Maybe after FP PoUW ([whitepaper §1.1](https://pearlresearch.ai/)) |
+| **Inference** | ✅ Only via Pearl quant models + plugin | Same, plus cheaper if subsidies grow |
+| **Bare mining (no AI)** | ✅ Valid consensus path | Competes with "useful" story |
+
+### The world if *everyone* used Pearl
+
+<div class="pearl-world-split">
+  <div class="pearl-world-panel today">
+    <h4>Today (~May 2026)</h4>
+    <ul>
+      <li>Small miner fleet on H200 pods</li>
+      <li>~59k blocks, rewards dominate economics</li>
+      <li>1 commercial inference partner (Together)</li>
+      <li>3 pearl-ai models, 0 HF inference providers on Llama</li>
+      <li>Mining works; AI marketplace doesn't exist yet</li>
+    </ul>
+  </div>
+  <div class="pearl-world-panel vision">
+    <h4>Pearl success world (their pitch)</h4>
+    <ul>
+      <li>Every GPU datacenter runs Pearl plugin by default</li>
+      <li>Inference/training revenue + PRL subsidy on same watt-hour</li>
+      <li>PRL valuable → bigger subsidy → cheaper AI APIs</li>
+      <li>On-chain compute marketplace matches buyers/sellers</li>
+      <li>AI industry adopts Pearl quant path at scale</li>
+    </ul>
+  </div>
+</div>
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>Mass-adoption flywheel (why they'd say it happens)</h3>
+    <span class="tag">Bull case</span>
+  </div>
+  <div class="pearl-mermaid">
+    <div class="mermaid">
+flowchart TB
+  A[AI demand for inference] --> B[GPU providers run Pearl stack]
+  B --> C[Mine PRL while serving tokens]
+  C --> D[PRL price rises]
+  D --> E[Mining subsidy grows]
+  E --> F[AI APIs get cheaper]
+  F --> A
+
+  style A fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style B fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style C fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style D fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style E fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+  style F fill:#0d2818,stroke:#6ee58f,color:#e8eeeb
+    </div>
+  </div>
+  <p class="pearl-figure-caption">This only works if inference demand and PRL price move together. The chain does not enforce the left side of the loop.</p>
+</div>
+
+### Is mass adoption realistic?
+
+<div class="pearl-figure">
+  <div class="pearl-figure-head">
+    <h3>AGTI realism check — what must go right</h3>
+    <span class="tag">May 2026 assessment</span>
+  </div>
+  <div class="pearl-realism-meter">
+    <div class="pearl-realism-row">
+      <span class="label">Mining / chain works</span>
+      <div class="track"><div class="fill green" style="width:88%"></div></div>
+      <span class="score" style="color:#6ee58f">HIGH</span>
+    </div>
+    <div class="pearl-realism-row">
+      <span class="label">PRL becomes valuable asset</span>
+      <div class="track"><div class="fill" style="width:45%"></div></div>
+      <span class="score">?</span>
+    </div>
+    <div class="pearl-realism-row">
+      <span class="label">Inference demand at scale</span>
+      <div class="track"><div class="fill" style="width:18%"></div></div>
+      <span class="score">LOW</span>
+    </div>
+    <div class="pearl-realism-row">
+      <span class="label">Industry adopts Pearl matmul</span>
+      <div class="track"><div class="fill" style="width:8%"></div></div>
+      <span class="score">LOW</span>
+    </div>
+    <div class="pearl-realism-row">
+      <span class="label">Training on Pearl PoUW</span>
+      <div class="track"><div class="fill" style="width:3%"></div></div>
+      <span class="score">N/A</span>
+    </div>
+    <div class="pearl-realism-row">
+      <span class="label">Dual-use beats bare mining farms</span>
+      <div class="track"><div class="fill" style="width:22%"></div></div>
+      <span class="score">WEAK</span>
+    </div>
+  </div>
+</div>
+
+**Why mass adoption might happen (bull case):**
+1. PRL price pumps → mining subsidy exceeds inference margin → every GPU farm installs Pearl plugin "for free money."
+2. More cloud APIs copy Together → discounted inference pulls developers into Pearl quant models.
+3. FP PoUW ships → training clusters join → "useful work" expands beyond inference.
+
+**Why it might not (bear case — AGTI default):**
+1. **Protocol allows bare mining** — farms skip LLM entirely once subsidies are high enough (whitepaper admits this).
+2. **Compatibility moat** — BF16/FP8 world doesn't want int7 noisy GEMM; 3 models isn't an ecosystem.
+3. **Circular economics** — Together discount depends on PRL emissions; if coin is weak, subsidy vanishes.
+4. **Training never arrives** — without it, "AI-native PoW" is really "inference-miner PoW."
+5. **Bitcoin dynamics repeat** — specialization wins; dual-use hobbyist GPUs lose to dedicated matmul lottery farms.
+
+**AGTI plain answer:** The **product that exists today** is **PRL + miner software**, with **one subsidized inference API** as a proof-of-concept. Mass adoption is **not unrealistic for the coin/mining layer** (another PoW chain can absolutely attract hashrate). It **is unrealistic as stated** for "the AI industry runs on Pearl matmul" unless Pearl quant becomes a standard, PRL stays valuable, and inference demand genuinely co-locates with mining — none of which is proven yet.
 
 ## 1. The tension in one glance
 
