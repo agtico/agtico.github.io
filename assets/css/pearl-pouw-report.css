@@ -785,8 +785,11 @@
   overflow-x: auto;
 }
 
-.pearl-code-ref .path {
-  display: block;
-  margin-bottom: 6px;
+.pearl-code-ref .path a {
   color: #ff9f45;
+  text-decoration: none;
+}
+
+.pearl-code-ref .path a:hover {
+  text-decoration: underline;
 }

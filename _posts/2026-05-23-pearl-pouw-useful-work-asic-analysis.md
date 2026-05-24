@@ -5,7 +5,7 @@ date: "2026-05-23 18:00:00 +0000"
 summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524e
+report_css_version: 20260524f
 tags:
   - AGTI
   - Pearl
@@ -486,12 +486,12 @@ The whitepaper's ASIC argument is **profitability**, not **impossibility**: a Pe
 
 The quadrant map above is qualitative. To stress-test **when dual-use wins vs ASIC/bare farms**, AGTI built a monthly **fleet dynamics** model in Python/numpy: three fleet types (dual-use GPU, bare GPU, ASIC) compete on hashrate share, revenue, and profit-driven capacity growth.
 
-<p class="pearl-sim-intro"><strong>Question:</strong> If PRL subsidies rise, inference demand stays flat, and ASIC hash/$ improves, does the network stay on the useful-work path — or converge to matmul lottery farms? <strong>Source:</strong> <a href="https://github.com/postfiatorg/agti/tree/main/research/pearl_economics">agti/research/pearl_economics</a> (<code>simulate.py</code>). Parameters are <em>illustrative</em>, not calibrated to mainnet.</p>
+<p class="pearl-sim-intro"><strong>Question:</strong> If PRL subsidies rise, inference demand stays flat, and ASIC hash/$ improves, does the network stay on the useful-work path — or converge to matmul lottery farms? <strong>Source:</strong> <a href="https://agtico.github.io/assets/research/pearl-economics/">AGTI fleet simulation</a> (<a href="https://agtico.github.io/assets/research/pearl-economics/simulate.py"><code>simulate.py</code></a>). Parameters are <em>illustrative</em>, not calibrated to mainnet.</p>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
     <h3>Model mechanics (monthly loop)</h3>
-    <span class="tag">simulate.py</span>
+    <span class="tag"><a href="https://agtico.github.io/assets/research/pearl-economics/simulate.py">simulate.py</a></span>
   </div>
   <div class="pearl-mermaid">
     <div class="mermaid">
@@ -582,13 +582,13 @@ flowchart TB
 
 ### Code anchors (reproducible)
 
-<div class="pearl-code-ref"><span class="path">agti/research/pearl_economics/simulate.py — fleet types & unit economics</span>
+<div class="pearl-code-ref"><span class="path"><a href="https://agtico.github.io/assets/research/pearl-economics/simulate.py">simulate.py</a> — fleet types & unit economics</span>
 dual:  hash_units=1.0,  mining_overhead=18%, inference_margin=$1.2k/GPU-mo
 bare:  hash_units=1.12 (no inference tax)
 asic:  hash_units=3.5× baseline, lower power/capex (illustrative matmul+ZK ASIC)
 </div>
 
-<div class="pearl-code-ref"><span class="path">simulate.py — revenue & capacity adjustment (lines 209–271)</span>
+<div class="pearl-code-ref"><span class="path"><a href="https://github.com/agtico/agtico.github.io/blob/main/assets/research/pearl-economics/simulate.py#L209-L271">simulate.py</a> — revenue & capacity adjustment (lines 209–271)</span>
 rev_mine[k] = hashrate_share[k] × blocks × block_reward × PRL_price
 rev_inf   = min(dual_capacity, inference_demand) × inference_margin  # dual only
 cap[k]    *= 1 + clip(growth_rate × profit_margin, shrink..grow bounds)
@@ -602,15 +602,21 @@ Mining layers only when m,n,k ≥ 1024 — large layers only; overhead is real b
 Default k=1024, rank=32 — nodes verify ZK matmul certificates, not API usage.
 </div>
 
-**Run locally:**
+**Run locally** (scripts hosted on AGTI — no repo clone required):
 
 ```bash
-cd agti/research/pearl_economics
+mkdir pearl-economics && cd pearl-economics
+curl -LO https://agtico.github.io/assets/research/pearl-economics/requirements.txt
+curl -LO https://agtico.github.io/assets/research/pearl-economics/simulate.py
+curl -LO https://agtico.github.io/assets/research/pearl-economics/compare_inference_pricing.py
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python simulate.py --all --plot
+.venv/bin/python compare_inference_pricing.py
 ```
 
-**Limits:** Not calibrated to Pearl mainnet difficulty (~4.9M), block reward decay, pool variance, or token sell pressure. ASIC is modeled as zero inference utility by definition (protocol allows it). See `README.md` in the research folder.
+Full folder: [agtico.github.io/assets/research/pearl-economics/](https://agtico.github.io/assets/research/pearl-economics/)
+
+**Limits:** Not calibrated to Pearl mainnet difficulty (~4.9M), block reward decay, pool variance, or token sell pressure. ASIC is modeled as zero inference utility by definition (protocol allows it). See the [research README](https://agtico.github.io/assets/research/pearl-economics/README.md).
 
 ## 7. Adoption & useful-work reality check
 
@@ -666,7 +672,7 @@ flowchart LR
 3. **Not commodity Gemma.** `pearl-ai/gemma-4-31b-it` is a **Pearl re-quantized checkpoint** (HF: [`pearl-ai/Gemma-4-31B-it-pearl`](https://huggingface.co/pearl-ai/Gemma-4-31B-it-pearl)), not Google's base weights. INT8 vs FP8, **32K vs 262K** context, Pearl vLLM plugin required. Developers cannot treat it as a fungible swap for `google/gemma-4-31b-it` on OpenRouter — quality, latency, and behavior are **questionable to assume equivalent**.
 4. **No separate OpenRouter listing.** There is no `pearl-ai/*` slug on OpenRouter. Pearl only appears as Together's **32K / $0.28 / $0.86** backend when the router hits that provider.
 
-Reproduce: `agti/research/pearl_economics/compare_inference_pricing.py` (public APIs, no keys).
+Reproduce pricing check: [`compare_inference_pricing.py`](https://agtico.github.io/assets/research/pearl-economics/compare_inference_pricing.py) (public APIs, no keys).
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
