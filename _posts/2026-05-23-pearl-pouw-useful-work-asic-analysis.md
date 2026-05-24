@@ -2,10 +2,10 @@
 layout: report
 title: "Pearl PoUW | Useful Work vs. Consensus"
 date: "2026-05-23 18:00:00 +0000"
-summary: "AGTI analysis of Pearl's Proof-of-Useful-Work whitepaper and open-source miner: where dual-use AI mining ends and bare matmul lottery begins."
+summary: "AGTI analysis of Pearl PoUW: int7 matmul is not commodity GPU inference; dual-use vs bare lottery; API pricing vs OpenRouter; fleet simulation."
 category: AGTI Research
 pearl_report: true
-report_css_version: 20260524g
+report_css_version: 20260524h
 tags:
   - AGTI
   - Pearl
@@ -34,13 +34,14 @@ tags:
 
 <div class="pearl-verdict-banner">
   <strong>AGTI bottom line</strong>
-  <p>Pearl is only non-nonsensical as <em>inference-mining co-location</em>. At the protocol layer it is PoW with matmul puzzles and ZK receipts.</p>
+  <p>Pearl is only non-nonsensical as <em>inference-mining co-location</em>. At the protocol layer it is PoW with matmul puzzles and ZK receipts. Pearl matmul is <strong>not</strong> the BF16/FP8 matmul the industry already runs — see <a href="#what-pearl-matmul-actually-means-three-stacks">§7 deep dive</a>.</p>
 </div>
 
 ## 0. Start here — product, users, and mass adoption
 
 <div class="pearl-primer-box">
   <p><strong>One-liner:</strong> Pearl is a <em>new proof-of-work cryptocurrency (PRL)</em> whose mining puzzle looks like matrix multiplication. The optional “useful” part is running a special LLM inference stack on the same GPU. <strong>Nobody buys matmul.</strong> They buy coins, or (rarely) discounted API tokens.</p>
+  <p style="margin-top:12px"><strong>Read next:</strong> <a href="#what-pearl-matmul-actually-means-three-stacks">What Pearl matmul actually means</a> (not BF16/FP8 commodity inference) · <a href="#inference-api-pricing--subsidized-vs-market">API pricing vs OpenRouter</a> · <a href="#6-fleet-dynamics-simulation-agti-model">Fleet simulation</a></p>
 </div>
 
 ### What is the product? (there are three, not one)
@@ -189,6 +190,7 @@ flowchart TB
       <div class="track"><div class="fill" style="width:8%"></div></div>
       <span class="score">LOW</span>
     </div>
+    <p class="pearl-figure-caption" style="margin:-8px 0 12px">Pearl int7/8-bit plugin ≠ OpenRouter BF16/FP8 Gemma — different weights, Hopper-only, 3 models. <a href="#what-pearl-matmul-actually-means-three-stacks">Details §7</a></p>
     <div class="pearl-realism-row">
       <span class="label">Training on Pearl PoUW</span>
       <div class="track"><div class="fill" style="width:3%"></div></div>
@@ -209,7 +211,7 @@ flowchart TB
 
 **Why it might not (bear case — AGTI default):**
 1. **Protocol allows bare mining** — farms skip LLM entirely once subsidies are high enough (whitepaper admits this).
-2. **Compatibility moat** — BF16/FP8 world doesn't want int7 noisy GEMM; 3 models isn't an ecosystem.
+2. **Not commodity matmul** — industry runs BF16/FP8 `google/*` on stock vLLM; Pearl requires `pearl-ai/*-pearl`, int7 NoisyGEMM, sm90 Hopper, and most layers/dims never mine ([§7](#what-pearl-matmul-actually-means-three-stacks)).
 3. **Circular economics** — Together discount depends on PRL emissions; if coin is weak, subsidy vanishes.
 4. **Training never arrives** — without it, "AI-native PoW" is really "inference-miner PoW."
 5. **Bitcoin dynamics repeat** — specialization wins; dual-use hobbyist GPUs lose to dedicated matmul lottery farms.
@@ -961,15 +963,17 @@ flowchart TB
 | **ASIC feasible?** | Yes — GEMM + BLAKE3 + ZK are acceleratable |
 | **ASIC useful?** | No — secures chain, produces no AI product |
 | **Useful work evidenced?** | Thin — 1 Together endpoint; HF downloads ≠ demand |
-| **Industry adopted matmul?** | No — bespoke int7/7-bit plugin, 3 models |
+| **Industry adopted matmul?** | No — int7/8-bit Pearl plugin on Hopper only; not fungible with BF16/FP8 `google/gemma-4-31b-it` |
+| **Pearl API competitive?** | No — ~2.3× above OpenRouter Gemma pricing; `pearl-ai/*` is a different checkpoint |
+| **Mass-adoption matmul thesis?** | Weak — parallel supply chain (3 models), not industry standard |
 
 **Evaluators should track:**
 
-1. Share of hashrate on vLLM vs bare clients (see **§6 simulation** for equilibrium stress tests)
-2. Whether subsidies dominate inference margins
-3. ZK proving cost vs search cost at target difficulty
-4. Whether Together endpoint traffic grows (only public dual-use off-ramp)
-5. HF inference provider count on pearl-ai models (still zero on Llama)
+1. Share of hashrate on vLLM vs bare clients (see **§6 simulation**)
+2. Whether Pearl API prices undercut OpenRouter commodity Gemma (today: no — **§7 pricing**)
+3. Whether developers adopt `pearl-ai/*` vs staying on `google/*` (model migration, not swap)
+4. ZK proving cost vs search cost at target difficulty
+5. Together endpoint traffic + HF inference provider count on pearl-ai models
 
 Full source doc with code citations: `agti/docs/pearl_pouw_useful_work_asic_analysis_2026-05-23.md`
 
