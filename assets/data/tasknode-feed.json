@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-25T02:02:06.163Z",
+  "generated_at": "2026-05-25T06:49:42.766Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,26 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:38f5c1ad",
+      "timestamp": "2026-05-25T03:13:52.113Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:c8e7396a",
+      "category": "network",
+      "title": "Planning a paste-and-run Telegram monitor for Agora operators that alerts on exact node state...",
+      "summary": "Planning a paste-and-run Telegram monitor for Agora operators that alerts on exact node state changes.",
+      "tickers": [],
+      "tags": [
+        "network",
+        "task-node"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:38f5c1ad"
+      }
+    },
     {
       "id": "task:41fd8a03",
       "timestamp": "2026-05-25T01:31:49.101Z",
@@ -926,49 +946,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:fdb1d738"
-      }
-    },
-    {
-      "id": "task:9a8965e4",
-      "timestamp": "2026-05-24T12:59:16.448Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "ai",
-      "title": "Delivered a read-only Hermes module for HYPE volatility intelligence and earned a reward.",
-      "summary": "Delivered a read-only Hermes module for HYPE volatility intelligence and earned a reward.",
-      "tickers": [
-        "HYPE"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$HYPE"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3DB8B05241384D026D09A95BDD7832998664F8F1CE185821542E62CB5FBF0947",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3DB8B05241384D026D09A95BDD7832998664F8F1CE185821542E62CB5FBF0947/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3084F1F85D62A7318AF58F7BDF7C586C51666A9EC3D6D64BDEFFED4952BF360B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3084F1F85D62A7318AF58F7BDF7C586C51666A9EC3D6D64BDEFFED4952BF360B/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E258E84F0D12DB94955B504DC44FD049ACDDC3DDC1B20872A4F078977A754D1E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E258E84F0D12DB94955B504DC44FD049ACDDC3DDC1B20872A4F078977A754D1E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9a8965e4"
       }
     }
   ]
