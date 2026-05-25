@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title | escape }} - AGTI Intelligence Reports</title>
   <meta name="description" content="{{ page.summary | default: page.excerpt | strip_html | strip | truncate: 180 | escape }}" />
+  <meta name="theme-color" content="#020303" />
+  <link rel="icon" type="image/png" sizes="444x469" href="{{ '/assets/img/agti-logo.png' | relative_url }}" />
+  <link rel="apple-touch-icon" href="{{ '/assets/img/agti-logo.png' | relative_url }}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
