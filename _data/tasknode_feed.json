@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-25T16:36:15.388Z",
+  "generated_at": "2026-05-25T18:20:06.644Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:566da4b9",
+      "timestamp": "2026-05-25T18:10:26.860Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a carry lifecycle PnL verdict for Hyperliquid using 72h and 168h targets.",
+      "summary": "Planning a carry lifecycle PnL verdict for Hyperliquid using 72h and 168h targets.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:566da4b9"
+      }
+    },
     {
       "id": "task:de0d567e",
       "timestamp": "2026-05-25T16:32:52.722Z",
@@ -974,46 +998,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:f1841253"
-      }
-    },
-    {
-      "id": "task:6d18322e",
-      "timestamp": "2026-05-25T15:14:55.384Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Requested verification for a signal-processing edge postmortem decision memo.",
-      "summary": "Requested verification for a signal-processing edge postmortem decision memo.",
-      "tickers": [],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "ED341D853DD850C6524CE23346F7D4372F05FB7134653A2907DD814D1D822FB4",
-          "url": "https://explorer.testnet.postfiat.org/transactions/ED341D853DD850C6524CE23346F7D4372F05FB7134653A2907DD814D1D822FB4/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "93B6B3EC707B80A667684B6E50950331604878FD5A98BA90C3902BF6B747DBB5",
-          "url": "https://explorer.testnet.postfiat.org/transactions/93B6B3EC707B80A667684B6E50950331604878FD5A98BA90C3902BF6B747DBB5/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "2F3C0BE5EBA622123C90FA8752CE4C5598D8000550EC753DDC8B016C27039E92",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2F3C0BE5EBA622123C90FA8752CE4C5598D8000550EC753DDC8B016C27039E92/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:6d18322e"
       }
     }
   ]
