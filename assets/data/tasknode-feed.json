@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-26T19:11:34.587Z",
+  "generated_at": "2026-05-26T21:07:49.647Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:9946d8c9",
+      "timestamp": "2026-05-26T19:22:00.566Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a Coincall RFQ-versus-orderbook comparator with dry-run routing and safety guards.",
+      "summary": "Planning a Coincall RFQ-versus-orderbook comparator with dry-run routing and safety guards.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9946d8c9"
+      }
+    },
     {
       "id": "task:8b45b7f0",
       "timestamp": "2026-05-26T18:57:29.071Z",
@@ -963,48 +984,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:918d3d78"
-      }
-    },
-    {
-      "id": "task:f1b19306",
-      "timestamp": "2026-05-26T15:23:59.554Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic Python selector that backfills refused records and...",
-      "summary": "Requested verification for a deterministic Python selector that backfills refused records and now scans dictionary keys for leaked secrets.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "EC9481A8574BB9AF1976F688F42A711EAA2DF87B0D415CEF830B1D0BD5724C8A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EC9481A8574BB9AF1976F688F42A711EAA2DF87B0D415CEF830B1D0BD5724C8A/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "17A68F923742A3F94F596F6F94B4E77D29A13E5EDA20D5CFA524303622E832A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/17A68F923742A3F94F596F6F94B4E77D29A13E5EDA20D5CFA524303622E832A9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "DDD130809AFC27C4E27FD609AD00344D34E6B47EADD516F7E0F24320AF8D9B5C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DDD130809AFC27C4E27FD609AD00344D34E6B47EADD516F7E0F24320AF8D9B5C/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f1b19306"
       }
     }
   ]
