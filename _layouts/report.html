@@ -11,7 +11,7 @@
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
-  {% if page.pearl_report %}
+  {% if page.pearl_report or page.xrpl_report %}
   <link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v={{ page.report_css_version | default: '20260524' }}" />
   {% endif %}
 </head>
@@ -46,7 +46,7 @@
           <span>{{ tag }}</span>
           {% endfor %}
         </div>
-        <div class="report-content{% if page.pearl_report %} pearl-report-shell{% endif %}">
+        <div class="report-content{% if page.pearl_report or page.xrpl_report %} pearl-report-shell{% endif %}">
           {{ content }}
         </div>
       </article>
@@ -54,7 +54,7 @@
 
     <footer>AGTI // Intelligence Reports // {{ page.date | date: "%Y.%m.%d" }}</footer>
   </div>
-  {% if page.pearl_report %}
+  {% if page.pearl_report or page.xrpl_report %}
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
