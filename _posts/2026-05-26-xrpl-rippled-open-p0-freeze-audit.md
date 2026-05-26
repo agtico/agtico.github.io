@@ -5,7 +5,7 @@ date: "2026-05-26 20:00:00 +0000"
 summary: "AGTI audit of rippled 3.1.3: plain-English exploit guide, correct-vs-broken diagrams, jtx-proven lending freeze bypass and SetTrust crash."
 category: AGTI Research
 xrpl_report: true
-report_css_version: 20260526b
+report_css_version: 20260527a
 tags:
   - AGTI
   - XRPL
@@ -34,18 +34,14 @@ tags:
 
 <div class="pearl-verdict-banner">
   <strong>AGTI bottom line</strong>
-  <p>Each section below: <strong>plain English</strong>, <strong>how it could be exploited</strong>, and a <strong>correct vs existing</strong> diagram. Lending freeze bypass is jtx-proven. SetTrust crash is jtx-proven. Vault pseudo “bypass” is refuted for IOU vaults — blocked elsewhere.</p>
+  <p>Every section below uses the same three-part layout:</p>
+  <ul class="pearl-verdict-list">
+    <li><strong>Plain English</strong> — what the bug means without protocol jargon</li>
+    <li><strong>How it could be exploited</strong> — who does what, and what breaks in the real world</li>
+    <li><strong>Correct vs existing</strong> — diagram comparing intended behavior to rippled today</li>
+  </ul>
+  <p class="pearl-verdict-foot">Lending freeze bypass is jtx-proven. SetTrust crash is jtx-proven. Vault pseudo “bypass” is refuted for IOU vaults — blocked elsewhere.</p>
 </div>
-
-## How to read each section
-
-Every finding uses the same template:
-
-| Block | What you get |
-|-------|----------------|
-| **Plain English** | What the bug means without protocol jargon |
-| **How it could be exploited** | Who does what; what breaks in the real world |
-| **Correct vs existing** | Side-by-side diagram: intended behavior vs rippled today |
 
 ---
 

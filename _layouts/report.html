@@ -46,7 +46,7 @@
           <span>{{ tag }}</span>
           {% endfor %}
         </div>
-        <div class="report-content{% if page.pearl_report or page.xrpl_report %} pearl-report-shell{% endif %}">
+        <div class="report-content{% if page.pearl_report or page.xrpl_report %} pearl-report-shell{% if page.xrpl_report %} xrpl-report-shell{% endif %}{% endif %}">
           {{ content }}
         </div>
       </article>
@@ -73,18 +73,31 @@
 
       mermaid.initialize({
         startOnLoad: false,
-        theme: "dark",
+        theme: "base",
         themeVariables: {
-          primaryColor: "#142220",
-          primaryTextColor: "#e8eeeb",
-          primaryBorderColor: "#ff5a42",
-          lineColor: "#9aa2a0",
-          secondaryColor: "#1a1210",
-          tertiaryColor: "#0d2818",
+          darkMode: true,
+          background: "#070b0a",
+          primaryColor: "#1a3d30",
+          primaryTextColor: "#f5f7f6",
+          primaryBorderColor: "#6ee58f",
+          secondaryColor: "#3a1f18",
+          secondaryTextColor: "#f5f7f6",
+          secondaryBorderColor: "#ff6b4a",
+          tertiaryColor: "#152019",
+          tertiaryTextColor: "#f5f7f6",
+          tertiaryBorderColor: "#7a8a84",
+          lineColor: "#d4ddd8",
+          textColor: "#f5f7f6",
+          mainBkg: "#1a3d30",
+          nodeBorder: "#6ee58f",
+          clusterBkg: "#101816",
+          clusterBorder: "#3d5248",
+          titleColor: "#f5f7f6",
+          edgeLabelBackground: "#070b0a",
           fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
-          fontSize: "14px"
+          fontSize: "15px"
         },
-        flowchart: { curve: "basis", padding: 12, useMaxWidth: true, htmlLabels: true },
+        flowchart: { curve: "basis", padding: 16, useMaxWidth: true, htmlLabels: true },
         securityLevel: "loose"
       });
 

@@ -18,9 +18,7 @@
 
 .pearl-scorecard {
   border: 1px solid var(--line-strong);
-  background:
-    linear-gradient(145deg, rgba(255, 45, 32, 0.12), transparent 42%),
-    rgba(8, 12, 12, 0.88);
+  background: rgba(10, 14, 14, 0.96);
   padding: 18px 18px 16px;
   min-height: 118px;
 }
@@ -50,16 +48,12 @@
 
 .pearl-scorecard.good {
   border-color: rgba(110, 229, 143, 0.42);
-  background:
-    linear-gradient(145deg, rgba(110, 229, 143, 0.12), transparent 42%),
-    rgba(8, 12, 12, 0.88);
+  background: rgba(10, 14, 14, 0.96);
 }
 
 .pearl-scorecard.warn {
   border-color: rgba(255, 159, 69, 0.45);
-  background:
-    linear-gradient(145deg, rgba(255, 159, 69, 0.12), transparent 42%),
-    rgba(8, 12, 12, 0.88);
+  background: rgba(10, 14, 14, 0.96);
 }
 
 .pearl-scorecard.bad {
@@ -312,35 +306,87 @@
 }
 
 .pearl-verdict-banner {
-  border: 1px solid rgba(255, 45, 32, 0.48);
-  background:
-    linear-gradient(90deg, rgba(255, 45, 32, 0.14), transparent 58%),
-    rgba(8, 10, 10, 0.92);
-  padding: 20px 22px;
-  margin: 34px 0;
+  border: 1px solid rgba(255, 90, 66, 0.35);
+  border-left: 4px solid var(--red-2);
+  background: rgba(10, 14, 14, 0.98);
+  padding: 22px 24px;
+  margin: 28px 0 32px;
 }
 
-.pearl-verdict-banner strong {
+.pearl-verdict-banner > strong {
   display: block;
   color: var(--red-2);
   font: 900 11px var(--mono);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .pearl-verdict-banner p {
-  margin: 0;
-  font-size: clamp(17px, 2vw, 21px);
-  line-height: 1.45;
-  color: var(--text);
+  margin: 0 0 14px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(242, 245, 243, 0.92);
+}
+
+.pearl-verdict-banner p:last-child {
+  margin-bottom: 0;
+}
+
+.pearl-verdict-banner p strong {
+  display: inline;
+  color: #f2f5f3;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.pearl-verdict-list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.pearl-verdict-list li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(232, 238, 235, 0.9);
+}
+
+.pearl-verdict-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red-2);
+}
+
+.pearl-verdict-list li strong {
+  color: #f2f5f3;
+  font-weight: 700;
+}
+
+.pearl-verdict-foot {
+  margin-top: 4px !important;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px !important;
+  color: rgba(220, 229, 224, 0.82) !important;
 }
 
 .pearl-mermaid {
-  margin-top: 8px;
-  padding: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.24);
+  margin: 18px 0 30px;
+  padding: 28px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: #070b0a;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   max-width: 100%;
@@ -350,11 +396,15 @@
   min-width: 0;
   width: 100%;
   max-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .pearl-mermaid svg {
   max-width: 100%;
+  min-width: min(100%, 520px);
   height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
 }
 
 /* Markdown prose inside pearl reports */
@@ -366,6 +416,24 @@
 
 .pearl-report-shell > h2:first-of-type {
   margin-top: 28px;
+}
+
+.pearl-report-shell h3 {
+  margin: 28px 0 12px;
+  font: 700 19px/1.35 var(--sans);
+  letter-spacing: -0.01em;
+  color: #f2f5f3;
+}
+
+.pearl-report-shell h3[id*="correct-vs"] {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(220, 229, 224, 0.78);
 }
 
 .pearl-report-shell > p,
@@ -876,6 +944,15 @@
 
   .pearl-verdict-banner p {
     font-size: 16px;
+  }
+
+  .pearl-verdict-list li {
+    font-size: 15px;
+  }
+
+  .pearl-mermaid {
+    padding: 18px 14px;
+    margin: 16px 0 24px;
   }
 
   .pearl-primer-box {
