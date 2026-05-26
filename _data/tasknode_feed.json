@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-26T22:44:15.545Z",
+  "generated_at": "2026-05-26T23:55:21.957Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,51 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:d6eee0c3",
+      "timestamp": "2026-05-26T23:36:57.808Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC session review on role-flip attempts and market-structure judgment.",
+      "summary": "Planning a BTC session review on role-flip attempts and market-structure judgment.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d6eee0c3"
+      }
+    },
+    {
+      "id": "task:2d11fd39",
+      "timestamp": "2026-05-26T22:44:58.825Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "ai",
+      "title": "Scoping an assessment of a public AI researcher's execution signal.",
+      "summary": "Scoping an assessment of a public AI researcher's execution signal.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "alpha"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:2d11fd39"
+      }
+    },
     {
       "id": "task:23d1d272",
       "timestamp": "2026-05-26T22:39:57.424Z",
@@ -872,90 +917,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:edf5c2c8"
-      }
-    },
-    {
-      "id": "task:0da31f8d",
-      "timestamp": "2026-05-26T15:59:58.875Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:f80ea623",
-      "category": "network",
-      "title": "Recorded a verification response for the public dUNL Bland-Altman analysis page on PFTL.",
-      "summary": "Recorded a verification response for the public dUNL Bland-Altman analysis page on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0da31f8d"
-      }
-    },
-    {
-      "id": "task:07abad66",
-      "timestamp": "2026-05-26T15:59:56.473Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:f80ea623",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for the public dUNL Bland-Altman analysis page.",
-      "summary": "Uploaded follow-up evidence for the public dUNL Bland-Altman analysis page.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:07abad66"
       }
     }
   ]
