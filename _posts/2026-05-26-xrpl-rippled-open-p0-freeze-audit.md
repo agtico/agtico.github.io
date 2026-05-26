@@ -5,7 +5,7 @@ date: "2026-05-26 20:00:00 +0000"
 summary: "AGTI audit of rippled 3.1.3: plain-English exploit guide, correct-vs-broken diagrams, jtx-proven lending freeze bypass and SetTrust crash."
 category: AGTI Research
 xrpl_report: true
-report_css_version: 20260527a
+report_css_version: 20260527b
 tags:
   - AGTI
   - XRPL
@@ -64,21 +64,28 @@ Rippled has two API checks: **`checkFrozen`** (blocks both) and **`checkDeepFroz
 
 ### Correct vs existing functionality
 
-```mermaid
+<div class="pearl-split pearl-diagram-split">
+  <div class="pearl-panel good">
+    <h4>Correct behavior</h4>
+    <div class="pearl-mermaid"><div class="mermaid">
 flowchart TB
-  subgraph correct [Correct behavior]
-    C1[Issuer regular-freezes receiver D] --> C2[Lending/vault tx pays D]
-    C2 --> C3{checkFrozen D?}
-    C3 -->|frozen| C4[tecFROZEN — tx fails]
-    C3 -->|not frozen| C5[IOU delivered]
-  end
-  subgraph broken [Existing behavior — lending]
-    B1[Issuer regular-freezes receiver D] --> B2[Lending tx pays D]
-    B2 --> B3{checkDeepFrozen D only?}
-    B3 -->|regular-only freeze| B4[Not blocked]
-    B4 --> B5[IOU delivered — policy defeated]
-  end
-```
+  C1[Issuer regular-freezes D] --> C2[Tx pays D]
+  C2 --> C3{checkFrozen D?}
+  C3 -->|frozen| C4[tecFROZEN]
+  C3 -->|not frozen| C5[IOU delivered]
+    </div></div>
+  </div>
+  <div class="pearl-panel bad">
+    <h4>Existing — lending</h4>
+    <div class="pearl-mermaid"><div class="mermaid">
+flowchart TB
+  B1[Issuer regular-freezes D] --> B2[Tx pays D]
+  B2 --> B3{checkDeepFrozen only?}
+  B3 -->|regular-only| B4[Not blocked]
+  B4 --> B5[IOU delivered — bug]
+    </div></div>
+  </div>
+</div>
 
 ---
 
@@ -151,7 +158,7 @@ if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph correct [Correct — explicit + layered checks]
     direction TB
     CV1[VaultWithdraw preclaim] --> CV2[checkFrozen human dest]
@@ -191,7 +198,7 @@ This is a **network availability** bug, not a “steal IOU” bug.
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph correct [Correct behavior]
     direction TB
     S1[SetTrust: issuer account missing] --> S2{sleDst null?}
@@ -223,7 +230,7 @@ After every successful transaction, **invariants** are safety nets that assert l
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph correct [Correct behavior]
     direction TB
     V1[LoanPay succeeds] --> V2[VaultInvariant runs]
@@ -255,7 +262,7 @@ flowchart TB
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph correct [Correct behavior]
     direction TB
     M1[Any balance change in tx] --> M2[FreezeInvariant tracks IOU lines]
@@ -293,7 +300,7 @@ Same freeze API mistake as lending, but product intent is unclear.
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph correct [Correct — aligned with MPT path]
     direction TB
     E1[EscrowFinish IOU to dest D] --> E2{isFrozen D?}
@@ -325,7 +332,7 @@ The amendment itself is not an exploit — the risk is **false confidence**: ope
 ### Correct vs existing functionality
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph marketed [What fixCleanup fixes]
     direction TB
     MC1[NFT expired offer cleanup]
