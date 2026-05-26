@@ -57,21 +57,38 @@
   {% if page.pearl_report or page.xrpl_report %}
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: "dark",
-      themeVariables: {
-        primaryColor: "#142220",
-        primaryTextColor: "#e8eeeb",
-        primaryBorderColor: "#ff5a42",
-        lineColor: "#9aa2a0",
-        secondaryColor: "#1a1210",
-        tertiaryColor: "#0d2818",
-        fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
-        fontSize: "14px"
-      },
-      flowchart: { curve: "basis", padding: 12, useMaxWidth: true, htmlLabels: true },
-      securityLevel: "loose"
+    document.addEventListener("DOMContentLoaded", function () {
+      // Kramdown renders ```mermaid fences as <pre><code class="language-mermaid">;
+      // Mermaid only auto-renders <div class="mermaid">. Promote fenced blocks first.
+      document.querySelectorAll("pre > code.language-mermaid").forEach(function (code) {
+        var pre = code.parentElement;
+        var wrap = document.createElement("div");
+        wrap.className = "pearl-mermaid";
+        var inner = document.createElement("div");
+        inner.className = "mermaid";
+        inner.textContent = code.textContent.trim();
+        wrap.appendChild(inner);
+        pre.replaceWith(wrap);
+      });
+
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "dark",
+        themeVariables: {
+          primaryColor: "#142220",
+          primaryTextColor: "#e8eeeb",
+          primaryBorderColor: "#ff5a42",
+          lineColor: "#9aa2a0",
+          secondaryColor: "#1a1210",
+          tertiaryColor: "#0d2818",
+          fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+          fontSize: "14px"
+        },
+        flowchart: { curve: "basis", padding: 12, useMaxWidth: true, htmlLabels: true },
+        securityLevel: "loose"
+      });
+
+      mermaid.run({ querySelector: ".mermaid" });
     });
   </script>
   {% endif %}
