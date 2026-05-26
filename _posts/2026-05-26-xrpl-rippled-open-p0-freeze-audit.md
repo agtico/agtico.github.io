@@ -2,10 +2,10 @@
 layout: report
 title: "XRPL rippled 3.1.3 | Twelve Open P0s"
 date: "2026-05-26 20:00:00 +0000"
-summary: "AGTI audit of rippled 3.1.3: jtx-proven lending freeze bypass + SetTrust crash; invariant gaps; fixCleanup3_1_3 does not close them."
+summary: "AGTI audit of rippled 3.1.3: plain-English exploit guide, correct-vs-broken diagrams, jtx-proven lending freeze bypass and SetTrust crash."
 category: AGTI Research
 xrpl_report: true
-report_css_version: 20260526a
+report_css_version: 20260526b
 tags:
   - AGTI
   - XRPL
@@ -18,289 +18,365 @@ tags:
   <div class="pearl-scorecard bad">
     <span class="label">Open P0 confirmed</span>
     <span class="value">12</span>
-    <span class="hint">Still in upstream <code>release-3.1.3</code> source after fixCleanup3_1_3.</span>
+    <span class="hint">Still in upstream <code>release-3.1.3</code> after fixCleanup3_1_3.</span>
   </div>
   <div class="pearl-scorecard warn">
     <span class="label">jtx proven (fund risk)</span>
     <span class="value">7 lending</span>
-    <span class="hint">Regular-freeze bypass on XLS-66 paths — balance change confirmed.</span>
+    <span class="hint">Regular-freeze bypass — balance change confirmed in unittest.</span>
   </div>
   <div class="pearl-scorecard bad">
     <span class="label">Repro wallet</span>
     <span class="value">Not required</span>
-    <span class="hint">jtx standalone mints test XRP. Mainnet only if you demo live.</span>
+    <span class="hint">jtx standalone mints test XRP.</span>
   </div>
 </div>
 
 <div class="pearl-verdict-banner">
   <strong>AGTI bottom line</strong>
-  <p><strong>fixCleanup3_1_3</strong> is real maintenance — but it does <em>not</em> fix the dominant open risk class: <strong>IOU regular-freeze bypass in lending</strong> (jtx-proven). SetTrust preclaim crash is jtx-proven (segfault). Vault pseudo “bypass” is <em>not</em> fund-exploitable on IOU vaults — blocked by share path. Two invariant gaps remain defense-in-depth failures.</p>
+  <p>Each section below: <strong>plain English</strong>, <strong>how it could be exploited</strong>, and a <strong>correct vs existing</strong> diagram. Lending freeze bypass is jtx-proven. SetTrust crash is jtx-proven. Vault pseudo “bypass” is refuted for IOU vaults — blocked elsewhere.</p>
 </div>
 
-## 0. Do you need a funded XRP wallet?
+## How to read each section
 
-<div class="pearl-primer-box">
-  <p><strong>No</strong> — for the repro kit and logic proof in this report.</p>
-  <ul>
-    <li><strong>Python model</strong> (<a href="https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py"><code>freeze_check_model.py</code></a>) — no wallet, no node.</li>
-    <li><strong>rippled jtx unit tests</strong> — standalone test env creates funded accounts automatically. Zero mainnet XRP.</li>
-    <li><strong>Devnet / testnet</strong> — faucet XRP only if you want a public demo.</li>
-    <li><strong>Mainnet</strong> — only if you deliberately demo on live ledger (real fees + real IOU). Not needed to prove the bugs exist.</li>
-  </ul>
-  <p style="margin-top:12px"><strong>Run locally:</strong> <code>curl -LO https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py && python3 freeze_check_model.py</code></p>
-</div>
+Every finding uses the same template:
+
+| Block | What you get |
+|-------|----------------|
+| **Plain English** | What the bug means without protocol jargon |
+| **How it could be exploited** | Who does what; what breaks in the real world |
+| **Correct vs existing** | Side-by-side diagram: intended behavior vs rippled today |
 
 ---
 
-## 1. The twelve open P0s (plain English)
+## Section A — IOU regular freeze vs deep freeze (root cause)
 
-| # | ID | What breaks | Can money move wrong? |
-|---|-----|-------------|------------------------|
-| 1–7 | **F3.3, F3.5–F3.10** | Lending paths use wrong freeze check on receivers | **Yes** — IOU to/from regular-frozen accounts |
-| 8 | **F4.6** | Vault withdraw missing freeze on vault source account | **Yes** |
-| 9 | **B3-1** | Vault deposit missing freeze on vault destination account | **Yes** |
-| 10 | **F6.1** | Bad SetTrust tx crashes validators | **No direct theft** — network crash |
-| 11 | **F2.1** | Loan txs skip invariant checks (`// TBD`) | Only with a second bug |
-| 12 | **F3.1** | Freeze invariant ignores MPT tokens | Only with a second bug |
+### Plain English
 
-**+1 candidate:** F3.11 (EscrowFinish IOU) — not counted in the 12.
+An IOU issuer can freeze an account in two steps. **Regular freeze** means “this account should not send or receive my token.” **Deep freeze** is a stronger lock layered on top. You can have **regular-only** freeze — and that is the normal compliance case (suspect wallet, court order, fraud response).
 
-**Authoritative index:** audit corpus `P0_INVENTORY.md` on rippled `internal/bug-hunt-plan`.
+Rippled has two API checks: **`checkFrozen`** (blocks both) and **`checkDeepFrozen`** (blocks deep only). Lending code often uses the wrong one on **receivers**.
 
----
+### How it could be exploited
 
-## 2. Why regular freeze fails (one diagram)
+1. Issuer regular-freezes account **D** (does not need deep freeze).
+2. Someone submits a lending transaction that pays **D** (or a frozen broker owner, vault pseudo, etc.).
+3. Preclaim calls **`checkDeepFrozen` only** → not blocked.
+4. IOU is delivered to an account the issuer thought was frozen.
 
-On IOU trust lines, **regular freeze** and **deep freeze** are separate flags. Deep freeze always implies regular freeze — but **regular-only freeze is valid** (typical compliance / fraud-response case).
+**Not required:** hacking validators, fake signatures, or deep freeze.
 
-<div class="pearl-figure">
-  <div class="pearl-figure-head">
-    <h3>checkFrozen vs checkDeepFrozen on a regular-frozen receiver</h3>
-    <span class="tag">Root cause</span>
-  </div>
-  <svg class="pearl-matrix" viewBox="0 0 920 280" role="img" aria-label="Freeze check comparison">
-    <text x="40" y="32" fill="#6ee58f" font-family="monospace" font-size="11" font-weight="700">ISSUER ACTION</text>
-    <rect x="40" y="44" width="840" height="44" fill="#0d2818" stroke="#6ee58f" rx="4"/>
-    <text x="460" y="72" fill="#9dffc8" text-anchor="middle" font-size="13">Regular-freeze account D (NOT deep-frozen)</text>
-
-    <text x="40" y="118" fill="#ff5a42" font-family="monospace" font-size="11" font-weight="700">CORRECT: checkFrozen(dest)</text>
-    <rect x="40" y="130" width="400" height="56" fill="#1a1210" stroke="#ff5a42" rx="4"/>
-    <text x="240" y="156" fill="#ffb4a8" text-anchor="middle" font-size="13" font-weight="700">BLOCKS</text>
-    <text x="240" y="174" fill="#a87878" text-anchor="middle" font-size="11">VaultWithdraw dest pattern (#5572)</text>
-
-    <text x="480" y="118" fill="#ff5a42" font-family="monospace" font-size="11" font-weight="700">BUG: checkDeepFrozen(dest) only</text>
-    <rect x="480" y="130" width="400" height="56" fill="#2a1010" stroke="#ff5a42" rx="4"/>
-    <text x="680" y="156" fill="#ffb4a8" text-anchor="middle" font-size="13" font-weight="700">ALLOWS IOU DELIVERY</text>
-    <text x="680" y="174" fill="#a87878" text-anchor="middle" font-size="11">All 7 lending receive paths (#5270)</text>
-
-    <text x="40" y="220" fill="#8aa898" font-family="monospace" font-size="11">SIMULATION OUTPUT (regular-freeze-only row):</text>
-    <rect x="40" y="232" width="840" height="36" fill="#0a0e0e" stroke="#444" rx="4"/>
-    <text x="60" y="254" fill="#9dffc8" font-family="monospace" font-size="11">checkFrozen blocks? True · checkDeepFrozen blocks? False · Bug path allows IOU? True</text>
-  </svg>
-  <p class="pearl-figure-caption">Reproduce: <a href="https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py"><code>freeze_check_model.py</code></a></p>
-</div>
+### Correct vs existing functionality
 
 ```mermaid
-flowchart LR
-  A[Issuer regular-freezes account] --> B[User submits lending/vault tx]
-  B --> C{Preclaim uses checkDeepFrozen only?}
-  C -->|Yes - bug| D[tecFROZEN not returned]
-  D --> E[IOU delivered to frozen account]
-  C -->|No - checkFrozen| F[tecFROZEN - tx fails correctly]
+flowchart TB
+  subgraph correct [Correct behavior]
+    C1[Issuer regular-freezes receiver D] --> C2[Lending/vault tx pays D]
+    C2 --> C3{checkFrozen D?}
+    C3 -->|frozen| C4[tecFROZEN — tx fails]
+    C3 -->|not frozen| C5[IOU delivered]
+  end
+  subgraph broken [Existing behavior — lending]
+    B1[Issuer regular-freezes receiver D] --> B2[Lending tx pays D]
+    B2 --> B3{checkDeepFrozen D only?}
+    B3 -->|regular-only freeze| B4[Not blocked]
+    B4 --> B5[IOU delivered — policy defeated]
+  end
 ```
 
 ---
 
-## 3. Major problem A — lending freeze bypass (7 bugs)
+## Section B — Lending freeze bypass (F3.3, F3.5–F3.10) · jtx PROVEN
 
-**Introduced:** Ed Hennis, PR [#5270](https://github.com/XRPLF/rippled/pull/5270) (Dec 2025), XLS-66 lending.
+### Plain English
 
-**Correct pattern existed:** Bronek Kozicki `VaultWithdraw` destination uses `checkFrozen()` ([#5572](https://github.com/XRPLF/rippled/pull/5572)) — never copied to lending.
+The **XLS-66 lending** feature (loan brokers, loan pay, cover withdraw, etc.) checks the **wrong freeze level** on almost every path where IOU goes to a **receiver**. The correct pattern already existed in **`VaultWithdraw`** (destination check) but was not copied into lending.
 
-### Who does what
+Seven transaction paths share one mistake introduced in PR [#5270](https://github.com/XRPLF/rippled/pull/5270).
 
-| ID | Transaction | Who acts | Who is frozen | Result today |
-|----|-------------|----------|---------------|--------------|
-| F3.3 | CoverWithdraw | Broker owner | Destination | Cover paid to frozen dest |
-| F3.5 | BrokerDelete | Broker owner | Owner | Leftover cover returned to frozen owner |
-| F3.6 | LoanPay | Borrower | Broker owner | Fee routed to frozen owner |
-| F3.7 | LoanSet | Borrower + broker | Broker owner | Origination fee to frozen owner |
-| F3.8 | LoanPay | Borrower | Vault pseudo | Payment hits frozen vault acct |
-| F3.9 | CoverDeposit | Broker owner | Broker pseudo | Deposit into frozen pseudo |
-| F3.10 | LoanSet | Borrower + broker | Broker pseudo | Fee to frozen pseudo |
+### How it could be exploited
 
-### Code evidence — F3.3 (representative)
+| ID | Transaction | Exploit in one sentence |
+|----|-------------|-------------------------|
+| **F3.3** | CoverWithdraw | Broker sends cover to a **regular-frozen** destination — IOU arrives anyway. |
+| **F3.5** | BrokerDelete | Deleting broker sends leftover cover to a **regular-frozen** owner. |
+| **F3.6** | LoanPay | Borrower pays loan; **broker fee** still routed to **regular-frozen** owner. |
+| **F3.7** | LoanSet | New loan; **origination fee** paid to **regular-frozen** broker owner. |
+| **F3.8** | LoanPay | Payment credits a **regular-frozen** vault pseudo-account. |
+| **F3.9** | CoverDeposit | Cover deposited into **regular-frozen** broker pseudo. |
+| **F3.10** | LoanSet | Fee sent to **regular-frozen** broker pseudo. |
 
-`LoanBrokerCoverWithdraw::preclaim()` checks deep freeze on destination but not regular freeze:
+**Real-world harm:** issuer compliance / fraud containment fails — frozen wallets can still receive IOU via lending. **jtx proof (F3.3):** destination balance increased by 10 IOU while regular-frozen.
+
+### Correct vs existing functionality
+
+```mermaid
+flowchart LR
+  subgraph correct [Correct — e.g. VaultWithdraw dest]
+    direction TB
+    R1[Receiver may get IOU] --> R2[checkFrozen receiver]
+    R2 --> R3{Regular or deep frozen?}
+    R3 -->|yes| R4[tecFROZEN]
+    R3 -->|no| R5[Transfer OK]
+  end
+  subgraph broken [Existing — lending receive paths]
+    direction TB
+    L1[Receiver may get IOU] --> L2[checkDeepFrozen receiver only]
+    L2 --> L3{Deep frozen?}
+    L3 -->|no — regular-only OK| L4[Transfer OK — BUG]
+    L3 -->|yes| L5[tecFROZEN]
+  end
+```
+
+**Representative code (F3.3):**
 
 ```cpp
-// Destination account cannot receive if asset is deep frozen
 if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
     return ret;
 // MISSING: checkFrozen(ctx.view, dstAcct, vaultAsset)
 ```
 
-Local path: `src/libxrpl/tx/transactors/lending/LoanBrokerCoverWithdraw.cpp` ~103–112  
-Upstream 3.1.3: `src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp` ~109–112
-
-### Repro
-
-**Logic (no build):**
-
-```bash
-curl -LO https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py
-python3 freeze_check_model.py
-```
-
-**jtx (rippled built, no mainnet wallet):**
-
-1. Create broker + cover (see `LoanBroker_test.cpp` helpers).
-2. `env(trust(issuer, asset(0), dest, tfSetFreeze));` — **regular only**, no `tfSetDeepFreeze`.
-3. `env(coverWithdraw(...), destination(dest));`
-4. **Today:** succeeds. **After fix:** `ter(tecFROZEN)`.
-
-Snippet: [`repro_f3_3_regular_freeze.jtx.cpp`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/repro_f3_3_regular_freeze.jtx.cpp)
-
-**Test gap:** `LoanBroker_test.cpp` ~951 uses `tfSetFreeze | tfSetDeepFreeze` together — never exercises regular-only on destination.
-
 ---
 
-## 4. Vault pseudo freeze (F4.6 / B3-1) — code gap, not fund bypass
+## Section C — Vault pseudo freeze (F4.6 withdraw · B3-1 deposit)
 
-Preclaim is missing explicit pseudo-account freeze checks (mirror of the Bronek #5572 dest pattern). **`doWithdraw` uses `fhIGNORE_FREEZE` on the source path.**
+### Plain English
 
-**jtx verdict (definitive):** when the issuer regular-freezes the vault pseudo IOU line, deposit and withdraw return **`tecLOCKED`** — same as upstream `Vault_test.cpp` (“IOU frozen trust line to vault account”). Transitive `isFrozen` on vault shares blocks movement.
+**Code review finding:** `VaultWithdraw` does not explicitly freeze-check the **vault pseudo-account as IOU source** before `doWithdraw` (which uses `ignore freeze` on source). `VaultDeposit` does not explicitly freeze-check the **vault pseudo as IOU destination**.
 
-| Claim | Status |
-|-------|--------|
-| Missing pseudo check in code | **True** |
-| Issuer freeze → funds still move | **False on IOU vaults** (jtx refuted) |
-| Severity | **Defense-in-depth**, not same class as F3.3 |
+**jtx finding:** On IOU vaults, when the issuer regular-freezes the vault pseudo’s IOU trust line, **deposit and withdraw already return `tecLOCKED`** — because share ownership transitively sees the freeze. So this is a **missing explicit check**, not a proven **fund bypass** on IOU vaults today.
 
----
+### How it could be exploited
 
-## 5. Major problem C — SetTrust validator crash (F6.1)
+**Standard exploit (issuer freezes vault pseudo):** **Does not work on IOU vaults** — jtx shows `tecLOCKED`.
 
-**Who:** Anyone submits SetTrust where the **issuer account does not exist**.
+**Latent risk:** If a future path skips the share-level lock but hits `doWithdraw` with `fhIGNORE_FREEZE`, missing pseudo source check could matter. Treat as **defense-in-depth**, not lending-class P0.
 
-**When:** AMM / SingleAssetVault features **off** — code skips `tecNO_DST` and dereferences null:
-
-```cpp
-auto const sleDst = ctx.view.read(keylet::account(uDstAccountID));
-if ((ammEnabled(...) || featureSingleAssetVault) && sleDst == nullptr)
-    return tecNO_DST;
-if (sleDst->getFlags() & lsfDisallowIncomingTrustline)  // crash if null
-```
-
-Path: `SetTrust.cpp` ~196–204
-
-**Fund loss?** No direct theft — **validators crash** on malformed tx (consensus / availability risk).
-
-**Repro:** Submit SetTrust JSON with bogus issuer; observe preclaim crash in standalone — **no funded wallet beyond jtx env**.
-
----
-
-## 6. Major problem D — missing safety nets (F2.1, F3.1)
-
-| ID | Gap | Fund loss alone? |
-|----|-----|------------------|
-| **F2.1** | `VaultInvariant` has `// TBD` for all loan tx types | No — needs second bug in loan math |
-| **F3.1** | `FreezeInvariant` only tracks IOU trust lines, not MPT | No — needs MPT transactor bug |
-
-These are **defense-in-depth failures** — the ledger won't catch accounting or MPT freeze mistakes at invariant time.
-
----
-
-## 7. fixCleanup3_1_3 does not fix the 12
-
-Amendment `fixCleanup3_1_3` (rippled 3.1.3, supermajority May 2026) fixes NFT cleanup, permissioned-domain failed-tx invariant, vault withdraw **trust-line limits**, loan accounting patches, LoanPay overpay error code, LoanBroker cover upper bound.
-
-**It does not touch:** any of the 12 confirmed P0s above.
+### Correct vs existing functionality
 
 ```mermaid
 flowchart TB
-  subgraph fixes [fixCleanup fixes]
-    NFT[NFT offer cleanup]
-    PD[Permissioned domain invariant]
-    VW[VaultWithdraw trust line limit]
-    LM[LoanManage accounting]
+  subgraph correct [Correct — explicit + layered checks]
+    direction TB
+    CV1[VaultWithdraw preclaim] --> CV2[checkFrozen human dest]
+    CV2 --> CV3[checkFrozen vault pseudo SOURCE]
+    CV3 --> CV4[checkFrozen submitter shares]
+    CV4 --> CV5[doWithdraw without ignore-freeze on user paths]
   end
-  subgraph open [Still open after activation]
-    FZ[9 freeze bypass call sites]
-    CR[F6.1 SetTrust crash]
-    INV[F2.1 + F3.1 invariant gaps]
+  subgraph existing [Existing — IOU vault today]
+    direction TB
+    EV1[VaultWithdraw preclaim] --> EV2[checkFrozen human dest ✓]
+    EV2 --> EV3[No explicit pseudo source check ✗]
+    EV3 --> EV4[Share path: isFrozen owner shares]
+    EV4 --> EV5{Pseudo IOU line frozen?}
+    EV5 -->|yes| EV6[tecLOCKED — blocks anyway]
+    EV5 -->|edge case| EV7[doWithdraw fhIGNORE_FREEZE on source — latent]
   end
-  fixes -.->|does not close| open
 ```
 
 ---
 
-## 8. Exploit flow (freeze class — fund movement)
+## Section D — SetTrust validator crash (F6.1) · jtx PROVEN
+
+### Plain English
+
+If someone submits a **SetTrust** (trust line) transaction pointing at an **issuer account that does not exist**, validators should return a clean error (`tecNO_DST`). When AMM and Single-Asset-Vault features are **off**, the code can **skip that check** and **crash** by reading flags from a null account pointer.
+
+This is a **network availability** bug, not a “steal IOU” bug.
+
+### How it could be exploited
+
+1. Attacker crafts SetTrust with a non-existent issuer; features configured so the null guard is off.
+2. Transaction reaches **preclaim** on validators.
+3. **`sleDst->getFlags()` on null** → validator process segfaults (jtx: **exit 139**).
+
+**Harm:** validator crash, potential consensus disruption if enough nodes hit the same malformed tx — not direct fund theft.
+
+### Correct vs existing functionality
 
 ```mermaid
-sequenceDiagram
-  participant Issuer
-  participant Frozen as Frozen account
-  participant Attacker as Broker/Borrower/Depositor
-  participant Ledger as rippled preclaim
-
-  Issuer->>Frozen: Regular-freeze (compliance)
-  Attacker->>Ledger: Lending or vault tx paying Frozen
-  Ledger->>Ledger: checkDeepFrozen only → not blocked
-  Ledger->>Frozen: IOU delivered
-  Note over Issuer,Frozen: Freeze policy defeated
+flowchart TB
+  subgraph correct [Correct behavior]
+    direction TB
+    S1[SetTrust: issuer account missing] --> S2{sleDst null?}
+    S2 -->|yes| S3[Return tecNO_DST — always]
+    S2 -->|no| S4[Continue preclaim checks]
+  end
+  subgraph broken [Existing — AMM+SAV off]
+    direction TB
+    B1[SetTrust: issuer account missing] --> B2{sleDst null AND AMM/SAV on?}
+    B2 -->|no — guard skipped| B3[sleDst->getFlags — CRASH]
+    B2 -->|yes| B4[tecNO_DST]
+  end
 ```
 
 ---
 
-## 9. Repro kit (AGTI)
+## Section E — VaultInvariant loan gap (F2.1)
 
-| Asset | URL |
-|-------|-----|
-| README | [assets/research/xrpl-rippled-p0-audit/](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/) |
-| Freeze logic model | [`freeze_check_model.py`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py) |
-| jtx snippet F3.3 | [`repro_f3_3_regular_freeze.jtx.cpp`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/repro_f3_3_regular_freeze.jtx.cpp) |
-| Runner | [`run_repro.sh`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
+### Plain English
 
-```bash
-mkdir xrpl-p0-repro && cd xrpl-p0-repro
-curl -LO https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py
-curl -LO https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/run_repro.sh
-chmod +x run_repro.sh
-./run_repro.sh
+After every successful transaction, **invariants** are safety nets that assert ledger accounting still makes sense. For **loan** transactions (`LoanSet`, `LoanManage`, `LoanPay`), the vault invariant literally contains **`// TBD`** and **returns true** — no checks run.
+
+### How it could be exploited
+
+**Not directly.** You need a **second bug** in loan math or routing that corrupts vault/broker balances. Without invariants, that corruption **validates successfully** instead of failing the ledger.
+
+**Analogy:** smoke alarm with no battery — fire only hurts you if something else ignites.
+
+### Correct vs existing functionality
+
+```mermaid
+flowchart TB
+  subgraph correct [Correct behavior]
+    direction TB
+    V1[LoanPay succeeds] --> V2[VaultInvariant runs]
+    V2 --> V3[Assert vault AssetsAvailable / broker cover / loan fields consistent]
+    V3 --> V4{Mismatch?}
+    V4 -->|yes| V5[Invariant fail — ledger rejected]
+    V4 -->|no| V6[Ledger stands]
+  end
+  subgraph broken [Existing behavior]
+    direction TB
+    W1[LoanPay succeeds] --> W2[VaultInvariant: case ttLOAN_*]
+    W2 --> W3["// TBD — return true"]
+    W3 --> W4[Always passes — no safety net]
+  end
 ```
-
-**Optional full jtx:** build rippled with tests, run `./xrpld --unittest OpenP0Repro`. See [`DEFINITIVE_PROOF.md`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/DEFINITIVE_PROOF.md).
 
 ---
 
-## 10. Definitive proof (jtx — no mainnet wallet)
+## Section F — FreezeInvariant MPT gap (F3.1)
+
+### Plain English
+
+`FreezeInvariant` watches IOU trust line balance changes to catch forbidden transfers while frozen. It **only looks at `ltRIPPLE_STATE`** — **MPT token** balance changes are **invisible** to this invariant.
+
+### How it could be exploited
+
+**Not directly.** If any transactor allows a frozen MPT to move (a separate bug), this invariant **will not catch it**. IOU freeze enforcement and MPT freeze enforcement are asymmetric at the invariant layer.
+
+### Correct vs existing functionality
+
+```mermaid
+flowchart TB
+  subgraph correct [Correct behavior]
+    direction TB
+    M1[Any balance change in tx] --> M2[FreezeInvariant tracks IOU lines]
+    M2 --> M3[FreezeInvariant tracks MPT tokens]
+    M3 --> M4{Frozen party received funds?}
+    M4 -->|yes| M5[Invariant fail]
+  end
+  subgraph broken [Existing behavior]
+    direction TB
+    X1[Balance change in tx] --> X2{Entry type?}
+    X2 -->|ltRIPPLE_STATE| X3[Checked]
+    X2 -->|ltMPTOKEN| X4[Skipped — blind spot]
+    X4 --> X5[Invariant passes even if MPT moved while frozen]
+  end
+```
+
+---
+
+## Section G — EscrowFinish IOU (F3.11 candidate)
+
+### Plain English
+
+When finishing an **IOU escrow**, the destination freeze check uses **`isDeepFrozen` only**. The **MPT escrow path in the same file** uses **`isFrozen`**. Tests expect IOU finish to **succeed** when the destination is regular-frozen after escrow was created.
+
+**Status:** candidate P0 — may be intentional legacy behavior for in-flight escrows; not jtx-promoted to confirmed in this report.
+
+### How it could be exploited
+
+1. Escrow created to destination **D**.
+2. Issuer regular-freezes **D** (not deep).
+3. Finisher submits **EscrowFinish** → IOU may still pay **D**.
+
+Same freeze API mistake as lending, but product intent is unclear.
+
+### Correct vs existing functionality
+
+```mermaid
+flowchart TB
+  subgraph correct [Correct — aligned with MPT path]
+    direction TB
+    E1[EscrowFinish IOU to dest D] --> E2{isFrozen D?}
+    E2 -->|yes| E3[tecFROZEN / block finish]
+    E2 -->|no| E4[Deliver escrowed IOU]
+  end
+  subgraph broken [Existing — IOU template]
+    direction TB
+    F1[EscrowFinish IOU to dest D] --> F2{isDeepFrozen D only?}
+    F2 -->|regular-only freeze| F3[Finish succeeds — IOU delivered]
+    F2 -->|deep freeze| F4[Blocked]
+  end
+```
+
+---
+
+## Section H — fixCleanup3_1_3 vs open issues
+
+### Plain English
+
+**fixCleanup3_1_3** (rippled 3.1.3, May 2026) bundles real fixes: NFT offer cleanup, permissioned-domain failed-tx invariant, vault withdraw trust-line limits, loan accounting patches, LoanPay overpay error code, LoanBroker cover upper bound.
+
+It **does not** fix lending regular-freeze bypass, SetTrust crash, invariant TBD gaps, or Escrow IOU finish semantics.
+
+### How it could be exploited
+
+The amendment itself is not an exploit — the risk is **false confidence**: operators and issuers assume “3.1.3 + fixCleanup = lending/vault security closed” while **jtx-proven lending freeze bypass remains live**.
+
+### Correct vs existing functionality
+
+```mermaid
+flowchart TB
+  subgraph marketed [What fixCleanup fixes]
+    direction TB
+    MC1[NFT expired offer cleanup]
+    MC2[VaultWithdraw trust-line limit]
+    MC3[LoanManage accounting patches]
+    MC4[LoanPay overpay error code]
+  end
+  subgraph stillopen [Still open after activation]
+    direction TB
+    SO1[Lending checkDeepFrozen on receivers — jtx proven]
+    SO2[SetTrust null deref — jtx proven]
+    SO3[VaultInvariant loan TBD]
+    SO4[FreezeInvariant MPT blind spot]
+  end
+  marketed -.->|does not close| stillopen
+```
+
+---
+
+## Section I — Definitive proof (no mainnet wallet)
+
+### Plain English
+
+We ran rippled’s built-in **jtx** test ledger locally — no testnet, no mainnet XRP. Tests mint accounts and assert balances.
+
+### Results
 
 | Finding | Method | Result |
 |---------|--------|--------|
-| **F3.3** lending freeze | `OpenP0Repro` unittest | **PROVEN** — `tesSUCCESS`, dest IOU balance +10 |
-| **F3.3 control** | deep freeze on same dest | **PROVEN** — `tecFROZEN` |
-| **F6.1** SetTrust crash | `OpenP0ReproCrash` unittest | **PROVEN** — segfault (exit 139) |
-| **F4.6 / B3-1** fund bypass | vault pseudo freeze jtx | **REFUTED** — `tecLOCKED` |
-| **Freeze logic** | `freeze_check_model.py` | **PROVEN** — regular-only row allows bug path |
+| **F3.3** lending freeze | `OpenP0Repro` | **PROVEN** — `tesSUCCESS`, dest +10 IOU |
+| **F3.3 control** | deep freeze added | **PROVEN** — `tecFROZEN` |
+| **F6.1** SetTrust crash | `OpenP0ReproCrash` | **PROVEN** — segfault exit 139 |
+| **F4.6 / B3-1** fund bypass | vault pseudo freeze | **REFUTED** — `tecLOCKED` |
+| **Freeze logic** | `freeze_check_model.py` | **PROVEN** |
 
-```bash
-curl -LO https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/freeze_check_model.py
-python3 freeze_check_model.py
-# Full proof (requires built rippled): see DEFINITIVE_PROOF.md
-```
-
-Test source: [`OpenP0Repro_test.cpp`](https://agtico.github.io/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp)
+Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/research/xrpl-rippled-p0-audit/) · [`OpenP0Repro_test.cpp`](https://agti.net/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp)
 
 ---
 
-## 11. Migration implications
+## Migration implications
 
-1. **Do not treat fixCleanup activation as security closure.**
-2. **Issuer freeze is not reliable on lending** (jtx-proven). Vault IOU path is blocked by share lock — but code gaps remain.
-3. **Tests encode the bug** in places (deep+regular together; EscrowFinish permissive finish).
-4. **Exit risk** is protocol-trust, not node-count — validator supermajority ≠ app-layer safety.
+1. **Do not treat fixCleanup as security closure.**
+2. **Issuer regular-freeze is unreliable on lending** — jtx-proven fund movement.
+3. **Vault IOU path:** explicit code gaps exist; jtx shows share path blocks standard freeze exploit.
+4. **Invariant gaps** mean the next loan/MPT bug may not trip safety nets.
+5. **SetTrust crash** is a consensus/ops risk on malformed txs.
 
 ---
 
-*Disclaimer: Independent AGTI research for informational purposes. Not investment or legal advice. Audit baseline: rippled `release-3.1.3` / local `internal/bug-hunt-plan` corpus.*
+*Disclaimer: Independent AGTI research. Not investment or legal advice. Baseline: rippled 3.1.3 / AGTI audit corpus May 2026.*
