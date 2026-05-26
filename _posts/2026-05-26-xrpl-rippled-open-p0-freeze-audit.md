@@ -1,11 +1,11 @@
 ---
 layout: report
-title: "XRPL rippled 3.1.3 | Twelve Open P0s"
+title: "XRPL rippled 3.1.3 | Ten Open P0s"
 date: "2026-05-26 20:00:00 +0000"
-summary: "AGTI audit of rippled 3.1.3: plain-English exploit guide, correct-vs-broken diagrams, jtx-proven lending freeze bypass and SetTrust crash."
+summary: "AGTI audit of rippled 3.1.3: ten confirmed open P0s — jtx-proven lending freeze bypass and SetTrust crash. Vault pseudo bypass ruled out and excluded."
 category: AGTI Research
 xrpl_report: true
-report_css_version: 20260527b
+report_css_version: 20260527c
 tags:
   - AGTI
   - XRPL
@@ -17,8 +17,8 @@ tags:
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard bad">
     <span class="label">Open P0 confirmed</span>
-    <span class="value">12</span>
-    <span class="hint">Still in upstream <code>release-3.1.3</code> after fixCleanup3_1_3.</span>
+    <span class="value">10</span>
+    <span class="hint">F2.1, F3.1, F3.3–F3.10, F6.1 — still in <code>release-3.1.3</code> after fixCleanup3_1_3.</span>
   </div>
   <div class="pearl-scorecard warn">
     <span class="label">jtx proven (fund risk)</span>
@@ -40,7 +40,7 @@ tags:
     <li><strong>How it could be exploited</strong> — who does what, and what breaks in the real world</li>
     <li><strong>Correct vs existing</strong> — diagram comparing intended behavior to rippled today</li>
   </ul>
-  <p class="pearl-verdict-foot">Lending freeze bypass is jtx-proven. SetTrust crash is jtx-proven. Vault pseudo “bypass” is refuted for IOU vaults — blocked elsewhere.</p>
+  <p class="pearl-verdict-foot">Confirmed P0s only below. Lending freeze bypass and SetTrust crash are jtx-proven. F4.6 / B3-1 vault pseudo fund bypass was investigated and <strong>ruled out</strong> — not counted.</p>
 </div>
 
 ---
@@ -141,45 +141,7 @@ if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
 
 ---
 
-## Section C — Vault pseudo freeze (F4.6 withdraw · B3-1 deposit)
-
-### Plain English
-
-**Code review finding:** `VaultWithdraw` does not explicitly freeze-check the **vault pseudo-account as IOU source** before `doWithdraw` (which uses `ignore freeze` on source). `VaultDeposit` does not explicitly freeze-check the **vault pseudo as IOU destination**.
-
-**jtx finding:** On IOU vaults, when the issuer regular-freezes the vault pseudo’s IOU trust line, **deposit and withdraw already return `tecLOCKED`** — because share ownership transitively sees the freeze. So this is a **missing explicit check**, not a proven **fund bypass** on IOU vaults today.
-
-### How it could be exploited
-
-**Standard exploit (issuer freezes vault pseudo):** **Does not work on IOU vaults** — jtx shows `tecLOCKED`.
-
-**Latent risk:** If a future path skips the share-level lock but hits `doWithdraw` with `fhIGNORE_FREEZE`, missing pseudo source check could matter. Treat as **defense-in-depth**, not lending-class P0.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct — explicit + layered checks]
-    direction TB
-    CV1[VaultWithdraw preclaim] --> CV2[checkFrozen human dest]
-    CV2 --> CV3[checkFrozen vault pseudo SOURCE]
-    CV3 --> CV4[checkFrozen submitter shares]
-    CV4 --> CV5[doWithdraw without ignore-freeze on user paths]
-  end
-  subgraph existing [Existing — IOU vault today]
-    direction TB
-    EV1[VaultWithdraw preclaim] --> EV2[checkFrozen human dest ✓]
-    EV2 --> EV3[No explicit pseudo source check ✗]
-    EV3 --> EV4[Share path: isFrozen owner shares]
-    EV4 --> EV5{Pseudo IOU line frozen?}
-    EV5 -->|yes| EV6[tecLOCKED — blocks anyway]
-    EV5 -->|edge case| EV7[doWithdraw fhIGNORE_FREEZE on source — latent]
-  end
-```
-
----
-
-## Section D — SetTrust validator crash (F6.1) · jtx PROVEN
+## Section C — SetTrust validator crash (F6.1) · jtx PROVEN
 
 ### Plain English
 
@@ -215,7 +177,7 @@ flowchart LR
 
 ---
 
-## Section E — VaultInvariant loan gap (F2.1)
+## Section D — VaultInvariant loan gap (F2.1)
 
 ### Plain English
 
@@ -249,7 +211,7 @@ flowchart LR
 
 ---
 
-## Section F — FreezeInvariant MPT gap (F3.1)
+## Section E — FreezeInvariant MPT gap (F3.1)
 
 ### Plain English
 
@@ -281,7 +243,7 @@ flowchart LR
 
 ---
 
-## Section G — EscrowFinish IOU (F3.11 candidate)
+## Section F — EscrowFinish IOU (F3.11 candidate · not counted)
 
 ### Plain English
 
@@ -317,7 +279,7 @@ flowchart LR
 
 ---
 
-## Section H — fixCleanup3_1_3 vs open issues
+## Section G — fixCleanup3_1_3 vs open issues
 
 ### Plain English
 
@@ -352,7 +314,7 @@ flowchart LR
 
 ---
 
-## Section I — Definitive proof (no mainnet wallet)
+## Section H — Definitive proof (no mainnet wallet)
 
 ### Plain English
 
@@ -365,8 +327,13 @@ We ran rippled’s built-in **jtx** test ledger locally — no testnet, no mainn
 | **F3.3** lending freeze | `OpenP0Repro` | **PROVEN** — `tesSUCCESS`, dest +10 IOU |
 | **F3.3 control** | deep freeze added | **PROVEN** — `tecFROZEN` |
 | **F6.1** SetTrust crash | `OpenP0ReproCrash` | **PROVEN** — segfault exit 139 |
-| **F4.6 / B3-1** fund bypass | vault pseudo freeze | **REFUTED** — `tecLOCKED` |
 | **Freeze logic** | `freeze_check_model.py` | **PROVEN** |
+
+### Ruled out — not in P0 count
+
+| Finding | Method | Result |
+|---------|--------|--------|
+| **F4.6 / B3-1** vault pseudo fund bypass | `OpenP0Repro` | **REFUTED** — `tecLOCKED`; code-review gap only, no fund movement |
 
 Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/research/xrpl-rippled-p0-audit/) · [`OpenP0Repro_test.cpp`](https://agti.net/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp)
 
@@ -375,10 +342,10 @@ Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/rese
 ## Migration implications
 
 1. **Do not treat fixCleanup as security closure.**
-2. **Issuer regular-freeze is unreliable on lending** — jtx-proven fund movement.
-3. **Vault IOU path:** explicit code gaps exist; jtx shows share path blocks standard freeze exploit.
-4. **Invariant gaps** mean the next loan/MPT bug may not trip safety nets.
-5. **SetTrust crash** is a consensus/ops risk on malformed txs.
+2. **Issuer regular-freeze is unreliable on lending** — jtx-proven fund movement (7 call sites).
+3. **Invariant gaps** (F2.1, F3.1) mean the next loan/MPT bug may not trip safety nets.
+4. **SetTrust crash** is a consensus/ops risk on malformed txs.
+5. **F4.6 / B3-1** were code-review hypotheses; jtx refuted fund bypass — excluded from P0 count.
 
 ---
 

@@ -1,6 +1,6 @@
 # XRPL rippled open P0 audit — repro kit (AGTI)
 
-Evidence kit for the AGTI intelligence report on **12 confirmed open P0s** in rippled `release-3.1.3`.
+Evidence kit for the AGTI intelligence report on **10 confirmed open P0s** in rippled `release-3.1.3` (F4.6/B3-1 vault pseudo bypass **ruled out by jtx** — not counted).
 
 | Script | Purpose |
 |--------|---------|
