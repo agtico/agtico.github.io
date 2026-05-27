@@ -36,10 +36,10 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: 906ceb62c9649eaacdb3903c895c9d77b956d6acdbb5d45fdff31c298206f6c9
+local wrapper log sha256: e2385380b2c4c91ccf5a46472c46450acdfa9ea58468a46a6e2804a4e7ae88ab
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-14.6s, 1 suite, 59 cases, 16068 tests total, 0 failures
+14.9s, 1 suite, 59 cases, 16068 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
@@ -82,6 +82,17 @@ That is source-lineage evidence, not a substitute for old-binary reproduction.
 It supports the hypothesis that the missing receiver-side reserve transition is
 old, but the only clean binary repro currently recorded in the packet is still
 the current `3.1.3` repro.
+
+The source-lineage check is now script-bound:
+
+```text
+script: verify_trustline_positive_balance_lineage.py
+script_sha256: c85f62a3003052cffa39a9c41cc79273dbc53029e8f29a6f995774983094022c
+report: runs/20260527-p0-hunt/trustline_positive_balance_lineage_20260527.json
+report_sha256: 9e09f480c2d0e7a4494b7a67dda4819f8c0076d11bf88bb882816922d9f8ab82
+result: passed=True
+sampled refs: 0.12.0, 0.20.0, 0.30.0, 0.50.0, 0.80.0, 1.0.0, 1.5.0, 2.0.0, 2.5.0, 3.1.3
+```
 
 The current source signal is upstream branch
 `origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve`, commit

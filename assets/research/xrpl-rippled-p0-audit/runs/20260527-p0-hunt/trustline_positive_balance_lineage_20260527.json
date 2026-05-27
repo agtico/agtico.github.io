@@ -1,0 +1,108 @@
+{
+  "source": "local XRPLF/rippled git source-lineage check",
+  "checked_utc": "2026-05-27T21:11:07Z",
+  "finding_id": "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+  "rippled_root": "/home/postfiat/repos/rippled",
+  "scope_note": "This proves source-lineage shape only. It does not replace the current 3.1.3 binary repro and does not prove an old binary tag.",
+  "sampled_refs": [
+    {
+      "ref": "0.12.0",
+      "commit": "d0a9da6f16f4083993e4b6c5728777ffebf80f3a 2013-08-26 JoelKatz Set version to v0.12.0",
+      "sender_side_reserve_transition": "0.12.0:modules/ripple_app/ledger/ripple_LedgerEntrySet.cpp:1489:        if (saBefore.isPositive ()                                                                              // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "0.12.0:modules/ripple_app/ledger/ripple_LedgerEntrySet.cpp:1504:                      && !isSetBit (uFlags, bSenderHigh ? lsfLowReserve : lsfHighReserve); // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "0.20.0",
+      "commit": "1017adf7438017f520d0539b6d0c116c0207439e 2014-01-08 Vinnie Falco Set version to 0.20.0",
+      "sender_side_reserve_transition": "0.20.0:src/ripple_app/ledger/LedgerEntrySet.cpp:1509:        if (saBefore.isPositive ()                                                                              // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "0.20.0:src/ripple_app/ledger/LedgerEntrySet.cpp:1524:                      && !isSetBit (uFlags, bSenderHigh ? lsfLowReserve : lsfHighReserve); // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "0.30.0",
+      "commit": "a8859b495b552fe1eb140771f0f2cb32d11d2ac2 2015-10-21 Vinnie Falco Set version to 0.30.0",
+      "sender_side_reserve_transition": "0.30.0:src/ripple/ledger/impl/View.cpp:1248:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "0.30.0:src/ripple/ledger/impl/View.cpp:1278:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "0.50.0",
+      "commit": "77999579b535373872d8cce7ddc8b12cdcc39d84 2017-01-26 Nik Bougalis Set version to 0.50.0",
+      "sender_side_reserve_transition": "0.50.0:src/ripple/ledger/impl/View.cpp:1319:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "0.50.0:src/ripple/ledger/impl/View.cpp:1349:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "0.80.0",
+      "commit": "cafe18c59279e7de447f25a0e00d0562d6441c7a 2017-10-19 Nik Bougalis Set version to 0.80.0",
+      "sender_side_reserve_transition": "0.80.0:src/ripple/ledger/impl/View.cpp:1376:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "0.80.0:src/ripple/ledger/impl/View.cpp:1406:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "1.0.0",
+      "commit": "f31ca2860fb5f045b618aa05d1e76c7e2e9494ec 2018-05-11 Nikolaos D. Bougalis Set version to 1.0.0",
+      "sender_side_reserve_transition": "1.0.0:src/ripple/ledger/impl/View.cpp:1374:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "1.0.0:src/ripple/ledger/impl/View.cpp:1404:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "1.5.0",
+      "commit": "f00f263852c472938bf8e993e26c7f96f435935c 2020-03-30 Carl Hua Set version to 1.5.0",
+      "sender_side_reserve_transition": "1.5.0:src/ripple/ledger/impl/View.cpp:1093:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "1.5.0:src/ripple/ledger/impl/View.cpp:1123:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "2.0.0",
+      "commit": "2b0313d60c4226cc98ad39fe8eb659deca48f32a 2024-01-08 Elliot Lee Set version to 2.0.0",
+      "sender_side_reserve_transition": "2.0.0:src/ripple/ledger/impl/View.cpp:1000:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "2.0.0:src/ripple/ledger/impl/View.cpp:1034:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "2.5.0",
+      "commit": "1e01cd34f7a216092ed779f291b43324c167167a 2025-06-17 Michael Legleux Set version to 2.5.0",
+      "sender_side_reserve_transition": "2.5.0:src/xrpld/ledger/detail/View.cpp:1590:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "2.5.0:src/xrpld/ledger/detail/View.cpp:1624:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    },
+    {
+      "ref": "3.1.3",
+      "commit": "46b241ace8b30d9c9775d60ffba7d24b21903896 2026-05-06 Ed Hennis Set version to 3.1.3",
+      "sender_side_reserve_transition": "3.1.3:src/libxrpl/ledger/View.cpp:2049:            // Sender balance was positive.",
+      "receiver_reserve_clear_comment": "3.1.3:src/libxrpl/ledger/View.cpp:2083:            // Receiver reserve is clear.",
+      "receiver_side_fix_symbol": null,
+      "passes_lineage_shape": true
+    }
+  ],
+  "fix_commit": "b4a45f1f0f49d3caf56d2c790960380b5e648a60",
+  "fix_branch": {
+    "ref": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve",
+    "commit_contains_fix": true,
+    "receiver_transition_comment": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1801:        // Check if receiver's balance went from zero/negative to positive",
+    "fix_symbol": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1805:        if (view.rules().enabled(fixTrustLineOwnerCount) &&",
+    "receiver_reserve_not_set_comment": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1811:        // Receiver reserve is not set."
+  },
+  "latest_refs": {
+    "3.2.0-b7": {
+      "contains_fix_commit": false,
+      "commit": "dfb9b8ed9a0ad04c1da00c9957fe3c7454930835 2026-05-22 Bart release: Bump version to 3.2.0-b7 (#7316)"
+    },
+    "origin/develop": {
+      "contains_fix_commit": false,
+      "commit": "1162371def825beed3888f79b9f253dea165c13d 2026-05-26 Ayaz Salikhov ci: Only push docker images in XRPLF/rippled (#7330)"
+    }
+  },
+  "passed": true
+}
