@@ -5,7 +5,8 @@ date: "2026-05-26 20:00:00 +0000"
 summary: "Post Fiat evaluated a RippleD-derived implementation path. This rewritten report is an evidence-first packet for 37 locally reproduced rippled findings: seven lending freeze receive paths, twenty-five additional current 3.1.3 transaction/helper root causes, one feature-bound MPT lock-state issue, one protocol-wire defect, and nine historical fixCleanup-era root causes."
 category: Post Fiat Research
 xrpl_report: true
-report_css_version: 20260528b
+copy_article: true
+report_css_version: 20260528c
 tags:
   - AGTI
   - Post Fiat

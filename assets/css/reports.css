@@ -678,6 +678,50 @@ h1 {
   background: rgba(255,255,255,.025);
 }
 
+.copy-article-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.copy-article-button {
+  appearance: none;
+  border: 1px solid rgba(255,90,66,.58);
+  background: rgba(255,45,32,.10);
+  color: var(--text);
+  cursor: pointer;
+  min-height: 42px;
+  padding: 0 16px;
+  font: 900 11px var(--mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+.copy-article-button:hover,
+.copy-article-button:focus-visible {
+  background: rgba(255,45,32,.18);
+  border-color: rgba(255,90,66,.86);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.copy-article-button:disabled {
+  cursor: wait;
+  opacity: .74;
+  transform: none;
+}
+
+.copy-article-status {
+  min-height: 16px;
+  color: rgba(210,220,216,.68);
+  font: 800 11px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .report-content {
   margin-top: 42px;
   color: rgba(232,238,235,.82);

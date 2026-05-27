@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="{{ '/assets/img/agti-logo.png' | relative_url }}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="alternate" type="application/rss+xml" title="AGTI Intelligence Reports" href="{{ '/feed.xml' | absolute_url }}" />
-  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/reports.css' | relative_url }}?v={{ page.report_css_version | default: '20260527' }}" />
   {% if page.pearl_report or page.xrpl_report %}
   <link rel="stylesheet" href="{{ '/assets/css/pearl-pouw-report.css' | relative_url }}?v={{ page.report_css_version | default: '20260524' }}" />
   {% endif %}
@@ -46,6 +46,19 @@
           <span>{{ tag }}</span>
           {% endfor %}
         </div>
+        {% if page.copy_article %}
+        <div class="copy-article-bar" data-copy-article-bar>
+          <button
+            type="button"
+            class="copy-article-button"
+            data-copy-article
+            data-copy-title="{{ page.title | escape }}"
+            data-copy-url="{{ page.url | absolute_url | escape }}"
+            data-copy-date="{{ page.date | date: '%B %-d, %Y' | escape }}"
+          >Copy Article For LLM</button>
+          <span class="copy-article-status" data-copy-article-status aria-live="polite"></span>
+        </div>
+        {% endif %}
         <div class="report-content{% if page.pearl_report or page.xrpl_report %} pearl-report-shell{% if page.xrpl_report %} xrpl-report-shell{% endif %}{% endif %}">
           {{ content }}
         </div>
@@ -54,6 +67,149 @@
 
     <footer>AGTI // Intelligence Reports // {{ page.date | date: "%Y.%m.%d" }}</footer>
   </div>
+  {% if page.copy_article %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var button = document.querySelector("[data-copy-article]");
+      var status = document.querySelector("[data-copy-article-status]");
+      var content = document.querySelector(".report-content");
+      if (!button || !content) return;
+
+      function cleanText(value) {
+        return (value || "").replace(/\s+/g, " ").trim();
+      }
+
+      function escapeCell(value) {
+        return cleanText(value).replace(/\|/g, "\\|");
+      }
+
+      function nodeTextAsMarkdown(node) {
+        if (!node) return "";
+        if (node.nodeType === Node.TEXT_NODE) return node.textContent || "";
+        if (node.nodeType !== Node.ELEMENT_NODE) return "";
+
+        var element = node;
+        var tag = element.tagName.toLowerCase();
+        if (["script", "style", "button"].indexOf(tag) !== -1) return "";
+        if (element.matches("[data-copy-article-bar]")) return "";
+
+        if (element.classList.contains("pearl-mermaid")) {
+          var mermaid = element.querySelector(".mermaid");
+          var source = mermaid && mermaid.dataset.mermaidSource ? mermaid.dataset.mermaidSource : element.textContent.trim();
+          return "```mermaid\n" + source + "\n```\n\n";
+        }
+
+        if (tag === "br") return "\n";
+        if (tag === "hr") return "\n---\n\n";
+        if (tag === "pre") {
+          var code = element.querySelector("code");
+          var language = "";
+          if (code) {
+            var match = Array.from(code.classList).join(" ").match(/language-([A-Za-z0-9_-]+)/);
+            language = match ? match[1] : "";
+          }
+          return "```" + language + "\n" + (code ? code.textContent.trim() : element.textContent.trim()) + "\n```\n\n";
+        }
+        if (tag === "code") return "`" + cleanText(element.textContent) + "`";
+        if (tag === "strong" || tag === "b") return "**" + childrenAsMarkdown(element).trim() + "**";
+        if (tag === "em" || tag === "i") return "*" + childrenAsMarkdown(element).trim() + "*";
+        if (tag === "a") {
+          var label = childrenAsMarkdown(element).trim() || cleanText(element.textContent);
+          var href = element.getAttribute("href");
+          if (!href || href.charAt(0) === "#") return label;
+          return label + " (" + new URL(href, window.location.origin).href + ")";
+        }
+        if (/^h[1-6]$/.test(tag)) {
+          return "\n" + "#".repeat(Number(tag.charAt(1))) + " " + cleanText(element.textContent) + "\n\n";
+        }
+        if (tag === "p") return childrenAsMarkdown(element).trim() + "\n\n";
+        if (tag === "li") return childrenAsMarkdown(element).trim();
+        if (tag === "ul" || tag === "ol") {
+          return Array.from(element.children).filter(function (child) {
+            return child.tagName && child.tagName.toLowerCase() === "li";
+          }).map(function (child, index) {
+            var prefix = tag === "ol" ? (index + 1) + ". " : "- ";
+            return prefix + nodeTextAsMarkdown(child).replace(/\n/g, "\n  ");
+          }).join("\n") + "\n\n";
+        }
+        if (tag === "table") {
+          var rows = Array.from(element.querySelectorAll("tr")).map(function (row) {
+            return Array.from(row.children).map(function (cell) {
+              return escapeCell(cell.textContent);
+            });
+          }).filter(function (row) {
+            return row.length > 0;
+          });
+          if (!rows.length) return "";
+          var width = Math.max.apply(null, rows.map(function (row) { return row.length; }));
+          rows = rows.map(function (row) {
+            while (row.length < width) row.push("");
+            return row;
+          });
+          var table = [];
+          table.push("| " + rows[0].join(" | ") + " |");
+          table.push("| " + rows[0].map(function () { return "---"; }).join(" | ") + " |");
+          rows.slice(1).forEach(function (row) {
+            table.push("| " + row.join(" | ") + " |");
+          });
+          return table.join("\n") + "\n\n";
+        }
+
+        return childrenAsMarkdown(element);
+      }
+
+      function childrenAsMarkdown(element) {
+        return Array.from(element.childNodes).map(nodeTextAsMarkdown).join("");
+      }
+
+      function articleMarkdown() {
+        var parts = [
+          "# " + (button.dataset.copyTitle || document.title).trim(),
+          "",
+          "Source: " + (button.dataset.copyUrl || window.location.href),
+          "Date: " + (button.dataset.copyDate || ""),
+          "",
+          childrenAsMarkdown(content).trim()
+        ];
+        return parts.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text);
+        }
+        var area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.left = "-9999px";
+        document.body.appendChild(area);
+        area.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(area);
+        return ok ? Promise.resolve() : Promise.reject(new Error("copy failed"));
+      }
+
+      button.addEventListener("click", function () {
+        var original = button.textContent;
+        button.disabled = true;
+        copyText(articleMarkdown()).then(function () {
+          button.textContent = "Copied";
+          if (status) status.textContent = "Article copied to clipboard.";
+        }).catch(function () {
+          button.textContent = "Copy Failed";
+          if (status) status.textContent = "Copy failed. Select the article text manually.";
+        }).finally(function () {
+          window.setTimeout(function () {
+            button.disabled = false;
+            button.textContent = original;
+            if (status) status.textContent = "";
+          }, 2400);
+        });
+      });
+    });
+  </script>
+  {% endif %}
   {% if page.pearl_report or page.xrpl_report %}
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
@@ -66,7 +222,8 @@
         wrap.className = "pearl-mermaid";
         var inner = document.createElement("div");
         inner.className = "mermaid";
-        inner.textContent = code.textContent.trim();
+        inner.dataset.mermaidSource = code.textContent.trim();
+        inner.textContent = inner.dataset.mermaidSource;
         wrap.appendChild(inner);
         pre.replaceWith(wrap);
       });
