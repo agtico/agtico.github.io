@@ -1,11 +1,11 @@
 ---
 layout: report
-title: "Diving deep on RippleD P0s"
+title: "Honing XRP Code Quality: Post Fiat Evaluation of the RippleD Codebase"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat runs on a RippleD fork. Before proceeding, we audited upstream rippled 3.1.3 — findings, jtx proof, and what we ruled out."
-category: AGTI Research
+summary: "Post Fiat runs on a RippleD fork. This is our internal code-quality evaluation of upstream rippled 3.1.3 before we decide how to proceed."
+category: Post Fiat Research
 xrpl_report: true
-report_css_version: 20260527d
+report_css_version: 20260527e
 tags:
   - AGTI
   - Post Fiat
@@ -16,21 +16,21 @@ tags:
 
 <div class="pearl-primer-box">
   <p><strong>Context:</strong> Post Fiat is a <strong>RippleD fork</strong>. Before we commit to building on or migrating off this stack, we ran an internal audit of the upstream codebase — baseline <code>release-3.1.3</code>, May 2026 — to understand what is actually broken, what is proven, and what we can rule out.</p>
-  <p style="margin-top:12px">This report is that audit write-up: plain-English findings, exploit paths where they exist, diagrams, and jtx reproductions. It is research for our own decision-making, published here for transparency.</p>
+  <p style="margin-top:12px">This report is that evaluation write-up: plain-English observations, hypothesized exploit paths where our testing supported them, diagrams, and local jtx reproductions. It reflects our internal research only, published for transparency.</p>
 </div>
 
 <div class="pearl-hero-grid">
-  <div class="pearl-scorecard bad">
-    <span class="label">Open P0 confirmed</span>
+  <div class="pearl-scorecard warn">
+    <span class="label">Issues in scope</span>
     <span class="value">10</span>
-    <span class="hint">F2.1, F3.1, F3.3–F3.10, F6.1 — still in <code>release-3.1.3</code> after fixCleanup3_1_3.</span>
+    <span class="hint">F2.1, F3.1, F3.3–F3.10, F6.1 — observed in upstream <code>release-3.1.3</code> at time of review.</span>
   </div>
   <div class="pearl-scorecard warn">
-    <span class="label">jtx proven (fund risk)</span>
+    <span class="label">Locally reproduced</span>
     <span class="value">7 lending</span>
-    <span class="hint">Regular-freeze bypass — balance change confirmed in unittest.</span>
+    <span class="hint">Regular-freeze behavior — balance change observed in rippled unittest (F3.3).</span>
   </div>
-  <div class="pearl-scorecard bad">
+  <div class="pearl-scorecard good">
     <span class="label">Repro wallet</span>
     <span class="value">Not required</span>
     <span class="hint">jtx standalone mints test XRP.</span>
@@ -45,7 +45,7 @@ tags:
     <li><strong>How it could be exploited</strong> — who does what, and what breaks in the real world</li>
     <li><strong>Correct vs existing</strong> — diagram comparing intended behavior to rippled today</li>
   </ul>
-  <p class="pearl-verdict-foot">Confirmed P0s only below. Lending freeze bypass and SetTrust crash are jtx-proven. F4.6 / B3-1 vault pseudo fund bypass was investigated and <strong>ruled out</strong> — not counted.</p>
+  <p class="pearl-verdict-foot">Sections below cover issues we are still tracking. Lending freeze behavior and the SetTrust crash were reproduced locally. F4.6 / B3-1 vault pseudo fund movement was investigated and <strong>not reproduced</strong> in our jtx setup.</p>
 </div>
 
 ---
@@ -94,7 +94,7 @@ flowchart TB
 
 ---
 
-## Section B — Lending freeze bypass (F3.3, F3.5–F3.10) · jtx PROVEN
+## Section B — Lending freeze bypass (F3.3, F3.5–F3.10) · locally reproduced
 
 ### Plain English
 
@@ -114,7 +114,7 @@ Seven transaction paths share one mistake introduced in PR [#5270](https://githu
 | **F3.9** | CoverDeposit | Cover deposited into **regular-frozen** broker pseudo. |
 | **F3.10** | LoanSet | Fee sent to **regular-frozen** broker pseudo. |
 
-**Real-world harm:** issuer compliance / fraud containment fails — frozen wallets can still receive IOU via lending. **jtx proof (F3.3):** destination balance increased by 10 IOU while regular-frozen.
+**Observed in testing:** issuer compliance / fraud containment may fail — frozen wallets can still receive IOU via lending in our jtx run. **F3.3 reproduction:** destination balance increased by 10 IOU while regular-frozen.
 
 ### Correct vs existing functionality
 
@@ -146,7 +146,7 @@ if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
 
 ---
 
-## Section C — SetTrust validator crash (F6.1) · jtx PROVEN
+## Section C — SetTrust validator crash (F6.1) · locally reproduced
 
 ### Plain English
 
@@ -248,13 +248,13 @@ flowchart LR
 
 ---
 
-## Section F — EscrowFinish IOU (F3.11 candidate · not counted)
+## Section F — EscrowFinish IOU (F3.11 · under review)
 
 ### Plain English
 
 When finishing an **IOU escrow**, the destination freeze check uses **`isDeepFrozen` only**. The **MPT escrow path in the same file** uses **`isFrozen`**. Tests expect IOU finish to **succeed** when the destination is regular-frozen after escrow was created.
 
-**Status:** candidate P0 — may be intentional legacy behavior for in-flight escrows; not jtx-promoted to confirmed in this report.
+**Status:** under review — may be intentional legacy behavior for in-flight escrows; we have not promoted this to our main findings list.
 
 ### How it could be exploited
 
@@ -294,7 +294,7 @@ It **does not** fix lending regular-freeze bypass, SetTrust crash, invariant TBD
 
 ### How it could be exploited
 
-The amendment itself is not an exploit — the risk is **false confidence**: operators and issuers assume “3.1.3 + fixCleanup = lending/vault security closed” while **jtx-proven lending freeze bypass remains live**.
+The amendment itself is not an exploit — the risk we note is **false confidence**: assuming “3.1.3 + fixCleanup = lending/vault security closed” while our local tests still showed lending freeze behavior on the paths below.
 
 ### Correct vs existing functionality
 
@@ -309,8 +309,8 @@ flowchart LR
   end
   subgraph stillopen [Still open after activation]
     direction TB
-    SO1[Lending checkDeepFrozen on receivers — jtx proven]
-    SO2[SetTrust null deref — jtx proven]
+    SO1[Lending checkDeepFrozen on receivers — locally reproduced]
+    SO2[SetTrust null deref — locally reproduced]
     SO3[VaultInvariant loan TBD]
     SO4[FreezeInvariant MPT blind spot]
   end
@@ -319,7 +319,7 @@ flowchart LR
 
 ---
 
-## Section H — Definitive proof (no mainnet wallet)
+## Section H — Local reproduction notes
 
 ### Plain English
 
@@ -329,29 +329,47 @@ We ran rippled’s built-in **jtx** test ledger locally — no testnet, no mainn
 
 | Finding | Method | Result |
 |---------|--------|--------|
-| **F3.3** lending freeze | `OpenP0Repro` | **PROVEN** — `tesSUCCESS`, dest +10 IOU |
-| **F3.3 control** | deep freeze added | **PROVEN** — `tecFROZEN` |
-| **F6.1** SetTrust crash | `OpenP0ReproCrash` | **PROVEN** — segfault exit 139 |
-| **Freeze logic** | `freeze_check_model.py` | **PROVEN** |
+| **F3.3** lending freeze | `OpenP0Repro` | Reproduced locally — `tesSUCCESS`, dest +10 IOU |
+| **F3.3 control** | deep freeze added | Reproduced locally — `tecFROZEN` |
+| **F6.1** SetTrust crash | `OpenP0ReproCrash` | Reproduced locally — segfault exit 139 |
+| **Freeze logic** | `freeze_check_model.py` | Consistent with code paths reviewed |
 
-### Ruled out — not in P0 count
+### Not reproduced in our jtx setup
 
 | Finding | Method | Result |
 |---------|--------|--------|
-| **F4.6 / B3-1** vault pseudo fund bypass | `OpenP0Repro` | **REFUTED** — `tecLOCKED`; code-review gap only, no fund movement |
+| **F4.6 / B3-1** vault pseudo fund movement | `OpenP0Repro` | Not reproduced — `tecLOCKED`; code-review observation only |
 
 Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/research/xrpl-rippled-p0-audit/) · [`OpenP0Repro_test.cpp`](https://agti.net/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp)
 
 ---
 
-## Migration implications
+## Implications for Post Fiat
 
-1. **Do not treat fixCleanup as security closure.**
-2. **Issuer regular-freeze is unreliable on lending** — jtx-proven fund movement (7 call sites).
-3. **Invariant gaps** (F2.1, F3.1) mean the next loan/MPT bug may not trip safety nets.
-4. **SetTrust crash** is a consensus/ops risk on malformed txs.
-5. **F4.6 / B3-1** were code-review hypotheses; jtx refuted fund bypass — excluded from P0 count.
+1. **Do not treat fixCleanup as a full code-quality closure** based on this review alone.
+2. **Issuer regular-freeze on lending paths** behaved inconsistently in our local tests (7 call sites reviewed).
+3. **Invariant gaps** (F2.1, F3.1) may reduce safety-net coverage if other issues appear.
+4. **SetTrust crash** is an availability concern in our malformed-tx reproduction.
+5. **F4.6 / B3-1** were code-review observations; we did not reproduce fund movement locally.
 
 ---
 
-*Disclaimer: Independent AGTI research. Not investment or legal advice. Baseline: rippled 3.1.3 / AGTI audit corpus May 2026.*
+<div class="pearl-disclaimer">
+
+**Disclaimer**
+
+This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat maintains a RippleD-derived fork; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), or any other third party.
+
+Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), and our interpretation of upstream behavior at a point in time. **We may be wrong.** Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
+
+Issue identifiers (e.g. F3.3, F6.1) are **internal audit labels**, not official CVEs or vendor advisories. Descriptions of hypothetical exploit paths are **research scenarios**, not allegations of wrongdoing, negligence, or breach of duty by any person or organization. Mention of pull requests or contributors is for traceability only.
+
+**No warranty.** This report is provided “as is” without warranty of any kind. To the fullest extent permitted by law, Post Fiat / AGTI disclaims liability for any loss or damage arising from use of or reliance on this material.
+
+**Trademarks.** Ripple, XRP, XRPL, rippled, and related names are trademarks of their respective owners. Post Fiat is an independent project.
+
+**Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
+
+*Baseline: upstream rippled `release-3.1.3` · Post Fiat internal review · May 2026*
+
+</div>
