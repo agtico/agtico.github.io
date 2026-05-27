@@ -6,9 +6,15 @@ This directory is the public, live-filtered evidence packet for the AGTI report:
 
 The public report includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-27T15:25:31Z`. Public XRPL servers checked in
+query checked at `2026-05-27T15:53:02Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
+
+The live filter also checks raw amendment hashes from the on-ledger
+`Amendments` object. That matters because public Clio feature-name lookup did
+not expose `fixCleanup3_1_3`, while the raw Amendments object did contain its
+hash. Cleanup-era candidates are therefore excluded unless the reproduced
+behavior survives with `fixCleanup3_1_3` enabled.
 
 ## Target
 
@@ -35,7 +41,10 @@ Included findings must satisfy both conditions:
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
+| `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage explaining why no additional candidate was promoted in this slice. |
 | `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log` | Live-only proof extract with marker coverage and zero-failure footer. |
+| `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
+| `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
 | `repros/*.sh` | Per-finding wrappers. The public article links only wrappers for live findings. |
 | `verify_packet.py` | Static verifier for article links, manifest records, scripts, markers, amendment snapshot, and proof hash. |

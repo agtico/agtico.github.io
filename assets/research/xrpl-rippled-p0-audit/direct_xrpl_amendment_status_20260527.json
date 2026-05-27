@@ -1,16 +1,16 @@
 {
   "source": "direct XRPL public JSON-RPC",
   "rpc_url": "https://s1.ripple.com:51234/",
-  "checked_utc": "2026-05-27T15:25:31Z",
+  "checked_utc": "2026-05-27T15:53:02Z",
   "feature_rpc": {
-    "ledger_hash": "F72E76EEEDFBC104B1A54C9A0934D191810239678750CB9821E548EF5A999BAB",
-    "ledger_index": 104517896,
+    "ledger_hash": "EFD78B005A0F8A91048273595CBE24BA9B3849A266467FC4C37233AF3A168A23",
+    "ledger_index": 104518322,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "F72E76EEEDFBC104B1A54C9A0934D191810239678750CB9821E548EF5A999BAB",
-    "ledger_index": 104517896,
+    "ledger_hash": "EFD78B005A0F8A91048273595CBE24BA9B3849A266467FC4C37233AF3A168A23",
+    "ledger_index": 104518322,
     "validated": true,
     "enabled_count": 92
   },
@@ -18,27 +18,139 @@
     "AMM": {
       "id": "8CC0774A3BF66D1D22E76BBDA8E8A232E6B6313834301B3B23E8601196AE6455",
       "enabled": true,
-      "supported": true
+      "supported": true,
+      "id_source": "feature_rpc"
     },
     "MPTokensV1": {
       "id": "950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38",
       "enabled": true,
-      "supported": true
+      "supported": true,
+      "id_source": "feature_rpc"
     },
     "PermissionedDomains": {
       "id": "A730EB18A9D4BB52502C898589558B4CCEB4BE10044500EE5581137A2E80E849",
       "enabled": true,
-      "supported": true
+      "supported": true,
+      "id_source": "feature_rpc"
     },
     "PermissionedDEX": {
       "id": "677E401A423E3708363A36BA8B3A7D019D21AC5ABD00387BDBEA6BDE4C91247E",
       "enabled": true,
-      "supported": true
+      "supported": true,
+      "id_source": "feature_rpc"
     },
     "TokenEscrow": {
       "id": "138B968F25822EFBF54C00F97031221C47B1EAB8321D93C7C2AEAF85F04EC5DF",
       "enabled": true,
-      "supported": true
+      "supported": true,
+      "id_source": "feature_rpc"
+    }
+  },
+  "scope_features": {
+    "AMM": {
+      "id": "8CC0774A3BF66D1D22E76BBDA8E8A232E6B6313834301B3B23E8601196AE6455",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "AMMClawback": {
+      "id": "726F944886BCDF7433203787E93DD9AA87FAB74DFE3AF4785BA03BEFC97ADA1F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "MPTokensV1": {
+      "id": "950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionedDomains": {
+      "id": "A730EB18A9D4BB52502C898589558B4CCEB4BE10044500EE5581137A2E80E849",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionedDEX": {
+      "id": "677E401A423E3708363A36BA8B3A7D019D21AC5ABD00387BDBEA6BDE4C91247E",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "TokenEscrow": {
+      "id": "138B968F25822EFBF54C00F97031221C47B1EAB8321D93C7C2AEAF85F04EC5DF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Credentials": {
+      "id": "1CB67D082CF7D9102412D34258CEDB400E659352D3B207348889297A6D90F5EF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "LendingProtocol": {
+      "id": "565B90CA1AB2B9D42208ED10884188C64F9E19083DECB9634AAF06EB03299509",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "SingleAssetVault": {
+      "id": "81BD2619B6B3C8625AC5D0BC01DE17F06C3F0AB95C7C87C93715B87A4FD240D8",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionDelegation": {
+      "id": "AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Batch": {
+      "id": "894646DD5284E97DECFE6674A6D6152686791C4A95F8C132CCA9BAF9E5812FB6",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixDelegateV1_1": {
+      "id": "58CAABE561CD53D8EC9BD3EFDFD70E092B40F80F221430004603F7ECEFFEA56B",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixMPTDeliveredAmount": {
+      "id": "AB8D932A5F338903FE5BCBD80B611FFED70839ABA3170E9CE01D947C0EDEDCF2",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixAMMv1_3": {
+      "id": "7CA70A7674A26FA517412858659EBC7EDEEF7D2D608824464E6FDEFD06854E14",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixCleanup3_1_3": {
+      "id": "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC",
+      "enabled": true,
+      "supported": null,
+      "id_source": "sha512_half_name",
+      "feature_rpc_visible": false
     }
   }
 }

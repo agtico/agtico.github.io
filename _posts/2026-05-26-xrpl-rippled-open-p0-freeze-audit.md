@@ -59,6 +59,7 @@ Direct XRPL public JSON-RPC checks on 2026-05-27 produced the following current-
 | Public server versions checked | `s1.ripple.com` and `s2.ripple.com` reported `rippled_version=3.1.3` |
 | Final 3.2.0 release tag | No final `3.2.0` tag was present; latest checked beta was `3.2.0-b7` |
 | Live enabled surfaces used here | `AMM`, `MPTokensV1`, `PermissionedDomains`, `PermissionedDEX`, `TokenEscrow` |
+| Cleanup-era gate | `fixCleanup3_1_3` was enabled in the raw on-ledger `Amendments` object, so cleanup-era candidates are excluded unless they reproduce with that fix enabled |
 | Disabled surfaces excluded from this article | `LendingProtocol`, `SingleAssetVault`, `PermissionDelegation`, `Batch` |
 
 This means the report is not about dormant features. The public findings below are scoped to surfaces that were enabled on the validated XRPL ledger at the time of the direct check.
@@ -90,7 +91,7 @@ Third, two MPT findings remain distinct from the remediated set. `MPT-TRANSFER-R
 
 ## Live Amendment Filter
 
-Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for named amendment status and `ledger_entry` for the raw on-ledger `Amendments` object at index `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`. The saved receipt is [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json).
+Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for named amendment status and `ledger_entry` for the raw on-ledger `Amendments` object at index `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`. The saved receipt is [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json). Where public feature-name lookup does not expose a newer amendment name, the packet checks the raw amendment hash directly.
 
 | Amendment | Status in snapshot | Used by findings |
 |---|---|---|
@@ -99,6 +100,7 @@ Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for 
 | `PermissionedDomains` | Enabled | `MPT-DOMAIN-AUTH-001`, `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
 | `PermissionedDEX` | Enabled | `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
 | `TokenEscrow` | Enabled | `ESCROW-CANCEL-IOU-001` |
+| `fixCleanup3_1_3` | Enabled by raw amendment hash | Excludes cleanup-era candidates from the live findings list |
 
 ## Evidence Packet
 
@@ -109,6 +111,7 @@ Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for 
 | Direct XRPL amendment receipt | [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json) |
 | Direct XRPL runtime receipt | [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json) |
 | Upstream remediation receipt | [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json) |
+| Live P0 Hunt V2 triage | [`live_p0_hunt_v2_triage.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md) |
 | Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
 | Common runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
 | Live proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
@@ -458,6 +461,6 @@ Issue identifiers are **internal audit labels**, not official CVEs or vendor adv
 
 **Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
 
-*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T15:25:31Z*
+*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T15:53:02Z*
 
 </div>

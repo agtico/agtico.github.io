@@ -141,6 +141,23 @@ def main() -> int:
     for amendment in required_enabled:
         actual = amendment_status["public_enabled_features"][amendment]["enabled"]
         require(actual is True, f"required public amendment is not enabled: {amendment}")
+        scoped_actual = amendment_status["scope_features"][amendment]["enabled"]
+        require(scoped_actual is True, f"required scoped amendment is not enabled: {amendment}")
+
+    cleanup = amendment_status["scope_features"]["fixCleanup3_1_3"]
+    require(cleanup["enabled"] is True, "fixCleanup3_1_3 must be enabled by raw Amendments hash")
+    require(
+        cleanup["id"] == "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC",
+        "unexpected fixCleanup3_1_3 amendment hash",
+    )
+    require(cleanup["id_source"] == "sha512_half_name", "fixCleanup3_1_3 must be raw-hash checked")
+    require("fixCleanup3_1_3" in article, "article must name the cleanup-era gate")
+
+    for disabled in ["LendingProtocol", "SingleAssetVault", "PermissionDelegation", "Batch"]:
+        require(
+            amendment_status["scope_features"][disabled]["enabled"] is False,
+            f"disabled surface unexpectedly enabled in amendment receipt: {disabled}",
+        )
 
     require(
         runtime_status["source"] == "direct XRPL public JSON-RPC",
@@ -159,6 +176,15 @@ def main() -> int:
     for amendment in required_enabled:
         actual = runtime_status["feature_status"][amendment]["enabled"]
         require(actual is True, f"runtime receipt missing enabled amendment: {amendment}")
+    require(
+        runtime_status["feature_status"]["fixCleanup3_1_3"]["enabled"] is True,
+        "runtime receipt must raw-hash check fixCleanup3_1_3 as enabled",
+    )
+    for disabled in ["LendingProtocol", "SingleAssetVault", "PermissionDelegation", "Batch"]:
+        require(
+            runtime_status["feature_status"][disabled]["enabled"] is False,
+            f"disabled surface unexpectedly enabled in runtime receipt: {disabled}",
+        )
 
     require(
         remediation_status["source"] == "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
