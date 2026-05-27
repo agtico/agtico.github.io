@@ -21,7 +21,7 @@ AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 
-EXPECTED_RECORD_COUNT = 15
+EXPECTED_RECORD_COUNT = 16
 
 REQUIRED_ENABLED = {
     "AMM",
@@ -216,6 +216,7 @@ def check_remediation(remediation_status: dict) -> None:
             "AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001",
             "AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001",
             "AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001",
+            "AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001",
         },
         "unexpected unresolved remediation set",
     )
@@ -302,7 +303,7 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("55 cases, 15804 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("56 cases, 15865 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)

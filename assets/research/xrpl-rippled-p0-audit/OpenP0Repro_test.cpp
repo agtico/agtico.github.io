@@ -2853,6 +2853,59 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineAMMClawbackPairedAssetCurrent()
+    {
+        testcase(
+            "AMM current — Clawback returns paired asset through DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const gw2{"gateway2"};
+        Account const alice{"alice"};
+        auto const USD = gw["USD"];
+        auto const EUR = gw2["EUR"];
+
+        FeatureBitset const features = testable_amendments() | featureAMM |
+            featureAMMClawback | featureDisallowIncoming;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, gw2, alice);
+        env.close();
+
+        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(10'000)), THISLINE);
+        env(trust(alice, EUR(10'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(3'000)), THISLINE);
+        env(pay(gw2, alice, EUR(1'000)), THISLINE);
+        env.close();
+
+        AMM amm{env, alice, EUR(1'000), USD(2'000)};
+        env.close();
+
+        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+        env(trust(alice, EUR(0)), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(aliceEurLine));
+
+        env(fset(gw2, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        env(trust(alice, EUR(10'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(aliceEurLine));
+
+        env(amm::ammClawback(gw, alice, USD, EUR, USD(1'000)),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        BEAST_EXPECT(env.le(aliceEurLine));
+        BEAST_EXPECT(env.balance(alice, EUR).number() > beast::zero);
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -3136,6 +3189,7 @@ public:
         testDisallowIncomingTrustlineAMMWithdrawCurrent();
         testDisallowIncomingTrustlineAMMCreateCurrent();
         testDisallowIncomingTrustlineAMMEmptyDepositCurrent();
+        testDisallowIncomingTrustlineAMMClawbackPairedAssetCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();

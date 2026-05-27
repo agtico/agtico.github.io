@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T17:36:38Z`
+Checked: `2026-05-27T18:30:09Z`
 
 ## Live Scope
 
@@ -78,6 +78,14 @@ Five additional findings were promoted during the live-only continuation:
   bypassed by `EscrowFinish`; direct `TrustSet` is rejected, but finishing an
   IOU TokenEscrow auto-creates the destination trustline anyway.
 
+A later AMMClawback slice promoted one more unresolved live finding:
+
+- `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001`: in a two-issuer AMM, issuer
+  A can claw back its asset and force-return issuer B's paired IOU to a holder
+  after issuer B has set `asfDisallowIncomingTrustline`, recreating issuer B's
+  trustline through the AMMWithdraw/accountSend path even though direct
+  `TrustSet` is rejected.
+
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
 
@@ -92,7 +100,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has seven live-enabled findings with no confirmed upstream fix in
+The packet now has eleven live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -102,6 +110,10 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`
 - `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`
 - `TOKENESCROW-DISALLOW-INCOMING-FINISH-001`
+- `AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001`
+- `AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001`
+- `AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001`
+- `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001`
 
 ## Next Hunt Targets
 
