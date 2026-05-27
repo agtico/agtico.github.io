@@ -2707,6 +2707,48 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineAMMWithdrawCurrent()
+    {
+        testcase("AMM current — Withdraw bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        auto const USD = gw["USD"];
+
+        FeatureBitset const features =
+            testable_amendments() | featureAMM | featureDisallowIncoming;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, alice);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env.close();
+
+        AMM amm{env, alice, XRP(1'000), USD(100)};
+
+        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+        env(trust(alice, USD(0)), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(aliceLine));
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(aliceLine));
+
+        amm.withdraw(alice, USD(10), std::nullopt, std::nullopt, ter(tesSUCCESS));
+        env.close();
+
+        BEAST_EXPECT(env.balance(alice, USD).number() > beast::zero);
+        BEAST_EXPECT(env.le(aliceLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -2987,6 +3029,7 @@ public:
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineCheckCashCurrent();
         testDisallowIncomingTrustlineEscrowFinishCurrent();
+        testDisallowIncomingTrustlineAMMWithdrawCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();

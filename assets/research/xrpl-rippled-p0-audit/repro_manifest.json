@@ -8,9 +8,9 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
-    "sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
-    "result": "Live-mainnet eligible extract: 12 findings after adding TOKENESCROW-DISALLOW-INCOMING-FINISH-001; source OpenP0Repro full suite 52 cases / 9385 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v7.log",
+    "sha256": "e3db461321da32ed7ffa5a780d8a9c843afde63962fe675c772c7be10eb8f3a5",
+    "result": "Live-mainnet eligible extract: 13 findings after adding AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001; source OpenP0Repro full suite 53 cases / 9428 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
@@ -182,6 +182,35 @@
       ]
     },
     {
+      "id": "AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001",
+      "title": "AMMWithdraw bypasses issuer DisallowIncomingTrustline",
+      "category": "Current baseline transaction-path",
+      "level": "High",
+      "score": 8.0,
+      "affected": "rippled 3.1.3 AMMWithdraw IOU settlement and automatic trustline creation",
+      "exploit_type": "Issuer policy bypass",
+      "markers": [
+        "AMM current — Withdraw bypasses DisallowIncomingTrustline"
+      ],
+      "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but AMMWithdraw can still withdraw that issuer's IOU from a live AMM pool to a user with no existing issuer trustline, creating the incoming trustline through the AMM withdrawal accountSend path.",
+      "expected": "AMMWithdraw should enforce the same incoming-trustline opt-out policy before allowing pool withdrawal to create a receiver trustline for the issuer's IOU.",
+      "source_signal": "Source review of AMMWithdraw shows only reserve checking before accountSend returns pool IOU assets to the withdrawing account; no lsfDisallowIncomingTrustline check was found in AMMWithdraw or the generic accountSend/issueIOU path in 3.2.0-b7, origin/develop, or origin/copilot/apply-asfdisallowincomingtrustline.",
+      "remediation": "Reject AMMWithdraw IOU withdrawal to a receiver with no existing trustline when the IOU issuer has lsfDisallowIncomingTrustline set, unless a governed amendment defines different AMM-specific semantics.",
+      "script": "repros/AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001.sh",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v7.log",
+      "proof_log_sha256": "e3db461321da32ed7ffa5a780d8a9c843afde63962fe675c772c7be10eb8f3a5",
+      "source": "OpenP0Repro_test.cpp",
+      "anchor": "ammwithdraw-disallow-incoming-trustline-001",
+      "required_amendments": [
+        "AMM",
+        "DisallowIncoming",
+        "fixDisallowIncomingV1"
+      ],
+      "required_disabled_amendments": [
+        "fixDisallowIncomingV1_1"
+      ]
+    },
+    {
       "id": "ESCROW-CANCEL-IOU-001",
       "title": "EscrowCancel deleted IOU trustline exception",
       "category": "Current transaction-path",
@@ -335,7 +364,7 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T17:36:38Z",
+    "checked_utc": "2026-05-27T17:49:42Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
@@ -345,6 +374,7 @@
       "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
       "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001",
       "TOKENESCROW-DISALLOW-INCOMING-FINISH-001",
+      "AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
@@ -361,7 +391,7 @@
   },
   "upstream_remediation_scope": {
     "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
-    "checked_utc": "2026-05-27T17:37:57Z",
+    "checked_utc": "2026-05-27T17:52:16Z",
     "receipt": "upstream_remediation_status_20260527.json",
     "patched_in_3_2_0_b7_or_develop": [
       "ESCROW-CANCEL-IOU-001",
@@ -377,7 +407,8 @@
       "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
       "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
       "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001",
-      "TOKENESCROW-DISALLOW-INCOMING-FINISH-001"
+      "TOKENESCROW-DISALLOW-INCOMING-FINISH-001",
+      "AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001"
     ]
   }
 }
