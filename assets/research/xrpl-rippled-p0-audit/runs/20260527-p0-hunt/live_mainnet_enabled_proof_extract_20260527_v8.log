@@ -1,0 +1,121 @@
+=== 1/3 Logic model (no build) ===
+XRPL IOU freeze check model
+
+Scenario                                 checkFrozen blocks?    checkDeepFrozen blocks?    Bug path allows IOU?
+--------------------------------------------------------------------------------------------------------------
+No freeze                                False                  False                      False
+Regular freeze only (compliance case)    True                   False                      True
+Deep + regular freeze                    True                   True                       False
+
+Rows where 'Bug path allows IOU?' is True are the regular-freeze bypass class.
+This model covers the freeze predicate. It does not prove each transaction path by itself.
+Existing jtx often sets tfSetFreeze | tfSetDeepFreeze together — misses the regular-only row.
+
+JTX-confirmed regular-freeze lending sites:
+  F3.3   LoanBrokerCoverWithdraw      receiver=destination              wrong=checkDeepFrozen
+  F3.5   LoanBrokerDelete             receiver=broker owner             wrong=checkDeepFrozen
+  F3.6   LoanPay                      receiver=broker owner fee routing wrong=isDeepFrozen
+  F3.7   LoanSet                      receiver=broker owner origination fee wrong=checkDeepFrozen
+  F3.8   LoanPay                      receiver=vault pseudo             wrong=checkDeepFrozen
+  F3.9   LoanBrokerCoverDeposit       receiver=broker pseudo            wrong=checkDeepFrozen
+  F3.10  LoanPay                      receiver=broker pseudo fallback fee wrong=checkDeepFrozen
+
+Not counted as reproduced fund-movement findings in this kit:
+  F4.6   VaultWithdraw                receiver=vault pseudo source      wrong=missing checkFrozen
+  B3-1   VaultDeposit                 receiver=vault pseudo destination wrong=missing checkFrozen
+
+=== 2/3 jtx repro suite OpenP0Repro (fund movement + control) ===
+ripple.tx.OpenP0Repro F3.3 LoanBrokerCoverWithdraw — regular-freeze-only destination (P0)
+ripple.tx.OpenP0Repro F3.3 control — deep-freeze blocks cover withdraw
+ripple.tx.OpenP0Repro F3.5 LoanBrokerDelete — regular-freeze-only owner receives cover
+ripple.tx.OpenP0Repro F3.9 LoanBrokerCoverDeposit — regular-freeze-only broker pseudo receives cover
+ripple.tx.OpenP0Repro F3.7 LoanSet — regular-freeze-only broker owner receives origination fee
+ripple.tx.OpenP0Repro F3.6 LoanPay — regular-freeze-only broker owner receives service fee
+ripple.tx.OpenP0Repro F3.8 LoanPay — regular-freeze-only vault pseudo receives repayment
+ripple.tx.OpenP0Repro F3.10 LoanPay — regular-freeze-only broker pseudo receives fallback fee
+ripple.tx.OpenP0Repro F6.1 SetTrust missing issuer — tecNO_DST when SAV enabled (control)
+ripple.tx.OpenP0Repro DIDSet tecDIR_FULL does not leave partial DID object
+ripple.tx.OpenP0Repro Batch all-or-nothing rolls back expired CredentialAccept deletion
+ripple.tx.OpenP0Repro PermissionedDomainSet pre-fix ticket sequence collision candidate
+FTL:OpenLedger apply: dirInsert: double insertion
+FTL:OpenLedger apply: dirInsert: double insertion
+FTL:OpenLedger apply: dirInsert: double insertion
+ripple.tx.OpenP0Repro Credentials pre-fix — expired cleanup ignores deleteSLE failure
+ripple.tx.OpenP0Repro Permissioned DEX pre-fix — empty AdditionalBooks hides malformed hybrid offer
+FTL:OpenP0Repro Invariant failed: hybrid offer is malformed
+ripple.tx.OpenP0Repro MPT multi-send pre-fix aggregate MaximumAmount bypass
+ripple.tx.OpenP0Repro VaultWithdraw pre-fix share-denominated trustline limit bypass
+ripple.tx.OpenP0Repro VaultWithdraw pre-fix deletes share MPToken with locked escrow
+ripple.tx.OpenP0Repro VaultClawback pre-fix zero-amount asset clawback is not clamped to assets available
+ERR:OpenLedger FEDF49CF... VaultClawback: negative balance of vault assets.
+ERR:OpenLedger FEDF49CF... VaultClawback: negative balance of vault assets.
+ERR:OpenLedger FEDF49CF... VaultClawback: negative balance of vault assets.
+ripple.tx.OpenP0Repro Vault share MPT current — underlying CanTransfer is not inherited
+ripple.tx.OpenP0Repro LoanPay pre-fix high-amount payment requires uncapped fee
+ripple.tx.OpenP0Repro LoanBrokerCover current — IOU precision drift
+ripple.tx.OpenP0Repro LoanPay current — broker minimum cover scale inconsistency
+ripple.tx.OpenP0Repro LoanBrokerDelete current — locked MPT cover is returned
+ripple.tx.OpenP0Repro VaultDeposit current — opposite trustline limit causes tefINTERNAL
+ERR:OpenLedger C3963ACE... VaultDeposit: negative balance of account assets.
+ERR:OpenLedger C3963ACE... VaultDeposit: negative balance of account assets.
+ERR:OpenLedger C3963ACE... VaultDeposit: negative balance of account assets.
+ripple.tx.OpenP0Repro EscrowCancel current — deleted IOU trustline returns tefEXCEPTION
+FTL:OpenLedger apply: Template field error 'OwnerCount'
+FTL:OpenLedger apply: Template field error 'OwnerCount'
+FTL:OpenLedger apply: Template field error 'OwnerCount'
+ripple.tx.OpenP0Repro AMM current — stale AuthAccounts survive empty reinit
+ripple.tx.OpenP0Repro Delegate current — delegatee account deletion leaves stale delegation
+ripple.tx.OpenP0Repro MPT current — domain-bound RequireAuth can be cleared
+ripple.tx.OpenP0Repro Number current — upward rounding falls below exact at maxRep cusp
+ripple.tx.OpenP0Repro Number current - upward division falls below exact quotient
+ripple.tx.OpenP0Repro MPT current — transfer-rate scaling overflows large integral amount
+ripple.tx.OpenP0Repro Delegate current — delegated fee is coupled to delegator reserve
+ripple.tx.OpenP0Repro Delegate current — SAV transaction can be delegated
+ripple.tx.OpenP0Repro Permissioned DEX current — hybrid offer open-book quality mismatch
+ripple.tx.OpenP0Repro Permissioned DEX current — cancel regular offer via domain offer invariant
+FTL:OpenLedger Invariant failed: domain transaction affected regular offers
+FTL:OpenLedger Transaction has failed one or more invariants: {"Account":"rEumhzQ7a9TmvyV8BXQU5wdvVc9n2UZG4D","DomainID":"C20C993164E33A058883271CEAF3C5DFF05B82063655373D34F9DA4520E8B8CB","Fee":"10","OfferSequence":6,"Sequence":7,"SigningPubKey":"02CE5E777EB3B6C741AAE4F85D8C8FA1C0598BF60AB5AAC17EF0305F40AFD39019","TakerGets":{"currency":"USD","issuer":"rHUKYAZyUFn8PCZWbPfwHfbVQXTYrYKkHb","value":"20"},"TakerPays":"20000000","TransactionType":"OfferCreate","TxnSignature":"304402204BA97EC36183E613B5F7EE4F3235AFCC8E69FDA1F19A62CADE8871F47383644102200E03C8F8D719342E109E2690EC29A545779B2C7A5BAC02E6CD6DECD1A716571D","hash":"BE639154E6D30B62099F07CB1A5D6A5242E5434A73BDC99F1A4EA802C8ACEC60"}
+FTL:LedgerConsensus Invariant failed: domain transaction affected regular offers
+FTL:LedgerConsensus Transaction has failed one or more invariants: {"Account":"rEumhzQ7a9TmvyV8BXQU5wdvVc9n2UZG4D","DomainID":"C20C993164E33A058883271CEAF3C5DFF05B82063655373D34F9DA4520E8B8CB","Fee":"10","OfferSequence":6,"Sequence":7,"SigningPubKey":"02CE5E777EB3B6C741AAE4F85D8C8FA1C0598BF60AB5AAC17EF0305F40AFD39019","TakerGets":{"currency":"USD","issuer":"rHUKYAZyUFn8PCZWbPfwHfbVQXTYrYKkHb","value":"20"},"TakerPays":"20000000","TransactionType":"OfferCreate","TxnSignature":"304402204BA97EC36183E613B5F7EE4F3235AFCC8E69FDA1F19A62CADE8871F47383644102200E03C8F8D719342E109E2690EC29A545779B2C7A5BAC02E6CD6DECD1A716571D","hash":"BE639154E6D30B62099F07CB1A5D6A5242E5434A73BDC99F1A4EA802C8ACEC60"}
+ripple.tx.OpenP0Repro Loan current — near-zero payment factor cancellation
+ripple.tx.OpenP0Repro Vault current — withdraw across IOU scale boundary invariant
+FTL:OpenLedger Invariant failed: withdrawal must decrease vault balance
+FTL:OpenLedger Invariant failed: withdrawal must increase destination balance
+FTL:OpenLedger Transaction has failed one or more invariants: {"Account":"rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn","Amount":{"currency":"USD","issuer":"r9cZ5oHbdL4Z9Maj6TdnfAos35nVzYuNds","value":"5"},"Fee":"10","Sequence":7,"SigningPubKey":"0388935426E0D08083314842EDFBB2D517BD47699F9A4527318A8E10468C97C052","TransactionType":"VaultWithdraw","TxnSignature":"3045022100F207D4627260A43E2B0F751F3E2C7907379629BE10B490677B6525D827986E4102205A7DCDB026A5D324E46DB85A94FE364AE8B119A0211E12AB74EB415CFB218213","VaultID":"25F480AA6A4B8CC66D83C8F3AFED7CE043E34970E634B33D9CD041DE6849727F","hash":"9232D4519049295B74A0DC828A1C85A0F84C901ED608E3CD365981E63ACE2BD0"}
+ripple.tx.OpenP0Repro Vault current — issuer deposit at IOU edge invariant
+FTL:OpenLedger Invariant failed: deposit must increase vault balance
+FTL:OpenLedger Transaction has failed one or more invariants: {"Account":"r9cZ5oHbdL4Z9Maj6TdnfAos35nVzYuNds","Amount":{"currency":"USD","issuer":"r9cZ5oHbdL4Z9Maj6TdnfAos35nVzYuNds","value":"2"},"Fee":"10","Sequence":6,"SigningPubKey":"02265D10C06CD30762E3C65CD8B3B09607E765CE714C91DC7902D569B041373A84","TransactionType":"VaultDeposit","TxnSignature":"30440220559634C6A0EC2F8580F483EE30F70FD1826EFAB27D9B8D5316682049F4C0FF800220320A1B54C5C3E6E791FBC4235E21AECAEED655C507B56B3C875340B69AEA096E","VaultID":"2DE64CA41250EF3CB7D2B127D6CEC31F747492CAE2BD1628CA02EA1FFE7475B3","hash":"8BF921E621C454FC520EFB65D9E5547E152B153B7CD3D6651CD98D11A55427C4"}
+ripple.tx.OpenP0Repro Vault current — sole shareholder impaired exit is stuck
+FTL:OpenLedger Invariant failed: updated zero sized vault must have no assets outstanding
+FTL:OpenLedger Transaction has failed one or more invariants: {"Account":"rGqHTaKAedMMsxT4iYaYvXLyFP1ayofRG7","Amount":{"currency":"IOU","issuer":"r9cZ5oHbdL4Z9Maj6TdnfAos35nVzYuNds","value":"3333.5"},"Fee":"10","Sequence":9,"SigningPubKey":"038D67D52A249EC8D09486B2A238B3BD36E7B0A35A37B488BECFDDAFC2A9FC4CCD","TransactionType":"VaultWithdraw","TxnSignature":"3044022060D40EBE2645C6ACA3F8CF2EF7646A41748D5021F88EA0FFF557240AD0E3814D02201BB70711901979838964674592CF84EB2C842BA611000BBDD12D1A95109D835E","VaultID":"B311096744BFE3D65E79517D7AA0716E1A1AFF243356CFB99531DED658C61B8A","hash":"65B3E4B2EB5A9DAD1F338A59BA8D8D3A60298A8B0C74B73E0534E449E22794FE"}
+FTL:LedgerConsensus Invariant failed: updated zero sized vault must have no assets outstanding
+FTL:LedgerConsensus Transaction has failed one or more invariants: {"Account":"rGqHTaKAedMMsxT4iYaYvXLyFP1ayofRG7","Amount":{"currency":"IOU","issuer":"r9cZ5oHbdL4Z9Maj6TdnfAos35nVzYuNds","value":"3333.5"},"Fee":"10","Sequence":9,"SigningPubKey":"038D67D52A249EC8D09486B2A238B3BD36E7B0A35A37B488BECFDDAFC2A9FC4CCD","TransactionType":"VaultWithdraw","TxnSignature":"3044022060D40EBE2645C6ACA3F8CF2EF7646A41748D5021F88EA0FFF557240AD0E3814D02201BB70711901979838964674592CF84EB2C842BA611000BBDD12D1A95109D835E","VaultID":"B311096744BFE3D65E79517D7AA0716E1A1AFF243356CFB99531DED658C61B8A","hash":"65B3E4B2EB5A9DAD1F338A59BA8D8D3A60298A8B0C74B73E0534E449E22794FE"}
+ripple.tx.OpenP0Repro Delegate current — delegator multisign rejected for delegate
+ripple.tx.OpenP0Repro MPT current — non-canonical amount reaches ledger engine
+ripple.tx.OpenP0Repro MPT current — STIssue sequence bytes are legacy-swapped
+ripple.tx.OpenP0Repro MPT current — locked holder can delete lock state without SAV
+ripple.tx.OpenP0Repro TrustLine current — offer crossing creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — OfferCreate bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro NFToken current — AcceptOffer bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro CheckCash current — bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro TokenEscrow current — Finish bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro AMM current — Withdraw bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro AMM current — Create bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro Delegate current — MPT granular lock permission mutates issuance fields
+ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permission consumes principal sequence
+ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
+ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
+FTL:OpenP0Repro Invariant failed: an XRP trust line was created
+FTL:OpenP0Repro Invariant failed: a trust line with deep freeze flag without normal freeze was created
+FTL:OpenP0Repro Invariant failed: escrow specifies invalid amount
+ripple.tx.OpenP0Repro had 0 failures.
+Longest suite times:
+   11.9s ripple.tx.OpenP0Repro
+11.9s, 1 suite, 54 cases, 9473 tests total, 0 failures
+
+=== 3/3 F6.1 negative control (must return tecNO_DST, no crash) ===
+ripple.tx.OpenP0ReproCrash F6.1 negative control — missing issuer returns tecNO_DST
+ripple.tx.OpenP0ReproCrash had 0 failures.
+202ms, 1 suite, 1 case, 12 tests total, 0 failures
+
+=== Done ===
