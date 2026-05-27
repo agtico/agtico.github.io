@@ -1,18 +1,23 @@
 ---
 layout: report
-title: "XRPL rippled 3.1.3 | Ten Open P0s"
+title: "Diving deep on RippleD P0s"
 date: "2026-05-26 20:00:00 +0000"
-summary: "AGTI audit of rippled 3.1.3: ten confirmed open P0s — jtx-proven lending freeze bypass and SetTrust crash. Vault pseudo bypass ruled out and excluded."
+summary: "Post Fiat runs on a RippleD fork. Before proceeding, we audited upstream rippled 3.1.3 — findings, jtx proof, and what we ruled out."
 category: AGTI Research
 xrpl_report: true
-report_css_version: 20260527c
+report_css_version: 20260527d
 tags:
   - AGTI
+  - Post Fiat
   - XRPL
   - rippled
   - Security
-  - Migration
 ---
+
+<div class="pearl-primer-box">
+  <p><strong>Context:</strong> Post Fiat is a <strong>RippleD fork</strong>. Before we commit to building on or migrating off this stack, we ran an internal audit of the upstream codebase — baseline <code>release-3.1.3</code>, May 2026 — to understand what is actually broken, what is proven, and what we can rule out.</p>
+  <p style="margin-top:12px">This report is that audit write-up: plain-English findings, exploit paths where they exist, diagrams, and jtx reproductions. It is research for our own decision-making, published here for transparency.</p>
+</div>
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard bad">
@@ -33,7 +38,7 @@ tags:
 </div>
 
 <div class="pearl-verdict-banner">
-  <strong>AGTI bottom line</strong>
+  <strong>How to read this report</strong>
   <p>Every section below uses the same three-part layout:</p>
   <ul class="pearl-verdict-list">
     <li><strong>Plain English</strong> — what the bug means without protocol jargon</li>
