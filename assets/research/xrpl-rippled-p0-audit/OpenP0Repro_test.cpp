@@ -2789,6 +2789,70 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineAMMEmptyDepositCurrent()
+    {
+        testcase("AMM current — Empty deposit bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+
+        FeatureBitset const features =
+            testable_amendments() | featureAMM | featureDisallowIncoming;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, alice, bob);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env(trust(bob, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env(pay(gw, bob, USD(100)), THISLINE);
+        env.close();
+
+        AMM amm{env, alice, XRP(1'000), USD(100)};
+        for (auto i = 0u; i < maxDeletableAMMTrustLines + 10; ++i)
+        {
+            Account const holder{std::string{"emptyammline"} + std::to_string(i)};
+            env.fund(XRP(1'000), holder);
+            env(trust(holder, STAmount{amm.lptIssue(), 10'000}));
+            env.close();
+        }
+
+        amm.withdrawAll(alice);
+        BEAST_EXPECT(amm.ammExists());
+        BEAST_EXPECT(amm.getLPTokensBalance() == IOUAmount{0});
+
+        auto const ammLine = keylet::line(amm.ammAccount(), gw, to_currency("USD"));
+        // This must be absent for this to be a disallow-incoming creation path.
+        BEAST_EXPECT(!env.le(ammLine));
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const probe{"probe"};
+        env.fund(XRP(400'000), probe);
+        env.close();
+        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+
+        amm.deposit(
+            bob,
+            std::nullopt,
+            XRP(1'000),
+            USD(100),
+            std::nullopt,
+            tfTwoAssetIfEmpty,
+            std::nullopt,
+            std::nullopt,
+            0);
+
+        BEAST_EXPECT(env.le(ammLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -3071,6 +3135,7 @@ public:
         testDisallowIncomingTrustlineEscrowFinishCurrent();
         testDisallowIncomingTrustlineAMMWithdrawCurrent();
         testDisallowIncomingTrustlineAMMCreateCurrent();
+        testDisallowIncomingTrustlineAMMEmptyDepositCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();
