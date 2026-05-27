@@ -1,0 +1,33 @@
+XRPL rippled 3.1.3 live-mainnet-enabled proof extract
+source_full_log=runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log
+source_full_log_sha256=a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c
+scope=Only markers for findings whose required amendments were enabled in the XRPSCAN 2026-05-27T14:22:38Z snapshot are included here.
+
+## MPT-DOMAIN-AUTH-001 — Domain-bound MPT RequireAuth clearing
+marker_present=true :: MPT current — domain-bound RequireAuth can be cleared
+
+## MPT-LOCK-UNAUTH-NOSAV-001 — MPT locked holder unauthorize without SAV
+marker_present=true :: MPT current — locked holder can delete lock state without SAV
+
+## ESCROW-CANCEL-IOU-001 — EscrowCancel deleted IOU trustline exception
+marker_present=true :: EscrowCancel current — deleted IOU trustline returns tefEXCEPTION
+
+## AMM-STALE-AUTH-001 — AMM stale AuthAccounts after empty reinit
+marker_present=true :: AMM current — stale AuthAccounts survive empty reinit
+
+## MPT-NONCANONICAL-AMOUNT-001 — Non-canonical MPT amount reaches ledger engine
+marker_present=true :: MPT current — non-canonical amount reaches ledger engine
+
+## MPT-TRANSFER-RATE-OVERFLOW-001 — MPT transfer-rate scaling overflow
+marker_present=true :: MPT current — transfer-rate scaling overflows large integral amount
+
+## PDEX-HYBRID-QUALITY-001 — Permissioned-DEX hybrid-offer quality mismatch
+marker_present=true :: Permissioned DEX current — hybrid offer open-book quality mismatch
+
+## PDEX-CANCEL-INVARIANT-001 — Permissioned-DEX regular-offer cancel invariant failure
+marker_present=true :: Permissioned DEX current — cancel regular offer via domain offer invariant
+
+ripple.tx.OpenP0Repro had 0 failures.
+47 cases, 9119 tests total, 0 failures
+ripple.tx.OpenP0ReproCrash had 0 failures.
+1 case, 12 tests total, 0 failures

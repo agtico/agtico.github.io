@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent
 SITE_ROOT = ROOT.parents[2]
 ARTICLE = SITE_ROOT / "_posts" / "2026-05-26-xrpl-rippled-open-p0-freeze-audit.md"
 MANIFEST = ROOT / "repro_manifest.json"
+AMENDMENT_STATUS = ROOT / "live_amendment_status_20260527.json"
 
 
 def fail(message: str) -> None:
@@ -62,6 +63,7 @@ def local_asset_links(markdown: str) -> set[str]:
 
 def main() -> int:
     manifest = json.loads(read_text(MANIFEST))
+    amendment_status = json.loads(read_text(AMENDMENT_STATUS))
     article = read_text(ARTICLE)
     proof = manifest["proof"]
     records = manifest["records"]
@@ -77,13 +79,64 @@ def main() -> int:
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
 
     require(
-        "RippleD 3.1.3 Audit: 37 Reproduced Critical And High-Severity Findings" in article,
+        "RippleD 3.1.3 Audit: Live Mainnet-Enabled High/Critical Findings" in article,
         "article title mismatch",
     )
+    require(len(records) == 8, "live manifest must contain exactly 8 public findings")
+    require("## Live Amendment Filter" in article, "article missing live amendment filter")
     require("## Evidence Packet" in article, "article missing evidence packet section")
     require("## Table Of Contents" in article, "article missing table of contents")
     require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
+
+    required_status = {
+        "AMM": True,
+        "MPTokensV1": True,
+        "PermissionedDomains": True,
+        "PermissionedDEX": True,
+        "TokenEscrow": True,
+        "SingleAssetVault": False,
+        "LendingProtocol": False,
+        "Batch": False,
+        "PermissionDelegation": False,
+    }
+    for amendment, expected in required_status.items():
+        actual = amendment_status["status"][amendment]["enabled"]
+        require(actual is expected, f"unexpected live amendment status for {amendment}: {actual}")
+
+    excluded_ids = {
+        "LEND-FREEZE-001",
+        "LOANBROKER-COVER-PRECISION-001",
+        "LOAN-MINCOVER-SCALE-001",
+        "VAULT-SHARE-MPT-TRANSFER-001",
+        "LOANBROKER-LOCKED-MPT-001",
+        "LOAN-PAYMENT-FACTOR-001",
+        "VAULT-WITHDRAW-SCALE-BOUNDARY-001",
+        "VAULT-DEPOSIT-ISSUER-EDGE-001",
+        "VAULT-SOLE-SHAREHOLDER-IMPAIRED-001",
+        "VAULT-DEPOSIT-OPPOSITE-LIMIT-001",
+        "DELEGATE-DELETE-STALE-001",
+        "DELEGATE-FEE-RESERVE-001",
+        "DELEGATE-SAV-001",
+        "DELEGATE-MULTISIGN-001",
+        "DELEGATE-MPT-GRANULAR-MUTATION-001",
+        "DELEGATE-EMPTY-ACCOUNTSET-001",
+        "BATCH-SIGNER-OUTER-REPLAY-001",
+        "MPT-STISSUE-WIRE-001",
+        "NUMBER-CUSP-UPWARD-001",
+        "NUMBER-DIVISION-UPWARD-001",
+        "PDOMAIN-TICKET-001",
+        "MPT-MULTISEND-001",
+        "VAULT-WITHDRAW-001",
+        "VAULT-MPT-ESCROW-001",
+        "VAULT-CLAWBACK-001",
+        "LOANPAY-FEE-001",
+        "INVARIANT-BOOL-OVERWRITE-001",
+        "CREDENTIAL-EXPIRED-DELETE-001",
+        "PDEX-HYBRID-EMPTY-BOOKS-001",
+    }
+    for excluded_id in excluded_ids:
+        require(excluded_id not in article, f"non-live finding leaked into article: {excluded_id}")
 
     anchors = set(re.findall(r'<a id="([^"]+)"></a>', article))
     seen_ids: set[str] = set()

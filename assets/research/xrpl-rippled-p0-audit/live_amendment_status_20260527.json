@@ -1,0 +1,125 @@
+{
+  "source": "https://api.xrpscan.com/api/v1/amendments",
+  "checked_utc": "2026-05-27T14:22:38Z",
+  "status": {
+    "AMM": {
+      "enabled": true,
+      "count": 34,
+      "majority": null,
+      "introduced": "1.12.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": "2024-03-22T20:11:41.000Z"
+    },
+    "Batch": {
+      "enabled": false,
+      "count": 12,
+      "majority": null,
+      "introduced": "2.5.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": null
+    },
+    "Credentials": {
+      "enabled": true,
+      "count": 29,
+      "majority": null,
+      "introduced": "2.3.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": "2025-09-04T03:55:30.000Z"
+    },
+    "LendingProtocol": {
+      "enabled": false,
+      "count": 8,
+      "majority": null,
+      "introduced": "3.1.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": null
+    },
+    "MPTokensV1": {
+      "enabled": true,
+      "count": 33,
+      "majority": null,
+      "introduced": "2.3.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": "2025-10-01T13:13:10.000Z"
+    },
+    "PermissionDelegation": {
+      "enabled": false,
+      "count": 1,
+      "majority": null,
+      "introduced": "2.5.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": null
+    },
+    "PermissionedDEX": {
+      "enabled": true,
+      "count": 28,
+      "majority": null,
+      "introduced": "2.5.0",
+      "supported": true,
+      "threshold": 27,
+      "validations": 34,
+      "enabled_on": "2026-02-18T10:58:10.000Z"
+    },
+    "PermissionedDomains": {
+      "enabled": true,
+      "count": 31,
+      "majority": null,
+      "introduced": "2.4.0",
+      "supported": true,
+      "threshold": 27,
+      "validations": 34,
+      "enabled_on": "2026-02-04T10:06:41.000Z"
+    },
+    "SingleAssetVault": {
+      "enabled": false,
+      "count": 9,
+      "majority": null,
+      "introduced": "3.1.0",
+      "supported": true,
+      "threshold": 28,
+      "validations": 35,
+      "enabled_on": null
+    },
+    "TokenEscrow": {
+      "enabled": true,
+      "count": 30,
+      "majority": null,
+      "introduced": "2.5.0",
+      "supported": true,
+      "threshold": 27,
+      "validations": 34,
+      "enabled_on": "2026-02-12T21:24:40.000Z"
+    }
+  },
+  "inclusion_rule": "Public report includes only reproduced current findings whose required XRPL mainnet amendments were enabled in this snapshot, and excludes medium-only helper findings from the headline high/critical packet.",
+  "included_ids": [
+    "MPT-DOMAIN-AUTH-001",
+    "MPT-LOCK-UNAUTH-NOSAV-001",
+    "ESCROW-CANCEL-IOU-001",
+    "AMM-STALE-AUTH-001",
+    "MPT-NONCANONICAL-AMOUNT-001",
+    "MPT-TRANSFER-RATE-OVERFLOW-001",
+    "PDEX-HYBRID-QUALITY-001",
+    "PDEX-CANCEL-INVARIANT-001"
+  ],
+  "excluded_classes": [
+    "Historical/replay-era fixCleanup3_1_3 findings",
+    "LendingProtocol findings because LendingProtocol was not enabled",
+    "SingleAssetVault findings because SingleAssetVault was not enabled",
+    "Batch findings because Batch was not enabled",
+    "PermissionDelegation findings because PermissionDelegation was not enabled",
+    "Medium-only helper/protocol-wire findings that were not high/critical live findings"
+  ]
+}

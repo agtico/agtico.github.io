@@ -1,13 +1,12 @@
-# XRPL RippleD P0 Evidence Packet
+# XRPL RippleD Live Mainnet-Enabled Evidence Packet
 
-This directory is the public, curated evidence packet for the AGTI report:
+This directory is the public, live-filtered evidence packet for the AGTI report:
 
 `/intelligence-reports/2026/05/26/xrpl-rippled-open-p0-freeze-audit/`
 
-It is intentionally smaller than the raw overnight hunt workspace. The packet
-keeps the report, manifest, proof log, reproduction source, and per-finding
-wrappers needed for audit. It excludes duplicate model-triage dumps and broad
-scratch logs that are not needed to verify the published article.
+The public report includes only reproduced high/critical findings whose required
+XRPL mainnet amendment surfaces were enabled in the XRPSCAN amendment snapshot
+checked at `2026-05-27T14:22:38Z`.
 
 ## Target
 
@@ -16,20 +15,34 @@ scratch logs that are not needed to verify the published article.
 - Target commit: `46b241ace8b30d9c9775d60ffba7d24b21903896`
 - Local proof suite: `OpenP0Repro`
 - Negative-control suite: `OpenP0ReproCrash`
+- Live amendment source: `https://api.xrpscan.com/api/v1/amendments`
+
+## Live Inclusion Rule
+
+Included findings must satisfy both conditions:
+
+1. The reproduced behavior applies to a current `rippled 3.1.3` code path.
+2. The required XRPL mainnet amendment surface was enabled in the saved
+   amendment snapshot, or the finding depends on the current absence of a
+   not-enabled amendment.
+
+The public packet excludes historical/replay-era findings, disabled `Batch` and
+`PermissionDelegation` findings, `SingleAssetVault` and `LendingProtocol`
+findings, and medium-only helper/protocol-wire issues.
 
 ## Packet Contents
 
 | File | Purpose |
 |---|---|
-| `repro_manifest.json` | Canonical list of 37 published findings, markers, risk labels, and proof bindings. |
-| `OpenP0Repro_test.cpp` | Reproduction source to copy into `rippled/src/test/app/`. |
-| `run_definitive_proof.sh` | Runs the logic model, `OpenP0Repro`, and `OpenP0ReproCrash`. |
+| `repro_manifest.json` | Canonical live manifest: 8 public high/critical findings, markers, risk labels, and proof bindings. |
+| `live_amendment_status_20260527.json` | XRPSCAN amendment-status snapshot used for the live filter. |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log` | Live-only proof extract with marker coverage and zero-failure footer. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
-| `repros/*.sh` | One wrapper per published finding; each asserts its manifest markers. |
-| `runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log` | Final proof log bound by SHA-256 in the manifest and article. |
-| `runs/20260527-p0-hunt/candidate_matrix.md` | Promoted and demoted candidate disposition. |
-| `runs/20260527-p0-hunt/repro_results.md` | Reproduction journal excerpts. |
-| `verify_packet.py` | Static verifier for article links, manifest records, scripts, markers, and proof hash. |
+| `repros/*.sh` | Per-finding wrappers. The public article links only wrappers for live findings. |
+| `verify_packet.py` | Static verifier for article links, manifest records, scripts, markers, amendment snapshot, and proof hash. |
+
+The broader research work is preserved in git history and in legacy files, but
+it is not part of the public live findings list.
 
 ## Audit Commands
 
@@ -40,19 +53,11 @@ cd assets/research/xrpl-rippled-p0-audit
 python3 verify_packet.py
 ```
 
-Run the full local proof, assuming a matching upstream rippled checkout exists
-at `/home/postfiat/repos/rippled`:
+Run one live finding:
 
 ```bash
 cd assets/research/xrpl-rippled-p0-audit
-./run_definitive_proof.sh
-```
-
-Run one finding:
-
-```bash
-cd assets/research/xrpl-rippled-p0-audit
-./repros/BATCH-SIGNER-OUTER-REPLAY-001.sh
+./repros/MPT-DOMAIN-AUTH-001.sh
 ```
 
 Expected proof footer:
@@ -66,10 +71,7 @@ ripple.tx.OpenP0ReproCrash had 0 failures.
 
 ## Boundary
 
-This packet is not a vendor advisory, CVE package, or mainnet exploit guide.
-It is a reproducibility packet for a clean local upstream jtx build and direct
-helper/protocol-wire checks in the same suite. Public testnet demonstrations are
-secondary because amendment state, node configuration, and server build
-selection are not fixed there. That boundary is evidentiary, not exculpatory:
-a clean local upstream jtx repro is sufficient to prove the transaction-path
-behavior it exercises.
+This packet is not a vendor advisory, CVE package, or mainnet exploit recipe.
+It is a reproducibility packet for clean local upstream jtx proofs over
+live-enabled amendment surfaces. Public testnet demonstrations are secondary
+because amendment state, node configuration, and server build selection move.

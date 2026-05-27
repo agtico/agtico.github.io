@@ -1,5 +1,5 @@
 {
-  "title": "XRPL rippled 3.1.3 reproduced P0-class evidence manifest",
+  "title": "XRPL rippled 3.1.3 live-mainnet-enabled high/critical evidence manifest",
   "target": {
     "repo": "XRPLF/rippled",
     "tag": "3.1.3",
@@ -8,415 +8,52 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-    "sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-    "result": "OpenP0Repro: 47 cases, 9119 tests, 0 failures; OpenP0ReproCrash: 1 case, 12 tests, 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log",
+    "sha256": "f50e5a25081533c7ed5f32823e76a927a06dd2013a51eea82b386bf87ab4461c",
+    "result": "Live-mainnet-enabled extract: 8 findings; source OpenP0Repro full suite 47 cases / 9119 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
-      "id": "LEND-FREEZE-001",
-      "title": "Lending regular-freeze receive bypass",
+      "id": "MPT-DOMAIN-AUTH-001",
+      "title": "Domain-bound MPT RequireAuth clearing",
       "category": "Current transaction-path",
       "level": "Critical",
-      "score": 9.4,
-      "affected": "rippled 3.1.3, XLS-66 lending receive paths",
-      "exploit_type": "Issuer-control bypass / unauthorized IOU receive",
+      "score": 8.7,
+      "affected": "rippled 3.1.3 MPT issuance authorization",
+      "exploit_type": "Authorization-policy bypass",
       "markers": [
-        "F3.3 LoanBrokerCoverWithdraw — regular-freeze-only destination (P0)",
-        "F3.5 LoanBrokerDelete — regular-freeze-only owner receives cover",
-        "F3.6 LoanPay — regular-freeze-only broker owner receives service fee",
-        "F3.7 LoanSet — regular-freeze-only broker owner receives origination fee",
-        "F3.8 LoanPay — regular-freeze-only vault pseudo receives repayment",
-        "F3.9 LoanBrokerCoverDeposit — regular-freeze-only broker pseudo receives cover",
-        "F3.10 LoanPay — regular-freeze-only broker pseudo receives fallback fee"
+        "MPT current — domain-bound RequireAuth can be cleared"
       ],
-      "broken": "Several lending paths use the deep-freeze-only predicate on IOU receivers. An issuer regular-freezes a receiver, but the lending transaction still delivers IOU because the path only blocks deep freeze.",
-      "expected": "Any path that delivers issuer IOU to an account must enforce regular freeze with the full frozen check.",
-      "source_signal": "Existing AGTI proof kit plus source review of lending receive checks introduced around PR #5270; VaultWithdraw provides the stricter receiver pattern.",
-      "remediation": "Replace or supplement receiver-side checkDeepFrozen/isDeepFrozen uses with checkFrozen/isFrozen across F3.3 and F3.5-F3.10, then flip the repro expectations from tesSUCCESS to tecFROZEN.",
-      "script": "repros/LEND-FREEZE-001.sh",
+      "broken": "An issuer can clear RequireAuth while retaining DomainID, leaving a domain-bound issuance permissionless in authorization state.",
+      "expected": "Domain-bound issuances should not clear RequireAuth while DomainID remains.",
+      "source_signal": "Later upstream commit 366899d5 / PR #6712.",
+      "remediation": "Disallow MPTClearRequireAuth when DomainID is set.",
+      "script": "repros/MPT-DOMAIN-AUTH-001.sh",
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "lend-freeze-001"
+      "anchor": "mpt-domain-auth-001"
     },
     {
-      "id": "PDOMAIN-TICKET-001",
-      "title": "PermissionedDomainSet ticket sequence collision",
-      "category": "Historical/replay-era",
+      "id": "MPT-LOCK-UNAUTH-NOSAV-001",
+      "title": "MPT locked holder unauthorize without SAV",
+      "category": "Current feature-bound",
       "level": "High",
-      "score": 7.4,
-      "affected": "pre-fixCleanup3_1_3 ledgers",
-      "exploit_type": "Object-key collision / transaction exception",
+      "score": 8.2,
+      "affected": "rippled 3.1.3 with MPTokensV1 active and SingleAssetVault inactive",
+      "exploit_type": "Feature-gated lock-state deletion",
       "markers": [
-        "PermissionedDomainSet pre-fix ticket sequence collision candidate"
+        "MPT current — locked holder can delete lock state without SAV"
       ],
-      "broken": "Ticket-paid PermissionedDomainSet read raw sfSequence, so two ticket-paid creates from the same account collide on keylet::permissionedDomain(account, 0).",
-      "expected": "Ticket-paid creates must use the effective ticket sequence for object identity.",
-      "source_signal": "fixCleanup3_1_3 release history and upstream permissioned-domain patch set.",
-      "remediation": "Use getSeqValue/effective ticket sequence for permissioned-domain creation keys.",
-      "script": "repros/PDOMAIN-TICKET-001.sh",
+      "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked when the SAV gate is inactive.",
+      "expected": "Locked-token deletion checks should not depend on unrelated SAV feature activation.",
+      "source_signal": "Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.",
+      "remediation": "Gate locked MPToken deletion on the MPT lock feature itself rather than SingleAssetVault.",
+      "script": "repros/MPT-LOCK-UNAUTH-NOSAV-001.sh",
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "pdomain-ticket-001"
-    },
-    {
-      "id": "MPT-MULTISEND-001",
-      "title": "MPT multi-send aggregate MaximumAmount bypass",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.6,
-      "affected": "pre-fixCleanup3_1_3 helper/accounting path",
-      "exploit_type": "Aggregate cap bypass",
-      "markers": [
-        "MPT multi-send pre-fix aggregate MaximumAmount bypass"
-      ],
-      "broken": "The pre-fix helper allows aggregate sends of 100+100 against MaximumAmount=150, recording outstanding amount beyond the cap.",
-      "expected": "Aggregate multi-send output must be capped by MaximumAmount.",
-      "source_signal": "Upstream commit 11bab0661 / PR #6644.",
-      "remediation": "Enforce aggregate MaximumAmount before recording MPT multi-send output.",
-      "script": "repros/MPT-MULTISEND-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-multisend-001"
-    },
-    {
-      "id": "VAULT-WITHDRAW-001",
-      "title": "VaultWithdraw share-denominated trustline-limit bypass",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.8,
-      "affected": "pre-fixCleanup3_1_3 VaultWithdraw share path",
-      "exploit_type": "Trustline limit bypass",
-      "markers": [
-        "VaultWithdraw pre-fix share-denominated trustline limit bypass"
-      ],
-      "broken": "Asset-denominated withdraw respects destination trustline limits, but the equivalent share-denominated withdraw succeeds and increases a low-limit destination balance.",
-      "expected": "Share-denominated and asset-denominated withdraw paths must enforce the same destination trustline limits.",
-      "source_signal": "Upstream commit a59a6138b / PR #6645.",
-      "remediation": "Apply destination trustline-limit checks to share-denominated VaultWithdraw.",
-      "script": "repros/VAULT-WITHDRAW-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-withdraw-001"
-    },
-    {
-      "id": "VAULT-MPT-ESCROW-001",
-      "title": "Vault share MPToken deleted while shares remain escrow locked",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.8,
-      "affected": "pre-fixCleanup3_1_3 vault share MPT path",
-      "exploit_type": "Locked-state deletion",
-      "markers": [
-        "VaultWithdraw pre-fix deletes share MPToken with locked escrow"
-      ],
-      "broken": "A withdraw can delete a vault share MPToken even though sfLockedAmount remains nonzero because escrowed shares are ignored by the empty-holding removal path.",
-      "expected": "Any nonzero locked share amount must preserve the MPToken state.",
-      "source_signal": "Upstream commit 06afbd558 / PR #6635.",
-      "remediation": "Treat sfLockedAmount as live token state when deciding whether an MPToken can be removed.",
-      "script": "repros/VAULT-MPT-ESCROW-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-mpt-escrow-001"
-    },
-    {
-      "id": "VAULT-CLAWBACK-001",
-      "title": "VaultClawback zero-amount unclamped asset clawback",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.7,
-      "affected": "pre-fixCleanup3_1_3 VaultClawback",
-      "exploit_type": "Accounting/internal failure",
-      "markers": [
-        "VaultClawback pre-fix zero-amount asset clawback is not clamped to assets available"
-      ],
-      "broken": "With outstanding loans, zero-amount clawback tries to claw back full share value rather than assetsAvailable and reaches a negative-vault-balance guard.",
-      "expected": "Zero-amount clawback must clamp to available assets.",
-      "source_signal": "Upstream commit dd99ecc65 / PR #6646.",
-      "remediation": "Clamp zero-amount VaultClawback to sfAssetsAvailable before applying balance changes.",
-      "script": "repros/VAULT-CLAWBACK-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-clawback-001"
-    },
-    {
-      "id": "LOANPAY-FEE-001",
-      "title": "LoanPay high-amount payment fee uncapped",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.2,
-      "affected": "pre-fixCleanup3_1_3 LoanPay fee path",
-      "exploit_type": "Fee DoS / invalid fee estimate",
-      "markers": [
-        "LoanPay pre-fix high-amount payment requires uncapped fee"
-      ],
-      "broken": "Fee estimation scales beyond the maximum payment count that the handler can actually process, rejecting a transaction with telINSUF_FEE_P.",
-      "expected": "Fee must be capped consistently with the handler payment cap.",
-      "source_signal": "Upstream commit 7ea4a5f3f / PR #6969.",
-      "remediation": "Calculate LoanPay fee using the capped number of processed payments.",
-      "script": "repros/LOANPAY-FEE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "loanpay-fee-001"
-    },
-    {
-      "id": "INVARIANT-BOOL-OVERWRITE-001",
-      "title": "Invariant bool overwrite hides earlier bad entries",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 8.0,
-      "affected": "pre-fixCleanup3_1_3 invariant helper path",
-      "exploit_type": "Invariant false negative",
-      "markers": [
-        "Invariant pre-fix — later good entries hide earlier bad entries"
-      ],
-      "broken": "Some invariant checks use assignment instead of accumulation, so a later valid entry can clear an earlier bad XRP trustline, deep-freeze trustline, or MPT issuance observation.",
-      "expected": "Invariant violation state must accumulate across all inspected entries.",
-      "source_signal": "Upstream commit 321b86797 / PR #6609.",
-      "remediation": "Use accumulating boolean logic for invariant violations and preserve any earlier bad observation.",
-      "script": "repros/INVARIANT-BOOL-OVERWRITE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "invariant-bool-overwrite-001"
-    },
-    {
-      "id": "CREDENTIAL-EXPIRED-DELETE-001",
-      "title": "Expired credential cleanup ignores delete failure",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.4,
-      "affected": "pre-fixCleanup3_1_3 credential cleanup consumers",
-      "exploit_type": "Cleanup failure masked as success",
-      "markers": [
-        "Credentials pre-fix — expired cleanup ignores deleteSLE failure"
-      ],
-      "broken": "Credential consumers can report expired/success while expired credential deletion failed and the credential remains in state.",
-      "expected": "Failed expired-credential deletion must fail closed to the consumer.",
-      "source_signal": "Upstream commit af89854a4 / PR #6962.",
-      "remediation": "Propagate deleteSLE failure from expired credential cleanup and stop dependent transaction processing.",
-      "script": "repros/CREDENTIAL-EXPIRED-DELETE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "credential-expired-delete-001"
-    },
-    {
-      "id": "PDEX-HYBRID-EMPTY-BOOKS-001",
-      "title": "Permissioned-DEX empty AdditionalBooks invariant bypass",
-      "category": "Historical/replay-era",
-      "level": "High",
-      "score": 7.3,
-      "affected": "pre-fixCleanup3_1_3 permissioned DEX invariant",
-      "exploit_type": "Malformed object accepted by invariant",
-      "markers": [
-        "Permissioned DEX pre-fix — empty AdditionalBooks hides malformed hybrid offer"
-      ],
-      "broken": "The pre-fix invariant rejects missing or more-than-one sfAdditionalBooks but lets an empty array pass for a malformed hybrid offer.",
-      "expected": "Hybrid offers must have exactly one valid additional book entry.",
-      "source_signal": "Upstream commit 96643bb0f / PR #6716.",
-      "remediation": "Reject empty sfAdditionalBooks arrays in permissioned-DEX hybrid-offer invariant checks.",
-      "script": "repros/PDEX-HYBRID-EMPTY-BOOKS-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "pdex-hybrid-empty-books-001"
-    },
-    {
-      "id": "LOANBROKER-COVER-PRECISION-001",
-      "title": "LoanBrokerCover IOU precision drift",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 8.0,
-      "affected": "rippled 3.1.3 LoanBrokerCover paths",
-      "exploit_type": "Precision/accounting drift",
-      "markers": [
-        "LoanBrokerCover current — IOU precision drift"
-      ],
-      "broken": "A deposit of 1.8e-14 credits cover by 2e-14, and positive zero-at-scale deposit/withdraw/clawback amounts can succeed without changing cover or receiver balance.",
-      "expected": "Positive cover operations below effective precision should be rejected or rounded consistently before state mutation.",
-      "source_signal": "Later upstream commits 7fdaa0a5e / PR #7274 and c327fc1ee.",
-      "remediation": "Apply cover-scale minimum checks and reject zero-at-scale cover operations.",
-      "script": "repros/LOANBROKER-COVER-PRECISION-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "loanbroker-cover-precision-001"
-    },
-    {
-      "id": "LOAN-MINCOVER-SCALE-001",
-      "title": "LoanPay minimum-cover scale inconsistency",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 7.8,
-      "affected": "rippled 3.1.3 LoanPay cover routing",
-      "exploit_type": "Accounting scale inconsistency",
-      "markers": [
-        "LoanPay current — broker minimum cover scale inconsistency"
-      ],
-      "broken": "The same broker-level cover state routes service fees differently depending on an individual loan scale.",
-      "expected": "Broker-cover minimum checks should use vault scale consistently.",
-      "source_signal": "Later upstream commit a911f9089 / PR #7093.",
-      "remediation": "Use vault scale for all broker-cover minimum calculations.",
-      "script": "repros/LOAN-MINCOVER-SCALE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "loan-mincover-scale-001"
-    },
-    {
-      "id": "VAULT-SHARE-MPT-TRANSFER-001",
-      "title": "Vault-share MPT transfer restriction bypass",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 8.9,
-      "affected": "rippled 3.1.3 vault-share MPT transfer path",
-      "exploit_type": "Transfer-restriction bypass",
-      "markers": [
-        "Vault share MPT current — underlying CanTransfer is not inherited"
-      ],
-      "broken": "After the underlying MPT issuer clears CanTransfer, peer-to-peer vault-share payment still succeeds.",
-      "expected": "Vault-share MPTs should inherit underlying MPT transfer restrictions where the product model requires it.",
-      "source_signal": "Later upstream commit 9cb049276 / PR #7077.",
-      "remediation": "Propagate underlying MPT flags/reference metadata to vault-share issuances and enforce them on transfer.",
-      "script": "repros/VAULT-SHARE-MPT-TRANSFER-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-share-mpt-transfer-001"
-    },
-    {
-      "id": "LOANBROKER-LOCKED-MPT-001",
-      "title": "LoanBrokerDelete returns locked MPT first-loss cover",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 8.4,
-      "affected": "rippled 3.1.3 LoanBrokerDelete locked MPT cover",
-      "exploit_type": "Locked-asset return / lock-state bypass",
-      "markers": [
-        "LoanBrokerDelete current — locked MPT cover is returned"
-      ],
-      "broken": "Deleting a broker returns locked MPT first-loss cover and deletes the locked pseudo-account MPToken.",
-      "expected": "Locked cover should prevent broker deletion or remain locked until safely returnable.",
-      "source_signal": "Later upstream commit 179e73594 / PR #7125.",
-      "remediation": "Block LoanBrokerDelete when locked MPT cover cannot be returned safely.",
-      "script": "repros/LOANBROKER-LOCKED-MPT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "loanbroker-locked-mpt-001"
-    },
-    {
-      "id": "LOAN-PAYMENT-FACTOR-001",
-      "title": "Loan payment-factor cancellation",
-      "category": "Current helper/accounting",
-      "level": "Medium",
-      "score": 6.8,
-      "affected": "rippled 3.1.3 loan accounting helper",
-      "exploit_type": "Numerical cancellation",
-      "markers": [
-        "Loan current — near-zero payment factor cancellation"
-      ],
-      "broken": "Near-zero-rate computePaymentFactor diverges from an independent polynomial reference by more than 1e-12.",
-      "expected": "Near-zero-rate formulas should use stable power-minus-one style arithmetic.",
-      "source_signal": "Later upstream commit ad2195f12 / PR #7033.",
-      "remediation": "Replace direct (1+r)^n - 1 with a numerically stable power-minus-one calculation.",
-      "script": "repros/LOAN-PAYMENT-FACTOR-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "loan-payment-factor-001"
-    },
-    {
-      "id": "VAULT-WITHDRAW-SCALE-BOUNDARY-001",
-      "title": "VaultWithdraw IOU scale-boundary invariant failure",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 7.8,
-      "affected": "rippled 3.1.3 VaultWithdraw IOU precision boundary",
-      "exploit_type": "Invariant failure / valid operation DoS",
-      "markers": [
-        "Vault current — withdraw across IOU scale boundary invariant"
-      ],
-      "broken": "Withdrawing across an IOU scale boundary returns tecINVARIANT_FAILED through vault and destination balance invariant failures.",
-      "expected": "Precision-boundary withdraws should either execute with valid accounting or fail pre-apply with a targeted precision error.",
-      "source_signal": "Later upstream commit 633ef4706 / PR #7272.",
-      "remediation": "Add proactive precision-boundary rejection before invariant failure.",
-      "script": "repros/VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-withdraw-scale-boundary-001"
-    },
-    {
-      "id": "VAULT-DEPOSIT-ISSUER-EDGE-001",
-      "title": "VaultDeposit issuer IOU edge invariant failure",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 7.6,
-      "affected": "rippled 3.1.3 VaultDeposit issuer IOU edge",
-      "exploit_type": "Invariant failure / valid operation DoS",
-      "markers": [
-        "Vault current — issuer deposit at IOU edge invariant"
-      ],
-      "broken": "Issuer deposit at a vault IOU edge returns tecINVARIANT_FAILED instead of a precise rejection.",
-      "expected": "Precision-loss deposits should fail before mutation/invariant handling.",
-      "source_signal": "Later upstream commit 633ef4706 / PR #7272.",
-      "remediation": "Detect issuer-IOU precision edge before applying vault deposit.",
-      "script": "repros/VAULT-DEPOSIT-ISSUER-EDGE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-deposit-issuer-edge-001"
-    },
-    {
-      "id": "VAULT-SOLE-SHAREHOLDER-IMPAIRED-001",
-      "title": "Sole shareholder impaired vault exit failure",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 8.0,
-      "affected": "rippled 3.1.3 impaired vault withdraw",
-      "exploit_type": "Valid withdrawal DoS / stuck assets",
-      "markers": [
-        "Vault current — sole shareholder impaired exit is stuck"
-      ],
-      "broken": "After another shareholder exits an impaired vault, the sole remaining shareholder cannot withdraw available cash and hits the zero-sized-vault invariant.",
-      "expected": "A sole remaining shareholder should be able to withdraw available cash while impaired receivables remain represented correctly.",
-      "source_signal": "Later upstream commit 49567e728 / PR #7139.",
-      "remediation": "Handle sole-shareholder impaired vault exits without producing zero-sized-vault invariant failure.",
-      "script": "repros/VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-sole-shareholder-impaired-001"
-    },
-    {
-      "id": "VAULT-DEPOSIT-OPPOSITE-LIMIT-001",
-      "title": "VaultDeposit opposite-limit internal failure",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 8.0,
-      "affected": "rippled 3.1.3 VaultDeposit preclaim/apply mismatch",
-      "exploit_type": "Preclaim/apply mismatch / internal failure",
-      "markers": [
-        "VaultDeposit current — opposite trustline limit causes tefINTERNAL"
-      ],
-      "broken": "Preclaim counts the counterparty opposite trustline limit, admits the deposit, then apply returns tefINTERNAL after negative account-assets guard.",
-      "expected": "Preclaim and apply must use the same balance/limit model, or fail early with a non-internal code.",
-      "source_signal": "Later upstream commit 93ac1aa7a / PR #7288.",
-      "remediation": "Remove the opposite-limit sanity path or align preclaim with actual IOU send semantics.",
-      "script": "repros/VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "vault-deposit-opposite-limit-001"
+      "anchor": "mpt-lock-unauth-nosav-001"
     },
     {
       "id": "ESCROW-CANCEL-IOU-001",
@@ -461,174 +98,6 @@
       "anchor": "amm-stale-auth-001"
     },
     {
-      "id": "DELEGATE-DELETE-STALE-001",
-      "title": "Delegatee account deletion leaves stale delegation",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 8.8,
-      "affected": "rippled 3.1.3 Permission Delegation",
-      "exploit_type": "Stale authority state / reserve inconsistency",
-      "markers": [
-        "Delegate current — delegatee account deletion leaves stale delegation"
-      ],
-      "broken": "A delegatee account can delete itself while the Delegate ledger entry and delegator owner reserve remain behind.",
-      "expected": "Deleting an account must clean or prevent inbound delegated-authority state.",
-      "source_signal": "Later upstream commit 4da46d31 / PR #6681.",
-      "remediation": "Store Delegate objects in both delegator and authorized-account owner directories or otherwise block deletion with live delegation state.",
-      "script": "repros/DELEGATE-DELETE-STALE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-delete-stale-001"
-    },
-    {
-      "id": "MPT-DOMAIN-AUTH-001",
-      "title": "Domain-bound MPT RequireAuth clearing",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 8.7,
-      "affected": "rippled 3.1.3 MPT issuance authorization",
-      "exploit_type": "Authorization-policy bypass",
-      "markers": [
-        "MPT current — domain-bound RequireAuth can be cleared"
-      ],
-      "broken": "An issuer can clear RequireAuth while retaining DomainID, leaving a domain-bound issuance permissionless in authorization state.",
-      "expected": "Domain-bound issuances should not clear RequireAuth while DomainID remains.",
-      "source_signal": "Later upstream commit 366899d5 / PR #6712.",
-      "remediation": "Disallow MPTClearRequireAuth when DomainID is set.",
-      "script": "repros/MPT-DOMAIN-AUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-domain-auth-001"
-    },
-    {
-      "id": "NUMBER-CUSP-UPWARD-001",
-      "title": "Number upward-rounding cusp violation",
-      "category": "Current helper/accounting",
-      "level": "Medium",
-      "score": 6.9,
-      "affected": "rippled 3.1.3 Number arithmetic",
-      "exploit_type": "Directed-rounding violation",
-      "markers": [
-        "Number current — upward rounding falls below exact at maxRep cusp"
-      ],
-      "broken": "Under upward rounding, a large Number product stores below the exact product at the maxRep cusp.",
-      "expected": "Directed upward rounding should never store below the exact positive result.",
-      "source_signal": "Later upstream commit 4094f7f6c / PR #7051.",
-      "remediation": "Correct Number rounding at the maxRep cusp and add regression coverage.",
-      "script": "repros/NUMBER-CUSP-UPWARD-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "number-cusp-upward-001"
-    },
-    {
-      "id": "NUMBER-DIVISION-UPWARD-001",
-      "title": "Number upward-division rounding violation",
-      "category": "Current helper/accounting",
-      "level": "Medium",
-      "score": 6.9,
-      "affected": "rippled 3.1.3 Number division",
-      "exploit_type": "Directed-rounding violation",
-      "markers": [
-        "Number current - upward division falls below exact quotient"
-      ],
-      "broken": "Under upward rounding, 2 / 1,000,000,000,000,000,007 stores below the exact quotient.",
-      "expected": "Directed upward division should not round below exact for positive quotients.",
-      "source_signal": "Later upstream commit 48b1716e6.",
-      "remediation": "Expand division correction precision and add the quoted quotient regression.",
-      "script": "repros/NUMBER-DIVISION-UPWARD-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "number-division-upward-001"
-    },
-    {
-      "id": "MPT-TRANSFER-RATE-OVERFLOW-001",
-      "title": "MPT transfer-rate scaling overflow",
-      "category": "Current helper/accounting",
-      "level": "High",
-      "score": 7.4,
-      "affected": "rippled 3.1.3 MPT transfer-rate helper",
-      "exploit_type": "Arithmetic overflow",
-      "markers": [
-        "MPT current — transfer-rate scaling overflows large integral amount"
-      ],
-      "broken": "Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.",
-      "expected": "Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.",
-      "source_signal": "Later upstream commit 22fbf4d06.",
-      "remediation": "Route MPT/V2 transfer-rate math through Number arithmetic.",
-      "script": "repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-transfer-rate-overflow-001"
-    },
-    {
-      "id": "DELEGATE-FEE-RESERVE-001",
-      "title": "Delegated payment fee coupled to delegator reserve",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 7.7,
-      "affected": "rippled 3.1.3 delegated Payment",
-      "exploit_type": "Authorization/fee accounting mismatch",
-      "markers": [
-        "Delegate current — delegated fee is coupled to delegator reserve"
-      ],
-      "broken": "A delegated payment returns tecUNFUNDED_PAYMENT even though the delegate can pay the fee, because the path couples the delegate-paid fee to the delegator reserve.",
-      "expected": "Delegate-paid fees should be checked against the delegate fee payer, not the delegator reserve.",
-      "source_signal": "Later upstream commit 17f26ba97 / PR #6568.",
-      "remediation": "Decouple delegate fee payer balance checks from delegator reserve calculations.",
-      "script": "repros/DELEGATE-FEE-RESERVE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-fee-reserve-001"
-    },
-    {
-      "id": "DELEGATE-SAV-001",
-      "title": "Single Asset Vault transaction can be delegated",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 8.2,
-      "affected": "rippled 3.1.3 delegated VaultCreate",
-      "exploit_type": "Over-broad delegation authority",
-      "markers": [
-        "Delegate current — SAV transaction can be delegated"
-      ],
-      "broken": "A delegate can submit VaultCreate for another account; later upstream removed SAV/lending from the delegable transaction set.",
-      "expected": "High-risk SAV/lending operations should be non-delegable unless explicitly sandboxed.",
-      "source_signal": "Later upstream commit 46d5c67a / PR #6489.",
-      "remediation": "Mark Single Asset Vault and Lending transactions NotDelegable.",
-      "script": "repros/DELEGATE-SAV-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-sav-001"
-    },
-    {
-      "id": "DELEGATE-MULTISIGN-001",
-      "title": "Delegated multisign self-check rejection",
-      "category": "Current transaction-path",
-      "level": "High",
-      "score": 7.5,
-      "affected": "rippled 3.1.3 delegated multisigning",
-      "exploit_type": "Authorization validation mismatch",
-      "markers": [
-        "Delegate current — delegator multisign rejected for delegate"
-      ],
-      "broken": "A delegated payment signed by the delegator as part of the delegatee signer list is rejected before ledger application because the path checks the delegator as self-signing.",
-      "expected": "Delegated multisign validation should check the delegate account as acting authority.",
-      "source_signal": "Later upstream commit 9cb074067 / PR #7064.",
-      "remediation": "Validate delegated multisigning against the delegate account, not the delegator.",
-      "script": "repros/DELEGATE-MULTISIGN-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-multisign-001"
-    },
-    {
       "id": "MPT-NONCANONICAL-AMOUNT-001",
       "title": "Non-canonical MPT amount reaches ledger engine",
       "category": "Current transaction-path",
@@ -650,109 +119,25 @@
       "anchor": "mpt-noncanonical-amount-001"
     },
     {
-      "id": "MPT-STISSUE-WIRE-001",
-      "title": "MPT STIssue legacy wire-order defect",
-      "category": "Current protocol-wire",
-      "level": "Medium",
-      "score": 6.8,
-      "affected": "rippled 3.1.3 STIssue serialization",
-      "exploit_type": "Protocol-wire canonicalization defect",
-      "markers": [
-        "MPT current — STIssue sequence bytes are legacy-swapped"
-      ],
-      "broken": "Canonical MPTID sequence bytes de ad be ef serialize as ef be ad de; internal round-trip hides the defect while canonical raw payload parses to a different MPTID.",
-      "expected": "Protocol wire serialization should preserve canonical raw MPTID byte order.",
-      "source_signal": "Later upstream commit 4b2d7871f.",
-      "remediation": "Use amended V2 STIssue wire format and canonical raw sequence handling.",
-      "script": "repros/MPT-STISSUE-WIRE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-stissue-wire-001"
-    },
-    {
-      "id": "DELEGATE-MPT-GRANULAR-MUTATION-001",
-      "title": "Delegated MPT issuance metadata/fee mutation",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 9.0,
-      "affected": "rippled 3.1.3 granular MPT delegation",
-      "exploit_type": "Unauthorized ledger object mutation",
-      "markers": [
-        "Delegate current — MPT granular lock permission mutates issuance fields"
-      ],
-      "broken": "A delegate with only MPTokenIssuanceLock authority can submit MPTokenIssuanceSet with sfMPTokenMetadata and sfTransferFee, mutating issuance fields outside the delegated permission.",
-      "expected": "Granular delegation must sandbox all fields and flags, not just lock/unlock flags.",
-      "source_signal": "Later upstream commit 87e951470 / PR #6831.",
-      "remediation": "Add a granular field/flag sandbox for delegated MPTokenIssuanceSet.",
-      "script": "repros/DELEGATE-MPT-GRANULAR-MUTATION-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-mpt-granular-mutation-001"
-    },
-    {
-      "id": "DELEGATE-EMPTY-ACCOUNTSET-001",
-      "title": "Delegated empty AccountSet consumes principal sequence",
-      "category": "Current transaction-path",
+      "id": "MPT-TRANSFER-RATE-OVERFLOW-001",
+      "title": "MPT transfer-rate scaling overflow",
+      "category": "Current helper/accounting",
       "level": "High",
-      "score": 8.1,
-      "affected": "rippled 3.1.3 delegated AccountSet",
-      "exploit_type": "Unauthorized sequence consumption",
+      "score": 7.4,
+      "affected": "rippled 3.1.3 MPT transfer-rate helper",
+      "exploit_type": "Arithmetic overflow",
       "markers": [
-        "Delegate current — empty AccountSet with unrelated permission consumes principal sequence"
+        "MPT current — transfer-rate scaling overflows large integral amount"
       ],
-      "broken": "A delegate with only unrelated Payment authority can submit an empty AccountSet for the principal; it succeeds, advances the principal sequence, and charges the delegate fee.",
-      "expected": "A delegated transaction must require permission for its transaction type even if it has no mutation fields.",
-      "source_signal": "OpenRouter authorization triage plus source review of SetAccount::checkPermission.",
-      "remediation": "Make no-field/no-flag AccountSet require AccountSet delegation authority or reject it as unauthorized under delegation.",
-      "script": "repros/DELEGATE-EMPTY-ACCOUNTSET-001.sh",
+      "broken": "Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.",
+      "expected": "Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.",
+      "source_signal": "Later upstream commit 22fbf4d06.",
+      "remediation": "Route MPT/V2 transfer-rate math through Number arithmetic.",
+      "script": "repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh",
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "delegate-empty-accountset-001"
-    },
-    {
-      "id": "BATCH-SIGNER-OUTER-REPLAY-001",
-      "title": "Batch signer outer-account replay",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 9.2,
-      "affected": "rippled 3.1.3 BatchSigners authorization",
-      "exploit_type": "Signature replay / authorization binding failure",
-      "markers": [
-        "Batch current — batch signer signatures replay across outer account"
-      ],
-      "broken": "Captured BatchSigners signatures from one valid batch can be replayed under a different outer account while authorizing the same inner transaction IDs and flags.",
-      "expected": "Batch signer authorization must bind the outer account and sequence as well as inner transaction IDs and flags.",
-      "source_signal": "Later upstream commit 7618b726b; source review of serializeBatch.",
-      "remediation": "Bind BatchSigners signatures to outer account and sequence so replay becomes temBAD_SIGNATURE.",
-      "script": "repros/BATCH-SIGNER-OUTER-REPLAY-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "batch-signer-outer-replay-001"
-    },
-    {
-      "id": "MPT-LOCK-UNAUTH-NOSAV-001",
-      "title": "MPT locked holder unauthorize without SAV",
-      "category": "Current feature-bound",
-      "level": "High",
-      "score": 8.2,
-      "affected": "rippled 3.1.3 with MPTokensV1 active and SingleAssetVault inactive",
-      "exploit_type": "Feature-gated lock-state deletion",
-      "markers": [
-        "MPT current — locked holder can delete lock state without SAV"
-      ],
-      "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked when the SAV gate is inactive.",
-      "expected": "Locked-token deletion checks should not depend on unrelated SAV feature activation.",
-      "source_signal": "Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.",
-      "remediation": "Gate locked MPToken deletion on the MPT lock feature itself rather than SingleAssetVault.",
-      "script": "repros/MPT-LOCK-UNAUTH-NOSAV-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-lock-unauth-nosav-001"
+      "anchor": "mpt-transfer-rate-overflow-001"
     },
     {
       "id": "PDEX-HYBRID-QUALITY-001",
@@ -796,5 +181,28 @@
       "source": "OpenP0Repro_test.cpp",
       "anchor": "pdex-cancel-invariant-001"
     }
-  ]
+  ],
+  "live_scope": {
+    "source": "https://api.xrpscan.com/api/v1/amendments",
+    "checked_utc": "2026-05-27T14:22:38Z",
+    "inclusion_rule": "Public report includes only reproduced current findings whose required XRPL mainnet amendments were enabled in this snapshot, and excludes medium-only helper findings from the headline high/critical packet.",
+    "included_ids": [
+      "MPT-DOMAIN-AUTH-001",
+      "MPT-LOCK-UNAUTH-NOSAV-001",
+      "ESCROW-CANCEL-IOU-001",
+      "AMM-STALE-AUTH-001",
+      "MPT-NONCANONICAL-AMOUNT-001",
+      "MPT-TRANSFER-RATE-OVERFLOW-001",
+      "PDEX-HYBRID-QUALITY-001",
+      "PDEX-CANCEL-INVARIANT-001"
+    ],
+    "excluded_classes": [
+      "Historical/replay-era fixCleanup3_1_3 findings",
+      "LendingProtocol findings because LendingProtocol was not enabled",
+      "SingleAssetVault findings because SingleAssetVault was not enabled",
+      "Batch findings because Batch was not enabled",
+      "PermissionDelegation findings because PermissionDelegation was not enabled",
+      "Medium-only helper/protocol-wire findings that were not high/critical live findings"
+    ]
+  }
 }
