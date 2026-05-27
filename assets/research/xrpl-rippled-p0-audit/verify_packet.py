@@ -76,7 +76,10 @@ def main() -> int:
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
 
-    require("RippleD 3.1.3 Audit: Reproduced P0-Class Evidence Packet" in article, "article title mismatch")
+    require(
+        "RippleD 3.1.3 Audit: 37 Reproduced Critical And High-Severity Findings" in article,
+        "article title mismatch",
+    )
     require("## Evidence Packet" in article, "article missing evidence packet section")
     require("## Table Of Contents" in article, "article missing table of contents")
     require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")

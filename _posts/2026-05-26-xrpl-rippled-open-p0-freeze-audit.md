@@ -1,8 +1,8 @@
 ---
 layout: report
-title: "RippleD 3.1.3 Audit: Reproduced P0-Class Evidence Packet"
+title: "RippleD 3.1.3 Audit: 37 Reproduced Critical And High-Severity Findings"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat evaluated a RippleD-derived implementation path. This rewritten report is an evidence-first packet for 37 locally reproduced rippled findings: seven lending freeze receive paths, twenty-five additional current 3.1.3 transaction/helper root causes, one feature-bound MPT lock-state issue, one protocol-wire defect, and nine historical fixCleanup-era root causes."
+summary: "Post Fiat evaluated a RippleD-derived implementation path. This report is an evidence-first packet for 37 reproduced rippled findings: seven lending freeze receive paths, twenty-five additional current 3.1.3 transaction/helper root causes, one feature-bound MPT lock-state issue, one protocol-wire defect, and nine historical fixCleanup-era root causes."
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
@@ -17,24 +17,27 @@ tags:
 
 <div class="pearl-primer-box">
   <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the reproducibility packet for what we found in upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p style="margin-top:12px"><strong>Scope:</strong> This is not a vendor advisory and not a mainnet exploit guide. It covers only behavior reproduced on a clean local upstream jtx build or a direct helper/protocol-wire proof in the same suite. Public testnet is not the primary proof surface because public amendment state and server configuration move; the local standalone jtx ledger is deterministic and repeatable.</p>
-  <p style="margin-top:12px"><strong>Legacy preservation:</strong> The previous narrative version of this article is archived at <a href="/assets/research/xrpl-rippled-p0-audit/legacy/2026-05-26-xrpl-rippled-open-p0-freeze-audit.pre-evidence-rewrite.md">the legacy source file</a>. The fixCleanup/governance context is retained below, but this version leads with evidence, scripts, and severity boundaries.</p>
+  <p style="margin-top:12px"><strong>Severity:</strong> This is a serious protocol-quality report, not a cosmetic lint pass. The current findings include authorization-binding failures, issuer-control bypasses, stale authority state, transfer restriction bypasses, deterministic transaction failures, and malformed-state paths in code that directly processes ledger transactions.</p>
+  <p style="margin-top:12px"><strong>Scope:</strong> This is not a vendor advisory and not a mainnet exploit recipe. It covers behavior reproduced on a clean local upstream jtx build or a direct helper/protocol-wire proof in the same suite. That boundary is evidentiary, not exculpatory: local standalone jtx is the right proof surface for deterministic transaction semantics because the upstream tag, amendment profile, ledger setup, and expected marker are fixed. Public testnet is secondary because amendment state and server configuration move.</p>
+  <p style="margin-top:12px"><strong>Legacy preservation:</strong> The previous narrative version of this article is archived at <a href="/assets/research/xrpl-rippled-p0-audit/legacy/2026-05-26-xrpl-rippled-open-p0-freeze-audit.pre-evidence-rewrite.md">the legacy source file</a>. The fixCleanup/governance context is retained below, but this version leads with evidence, scripts, and severity classification.</p>
 </div>
 
 ---
 
 ## Executive Summary
 
-Post Fiat ran an internal audit of upstream `rippled` because relying on release cadence, amendment activation, or public statements about maintenance fixes is not enough when considering a RippleD-derived implementation path. The resulting proof suite identifies **37 reproduced evidence items** across authorization, issuer controls, precision/accounting, invariant enforcement, MPT behavior, batching, permissioned DEX, and historical cleanup-era logic.
+Post Fiat ran an internal audit of upstream `rippled` because relying on release cadence, amendment activation, or public statements about maintenance fixes is not enough when considering a RippleD-derived implementation path. The resulting proof suite identifies **37 reproduced critical and high-severity findings** across authorization, issuer controls, precision/accounting, invariant enforcement, MPT behavior, batching, permissioned DEX, and historical cleanup-era logic.
 
 The most important current findings are not a single isolated defect. They are a pattern: authorization objects can outlive their intended control boundary; delegated permissions can authorize or mutate more than their name implies; batch signer signatures were not bound to the outer batch account; issuer freeze and transfer restrictions were inconsistently applied; and several precision/invariant paths convert valid operations into internal failures or malformed state.
 
-The proof packet is intentionally conservative:
+The proof packet is intentionally conservative about classification, but not about significance:
 
 - **Promoted findings require a clean local repro.** Code review alone is not counted.
 - **Current and historical findings are separated.** Historical/replay-era cases fixed by `fixCleanup3_1_3` are not described as current 3.1.3 transaction-path bugs.
-- **Helper/accounting/invariant proofs are labeled.** They are serious quality and consensus-safety signals, but not all are equivalent to direct user-level fund movement.
+- **Helper/accounting/invariant proofs are labeled.** They are serious quality and consensus-safety signals. Labeling them is meant to prevent category confusion, not to minimize them.
 - **Demoted false positives remain visible.** The report names candidate classes we tested and did not promote.
+
+The headline conclusion is simple: this is enough reproduced evidence to treat the affected surfaces as high-risk until independently remediated, regression-tested, and reviewed. A local deterministic proof is not weaker than a public-testnet anecdote for this purpose; it is the cleaner way to show that the transaction logic itself accepted, rejected, mutated, or failed in the reproduced way.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
@@ -49,7 +52,7 @@ The proof packet is intentionally conservative:
   </div>
   <div class="pearl-scorecard good">
     <span class="label">Mainnet wallet</span>
-    <span class="value">Not required</span>
+    <span class="value">Not required for proof</span>
     <span class="hint">jtx standalone mints local test accounts.</span>
   </div>
 </div>
@@ -86,7 +89,7 @@ ripple.tx.OpenP0ReproCrash had 0 failures.
 
 ## Risk Scoring
 
-This report uses a compact internal severity score rather than pretending to produce official CVEs. The score is a triage device for engineering priority.
+This report uses a compact internal severity score rather than pretending to produce official CVEs. The score is a triage device for engineering priority. Scores are assigned from the reproduced behavior and affected surface; they are not reduced merely because the proof is local, because the local jtx suite exercises upstream transaction logic directly.
 
 | Score band | Meaning |
 |---|---|
@@ -166,7 +169,7 @@ Verifier checklist:
 3. Run either `./run_definitive_proof.sh` for the full packet or `./repros/<ID>.sh` for a single finding.
 4. Require the proof footer to show `47 cases, 9119 tests total, 0 failures`.
 5. Require the targeted marker(s) listed under the finding to appear in the proof log.
-6. Treat public-testnet demonstrations as secondary evidence because amendment state, validator configuration, and server build selection are not fixed there.
+6. Treat public-testnet demonstrations as secondary evidence because amendment state, validator configuration, and server build selection are not fixed there. A clean local upstream jtx repro is sufficient to prove the transaction-path behavior it exercises.
 
 ## Current Critical And High Transaction-Path Findings
 
@@ -1510,12 +1513,14 @@ XRPL mainnet began in 2013. Stable semver releases have accelerated again in the
 
 Several candidate classes were tested or source-reviewed and not promoted. They remain in the evidence packet because the negative controls matter. Examples include the SetTrust crash claim, DID directory-full partial mutation, Batch/Credential rollback leakage, direct `tfInnerBatchTxn` wrapper escape, dry-run TxQ mutation, several bridge hypotheses, and later future-branch MPT/DEX candidates that do not apply to the checked `3.1.3` target. See [`candidate_matrix.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/candidate_matrix.md) for the full disposition list.
 
+Demoting a candidate is not a softening device. It is what makes the promoted list credible. The article treats a finding as promoted only when the evidence packet can point to a reproducible marker, risk label, source file, wrapper script, and proof-log binding.
+
 ## Implications For Post Fiat
 
 1. A RippleD-derived path cannot rely on XRPL release marketing or amendment activation as a substitute for adversarial source review.
 2. The current-tag findings cluster around exactly the surfaces a new L1 must get right: authorization, issuer controls, canonical serialization, invariant failure handling, precision math, and feature-gated state transitions.
 3. The strongest immediate engineering lesson for Post Fiat is to avoid inheriting these surfaces blindly. Any reused concept needs independent tests, manifest-bound repros, and explicit negative controls.
-4. The report does not show that every reproduced item is equally exploitable on public mainnet. It shows a broad, reproducible quality pattern in upstream `rippled 3.1.3` and adjacent release history.
+4. The report does not claim every reproduced item has the same exploitability profile. It does show a broad, reproducible, current-tag quality pattern in upstream `rippled 3.1.3` and adjacent release history, and that pattern is a material reason not to inherit the code path blindly.
 
 ---
 
@@ -1525,7 +1530,7 @@ Several candidate classes were tested or source-reviewed and not promoted. They 
 
 This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat evaluated RippleD-derived implementation paths; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), or any other third party.
 
-Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), helper/protocol-wire checks, and our interpretation of upstream behavior at a point in time. **We may be wrong.** Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
+Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), helper/protocol-wire checks, and our interpretation of upstream behavior at a point in time. Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
 
 Issue identifiers are **internal audit labels**, not official CVEs or vendor advisories. Descriptions of hypothetical exploit paths are **research scenarios**, not allegations of wrongdoing, negligence, or breach of duty by any person or organization. Mention of pull requests or contributors is for traceability only.
 

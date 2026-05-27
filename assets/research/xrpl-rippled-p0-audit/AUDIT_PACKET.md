@@ -70,4 +70,6 @@ This packet is not a vendor advisory, CVE package, or mainnet exploit guide.
 It is a reproducibility packet for a clean local upstream jtx build and direct
 helper/protocol-wire checks in the same suite. Public testnet demonstrations are
 secondary because amendment state, node configuration, and server build
-selection are not fixed there.
+selection are not fixed there. That boundary is evidentiary, not exculpatory:
+a clean local upstream jtx repro is sufficient to prove the transaction-path
+behavior it exercises.
