@@ -112,6 +112,10 @@ one of the WHIP gates:
   bar unless a transaction-visible live surface is demonstrated;
 - already-remediated findings remain release-line evidence, not novel unfixed
   P0s.
+- `CRED-DIRFULL-001` was tested on the live `Credentials` surface after direct
+  status refresh. The scratch proof forced the subject owner directory full and
+  returned `tecDIR_FULL` without leaving a `Credential` object or issuer/subject
+  owner-count drift, so it is source-killed and not packet eligible.
 
 ## Still-Promoted Unfixed Set
 
