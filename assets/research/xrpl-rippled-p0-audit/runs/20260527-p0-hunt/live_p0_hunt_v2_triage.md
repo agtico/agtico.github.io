@@ -136,6 +136,11 @@ one of the WHIP gates:
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no
   recipient trustline, so the plain Payment path is source-killed and not packet
   eligible.
+- The remaining legacy-core queue was also source-reviewed in this pass:
+  `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
+  and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
+  Moby Dick repro. They remain source-review / older-tag hardening candidates,
+  not live packet promotions.
 
 ## Still-Promoted Unfixed Set
 

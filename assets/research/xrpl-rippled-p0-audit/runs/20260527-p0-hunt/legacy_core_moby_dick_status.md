@@ -151,6 +151,33 @@ repro surfaced that turned a normal live-enabled payment into a new Moby Dick
 P0. Keep it as a lower-priority source-review target unless a sharper input
 shape appears.
 
+## Legacy-Core Source-Kill Sweep
+
+The remaining old-core queue was reviewed against current source and current
+tests, and the following candidates were source-killed rather than promoted:
+
+- `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`: the reserve carveout is an explicit
+  gateway bootstrap rule in `SetTrust::doApply`, not an accidental leak. It
+  skips reserve enforcement only while `OwnerCount < 2`, then reverts to normal
+  reserve checks. The current code and test shape do not show a live-state
+  corruption or stranded object from the carveout itself.
+- `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
+  from the post-consume sequence, checks `tecDIR_FULL` before owner-count
+  mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.
+  The current implementation does not expose a duplicate-key or collision path
+  from normal ticket-paid creation.
+- `ESCROW-LEGACY-XRP-DELETE-EDGE-001`: legacy XRP escrow cancel/finish/delete
+  paths already remove owner-directory entries, update owner count, and return
+  `tecHAS_OBLIGATIONS` / `tefBAD_LEDGER` on failed teardown. The current source
+  does not show an obvious delete-with-live-obligation P0 on the live-enabled
+  path.
+
+That leaves the current legacy-core live candidate set unchanged: the best
+remaining old/simple/current target is still
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`, and the next useful hardening step
+is an older-tag binary reproduction if we want to turn it into a stronger
+years-live claim.
+
 ## Next Step
 
 Keep drilling `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` unless an even older and
