@@ -3013,6 +3013,58 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testAMMBidDepositAuthRefundCandidate()
+    {
+        testcase("AMM current — Bid refund bypasses DepositAuth");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+
+        FeatureBitset const features =
+            testable_amendments() | featureAMM | featureDepositAuth;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, alice, bob);
+        env.close();
+
+        env(trust(alice, USD(20'000'000)), THISLINE);
+        env(trust(bob, USD(20'000'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(10'000'000)), THISLINE);
+        env(pay(gw, bob, USD(10'000'000)), THISLINE);
+        env.close();
+
+        AMM amm{env, gw, XRP(10), USD(1'000)};
+        auto const lpIssue = amm.lptIssue();
+        env.trust(STAmount{lpIssue, 10'000'000}, alice);
+        env.trust(STAmount{lpIssue, 10'000'000}, bob);
+        env.close();
+
+        amm.deposit(alice, 1'000'000);
+        amm.deposit(bob, 1'000'000);
+        env.close();
+
+        env(amm.bid({.account = alice, .bidMin = 100}), THISLINE);
+        env.close();
+
+        env(fset(alice, asfDepositAuth), THISLINE);
+        env.close();
+
+        env(pay(bob, alice, STAmount{lpIssue, 1}),
+            ter(tecNO_PERMISSION),
+            THISLINE);
+        env.close();
+
+        auto const before = amm.getLPTokensBalance(alice.id());
+        env(amm.bid({.account = bob}), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        BEAST_EXPECT(amm.getLPTokensBalance(alice.id()) > before);
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -3299,6 +3351,7 @@ public:
         testDisallowIncomingTrustlineAMMEmptyDepositCurrent();
         testDisallowIncomingTrustlineAMMClawbackPairedAssetCurrent();
         testAMMClawbackDepositAuthPairedAssetCandidate();
+        testAMMBidDepositAuthRefundCandidate();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();

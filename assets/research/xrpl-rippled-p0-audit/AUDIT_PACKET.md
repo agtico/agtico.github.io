@@ -37,12 +37,12 @@ Included findings must satisfy both conditions:
 
 | File | Purpose |
 |---|---|
-| `repro_manifest.json` | Canonical live manifest: 18 live-mainnet eligible high/critical findings, markers, risk labels, and proof bindings. |
+| `repro_manifest.json` | Canonical live manifest: 19 live-mainnet eligible high/critical findings, markers, risk labels, and proof bindings. |
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |
-| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v12.log` | Live-only proof extract with marker coverage and zero-failure footer. |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v13.log` | Live-only proof extract with marker coverage and zero-failure footer. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
@@ -59,7 +59,7 @@ mainnet status shows `SingleAssetVault=false`.
 ## Remediation Boundary
 
 Five packet findings have confirmed post-3.1.3 remediation in `3.2.0-b7` or
-`origin/develop`. Thirteen packet findings do not:
+`origin/develop`. Fourteen packet findings do not:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
 - `MPT-LOCK-UNAUTH-001`
@@ -74,8 +74,9 @@ Five packet findings have confirmed post-3.1.3 remediation in `3.2.0-b7` or
 - `AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001`
 - `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001`
 - `AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001`
+- `AMMBID-DEPOSITAUTH-REFUND-001`
 
-Those thirteen are the only findings in this packet for which the verifier
+Those fourteen are the only findings in this packet for which the verifier
 evidence did not confirm an upstream fix in the checked refs.
 
 ## Audit Commands
@@ -98,7 +99,7 @@ Expected proof footer:
 
 ```text
 ripple.tx.OpenP0Repro had 0 failures.
-58 cases, 15993 tests total, 0 failures
+59 cases, 16068 tests total, 0 failures
 ripple.tx.OpenP0ReproCrash had 0 failures.
 1 case, 12 tests total, 0 failures
 ```

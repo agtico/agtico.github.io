@@ -27,7 +27,8 @@
       "AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001",
       "AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001",
       "AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001",
-      "AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001"
+      "AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001",
+      "AMMBID-DEPOSITAUTH-REFUND-001"
     ],
     "excluded_by_live_dependency": [
       {
@@ -294,6 +295,15 @@
         "origin/develop"
       ],
       "source_grep": "No DepositAuth / verifyDepositPreauth check was found in AMMClawback.cpp, AMMWithdraw.cpp, or the AMMClawback paired-asset return path in the checked refs."
+    },
+    "AMMBID-DEPOSITAUTH-REFUND-001": {
+      "note": "no confirmed fix is present in 3.2.0-b7 or origin/develop; AMMBid previous-owner refund still routes through accountSend without a DepositAuth authorization check",
+      "fix_commits": [],
+      "checked_refs": [
+        "3.2.0-b7",
+        "origin/develop"
+      ],
+      "source_grep": "No DepositAuth / verifyDepositPreauth check was found in AMMBid.cpp or the AMMBid auction refund path in the checked refs."
     }
   },
   "source_equivalence_checks": {
@@ -306,6 +316,7 @@
     "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001": "3.2.0-b7, origin/develop, and origin/copilot/apply-asfdisallowincomingtrustline retain CheckCash automatic trustline creation without an issuer lsfDisallowIncomingTrustline check; the proposed fixDisallowIncomingV1_1 branch only covers OfferCreate.",
     "TOKENESCROW-DISALLOW-INCOMING-FINISH-001": "3.2.0-b7, origin/develop, and origin/copilot/apply-asfdisallowincomingtrustline retain EscrowFinish IOU trustline creation without an issuer lsfDisallowIncomingTrustline check; the proposed fixDisallowIncomingV1_1 branch only covers OfferCreate.",
     "AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001": "3.2.0-b7, origin/develop, and origin/copilot/apply-asfdisallowincomingtrustline retain AMMClawback paired-asset return through AMMWithdraw/accountSend without an issuer lsfDisallowIncomingTrustline check; the proposed fixDisallowIncomingV1_1 branch only covers OfferCreate.",
-    "AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001": "3.2.0-b7 and origin/develop retain AMMClawback paired-asset return through AMMWithdraw/accountSend without a holder DepositAuth authorization check."
+    "AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001": "3.2.0-b7 and origin/develop retain AMMClawback paired-asset return through AMMWithdraw/accountSend without a holder DepositAuth authorization check.",
+    "AMMBID-DEPOSITAUTH-REFUND-001": "3.2.0-b7 and origin/develop retain AMMBid previous-owner auction refund through accountSend without a holder DepositAuth authorization check."
   }
 }

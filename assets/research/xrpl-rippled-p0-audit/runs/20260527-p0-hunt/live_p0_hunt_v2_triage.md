@@ -109,6 +109,13 @@ A later AMMClawback/DepositAuth slice promoted one more unresolved live finding:
   but AMMClawback can still force-return the paired IOU to that holder and
   recreate the paired-asset trustline through the AMMWithdraw/accountSend path.
 
+A later AMMBid/DepositAuth slice promoted one more unresolved live finding:
+
+- `AMMBID-DEPOSITAUTH-REFUND-001`: a previous AMM auction-slot owner can set
+  `asfDepositAuth` and reject direct LP-token payment with `tecNO_PERMISSION`,
+  but a later `AMMBid` by another account can still refund LP tokens to that
+  previous owner through the AMMBid/accountSend path.
+
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
 
@@ -132,7 +139,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has thirteen live-enabled findings with no confirmed upstream fix in
+The packet now has fourteen live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -148,6 +155,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001`
 - `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001`
 - `AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001`
+- `AMMBID-DEPOSITAUTH-REFUND-001`
 
 ## Next Hunt Targets
 
