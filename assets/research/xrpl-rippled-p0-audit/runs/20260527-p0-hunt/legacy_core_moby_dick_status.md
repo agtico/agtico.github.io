@@ -136,6 +136,21 @@ recipient owner-directory behavior and resurrection behavior around the
 `fixPayChanRecipientOwnerDir` amendment. No new live P0 repro was produced for
 this candidate in this slice.
 
+## Offer And Payment Probes
+
+`OFFER-LEGACY-RESERVE-CROSSED-001` was reviewed and not promoted. The current
+`Offer_test::testPartialCross` table already covers reserve-boundary behavior
+with `tecINSUF_RESERVE_OFFER` and `tecUNFUNDED_OFFER` controls, and the live
+`OfferCreate` path still intentionally returns those boundary results rather
+than exposing a new ledger corruption or object-lifetime failure in this slice.
+
+`PAYMENT-LEGACY-TEFEXCEPTION-PATH-001` was reviewed and not promoted. Current
+`Payment.cpp` contains explicit guards that route internal exceptions to
+`tefEXCEPTION`/`tefINTERNAL` handling, but no clean current-release transaction
+repro surfaced that turned a normal live-enabled payment into a new Moby Dick
+P0. Keep it as a lower-priority source-review target unless a sharper input
+shape appears.
+
 ## Next Step
 
 Keep drilling `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` unless an even older and
