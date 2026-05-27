@@ -1,6 +1,6 @@
 {
   "source": "direct XRPL public JSON-RPC",
-  "checked_utc": "2026-05-27T15:56:54Z",
+  "checked_utc": "2026-05-27T16:14:30Z",
   "server_info": [
     {
       "rpc_url": "https://s1.ripple.com:51234/",
@@ -8,15 +8,15 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 1,
-        "hash": "C1A7BC6A6FE3CF532AB79C4C53597D604DB03514ED8AEE6A3BD7A3F5E5BA1B74",
-        "seq": 104518382,
+        "age": 4,
+        "hash": "596BD6270DAC32A91DE1E2A9EF5B773C907299318607BEA7EF6076B8F00E7825",
+        "seq": 104518655,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 15:56:51.330618 UTC"
+      "time": "2026-May-27 16:14:26.851152 UTC"
     },
     {
       "rpc_url": "https://s2.ripple.com:51234/",
@@ -24,27 +24,27 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 2,
-        "hash": "C1A7BC6A6FE3CF532AB79C4C53597D604DB03514ED8AEE6A3BD7A3F5E5BA1B74",
-        "seq": 104518382,
+        "age": 6,
+        "hash": "596BD6270DAC32A91DE1E2A9EF5B773C907299318607BEA7EF6076B8F00E7825",
+        "seq": 104518655,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 15:56:52.344264 UTC"
+      "time": "2026-May-27 16:14:28.314029 UTC"
     }
   ],
   "feature_rpc": {
     "rpc_url": "https://s1.ripple.com:51234/",
-    "ledger_hash": "C1A7BC6A6FE3CF532AB79C4C53597D604DB03514ED8AEE6A3BD7A3F5E5BA1B74",
-    "ledger_index": 104518382,
+    "ledger_hash": "596BD6270DAC32A91DE1E2A9EF5B773C907299318607BEA7EF6076B8F00E7825",
+    "ledger_index": 104518655,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "C1A7BC6A6FE3CF532AB79C4C53597D604DB03514ED8AEE6A3BD7A3F5E5BA1B74",
-    "ledger_index": 104518382,
+    "ledger_hash": "596BD6270DAC32A91DE1E2A9EF5B773C907299318607BEA7EF6076B8F00E7825",
+    "ledger_index": 104518655,
     "validated": true,
     "enabled_count": 92
   },
@@ -142,6 +142,20 @@
     },
     "fixAMMv1_3": {
       "id": "7CA70A7674A26FA517412858659EBC7EDEEF7D2D608824464E6FDEFD06854E14",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixTokenEscrowV1": {
+      "id": "32B8614321F7E070419115ABEAB1742EA20F3E3AF34432B5E2F474F8083260DC",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixAMMClawbackRounding": {
+      "id": "5E9586DB3D765B4C5794658FB6BB385071E9838DF4016027E6E26820C8526724",
       "enabled": true,
       "supported": true,
       "id_source": "feature_rpc",

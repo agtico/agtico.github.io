@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Verify the public XRPL P0 audit packet.
+"""Verify the live-mainnet XRPL P0 evidence packet.
 
-This is a static consistency check. It verifies that the article, manifest,
-proof log, per-finding wrappers, markers, and local asset links agree.
-It does not run rippled.
+This is a packet-only static consistency check. It verifies that the manifest,
+direct XRPL live-state receipts, remediation receipt, proof log, and per-finding
+wrappers agree. It does not run rippled.
 """
 
 from __future__ import annotations
@@ -11,19 +11,73 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import re
 import sys
-import urllib.parse
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-SITE_ROOT = ROOT.parents[2]
-ARTICLE = SITE_ROOT / "_posts" / "2026-05-26-xrpl-rippled-open-p0-freeze-audit.md"
 MANIFEST = ROOT / "repro_manifest.json"
 AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
+
+EXPECTED_RECORD_COUNT = 7
+
+REQUIRED_ENABLED = {
+    "AMM",
+    "AMMClawback",
+    "MPTokensV1",
+    "PermissionedDomains",
+    "PermissionedDEX",
+    "TokenEscrow",
+    "Credentials",
+    "fixMPTDeliveredAmount",
+    "fixAMMv1_3",
+    "fixTokenEscrowV1",
+    "fixAMMClawbackRounding",
+}
+
+REQUIRED_DISABLED = {
+    "LendingProtocol",
+    "SingleAssetVault",
+    "PermissionDelegation",
+    "Batch",
+    "fixDelegateV1_1",
+}
+
+FORBIDDEN_IDS = {
+    "MPT-DOMAIN-AUTH-001",
+    "LEND-FREEZE-001",
+    "LOANBROKER-COVER-PRECISION-001",
+    "LOAN-MINCOVER-SCALE-001",
+    "VAULT-SHARE-MPT-TRANSFER-001",
+    "LOANBROKER-LOCKED-MPT-001",
+    "LOAN-PAYMENT-FACTOR-001",
+    "VAULT-WITHDRAW-SCALE-BOUNDARY-001",
+    "VAULT-DEPOSIT-ISSUER-EDGE-001",
+    "VAULT-SOLE-SHAREHOLDER-IMPAIRED-001",
+    "VAULT-DEPOSIT-OPPOSITE-LIMIT-001",
+    "DELEGATE-DELETE-STALE-001",
+    "DELEGATE-FEE-RESERVE-001",
+    "DELEGATE-SAV-001",
+    "DELEGATE-MULTISIGN-001",
+    "DELEGATE-MPT-GRANULAR-MUTATION-001",
+    "DELEGATE-EMPTY-ACCOUNTSET-001",
+    "BATCH-SIGNER-OUTER-REPLAY-001",
+    "MPT-LOCK-UNAUTH-NOSAV-001",
+    "MPT-STISSUE-WIRE-001",
+    "NUMBER-CUSP-UPWARD-001",
+    "NUMBER-DIVISION-UPWARD-001",
+    "PDOMAIN-TICKET-001",
+    "MPT-MULTISEND-001",
+    "VAULT-WITHDRAW-001",
+    "VAULT-MPT-ESCROW-001",
+    "VAULT-CLAWBACK-001",
+    "LOANPAY-FEE-001",
+    "INVARIANT-BOOL-OVERWRITE-001",
+    "CREDENTIAL-EXPIRED-DELETE-001",
+    "PDEX-HYBRID-EMPTY-BOOKS-001",
+}
 
 
 def fail(message: str) -> None:
@@ -43,6 +97,10 @@ def read_text(path: Path) -> str:
         fail(f"missing file: {path}")
 
 
+def read_json(path: Path) -> dict:
+    return json.loads(read_text(path))
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -51,66 +109,48 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def local_asset_links(markdown: str) -> set[str]:
-    links: set[str] = set()
-    patterns = [
-        r"\]\((/assets/[^)#]+)",
-        r"href=\"(/assets/[^\"]+)\"",
-        r"src=\"(/assets/[^\"]+)\"",
-    ]
-    for pattern in patterns:
-        links.update(re.findall(pattern, markdown))
-    return links
+def amendment_enabled(amendment_status: dict, name: str) -> bool:
+    public = amendment_status.get("public_enabled_features", {})
+    scope = amendment_status.get("scope_features", {})
+    if name in public:
+        return public[name]["enabled"] is True
+    return scope[name]["enabled"] is True
 
 
-def main() -> int:
-    manifest = json.loads(read_text(MANIFEST))
-    amendment_status = json.loads(read_text(AMENDMENT_STATUS))
-    runtime_status = json.loads(read_text(RUNTIME_STATUS))
-    remediation_status = json.loads(read_text(REMEDIATION_STATUS))
-    article = read_text(ARTICLE)
-    proof = manifest["proof"]
-    records = manifest["records"]
-    proof_log = ROOT / proof["log"]
-    proof_text = read_text(proof_log)
+def runtime_enabled(runtime_status: dict, name: str) -> bool:
+    return runtime_status["feature_status"][name]["enabled"] is True
 
-    require(manifest["target"]["repo"] == "XRPLF/rippled", "unexpected target repo")
-    require(manifest["target"]["tag"] == "3.1.3", "unexpected target tag")
+
+def check_required_feature_sets(amendment_status: dict, runtime_status: dict) -> None:
+    for amendment in REQUIRED_ENABLED:
+        require(amendment_enabled(amendment_status, amendment), f"required live amendment is not enabled: {amendment}")
+        require(runtime_enabled(runtime_status, amendment), f"runtime receipt missing enabled amendment: {amendment}")
+
+    for disabled in REQUIRED_DISABLED:
+        require(
+            amendment_status["scope_features"][disabled]["enabled"] is False,
+            f"disabled surface unexpectedly enabled in amendment receipt: {disabled}",
+        )
+        require(
+            runtime_status["feature_status"][disabled]["enabled"] is False,
+            f"disabled surface unexpectedly enabled in runtime receipt: {disabled}",
+        )
+
+    cleanup = amendment_status["scope_features"]["fixCleanup3_1_3"]
+    require(cleanup["enabled"] is True, "fixCleanup3_1_3 must be enabled by raw Amendments hash")
     require(
-        manifest["target"]["commit"] == "46b241ace8b30d9c9775d60ffba7d24b21903896",
-        "unexpected target commit",
+        cleanup["id"] == "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC",
+        "unexpected fixCleanup3_1_3 amendment hash",
     )
-    require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
+    require(cleanup["id_source"] == "sha512_half_name", "fixCleanup3_1_3 must be raw-hash checked")
 
-    require(
-        "RippleD 3.1.3 Audit: Live Mainnet Surfaces And Remediation Status" in article,
-        "article title mismatch",
-    )
-    require(len(records) == 8, "live manifest must contain exactly 8 public findings")
-    require("## Live Amendment Filter" in article, "article missing live amendment filter")
-    require("## Current Mainnet State" in article, "article missing current mainnet state section")
-    require("## Remediation Status" in article, "article missing remediation status section")
-    require("## Why This Matters" in article, "article missing importance section")
-    require("## Evidence Packet" in article, "article missing evidence packet section")
-    require("## Table Of Contents" in article, "article missing table of contents")
-    blocked_article_terms = [
-        "XR" + "PSCAN",
-        "live" + "_amendment" + "_status_" + "20260527.json",
-        "What Was " + "Removed",
-    ]
-    for blocked in blocked_article_terms:
-        require(blocked not in article, f"article contains blocked term: {blocked}")
-    require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
-    require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
+def check_direct_receipts(manifest: dict, amendment_status: dict, runtime_status: dict) -> None:
     require(
         amendment_status["source"] == "direct XRPL public JSON-RPC",
         "amendment receipt must be direct XRPL JSON-RPC",
     )
-    require(
-        amendment_status["feature_rpc"]["validated"] is True,
-        "feature RPC result must be validated",
-    )
+    require(amendment_status["feature_rpc"]["validated"] is True, "feature RPC result must be validated")
     require(
         amendment_status["amendments_ledger_entry"]["validated"] is True,
         "Amendments ledger entry must be validated",
@@ -127,37 +167,6 @@ def main() -> int:
         amendment_status["checked_utc"] == manifest["live_scope"]["checked_utc"],
         "manifest live-scope timestamp must match amendment receipt",
     )
-    require(
-        amendment_status["checked_utc"] in article,
-        "article must name the amendment receipt timestamp",
-    )
-    required_enabled = {
-        "AMM",
-        "MPTokensV1",
-        "PermissionedDomains",
-        "PermissionedDEX",
-        "TokenEscrow",
-    }
-    for amendment in required_enabled:
-        actual = amendment_status["public_enabled_features"][amendment]["enabled"]
-        require(actual is True, f"required public amendment is not enabled: {amendment}")
-        scoped_actual = amendment_status["scope_features"][amendment]["enabled"]
-        require(scoped_actual is True, f"required scoped amendment is not enabled: {amendment}")
-
-    cleanup = amendment_status["scope_features"]["fixCleanup3_1_3"]
-    require(cleanup["enabled"] is True, "fixCleanup3_1_3 must be enabled by raw Amendments hash")
-    require(
-        cleanup["id"] == "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC",
-        "unexpected fixCleanup3_1_3 amendment hash",
-    )
-    require(cleanup["id_source"] == "sha512_half_name", "fixCleanup3_1_3 must be raw-hash checked")
-    require("fixCleanup3_1_3" in article, "article must name the cleanup-era gate")
-
-    for disabled in ["LendingProtocol", "SingleAssetVault", "PermissionDelegation", "Batch"]:
-        require(
-            amendment_status["scope_features"][disabled]["enabled"] is False,
-            f"disabled surface unexpectedly enabled in amendment receipt: {disabled}",
-        )
 
     require(
         runtime_status["source"] == "direct XRPL public JSON-RPC",
@@ -173,19 +182,11 @@ def main() -> int:
     )
     for server in runtime_status["server_info"]:
         require(server["rippled_version"] == "3.1.3", "public server runtime version must be 3.1.3")
-    for amendment in required_enabled:
-        actual = runtime_status["feature_status"][amendment]["enabled"]
-        require(actual is True, f"runtime receipt missing enabled amendment: {amendment}")
-    require(
-        runtime_status["feature_status"]["fixCleanup3_1_3"]["enabled"] is True,
-        "runtime receipt must raw-hash check fixCleanup3_1_3 as enabled",
-    )
-    for disabled in ["LendingProtocol", "SingleAssetVault", "PermissionDelegation", "Batch"]:
-        require(
-            runtime_status["feature_status"][disabled]["enabled"] is False,
-            f"disabled surface unexpectedly enabled in runtime receipt: {disabled}",
-        )
 
+    check_required_feature_sets(amendment_status, runtime_status)
+
+
+def check_remediation(remediation_status: dict) -> None:
     require(
         remediation_status["source"] == "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
         "unexpected remediation source",
@@ -196,57 +197,50 @@ def main() -> int:
         "unexpected unresolved remediation set",
     )
     patched = set(remediation_status["summary"]["patched_in_3_2_0_b7_or_develop"])
-    require(len(patched) == 6, "unexpected remediated finding count")
+    require(len(patched) == 5, "unexpected remediated finding count")
     for rid in unresolved:
-        require(rid in article, f"article missing unresolved finding: {rid}")
         record = remediation_status["records"][rid]
         for fix in record["fix_commits"]:
             require(fix["in_3_2_0_b7"] is False, f"{rid} unexpectedly fixed in 3.2.0-b7")
             require(fix["in_origin_develop"] is False, f"{rid} unexpectedly fixed in origin/develop")
 
-    forbidden_ids = {
-        "LEND-FREEZE-001",
-        "LOANBROKER-COVER-PRECISION-001",
-        "LOAN-MINCOVER-SCALE-001",
-        "VAULT-SHARE-MPT-TRANSFER-001",
-        "LOANBROKER-LOCKED-MPT-001",
-        "LOAN-PAYMENT-FACTOR-001",
-        "VAULT-WITHDRAW-SCALE-BOUNDARY-001",
-        "VAULT-DEPOSIT-ISSUER-EDGE-001",
-        "VAULT-SOLE-SHAREHOLDER-IMPAIRED-001",
-        "VAULT-DEPOSIT-OPPOSITE-LIMIT-001",
-        "DELEGATE-DELETE-STALE-001",
-        "DELEGATE-FEE-RESERVE-001",
-        "DELEGATE-SAV-001",
-        "DELEGATE-MULTISIGN-001",
-        "DELEGATE-MPT-GRANULAR-MUTATION-001",
-        "DELEGATE-EMPTY-ACCOUNTSET-001",
-        "BATCH-SIGNER-OUTER-REPLAY-001",
-        "MPT-LOCK-UNAUTH-NOSAV-001",
-        "MPT-STISSUE-WIRE-001",
-        "NUMBER-CUSP-UPWARD-001",
-        "NUMBER-DIVISION-UPWARD-001",
-        "PDOMAIN-TICKET-001",
-        "MPT-MULTISEND-001",
-        "VAULT-WITHDRAW-001",
-        "VAULT-MPT-ESCROW-001",
-        "VAULT-CLAWBACK-001",
-        "LOANPAY-FEE-001",
-        "INVARIANT-BOOL-OVERWRITE-001",
-        "CREDENTIAL-EXPIRED-DELETE-001",
-        "PDEX-HYBRID-EMPTY-BOOKS-001",
-    }
-    for forbidden_id in forbidden_ids:
-        require(forbidden_id not in article, f"finding outside live manifest leaked into article: {forbidden_id}")
 
-    anchors = set(re.findall(r'<a id="([^"]+)"></a>', article))
+def check_manifest_records(
+    manifest: dict,
+    amendment_status: dict,
+    runtime_status: dict,
+    proof_text: str,
+) -> int:
+    records = manifest["records"]
+    require(len(records) == EXPECTED_RECORD_COUNT, f"live manifest must contain exactly {EXPECTED_RECORD_COUNT} findings")
+    require(
+        manifest["live_scope"]["included_ids"] == [record["id"] for record in records],
+        "live-scope included IDs must match manifest record order",
+    )
+
     seen_ids: set[str] = set()
     marker_count = 0
-
     for record in records:
         rid = record["id"]
         require(rid not in seen_ids, f"duplicate record id: {rid}")
+        require(rid not in FORBIDDEN_IDS, f"finding outside live manifest leaked into packet: {rid}")
         seen_ids.add(rid)
+
+        required = record.get("required_amendments")
+        require(isinstance(required, list) and required, f"{rid} missing required_amendments")
+        for amendment in required:
+            require(amendment_enabled(amendment_status, amendment), f"{rid} requires disabled amendment: {amendment}")
+            require(runtime_enabled(runtime_status, amendment), f"{rid} runtime receipt missing amendment: {amendment}")
+
+        for amendment in record.get("required_disabled_amendments", []):
+            require(
+                amendment_status["scope_features"][amendment]["enabled"] is False,
+                f"{rid} requires amendment to be disabled, but direct receipt shows enabled: {amendment}",
+            )
+            require(
+                runtime_status["feature_status"][amendment]["enabled"] is False,
+                f"{rid} requires amendment to be disabled, but runtime receipt shows enabled: {amendment}",
+            )
 
         script = ROOT / record["script"]
         require(script.exists(), f"missing repro script for {rid}: {script}")
@@ -256,20 +250,39 @@ def main() -> int:
 
         source = ROOT / record["source"]
         require(source.exists(), f"missing source for {rid}: {source}")
-        require(record["anchor"] in anchors, f"missing article anchor for {rid}: {record['anchor']}")
-        require(f"### {rid} - " in article, f"missing article section for {rid}")
-        require(f"repros/{rid}.sh" in article, f"article missing repro link for {rid}")
 
         for marker in record["markers"]:
             marker_count += 1
             require(marker in proof_text, f"proof log missing marker for {rid}: {marker}")
 
-    for link in local_asset_links(article):
-        path = SITE_ROOT / urllib.parse.unquote(link.lstrip("/"))
-        require(path.exists(), f"article links missing asset: {link}")
+    return marker_count
+
+
+def main() -> int:
+    manifest = read_json(MANIFEST)
+    amendment_status = read_json(AMENDMENT_STATUS)
+    runtime_status = read_json(RUNTIME_STATUS)
+    remediation_status = read_json(REMEDIATION_STATUS)
+    proof = manifest["proof"]
+    proof_log = ROOT / proof["log"]
+    proof_text = read_text(proof_log)
+
+    require(manifest["target"]["repo"] == "XRPLF/rippled", "unexpected target repo")
+    require(manifest["target"]["tag"] == "3.1.3", "unexpected target tag")
+    require(
+        manifest["target"]["commit"] == "46b241ace8b30d9c9775d60ffba7d24b21903896",
+        "unexpected target commit",
+    )
+    require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
+    require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
+
+    check_direct_receipts(manifest, amendment_status, runtime_status)
+    check_remediation(remediation_status)
+    marker_count = check_manifest_records(manifest, amendment_status, runtime_status, proof_text)
 
     print("packet-ok")
-    print(f"records={len(records)} markers={marker_count} proof_sha256={proof['sha256']}")
+    print(f"records={len(manifest['records'])} markers={marker_count} proof_sha256={proof['sha256']}")
     return 0
 
 

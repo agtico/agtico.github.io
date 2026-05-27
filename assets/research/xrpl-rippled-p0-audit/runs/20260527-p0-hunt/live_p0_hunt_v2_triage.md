@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T15:53:02Z`
+Checked: `2026-05-27T16:14:26Z`
 
 ## Live Scope
 
@@ -18,6 +18,8 @@ Enabled live surfaces for this packet:
 - `Credentials`
 - `fixMPTDeliveredAmount`
 - `fixAMMv1_3`
+- `fixTokenEscrowV1`
+- `fixAMMClawbackRounding`
 - `fixCleanup3_1_3`
 
 Disabled surfaces that remain excluded:
@@ -33,6 +35,14 @@ Disabled surfaces that remain excluded:
 The public `feature` name lookup did not expose that name, so the gate checks
 the raw on-ledger `Amendments` object rather than relying only on feature-name
 visibility.
+
+## Live Dependency Correction
+
+`MPT-DOMAIN-AUTH-001` is excluded from the live packet. The reproduced path uses
+MPT `DomainID`, and current `MPTokenIssuanceCreate` / `MPTokenIssuanceSet`
+feature gates require `PermissionedDomains && SingleAssetVault` for that field.
+Direct XRPL mainnet status shows `SingleAssetVault=false`, so this finding does
+not satisfy the live-mainnet-only constraint.
 
 ## Promotion Result
 

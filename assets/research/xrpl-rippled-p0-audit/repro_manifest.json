@@ -10,30 +10,9 @@
     "source": "OpenP0Repro_test.cpp",
     "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log",
     "sha256": "f50e5a25081533c7ed5f32823e76a927a06dd2013a51eea82b386bf87ab4461c",
-    "result": "Live-mainnet-enabled extract: 8 findings; source OpenP0Repro full suite 47 cases / 9119 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "result": "Proof log contains the OpenP0Repro live-era extract; manifest includes 7 live-mainnet eligible findings after excluding MPT-DOMAIN-AUTH-001 because its MPT DomainID path requires SingleAssetVault, which direct XRPL mainnet status shows disabled; source OpenP0Repro full suite 47 cases / 9119 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
-    {
-      "id": "MPT-DOMAIN-AUTH-001",
-      "title": "Domain-bound MPT RequireAuth clearing",
-      "category": "Current transaction-path",
-      "level": "Critical",
-      "score": 8.7,
-      "affected": "rippled 3.1.3 MPT issuance authorization",
-      "exploit_type": "Authorization-policy bypass",
-      "markers": [
-        "MPT current — domain-bound RequireAuth can be cleared"
-      ],
-      "broken": "An issuer can clear RequireAuth while retaining DomainID, leaving a domain-bound issuance permissionless in authorization state.",
-      "expected": "Domain-bound issuances should not clear RequireAuth while DomainID remains.",
-      "source_signal": "Later upstream commit 366899d5 / PR #6712.",
-      "remediation": "Disallow MPTClearRequireAuth when DomainID is set.",
-      "script": "repros/MPT-DOMAIN-AUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
-      "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-domain-auth-001"
-    },
     {
       "id": "MPT-LOCK-UNAUTH-001",
       "title": "MPT locked holder lock-state deletion",
@@ -43,7 +22,7 @@
       "affected": "rippled 3.1.3 MPT lock-state handling",
       "exploit_type": "Feature-gated lock-state deletion",
       "markers": [
-        "MPT current — locked holder can delete lock state without SAV"
+        "MPT current \u2014 locked holder can delete lock state without SAV"
       ],
       "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.",
       "expected": "Locked-token deletion checks should preserve issuer lock state.",
@@ -53,7 +32,13 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-lock-unauth-001"
+      "anchor": "mpt-lock-unauth-001",
+      "required_amendments": [
+        "MPTokensV1"
+      ],
+      "required_disabled_amendments": [
+        "SingleAssetVault"
+      ]
     },
     {
       "id": "ESCROW-CANCEL-IOU-001",
@@ -64,7 +49,7 @@
       "affected": "rippled 3.1.3 token escrow cancellation",
       "exploit_type": "Deterministic transaction exception",
       "markers": [
-        "EscrowCancel current — deleted IOU trustline returns tefEXCEPTION"
+        "EscrowCancel current \u2014 deleted IOU trustline returns tefEXCEPTION"
       ],
       "broken": "Canceling an IOU escrow after the sender trustline was deleted returns tefEXCEPTION / OwnerCount template-field error.",
       "expected": "Escrow cancellation accounting should not depend on a deleted sender trustline.",
@@ -74,7 +59,11 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "escrow-cancel-iou-001"
+      "anchor": "escrow-cancel-iou-001",
+      "required_amendments": [
+        "TokenEscrow",
+        "fixTokenEscrowV1"
+      ]
     },
     {
       "id": "AMM-STALE-AUTH-001",
@@ -85,7 +74,7 @@
       "affected": "rippled 3.1.3 AMM empty-pool reinitialization",
       "exploit_type": "Stale authorization state",
       "markers": [
-        "AMM current — stale AuthAccounts survive empty reinit"
+        "AMM current \u2014 stale AuthAccounts survive empty reinit"
       ],
       "broken": "Empty-pool reinitialization with tfTwoAssetIfEmpty leaves stale sfAuthAccounts from the prior auction slot.",
       "expected": "Reinitializing an empty AMM should clear stale auction authorization state.",
@@ -95,7 +84,11 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "amm-stale-auth-001"
+      "anchor": "amm-stale-auth-001",
+      "required_amendments": [
+        "AMM",
+        "fixAMMv1_3"
+      ]
     },
     {
       "id": "MPT-NONCANONICAL-AMOUNT-001",
@@ -106,7 +99,7 @@
       "affected": "rippled 3.1.3 MPT amount validation",
       "exploit_type": "Malformed amount accepted into application path",
       "markers": [
-        "MPT current — non-canonical amount reaches ledger engine"
+        "MPT current \u2014 non-canonical amount reaches ledger engine"
       ],
       "broken": "A non-canonical MPT amount reaches transaction application and returns fee-burning tecPATH_PARTIAL instead of failing preflight as temBAD_AMOUNT.",
       "expected": "Non-canonical MPT amounts should fail before ledger application.",
@@ -116,7 +109,11 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-noncanonical-amount-001"
+      "anchor": "mpt-noncanonical-amount-001",
+      "required_amendments": [
+        "MPTokensV1",
+        "fixMPTDeliveredAmount"
+      ]
     },
     {
       "id": "MPT-TRANSFER-RATE-OVERFLOW-001",
@@ -127,7 +124,7 @@
       "affected": "rippled 3.1.3 MPT transfer-rate helper",
       "exploit_type": "Arithmetic overflow",
       "markers": [
-        "MPT current — transfer-rate scaling overflows large integral amount"
+        "MPT current \u2014 transfer-rate scaling overflows large integral amount"
       ],
       "broken": "Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.",
       "expected": "Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.",
@@ -137,7 +134,10 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-transfer-rate-overflow-001"
+      "anchor": "mpt-transfer-rate-overflow-001",
+      "required_amendments": [
+        "MPTokensV1"
+      ]
     },
     {
       "id": "PDEX-HYBRID-QUALITY-001",
@@ -148,7 +148,7 @@
       "affected": "rippled 3.1.3 permissioned DEX hybrid offers",
       "exploit_type": "Order-book metadata corruption",
       "markers": [
-        "Permissioned DEX current — hybrid offer open-book quality mismatch"
+        "Permissioned DEX current \u2014 hybrid offer open-book quality mismatch"
       ],
       "broken": "A partially crossed hybrid offer leaves its open-book directory key at one quality while sfExchangeRate records another.",
       "expected": "Open-book directory key quality and sfExchangeRate metadata must match after partial crossing.",
@@ -158,7 +158,12 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "pdex-hybrid-quality-001"
+      "anchor": "pdex-hybrid-quality-001",
+      "required_amendments": [
+        "PermissionedDEX",
+        "PermissionedDomains",
+        "Credentials"
+      ]
     },
     {
       "id": "PDEX-CANCEL-INVARIANT-001",
@@ -169,7 +174,7 @@
       "affected": "rippled 3.1.3 permissioned DEX OfferCreate",
       "exploit_type": "Valid transaction invariant failure",
       "markers": [
-        "Permissioned DEX current — cancel regular offer via domain offer invariant"
+        "Permissioned DEX current \u2014 cancel regular offer via domain offer invariant"
       ],
       "broken": "A valid domain OfferCreate that cancels the user regular offer fails with tecINVARIANT_FAILED because the invariant treats the deleted regular offer as forbidden mutation.",
       "expected": "The invariant should ignore regular offers deleted as part of a valid domain offer cancellation.",
@@ -179,16 +184,20 @@
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "pdex-cancel-invariant-001"
+      "anchor": "pdex-cancel-invariant-001",
+      "required_amendments": [
+        "PermissionedDEX",
+        "PermissionedDomains",
+        "Credentials"
+      ]
     }
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T15:53:02Z",
+    "checked_utc": "2026-05-27T16:14:26Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
-    "inclusion_rule": "Public report includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt.",
+    "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
-      "MPT-DOMAIN-AUTH-001",
       "MPT-LOCK-UNAUTH-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
@@ -196,14 +205,19 @@
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "PDEX-HYBRID-QUALITY-001",
       "PDEX-CANCEL-INVARIANT-001"
+    ],
+    "excluded_by_live_dependency": [
+      {
+        "id": "MPT-DOMAIN-AUTH-001",
+        "reason": "The reproduced MPT DomainID path requires featureSingleAssetVault in MPTokenIssuanceCreate/Set::checkExtraFeatures; direct XRPL mainnet status shows SingleAssetVault disabled."
+      }
     ]
   },
   "upstream_remediation_scope": {
     "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
-    "checked_utc": "2026-05-27T15:24:47Z",
+    "checked_utc": "2026-05-27T16:14:26Z",
     "receipt": "upstream_remediation_status_20260527.json",
     "patched_in_3_2_0_b7_or_develop": [
-      "MPT-DOMAIN-AUTH-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",

@@ -35,6 +35,8 @@ SCOPE_FEATURES = [
     "fixDelegateV1_1",
     "fixMPTDeliveredAmount",
     "fixAMMv1_3",
+    "fixTokenEscrowV1",
+    "fixAMMClawbackRounding",
     "fixCleanup3_1_3",
 ]
 

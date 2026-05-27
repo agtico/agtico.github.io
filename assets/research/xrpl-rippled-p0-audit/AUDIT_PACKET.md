@@ -1,12 +1,12 @@
 # XRPL RippleD Live Mainnet-Enabled Evidence Packet
 
-This directory is the public, live-filtered evidence packet for the AGTI report:
+This directory is the live-filtered evidence packet for the AGTI report:
 
 `/intelligence-reports/2026/05/26/xrpl-rippled-open-p0-freeze-audit/`
 
-The public report includes only reproduced high/critical findings whose required
+The packet includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-27T15:53:02Z`. Public XRPL servers checked in
+query checked at `2026-05-27T16:14:26Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
 
@@ -37,7 +37,7 @@ Included findings must satisfy both conditions:
 
 | File | Purpose |
 |---|---|
-| `repro_manifest.json` | Canonical live manifest: 8 public high/critical findings, markers, risk labels, and proof bindings. |
+| `repro_manifest.json` | Canonical live manifest: 7 live-mainnet eligible high/critical findings, markers, risk labels, and proof bindings. |
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
@@ -46,20 +46,25 @@ Included findings must satisfy both conditions:
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
-| `repros/*.sh` | Per-finding wrappers. The public article links only wrappers for live findings. |
-| `verify_packet.py` | Static verifier for article links, manifest records, scripts, markers, amendment snapshot, and proof hash. |
+| `repros/*.sh` | Per-finding wrappers for packet findings. |
+| `verify_packet.py` | Packet-only static verifier for manifest records, scripts, markers, amendment snapshots, remediation status, and proof hash. |
 
-The public packet is scoped to the live findings list.
+The packet is scoped to the live findings list.
+
+`MPT-DOMAIN-AUTH-001` is explicitly excluded from the live packet because the
+reproduced MPT `DomainID` path requires `SingleAssetVault` in the current
+`MPTokenIssuanceCreate` / `MPTokenIssuanceSet` feature gate, and direct XRPL
+mainnet status shows `SingleAssetVault=false`.
 
 ## Remediation Boundary
 
-Six public findings have confirmed post-3.1.3 remediation in `3.2.0-b7` or
-`origin/develop`. Two public MPT findings do not:
+Five packet findings have confirmed post-3.1.3 remediation in `3.2.0-b7` or
+`origin/develop`. Two packet MPT findings do not:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
 - `MPT-LOCK-UNAUTH-001`
 
-Those two are the only public findings in this packet for which the verifier
+Those two are the only findings in this packet for which the verifier
 evidence did not confirm an upstream fix in the checked refs.
 
 ## Audit Commands
@@ -75,7 +80,7 @@ Run one live finding:
 
 ```bash
 cd assets/research/xrpl-rippled-p0-audit
-./repros/MPT-DOMAIN-AUTH-001.sh
+./repros/MPT-LOCK-UNAUTH-001.sh
 ```
 
 Expected proof footer:
