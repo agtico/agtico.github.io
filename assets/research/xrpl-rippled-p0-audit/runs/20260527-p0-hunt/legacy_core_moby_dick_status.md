@@ -127,6 +127,22 @@ That is a source-lineage anchor, not proof that the behavior was introduced in
 that exact refactor. It is enough to support the claim that the shape is
 well-entrenched in the pre-`3.1.3` lineage.
 
+I also hardened the old-tag anchor further by building `rippled` `2.5.0` from
+source in a temporary worktree and running the legacy trustline/offer suites on
+that binary. Both suites pass cleanly on that tag:
+
+```text
+2.5.0 build: succeeded
+./rippled --unittest=SetTrust --unittest-log -> 30 cases, 1534 tests total, 0 failures
+./rippled --unittest=Offer --unittest-log -> 8 suites, 415 cases, 55237 tests total, 0 failures
+```
+
+This does not by itself prove `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` is
+absent on `2.5.0`; it does prove the old tag is buildable here and that the
+legacy trustline/offer paths are still live enough to be a meaningful older-tag
+hardening target. The claim remains source-lineage plus current-binary repro
+until a tag-specific bug repro is isolated.
+
 I also attempted to harden the claim by booting the oldest sampled release tag
 (`0.12.0`) in a temporary worktree. That path is currently blocked in this
 environment by historical toolchain gaps:

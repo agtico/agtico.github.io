@@ -151,6 +151,11 @@ one of the WHIP gates:
   worth hardening. The earliest source hit in local git history for the reserve
   carveout shape is `e416ee72c` (`Rearrange sources (#4997)`), which is a
   lineage anchor rather than an exact introduction proof.
+- The `rippled` `2.5.0` historical tag is now a buildable anchor in this
+  environment, and the legacy `SetTrust` and `Offer` suites both pass on that
+  binary (`30 cases / 1534 tests` and `8 suites / 415 cases / 55237 tests`,
+  respectively). That strengthens the older-tag hardening path, but it is not
+  itself a tag-specific bug repro for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`.
 - A temporary 0.12.0 worktree boot confirmed the historical binary-hardening
   path is blocked here by Python 2-era SCons assumptions (`commands`,
   `platform.linux_distribution`), missing `protoc`, and missing Boost headers.
