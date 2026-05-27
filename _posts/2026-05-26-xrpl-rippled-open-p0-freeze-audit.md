@@ -5,7 +5,7 @@ date: "2026-05-26 20:00:00 +0000"
 summary: "Post Fiat runs on a RippleD fork. This is our internal code-quality evaluation of upstream rippled 3.1.3 before we decide how to proceed."
 category: Post Fiat Research
 xrpl_report: true
-report_css_version: 20260528a
+report_css_version: 20260528b
 tags:
   - AGTI
   - Post Fiat
@@ -17,7 +17,130 @@ tags:
 <div class="pearl-primer-box">
   <p><strong>Context:</strong> Post Fiat is a <strong>RippleD fork</strong>. Before we commit to building on or migrating off this stack, we ran an internal audit of the upstream codebase — baseline <code>release-3.1.3</code>, May 2026 — to understand what is actually broken, what is proven, and what we can rule out.</p>
   <p style="margin-top:12px">This report is that evaluation write-up: plain-English observations, hypothesized exploit paths where our testing supported them, diagrams, and local jtx reproductions. It reflects our internal research only, published for transparency.</p>
+  <p style="margin-top:12px"><strong>Why now:</strong> The May 2026 <code>fixCleanup3_1_3</code> amendment episode — mandatory upgrade pressure, validator-driven rule changes, and maintenance fixes that do <em>not</em> cover the lending freeze behavior we reproduced — is what pushed us to audit the RippleD codebase ourselves before Post Fiat proceeds further.</p>
 </div>
+
+---
+
+## Section 0 — The fixCleanup episode & why we audited the code
+
+### Plain English: what fixCleanup is
+
+In rippled **3.1.3**, XRPL shipped a bundled amendment called **`fixCleanup3_1_3`**. It is **routine maintenance**, not a new product feature. Official scope ([XRPL blog](https://xrpl.org/blog/2026/rippled-3.1.3), [known amendments](https://xrpl.org/resources/known-amendments)):
+
+- Delete expired NFT offers when accepted
+- Block Permissioned Domain changes on failed transactions
+- Enforce vault withdraw **trust-line limits**
+- Fix loan **accounting** when loans change state
+- Return correct error on LoanPay overpay
+- Tighten LoanBroker **cover balance** invariants
+
+Validators on rippled 3.1.3 **default to voting Yes**. Majority was reached around **13 May 2026**; activation was scheduled for **27 May 2026** after the standard two-week hold.
+
+### Plain English: it was not “rolled back”
+
+**Important:** fixCleanup did **not** get rolled back or reversed on mainnet. What happened to slow operators is different:
+
+| What people say | What actually happens |
+|-----------------|----------------------|
+| “The network rolled back the upgrade” | **No.** The amendment **activated** on the canonical ledger. |
+| “Nodes got forked off” | Lagging nodes became **amendment-blocked** — they stop validating, submitting txs, and voting until upgraded ([XRPL docs](https://xrpl.org/docs/concepts/networks-and-servers/amendments)). |
+| “There was a chain split” | **No rival UNL** campaign. One ledger stream; old software is excluded, not a second asset. |
+
+David Schwartz framed this as XRPL’s frequent **“technical hard forks”** (every amendment changes rules old binaries cannot follow) while noting a **contentious** split would need a dissenting validator set + rival UNL + market adoption ([Protos](https://protos.com/david-schwartz-warning-about-hard-forks-because-xrp-nodes-wont-upgrade/), [CryptoSlate](https://cryptoslate.com/xrpls-coming-hard-fork-shows-who-really-controls-a-blockchain-split/)). That did **not** occur for fixCleanup.
+
+### Timeline (what happened)
+
+```mermaid
+flowchart LR
+  R[rippled 3.1.3 released] --> V[Default UNL validators vote Yes]
+  V --> M[80% majority ~13 May 2026]
+  M --> W[2-week activation window]
+  W --> A[fixCleanup activates ~27 May 2026]
+  A --> Q{Node on 3.1.3+?}
+  Q -->|Yes| OK[Follows new rules]
+  Q -->|No| BL[Amendment-blocked until upgrade]
+```
+
+### Governance: who decides vs who lags
+
+Roughly **100% of default UNL (dUNL) validators** supported fixCleanup while **~40–46% of observed public nodes** had upgraded to 3.1.3 mid-May ([Protos](https://protos.com/david-schwartz-warning-about-hard-forks-because-xrp-nodes-wont-upgrade/) reporting). **Node count does not vote.** Only **trusted validators on your UNL** count toward amendment majority.
+
+```mermaid
+flowchart TB
+  subgraph decides [Who turns a fix into ledger law]
+    direction TB
+    D1[Default UNL validators] --> D2[Each embeds Yes/No in validations]
+    D2 --> D3[Greater than 80% trusted Yes sustained 2 weeks]
+    D3 --> D4[Amendment enabled on mainnet]
+  end
+  subgraph lags [Who often upgrades late]
+    direction TB
+    L1[Exchanges market makers infra] --> L2[Many still on older rippled mid-May]
+    L2 --> L3[Amendment-blocked at activation if not upgraded]
+  end
+  D4 -.->|same binary also contains| CODE[Application code we audited]
+  L3 --> FIX[Fix: upgrade rippled not rollback amendment]
+```
+
+**Governance takeaway for Post Fiat:** rule changes are **fast**, **default-yes**, and **validator-centric**. Dissent is not “stay on old rules and keep using XRP” — it is **upgrade or stop participating**. Application-layer code quality is **orthogonal**: fixCleanup can ship while separate lending freeze behavior remains in the same release.
+
+### fixCleanup fixes vs what our audit still tracks
+
+These are **different buckets**. fixCleanup patched real bugs in NFT cleanup, vault limits, and loan accounting. Our internal review found **other** behavior in the **same 3.1.3 tree** — especially IOU **regular-freeze** handling on lending receive paths — that fixCleanup **does not address**.
+
+<div class="pearl-split pearl-diagram-split">
+  <div class="pearl-panel good">
+    <h4>fixCleanup3_1_3 fixes</h4>
+    <ul class="pearl-remediation-list-plain">
+      <li>Expired NFT offer deletion</li>
+      <li>Permissioned Domain failed-tx invariant</li>
+      <li>VaultWithdraw trust-line limit (#6645 class)</li>
+      <li>LoanManage accounting on state changes</li>
+      <li>LoanPay overpay error code</li>
+      <li>LoanBroker cover upper-bound invariant</li>
+    </ul>
+  </div>
+  <div class="pearl-panel bad">
+    <h4>Still in our audit scope (not fixCleanup)</h4>
+    <ul class="pearl-remediation-list-plain">
+      <li>Lending <code>checkDeepFrozen</code> on receivers (F3.3–F3.10) — locally reproduced</li>
+      <li>SetTrust null deref (F6.1) — locally reproduced</li>
+      <li>VaultInvariant loan <code>// TBD</code> (F2.1)</li>
+      <li>FreezeInvariant MPT blind spot (F3.1)</li>
+      <li>EscrowFinish IOU semantics (F3.11 · under review)</li>
+    </ul>
+  </div>
+</div>
+
+```mermaid
+flowchart LR
+  subgraph bundle [fixCleanup3_1_3 bundle]
+    direction TB
+    B1[NFT cleanup]
+    B2[Vault withdraw limit]
+    B3[Loan accounting patches]
+  end
+  subgraph audit [Post Fiat audit findings]
+    direction TB
+    A1[Lending freeze receive checks]
+    A2[SetTrust crash path]
+    A3[Invariant gaps]
+  end
+  bundle -.->|does not remediate| audit
+```
+
+### Why that pushed us into deeper code review
+
+Post Fiat runs on a **RippleD fork**. Watching fixCleanup move through **validator supermajority** while:
+
+1. **Public infra lagged** on the same release, and  
+2. **Press treated the amendment as “security closed”** on lending/vaults, and  
+3. Our later **jtx runs** still showed lending regular-freeze behavior **outside** fixCleanup’s patch list  
+
+…told us we could not rely on **governance velocity** or **release marketing** as a substitute for **reading the code**. Section 0 frames the episode; **Sections A–H** are the file-level review that followed — including upstream links and suggested remediation prompts per issue.
+
+---
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
@@ -376,13 +499,13 @@ flowchart LR
 
 ---
 
-## Section G — fixCleanup3_1_3 vs open issues
+## Section G — fixCleanup3_1_3 vs issues we still track
 
 ### Plain English
 
-**fixCleanup3_1_3** (rippled 3.1.3, May 2026) bundles real fixes: NFT offer cleanup, permissioned-domain failed-tx invariant, vault withdraw trust-line limits, loan accounting patches, LoanPay overpay error code, LoanBroker cover upper bound.
+**fixCleanup3_1_3** activated on mainnet around **27 May 2026** (see **Section 0**). It bundles real fixes: NFT offer cleanup, permissioned-domain failed-tx invariant, vault withdraw trust-line limits, loan accounting patches, LoanPay overpay error code, LoanBroker cover upper bound.
 
-It **does not** fix lending regular-freeze bypass, SetTrust crash, invariant TBD gaps, or Escrow IOU finish semantics.
+It **does not** fix lending regular-freeze receive checks, SetTrust crash, invariant TBD gaps, or Escrow IOU finish semantics — the items in **Sections A–F** of this report.
 
 ### How it could be exploited
 
