@@ -151,6 +151,10 @@ one of the WHIP gates:
   worth hardening. The earliest source hit in local git history for the reserve
   carveout shape is `e416ee72c` (`Rearrange sources (#4997)`), which is a
   lineage anchor rather than an exact introduction proof.
+- A temporary 0.12.0 worktree boot confirmed the historical binary-hardening
+  path is blocked here by Python 2-era SCons assumptions (`commands`,
+  `platform.linux_distribution`), missing `protoc`, and missing Boost headers.
+  That is an environment limit, not a packet promotion.
 
 ## Still-Promoted Unfixed Set
 

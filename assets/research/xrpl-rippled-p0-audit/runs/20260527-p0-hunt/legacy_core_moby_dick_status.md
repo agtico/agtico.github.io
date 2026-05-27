@@ -127,6 +127,18 @@ That is a source-lineage anchor, not proof that the behavior was introduced in
 that exact refactor. It is enough to support the claim that the shape is
 well-entrenched in the pre-`3.1.3` lineage.
 
+I also attempted to harden the claim by booting the oldest sampled release tag
+(`0.12.0`) in a temporary worktree. That path is currently blocked in this
+environment by historical toolchain gaps:
+
+- `SConstruct` expects Python 2-era modules (`commands`, `platform.linux_distribution`);
+- the old build wants `protoc`, which is not installed locally;
+- the old build also expects Boost headers that are not available in this
+  workspace.
+
+So the packet is intentionally staying at source-lineage + current-binary repro
+for this candidate until the old toolchain is provisioned.
+
 ## Source-Killed Candidate
 
 `CHECK-LEGACY-DIRFULL-PARTIAL-001` was probed and demoted.
