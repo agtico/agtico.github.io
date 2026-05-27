@@ -1,12 +1,12 @@
 ---
 layout: report
-title: "RippleD 3.1.3 Audit: Live Mainnet Findings And Remediation Inventory"
+title: "RippleD 3.1.3 Fork-Inheritance Audit: Live Findings And Remediation Inventory"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 packet currently contains 19 reproduced high findings on mainnet-enabled surfaces: 14 without a confirmed fix in the checked 3.2.0-b7/origin-develop refs and 5 with post-3.1.3 remediation evidence."
+summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 fork-inheritance audit currently contains 19 reproduced findings on mainnet-enabled surfaces: 14 without a confirmed fix in the checked 3.2.0-b7/origin-develop refs and 5 with post-3.1.3 remediation evidence."
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
-report_css_version: 20260528e
+report_css_version: 20260528f
 tags:
   - AGTI
   - Post Fiat
@@ -16,8 +16,8 @@ tags:
 ---
 
 <div class="pearl-primer-box xrpl-lede">
-  <p><strong>Context:</strong> Post Fiat evaluated a RippleD-derived implementation path. This report is the live-filtered reproducibility inventory for upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p><strong>Current packet:</strong> The packet contains <strong>19 reproduced high findings</strong> on XRPL mainnet-enabled surfaces: <strong>14 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 findings with post-3.1.3 remediation evidence</strong>.</p>
+  <p><strong>Context:</strong> Post Fiat is increasingly far along on controlled-testnet engineering. As part of deciding whether to directly support or inherit a RippleD-derived codebase, we ran a focused internal audit of upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
+  <p><strong>Current packet:</strong> The packet contains <strong>19 reproduced findings</strong> on XRPL mainnet-enabled surfaces: <strong>14 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 findings with post-3.1.3 remediation evidence</strong>.</p>
   <p><strong>Proof model:</strong> each finding is reproduced in a clean local upstream jtx harness, bound to a named marker, checked against live amendment state from direct XRPL JSON-RPC, and backed by a static packet verifier.</p>
 </div>
 
@@ -25,13 +25,15 @@ tags:
 
 ## Executive Summary
 
-This is not a broad bug-note dump. It is a live-filtered packet: a finding only enters the inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
+This is a fork-inheritance audit, not a neutral vendor advisory and not a broad bug-note dump. The practical question is whether a new chain should inherit this code path directly, support it with local patches, or treat the underlying implementation style as too expensive to carry.
+
+A finding only enters the inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
     <span class="label">Packet findings</span>
     <span class="value">19</span>
-    <span class="hint">Reproduced high findings on live-enabled surfaces.</span>
+    <span class="hint">Reproduced findings on live-enabled surfaces.</span>
   </div>
   <div class="pearl-scorecard warn">
     <span class="label">No confirmed fix</span>
@@ -49,7 +51,29 @@ The main pattern is straightforward: direct paths often enforce account policy, 
 
 <div class="pearl-verdict-banner xrpl-verdict">
   <strong>Bottom line</strong>
-  <p>The packet is a state-transition quality signal. The repeated failure mode is not "one weird transaction." It is policy and accounting logic spread across transaction families instead of being centralized at the ledger-effect boundary.</p>
+  <p>The packet is a state-transition quality signal. The repeated failure mode is not "one weird transaction." It is policy and accounting logic spread across transaction families instead of being centralized at the ledger-effect boundary. For a downstream chain, that is fork-inheritance risk even where upstream might treat a given policy edge as a design-semantics dispute rather than a custody break.</p>
+</div>
+
+## Severity Calibration
+
+The scores in this report are internal fork-inheritance risk scores. They are not CVSS scores, official CVEs, or an upstream severity assignment. They answer a narrower engineering question: "how dangerous or expensive is this behavior for a chain deciding whether to inherit `rippled 3.1.3` semantics?"
+
+<div class="xrpl-calibration-grid">
+  <div class="xrpl-calibration-card critical">
+    <span>Core safety/accounting</span>
+    <strong>Substantively concerning on their own</strong>
+    <p><code>MPT-LOCK-UNAUTH-001</code>, <code>TRUSTLINE-POSITIVE-BALANCE-RESERVE-001</code>, and <code>MPT-TRANSFER-RATE-OVERFLOW-001</code> touch lock durability, reserve accounting, or bounded consensus arithmetic. These do not depend on a philosophical reading of issuer opt-out policy.</p>
+  </div>
+  <div class="xrpl-calibration-card">
+    <span>Policy-enforcement cluster</span>
+    <strong>Important as a repeated implementation pattern</strong>
+    <p>The DisallowIncoming and DepositAuth cases generally do not allege fund loss, unauthorized minting, or consensus divergence. They show that a direct-path policy can be bypassed by indirect settlement paths. If upstream intends those flags to be soft preferences, that should be specified. If they are hard account policies, enforcement belongs at the shared ledger-effect boundary.</p>
+  </div>
+  <div class="xrpl-calibration-card remediated">
+    <span>Remediation evidence</span>
+    <strong>Upstream activity is part of the signal</strong>
+    <p>The five remediating findings show that some issues are being fixed in beta/develop. This report uses those fixes to calibrate risk rather than to claim upstream is inactive.</p>
+  </div>
 </div>
 
 ## How To Read The Packet
@@ -126,7 +150,7 @@ flowchart TB
     C -. expected invariant .-> G
 ```
 
-The system-level lesson is that receiver/issuer policy should live at the shared ledger-effect boundary. If each transaction family has to remember every policy check independently, every new settlement path becomes another bypass candidate.
+The system-level lesson is that receiver/issuer policy should live at the shared ledger-effect boundary. If each transaction family has to remember every policy check independently, every new settlement path becomes another bypass candidate. The policy cluster is therefore not framed as "every instance independently drains funds." It is framed as evidence that the implementation distributes policy across too many call sites.
 
 <div class="xrpl-surface-map">
   <div class="xrpl-surface-card hot">
@@ -152,6 +176,8 @@ The system-level lesson is that receiver/issuer policy should live at the shared
 </div>
 
 ## Inventory
+
+Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact.
 
 | ID | Risk | Status | Surface | Exploit class | Repro |
 |---|---:|---|---|---|---|
@@ -181,7 +207,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
 
 <div class="xrpl-finding-grid">
   <section class="xrpl-finding-card unfixed" id="mpt-lock-unauth-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.2 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.2 fork risk</span><span>No confirmed fix</span></div>
     <h4>MPT-LOCK-UNAUTH-001</h4>
     <p class="xrpl-finding-title">MPT locked holder lock-state deletion</p>
     <dl>
@@ -196,7 +222,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="trustline-positive-balance-reserve-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.1 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.1 fork risk</span><span>No confirmed fix</span></div>
     <h4>TRUSTLINE-POSITIVE-BALANCE-RESERVE-001</h4>
     <p class="xrpl-finding-title">Positive IOU balance without receiver owner reserve</p>
     <dl>
@@ -211,7 +237,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="trustline-disallow-incoming-offer-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>TRUSTLINE-DISALLOW-INCOMING-OFFER-001</h4>
     <p class="xrpl-finding-title">OfferCreate bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -226,7 +252,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="nftoken-disallow-incoming-accept-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>NFTOKEN-DISALLOW-INCOMING-ACCEPT-001</h4>
     <p class="xrpl-finding-title">NFTokenAcceptOffer bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -241,7 +267,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="nftoken-broker-fee-disallow-incoming-trustline-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001</h4>
     <p class="xrpl-finding-title">NFToken broker fee bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -256,7 +282,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="checkcash-disallow-incoming-trustline-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001</h4>
     <p class="xrpl-finding-title">CheckCash bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -271,7 +297,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="tokenescrow-disallow-incoming-finish-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>TOKENESCROW-DISALLOW-INCOMING-FINISH-001</h4>
     <p class="xrpl-finding-title">EscrowFinish bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -286,7 +312,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammwithdraw-disallow-incoming-trustline-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001</h4>
     <p class="xrpl-finding-title">AMMWithdraw bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -301,7 +327,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammcreate-disallow-incoming-trustline-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001</h4>
     <p class="xrpl-finding-title">AMMCreate bypasses issuer DisallowIncomingTrustline</p>
     <dl>
@@ -316,7 +342,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammdeposit-empty-disallow-incoming-trustline-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001</h4>
     <p class="xrpl-finding-title">AMMDeposit empty-pool bypass</p>
     <dl>
@@ -331,7 +357,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammclawback-disallow-incoming-paired-asset-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001</h4>
     <p class="xrpl-finding-title">AMMClawback paired-asset DisallowIncoming bypass</p>
     <dl>
@@ -346,7 +372,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammclawback-depositauth-paired-asset-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001</h4>
     <p class="xrpl-finding-title">AMMClawback paired-asset DepositAuth bypass</p>
     <dl>
@@ -361,7 +387,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="ammbid-depositauth-refund-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>No confirmed fix</span></div>
     <h4>AMMBID-DEPOSITAUTH-REFUND-001</h4>
     <p class="xrpl-finding-title">AMMBid auction refund bypasses DepositAuth</p>
     <dl>
@@ -376,7 +402,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card unfixed" id="mpt-transfer-rate-overflow-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">7.4 High</span><span>No confirmed fix</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">7.4 fork risk</span><span>No confirmed fix</span></div>
     <h4>MPT-TRANSFER-RATE-OVERFLOW-001</h4>
     <p class="xrpl-finding-title">MPT transfer-rate scaling overflow</p>
     <dl>
@@ -395,7 +421,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
 
 <div class="xrpl-finding-grid">
   <section class="xrpl-finding-card remediated" id="escrow-cancel-iou-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.1 High</span><span>Remediated after 3.1.3</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.1 fork risk</span><span>Remediated after 3.1.3</span></div>
     <h4>ESCROW-CANCEL-IOU-001</h4>
     <p class="xrpl-finding-title">EscrowCancel deleted IOU trustline exception</p>
     <dl>
@@ -410,7 +436,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card remediated" id="amm-stale-auth-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 High</span><span>Remediated after 3.1.3</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk</span><span>Remediated after 3.1.3</span></div>
     <h4>AMM-STALE-AUTH-001</h4>
     <p class="xrpl-finding-title">AMM stale AuthAccounts after empty reinit</p>
     <dl>
@@ -425,7 +451,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card remediated" id="mpt-noncanonical-amount-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">7.6 High</span><span>Fixed in develop</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">7.6 fork risk</span><span>Fixed in develop</span></div>
     <h4>MPT-NONCANONICAL-AMOUNT-001</h4>
     <p class="xrpl-finding-title">Non-canonical MPT amount reaches ledger engine</p>
     <dl>
@@ -440,7 +466,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card remediated" id="pdex-hybrid-quality-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">7.7 High</span><span>Remediated after 3.1.3</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">7.7 fork risk</span><span>Remediated after 3.1.3</span></div>
     <h4>PDEX-HYBRID-QUALITY-001</h4>
     <p class="xrpl-finding-title">Permissioned-DEX hybrid-offer quality mismatch</p>
     <dl>
@@ -455,7 +481,7 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </section>
 
   <section class="xrpl-finding-card remediated" id="pdex-cancel-invariant-001">
-    <div class="xrpl-finding-head"><span class="xrpl-badge">7.5 High</span><span>Remediated after 3.1.3</span></div>
+    <div class="xrpl-finding-head"><span class="xrpl-badge">7.5 fork risk</span><span>Remediated after 3.1.3</span></div>
     <h4>PDEX-CANCEL-INVARIANT-001</h4>
     <p class="xrpl-finding-title">Permissioned-DEX regular-offer cancel invariant failure</p>
     <dl>
@@ -514,6 +540,16 @@ ripple.tx.OpenP0Repro had 0 failures.
 ```
 
 The per-finding wrapper reads `repro_manifest.json`, runs the upstream local jtx proof suite, asserts the targeted marker, and requires the zero-failure proof footer.
+
+## Upstream And Disclosure Boundary
+
+This report does not claim to speak for Ripple, XRPLF, or upstream maintainers. It records our reproducibility packet and the upstream source state we checked.
+
+Some behaviors may be resolved by upstream as bugs, some as amendment-semantics changes, and some as intended product semantics. That distinction matters. In particular, the DisallowIncoming and DepositAuth cluster is strongest as an architectural critique of distributed policy enforcement; the lock-state, reserve-accounting, and overflow findings are stronger standalone safety/accounting findings.
+
+The five remediating findings are explicitly labeled as such because public beta/develop evidence shows fixes landing after `3.1.3`. For the fourteen "no confirmed fix" findings, the claim is only that our checked `3.2.0-b7` / `origin/develop` refs did not contain a confirmed remediation at the time of the packet.
+
+Post Fiat's immediate use of this report is internal engineering due diligence: whether to inherit a RippleD-derived path, support it with local hardening, or avoid the inherited surface. Any downstream production decision should also consider upstream's later response, amendment policy, and any coordinated-disclosure outcome after this packet.
 
 ## Excluded Boundary
 
