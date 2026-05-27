@@ -1,8 +1,8 @@
 ---
 layout: report
-title: "Honing XRP Code Quality: Post Fiat Evaluation of the RippleD Codebase"
+title: "RippleD 3.1.3 Audit: Reproduced P0-Class Evidence Packet"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat runs on a RippleD fork. This is our internal code-quality evaluation of upstream rippled 3.1.3 before we decide how to proceed."
+summary: "Post Fiat evaluated a RippleD-derived implementation path. This rewritten report is an evidence-first packet for 37 locally reproduced rippled findings: seven lending freeze receive paths, twenty-five additional current 3.1.3 transaction/helper root causes, one feature-bound MPT lock-state issue, one protocol-wire defect, and nine historical fixCleanup-era root causes."
 category: Post Fiat Research
 xrpl_report: true
 report_css_version: 20260528b
@@ -15,568 +15,1506 @@ tags:
 ---
 
 <div class="pearl-primer-box">
-  <p><strong>Context:</strong> Post Fiat is a <strong>RippleD fork</strong>. Before we commit to building on or migrating off this stack, we ran an internal audit of the upstream codebase — baseline <code>release-3.1.3</code>, May 2026 — to understand what is actually broken, what is proven, and what we can rule out.</p>
-  <p style="margin-top:12px">This report is that evaluation write-up: plain-English observations, hypothesized exploit paths where our testing supported them, diagrams, and local jtx reproductions. It reflects our internal research only, published for transparency.</p>
-  <p style="margin-top:12px"><strong>Why now:</strong> The May 2026 <code>fixCleanup3_1_3</code> amendment episode — mandatory upgrade pressure, validator-driven rule changes, and maintenance fixes that do <em>not</em> cover the lending freeze behavior we reproduced — is what pushed us to audit the RippleD codebase ourselves before Post Fiat proceeds further.</p>
+  <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the reproducibility packet for what we found in upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
+  <p style="margin-top:12px"><strong>Scope:</strong> This is not a vendor advisory and not a mainnet exploit guide. It covers only behavior reproduced on a clean local upstream jtx build or a direct helper/protocol-wire proof in the same suite. Public testnet is not the primary proof surface because public amendment state and server configuration move; the local standalone jtx ledger is deterministic and repeatable.</p>
+  <p style="margin-top:12px"><strong>Legacy preservation:</strong> The previous narrative version of this article is archived at <a href="/assets/research/xrpl-rippled-p0-audit/legacy/2026-05-26-xrpl-rippled-open-p0-freeze-audit.pre-evidence-rewrite.md">the legacy source file</a>. The fixCleanup/governance context is retained below, but this version leads with evidence, scripts, and severity boundaries.</p>
 </div>
 
 ---
 
-## Section 0 — The fixCleanup episode & why we audited the code
+## Executive Summary
 
-### Plain English: what fixCleanup is
+Post Fiat ran an internal audit of upstream `rippled` because relying on release cadence, amendment activation, or public statements about maintenance fixes is not enough when considering a RippleD-derived implementation path. The resulting proof suite identifies **37 reproduced evidence items** across authorization, issuer controls, precision/accounting, invariant enforcement, MPT behavior, batching, permissioned DEX, and historical cleanup-era logic.
 
-In rippled **3.1.3**, XRPL shipped a bundled amendment called **`fixCleanup3_1_3`**. It is **routine maintenance**, not a new product feature. Official scope ([XRPL blog](https://xrpl.org/blog/2026/rippled-3.1.3), [known amendments](https://xrpl.org/resources/known-amendments)):
+The most important current findings are not a single isolated defect. They are a pattern: authorization objects can outlive their intended control boundary; delegated permissions can authorize or mutate more than their name implies; batch signer signatures were not bound to the outer batch account; issuer freeze and transfer restrictions were inconsistently applied; and several precision/invariant paths convert valid operations into internal failures or malformed state.
 
-- Delete expired NFT offers when accepted
-- Block Permissioned Domain changes on failed transactions
-- Enforce vault withdraw **trust-line limits**
-- Fix loan **accounting** when loans change state
-- Return correct error on LoanPay overpay
-- Tighten LoanBroker **cover balance** invariants
+The proof packet is intentionally conservative:
 
-Validators on rippled 3.1.3 **default to voting Yes**. Majority was reached around **13 May 2026**; activation was scheduled for **27 May 2026** after the standard two-week hold.
+- **Promoted findings require a clean local repro.** Code review alone is not counted.
+- **Current and historical findings are separated.** Historical/replay-era cases fixed by `fixCleanup3_1_3` are not described as current 3.1.3 transaction-path bugs.
+- **Helper/accounting/invariant proofs are labeled.** They are serious quality and consensus-safety signals, but not all are equivalent to direct user-level fund movement.
+- **Demoted false positives remain visible.** The report names candidate classes we tested and did not promote.
 
-### Plain English: it was not “rolled back”
+<div class="pearl-hero-grid">
+  <div class="pearl-scorecard warn">
+    <span class="label">Evidence items</span>
+    <span class="value">37</span>
+    <span class="hint">All promoted items have clean local repro evidence.</span>
+  </div>
+  <div class="pearl-scorecard warn">
+    <span class="label">Proof cases</span>
+    <span class="value">47</span>
+    <span class="hint">OpenP0Repro passed 47 cases / 9,119 tests with zero failures.</span>
+  </div>
+  <div class="pearl-scorecard good">
+    <span class="label">Mainnet wallet</span>
+    <span class="value">Not required</span>
+    <span class="hint">jtx standalone mints local test accounts.</span>
+  </div>
+</div>
 
-**Important:** fixCleanup did **not** get rolled back or reversed on mainnet. What happened to slow operators is different:
+## Evidence Packet
 
-| What people say | What actually happens |
-|-----------------|----------------------|
-| “The network rolled back the upgrade” | **No.** The amendment **activated** on the canonical ledger. |
-| “Nodes got forked off” | Lagging nodes became **amendment-blocked** — they stop validating, submitting txs, and voting until upgraded ([XRPL docs](https://xrpl.org/docs/concepts/networks-and-servers/amendments)). |
-| “There was a chain split” | **No rival UNL** campaign. One ledger stream; old software is excluded, not a second asset. |
+| Evidence object | Link |
+|---|---|
+| Audit packet index | [`AUDIT_PACKET.md`](/assets/research/xrpl-rippled-p0-audit/AUDIT_PACKET.md) |
+| Repro manifest | [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json) |
+| Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
+| Common runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
+| Definitive proof runner | [`run_definitive_proof.sh`](/assets/research/xrpl-rippled-p0-audit/run_definitive_proof.sh) |
+| jtx source | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Final proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+| Candidate matrix | [`candidate_matrix.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/candidate_matrix.md) |
+| Repro results journal | [`repro_results.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/repro_results.md) |
+| Legacy article source | [`pre-evidence rewrite archive`](/assets/research/xrpl-rippled-p0-audit/legacy/2026-05-26-xrpl-rippled-open-p0-freeze-audit.pre-evidence-rewrite.md) |
 
-David Schwartz framed this as XRPL’s frequent **“technical hard forks”** (every amendment changes rules old binaries cannot follow) while noting a **contentious** split would need a dissenting validator set + rival UNL + market adoption ([Protos](https://protos.com/david-schwartz-warning-about-hard-forks-because-xrp-nodes-wont-upgrade/), [CryptoSlate](https://cryptoslate.com/xrpls-coming-hard-fork-shows-who-really-controls-a-blockchain-split/)). That did **not** occur for fixCleanup.
+Proof hash:
 
-### Timeline (what happened)
+```text
+a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c  runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log
+```
+
+Final local proof result:
+
+```text
+ripple.tx.OpenP0Repro had 0 failures.
+47 cases, 9119 tests total, 0 failures
+ripple.tx.OpenP0ReproCrash had 0 failures.
+1 case, 12 tests total, 0 failures
+```
+
+## Risk Scoring
+
+This report uses a compact internal severity score rather than pretending to produce official CVEs. The score is a triage device for engineering priority.
+
+| Score band | Meaning |
+|---|---|
+| 9.0-10.0 | Direct authorization bypass, signature replay, issuer-control bypass, or unauthorized ledger mutation. |
+| 8.0-8.9 | High-severity state corruption, stale authority, transfer restriction bypass, or deterministic transaction-path failure. |
+| 7.0-7.9 | Important transaction/helper/invariant correctness issue with credible consensus or product-security impact. |
+| 6.0-6.9 | Protocol-wire, arithmetic, or helper defect that is consensus-relevant but not shown here as a direct live exploit path. |
+| Historical | Reproduced against pre-fix rules or replay-era logic; evidence of release quality, not a current 3.1.3 transaction-path claim. |
+
+## Table Of Contents
+
+| ID | Risk | Type | Exploit class | Repro |
+|---|---:|---|---|---|
+| [LEND-FREEZE-001](#lend-freeze-001) | 9.4 / Critical | Current transaction-path | Issuer-control bypass / unauthorized IOU receive | [`LEND-FREEZE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LEND-FREEZE-001.sh) |
+| [BATCH-SIGNER-OUTER-REPLAY-001](#batch-signer-outer-replay-001) | 9.2 / Critical | Current transaction-path | Signature replay / authorization binding failure | [`BATCH-SIGNER-OUTER-REPLAY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/BATCH-SIGNER-OUTER-REPLAY-001.sh) |
+| [DELEGATE-MPT-GRANULAR-MUTATION-001](#delegate-mpt-granular-mutation-001) | 9.0 / Critical | Current transaction-path | Unauthorized ledger object mutation | [`DELEGATE-MPT-GRANULAR-MUTATION-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-MPT-GRANULAR-MUTATION-001.sh) |
+| [VAULT-SHARE-MPT-TRANSFER-001](#vault-share-mpt-transfer-001) | 8.9 / Critical | Current transaction-path | Transfer-restriction bypass | [`VAULT-SHARE-MPT-TRANSFER-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-SHARE-MPT-TRANSFER-001.sh) |
+| [DELEGATE-DELETE-STALE-001](#delegate-delete-stale-001) | 8.8 / Critical | Current transaction-path | Stale authority state / reserve inconsistency | [`DELEGATE-DELETE-STALE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-DELETE-STALE-001.sh) |
+| [MPT-DOMAIN-AUTH-001](#mpt-domain-auth-001) | 8.7 / Critical | Current transaction-path | Authorization-policy bypass | [`MPT-DOMAIN-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-DOMAIN-AUTH-001.sh) |
+| [LOANBROKER-LOCKED-MPT-001](#loanbroker-locked-mpt-001) | 8.4 / High | Current transaction-path | Locked-asset return / lock-state bypass | [`LOANBROKER-LOCKED-MPT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANBROKER-LOCKED-MPT-001.sh) |
+| [DELEGATE-SAV-001](#delegate-sav-001) | 8.2 / High | Current transaction-path | Over-broad delegation authority | [`DELEGATE-SAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-SAV-001.sh) |
+| [MPT-LOCK-UNAUTH-NOSAV-001](#mpt-lock-unauth-nosav-001) | 8.2 / High | Current feature-bound | Feature-gated lock-state deletion | [`MPT-LOCK-UNAUTH-NOSAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-NOSAV-001.sh) |
+| [DELEGATE-EMPTY-ACCOUNTSET-001](#delegate-empty-accountset-001) | 8.1 / High | Current transaction-path | Unauthorized sequence consumption | [`DELEGATE-EMPTY-ACCOUNTSET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-EMPTY-ACCOUNTSET-001.sh) |
+| [ESCROW-CANCEL-IOU-001](#escrow-cancel-iou-001) | 8.1 / High | Current transaction-path | Deterministic transaction exception | [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
+| [AMM-STALE-AUTH-001](#amm-stale-auth-001) | 8.0 / High | Current transaction-path | Stale authorization state | [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
+| [INVARIANT-BOOL-OVERWRITE-001](#invariant-bool-overwrite-001) | 8.0 / High | Historical/replay-era | Invariant false negative | [`INVARIANT-BOOL-OVERWRITE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/INVARIANT-BOOL-OVERWRITE-001.sh) |
+| [LOANBROKER-COVER-PRECISION-001](#loanbroker-cover-precision-001) | 8.0 / High | Current transaction-path | Precision/accounting drift | [`LOANBROKER-COVER-PRECISION-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANBROKER-COVER-PRECISION-001.sh) |
+| [VAULT-DEPOSIT-OPPOSITE-LIMIT-001](#vault-deposit-opposite-limit-001) | 8.0 / High | Current transaction-path | Preclaim/apply mismatch / internal failure | [`VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh) |
+| [VAULT-SOLE-SHAREHOLDER-IMPAIRED-001](#vault-sole-shareholder-impaired-001) | 8.0 / High | Current transaction-path | Valid withdrawal DoS / stuck assets | [`VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh) |
+| [LOAN-MINCOVER-SCALE-001](#loan-mincover-scale-001) | 7.8 / High | Current transaction-path | Accounting scale inconsistency | [`LOAN-MINCOVER-SCALE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOAN-MINCOVER-SCALE-001.sh) |
+| [VAULT-MPT-ESCROW-001](#vault-mpt-escrow-001) | 7.8 / High | Historical/replay-era | Locked-state deletion | [`VAULT-MPT-ESCROW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-MPT-ESCROW-001.sh) |
+| [VAULT-WITHDRAW-001](#vault-withdraw-001) | 7.8 / High | Historical/replay-era | Trustline limit bypass | [`VAULT-WITHDRAW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-WITHDRAW-001.sh) |
+| [VAULT-WITHDRAW-SCALE-BOUNDARY-001](#vault-withdraw-scale-boundary-001) | 7.8 / High | Current transaction-path | Invariant failure / valid operation DoS | [`VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh) |
+| [DELEGATE-FEE-RESERVE-001](#delegate-fee-reserve-001) | 7.7 / High | Current transaction-path | Authorization/fee accounting mismatch | [`DELEGATE-FEE-RESERVE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-FEE-RESERVE-001.sh) |
+| [PDEX-HYBRID-QUALITY-001](#pdex-hybrid-quality-001) | 7.7 / High | Current transaction-path | Order-book metadata corruption | [`PDEX-HYBRID-QUALITY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
+| [VAULT-CLAWBACK-001](#vault-clawback-001) | 7.7 / High | Historical/replay-era | Accounting/internal failure | [`VAULT-CLAWBACK-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-CLAWBACK-001.sh) |
+| [MPT-MULTISEND-001](#mpt-multisend-001) | 7.6 / High | Historical/replay-era | Aggregate cap bypass | [`MPT-MULTISEND-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-MULTISEND-001.sh) |
+| [MPT-NONCANONICAL-AMOUNT-001](#mpt-noncanonical-amount-001) | 7.6 / High | Current transaction-path | Malformed amount accepted into application path | [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
+| [VAULT-DEPOSIT-ISSUER-EDGE-001](#vault-deposit-issuer-edge-001) | 7.6 / High | Current transaction-path | Invariant failure / valid operation DoS | [`VAULT-DEPOSIT-ISSUER-EDGE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-DEPOSIT-ISSUER-EDGE-001.sh) |
+| [DELEGATE-MULTISIGN-001](#delegate-multisign-001) | 7.5 / High | Current transaction-path | Authorization validation mismatch | [`DELEGATE-MULTISIGN-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-MULTISIGN-001.sh) |
+| [PDEX-CANCEL-INVARIANT-001](#pdex-cancel-invariant-001) | 7.5 / High | Current transaction-path | Valid transaction invariant failure | [`PDEX-CANCEL-INVARIANT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
+| [CREDENTIAL-EXPIRED-DELETE-001](#credential-expired-delete-001) | 7.4 / High | Historical/replay-era | Cleanup failure masked as success | [`CREDENTIAL-EXPIRED-DELETE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/CREDENTIAL-EXPIRED-DELETE-001.sh) |
+| [MPT-TRANSFER-RATE-OVERFLOW-001](#mpt-transfer-rate-overflow-001) | 7.4 / High | Current helper/accounting | Arithmetic overflow | [`MPT-TRANSFER-RATE-OVERFLOW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh) |
+| [PDOMAIN-TICKET-001](#pdomain-ticket-001) | 7.4 / High | Historical/replay-era | Object-key collision / transaction exception | [`PDOMAIN-TICKET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDOMAIN-TICKET-001.sh) |
+| [PDEX-HYBRID-EMPTY-BOOKS-001](#pdex-hybrid-empty-books-001) | 7.3 / High | Historical/replay-era | Malformed object accepted by invariant | [`PDEX-HYBRID-EMPTY-BOOKS-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-EMPTY-BOOKS-001.sh) |
+| [LOANPAY-FEE-001](#loanpay-fee-001) | 7.2 / High | Historical/replay-era | Fee DoS / invalid fee estimate | [`LOANPAY-FEE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANPAY-FEE-001.sh) |
+| [NUMBER-CUSP-UPWARD-001](#number-cusp-upward-001) | 6.9 / Medium | Current helper/accounting | Directed-rounding violation | [`NUMBER-CUSP-UPWARD-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NUMBER-CUSP-UPWARD-001.sh) |
+| [NUMBER-DIVISION-UPWARD-001](#number-division-upward-001) | 6.9 / Medium | Current helper/accounting | Directed-rounding violation | [`NUMBER-DIVISION-UPWARD-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NUMBER-DIVISION-UPWARD-001.sh) |
+| [LOAN-PAYMENT-FACTOR-001](#loan-payment-factor-001) | 6.8 / Medium | Current helper/accounting | Numerical cancellation | [`LOAN-PAYMENT-FACTOR-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOAN-PAYMENT-FACTOR-001.sh) |
+| [MPT-STISSUE-WIRE-001](#mpt-stissue-wire-001) | 6.8 / Medium | Current protocol-wire | Protocol-wire canonicalization defect | [`MPT-STISSUE-WIRE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-STISSUE-WIRE-001.sh) |
+
+## Reproduction Model
+
+Each per-finding script is a thin wrapper around the same deterministic upstream jtx suite. Example:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+python3 verify_packet.py
+./repros/BATCH-SIGNER-OUTER-REPLAY-001.sh
+```
+
+The verifier checks the article links, manifest, scripts, proof-log hash, section anchors, and marker coverage. The wrapper reads `repro_manifest.json`, runs `OpenP0Repro`, asserts the exact testcase marker for the requested finding, and requires the full proof suite to end with zero failures. This makes every table row independently clickable while preserving one canonical test source.
+
+To rebuild from source:
+
+```bash
+cd /home/postfiat/repos/rippled
+cmake --build .build --target rippled -j $(nproc)
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./run_definitive_proof.sh
+```
+
+Verifier checklist:
+
+1. Confirm the upstream target is `XRPLF/rippled` tag `3.1.3`, commit `46b241ace8b30d9c9775d60ffba7d24b21903896`.
+2. Confirm `OpenP0Repro_test.cpp` in this packet matches the source compiled into the local `rippled` build.
+3. Run either `./run_definitive_proof.sh` for the full packet or `./repros/<ID>.sh` for a single finding.
+4. Require the proof footer to show `47 cases, 9119 tests total, 0 failures`.
+5. Require the targeted marker(s) listed under the finding to appear in the proof log.
+6. Treat public-testnet demonstrations as secondary evidence because amendment state, validator configuration, and server build selection are not fixed there.
+
+## Current Critical And High Transaction-Path Findings
+
+<a id="lend-freeze-001"></a>
+### LEND-FREEZE-001 - Lending regular-freeze receive bypass
+
+| Field | Value |
+|---|---|
+| Risk | **9.4 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Issuer-control bypass / unauthorized IOU receive |
+| Affected target | rippled 3.1.3, XLS-66 lending receive paths |
+| Repro script | [`LEND-FREEZE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LEND-FREEZE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Several lending paths use the deep-freeze-only predicate on IOU receivers. An issuer regular-freezes a receiver, but the lending transaction still delivers IOU because the path only blocks deep freeze.
+
+**Expected behavior.** Any path that delivers issuer IOU to an account must enforce regular freeze with the full frozen check.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LEND-FREEZE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `F3.3 LoanBrokerCoverWithdraw — regular-freeze-only destination (P0)`
+- `F3.5 LoanBrokerDelete — regular-freeze-only owner receives cover`
+- `F3.6 LoanPay — regular-freeze-only broker owner receives service fee`
+- `F3.7 LoanSet — regular-freeze-only broker owner receives origination fee`
+- `F3.8 LoanPay — regular-freeze-only vault pseudo receives repayment`
+- `F3.9 LoanBrokerCoverDeposit — regular-freeze-only broker pseudo receives cover`
+- `F3.10 LoanPay — regular-freeze-only broker pseudo receives fallback fee`
+
+**Source signal.** Existing AGTI proof kit plus source review of lending receive checks introduced around PR #5270; VaultWithdraw provides the stricter receiver pattern.
+
+**Remediation prompt.** Replace or supplement receiver-side checkDeepFrozen/isDeepFrozen uses with checkFrozen/isFrozen across F3.3 and F3.5-F3.10, then flip the repro expectations from tesSUCCESS to tecFROZEN.
+
+<a id="loanbroker-cover-precision-001"></a>
+### LOANBROKER-COVER-PRECISION-001 - LoanBrokerCover IOU precision drift
+
+| Field | Value |
+|---|---|
+| Risk | **8.0 / High** |
+| Category | Current transaction-path |
+| Exploit type | Precision/accounting drift |
+| Affected target | rippled 3.1.3 LoanBrokerCover paths |
+| Repro script | [`LOANBROKER-COVER-PRECISION-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANBROKER-COVER-PRECISION-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A deposit of 1.8e-14 credits cover by 2e-14, and positive zero-at-scale deposit/withdraw/clawback amounts can succeed without changing cover or receiver balance.
+
+**Expected behavior.** Positive cover operations below effective precision should be rejected or rounded consistently before state mutation.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LOANBROKER-COVER-PRECISION-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `LoanBrokerCover current — IOU precision drift`
+
+**Source signal.** Later upstream commits 7fdaa0a5e / PR #7274 and c327fc1ee.
+
+**Remediation prompt.** Apply cover-scale minimum checks and reject zero-at-scale cover operations.
+
+<a id="loan-mincover-scale-001"></a>
+### LOAN-MINCOVER-SCALE-001 - LoanPay minimum-cover scale inconsistency
+
+| Field | Value |
+|---|---|
+| Risk | **7.8 / High** |
+| Category | Current transaction-path |
+| Exploit type | Accounting scale inconsistency |
+| Affected target | rippled 3.1.3 LoanPay cover routing |
+| Repro script | [`LOAN-MINCOVER-SCALE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOAN-MINCOVER-SCALE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** The same broker-level cover state routes service fees differently depending on an individual loan scale.
+
+**Expected behavior.** Broker-cover minimum checks should use vault scale consistently.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LOAN-MINCOVER-SCALE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `LoanPay current — broker minimum cover scale inconsistency`
+
+**Source signal.** Later upstream commit a911f9089 / PR #7093.
+
+**Remediation prompt.** Use vault scale for all broker-cover minimum calculations.
+
+<a id="vault-share-mpt-transfer-001"></a>
+### VAULT-SHARE-MPT-TRANSFER-001 - Vault-share MPT transfer restriction bypass
+
+| Field | Value |
+|---|---|
+| Risk | **8.9 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Transfer-restriction bypass |
+| Affected target | rippled 3.1.3 vault-share MPT transfer path |
+| Repro script | [`VAULT-SHARE-MPT-TRANSFER-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-SHARE-MPT-TRANSFER-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** After the underlying MPT issuer clears CanTransfer, peer-to-peer vault-share payment still succeeds.
+
+**Expected behavior.** Vault-share MPTs should inherit underlying MPT transfer restrictions where the product model requires it.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-SHARE-MPT-TRANSFER-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Vault share MPT current — underlying CanTransfer is not inherited`
+
+**Source signal.** Later upstream commit 9cb049276 / PR #7077.
+
+**Remediation prompt.** Propagate underlying MPT flags/reference metadata to vault-share issuances and enforce them on transfer.
+
+<a id="loanbroker-locked-mpt-001"></a>
+### LOANBROKER-LOCKED-MPT-001 - LoanBrokerDelete returns locked MPT first-loss cover
+
+| Field | Value |
+|---|---|
+| Risk | **8.4 / High** |
+| Category | Current transaction-path |
+| Exploit type | Locked-asset return / lock-state bypass |
+| Affected target | rippled 3.1.3 LoanBrokerDelete locked MPT cover |
+| Repro script | [`LOANBROKER-LOCKED-MPT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANBROKER-LOCKED-MPT-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Deleting a broker returns locked MPT first-loss cover and deletes the locked pseudo-account MPToken.
+
+**Expected behavior.** Locked cover should prevent broker deletion or remain locked until safely returnable.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LOANBROKER-LOCKED-MPT-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `LoanBrokerDelete current — locked MPT cover is returned`
+
+**Source signal.** Later upstream commit 179e73594 / PR #7125.
+
+**Remediation prompt.** Block LoanBrokerDelete when locked MPT cover cannot be returned safely.
+
+<a id="vault-withdraw-scale-boundary-001"></a>
+### VAULT-WITHDRAW-SCALE-BOUNDARY-001 - VaultWithdraw IOU scale-boundary invariant failure
+
+| Field | Value |
+|---|---|
+| Risk | **7.8 / High** |
+| Category | Current transaction-path |
+| Exploit type | Invariant failure / valid operation DoS |
+| Affected target | rippled 3.1.3 VaultWithdraw IOU precision boundary |
+| Repro script | [`VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Withdrawing across an IOU scale boundary returns tecINVARIANT_FAILED through vault and destination balance invariant failures.
+
+**Expected behavior.** Precision-boundary withdraws should either execute with valid accounting or fail pre-apply with a targeted precision error.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-WITHDRAW-SCALE-BOUNDARY-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Vault current — withdraw across IOU scale boundary invariant`
+
+**Source signal.** Later upstream commit 633ef4706 / PR #7272.
+
+**Remediation prompt.** Add proactive precision-boundary rejection before invariant failure.
+
+<a id="vault-deposit-issuer-edge-001"></a>
+### VAULT-DEPOSIT-ISSUER-EDGE-001 - VaultDeposit issuer IOU edge invariant failure
+
+| Field | Value |
+|---|---|
+| Risk | **7.6 / High** |
+| Category | Current transaction-path |
+| Exploit type | Invariant failure / valid operation DoS |
+| Affected target | rippled 3.1.3 VaultDeposit issuer IOU edge |
+| Repro script | [`VAULT-DEPOSIT-ISSUER-EDGE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-DEPOSIT-ISSUER-EDGE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Issuer deposit at a vault IOU edge returns tecINVARIANT_FAILED instead of a precise rejection.
+
+**Expected behavior.** Precision-loss deposits should fail before mutation/invariant handling.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-DEPOSIT-ISSUER-EDGE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Vault current — issuer deposit at IOU edge invariant`
+
+**Source signal.** Later upstream commit 633ef4706 / PR #7272.
+
+**Remediation prompt.** Detect issuer-IOU precision edge before applying vault deposit.
+
+<a id="vault-sole-shareholder-impaired-001"></a>
+### VAULT-SOLE-SHAREHOLDER-IMPAIRED-001 - Sole shareholder impaired vault exit failure
+
+| Field | Value |
+|---|---|
+| Risk | **8.0 / High** |
+| Category | Current transaction-path |
+| Exploit type | Valid withdrawal DoS / stuck assets |
+| Affected target | rippled 3.1.3 impaired vault withdraw |
+| Repro script | [`VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** After another shareholder exits an impaired vault, the sole remaining shareholder cannot withdraw available cash and hits the zero-sized-vault invariant.
+
+**Expected behavior.** A sole remaining shareholder should be able to withdraw available cash while impaired receivables remain represented correctly.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-SOLE-SHAREHOLDER-IMPAIRED-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Vault current — sole shareholder impaired exit is stuck`
+
+**Source signal.** Later upstream commit 49567e728 / PR #7139.
+
+**Remediation prompt.** Handle sole-shareholder impaired vault exits without producing zero-sized-vault invariant failure.
+
+<a id="vault-deposit-opposite-limit-001"></a>
+### VAULT-DEPOSIT-OPPOSITE-LIMIT-001 - VaultDeposit opposite-limit internal failure
+
+| Field | Value |
+|---|---|
+| Risk | **8.0 / High** |
+| Category | Current transaction-path |
+| Exploit type | Preclaim/apply mismatch / internal failure |
+| Affected target | rippled 3.1.3 VaultDeposit preclaim/apply mismatch |
+| Repro script | [`VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Preclaim counts the counterparty opposite trustline limit, admits the deposit, then apply returns tefINTERNAL after negative account-assets guard.
+
+**Expected behavior.** Preclaim and apply must use the same balance/limit model, or fail early with a non-internal code.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-DEPOSIT-OPPOSITE-LIMIT-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `VaultDeposit current — opposite trustline limit causes tefINTERNAL`
+
+**Source signal.** Later upstream commit 93ac1aa7a / PR #7288.
+
+**Remediation prompt.** Remove the opposite-limit sanity path or align preclaim with actual IOU send semantics.
+
+<a id="escrow-cancel-iou-001"></a>
+### ESCROW-CANCEL-IOU-001 - EscrowCancel deleted IOU trustline exception
+
+| Field | Value |
+|---|---|
+| Risk | **8.1 / High** |
+| Category | Current transaction-path |
+| Exploit type | Deterministic transaction exception |
+| Affected target | rippled 3.1.3 token escrow cancellation |
+| Repro script | [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Canceling an IOU escrow after the sender trustline was deleted returns tefEXCEPTION / OwnerCount template-field error.
+
+**Expected behavior.** Escrow cancellation accounting should not depend on a deleted sender trustline.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/ESCROW-CANCEL-IOU-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `EscrowCancel current — deleted IOU trustline returns tefEXCEPTION`
+
+**Source signal.** Later upstream commit ad3d172a1 / PR #6171.
+
+**Remediation prompt.** Switch token escrow cancellation accounting to the account ledger entry rather than the deleted trustline.
+
+<a id="amm-stale-auth-001"></a>
+### AMM-STALE-AUTH-001 - AMM stale AuthAccounts after empty reinit
+
+| Field | Value |
+|---|---|
+| Risk | **8.0 / High** |
+| Category | Current transaction-path |
+| Exploit type | Stale authorization state |
+| Affected target | rippled 3.1.3 AMM empty-pool reinitialization |
+| Repro script | [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Empty-pool reinitialization with tfTwoAssetIfEmpty leaves stale sfAuthAccounts from the prior auction slot.
+
+**Expected behavior.** Reinitializing an empty AMM should clear stale auction authorization state.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/AMM-STALE-AUTH-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `AMM current — stale AuthAccounts survive empty reinit`
+
+**Source signal.** Later upstream commit e1fe35993 / PR #6996.
+
+**Remediation prompt.** Clear AuthAccounts during empty-pool AMM reinitialization.
+
+<a id="delegate-delete-stale-001"></a>
+### DELEGATE-DELETE-STALE-001 - Delegatee account deletion leaves stale delegation
+
+| Field | Value |
+|---|---|
+| Risk | **8.8 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Stale authority state / reserve inconsistency |
+| Affected target | rippled 3.1.3 Permission Delegation |
+| Repro script | [`DELEGATE-DELETE-STALE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-DELETE-STALE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegatee account can delete itself while the Delegate ledger entry and delegator owner reserve remain behind.
+
+**Expected behavior.** Deleting an account must clean or prevent inbound delegated-authority state.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-DELETE-STALE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — delegatee account deletion leaves stale delegation`
+
+**Source signal.** Later upstream commit 4da46d31 / PR #6681.
+
+**Remediation prompt.** Store Delegate objects in both delegator and authorized-account owner directories or otherwise block deletion with live delegation state.
+
+<a id="mpt-domain-auth-001"></a>
+### MPT-DOMAIN-AUTH-001 - Domain-bound MPT RequireAuth clearing
+
+| Field | Value |
+|---|---|
+| Risk | **8.7 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Authorization-policy bypass |
+| Affected target | rippled 3.1.3 MPT issuance authorization |
+| Repro script | [`MPT-DOMAIN-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-DOMAIN-AUTH-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** An issuer can clear RequireAuth while retaining DomainID, leaving a domain-bound issuance permissionless in authorization state.
+
+**Expected behavior.** Domain-bound issuances should not clear RequireAuth while DomainID remains.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-DOMAIN-AUTH-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT current — domain-bound RequireAuth can be cleared`
+
+**Source signal.** Later upstream commit 366899d5 / PR #6712.
+
+**Remediation prompt.** Disallow MPTClearRequireAuth when DomainID is set.
+
+<a id="delegate-fee-reserve-001"></a>
+### DELEGATE-FEE-RESERVE-001 - Delegated payment fee coupled to delegator reserve
+
+| Field | Value |
+|---|---|
+| Risk | **7.7 / High** |
+| Category | Current transaction-path |
+| Exploit type | Authorization/fee accounting mismatch |
+| Affected target | rippled 3.1.3 delegated Payment |
+| Repro script | [`DELEGATE-FEE-RESERVE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-FEE-RESERVE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegated payment returns tecUNFUNDED_PAYMENT even though the delegate can pay the fee, because the path couples the delegate-paid fee to the delegator reserve.
+
+**Expected behavior.** Delegate-paid fees should be checked against the delegate fee payer, not the delegator reserve.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-FEE-RESERVE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — delegated fee is coupled to delegator reserve`
+
+**Source signal.** Later upstream commit 17f26ba97 / PR #6568.
+
+**Remediation prompt.** Decouple delegate fee payer balance checks from delegator reserve calculations.
+
+<a id="delegate-sav-001"></a>
+### DELEGATE-SAV-001 - Single Asset Vault transaction can be delegated
+
+| Field | Value |
+|---|---|
+| Risk | **8.2 / High** |
+| Category | Current transaction-path |
+| Exploit type | Over-broad delegation authority |
+| Affected target | rippled 3.1.3 delegated VaultCreate |
+| Repro script | [`DELEGATE-SAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-SAV-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegate can submit VaultCreate for another account; later upstream removed SAV/lending from the delegable transaction set.
+
+**Expected behavior.** High-risk SAV/lending operations should be non-delegable unless explicitly sandboxed.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-SAV-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — SAV transaction can be delegated`
+
+**Source signal.** Later upstream commit 46d5c67a / PR #6489.
+
+**Remediation prompt.** Mark Single Asset Vault and Lending transactions NotDelegable.
+
+<a id="delegate-multisign-001"></a>
+### DELEGATE-MULTISIGN-001 - Delegated multisign self-check rejection
+
+| Field | Value |
+|---|---|
+| Risk | **7.5 / High** |
+| Category | Current transaction-path |
+| Exploit type | Authorization validation mismatch |
+| Affected target | rippled 3.1.3 delegated multisigning |
+| Repro script | [`DELEGATE-MULTISIGN-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-MULTISIGN-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegated payment signed by the delegator as part of the delegatee signer list is rejected before ledger application because the path checks the delegator as self-signing.
+
+**Expected behavior.** Delegated multisign validation should check the delegate account as acting authority.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-MULTISIGN-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — delegator multisign rejected for delegate`
+
+**Source signal.** Later upstream commit 9cb074067 / PR #7064.
+
+**Remediation prompt.** Validate delegated multisigning against the delegate account, not the delegator.
+
+<a id="mpt-noncanonical-amount-001"></a>
+### MPT-NONCANONICAL-AMOUNT-001 - Non-canonical MPT amount reaches ledger engine
+
+| Field | Value |
+|---|---|
+| Risk | **7.6 / High** |
+| Category | Current transaction-path |
+| Exploit type | Malformed amount accepted into application path |
+| Affected target | rippled 3.1.3 MPT amount validation |
+| Repro script | [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A non-canonical MPT amount reaches transaction application and returns fee-burning tecPATH_PARTIAL instead of failing preflight as temBAD_AMOUNT.
+
+**Expected behavior.** Non-canonical MPT amounts should fail before ledger application.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-NONCANONICAL-AMOUNT-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT current — non-canonical amount reaches ledger engine`
+
+**Source signal.** Later upstream commit dcd2ff0b5 / PR #7117.
+
+**Remediation prompt.** Reject non-canonical MPT amounts during preflight/preclaim before fee-burning application.
+
+<a id="delegate-mpt-granular-mutation-001"></a>
+### DELEGATE-MPT-GRANULAR-MUTATION-001 - Delegated MPT issuance metadata/fee mutation
+
+| Field | Value |
+|---|---|
+| Risk | **9.0 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Unauthorized ledger object mutation |
+| Affected target | rippled 3.1.3 granular MPT delegation |
+| Repro script | [`DELEGATE-MPT-GRANULAR-MUTATION-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-MPT-GRANULAR-MUTATION-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegate with only MPTokenIssuanceLock authority can submit MPTokenIssuanceSet with sfMPTokenMetadata and sfTransferFee, mutating issuance fields outside the delegated permission.
+
+**Expected behavior.** Granular delegation must sandbox all fields and flags, not just lock/unlock flags.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-MPT-GRANULAR-MUTATION-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — MPT granular lock permission mutates issuance fields`
+
+**Source signal.** Later upstream commit 87e951470 / PR #6831.
+
+**Remediation prompt.** Add a granular field/flag sandbox for delegated MPTokenIssuanceSet.
+
+<a id="delegate-empty-accountset-001"></a>
+### DELEGATE-EMPTY-ACCOUNTSET-001 - Delegated empty AccountSet consumes principal sequence
+
+| Field | Value |
+|---|---|
+| Risk | **8.1 / High** |
+| Category | Current transaction-path |
+| Exploit type | Unauthorized sequence consumption |
+| Affected target | rippled 3.1.3 delegated AccountSet |
+| Repro script | [`DELEGATE-EMPTY-ACCOUNTSET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/DELEGATE-EMPTY-ACCOUNTSET-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A delegate with only unrelated Payment authority can submit an empty AccountSet for the principal; it succeeds, advances the principal sequence, and charges the delegate fee.
+
+**Expected behavior.** A delegated transaction must require permission for its transaction type even if it has no mutation fields.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/DELEGATE-EMPTY-ACCOUNTSET-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Delegate current — empty AccountSet with unrelated permission consumes principal sequence`
+
+**Source signal.** OpenRouter authorization triage plus source review of SetAccount::checkPermission.
+
+**Remediation prompt.** Make no-field/no-flag AccountSet require AccountSet delegation authority or reject it as unauthorized under delegation.
+
+<a id="batch-signer-outer-replay-001"></a>
+### BATCH-SIGNER-OUTER-REPLAY-001 - Batch signer outer-account replay
+
+| Field | Value |
+|---|---|
+| Risk | **9.2 / Critical** |
+| Category | Current transaction-path |
+| Exploit type | Signature replay / authorization binding failure |
+| Affected target | rippled 3.1.3 BatchSigners authorization |
+| Repro script | [`BATCH-SIGNER-OUTER-REPLAY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/BATCH-SIGNER-OUTER-REPLAY-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Captured BatchSigners signatures from one valid batch can be replayed under a different outer account while authorizing the same inner transaction IDs and flags.
+
+**Expected behavior.** Batch signer authorization must bind the outer account and sequence as well as inner transaction IDs and flags.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/BATCH-SIGNER-OUTER-REPLAY-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Batch current — batch signer signatures replay across outer account`
+
+**Source signal.** Later upstream commit 7618b726b; source review of serializeBatch.
+
+**Remediation prompt.** Bind BatchSigners signatures to outer account and sequence so replay becomes temBAD_SIGNATURE.
+
+<a id="pdex-hybrid-quality-001"></a>
+### PDEX-HYBRID-QUALITY-001 - Permissioned-DEX hybrid-offer quality mismatch
+
+| Field | Value |
+|---|---|
+| Risk | **7.7 / High** |
+| Category | Current transaction-path |
+| Exploit type | Order-book metadata corruption |
+| Affected target | rippled 3.1.3 permissioned DEX hybrid offers |
+| Repro script | [`PDEX-HYBRID-QUALITY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A partially crossed hybrid offer leaves its open-book directory key at one quality while sfExchangeRate records another.
+
+**Expected behavior.** Open-book directory key quality and sfExchangeRate metadata must match after partial crossing.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/PDEX-HYBRID-QUALITY-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Permissioned DEX current — hybrid offer open-book quality mismatch`
+
+**Source signal.** Later upstream commit 28cc20c81 / PR #7087.
+
+**Remediation prompt.** Use the correct open-book placement rate and repair existing bad sfExchangeRate metadata.
+
+<a id="pdex-cancel-invariant-001"></a>
+### PDEX-CANCEL-INVARIANT-001 - Permissioned-DEX regular-offer cancel invariant failure
+
+| Field | Value |
+|---|---|
+| Risk | **7.5 / High** |
+| Category | Current transaction-path |
+| Exploit type | Valid transaction invariant failure |
+| Affected target | rippled 3.1.3 permissioned DEX OfferCreate |
+| Repro script | [`PDEX-CANCEL-INVARIANT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A valid domain OfferCreate that cancels the user regular offer fails with tecINVARIANT_FAILED because the invariant treats the deleted regular offer as forbidden mutation.
+
+**Expected behavior.** The invariant should ignore regular offers deleted as part of a valid domain offer cancellation.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/PDEX-CANCEL-INVARIANT-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Permissioned DEX current — cancel regular offer via domain offer invariant`
+
+**Source signal.** Later upstream commit 8c0080020 / PR #7118.
+
+**Remediation prompt.** Update the permissioned-DEX invariant to ignore deleted regular offers in this path.
+
+
+
+## Current Helper, Accounting, And Invariant Findings
+
+<a id="loan-payment-factor-001"></a>
+### LOAN-PAYMENT-FACTOR-001 - Loan payment-factor cancellation
+
+| Field | Value |
+|---|---|
+| Risk | **6.8 / Medium** |
+| Category | Current helper/accounting |
+| Exploit type | Numerical cancellation |
+| Affected target | rippled 3.1.3 loan accounting helper |
+| Repro script | [`LOAN-PAYMENT-FACTOR-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOAN-PAYMENT-FACTOR-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Near-zero-rate computePaymentFactor diverges from an independent polynomial reference by more than 1e-12.
+
+**Expected behavior.** Near-zero-rate formulas should use stable power-minus-one style arithmetic.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LOAN-PAYMENT-FACTOR-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Loan current — near-zero payment factor cancellation`
+
+**Source signal.** Later upstream commit ad2195f12 / PR #7033.
+
+**Remediation prompt.** Replace direct (1+r)^n - 1 with a numerically stable power-minus-one calculation.
+
+<a id="number-cusp-upward-001"></a>
+### NUMBER-CUSP-UPWARD-001 - Number upward-rounding cusp violation
+
+| Field | Value |
+|---|---|
+| Risk | **6.9 / Medium** |
+| Category | Current helper/accounting |
+| Exploit type | Directed-rounding violation |
+| Affected target | rippled 3.1.3 Number arithmetic |
+| Repro script | [`NUMBER-CUSP-UPWARD-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NUMBER-CUSP-UPWARD-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Under upward rounding, a large Number product stores below the exact product at the maxRep cusp.
+
+**Expected behavior.** Directed upward rounding should never store below the exact positive result.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/NUMBER-CUSP-UPWARD-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Number current — upward rounding falls below exact at maxRep cusp`
+
+**Source signal.** Later upstream commit 4094f7f6c / PR #7051.
+
+**Remediation prompt.** Correct Number rounding at the maxRep cusp and add regression coverage.
+
+<a id="number-division-upward-001"></a>
+### NUMBER-DIVISION-UPWARD-001 - Number upward-division rounding violation
+
+| Field | Value |
+|---|---|
+| Risk | **6.9 / Medium** |
+| Category | Current helper/accounting |
+| Exploit type | Directed-rounding violation |
+| Affected target | rippled 3.1.3 Number division |
+| Repro script | [`NUMBER-DIVISION-UPWARD-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NUMBER-DIVISION-UPWARD-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Under upward rounding, 2 / 1,000,000,000,000,000,007 stores below the exact quotient.
+
+**Expected behavior.** Directed upward division should not round below exact for positive quotients.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/NUMBER-DIVISION-UPWARD-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Number current - upward division falls below exact quotient`
+
+**Source signal.** Later upstream commit 48b1716e6.
+
+**Remediation prompt.** Expand division correction precision and add the quoted quotient regression.
+
+<a id="mpt-transfer-rate-overflow-001"></a>
+### MPT-TRANSFER-RATE-OVERFLOW-001 - MPT transfer-rate scaling overflow
+
+| Field | Value |
+|---|---|
+| Risk | **7.4 / High** |
+| Category | Current helper/accounting |
+| Exploit type | Arithmetic overflow |
+| Affected target | rippled 3.1.3 MPT transfer-rate helper |
+| Repro script | [`MPT-TRANSFER-RATE-OVERFLOW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.
+
+**Expected behavior.** Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT current — transfer-rate scaling overflows large integral amount`
+
+**Source signal.** Later upstream commit 22fbf4d06.
+
+**Remediation prompt.** Route MPT/V2 transfer-rate math through Number arithmetic.
+
+
+
+## Current Feature-Bound And Protocol-Wire Findings
+
+<a id="mpt-stissue-wire-001"></a>
+### MPT-STISSUE-WIRE-001 - MPT STIssue legacy wire-order defect
+
+| Field | Value |
+|---|---|
+| Risk | **6.8 / Medium** |
+| Category | Current protocol-wire |
+| Exploit type | Protocol-wire canonicalization defect |
+| Affected target | rippled 3.1.3 STIssue serialization |
+| Repro script | [`MPT-STISSUE-WIRE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-STISSUE-WIRE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Canonical MPTID sequence bytes de ad be ef serialize as ef be ad de; internal round-trip hides the defect while canonical raw payload parses to a different MPTID.
+
+**Expected behavior.** Protocol wire serialization should preserve canonical raw MPTID byte order.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-STISSUE-WIRE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT current — STIssue sequence bytes are legacy-swapped`
+
+**Source signal.** Later upstream commit 4b2d7871f.
+
+**Remediation prompt.** Use amended V2 STIssue wire format and canonical raw sequence handling.
+
+<a id="mpt-lock-unauth-nosav-001"></a>
+### MPT-LOCK-UNAUTH-NOSAV-001 - MPT locked holder unauthorize without SAV
+
+| Field | Value |
+|---|---|
+| Risk | **8.2 / High** |
+| Category | Current feature-bound |
+| Exploit type | Feature-gated lock-state deletion |
+| Affected target | rippled 3.1.3 with MPTokensV1 active and SingleAssetVault inactive |
+| Repro script | [`MPT-LOCK-UNAUTH-NOSAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-NOSAV-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked when the SAV gate is inactive.
+
+**Expected behavior.** Locked-token deletion checks should not depend on unrelated SAV feature activation.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-LOCK-UNAUTH-NOSAV-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT current — locked holder can delete lock state without SAV`
+
+**Source signal.** Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.
+
+**Remediation prompt.** Gate locked MPToken deletion on the MPT lock feature itself rather than SingleAssetVault.
+
+
+
+## Historical / Replay-Era Findings
+
+These findings are reproduced against pre-`fixCleanup3_1_3` behavior or historical helper paths. They are included because they explain why release-history review was productive and why amendment bundles should be read as targeted fixes, not broad proof that adjacent code is clean. They are not counted as current 3.1.3 transaction-path claims.
+
+<a id="pdomain-ticket-001"></a>
+### PDOMAIN-TICKET-001 - PermissionedDomainSet ticket sequence collision
+
+| Field | Value |
+|---|---|
+| Risk | **7.4 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Object-key collision / transaction exception |
+| Affected target | pre-fixCleanup3_1_3 ledgers |
+| Repro script | [`PDOMAIN-TICKET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDOMAIN-TICKET-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Ticket-paid PermissionedDomainSet read raw sfSequence, so two ticket-paid creates from the same account collide on keylet::permissionedDomain(account, 0).
+
+**Expected behavior.** Ticket-paid creates must use the effective ticket sequence for object identity.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/PDOMAIN-TICKET-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `PermissionedDomainSet pre-fix ticket sequence collision candidate`
+
+**Source signal.** fixCleanup3_1_3 release history and upstream permissioned-domain patch set.
+
+**Remediation prompt.** Use getSeqValue/effective ticket sequence for permissioned-domain creation keys.
+
+<a id="mpt-multisend-001"></a>
+### MPT-MULTISEND-001 - MPT multi-send aggregate MaximumAmount bypass
+
+| Field | Value |
+|---|---|
+| Risk | **7.6 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Aggregate cap bypass |
+| Affected target | pre-fixCleanup3_1_3 helper/accounting path |
+| Repro script | [`MPT-MULTISEND-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-MULTISEND-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** The pre-fix helper allows aggregate sends of 100+100 against MaximumAmount=150, recording outstanding amount beyond the cap.
+
+**Expected behavior.** Aggregate multi-send output must be capped by MaximumAmount.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/MPT-MULTISEND-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `MPT multi-send pre-fix aggregate MaximumAmount bypass`
+
+**Source signal.** Upstream commit 11bab0661 / PR #6644.
+
+**Remediation prompt.** Enforce aggregate MaximumAmount before recording MPT multi-send output.
+
+<a id="vault-withdraw-001"></a>
+### VAULT-WITHDRAW-001 - VaultWithdraw share-denominated trustline-limit bypass
+
+| Field | Value |
+|---|---|
+| Risk | **7.8 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Trustline limit bypass |
+| Affected target | pre-fixCleanup3_1_3 VaultWithdraw share path |
+| Repro script | [`VAULT-WITHDRAW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-WITHDRAW-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Asset-denominated withdraw respects destination trustline limits, but the equivalent share-denominated withdraw succeeds and increases a low-limit destination balance.
+
+**Expected behavior.** Share-denominated and asset-denominated withdraw paths must enforce the same destination trustline limits.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-WITHDRAW-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `VaultWithdraw pre-fix share-denominated trustline limit bypass`
+
+**Source signal.** Upstream commit a59a6138b / PR #6645.
+
+**Remediation prompt.** Apply destination trustline-limit checks to share-denominated VaultWithdraw.
+
+<a id="vault-mpt-escrow-001"></a>
+### VAULT-MPT-ESCROW-001 - Vault share MPToken deleted while shares remain escrow locked
+
+| Field | Value |
+|---|---|
+| Risk | **7.8 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Locked-state deletion |
+| Affected target | pre-fixCleanup3_1_3 vault share MPT path |
+| Repro script | [`VAULT-MPT-ESCROW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-MPT-ESCROW-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** A withdraw can delete a vault share MPToken even though sfLockedAmount remains nonzero because escrowed shares are ignored by the empty-holding removal path.
+
+**Expected behavior.** Any nonzero locked share amount must preserve the MPToken state.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-MPT-ESCROW-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `VaultWithdraw pre-fix deletes share MPToken with locked escrow`
+
+**Source signal.** Upstream commit 06afbd558 / PR #6635.
+
+**Remediation prompt.** Treat sfLockedAmount as live token state when deciding whether an MPToken can be removed.
+
+<a id="vault-clawback-001"></a>
+### VAULT-CLAWBACK-001 - VaultClawback zero-amount unclamped asset clawback
+
+| Field | Value |
+|---|---|
+| Risk | **7.7 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Accounting/internal failure |
+| Affected target | pre-fixCleanup3_1_3 VaultClawback |
+| Repro script | [`VAULT-CLAWBACK-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/VAULT-CLAWBACK-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** With outstanding loans, zero-amount clawback tries to claw back full share value rather than assetsAvailable and reaches a negative-vault-balance guard.
+
+**Expected behavior.** Zero-amount clawback must clamp to available assets.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/VAULT-CLAWBACK-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `VaultClawback pre-fix zero-amount asset clawback is not clamped to assets available`
+
+**Source signal.** Upstream commit dd99ecc65 / PR #6646.
+
+**Remediation prompt.** Clamp zero-amount VaultClawback to sfAssetsAvailable before applying balance changes.
+
+<a id="loanpay-fee-001"></a>
+### LOANPAY-FEE-001 - LoanPay high-amount payment fee uncapped
+
+| Field | Value |
+|---|---|
+| Risk | **7.2 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Fee DoS / invalid fee estimate |
+| Affected target | pre-fixCleanup3_1_3 LoanPay fee path |
+| Repro script | [`LOANPAY-FEE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/LOANPAY-FEE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Fee estimation scales beyond the maximum payment count that the handler can actually process, rejecting a transaction with telINSUF_FEE_P.
+
+**Expected behavior.** Fee must be capped consistently with the handler payment cap.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/LOANPAY-FEE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `LoanPay pre-fix high-amount payment requires uncapped fee`
+
+**Source signal.** Upstream commit 7ea4a5f3f / PR #6969.
+
+**Remediation prompt.** Calculate LoanPay fee using the capped number of processed payments.
+
+<a id="invariant-bool-overwrite-001"></a>
+### INVARIANT-BOOL-OVERWRITE-001 - Invariant bool overwrite hides earlier bad entries
+
+| Field | Value |
+|---|---|
+| Risk | **8.0 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Invariant false negative |
+| Affected target | pre-fixCleanup3_1_3 invariant helper path |
+| Repro script | [`INVARIANT-BOOL-OVERWRITE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/INVARIANT-BOOL-OVERWRITE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Some invariant checks use assignment instead of accumulation, so a later valid entry can clear an earlier bad XRP trustline, deep-freeze trustline, or MPT issuance observation.
+
+**Expected behavior.** Invariant violation state must accumulate across all inspected entries.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/INVARIANT-BOOL-OVERWRITE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Invariant pre-fix — later good entries hide earlier bad entries`
+
+**Source signal.** Upstream commit 321b86797 / PR #6609.
+
+**Remediation prompt.** Use accumulating boolean logic for invariant violations and preserve any earlier bad observation.
+
+<a id="credential-expired-delete-001"></a>
+### CREDENTIAL-EXPIRED-DELETE-001 - Expired credential cleanup ignores delete failure
+
+| Field | Value |
+|---|---|
+| Risk | **7.4 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Cleanup failure masked as success |
+| Affected target | pre-fixCleanup3_1_3 credential cleanup consumers |
+| Repro script | [`CREDENTIAL-EXPIRED-DELETE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/CREDENTIAL-EXPIRED-DELETE-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** Credential consumers can report expired/success while expired credential deletion failed and the credential remains in state.
+
+**Expected behavior.** Failed expired-credential deletion must fail closed to the consumer.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/CREDENTIAL-EXPIRED-DELETE-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Credentials pre-fix — expired cleanup ignores deleteSLE failure`
+
+**Source signal.** Upstream commit af89854a4 / PR #6962.
+
+**Remediation prompt.** Propagate deleteSLE failure from expired credential cleanup and stop dependent transaction processing.
+
+<a id="pdex-hybrid-empty-books-001"></a>
+### PDEX-HYBRID-EMPTY-BOOKS-001 - Permissioned-DEX empty AdditionalBooks invariant bypass
+
+| Field | Value |
+|---|---|
+| Risk | **7.3 / High** |
+| Category | Historical/replay-era |
+| Exploit type | Malformed object accepted by invariant |
+| Affected target | pre-fixCleanup3_1_3 permissioned DEX invariant |
+| Repro script | [`PDEX-HYBRID-EMPTY-BOOKS-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-EMPTY-BOOKS-001.sh) |
+| Source file | [`OpenP0Repro_test.cpp`](/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp) |
+| Proof log | [`definitive_proof_batch_signer_outer_replay_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log) |
+
+**Broken behavior.** The pre-fix invariant rejects missing or more-than-one sfAdditionalBooks but lets an empty array pass for a malformed hybrid offer.
+
+**Expected behavior.** Hybrid offers must have exactly one valid additional book entry.
+
+**Deterministic demonstration.** Run:
+
+```bash
+cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
+./repros/PDEX-HYBRID-EMPTY-BOOKS-001.sh
+```
+
+The wrapper runs the local standalone upstream jtx ledger against `OpenP0Repro`, asserts the testcase marker(s) below, and requires the suite footer `47 cases, 9119 tests total, 0 failures`. This is the deterministic local-devnet demonstration; it is stronger for this report than public testnet because the upstream tag, amendment profile, test ledger, and expected marker are fixed.
+
+**Required marker(s).**
+
+- `Permissioned DEX pre-fix — empty AdditionalBooks hides malformed hybrid offer`
+
+**Source signal.** Upstream commit 96643bb0f / PR #6716.
+
+**Remediation prompt.** Reject empty sfAdditionalBooks arrays in permissioned-DEX hybrid-offer invariant checks.
+
+
+
+## Lending Freeze Root Cause Detail
+
+The lending freeze class deserves special treatment because it is a current issuer-control bypass across seven receive paths. XRPL IOU freeze has two relevant checks: `checkFrozen`, which blocks regular or deep freeze, and `checkDeepFrozen`, which blocks only deep freeze. Regular freeze is the ordinary issuer compliance control. A receiver path that can receive issuer IOU should use the full frozen check.
+
+| Internal path | Transaction | Reproduced behavior |
+|---|---|---|
+| F3.3 | LoanBrokerCoverWithdraw | Regular-frozen destination receives cover IOU. |
+| F3.5 | LoanBrokerDelete | Regular-frozen broker owner receives leftover cover. |
+| F3.6 | LoanPay | Regular-frozen broker owner receives service fee. |
+| F3.7 | LoanSet | Regular-frozen broker owner receives origination fee. |
+| F3.8 | LoanPay | Regular-frozen vault pseudo-account receives repayment. |
+| F3.9 | LoanBrokerCoverDeposit | Regular-frozen broker pseudo-account receives cover. |
+| F3.10 | LoanPay | Regular-frozen broker pseudo-account receives fallback fee. |
+
+```mermaid
+flowchart LR
+  subgraph correct [Correct IOU receiver rule]
+    A[Receiver may receive issuer IOU] --> B[checkFrozen receiver]
+    B --> C{Regular or deep frozen?}
+    C -->|yes| D[tecFROZEN]
+    C -->|no| E[Transfer may proceed]
+  end
+  subgraph broken [Observed lending pattern]
+    F[Receiver may receive issuer IOU] --> G[checkDeepFrozen receiver only]
+    G --> H{Deep frozen?}
+    H -->|regular-only| I[Transfer proceeds]
+    H -->|deep| J[Blocked]
+  end
+```
+
+Representative remediation: mirror the stricter `VaultWithdraw` destination pattern across lending receive paths. For every lending transactor where IOU is delivered to an owner, destination, vault pseudo-account, or broker pseudo-account, enforce `checkFrozen` on that receiver. Keep `checkDeepFrozen` only where the intended rule really is deep-freeze-only.
+
+## fixCleanup And Governance Context
+
+The audit started because `fixCleanup3_1_3` moved through the XRPL amendment process while public commentary risked treating the maintenance bundle as broad lending/vault closure. In `rippled 3.1.3`, `fixCleanup3_1_3` covered expired NFT offer deletion, permissioned-domain failed-transaction invariants, vault withdraw trust-line limits, loan accounting on state changes, LoanPay overpay error code, and LoanBroker cover upper-bound invariants. It did not cover the lending regular-freeze receive paths reproduced above.
+
+Validators on `rippled 3.1.3` defaulted to voting Yes. Majority was reported around 13 May 2026, with activation scheduled around 27 May 2026 after the two-week hold. Lagging nodes become amendment-blocked until upgraded; that is different from a durable rival chain. A contentious XRPL split would need old-rule validators, a rival UNL, old-rule code, infrastructure support, and market recognition.
 
 ```mermaid
 flowchart LR
   R[rippled 3.1.3 released] --> V[Default UNL validators vote Yes]
-  V --> M[80% majority ~13 May 2026]
-  M --> W[2-week activation window]
-  W --> A[fixCleanup activates ~27 May 2026]
-  A --> Q{Node on 3.1.3+?}
-  Q -->|Yes| OK[Follows new rules]
-  Q -->|No| BL[Amendment-blocked until upgrade]
+  V --> M[80% majority window]
+  M --> W[Two-week activation window]
+  W --> A[Amendment activation]
+  A --> Q{Node upgraded?}
+  Q -->|yes| OK[Follows new rules]
+  Q -->|no| BL[Amendment-blocked]
 ```
 
-### Governance: who decides vs who lags
-
-Roughly **100% of default UNL (dUNL) validators** supported fixCleanup while **~40–46% of observed public nodes** had upgraded to 3.1.3 mid-May ([Protos](https://protos.com/david-schwartz-warning-about-hard-forks-because-xrp-nodes-wont-upgrade/) reporting). **Node count does not vote.** Only **trusted validators on your UNL** count toward amendment majority.
-
-```mermaid
-flowchart TB
-  subgraph decides [Who turns a fix into ledger law]
-    direction TB
-    D1[Default UNL validators] --> D2[Each embeds Yes/No in validations]
-    D2 --> D3[Greater than 80% trusted Yes sustained 2 weeks]
-    D3 --> D4[Amendment enabled on mainnet]
-  end
-  subgraph lags [Who often upgrades late]
-    direction TB
-    L1[Exchanges market makers infra] --> L2[Many still on older rippled mid-May]
-    L2 --> L3[Amendment-blocked at activation if not upgraded]
-  end
-  D4 -.->|same binary also contains| CODE[Application code we audited]
-  L3 --> FIX[Fix: upgrade rippled not rollback amendment]
-```
-
-**Governance takeaway for Post Fiat:** rule changes are **fast**, **default-yes**, and **validator-centric**. Dissent is not “stay on old rules and keep using XRP” — it is **upgrade or stop participating**. Application-layer code quality is **orthogonal**: fixCleanup can ship while separate lending freeze behavior remains in the same release.
-
-### Release cadence since chain inception (context)
-
-XRPL mainnet began in **2013**. We chart **stable semver rippled releases** (`x.y.z` tags in [XRPLF/rippled](https://github.com/XRPLF/rippled)) — a practical proxy for how often operators are asked to pick up new server builds. This is **not** the same as amendment activations (rule changes can bundle several fixes per release).
+XRPL mainnet began in 2013. Stable semver releases have accelerated again in the 2.x to 3.x cycle. Release cadence is not proof of code quality, and amendment activation is not a substitute for file-level review.
 
 <div class="pearl-chart-figure">
-  <img src="{{ '/assets/research/xrpl-rippled-p0-audit/rippled_release_rolling_12m.svg' | relative_url }}" alt="12-month rolling count of stable rippled semver releases since 2013" loading="lazy" />
-  <p class="pearl-figure-caption">Trailing 12-month count of stable <code>x.y.z</code> rippled releases tagged in XRPLF/rippled (109 through May 2026). Early-era cadence peaked around <strong>20</strong>/year (mid-2014); recent cadence is roughly <strong>8–10</strong>/year with a step-up in the 2.x→3.x cycle. Data: <a href="{{ '/assets/research/xrpl-rippled-p0-audit/data/rippled_stable_releases.json' | relative_url }}">JSON</a> · regenerate: <code>build_release_rolling_chart.py</code>.</p>
+  <img src="/assets/research/xrpl-rippled-p0-audit/rippled_release_rolling_12m.svg" alt="12-month rolling count of stable rippled semver releases since 2013" loading="lazy" />
+  <p class="pearl-figure-caption">Trailing 12-month count of stable <code>x.y.z</code> rippled releases tagged in XRPLF/rippled. Data: <a href="/assets/research/xrpl-rippled-p0-audit/data/rippled_stable_releases.json">JSON</a>.</p>
 </div>
 
-**Read with fixCleanup:** 3.1.3 is one point on this curve — a maintenance release in a **multi-year acceleration** of rippled shipping. Validator default-Yes amendments (like fixCleanup) can activate rule changes **without** implying a full code-quality pass on unrelated modules (lending freeze checks, invariant stubs, etc.). That gap is why we expanded from governance watching into the file-level audit below.
+## Demoted Or Not Counted
 
-### fixCleanup fixes vs what our audit still tracks
+Several candidate classes were tested or source-reviewed and not promoted. They remain in the evidence packet because the negative controls matter. Examples include the SetTrust crash claim, DID directory-full partial mutation, Batch/Credential rollback leakage, direct `tfInnerBatchTxn` wrapper escape, dry-run TxQ mutation, several bridge hypotheses, and later future-branch MPT/DEX candidates that do not apply to the checked `3.1.3` target. See [`candidate_matrix.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/candidate_matrix.md) for the full disposition list.
 
-These are **different buckets**. fixCleanup patched real bugs in NFT cleanup, vault limits, and loan accounting. Our internal review found **other** behavior in the **same 3.1.3 tree** — especially IOU **regular-freeze** handling on lending receive paths — that fixCleanup **does not address**.
+## Implications For Post Fiat
 
-<div class="pearl-split pearl-diagram-split">
-  <div class="pearl-panel good">
-    <h4>fixCleanup3_1_3 fixes</h4>
-    <ul class="pearl-remediation-list-plain">
-      <li>Expired NFT offer deletion</li>
-      <li>Permissioned Domain failed-tx invariant</li>
-      <li>VaultWithdraw trust-line limit (#6645 class)</li>
-      <li>LoanManage accounting on state changes</li>
-      <li>LoanPay overpay error code</li>
-      <li>LoanBroker cover upper-bound invariant</li>
-    </ul>
-  </div>
-  <div class="pearl-panel bad">
-    <h4>Still in our audit scope (not fixCleanup)</h4>
-    <ul class="pearl-remediation-list-plain">
-      <li>Lending <code>checkDeepFrozen</code> on receivers (F3.3–F3.10) — locally reproduced</li>
-      <li>SetTrust null deref (F6.1) — locally reproduced</li>
-      <li>VaultInvariant loan <code>// TBD</code> (F2.1)</li>
-      <li>FreezeInvariant MPT blind spot (F3.1)</li>
-      <li>EscrowFinish IOU semantics (F3.11 · under review)</li>
-    </ul>
-  </div>
-</div>
-
-```mermaid
-flowchart LR
-  subgraph bundle [fixCleanup3_1_3 bundle]
-    direction TB
-    B1[NFT cleanup]
-    B2[Vault withdraw limit]
-    B3[Loan accounting patches]
-  end
-  subgraph audit [Post Fiat audit findings]
-    direction TB
-    A1[Lending freeze receive checks]
-    A2[SetTrust crash path]
-    A3[Invariant gaps]
-  end
-  bundle -.->|does not remediate| audit
-```
-
-### Why that pushed us into deeper code review
-
-Post Fiat runs on a **RippleD fork**. Watching fixCleanup move through **validator supermajority** while:
-
-1. **Public infra lagged** on the same release, and  
-2. **Press treated the amendment as “security closed”** on lending/vaults, and  
-3. Our later **jtx runs** still showed lending regular-freeze behavior **outside** fixCleanup’s patch list  
-
-…told us we could not rely on **governance velocity** or **release marketing** as a substitute for **reading the code**. Section 0 frames the episode; **Sections A–H** are the file-level review that followed — including upstream links and suggested remediation prompts per issue.
-
----
-
-<div class="pearl-hero-grid">
-  <div class="pearl-scorecard warn">
-    <span class="label">Issues in scope</span>
-    <span class="value">10</span>
-    <span class="hint">F2.1, F3.1, F3.3–F3.10, F6.1 — observed in upstream <code>release-3.1.3</code> at time of review.</span>
-  </div>
-  <div class="pearl-scorecard warn">
-    <span class="label">Locally reproduced</span>
-    <span class="value">7 lending</span>
-    <span class="hint">Regular-freeze behavior — balance change observed in rippled unittest (F3.3).</span>
-  </div>
-  <div class="pearl-scorecard good">
-    <span class="label">Repro wallet</span>
-    <span class="value">Not required</span>
-    <span class="hint">jtx standalone mints test XRP.</span>
-  </div>
-</div>
-
-<div class="pearl-verdict-banner">
-  <strong>How to read this report</strong>
-  <p>Every section below uses the same three-part layout:</p>
-  <ul class="pearl-verdict-list">
-    <li><strong>Plain English</strong> — what the bug means without protocol jargon</li>
-    <li><strong>How it could be exploited</strong> — who does what, and what breaks in the real world</li>
-    <li><strong>Correct vs existing</strong> — diagram comparing intended behavior to rippled today</li>
-    <li><strong>Upstream link &amp; remediation prompt</strong> — GitHub path on tag <code>3.1.3</code> plus suggested fix text you can hand to a developer or coding agent</li>
-  </ul>
-  <p class="pearl-verdict-foot">Sections below cover issues we are still tracking. Lending freeze behavior and the SetTrust crash were reproduced locally. F4.6 / B3-1 vault pseudo fund movement was investigated and <strong>not reproduced</strong> in our jtx setup.</p>
-</div>
-
----
-
-## Section A — IOU regular freeze vs deep freeze (root cause)
-
-### Plain English
-
-An IOU issuer can freeze an account in two steps. **Regular freeze** means “this account should not send or receive my token.” **Deep freeze** is a stronger lock layered on top. You can have **regular-only** freeze — and that is the normal compliance case (suspect wallet, court order, fraud response).
-
-Rippled has two API checks: **`checkFrozen`** (blocks both) and **`checkDeepFrozen`** (blocks deep only). Lending code often uses the wrong one on **receivers**.
-
-### How it could be exploited
-
-1. Issuer regular-freezes account **D** (does not need deep freeze).
-2. Someone submits a lending transaction that pays **D** (or a frozen broker owner, vault pseudo, etc.).
-3. Preclaim calls **`checkDeepFrozen` only** → not blocked.
-4. IOU is delivered to an account the issuer thought was frozen.
-
-**Not required:** hacking validators, fake signatures, or deep freeze.
-
-### Correct vs existing functionality
-
-<div class="pearl-split pearl-diagram-split">
-  <div class="pearl-panel good">
-    <h4>Correct behavior</h4>
-    <div class="pearl-mermaid"><div class="mermaid">
-flowchart TB
-  C1[Issuer regular-freezes D] --> C2[Tx pays D]
-  C2 --> C3{checkFrozen D?}
-  C3 -->|frozen| C4[tecFROZEN]
-  C3 -->|not frozen| C5[IOU delivered]
-    </div></div>
-  </div>
-  <div class="pearl-panel bad">
-    <h4>Existing — lending</h4>
-    <div class="pearl-mermaid"><div class="mermaid">
-flowchart TB
-  B1[Issuer regular-freezes D] --> B2[Tx pays D]
-  B2 --> B3{checkDeepFrozen only?}
-  B3 -->|regular-only| B4[Not blocked]
-  B4 --> B5[IOU delivered — bug]
-    </div></div>
-  </div>
-</div>
-
-### Upstream reference (correct IOU receiver pattern)
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">Reference implementation</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/VaultWithdraw.cpp">VaultWithdraw.cpp</a> · tag <code>3.1.3</code> · merged in <a href="https://github.com/XRPLF/rippled/pull/5572">PR #5572</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “On IOU paths where an account must not <em>receive</em> issuer tokens, use <code>checkFrozen(view, account, asset)</code> on the receiver — not <code>checkDeepFrozen</code> alone. Deep freeze requires regular freeze first; compliance regular-freeze must block delivery. Mirror the VaultWithdraw destination check across all lending receive paths introduced in PR #5270.”</p>
-</div>
-
----
-
-## Section B — Lending freeze bypass (F3.3, F3.5–F3.10) · locally reproduced
-
-### Plain English
-
-The **XLS-66 lending** feature (loan brokers, loan pay, cover withdraw, etc.) checks the **wrong freeze level** on almost every path where IOU goes to a **receiver**. The correct pattern already existed in **`VaultWithdraw`** (destination check) but was not copied into lending.
-
-Seven transaction paths share one mistake introduced in PR [#5270](https://github.com/XRPLF/rippled/pull/5270).
-
-### How it could be exploited
-
-| ID | Transaction | Exploit in one sentence |
-|----|-------------|-------------------------|
-| **F3.3** | CoverWithdraw | Broker sends cover to a **regular-frozen** destination — IOU arrives anyway. |
-| **F3.5** | BrokerDelete | Deleting broker sends leftover cover to a **regular-frozen** owner. |
-| **F3.6** | LoanPay | Borrower pays loan; **broker fee** still routed to **regular-frozen** owner. |
-| **F3.7** | LoanSet | New loan; **origination fee** paid to **regular-frozen** broker owner. |
-| **F3.8** | LoanPay | Payment credits a **regular-frozen** vault pseudo-account. |
-| **F3.9** | CoverDeposit | Cover deposited into **regular-frozen** broker pseudo. |
-| **F3.10** | LoanSet | Fee sent to **regular-frozen** broker pseudo. |
-
-**Observed in testing:** issuer compliance / fraud containment may fail — frozen wallets can still receive IOU via lending in our jtx run. **F3.3 reproduction:** destination balance increased by 10 IOU while regular-frozen.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct — e.g. VaultWithdraw dest]
-    direction TB
-    R1[Receiver may get IOU] --> R2[checkFrozen receiver]
-    R2 --> R3{Regular or deep frozen?}
-    R3 -->|yes| R4[tecFROZEN]
-    R3 -->|no| R5[Transfer OK]
-  end
-  subgraph broken [Existing — lending receive paths]
-    direction TB
-    L1[Receiver may get IOU] --> L2[checkDeepFrozen receiver only]
-    L2 --> L3{Deep frozen?}
-    L3 -->|no — regular-only OK| L4[Transfer OK — BUG]
-    L3 -->|yes| L5[tecFROZEN]
-  end
-```
-
-**Representative code (F3.3):**
-
-```cpp
-if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
-    return ret;
-// MISSING: checkFrozen(ctx.view, dstAcct, vaultAsset)
-```
-
-### Upstream links & remediation prompts
-
-Baseline: [XRPLF/rippled](https://github.com/XRPLF/rippled) tag [`3.1.3`](https://github.com/XRPLF/rippled/tree/3.1.3). Correct receiver pattern: [VaultWithdraw.cpp](https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/VaultWithdraw.cpp) ([#5572](https://github.com/XRPLF/rippled/pull/5572)). Bug cluster introduced in [#5270](https://github.com/XRPLF/rippled/pull/5270).
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.3 · LoanBrokerCoverWithdraw</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp#L109-L111">LoanBrokerCoverWithdraw.cpp#L109-L111</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanBrokerCoverWithdraw::preclaim</code>, after the existing <code>checkDeepFrozen(ctx.view, dstAcct, vaultAsset)</code>, add <code>checkFrozen(ctx.view, dstAcct, vaultAsset)</code> so a regular-frozen destination cannot receive cover IOU. Add jtx: issuer regular-freezes destination only → <code>tecFROZEN</code>; deep-freeze control still passes.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.5 · LoanBrokerDelete</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerDelete.cpp#L87-L89">LoanBrokerDelete.cpp#L87-L89</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “When deleting a loan broker with leftover cover, the owner receives IOU. Replace <code>checkDeepFrozen(ctx.view, brokerOwner, asset)</code> with <code>checkFrozen</code> (or add <code>checkFrozen</code> in addition). Regular-freeze on broker owner must block delete payout.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.6 · LoanPay (broker fee routing)</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanPay.cpp#L305-L318">LoanPay.cpp#L305-L318</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanPay</code> fee routing, <code>sendBrokerFeeToOwner</code> uses <code>!isDeepFrozen(view, brokerOwner, asset)</code> to decide whether fees can go to the owner. Include regular freeze: use <code>!isFrozen(view, brokerOwner, asset)</code> (or equivalent <code>checkFrozen</code>). Also replace <code>checkDeepFrozen(view, brokerPayee, asset)</code> on the payee with <code>checkFrozen</code> when the payee is an IOU receiver.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.7 · LoanSet (origination fee → owner)</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanSet.cpp#L340-L347">LoanSet.cpp#L340-L347</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanSet::preclaim</code>, broker owner may receive origination fees. Change <code>checkDeepFrozen(ctx.view, brokerOwner, asset)</code> to <code>checkFrozen</code> so regular-frozen broker owners cannot receive fees on new loans.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.8 · LoanPay (vault pseudo receiver)</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanPay.cpp#L223-L227">LoanPay.cpp#L223-L227</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanPay::preclaim</code>, vault pseudo-account receives payment IOU via <code>checkDeepFrozen(ctx.view, vaultPseudoAccount, asset)</code> only. Add <code>checkFrozen(ctx.view, vaultPseudoAccount, asset)</code> so regular-freeze on the vault pseudo blocks loan payments crediting it.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.9 · LoanBrokerCoverDeposit</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp#L70-L74">LoanBrokerCoverDeposit.cpp#L70-L74</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanBrokerCoverDeposit::preclaim</code>, broker pseudo receives deposited cover. Replace or supplement <code>checkDeepFrozen(ctx.view, pseudoAccountID, vaultAsset)</code> with <code>checkFrozen</code> on the pseudo account as IOU receiver.”</p>
-</div>
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.10 · LoanSet (broker pseudo fee sink)</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanSet.cpp#L330-L335">LoanSet.cpp#L330-L335</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanSet::preclaim</code>, <code>brokerPseudo</code> receives fees when owner cannot. Change <code>checkDeepFrozen(ctx.view, brokerPseudo, asset)</code> to <code>checkFrozen</code> for regular-freeze enforcement on the pseudo receiver.”</p>
-</div>
-
-<div class="pearl-remediation pearl-remediation-wide">
-  <p class="pearl-remediation-label">Batch fix (all seven lending sites)</p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Open a single PR against rippled <code>3.1.3</code>: for every lending transactor where IOU is delivered to a receiver (owner, destination, vault pseudo, broker pseudo), enforce <code>checkFrozen</code> on that receiver. Keep <code>checkDeepFrozen</code> only where deep-freeze semantics are explicitly required. Copy the VaultWithdraw destination pattern. Add jtx regression tests paralleling <code>Vault_test</code> ‘IOU frozen trust line’ cases for each tx type.”</p>
-</div>
-
----
-
-## Section C — SetTrust validator crash (F6.1) · locally reproduced
-
-### Plain English
-
-If someone submits a **SetTrust** (trust line) transaction pointing at an **issuer account that does not exist**, validators should return a clean error (`tecNO_DST`). When AMM and Single-Asset-Vault features are **off**, the code can **skip that check** and **crash** by reading flags from a null account pointer.
-
-This is a **network availability** bug, not a “steal IOU” bug.
-
-### How it could be exploited
-
-1. Attacker crafts SetTrust with a non-existent issuer; features configured so the null guard is off.
-2. Transaction reaches **preclaim** on validators.
-3. **`sleDst->getFlags()` on null** → validator process segfaults (jtx: **exit 139**).
-
-**Harm:** validator crash, potential consensus disruption if enough nodes hit the same malformed tx — not direct fund theft.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct behavior]
-    direction TB
-    S1[SetTrust: issuer account missing] --> S2{sleDst null?}
-    S2 -->|yes| S3[Return tecNO_DST — always]
-    S2 -->|no| S4[Continue preclaim checks]
-  end
-  subgraph broken [Existing — AMM+SAV off]
-    direction TB
-    B1[SetTrust: issuer account missing] --> B2{sleDst null AND AMM/SAV on?}
-    B2 -->|no — guard skipped| B3[sleDst->getFlags — CRASH]
-    B2 -->|yes| B4[tecNO_DST]
-  end
-```
-
-### Upstream link & remediation prompt
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F6.1 · SetTrust preclaim null deref</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/SetTrust.cpp#L196-L204">SetTrust.cpp#L196-L204</a></p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>SetTrust::preclaim</code>, when <code>sleDst</code> (issuer account) is null, return <code>tecNO_DST</code> unconditionally before calling <code>sleDst->getFlags()</code>. Do not gate the null check on AMM or SingleAssetVault feature flags. Add jtx: SetTrust to non-existent issuer with those features disabled → must return <code>tecNO_DST</code>, must not crash.”</p>
-</div>
-
----
-
-## Section D — VaultInvariant loan gap (F2.1)
-
-### Plain English
-
-After every successful transaction, **invariants** are safety nets that assert ledger accounting still makes sense. For **loan** transactions (`LoanSet`, `LoanManage`, `LoanPay`), the vault invariant literally contains **`// TBD`** and **returns true** — no checks run.
-
-### How it could be exploited
-
-**Not directly.** You need a **second bug** in loan math or routing that corrupts vault/broker balances. Without invariants, that corruption **validates successfully** instead of failing the ledger.
-
-**Analogy:** smoke alarm with no battery — fire only hurts you if something else ignites.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct behavior]
-    direction TB
-    V1[LoanPay succeeds] --> V2[VaultInvariant runs]
-    V2 --> V3[Assert vault AssetsAvailable / broker cover / loan fields consistent]
-    V3 --> V4{Mismatch?}
-    V4 -->|yes| V5[Invariant fail — ledger rejected]
-    V4 -->|no| V6[Ledger stands]
-  end
-  subgraph broken [Existing behavior]
-    direction TB
-    W1[LoanPay succeeds] --> W2[VaultInvariant: case ttLOAN_*]
-    W2 --> W3["// TBD — return true"]
-    W3 --> W4[Always passes — no safety net]
-  end
-```
-
-### Upstream link & remediation prompt
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F2.1 · VaultInvariant loan cases</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L3809-L3813">InvariantCheck.cpp#L3809-L3813</a> (<code>ttLOAN_SET</code>, <code>ttLOAN_MANAGE</code>, <code>ttLOAN_PAY</code> → <code>// TBD</code>)</p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>ValidVault::finalize</code> (InvariantCheck.cpp), replace the loan transaction branch that currently returns true with invariant checks modeled on existing <code>ttVAULT_DEPOSIT</code> / <code>ttVAULT_WITHDRAW</code> cases. After <code>LoanSet</code>, <code>LoanManage</code>, and <code>LoanPay</code>, assert vault <code>AssetsAvailable</code>, broker cover, and loan field consistency. Fail the ledger if accounting drifts.”</p>
-</div>
-
----
-
-## Section E — FreezeInvariant MPT gap (F3.1)
-
-### Plain English
-
-`FreezeInvariant` watches IOU trust line balance changes to catch forbidden transfers while frozen. It **only looks at `ltRIPPLE_STATE`** — **MPT token** balance changes are **invisible** to this invariant.
-
-### How it could be exploited
-
-**Not directly.** If any transactor allows a frozen MPT to move (a separate bug), this invariant **will not catch it**. IOU freeze enforcement and MPT freeze enforcement are asymmetric at the invariant layer.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct behavior]
-    direction TB
-    M1[Any balance change in tx] --> M2[FreezeInvariant tracks IOU lines]
-    M2 --> M3[FreezeInvariant tracks MPT tokens]
-    M3 --> M4{Frozen party received funds?}
-    M4 -->|yes| M5[Invariant fail]
-  end
-  subgraph broken [Existing behavior]
-    direction TB
-    X1[Balance change in tx] --> X2{Entry type?}
-    X2 -->|ltRIPPLE_STATE| X3[Checked]
-    X2 -->|ltMPTOKEN| X4[Skipped — blind spot]
-    X4 --> X5[Invariant passes even if MPT moved while frozen]
-  end
-```
-
-### Upstream link & remediation prompt
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.1 · TransfersNotFrozen MPT blind spot</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L858-L883">InvariantCheck.cpp#L858-L883</a> · type filter at <a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L120">~L120</a> (<code>ltRIPPLE_STATE</code> only)</p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Extend <code>TransfersNotFrozen</code> in InvariantCheck.cpp to track <code>ltMPTOKEN</code> balance changes, not only <code>ltRIPPLE_STATE</code>. Apply MPT lock semantics (<code>lsfMPTLocked</code>, issuance global lock) symmetrically with IOU freeze invariant coverage. Add invariant tests for frozen MPT movement attempts.”</p>
-</div>
-
----
-
-## Section F — EscrowFinish IOU (F3.11 · under review)
-
-### Plain English
-
-When finishing an **IOU escrow**, the destination freeze check uses **`isDeepFrozen` only**. The **MPT escrow path in the same file** uses **`isFrozen`**. Tests expect IOU finish to **succeed** when the destination is regular-frozen after escrow was created.
-
-**Status:** under review — may be intentional legacy behavior for in-flight escrows; we have not promoted this to our main findings list.
-
-### How it could be exploited
-
-1. Escrow created to destination **D**.
-2. Issuer regular-freezes **D** (not deep).
-3. Finisher submits **EscrowFinish** → IOU may still pay **D**.
-
-Same freeze API mistake as lending, but product intent is unclear.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph correct [Correct — aligned with MPT path]
-    direction TB
-    E1[EscrowFinish IOU to dest D] --> E2{isFrozen D?}
-    E2 -->|yes| E3[tecFROZEN / block finish]
-    E2 -->|no| E4[Deliver escrowed IOU]
-  end
-  subgraph broken [Existing — IOU template]
-    direction TB
-    F1[EscrowFinish IOU to dest D] --> F2{isDeepFrozen D only?}
-    F2 -->|regular-only freeze| F3[Finish succeeds — IOU delivered]
-    F2 -->|deep freeze| F4[Blocked]
-  end
-```
-
-### Upstream link & remediation prompt
-
-<div class="pearl-remediation">
-  <p class="pearl-remediation-label">F3.11 · EscrowFinish IOU destination freeze</p>
-  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/Escrow.cpp#L615-L617">Escrow.cpp#L615-L617</a> · compare MPT path <a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/Escrow.cpp#L647-L649">#L647-L649</a> (<code>isFrozen</code>)</p>
-  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Clarify product intent for IOU escrow finish when destination is regular-frozen after escrow creation. If finish must respect issuer regular-freeze, change IOU template from <code>isDeepFrozen</code> to <code>isFrozen</code> to match the MPT escrow path in the same file. Update Escrow tests accordingly and document legacy in-flight escrow behavior if regular-freeze finish is intentionally allowed.”</p>
-</div>
-
----
-
-## Section G — fixCleanup3_1_3 vs issues we still track
-
-### Plain English
-
-**fixCleanup3_1_3** activated on mainnet around **27 May 2026** (see **Section 0**). It bundles real fixes: NFT offer cleanup, permissioned-domain failed-tx invariant, vault withdraw trust-line limits, loan accounting patches, LoanPay overpay error code, LoanBroker cover upper bound.
-
-It **does not** fix lending regular-freeze receive checks, SetTrust crash, invariant TBD gaps, or Escrow IOU finish semantics — the items in **Sections A–F** of this report.
-
-### How it could be exploited
-
-The amendment itself is not an exploit — the risk we note is **false confidence**: assuming “3.1.3 + fixCleanup = lending/vault security closed” while our local tests still showed lending freeze behavior on the paths below.
-
-### Correct vs existing functionality
-
-```mermaid
-flowchart LR
-  subgraph marketed [What fixCleanup fixes]
-    direction TB
-    MC1[NFT expired offer cleanup]
-    MC2[VaultWithdraw trust-line limit]
-    MC3[LoanManage accounting patches]
-    MC4[LoanPay overpay error code]
-  end
-  subgraph stillopen [Still open after activation]
-    direction TB
-    SO1[Lending checkDeepFrozen on receivers — locally reproduced]
-    SO2[SetTrust null deref — locally reproduced]
-    SO3[VaultInvariant loan TBD]
-    SO4[FreezeInvariant MPT blind spot]
-  end
-  marketed -.->|does not close| stillopen
-```
-
----
-
-## Section H — Local reproduction notes
-
-### Plain English
-
-We ran rippled’s built-in **jtx** test ledger locally — no testnet, no mainnet XRP. Tests mint accounts and assert balances.
-
-### Results
-
-| Finding | Method | Result |
-|---------|--------|--------|
-| **F3.3** lending freeze | `OpenP0Repro` | Reproduced locally — `tesSUCCESS`, dest +10 IOU |
-| **F3.3 control** | deep freeze added | Reproduced locally — `tecFROZEN` |
-| **F6.1** SetTrust crash | `OpenP0ReproCrash` | Reproduced locally — segfault exit 139 |
-| **Freeze logic** | `freeze_check_model.py` | Consistent with code paths reviewed |
-
-### Not reproduced in our jtx setup
-
-| Finding | Method | Result |
-|---------|--------|--------|
-| **F4.6 / B3-1** vault pseudo fund movement | `OpenP0Repro` | Not reproduced — `tecLOCKED`; code-review observation only |
-
-Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/research/xrpl-rippled-p0-audit/) · [`OpenP0Repro_test.cpp`](https://agti.net/assets/research/xrpl-rippled-p0-audit/OpenP0Repro_test.cpp)
-
----
-
-## Implications for Post Fiat
-
-1. **Do not treat fixCleanup as a full code-quality closure** based on this review alone.
-2. **Issuer regular-freeze on lending paths** behaved inconsistently in our local tests (7 call sites reviewed).
-3. **Invariant gaps** (F2.1, F3.1) may reduce safety-net coverage if other issues appear.
-4. **SetTrust crash** is an availability concern in our malformed-tx reproduction.
-5. **F4.6 / B3-1** were code-review observations; we did not reproduce fund movement locally.
+1. A RippleD-derived path cannot rely on XRPL release marketing or amendment activation as a substitute for adversarial source review.
+2. The current-tag findings cluster around exactly the surfaces a new L1 must get right: authorization, issuer controls, canonical serialization, invariant failure handling, precision math, and feature-gated state transitions.
+3. The strongest immediate engineering lesson for Post Fiat is to avoid inheriting these surfaces blindly. Any reused concept needs independent tests, manifest-bound repros, and explicit negative controls.
+4. The report does not show that every reproduced item is equally exploitable on public mainnet. It shows a broad, reproducible quality pattern in upstream `rippled 3.1.3` and adjacent release history.
 
 ---
 
@@ -584,11 +1522,11 @@ Repro kit: [assets/research/xrpl-rippled-p0-audit/](https://agti.net/assets/rese
 
 **Disclaimer**
 
-This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat maintains a RippleD-derived fork; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), or any other third party.
+This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat evaluated RippleD-derived implementation paths; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), or any other third party.
 
-Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), and our interpretation of upstream behavior at a point in time. **We may be wrong.** Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
+Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), helper/protocol-wire checks, and our interpretation of upstream behavior at a point in time. **We may be wrong.** Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
 
-Issue identifiers (e.g. F3.3, F6.1) are **internal audit labels**, not official CVEs or vendor advisories. Descriptions of hypothetical exploit paths are **research scenarios**, not allegations of wrongdoing, negligence, or breach of duty by any person or organization. Mention of pull requests or contributors is for traceability only.
+Issue identifiers are **internal audit labels**, not official CVEs or vendor advisories. Descriptions of hypothetical exploit paths are **research scenarios**, not allegations of wrongdoing, negligence, or breach of duty by any person or organization. Mention of pull requests or contributors is for traceability only.
 
 **No warranty.** This report is provided “as is” without warranty of any kind. To the fullest extent permitted by law, Post Fiat / AGTI disclaims liability for any loss or damage arising from use of or reliance on this material.
 

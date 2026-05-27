@@ -59,23 +59,30 @@ def main() -> None:
             f"{name:<40} {str(cf):<22} {str(cd):<26} {str(bug_allows)}"
         )
 
-    print("\nRows where 'Bug path allows IOU?' is True are the exploitable class (F3.3–F3.10, F4.6, B3-1).")
+    print("\nRows where 'Bug path allows IOU?' is True are the regular-freeze bypass class.")
+    print("This model covers the freeze predicate. It does not prove each transaction path by itself.")
     print("Existing jtx often sets tfSetFreeze | tfSetDeepFreeze together — misses the regular-only row.\n")
 
-    # P0 call sites using wrong check on receiver (confirmed audit)
-    sites = [
+    jtx_confirmed = [
         ("F3.3", "LoanBrokerCoverWithdraw", "destination", "checkDeepFrozen"),
         ("F3.5", "LoanBrokerDelete", "broker owner", "checkDeepFrozen"),
         ("F3.6", "LoanPay", "broker owner fee routing", "isDeepFrozen"),
         ("F3.7", "LoanSet", "broker owner origination fee", "checkDeepFrozen"),
         ("F3.8", "LoanPay", "vault pseudo", "checkDeepFrozen"),
         ("F3.9", "LoanBrokerCoverDeposit", "broker pseudo", "checkDeepFrozen"),
-        ("F3.10", "LoanSet", "broker pseudo", "checkDeepFrozen"),
+        ("F3.10", "LoanPay", "broker pseudo fallback fee", "checkDeepFrozen"),
+    ]
+    not_counted = [
         ("F4.6", "VaultWithdraw", "vault pseudo source", "missing checkFrozen"),
         ("B3-1", "VaultDeposit", "vault pseudo destination", "missing checkFrozen"),
     ]
-    print("Confirmed open P0 freeze call sites:")
-    for fid, tx, recv, wrong in sites:
+
+    print("JTX-confirmed regular-freeze lending sites:")
+    for fid, tx, recv, wrong in jtx_confirmed:
+        print(f"  {fid:6} {tx:28} receiver={recv:24} wrong={wrong}")
+
+    print("\nNot counted as reproduced fund-movement findings in this kit:")
+    for fid, tx, recv, wrong in not_counted:
         print(f"  {fid:6} {tx:28} receiver={recv:24} wrong={wrong}")
 
 
