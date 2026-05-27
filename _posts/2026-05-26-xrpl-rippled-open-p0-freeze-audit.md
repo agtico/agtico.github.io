@@ -29,6 +29,8 @@ This is a fork-inheritance audit, not a neutral vendor advisory and not a broad 
 
 A finding only enters the inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
 
+The publisher's incentives are not hidden. Post Fiat is building in the same authority-validator settlement lineage that made XRPL important, and this audit exists because we needed to decide whether direct RippleD inheritance was engineering leverage or inherited risk. Readers should not trust the report because they trust our motives. They should trust only the parts that reproduce: the manifest, live-amendment receipt, local jtx proof markers, remediation refs, and verifier hash.
+
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
     <span class="label">Packet findings</span>
@@ -54,6 +56,14 @@ The main pattern is straightforward: direct paths often enforce account policy, 
   <p>The packet is a state-transition quality signal. The repeated failure mode is not "one weird transaction." It is policy and accounting logic spread across transaction families instead of being centralized at the ledger-effect boundary. For a downstream chain, that is fork-inheritance risk even where upstream might treat a given policy edge as a design-semantics dispute rather than a custody break.</p>
 </div>
 
+## Publication Posture
+
+This report is public because fork-inheritance claims need to be falsifiable. A private assertion that "RippleD is too risky to inherit" would be useless to downstream engineers; a packet with a manifest, exact baseline, live-surface gate, local reproducer, and verifier can be checked or refuted.
+
+The reproduction scripts are not mainnet wallet scripts. They are local `jtx` harness wrappers that run the upstream `OpenP0Repro` unit-test target and assert named proof markers. They do not require a mainnet wallet, do not submit transactions to XRPL mainnet, and do not depend on explorer state. The live-chain component is the amendment/runtime receipt used to decide whether a locally reproduced surface is relevant to current mainnet semantics.
+
+This does not make public disclosure risk-free. It does make the report's blast radius materially different from a live exploit runbook. The point is to let maintainers, fork authors, auditors, and infrastructure operators distinguish three things that are often blurred together: reproducible state-transition behavior, live amendment relevance, and the policy question of whether upstream considers the behavior intended.
+
 ## Severity Calibration
 
 The scores in this report are internal fork-inheritance risk scores. They are not CVSS scores, official CVEs, or an upstream severity assignment. They answer a narrower engineering question: "how dangerous or expensive is this behavior for a chain deciding whether to inherit `rippled 3.1.3` semantics?"
@@ -75,6 +85,10 @@ The scores in this report are internal fork-inheritance risk scores. They are no
     <p>The five remediating findings show that some issues are being fixed in beta/develop. This report uses those fixes to calibrate risk rather than to claim upstream is inactive.</p>
   </div>
 </div>
+
+The policy cluster remains high fork-risk even when it is not direct fund loss. A ledger-visible flag named `DisallowIncomingTrustline` or `DepositAuth` is a contract with wallets, issuers, auditors, and downstream protocol authors. If that contract only applies to some transaction families, the boundary must be explicit in the protocol specification and centralized in implementation. If it is not explicit, every new settlement path becomes a semantic trap: the direct path says "rejected," while an indirect path reaches the same ledger effect.
+
+That is why the count matters. Eleven similar policy findings are not presented as eleven identical theft bugs. They are evidence that the same invariant has to be rediscovered across offers, NFTs, checks, escrows, AMMs, AMM clawback, and AMM auction refunds. For Post Fiat, that is the exact kind of inherited maintenance hazard a new codebase is supposed to eliminate.
 
 ## How To Read The Packet
 
