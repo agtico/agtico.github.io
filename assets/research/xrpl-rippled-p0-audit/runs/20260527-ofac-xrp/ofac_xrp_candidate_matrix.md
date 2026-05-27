@@ -49,7 +49,8 @@ Direct XRPL JSON-RPC against `s1.ripple.com` and `s2.ripple.com` showed:
 | OFAC-TRUSTLINE-RESERVE-OFFER-001 | Offer crossing can create positive IOU balance without receiver reserve, including for a screened address | `OfferCreate` crossing / trustline owner-count accounting | Baseline live | Already promoted as general packet finding | Already represented by `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. It is address-relevant only as a generic account-touching offer-crossing risk; it does not depend on OFAC status. |
 | OFAC-FROZEN-LINES-001 | Frozen zero-balance lines to the address can be used by `Payment`, `OfferCreate`, AMM, or clawback paths to bypass issuer freeze/deep-freeze intent | `Payment`, `CreateOffer`, `AMM*`, `NFTokenAcceptOffer`, `Clawback`, `AMMClawback` | Payment/Offer/AMM/NFT/AMMClawback live | Source/upstream-test reviewed | Demoted as protocol semantics. Existing `Freeze_test` coverage intentionally allows a holder whose line is regular-frozen by the issuer to receive IOU payments and NFT-sale proceeds; deep freeze is the inbound-blocking state. The checked address has two regular peer-frozen zero-balance lines and one deep peer-frozen zero-balance line. No deterministic local repro showed a deep-freeze bypass, unauthorized transfer, or hidden exposure. |
 | OFAC-AMMCLAWBACK-NOFREEZE-001 | AMM clawback allowed when issuer lacks `asfAllowTrustLineClawback` or has `asfNoFreeze` | `AMMClawback::preclaim` | `AMMClawback` live | Source-killed | Demoted: current 3.1.3 code returns `tecNO_PERMISSION` when `lsfAllowTrustLineClawback` is absent or `lsfNoFreeze` is set. |
-| OFAC-METADATA-HIDING-001 | RPC metadata hides the sanctioned account behind owner directories, deleted nodes, destination tags, or signer lists | `account_info`, `account_objects`, `account_lines`, `account_channels` RPC surfaces | Baseline live | Direct live RPC checked | No promoted bug. Direct RPC exposed `AccountRoot`, `SignerList`, and `RippleState` objects for the sanctioned account; no offers/channels were present in the checked snapshot. Continue only with a concrete transaction-metadata repro. |
+| OFAC-METADATA-HIDING-001 | RPC metadata hides the sanctioned account behind owner directories, deleted nodes, destination tags, or signer lists | `account_info`, `account_objects`, `account_lines`, `account_channels`, `account_tx` RPC surfaces | Baseline live | Direct live RPC and activity scan checked | No promoted bug. Direct RPC exposed `AccountRoot`, `SignerList`, and `RippleState` objects for the sanctioned account; no offers/channels were present in the checked snapshot. `ofac_xrp_activity_scan_20260527.json` scanned `account_tx` at/after `2021-11-08T00:00:00Z` and every returned transaction visibly contained the address in tx or metadata. Continue only with a concrete transaction-metadata repro outside this observed account_tx set. |
+| OFAC-FEE-BURN-001 | Counterparties can pay and burn XRPL fees for transactions that reference or mutate objects involving the sanctioned address | `account_tx` observation; normal transaction fee burn | Baseline live | Direct activity scan checked | Demoted from P0: this is real but expected XRPL mechanics. The scan saw 37 counterparty-signed successful transactions at/after `2021-11-08T00:00:00Z` involving the address, with `5.086555` XRP in counterparty-paid successful fees burned. Fee payer was the counterparty, not the sanctioned account, and the address was visible in the returned tx/meta. |
 
 ## Result
 
@@ -60,6 +61,12 @@ tags, has disabled its master key, owns a signer list, and has three frozen
 zero-balance IOU trustlines. The two offer-crossing trustline findings already
 in the packet remain the relevant live address-touching root causes, but neither
 depends on the OFAC account specifically.
+
+The activity scan also confirms a narrow fee-burn fact: after
+`2021-11-08T00:00:00Z`, counterparties submitted successful transactions that
+referenced or mutated ledger objects involving the sanctioned address, and those
+counterparties' fees were burned by normal XRPL rules. That is not the same as
+the sanctioned account paying fees.
 
 The regular-freeze result is compliance-relevant: ordinary issuer freeze should
 not be treated as equivalent to a full inbound block. A P0 promotion would need
