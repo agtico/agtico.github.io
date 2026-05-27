@@ -2,6 +2,8 @@
 
 Evidence kit for the AGTI intelligence report on **10 confirmed open P0s** in rippled `release-3.1.3` (F4.6/B3-1 vault pseudo bypass **ruled out by jtx** — not counted).
 
+**Charts:** `build_release_rolling_chart.py` → `rippled_release_rolling_12m.svg` (12-month rolling stable release count since 2013).
+
 | Script | Purpose |
 |--------|---------|
 | [`freeze_check_model.py`](freeze_check_model.py) | Logic model: why `checkDeepFrozen` misses regular-only freeze |
