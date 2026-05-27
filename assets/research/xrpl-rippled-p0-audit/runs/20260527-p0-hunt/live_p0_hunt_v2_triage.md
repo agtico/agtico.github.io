@@ -116,6 +116,11 @@ one of the WHIP gates:
   status refresh. The scratch proof forced the subject owner directory full and
   returned `tecDIR_FULL` without leaving a `Credential` object or issuer/subject
   owner-count drift, so it is source-killed and not packet eligible.
+- `PAYMENT-DISALLOW-INCOMING-TRUSTLINE-001` was tested as a direct
+  holder-to-recipient IOU `Payment` variant of the live
+  `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no
+  recipient trustline, so the plain Payment path is source-killed and not packet
+  eligible.
 
 ## Still-Promoted Unfixed Set
 
