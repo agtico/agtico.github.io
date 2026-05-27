@@ -5,6 +5,16 @@ Date: 2026-05-27
 Scope: live-mainnet XRPL P0 hunt, legacy-core priority lane. Public article
 edits are out of scope for this run and were not made.
 
+Fresh live-state snapshot for this slice:
+
+```text
+live_state_snapshot_20260527_moby_dick.json
+sha256: bf5f91401de37d39b79820d32ad9c46ac621e145c1295b9698647b2cb8290f47
+checked_utc: 2026-05-27T21:04:03Z
+s1.ripple.com: rippled 3.1.3, ledger 104523140, hash 9772A3C0D787CC963A696BE47F2BFC23806EF23B4E2D796D587DE9B87D32152D
+s2.ripple.com: rippled 3.1.3, ledger 104523140, hash 9772A3C0D787CC963A696BE47F2BFC23806EF23B4E2D796D587DE9B87D32152D
+```
+
 ## Current Result
 
 The strongest legacy-core candidate is
@@ -26,9 +36,10 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
+local wrapper log sha256: 906ceb62c9649eaacdb3903c895c9d77b956d6acdbb5d45fdff31c298206f6c9
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-15.3s, 1 suite, 59 cases, 16068 tests total, 0 failures
+14.6s, 1 suite, 59 cases, 16068 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
@@ -55,6 +66,22 @@ This sits in old core ledger accounting:
 - `OfferCreate` and offer crossing are long-running core IOU paths.
 - The fix-looking branch touches `rippleCreditIOU` in `src/libxrpl/ledger/View.cpp`,
   a shared ledger helper rather than a narrow new amendment module.
+
+The source-lineage check found the sender-side reserve-clearing branch and
+receiver-reserve-clear comment in every sampled release line from `0.12.0`
+through `3.1.3`:
+
+```text
+0.12.0 modules/ripple_app/ledger/ripple_LedgerEntrySet.cpp:1489 Sender balance was positive.
+0.12.0 modules/ripple_app/ledger/ripple_LedgerEntrySet.cpp:1504 Receiver reserve is clear.
+3.1.3  src/libxrpl/ledger/View.cpp:2048 saBefore > beast::zero
+3.1.3  src/libxrpl/ledger/View.cpp:2083 Receiver reserve is clear.
+```
+
+That is source-lineage evidence, not a substitute for old-binary reproduction.
+It supports the hypothesis that the missing receiver-side reserve transition is
+old, but the only clean binary repro currently recorded in the packet is still
+the current `3.1.3` repro.
 
 The current source signal is upstream branch
 `origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve`, commit
