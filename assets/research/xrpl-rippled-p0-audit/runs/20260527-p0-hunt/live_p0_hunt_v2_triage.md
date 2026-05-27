@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T17:16:38Z`
+Checked: `2026-05-27T17:27:57Z`
 
 ## Live Scope
 
@@ -11,6 +11,8 @@ Enabled live surfaces for this packet:
 
 - `AMM`
 - `AMMClawback`
+- `Checks`
+- `CheckCashMakesTrustLine`
 - `DisallowIncoming`
 - `fixDisallowIncomingV1`
 - `MPTokensV1`
@@ -56,7 +58,7 @@ not satisfy the live-mainnet-only constraint.
 
 ## Promotion Result
 
-Three additional findings were promoted during the live-only continuation:
+Four additional findings were promoted during the live-only continuation:
 
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU offer crossing can
   create a positive balance for a receiver while leaving `OwnerCount=0` and the
@@ -69,6 +71,9 @@ Three additional findings were promoted during the live-only continuation:
 - `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`: the same issuer opt-out is bypassed
   by `NFTokenAcceptOffer`; direct `TrustSet` is rejected, but NFT sell-offer
   settlement in the issuer's IOU creates the seller trustline anyway.
+- `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`: the same issuer opt-out is
+  bypassed by `CheckCash`; direct `TrustSet` is rejected, but cashing an IOU
+  check auto-creates the receiver trustline anyway.
 
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
@@ -84,7 +89,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has five live-enabled findings with no confirmed upstream fix in
+The packet now has six live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -92,6 +97,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`
 - `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`
+- `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`
 
 ## Next Hunt Targets
 

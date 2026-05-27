@@ -1,6 +1,6 @@
 {
   "source": "direct XRPL public JSON-RPC",
-  "checked_utc": "2026-05-27T17:16:42Z",
+  "checked_utc": "2026-05-27T17:27:59Z",
   "server_info": [
     {
       "rpc_url": "https://s1.ripple.com:51234/",
@@ -8,15 +8,15 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 7,
-        "hash": "12CA760B23C1D61D79797533C6BC018282F551666BFB7D71A2B02AF22F7518CE",
-        "seq": 104519618,
+        "age": 5,
+        "hash": "F8B8A53AAA377D6E72BFD147BEB3E85F8C217FBF1B4CD859C3C401D3E56AEFA7",
+        "seq": 104519791,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 17:16:39.049190 UTC"
+      "time": "2026-May-27 17:27:56.322612 UTC"
     },
     {
       "rpc_url": "https://s2.ripple.com:51234/",
@@ -24,27 +24,27 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 8,
-        "hash": "12CA760B23C1D61D79797533C6BC018282F551666BFB7D71A2B02AF22F7518CE",
-        "seq": 104519618,
+        "age": 6,
+        "hash": "F8B8A53AAA377D6E72BFD147BEB3E85F8C217FBF1B4CD859C3C401D3E56AEFA7",
+        "seq": 104519791,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 17:16:40.490794 UTC"
+      "time": "2026-May-27 17:27:57.601700 UTC"
     }
   ],
   "feature_rpc": {
     "rpc_url": "https://s1.ripple.com:51234/",
-    "ledger_hash": "12CA760B23C1D61D79797533C6BC018282F551666BFB7D71A2B02AF22F7518CE",
-    "ledger_index": 104519618,
+    "ledger_hash": "F13CAFFF3E0AEF9296B43DDA44797FD27DCCEEC06FACAFC5C9ED5EC1B6E0B2BE",
+    "ledger_index": 104519792,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "12CA760B23C1D61D79797533C6BC018282F551666BFB7D71A2B02AF22F7518CE",
-    "ledger_index": 104519618,
+    "ledger_hash": "F13CAFFF3E0AEF9296B43DDA44797FD27DCCEEC06FACAFC5C9ED5EC1B6E0B2BE",
+    "ledger_index": 104519792,
     "validated": true,
     "enabled_count": 92
   },
@@ -58,6 +58,20 @@
     },
     "AMMClawback": {
       "id": "726F944886BCDF7433203787E93DD9AA87FAB74DFE3AF4785BA03BEFC97ADA1F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Checks": {
+      "id": "157D2D480E006395B76F948E3E07A45A05FE10230D88A7993C71F97AE4B1F2D1",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "CheckCashMakesTrustLine": {
+      "id": "98DECF327BF79997AEC178323AD51A830E457BFC6D454DAF3E46E5EC42DC619F",
       "enabled": true,
       "supported": true,
       "id_source": "feature_rpc",

@@ -15,6 +15,8 @@ OUT = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RPC_URL = "https://s1.ripple.com:51234/"
 PUBLIC_FEATURES = [
     "AMM",
+    "Checks",
+    "CheckCashMakesTrustLine",
     "MPTokensV1",
     "NonFungibleTokensV1_1",
     "PermissionedDomains",
@@ -24,6 +26,8 @@ PUBLIC_FEATURES = [
 SCOPE_FEATURES = [
     "AMM",
     "AMMClawback",
+    "Checks",
+    "CheckCashMakesTrustLine",
     "DisallowIncoming",
     "fixDisallowIncomingV1",
     "fixDisallowIncomingV1_1",

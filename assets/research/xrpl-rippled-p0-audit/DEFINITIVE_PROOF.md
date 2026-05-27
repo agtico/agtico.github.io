@@ -17,7 +17,7 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 - Expired credential cleanup delete failure: pre-fix credential cleanup could report expired/success to credential consumers after `deleteSLE` failed, leaving the expired credential in state; with `fixCleanup3_1_3` enabled, the same forced-delete-failure paths return `tecINTERNAL`.
 - Permissioned-DEX empty `sfAdditionalBooks`: pre-fix hybrid-offer invariants treated missing or multiple `sfAdditionalBooks` as malformed but allowed an empty array; with `fixCleanup3_1_3` enabled, the empty-array hybrid offer fails the malformed-hybrid invariant.
 
-2026-05-27 current-3.1.3 update: the same suite also reproduces twenty-five additional current `3.1.3` transaction/helper root causes from later upstream fix history and source review, now covering twenty-seven current paths beyond the lending-freeze class, one feature-bound MPT lock-state root cause with `MPTokensV1` active and `SingleAssetVault` inactive, plus one current MPT protocol-wire serialization proof:
+2026-05-27 current-3.1.3 update: the same suite also reproduces twenty-six additional current `3.1.3` transaction/helper root causes from later upstream fix history and source review, now covering twenty-eight current paths beyond the lending-freeze class, one feature-bound MPT lock-state root cause with `MPTokensV1` active and `SingleAssetVault` inactive, plus one current MPT protocol-wire serialization proof:
 
 - `LoanBrokerCover` IOU precision drift: current `3.1.3` can credit broker cover by `2e-14` after the depositor submits `1.8e-14`, and can accept positive cover deposit, withdraw, and clawback amounts that round to zero at the broker cover scale.
 - LoanPay minimum-cover scale inconsistency: current `3.1.3` can route the service fee for the same broker-level cover state differently depending on an individual loan's scale; later upstream made the broker-cover minimum use vault scale consistently.
@@ -43,6 +43,7 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 - A delegate with only `MPTokenIssuanceLock` authority can mutate issuance metadata and transfer fee through `MPTokenIssuanceSet`; current `MPTokenIssuanceSet::checkPermission` inspects lock/unlock flags but not mutation fields.
 - A delegate with only unrelated `Payment` authority can submit an empty `AccountSet` for the principal; current `SetAccount::checkPermission` admits the no-field/no-flag transaction, advances the principal sequence, and charges the delegate fee.
 - Batch signer outer-account replay: current `3.1.3` signs `BatchSigners` over flags and inner transaction IDs only, so signatures captured from one valid batch can be replayed under a different outer account with the same inner transaction IDs and flags; later upstream commit `7618b726b` binds the signature message to the outer account and sequence.
+- `CheckCash` can auto-create an IOU trustline for a receiver even after the issuer has set `asfDisallowIncomingTrustline`; direct `TrustSet` is rejected, but CheckCash settlement succeeds and creates the trustline.
 - MPT locked-holder unauthorize without SAV: with `MPTokensV1` active and `SingleAssetVault` inactive, a holder can `tfMPTUnauthorize` a locked zero-balance MPToken, delete the issuer's lock state, then re-authorize without `lsfMPTLocked`; current `MPTokenAuthorize::preclaim` gates the locked-token deletion check on `featureSingleAssetVault`.
 - A partially-crossed permissioned-DEX hybrid offer can leave its open-book directory key at a different quality from `sfExchangeRate`.
 - A valid permissioned-DEX `OfferCreate` that cancels the user's regular offer can fail with `tecINVARIANT_FAILED`.
@@ -107,6 +108,10 @@ No mainnet wallet. jtx standalone only.
 | **Delegated empty AccountSet sequence consumption** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — a delegate with only unrelated `Payment` authority submits empty `AccountSet`, advances the principal sequence, and pays the fee | same |
 | **Batch signer outer-account replay** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — captured `BatchSigners` from one valid batch authorize the same inner transaction IDs under a different outer account | same |
 | **MPT locked-holder unauthorize without SAV** | jtx `OpenP0Repro` on current `3.1.3` with `MPTokensV1` active and `SingleAssetVault` inactive | **PROVEN feature-bound current path** — holder deletes a locked zero-balance MPToken with `tfMPTUnauthorize`, erasing the issuer lock state, then re-authorizes without `lsfMPTLocked` | same |
+| **Trustline positive balance without reserve** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — offer crossing creates a positive IOU balance while receiver `OwnerCount` and reserve flag remain unset | same |
+| **OfferCreate DisallowIncomingTrustline bypass** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — direct `TrustSet` is rejected, but offer crossing creates the issuer IOU trustline | same |
+| **NFTokenAcceptOffer DisallowIncomingTrustline bypass** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — direct `TrustSet` is rejected, but NFT sell-offer IOU settlement creates the seller trustline | same |
+| **CheckCash DisallowIncomingTrustline bypass** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — direct `TrustSet` is rejected, but CheckCash auto-creates the receiver trustline | same |
 | **Permissioned DEX hybrid-offer quality mismatch** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — open-book directory key quality differs from `sfExchangeRate` after partial crossing | same |
 | **Permissioned DEX regular-offer cancel invariant** | jtx `OpenP0Repro` on current `3.1.3` | **PROVEN current path** — valid domain `OfferCreate` with `OfferSequence` returns `tecINVARIANT_FAILED` | same |
 | **DID dir-full partial mutation** | jtx `OpenP0Repro` — forced `tecDIR_FULL` | **NOT REPRODUCED** — no DID object remains | same |
@@ -166,12 +171,16 @@ ripple.tx.OpenP0Repro Delegate current — delegator multisign rejected for dele
 ripple.tx.OpenP0Repro MPT current — non-canonical amount reaches ledger engine
 ripple.tx.OpenP0Repro MPT current — STIssue sequence bytes are legacy-swapped
 ripple.tx.OpenP0Repro MPT current — locked holder can delete lock state without SAV
+ripple.tx.OpenP0Repro TrustLine current — offer crossing creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — OfferCreate bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro NFToken current — AcceptOffer bypasses DisallowIncomingTrustline
+ripple.tx.OpenP0Repro CheckCash current — bypasses DisallowIncomingTrustline
 ripple.tx.OpenP0Repro Delegate current — MPT granular lock permission mutates issuance fields
 ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permission consumes principal sequence
 ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
 ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
 ripple.tx.OpenP0Repro had 0 failures.
-10.6s, 1 suite, 47 cases, 9119 tests total, 0 failures
+11.6s, 1 suite, 51 cases, 9332 tests total, 0 failures
 ```
 
 Test source: `src/test/app/OpenP0Repro_test.cpp`
@@ -218,7 +227,7 @@ cmake --build . -j$(nproc)
 
 Code audit + expanded jtx + F6.1 negative controls + logic model = **definitive for seven regular-freeze lending receive paths and for demoting the SetTrust crash claim in this public packet**.
 
-The 2026-05-27 hunt adds twenty-five current `3.1.3` transaction/helper root-cause repros, one feature-bound MPT lock-state repro, one current protocol-wire serialization proof, nine historical/replay-era root-cause repros, and two demoted false positives. The current root causes now cover twenty-seven current paths beyond the lending-freeze class because the `LoanBrokerCover` precision root includes deposit, withdraw, and clawback sub-ULP paths, plus a separate `Number::operator/=` upward-division proof, a delegated MPT issuance-mutation proof, a delegated empty-`AccountSet` sequence-consumption proof, and a batch signer outer-account replay proof. The feature-bound MPT locked-holder proof requires `MPTokensV1` active and `SingleAssetVault` inactive. The MPT `STIssue` wire-order proof is counted separately from transaction-path P0s. The MPT aggregate `MaximumAmount`, invariant-overwrite, expired-credential cleanup, permissioned-DEX empty-`AdditionalBooks`, loan payment-factor cancellation, Number upward-rounding cusp, Number upward-division, and MPT transfer-rate overflow cases are helper/accounting, cleanup-consumer, or invariant-path repros following upstream regression style rather than standalone transaction-path repros in this suite. Follow-up artifacts:
+The 2026-05-27 hunt adds twenty-six current `3.1.3` transaction/helper root-cause repros, one feature-bound MPT lock-state repro, one current protocol-wire serialization proof, nine historical/replay-era root-cause repros, and two demoted false positives. The current root causes now cover twenty-eight current paths beyond the lending-freeze class because the `LoanBrokerCover` precision root includes deposit, withdraw, and clawback sub-ULP paths, plus a separate `Number::operator/=` upward-division proof, a delegated MPT issuance-mutation proof, a delegated empty-`AccountSet` sequence-consumption proof, a batch signer outer-account replay proof, and a CheckCash auto-trustline bypass of `DisallowIncomingTrustline`. The feature-bound MPT locked-holder proof requires `MPTokensV1` active and `SingleAssetVault` inactive. The MPT `STIssue` wire-order proof is counted separately from transaction-path P0s. The MPT aggregate `MaximumAmount`, invariant-overwrite, expired-credential cleanup, permissioned-DEX empty-`AdditionalBooks`, loan payment-factor cancellation, Number upward-rounding cusp, Number upward-division, and MPT transfer-rate overflow cases are helper/accounting, cleanup-consumer, or invariant-path repros following upstream regression style rather than standalone transaction-path repros in this suite. Follow-up artifacts:
 
 - `runs/20260527-p0-hunt/candidate_matrix.md`
 - `runs/20260527-p0-hunt/repro_results.md`

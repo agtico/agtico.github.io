@@ -1,6 +1,7 @@
 #include <test/jtx.h>
 #include <test/jtx/AMMTest.h>
 #include <test/jtx/batch.h>
+#include <test/jtx/check.h>
 #include <test/jtx/credentials.h>
 #include <test/jtx/did.h>
 #include <test/jtx/directory.h>
@@ -2600,6 +2601,53 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineCheckCashCurrent()
+    {
+        testcase("CheckCash current — bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+
+        FeatureBitset const features =
+            testable_amendments() | featureCheckCashMakesTrustLine |
+            featureDisallowIncoming;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, alice, bob);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env.close();
+
+        auto const checkID = keylet::check(alice.id(), env.seq(alice)).key;
+        env(check::create(alice, bob, USD(40)), THISLINE);
+        env.close();
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+        BEAST_EXPECT(!env.le(bobLine));
+
+        // Control: direct TrustSet honors asfDisallowIncomingTrustline.
+        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(bobLine));
+
+        // Current CheckCash auto-creates the trustline after checking
+        // RequireAuth and freeze, but without checking DisallowIncoming.
+        env(check::cash(bob, checkID, USD(40)), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        env.require(balance(bob, USD(40)));
+        BEAST_EXPECT(env.le(bobLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -2878,6 +2926,7 @@ public:
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
+        testDisallowIncomingTrustlineCheckCashCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();
