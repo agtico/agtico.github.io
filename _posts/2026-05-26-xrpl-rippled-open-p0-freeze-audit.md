@@ -1,12 +1,12 @@
 ---
 layout: report
-title: "RippleD 3.1.3 Audit: Live Mainnet Surfaces And Remediation Status"
+title: "RippleD 3.1.3 Audit: Live Mainnet Findings And Remediation Inventory"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat evaluated a RippleD-derived implementation path. This report separates live XRPL 3.1.3 surface evidence, post-3.1.3 upstream remediation, and two MPT findings without a confirmed upstream fix in 3.2.0-b7 or origin/develop."
+summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 packet currently contains 19 reproduced high findings on mainnet-enabled surfaces: 14 without a confirmed fix in the checked 3.2.0-b7/origin-develop refs and 5 with post-3.1.3 remediation evidence."
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
-report_css_version: 20260528c
+report_css_version: 20260528d
 tags:
   - AGTI
   - Post Fiat
@@ -16,138 +16,112 @@ tags:
 ---
 
 <div class="pearl-primer-box">
-  <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the live-filtered reproducibility packet for upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p style="margin-top:12px"><strong>What is live:</strong> Direct XRPL JSON-RPC checks on 2026-05-27 showed public XRPL servers reporting <code>rippled_version=3.1.3</code>, while the required AMM, MPTokensV1, PermissionedDomains, PermissionedDEX, and TokenEscrow amendment surfaces were enabled in the validated ledger.</p>
-  <p style="margin-top:12px"><strong>What is being remediated:</strong> Six findings have confirmed post-3.1.3 upstream remediation in <code>3.2.0-b7</code> or <code>origin/develop</code>. Two MPT findings remain without a confirmed upstream fix in those refs at the time of this packet.</p>
-  <p style="margin-top:12px"><strong>Proof surface:</strong> The proof surface is a clean local upstream jtx build, not a public-testnet anecdote. That is intentional: local standalone jtx fixes the upstream tag, amendment profile, ledger setup, expected marker, and result code.</p>
+  <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the live-filtered reproducibility inventory for upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
+  <p style="margin-top:12px"><strong>Current packet:</strong> The packet now contains <strong>19 reproduced high findings</strong> on XRPL mainnet-enabled surfaces. The split is <strong>14 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs and <strong>5 findings with post-3.1.3 remediation evidence</strong>.</p>
+  <p style="margin-top:12px"><strong>Proof model:</strong> Findings are reproduced in a clean local upstream jtx harness against the fixed <code>3.1.3</code> target. Live eligibility is gated by direct XRPL JSON-RPC amendment and runtime receipts, not explorer pages.</p>
 </div>
 
 ---
 
 ## Executive Summary
 
-This report contains **8 reproduced 3.1.3 findings** on XRPL mainnet-enabled amendment surfaces. It does not claim that all eight are novel. Several were already identified and patched by XRPLF after 3.1.3. The actionable point is narrower and more important: these behaviors exist in the 3.1.3 release line while the relevant amendment surfaces are live, and two MPT issues did not have a confirmed upstream fix in `3.2.0-b7` or `origin/develop` during this check.
+This report is an inventory of the current AGTI/Post Fiat XRPL `rippled` 3.1.3 evidence packet.
+
+The packet is not a list of speculative code smells. A finding only enters the public inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
+
+The important update is that the article is no longer the earlier 8-finding snapshot. The current packet has 19 live-mainnet-eligible findings:
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
-    <span class="label">3.1.3 findings</span>
-    <span class="value">8</span>
-    <span class="hint">Reproduced on live-enabled amendment surfaces.</span>
+    <span class="label">Packet findings</span>
+    <span class="value">19</span>
+    <span class="hint">Reproduced high findings on live-enabled surfaces.</span>
   </div>
   <div class="pearl-scorecard warn">
-    <span class="label">Not fixed upstream</span>
-    <span class="value">2</span>
-    <span class="hint">No confirmed fix in 3.2.0-b7 or origin/develop.</span>
+    <span class="label">No confirmed fix</span>
+    <span class="value">14</span>
+    <span class="hint">No confirmed fix in checked 3.2.0-b7 / origin-develop refs.</span>
   </div>
   <div class="pearl-scorecard good">
-    <span class="label">Known remediations</span>
-    <span class="value">6</span>
-    <span class="hint">Patched after 3.1.3 in beta/develop code.</span>
+    <span class="label">Remediating</span>
+    <span class="value">5</span>
+    <span class="hint">Post-3.1.3 remediation present in beta/develop evidence.</span>
   </div>
 </div>
 
 ## Current Mainnet State
 
-Direct XRPL public JSON-RPC checks on 2026-05-27 produced the following current-state packet:
+Direct XRPL public JSON-RPC checks on 2026-05-27 produced the current-state packet:
 
 - Runtime receipt: [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json)
 - Amendment receipt: [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json)
-- Upstream remediation receipt: [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json)
+- Remediation receipt: [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json)
+- Canonical manifest: [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json)
 
 | Check | Result |
 |---|---|
+| Target release | `rippled 3.1.3`, commit `46b241ace8b30d9c9775d60ffba7d24b21903896` |
 | Public server versions checked | `s1.ripple.com` and `s2.ripple.com` reported `rippled_version=3.1.3` |
-| Final 3.2.0 release tag | No final `3.2.0` tag was present; latest checked beta was `3.2.0-b7` |
-| Live enabled surfaces used here | `AMM`, `MPTokensV1`, `PermissionedDomains`, `PermissionedDEX`, `TokenEscrow` |
-| Cleanup-era gate | `fixCleanup3_1_3` was enabled in the raw on-ledger `Amendments` object, so cleanup-era candidates are excluded unless they reproduce with that fix enabled |
-| Disabled surfaces excluded from this article | `LendingProtocol`, `SingleAssetVault`, `PermissionDelegation`, `Batch` |
+| Latest checked beta | `3.2.0-b7` |
+| Live enabled surfaces used here | `AMM`, `AMMClawback`, `Checks`, `CheckCashMakesTrustLine`, `Credentials`, `DepositAuth`, `DisallowIncoming`, `fixDisallowIncomingV1`, `MPTokensV1`, `NonFungibleTokensV1_1`, `PermissionedDomains`, `PermissionedDEX`, `TokenEscrow`, `fixMPTDeliveredAmount`, `fixAMMv1_3`, `fixTokenEscrowV1`, `fixAMMClawbackRounding`, `fixCleanup3_1_3` |
+| Disabled surfaces excluded | `LendingProtocol`, `SingleAssetVault`, `PermissionDelegation`, `Batch`, `fixDelegateV1_1`, `fixDisallowIncomingV1_1` |
+| Cleanup-era gate | `fixCleanup3_1_3` was enabled by raw on-ledger amendment hash, so cleanup-era-only candidates are excluded |
 
-This means the report is not about dormant features. The public findings below are scoped to surfaces that were enabled on the validated XRPL ledger at the time of the direct check.
+## Inventory
 
-## Remediation Status
+| ID | Risk | Status | Surface | Exploit class | Repro |
+|---|---:|---|---|---|---|
+| [MPT-LOCK-UNAUTH-001](#mpt-lock-unauth-001) | 8.2 | No confirmed fix | `MPTokensV1` | Lock-state deletion | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh) |
+| [TRUSTLINE-POSITIVE-BALANCE-RESERVE-001](#trustline-positive-balance-reserve-001) | 8.1 | No confirmed fix | Baseline IOU trustlines | Reserve/owner-count bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh) |
+| [TRUSTLINE-DISALLOW-INCOMING-OFFER-001](#trustline-disallow-incoming-offer-001) | 8.0 | No confirmed fix | `DisallowIncoming` + offers | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh) |
+| [NFTOKEN-DISALLOW-INCOMING-ACCEPT-001](#nftoken-disallow-incoming-accept-001) | 8.0 | No confirmed fix | NFT settlement | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-DISALLOW-INCOMING-ACCEPT-001.sh) |
+| [NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001](#nftoken-broker-fee-disallow-incoming-trustline-001) | 8.0 | No confirmed fix | NFT broker fee | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001.sh) |
+| [CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001](#checkcash-disallow-incoming-trustline-001) | 8.0 | No confirmed fix | Checks | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001.sh) |
+| [TOKENESCROW-DISALLOW-INCOMING-FINISH-001](#tokenescrow-disallow-incoming-finish-001) | 8.0 | No confirmed fix | TokenEscrow | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/TOKENESCROW-DISALLOW-INCOMING-FINISH-001.sh) |
+| [AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001](#ammwithdraw-disallow-incoming-trustline-001) | 8.0 | No confirmed fix | AMM withdraw | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001.sh) |
+| [AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001](#ammcreate-disallow-incoming-trustline-001) | 8.0 | No confirmed fix | AMM create | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001.sh) |
+| [AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001](#ammdeposit-empty-disallow-incoming-trustline-001) | 8.0 | No confirmed fix | AMM empty-pool deposit | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001.sh) |
+| [AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001](#ammclawback-disallow-incoming-paired-asset-001) | 8.0 | No confirmed fix | AMMClawback | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001.sh) |
+| [AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001](#ammclawback-depositauth-paired-asset-001) | 8.0 | No confirmed fix | AMMClawback | Holder receive-policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001.sh) |
+| [AMMBID-DEPOSITAUTH-REFUND-001](#ammbid-depositauth-refund-001) | 8.0 | No confirmed fix | AMMBid | Holder receive-policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMBID-DEPOSITAUTH-REFUND-001.sh) |
+| [MPT-TRANSFER-RATE-OVERFLOW-001](#mpt-transfer-rate-overflow-001) | 7.4 | No confirmed fix | `MPTokensV1` | Arithmetic overflow | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh) |
+| [ESCROW-CANCEL-IOU-001](#escrow-cancel-iou-001) | 8.1 | Remediated after 3.1.3 | TokenEscrow | Deterministic exception | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
+| [AMM-STALE-AUTH-001](#amm-stale-auth-001) | 8.0 | Remediated after 3.1.3 | AMM | Stale authorization state | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
+| [MPT-NONCANONICAL-AMOUNT-001](#mpt-noncanonical-amount-001) | 7.6 | Fixed in develop, not confirmed in `3.2.0-b7` | `MPTokensV1` | Non-canonical amount validation | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
+| [PDEX-HYBRID-QUALITY-001](#pdex-hybrid-quality-001) | 7.7 | Remediated after 3.1.3 | PermissionedDEX | Order-book metadata corruption | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
+| [PDEX-CANCEL-INVARIANT-001](#pdex-cancel-invariant-001) | 7.5 | Remediated after 3.1.3 | PermissionedDEX | Valid transaction invariant failure | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
 
-The source-signal lines below are intentionally explicit. If XRPLF already patched a finding after 3.1.3, the report says so. That does not make the 3.1.3 finding irrelevant: it tells operators and fork authors which release line is unsafe to inherit and which fixes must be present before reuse.
+## Why The 14 Unfixed Findings Matter
 
-| Finding | Upstream remediation state checked against `3.2.0-b7` and `origin/develop` |
-|---|---|
-| `MPT-DOMAIN-AUTH-001` | Patched after 3.1.3 in `4b198cd5b` / PR `#6712`; present in `3.2.0-b7` and `origin/develop`. |
-| `ESCROW-CANCEL-IOU-001` | Patched after 3.1.3 in `ad3d172a1` / PR `#6171`; present in `3.2.0-b7` and `origin/develop`. |
-| `AMM-STALE-AUTH-001` | Patched after 3.1.3 in `779b49cd9` / PR `#6996`; present in `3.2.0-b7` and `origin/develop`. |
-| `MPT-NONCANONICAL-AMOUNT-001` | Patched after 3.1.3 in `dcd2ff0b5` / PR `#7117`; present in `origin/develop`, not confirmed in `3.2.0-b7`. |
-| `PDEX-HYBRID-QUALITY-001` | Patched after 3.1.3 in `28cc20c81` / PR `#7087`; present in `3.2.0-b7` and `origin/develop`. |
-| `PDEX-CANCEL-INVARIANT-001` | Patched after 3.1.3 in `8c0080020` / PR `#7118`; present in `3.2.0-b7` and `origin/develop`. |
-| `MPT-TRANSFER-RATE-OVERFLOW-001` | **No confirmed upstream fix in `3.2.0-b7` or `origin/develop`.** Fix-looking commit `22fbf4d06` exists, but was not contained in either ref during this check; the MPT-specific `Number` arithmetic branch was also absent. |
-| `MPT-LOCK-UNAUTH-001` | **No confirmed upstream fix in `3.2.0-b7` or `origin/develop`.** Fix-looking commits `9c967f83b` and `12eb050bf` exist, but were not contained in either ref; current checked source still conditioned the locked-token deletion guard on `featureSingleAssetVault`. |
+The dominant pattern is not one isolated transaction bug. It is incomplete receive-policy enforcement across multiple ledger paths.
 
-## Why This Matters
+`asfDisallowIncomingTrustline` and `asfDepositAuth` are account-level controls. Direct paths respect them. Several indirect paths do not. Offers, NFT settlement, broker fees, CheckCash, TokenEscrow finish, AMM create/deposit/withdraw, AMMClawback paired-asset returns, and AMMBid refunds can reach the same economic effect through a different transaction family.
 
-These findings matter for three practical reasons.
-
-First, they are release-line evidence. A project forking or inheriting `rippled 3.1.3` cannot assume that enabled XRPL amendment surfaces are safe merely because the amendments are live on mainnet.
-
-Second, they are upgrade-lag evidence. Several issues have already been remediated upstream, but public servers checked during this packet still reported `3.1.3`. The security question is therefore not just "does a patch exist?" It is also "which release line is actually operating the live network path?"
-
-Third, two MPT findings remain distinct from the remediated set. `MPT-TRANSFER-RATE-OVERFLOW-001` and `MPT-LOCK-UNAUTH-001` were reproduced in the 3.1.3 proof packet, touch a live enabled MPTokensV1 surface, and did not have a confirmed fix in the checked `3.2.0-b7` or `origin/develop` refs.
-
-## Live Amendment Filter
-
-Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for named amendment status and `ledger_entry` for the raw on-ledger `Amendments` object at index `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`. The saved receipt is [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json). Where public feature-name lookup does not expose a newer amendment name, the packet checks the raw amendment hash directly.
-
-| Amendment | Status in snapshot | Used by findings |
-|---|---|---|
-| `AMM` | Enabled | `AMM-STALE-AUTH-001` |
-| `MPTokensV1` | Enabled | `MPT-DOMAIN-AUTH-001`, `MPT-LOCK-UNAUTH-001`, `MPT-NONCANONICAL-AMOUNT-001`, `MPT-TRANSFER-RATE-OVERFLOW-001` |
-| `PermissionedDomains` | Enabled | `MPT-DOMAIN-AUTH-001`, `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
-| `PermissionedDEX` | Enabled | `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
-| `TokenEscrow` | Enabled | `ESCROW-CANCEL-IOU-001` |
-| `fixCleanup3_1_3` | Enabled by raw amendment hash | Excludes cleanup-era candidates from the live findings list |
+That is a serious implementation-quality signal for anyone inheriting `rippled 3.1.3`: policy checks must be centralized or every new transaction family becomes another bypass candidate.
 
 ## Evidence Packet
 
 | Evidence object | Link |
 |---|---|
-| Live audit packet index | [`AUDIT_PACKET.md`](/assets/research/xrpl-rippled-p0-audit/AUDIT_PACKET.md) |
-| Live repro manifest | [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json) |
+| Packet index | [`AUDIT_PACKET.md`](/assets/research/xrpl-rippled-p0-audit/AUDIT_PACKET.md) |
+| Canonical manifest | [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json) |
 | Direct XRPL amendment receipt | [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json) |
 | Direct XRPL runtime receipt | [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json) |
 | Upstream remediation receipt | [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json) |
-| Live P0 Hunt V2 triage | [`live_p0_hunt_v2_triage.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md) |
+| Live-only triage | [`live_p0_hunt_v2_triage.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md) |
 | Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
-| Common runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
-| Live proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+| Common repro runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
+| Proof extract | [`live_mainnet_enabled_proof_extract_20260527_v13.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v13.log) |
 
 Proof extract hash:
 
 ```text
-f50e5a25081533c7ed5f32823e76a927a06dd2013a51eea82b386bf87ab4461c  runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log
+302da1ccf25b3ab103cdccf231be443515e81561593c34912aca87849a22cfd6
 ```
-
-The extract is derived from the full local proof log and contains only the live-public markers listed in this report plus the zero-failure proof footer.
-
-## Risk Scoring
-
-| Score band | Meaning |
-|---|---|
-| 9.0-10.0 | Direct authorization-policy bypass, issuer/control-policy bypass, or unauthorized ledger mutation on an enabled surface. |
-| 8.0-8.9 | High-severity state corruption, stale authority, transfer restriction bypass, or deterministic transaction-path failure on an enabled surface. |
-| 7.0-7.9 | Important enabled-surface transaction/helper/invariant correctness issue with credible consensus or product-security impact. |
-
-## Table Of Contents
-
-| ID | Risk | Enabled surface | Exploit class | Repro |
-|---|---:|---|---|---|
-| [MPT-DOMAIN-AUTH-001](#mpt-domain-auth-001) | 8.7 / Critical | MPTokensV1 + PermissionedDomains enabled | Authorization-policy bypass | [`MPT-DOMAIN-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-DOMAIN-AUTH-001.sh) |
-| [MPT-LOCK-UNAUTH-001](#mpt-lock-unauth-001) | 8.2 / High | MPTokensV1 enabled | Feature-gated lock-state deletion | [`MPT-LOCK-UNAUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh) |
-| [ESCROW-CANCEL-IOU-001](#escrow-cancel-iou-001) | 8.1 / High | TokenEscrow enabled | Deterministic transaction exception | [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
-| [AMM-STALE-AUTH-001](#amm-stale-auth-001) | 8.0 / High | AMM enabled | Stale authorization state | [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
-| [MPT-NONCANONICAL-AMOUNT-001](#mpt-noncanonical-amount-001) | 7.6 / High | MPTokensV1 enabled | Malformed amount accepted into application path | [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
-| [MPT-TRANSFER-RATE-OVERFLOW-001](#mpt-transfer-rate-overflow-001) | 7.4 / High | MPTokensV1 enabled | Arithmetic overflow | [`MPT-TRANSFER-RATE-OVERFLOW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh) |
-| [PDEX-HYBRID-QUALITY-001](#pdex-hybrid-quality-001) | 7.7 / High | PermissionedDEX + PermissionedDomains enabled | Order-book metadata corruption | [`PDEX-HYBRID-QUALITY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
-| [PDEX-CANCEL-INVARIANT-001](#pdex-cancel-invariant-001) | 7.5 / High | PermissionedDEX + PermissionedDomains enabled | Valid transaction invariant failure | [`PDEX-CANCEL-INVARIANT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
 
 ## Reproduction Model
 
-Run the static packet check:
+Run the static packet verifier:
 
 ```bash
 cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
@@ -158,290 +132,280 @@ Run one finding:
 
 ```bash
 cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-DOMAIN-AUTH-001.sh
+./repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh
 ```
 
-The wrapper reads the live manifest, runs the local upstream jtx repro suite, asserts the targeted marker, and requires the proof footer `47 cases, 9119 tests total, 0 failures`.
+Expected proof footer:
 
-## Live Mainnet-Enabled Findings
-
-<a id="mpt-domain-auth-001"></a>
-### MPT-DOMAIN-AUTH-001 - Domain-bound MPT RequireAuth clearing
-
-| Field | Value |
-|---|---|
-| Risk | **8.7 / Critical** |
-| Enabled surface | MPTokensV1 + PermissionedDomains enabled |
-| Category | Current transaction-path |
-| Exploit type | Authorization-policy bypass |
-| Affected target | rippled 3.1.3 MPT issuance authorization |
-| Repro script | [`MPT-DOMAIN-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-DOMAIN-AUTH-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
-
-**Broken behavior.** An issuer can clear RequireAuth while retaining DomainID, leaving a domain-bound issuance permissionless in authorization state.
-
-**Expected behavior.** Domain-bound issuances should not clear RequireAuth while DomainID remains.
-
-**Deterministic demonstration.** Run:
-
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-DOMAIN-AUTH-001.sh
+```text
+ripple.tx.OpenP0Repro had 0 failures.
+59 cases, 16068 tests total, 0 failures
 ```
 
-**Required marker(s).**
+The per-finding wrapper reads `repro_manifest.json`, runs the upstream local jtx proof suite, asserts the targeted marker, and requires the zero-failure proof footer.
 
-- `MPT current — domain-bound RequireAuth can be cleared`
-
-**Source signal.** Later upstream commit 366899d5 / PR #6712.
-
-**Upstream status.** Patched after 3.1.3 in `4b198cd5b`; confirmed present in `3.2.0-b7` and `origin/develop`.
-
-**Remediation prompt.** Disallow MPTClearRequireAuth when DomainID is set.
+## Findings Without Confirmed Fix
 
 <a id="mpt-lock-unauth-001"></a>
 ### MPT-LOCK-UNAUTH-001 - MPT locked holder lock-state deletion
 
-| Field | Value |
-|---|---|
-| Risk | **8.2 / High** |
-| Enabled surface | MPTokensV1 enabled |
-| Category | Current feature-bound |
-| Exploit type | Feature-gated lock-state deletion |
-| Affected target | rippled 3.1.3 MPT lock-state handling |
-| Repro script | [`MPT-LOCK-UNAUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Risk:** 8.2 / High. **Surface:** `MPTokensV1`; `SingleAssetVault` disabled. **Class:** feature-gated lock-state deletion.
 
-**Broken behavior.** A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.
+**Broken behavior.** A holder can `tfMPTUnauthorize` a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without `lsfMPTLocked`.
 
 **Expected behavior.** Locked-token deletion checks should preserve issuer lock state.
 
-**Deterministic demonstration.** Run:
+**Repro:** [`MPT-LOCK-UNAUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh). Marker: `MPT current — locked holder can delete lock state without SAV`.
 
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-LOCK-UNAUTH-001.sh
-```
+**Upstream status.** Fix-looking commits exist, but the checked `3.2.0-b7` and `origin/develop` source still gates locked-token deletion on `SingleAssetVault`. No confirmed fix.
 
-**Required marker(s).**
+<a id="trustline-positive-balance-reserve-001"></a>
+### TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 - Positive IOU balance without receiver owner reserve
 
-- `MPT current - locked holder can delete lock state`
+**Risk:** 8.1 / High. **Surface:** baseline IOU trustline reserve accounting. **Class:** reserve and owner-count bypass.
 
-**Source signal.** Source review of MPTokenAuthorize::preclaim plus upstream lock/delete coverage.
+**Broken behavior.** After a holder clears its trust limit and balance, offer crossing can give the holder a positive IOU balance while `OwnerCount` remains zero and the receiver reserve flag remains unset.
 
-**Upstream status.** No confirmed fix in `3.2.0-b7` or `origin/develop`. The checked source still conditions the locked-token deletion guard on `featureSingleAssetVault`, while the live MPTokensV1-only condition has `SingleAssetVault` disabled.
+**Expected behavior.** A receiver whose trustline balance moves from zero or negative to positive should either receive the reserve flag and `OwnerCount` increment, or the transaction should fail for insufficient reserve.
 
-**Remediation prompt.** Enforce locked MPToken deletion checks in the MPT authorization path.
+**Repro:** [`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh). Marker: `TrustLine current — offer crossing creates positive balance without reserve`.
 
-<a id="escrow-cancel-iou-001"></a>
-### ESCROW-CANCEL-IOU-001 - EscrowCancel deleted IOU trustline exception
+**Upstream status.** A fix-looking branch exists (`origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve`), but no confirmed fix is present in checked `3.2.0-b7` or `origin/develop`.
 
-| Field | Value |
-|---|---|
-| Risk | **8.1 / High** |
-| Enabled surface | TokenEscrow enabled |
-| Category | Current transaction-path |
-| Exploit type | Deterministic transaction exception |
-| Affected target | rippled 3.1.3 token escrow cancellation |
-| Repro script | [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+<a id="trustline-disallow-incoming-offer-001"></a>
+### TRUSTLINE-DISALLOW-INCOMING-OFFER-001 - OfferCreate bypasses DisallowIncomingTrustline
 
-**Broken behavior.** Canceling an IOU escrow after the sender trustline was deleted returns tefEXCEPTION / OwnerCount template-field error.
+**Risk:** 8.0 / High. **Surface:** `DisallowIncoming`, `fixDisallowIncomingV1`, offers. **Class:** issuer policy bypass.
 
-**Expected behavior.** Escrow cancellation accounting should not depend on a deleted sender trustline.
+**Broken behavior.** An issuer with `asfDisallowIncomingTrustline` set blocks direct `TrustSet` incoming trustlines, but a taker without an existing trustline can still cross an offer and receive the issuer's IOU, creating the trustline through `OfferCreate`.
 
-**Deterministic demonstration.** Run:
+**Expected behavior.** `OfferCreate` should enforce the same incoming-trustline opt-out policy before allowing a taker without an existing trustline to receive the issuer's IOU.
 
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/ESCROW-CANCEL-IOU-001.sh
-```
+**Repro:** [`TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh). Marker: `TrustLine current — OfferCreate bypasses DisallowIncomingTrustline`.
 
-**Required marker(s).**
+**Upstream status.** Fix-looking branch `origin/copilot/apply-asfdisallowincomingtrustline` adds an OfferCreate check behind proposed `fixDisallowIncomingV1_1`, but no confirmed fix is present in checked `3.2.0-b7` or `origin/develop`.
 
-- `EscrowCancel current — deleted IOU trustline returns tefEXCEPTION`
+<a id="nftoken-disallow-incoming-accept-001"></a>
+### NFTOKEN-DISALLOW-INCOMING-ACCEPT-001 - NFTokenAcceptOffer bypasses DisallowIncomingTrustline
 
-**Source signal.** Later upstream commit ad3d172a1 / PR #6171.
+**Risk:** 8.0 / High. **Surface:** `NonFungibleTokensV1_1`, `fixEnforceNFTokenTrustlineV2`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
 
-**Upstream status.** Patched after 3.1.3 in `ad3d172a1`; confirmed present in `3.2.0-b7` and `origin/develop`.
+**Broken behavior.** Direct `TrustSet` is rejected, but `NFTokenAcceptOffer` can settle a sell offer in the issuer's IOU to a seller with no existing trustline, creating the incoming trustline through NFT settlement.
 
-**Remediation prompt.** Switch token escrow cancellation accounting to the account ledger entry rather than the deleted trustline.
+**Expected behavior.** `NFTokenAcceptOffer` should enforce the same incoming-trustline opt-out policy before allowing a seller without an existing trustline to receive the issuer's IOU.
 
-<a id="amm-stale-auth-001"></a>
-### AMM-STALE-AUTH-001 - AMM stale AuthAccounts after empty reinit
+**Repro:** [`NFTOKEN-DISALLOW-INCOMING-ACCEPT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-DISALLOW-INCOMING-ACCEPT-001.sh). Marker: `NFToken current — AcceptOffer bypasses DisallowIncomingTrustline`.
 
-| Field | Value |
-|---|---|
-| Risk | **8.0 / High** |
-| Enabled surface | AMM enabled |
-| Category | Current transaction-path |
-| Exploit type | Stale authorization state |
-| Affected target | rippled 3.1.3 AMM empty-pool reinitialization |
-| Repro script | [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`; the OfferCreate branch does not cover this path.
 
-**Broken behavior.** Empty-pool reinitialization with tfTwoAssetIfEmpty leaves stale sfAuthAccounts from the prior auction slot.
+<a id="nftoken-broker-fee-disallow-incoming-trustline-001"></a>
+### NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001 - NFToken broker fee bypasses DisallowIncomingTrustline
 
-**Expected behavior.** Reinitializing an empty AMM should clear stale auction authorization state.
+**Risk:** 8.0 / High. **Surface:** `NonFungibleTokensV1_1`, `fixEnforceNFTokenTrustlineV2`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
 
-**Deterministic demonstration.** Run:
+**Broken behavior.** A brokered `NFTokenAcceptOffer` can pay the broker fee in an issuer's IOU to a broker with no existing trustline, creating the incoming trustline through `NFTokenAcceptOffer::pay` / `accountSend`.
 
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/AMM-STALE-AUTH-001.sh
-```
+**Expected behavior.** `NFTokenAcceptOffer` should enforce the incoming-trustline opt-out before allowing an IOU broker fee to create a broker trustline.
 
-**Required marker(s).**
+**Repro:** [`NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001.sh). Marker: `NFToken current — broker fee bypasses DisallowIncomingTrustline`.
 
-- `AMM current — stale AuthAccounts survive empty reinit`
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`; the OfferCreate branch does not cover broker-fee settlement.
 
-**Source signal.** Later upstream commit e1fe35993 / PR #6996.
+<a id="checkcash-disallow-incoming-trustline-001"></a>
+### CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001 - CheckCash bypasses DisallowIncomingTrustline
 
-**Upstream status.** Patched after 3.1.3 in `779b49cd9`; confirmed present in `3.2.0-b7` and `origin/develop`.
+**Risk:** 8.0 / High. **Surface:** `Checks`, `CheckCashMakesTrustLine`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
 
-**Remediation prompt.** Clear AuthAccounts during empty-pool AMM reinitialization.
+**Broken behavior.** Direct `TrustSet` is rejected, but `CheckCash` can cash an IOU check to a receiver with no existing trustline, creating the incoming trustline through the automatic CheckCash path.
 
-<a id="mpt-noncanonical-amount-001"></a>
-### MPT-NONCANONICAL-AMOUNT-001 - Non-canonical MPT amount reaches ledger engine
+**Expected behavior.** `CheckCash` should enforce the same incoming-trustline opt-out policy before auto-creating a receiver trustline.
 
-| Field | Value |
-|---|---|
-| Risk | **7.6 / High** |
-| Enabled surface | MPTokensV1 enabled |
-| Category | Current transaction-path |
-| Exploit type | Malformed amount accepted into application path |
-| Affected target | rippled 3.1.3 MPT amount validation |
-| Repro script | [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Repro:** [`CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001.sh). Marker: `CheckCash current — bypasses DisallowIncomingTrustline`.
 
-**Broken behavior.** A non-canonical MPT amount reaches transaction application and returns fee-burning tecPATH_PARTIAL instead of failing preflight as temBAD_AMOUNT.
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
 
-**Expected behavior.** Non-canonical MPT amounts should fail before ledger application.
+<a id="tokenescrow-disallow-incoming-finish-001"></a>
+### TOKENESCROW-DISALLOW-INCOMING-FINISH-001 - EscrowFinish bypasses DisallowIncomingTrustline
 
-**Deterministic demonstration.** Run:
+**Risk:** 8.0 / High. **Surface:** `TokenEscrow`, `fixTokenEscrowV1`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
 
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-NONCANONICAL-AMOUNT-001.sh
-```
+**Broken behavior.** Direct `TrustSet` is rejected, but `EscrowFinish` can finish an IOU escrow to a destination with no existing trustline, creating the incoming trustline through the TokenEscrow finish path.
 
-**Required marker(s).**
+**Expected behavior.** `EscrowFinish` should enforce the same incoming-trustline opt-out policy before auto-creating a destination trustline.
 
-- `MPT current — non-canonical amount reaches ledger engine`
+**Repro:** [`TOKENESCROW-DISALLOW-INCOMING-FINISH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/TOKENESCROW-DISALLOW-INCOMING-FINISH-001.sh). Marker: `TokenEscrow current — Finish bypasses DisallowIncomingTrustline`.
 
-**Source signal.** Later upstream commit dcd2ff0b5 / PR #7117.
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
 
-**Upstream status.** Patched after 3.1.3 in `dcd2ff0b5`; confirmed present in `origin/develop`, not confirmed in `3.2.0-b7`.
+<a id="ammwithdraw-disallow-incoming-trustline-001"></a>
+### AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001 - AMMWithdraw bypasses DisallowIncomingTrustline
 
-**Remediation prompt.** Reject non-canonical MPT amounts during preflight/preclaim before fee-burning application.
+**Risk:** 8.0 / High. **Surface:** `AMM`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
+
+**Broken behavior.** `AMMWithdraw` can withdraw an issuer's IOU from a live AMM pool to a user with no existing issuer trustline, creating the incoming trustline through the AMM withdrawal `accountSend` path.
+
+**Expected behavior.** `AMMWithdraw` should enforce the same incoming-trustline opt-out policy before allowing pool withdrawal to create a receiver trustline.
+
+**Repro:** [`AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001.sh). Marker: `AMM current — Withdraw bypasses DisallowIncomingTrustline`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
+
+<a id="ammcreate-disallow-incoming-trustline-001"></a>
+### AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001 - AMMCreate bypasses DisallowIncomingTrustline
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
+
+**Broken behavior.** `AMMCreate` can create a new pool containing an issuer's IOU after that issuer has opted out of incoming trustlines, creating the AMM account trustline through the AMM creation `accountSend` path.
+
+**Expected behavior.** `AMMCreate` should enforce the same incoming-trustline opt-out policy before creating an AMM account trustline for the issuer's IOU.
+
+**Repro:** [`AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001.sh). Marker: `AMM current — Create bypasses DisallowIncomingTrustline`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
+
+<a id="ammdeposit-empty-disallow-incoming-trustline-001"></a>
+### AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001 - AMMDeposit empty-pool bypass
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `DisallowIncoming`, `fixDisallowIncomingV1`. **Class:** issuer policy bypass.
+
+**Broken behavior.** `AMMDeposit` with `tfTwoAssetIfEmpty` can reinitialize an empty AMM pool and recreate the AMM account trustline to an issuer that has set `asfDisallowIncomingTrustline`.
+
+**Expected behavior.** Empty-pool reinitialization should enforce the same incoming-trustline opt-out policy before recreating the AMM account trustline.
+
+**Repro:** [`AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001.sh). Marker: `AMM current — Empty deposit bypasses DisallowIncomingTrustline`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
+
+<a id="ammclawback-disallow-incoming-paired-asset-001"></a>
+### AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001 - AMMClawback paired-asset DisallowIncoming bypass
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `AMMClawback`, `DisallowIncoming`, `fixDisallowIncomingV1`, `fixAMMClawbackRounding`. **Class:** issuer policy bypass.
+
+**Broken behavior.** In a two-issuer AMM, issuer A can claw back its asset and force-return issuer B's paired IOU to a holder after issuer B has set `asfDisallowIncomingTrustline`, recreating issuer B's trustline through `AMMWithdraw` / `accountSend`.
+
+**Expected behavior.** `AMMClawback` should enforce the paired-asset issuer's incoming-trustline opt-out before returning that issuer's IOU to a holder with no existing trustline.
+
+**Repro:** [`AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001.sh). Marker: `AMM current — Clawback returns paired asset through DisallowIncomingTrustline`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
+
+<a id="ammclawback-depositauth-paired-asset-001"></a>
+### AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001 - AMMClawback paired-asset DepositAuth bypass
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `AMMClawback`, `DepositAuth`, `fixAMMClawbackRounding`. **Class:** holder receive-policy bypass.
+
+**Broken behavior.** A holder can set `asfDepositAuth` and reject direct issuer payment with `tecNO_PERMISSION`, but `AMMClawback` can still force-return the paired IOU to that holder through the AMM withdrawal path.
+
+**Expected behavior.** `AMMClawback` should enforce the holder's `DepositAuth` receive policy before returning paired IOU assets.
+
+**Repro:** [`AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001.sh). Marker: `AMM current — Clawback bypasses DepositAuth paired asset`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
+
+<a id="ammbid-depositauth-refund-001"></a>
+### AMMBID-DEPOSITAUTH-REFUND-001 - AMMBid auction refund bypasses DepositAuth
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `DepositAuth`, `fixAMMv1_3`. **Class:** holder receive-policy bypass.
+
+**Broken behavior.** A previous AMM auction-slot owner can set `asfDepositAuth`, and direct LP-token payment to that account is rejected. A later `AMMBid` by another account can still refund LP tokens to the previous owner through `AMMBid::applyBid` / `accountSend`.
+
+**Expected behavior.** `AMMBid` should enforce the previous owner's `DepositAuth` receive policy before refunding LP tokens to a non-signing account.
+
+**Repro:** [`AMMBID-DEPOSITAUTH-REFUND-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMBID-DEPOSITAUTH-REFUND-001.sh). Marker: `AMM current — Bid refund bypasses DepositAuth`.
+
+**Upstream status.** No confirmed fix in checked `3.2.0-b7` or `origin/develop`.
 
 <a id="mpt-transfer-rate-overflow-001"></a>
 ### MPT-TRANSFER-RATE-OVERFLOW-001 - MPT transfer-rate scaling overflow
 
-| Field | Value |
-|---|---|
-| Risk | **7.4 / High** |
-| Enabled surface | MPTokensV1 enabled |
-| Category | Current helper/accounting |
-| Exploit type | Arithmetic overflow |
-| Affected target | rippled 3.1.3 MPT transfer-rate helper |
-| Repro script | [`MPT-TRANSFER-RATE-OVERFLOW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Risk:** 7.4 / High. **Surface:** `MPTokensV1`. **Class:** arithmetic overflow.
 
-**Broken behavior.** Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.
+**Broken behavior.** Applying a 1.5 transfer rate to a large integral MPT amount throws `overflow_error` in the legacy scaled-mantissa path.
 
 **Expected behavior.** Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.
 
-**Deterministic demonstration.** Run:
+**Repro:** [`MPT-TRANSFER-RATE-OVERFLOW-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh). Marker: `MPT current — transfer-rate scaling overflows large integral amount`.
 
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh
-```
+**Upstream status.** Fix-looking commit `22fbf4d06` exists, but was not contained in checked `3.2.0-b7` or `origin/develop`. No confirmed fix.
 
-**Required marker(s).**
+## Findings With Post-3.1.3 Remediation Evidence
 
-- `MPT current — transfer-rate scaling overflows large integral amount`
+<a id="escrow-cancel-iou-001"></a>
+### ESCROW-CANCEL-IOU-001 - EscrowCancel deleted IOU trustline exception
 
-**Source signal.** Later upstream commit 22fbf4d06.
+**Risk:** 8.1 / High. **Surface:** `TokenEscrow`, `fixTokenEscrowV1`. **Class:** deterministic transaction exception.
 
-**Upstream status.** No confirmed fix in `3.2.0-b7` or `origin/develop`. The fix-looking commit `22fbf4d06` was not contained in either ref, and the checked source did not contain the MPT-specific `Number` arithmetic remediation branch.
+**Broken behavior.** Canceling an IOU escrow after the sender trustline was deleted returns `tefEXCEPTION` / owner-count template-field error.
 
-**Remediation prompt.** Route MPT/V2 transfer-rate math through Number arithmetic.
+**Expected behavior.** Escrow cancellation accounting should not depend on a deleted sender trustline.
+
+**Repro:** [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh). Marker: `EscrowCancel current — deleted IOU trustline returns tefEXCEPTION`.
+
+**Upstream status.** Patched after 3.1.3 in `ad3d172a1`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
+<a id="amm-stale-auth-001"></a>
+### AMM-STALE-AUTH-001 - AMM stale AuthAccounts after empty reinit
+
+**Risk:** 8.0 / High. **Surface:** `AMM`, `fixAMMv1_3`. **Class:** stale authorization state.
+
+**Broken behavior.** Empty-pool reinitialization with `tfTwoAssetIfEmpty` leaves stale `sfAuthAccounts` from the prior auction slot.
+
+**Expected behavior.** Reinitializing an empty AMM should clear stale auction authorization state.
+
+**Repro:** [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh). Marker: `AMM current — stale AuthAccounts survive empty reinit`.
+
+**Upstream status.** Patched after 3.1.3 in `779b49cd9`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
+<a id="mpt-noncanonical-amount-001"></a>
+### MPT-NONCANONICAL-AMOUNT-001 - Non-canonical MPT amount reaches ledger engine
+
+**Risk:** 7.6 / High. **Surface:** `MPTokensV1`, `fixMPTDeliveredAmount`. **Class:** malformed amount accepted into application path.
+
+**Broken behavior.** A non-canonical MPT amount reaches transaction application and returns fee-burning `tecPATH_PARTIAL` instead of failing preflight as `temBAD_AMOUNT`.
+
+**Expected behavior.** Non-canonical MPT amounts should fail before ledger application.
+
+**Repro:** [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh). Marker: `MPT current — non-canonical amount reaches ledger engine`.
+
+**Upstream status.** Patched after 3.1.3 in `dcd2ff0b5`; confirmed present in `origin/develop`, not confirmed in `3.2.0-b7`.
 
 <a id="pdex-hybrid-quality-001"></a>
 ### PDEX-HYBRID-QUALITY-001 - Permissioned-DEX hybrid-offer quality mismatch
 
-| Field | Value |
-|---|---|
-| Risk | **7.7 / High** |
-| Enabled surface | PermissionedDEX + PermissionedDomains enabled |
-| Category | Current transaction-path |
-| Exploit type | Order-book metadata corruption |
-| Affected target | rippled 3.1.3 permissioned DEX hybrid offers |
-| Repro script | [`PDEX-HYBRID-QUALITY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Risk:** 7.7 / High. **Surface:** `PermissionedDEX`, `PermissionedDomains`, `Credentials`. **Class:** order-book metadata corruption.
 
-**Broken behavior.** A partially crossed hybrid offer leaves its open-book directory key at one quality while sfExchangeRate records another.
+**Broken behavior.** A partially crossed hybrid offer leaves its open-book directory key at one quality while `sfExchangeRate` records another.
 
-**Expected behavior.** Open-book directory key quality and sfExchangeRate metadata must match after partial crossing.
+**Expected behavior.** Open-book directory key quality and `sfExchangeRate` metadata must match after partial crossing.
 
-**Deterministic demonstration.** Run:
-
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/PDEX-HYBRID-QUALITY-001.sh
-```
-
-**Required marker(s).**
-
-- `Permissioned DEX current — hybrid offer open-book quality mismatch`
-
-**Source signal.** Later upstream commit 28cc20c81 / PR #7087.
+**Repro:** [`PDEX-HYBRID-QUALITY-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh). Marker: `Permissioned DEX current — hybrid offer open-book quality mismatch`.
 
 **Upstream status.** Patched after 3.1.3 in `28cc20c81`; confirmed present in `3.2.0-b7` and `origin/develop`.
-
-**Remediation prompt.** Use the correct open-book placement rate and repair existing bad sfExchangeRate metadata.
 
 <a id="pdex-cancel-invariant-001"></a>
 ### PDEX-CANCEL-INVARIANT-001 - Permissioned-DEX regular-offer cancel invariant failure
 
-| Field | Value |
-|---|---|
-| Risk | **7.5 / High** |
-| Enabled surface | PermissionedDEX + PermissionedDomains enabled |
-| Category | Current transaction-path |
-| Exploit type | Valid transaction invariant failure |
-| Affected target | rippled 3.1.3 permissioned DEX OfferCreate |
-| Repro script | [`PDEX-CANCEL-INVARIANT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
+**Risk:** 7.5 / High. **Surface:** `PermissionedDEX`, `PermissionedDomains`, `Credentials`. **Class:** valid transaction invariant failure.
 
-**Broken behavior.** A valid domain OfferCreate that cancels the user regular offer fails with tecINVARIANT_FAILED because the invariant treats the deleted regular offer as forbidden mutation.
+**Broken behavior.** A valid domain `OfferCreate` that cancels the user regular offer fails with `tecINVARIANT_FAILED` because the invariant treats the deleted regular offer as forbidden mutation.
 
 **Expected behavior.** The invariant should ignore regular offers deleted as part of a valid domain offer cancellation.
 
-**Deterministic demonstration.** Run:
-
-```bash
-cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/PDEX-CANCEL-INVARIANT-001.sh
-```
-
-**Required marker(s).**
-
-- `Permissioned DEX current — cancel regular offer via domain offer invariant`
-
-**Source signal.** Later upstream commit 8c0080020 / PR #7118.
+**Repro:** [`PDEX-CANCEL-INVARIANT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh). Marker: `Permissioned DEX current — cancel regular offer via domain offer invariant`.
 
 **Upstream status.** Patched after 3.1.3 in `8c0080020`; confirmed present in `3.2.0-b7` and `origin/develop`.
 
-**Remediation prompt.** Update the permissioned-DEX invariant to ignore deleted regular offers in this path.
+## Excluded Boundary
+
+`MPT-DOMAIN-AUTH-001` is excluded from the live packet. The reproduced MPT `DomainID` path requires `SingleAssetVault` in the current `MPTokenIssuanceCreate` / `MPTokenIssuanceSet` feature gate, and direct XRPL mainnet status shows `SingleAssetVault=false`.
+
+Cleanup-era candidates are also excluded unless they reproduce with `fixCleanup3_1_3` enabled. The raw on-ledger `Amendments` object contains the `fixCleanup3_1_3` hash, so old pre-cleanup reproduction alone is not enough for this public live inventory.
 
 ## Implications For Post Fiat
 
-1. A RippleD-derived path cannot inherit enabled XRPL surfaces blindly. The live-enabled findings cluster around authorization policy, MPT state, TokenEscrow state handling, AMM state carryover, and PermissionedDEX invariants.
-2. The correct engineering response is not rhetorical. Any reused concept needs independent tests, manifest-bound repros, amendment-status gating, and negative controls.
-3. This report is intentionally scoped to the enabled surfaces listed above.
+1. A RippleD-derived implementation path cannot inherit enabled XRPL surfaces blindly. The current packet shows repeated gaps between direct policy checks and indirect settlement paths.
+2. Receive-policy enforcement should be centralized. If every transaction family is responsible for remembering `DisallowIncomingTrustline`, `DepositAuth`, freeze, authorization, reserve, and owner-count rules, the surface grows faster than review coverage.
+3. Fork authors should treat `3.1.3` as unsafe to inherit without this packet's fixes or equivalent negative controls.
 
 ---
 
@@ -461,6 +425,6 @@ Issue identifiers are **internal audit labels**, not official CVEs or vendor adv
 
 **Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
 
-*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T15:53:02Z*
+*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T20:06:02Z*
 
 </div>
