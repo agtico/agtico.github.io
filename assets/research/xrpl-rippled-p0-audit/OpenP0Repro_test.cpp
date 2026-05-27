@@ -2648,6 +2648,65 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineEscrowFinishCurrent()
+    {
+        testcase("TokenEscrow current — Finish bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+        using namespace std::chrono_literals;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+
+        FeatureBitset const features =
+            testable_amendments() | featureTokenEscrow | featureDisallowIncoming;
+        Env env{*this, features};
+        auto const baseFee = env.current()->fees().base;
+        env.fund(XRP(400'000), gw, alice, bob);
+        env(fset(gw, asfAllowTrustLineLocking), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env.close();
+
+        auto const escrowSeq = env.seq(alice);
+        env(escrow::create(alice, bob, USD(40)),
+            escrow::condition(escrow::cb1),
+            escrow::finish_time(env.now() + 1s),
+            fee(baseFee * 150),
+            THISLINE);
+        env.close();
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+        BEAST_EXPECT(!env.le(bobLine));
+
+        // Control: direct TrustSet honors asfDisallowIncomingTrustline.
+        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(bobLine));
+
+        // Current EscrowFinish auto-creates the destination trustline after
+        // checking RequireAuth and deep-freeze, but without checking
+        // DisallowIncoming.
+        env(escrow::finish(bob, alice, escrowSeq),
+            escrow::condition(escrow::cb1),
+            escrow::fulfillment(escrow::fb1),
+            fee(baseFee * 150),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        env.require(balance(bob, USD(40)));
+        BEAST_EXPECT(env.le(bobLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -2927,6 +2986,7 @@ public:
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineCheckCashCurrent();
+        testDisallowIncomingTrustlineEscrowFinishCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();

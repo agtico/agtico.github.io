@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T17:27:57Z`
+Checked: `2026-05-27T17:36:38Z`
 
 ## Live Scope
 
@@ -58,7 +58,7 @@ not satisfy the live-mainnet-only constraint.
 
 ## Promotion Result
 
-Four additional findings were promoted during the live-only continuation:
+Five additional findings were promoted during the live-only continuation:
 
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU offer crossing can
   create a positive balance for a receiver while leaving `OwnerCount=0` and the
@@ -74,6 +74,9 @@ Four additional findings were promoted during the live-only continuation:
 - `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`: the same issuer opt-out is
   bypassed by `CheckCash`; direct `TrustSet` is rejected, but cashing an IOU
   check auto-creates the receiver trustline anyway.
+- `TOKENESCROW-DISALLOW-INCOMING-FINISH-001`: the same issuer opt-out is
+  bypassed by `EscrowFinish`; direct `TrustSet` is rejected, but finishing an
+  IOU TokenEscrow auto-creates the destination trustline anyway.
 
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
@@ -89,7 +92,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has six live-enabled findings with no confirmed upstream fix in
+The packet now has seven live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -98,6 +101,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`
 - `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`
 - `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`
+- `TOKENESCROW-DISALLOW-INCOMING-FINISH-001`
 
 ## Next Hunt Targets
 

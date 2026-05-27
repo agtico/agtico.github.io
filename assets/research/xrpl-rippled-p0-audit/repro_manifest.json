@@ -8,9 +8,9 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-    "sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
-    "result": "Live-mainnet eligible extract: 11 findings after adding CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001; source OpenP0Repro full suite 51 cases / 9332 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+    "sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
+    "result": "Live-mainnet eligible extract: 12 findings after adding TOKENESCROW-DISALLOW-INCOMING-FINISH-001; source OpenP0Repro full suite 52 cases / 9385 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
@@ -29,8 +29,8 @@
       "source_signal": "Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.",
       "remediation": "Enforce locked MPToken deletion checks in the MPT authorization path.",
       "script": "repros/MPT-LOCK-UNAUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-lock-unauth-001",
       "required_amendments": [
@@ -56,8 +56,8 @@
       "source_signal": "Unmerged upstream branch origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve, commit b4a45f1f0.",
       "remediation": "Charge the receiver owner reserve when IOU balance crosses from non-positive to positive, and fail if the receiver lacks reserve.",
       "script": "repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "trustline-positive-balance-reserve-001",
       "required_amendments": [],
@@ -79,8 +79,8 @@
       "source_signal": "Unmerged upstream branch origin/copilot/apply-asfdisallowincomingtrustline, commits fa0cc0abc and ad840518f, adds a check gated by proposed fixDisallowIncomingV1_1.",
       "remediation": "Reject OfferCreate acceptance of an issuer IOU when the issuer has lsfDisallowIncomingTrustline and the taker has no existing trustline.",
       "script": "repros/TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "trustline-disallow-incoming-offer-001",
       "required_amendments": [
@@ -107,8 +107,8 @@
       "source_signal": "Source review of NFTokenAcceptOffer and nft::checkTrustlineAuthorized shows RequireAuth and deep-freeze checks but no lsfDisallowIncomingTrustline check; no matching fix was found in 3.2.0-b7 or origin/develop.",
       "remediation": "Reject NFToken IOU settlement to a receiver with no existing trustline when the IOU issuer has lsfDisallowIncomingTrustline set, unless a governed amendment defines different NFT-specific semantics.",
       "script": "repros/NFTOKEN-DISALLOW-INCOMING-ACCEPT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "nftoken-disallow-incoming-accept-001",
       "required_amendments": [
@@ -137,13 +137,43 @@
       "source_signal": "Source review of CheckCash::preclaim/doApply shows RequireAuth and freeze checks plus automatic trustCreate under CheckCashMakesTrustLine, but no lsfDisallowIncomingTrustline check; no matching fix was found in 3.2.0-b7, origin/develop, or origin/copilot/apply-asfdisallowincomingtrustline.",
       "remediation": "Reject CheckCash IOU settlement to a receiver with no existing trustline when the IOU issuer has lsfDisallowIncomingTrustline set, unless a governed amendment defines different check-specific semantics.",
       "script": "repros/CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "checkcash-disallow-incoming-trustline-001",
       "required_amendments": [
         "Checks",
         "CheckCashMakesTrustLine",
+        "DisallowIncoming",
+        "fixDisallowIncomingV1"
+      ],
+      "required_disabled_amendments": [
+        "fixDisallowIncomingV1_1"
+      ]
+    },
+    {
+      "id": "TOKENESCROW-DISALLOW-INCOMING-FINISH-001",
+      "title": "EscrowFinish bypasses issuer DisallowIncomingTrustline",
+      "category": "Current baseline transaction-path",
+      "level": "High",
+      "score": 8.0,
+      "affected": "rippled 3.1.3 TokenEscrow IOU finish and automatic trustline creation",
+      "exploit_type": "Issuer policy bypass",
+      "markers": [
+        "TokenEscrow current — Finish bypasses DisallowIncomingTrustline"
+      ],
+      "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but EscrowFinish can still finish an IOU escrow to a destination with no existing trustline, creating the incoming trustline through the TokenEscrow finish path.",
+      "expected": "EscrowFinish should enforce the same incoming-trustline opt-out policy before auto-creating a destination trustline for the issuer's IOU.",
+      "source_signal": "Source review of EscrowFinish::preclaim and escrowUnlockApplyHelper<Issue> shows RequireAuth and deep-freeze checks plus automatic trustCreate for destination-finished token escrow, but no lsfDisallowIncomingTrustline check; no matching fix was found in 3.2.0-b7, origin/develop, or origin/copilot/apply-asfdisallowincomingtrustline.",
+      "remediation": "Reject TokenEscrow IOU finish to a destination with no existing trustline when the IOU issuer has lsfDisallowIncomingTrustline set, unless a governed amendment defines different escrow-specific semantics.",
+      "script": "repros/TOKENESCROW-DISALLOW-INCOMING-FINISH-001.sh",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
+      "source": "OpenP0Repro_test.cpp",
+      "anchor": "tokenescrow-disallow-incoming-finish-001",
+      "required_amendments": [
+        "TokenEscrow",
+        "fixTokenEscrowV1",
         "DisallowIncoming",
         "fixDisallowIncomingV1"
       ],
@@ -167,8 +197,8 @@
       "source_signal": "Later upstream commit ad3d172a1 / PR #6171.",
       "remediation": "Switch token escrow cancellation accounting to the account ledger entry rather than the deleted trustline.",
       "script": "repros/ESCROW-CANCEL-IOU-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "escrow-cancel-iou-001",
       "required_amendments": [
@@ -192,8 +222,8 @@
       "source_signal": "Later upstream commit e1fe35993 / PR #6996.",
       "remediation": "Clear AuthAccounts during empty-pool AMM reinitialization.",
       "script": "repros/AMM-STALE-AUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "amm-stale-auth-001",
       "required_amendments": [
@@ -217,8 +247,8 @@
       "source_signal": "Later upstream commit dcd2ff0b5 / PR #7117.",
       "remediation": "Reject non-canonical MPT amounts during preflight/preclaim before fee-burning application.",
       "script": "repros/MPT-NONCANONICAL-AMOUNT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-noncanonical-amount-001",
       "required_amendments": [
@@ -242,8 +272,8 @@
       "source_signal": "Later upstream commit 22fbf4d06.",
       "remediation": "Route MPT/V2 transfer-rate math through Number arithmetic.",
       "script": "repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-transfer-rate-overflow-001",
       "required_amendments": [
@@ -266,8 +296,8 @@
       "source_signal": "Later upstream commit 28cc20c81 / PR #7087.",
       "remediation": "Use the correct open-book placement rate and repair existing bad sfExchangeRate metadata.",
       "script": "repros/PDEX-HYBRID-QUALITY-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "pdex-hybrid-quality-001",
       "required_amendments": [
@@ -292,8 +322,8 @@
       "source_signal": "Later upstream commit 8c0080020 / PR #7118.",
       "remediation": "Update the permissioned-DEX invariant to ignore deleted regular offers in this path.",
       "script": "repros/PDEX-CANCEL-INVARIANT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v5.log",
-      "proof_log_sha256": "8e0c65094a70aaee0b4fda11ef6356f0a25204a335ee451442176c7d2e8b12dc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v6.log",
+      "proof_log_sha256": "fd39a84e47bf322788f788b84c7bccce492f8f2db86dc95112bc511cf556634d",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "pdex-cancel-invariant-001",
       "required_amendments": [
@@ -305,7 +335,7 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T17:27:57Z",
+    "checked_utc": "2026-05-27T17:36:38Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
@@ -314,6 +344,7 @@
       "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
       "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
       "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001",
+      "TOKENESCROW-DISALLOW-INCOMING-FINISH-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
@@ -330,7 +361,7 @@
   },
   "upstream_remediation_scope": {
     "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
-    "checked_utc": "2026-05-27T17:29:50Z",
+    "checked_utc": "2026-05-27T17:37:57Z",
     "receipt": "upstream_remediation_status_20260527.json",
     "patched_in_3_2_0_b7_or_develop": [
       "ESCROW-CANCEL-IOU-001",
@@ -345,7 +376,8 @@
       "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
       "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
       "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
-      "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001"
+      "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001",
+      "TOKENESCROW-DISALLOW-INCOMING-FINISH-001"
     ]
   }
 }

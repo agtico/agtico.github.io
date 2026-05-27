@@ -21,7 +21,7 @@ AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 
-EXPECTED_RECORD_COUNT = 11
+EXPECTED_RECORD_COUNT = 12
 
 REQUIRED_ENABLED = {
     "AMM",
@@ -212,6 +212,7 @@ def check_remediation(remediation_status: dict) -> None:
             "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
             "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
             "CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001",
+            "TOKENESCROW-DISALLOW-INCOMING-FINISH-001",
         },
         "unexpected unresolved remediation set",
     )
@@ -298,7 +299,7 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("51 cases, 9332 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("52 cases, 9385 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)
