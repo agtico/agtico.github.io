@@ -5,7 +5,7 @@ date: "2026-05-26 20:00:00 +0000"
 summary: "Post Fiat runs on a RippleD fork. This is our internal code-quality evaluation of upstream rippled 3.1.3 before we decide how to proceed."
 category: Post Fiat Research
 xrpl_report: true
-report_css_version: 20260527e
+report_css_version: 20260528a
 tags:
   - AGTI
   - Post Fiat
@@ -44,6 +44,7 @@ tags:
     <li><strong>Plain English</strong> — what the bug means without protocol jargon</li>
     <li><strong>How it could be exploited</strong> — who does what, and what breaks in the real world</li>
     <li><strong>Correct vs existing</strong> — diagram comparing intended behavior to rippled today</li>
+    <li><strong>Upstream link &amp; remediation prompt</strong> — GitHub path on tag <code>3.1.3</code> plus suggested fix text you can hand to a developer or coding agent</li>
   </ul>
   <p class="pearl-verdict-foot">Sections below cover issues we are still tracking. Lending freeze behavior and the SetTrust crash were reproduced locally. F4.6 / B3-1 vault pseudo fund movement was investigated and <strong>not reproduced</strong> in our jtx setup.</p>
 </div>
@@ -90,6 +91,14 @@ flowchart TB
   B4 --> B5[IOU delivered — bug]
     </div></div>
   </div>
+</div>
+
+### Upstream reference (correct IOU receiver pattern)
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">Reference implementation</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/VaultWithdraw.cpp">VaultWithdraw.cpp</a> · tag <code>3.1.3</code> · merged in <a href="https://github.com/XRPLF/rippled/pull/5572">PR #5572</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “On IOU paths where an account must not <em>receive</em> issuer tokens, use <code>checkFrozen(view, account, asset)</code> on the receiver — not <code>checkDeepFrozen</code> alone. Deep freeze requires regular freeze first; compliance regular-freeze must block delivery. Mirror the VaultWithdraw destination check across all lending receive paths introduced in PR #5270.”</p>
 </div>
 
 ---
@@ -144,6 +153,57 @@ if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
 // MISSING: checkFrozen(ctx.view, dstAcct, vaultAsset)
 ```
 
+### Upstream links & remediation prompts
+
+Baseline: [XRPLF/rippled](https://github.com/XRPLF/rippled) tag [`3.1.3`](https://github.com/XRPLF/rippled/tree/3.1.3). Correct receiver pattern: [VaultWithdraw.cpp](https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/VaultWithdraw.cpp) ([#5572](https://github.com/XRPLF/rippled/pull/5572)). Bug cluster introduced in [#5270](https://github.com/XRPLF/rippled/pull/5270).
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.3 · LoanBrokerCoverWithdraw</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp#L109-L111">LoanBrokerCoverWithdraw.cpp#L109-L111</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanBrokerCoverWithdraw::preclaim</code>, after the existing <code>checkDeepFrozen(ctx.view, dstAcct, vaultAsset)</code>, add <code>checkFrozen(ctx.view, dstAcct, vaultAsset)</code> so a regular-frozen destination cannot receive cover IOU. Add jtx: issuer regular-freezes destination only → <code>tecFROZEN</code>; deep-freeze control still passes.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.5 · LoanBrokerDelete</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerDelete.cpp#L87-L89">LoanBrokerDelete.cpp#L87-L89</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “When deleting a loan broker with leftover cover, the owner receives IOU. Replace <code>checkDeepFrozen(ctx.view, brokerOwner, asset)</code> with <code>checkFrozen</code> (or add <code>checkFrozen</code> in addition). Regular-freeze on broker owner must block delete payout.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.6 · LoanPay (broker fee routing)</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanPay.cpp#L305-L318">LoanPay.cpp#L305-L318</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanPay</code> fee routing, <code>sendBrokerFeeToOwner</code> uses <code>!isDeepFrozen(view, brokerOwner, asset)</code> to decide whether fees can go to the owner. Include regular freeze: use <code>!isFrozen(view, brokerOwner, asset)</code> (or equivalent <code>checkFrozen</code>). Also replace <code>checkDeepFrozen(view, brokerPayee, asset)</code> on the payee with <code>checkFrozen</code> when the payee is an IOU receiver.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.7 · LoanSet (origination fee → owner)</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanSet.cpp#L340-L347">LoanSet.cpp#L340-L347</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanSet::preclaim</code>, broker owner may receive origination fees. Change <code>checkDeepFrozen(ctx.view, brokerOwner, asset)</code> to <code>checkFrozen</code> so regular-frozen broker owners cannot receive fees on new loans.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.8 · LoanPay (vault pseudo receiver)</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanPay.cpp#L223-L227">LoanPay.cpp#L223-L227</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanPay::preclaim</code>, vault pseudo-account receives payment IOU via <code>checkDeepFrozen(ctx.view, vaultPseudoAccount, asset)</code> only. Add <code>checkFrozen(ctx.view, vaultPseudoAccount, asset)</code> so regular-freeze on the vault pseudo blocks loan payments crediting it.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.9 · LoanBrokerCoverDeposit</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp#L70-L74">LoanBrokerCoverDeposit.cpp#L70-L74</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanBrokerCoverDeposit::preclaim</code>, broker pseudo receives deposited cover. Replace or supplement <code>checkDeepFrozen(ctx.view, pseudoAccountID, vaultAsset)</code> with <code>checkFrozen</code> on the pseudo account as IOU receiver.”</p>
+</div>
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.10 · LoanSet (broker pseudo fee sink)</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/LoanSet.cpp#L330-L335">LoanSet.cpp#L330-L335</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>LoanSet::preclaim</code>, <code>brokerPseudo</code> receives fees when owner cannot. Change <code>checkDeepFrozen(ctx.view, brokerPseudo, asset)</code> to <code>checkFrozen</code> for regular-freeze enforcement on the pseudo receiver.”</p>
+</div>
+
+<div class="pearl-remediation pearl-remediation-wide">
+  <p class="pearl-remediation-label">Batch fix (all seven lending sites)</p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Open a single PR against rippled <code>3.1.3</code>: for every lending transactor where IOU is delivered to a receiver (owner, destination, vault pseudo, broker pseudo), enforce <code>checkFrozen</code> on that receiver. Keep <code>checkDeepFrozen</code> only where deep-freeze semantics are explicitly required. Copy the VaultWithdraw destination pattern. Add jtx regression tests paralleling <code>Vault_test</code> ‘IOU frozen trust line’ cases for each tx type.”</p>
+</div>
+
 ---
 
 ## Section C — SetTrust validator crash (F6.1) · locally reproduced
@@ -180,6 +240,14 @@ flowchart LR
   end
 ```
 
+### Upstream link & remediation prompt
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F6.1 · SetTrust preclaim null deref</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/SetTrust.cpp#L196-L204">SetTrust.cpp#L196-L204</a></p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>SetTrust::preclaim</code>, when <code>sleDst</code> (issuer account) is null, return <code>tecNO_DST</code> unconditionally before calling <code>sleDst->getFlags()</code>. Do not gate the null check on AMM or SingleAssetVault feature flags. Add jtx: SetTrust to non-existent issuer with those features disabled → must return <code>tecNO_DST</code>, must not crash.”</p>
+</div>
+
 ---
 
 ## Section D — VaultInvariant loan gap (F2.1)
@@ -214,6 +282,14 @@ flowchart LR
   end
 ```
 
+### Upstream link & remediation prompt
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F2.1 · VaultInvariant loan cases</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L3809-L3813">InvariantCheck.cpp#L3809-L3813</a> (<code>ttLOAN_SET</code>, <code>ttLOAN_MANAGE</code>, <code>ttLOAN_PAY</code> → <code>// TBD</code>)</p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “In <code>ValidVault::finalize</code> (InvariantCheck.cpp), replace the loan transaction branch that currently returns true with invariant checks modeled on existing <code>ttVAULT_DEPOSIT</code> / <code>ttVAULT_WITHDRAW</code> cases. After <code>LoanSet</code>, <code>LoanManage</code>, and <code>LoanPay</code>, assert vault <code>AssetsAvailable</code>, broker cover, and loan field consistency. Fail the ledger if accounting drifts.”</p>
+</div>
+
 ---
 
 ## Section E — FreezeInvariant MPT gap (F3.1)
@@ -245,6 +321,14 @@ flowchart LR
     X4 --> X5[Invariant passes even if MPT moved while frozen]
   end
 ```
+
+### Upstream link & remediation prompt
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.1 · TransfersNotFrozen MPT blind spot</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L858-L883">InvariantCheck.cpp#L858-L883</a> · type filter at <a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/InvariantCheck.cpp#L120">~L120</a> (<code>ltRIPPLE_STATE</code> only)</p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Extend <code>TransfersNotFrozen</code> in InvariantCheck.cpp to track <code>ltMPTOKEN</code> balance changes, not only <code>ltRIPPLE_STATE</code>. Apply MPT lock semantics (<code>lsfMPTLocked</code>, issuance global lock) symmetrically with IOU freeze invariant coverage. Add invariant tests for frozen MPT movement attempts.”</p>
+</div>
 
 ---
 
@@ -281,6 +365,14 @@ flowchart LR
     F2 -->|deep freeze| F4[Blocked]
   end
 ```
+
+### Upstream link & remediation prompt
+
+<div class="pearl-remediation">
+  <p class="pearl-remediation-label">F3.11 · EscrowFinish IOU destination freeze</p>
+  <p class="pearl-remediation-link"><a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/Escrow.cpp#L615-L617">Escrow.cpp#L615-L617</a> · compare MPT path <a href="https://github.com/XRPLF/rippled/blob/3.1.3/src/xrpld/app/tx/detail/Escrow.cpp#L647-L649">#L647-L649</a> (<code>isFrozen</code>)</p>
+  <p class="pearl-remediation-prompt"><strong>Suggested prompt:</strong> “Clarify product intent for IOU escrow finish when destination is regular-frozen after escrow creation. If finish must respect issuer regular-freeze, change IOU template from <code>isDeepFrozen</code> to <code>isFrozen</code> to match the MPT escrow path in the same file. Update Escrow tests accordingly and document legacy in-flight escrow behavior if regular-freeze finish is intentionally allowed.”</p>
+</div>
 
 ---
 
