@@ -184,7 +184,7 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T14:48:14Z",
+    "checked_utc": "2026-05-27T15:25:31Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Public report includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt.",
     "included_ids": [
@@ -196,6 +196,23 @@
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "PDEX-HYBRID-QUALITY-001",
       "PDEX-CANCEL-INVARIANT-001"
+    ]
+  },
+  "upstream_remediation_scope": {
+    "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
+    "checked_utc": "2026-05-27T15:24:47Z",
+    "receipt": "upstream_remediation_status_20260527.json",
+    "patched_in_3_2_0_b7_or_develop": [
+      "MPT-DOMAIN-AUTH-001",
+      "ESCROW-CANCEL-IOU-001",
+      "AMM-STALE-AUTH-001",
+      "MPT-NONCANONICAL-AMOUNT-001",
+      "PDEX-HYBRID-QUALITY-001",
+      "PDEX-CANCEL-INVARIANT-001"
+    ],
+    "not_confirmed_fixed_in_3_2_0_b7_or_develop": [
+      "MPT-TRANSFER-RATE-OVERFLOW-001",
+      "MPT-LOCK-UNAUTH-001"
     ]
   }
 }

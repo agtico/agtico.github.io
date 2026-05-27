@@ -6,7 +6,9 @@ This directory is the public, live-filtered evidence packet for the AGTI report:
 
 The public report includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-27T14:48:14Z`.
+query checked at `2026-05-27T15:25:31Z`. Public XRPL servers checked in
+`direct_xrpl_mainnet_runtime_status_20260527.json` reported
+`rippled_version=3.1.3`.
 
 ## Target
 
@@ -31,12 +33,25 @@ Included findings must satisfy both conditions:
 |---|---|
 | `repro_manifest.json` | Canonical live manifest: 8 public high/critical findings, markers, risk labels, and proof bindings. |
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
+| `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
+| `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
 | `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log` | Live-only proof extract with marker coverage and zero-failure footer. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
 | `repros/*.sh` | Per-finding wrappers. The public article links only wrappers for live findings. |
 | `verify_packet.py` | Static verifier for article links, manifest records, scripts, markers, amendment snapshot, and proof hash. |
 
 The public packet is scoped to the live findings list.
+
+## Remediation Boundary
+
+Six public findings have confirmed post-3.1.3 remediation in `3.2.0-b7` or
+`origin/develop`. Two public MPT findings do not:
+
+- `MPT-TRANSFER-RATE-OVERFLOW-001`
+- `MPT-LOCK-UNAUTH-001`
+
+Those two are the only public findings in this packet for which the verifier
+evidence did not confirm an upstream fix in the checked refs.
 
 ## Audit Commands
 

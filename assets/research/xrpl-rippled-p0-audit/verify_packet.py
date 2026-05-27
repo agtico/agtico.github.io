@@ -22,6 +22,8 @@ SITE_ROOT = ROOT.parents[2]
 ARTICLE = SITE_ROOT / "_posts" / "2026-05-26-xrpl-rippled-open-p0-freeze-audit.md"
 MANIFEST = ROOT / "repro_manifest.json"
 AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
+RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
+REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 
 
 def fail(message: str) -> None:
@@ -64,6 +66,8 @@ def local_asset_links(markdown: str) -> set[str]:
 def main() -> int:
     manifest = json.loads(read_text(MANIFEST))
     amendment_status = json.loads(read_text(AMENDMENT_STATUS))
+    runtime_status = json.loads(read_text(RUNTIME_STATUS))
+    remediation_status = json.loads(read_text(REMEDIATION_STATUS))
     article = read_text(ARTICLE)
     proof = manifest["proof"]
     records = manifest["records"]
@@ -79,11 +83,14 @@ def main() -> int:
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
 
     require(
-        "RippleD 3.1.3 Audit: Live Mainnet-Enabled High/Critical Findings" in article,
+        "RippleD 3.1.3 Audit: Live Mainnet Surfaces And Remediation Status" in article,
         "article title mismatch",
     )
     require(len(records) == 8, "live manifest must contain exactly 8 public findings")
     require("## Live Amendment Filter" in article, "article missing live amendment filter")
+    require("## Current Mainnet State" in article, "article missing current mainnet state section")
+    require("## Remediation Status" in article, "article missing remediation status section")
+    require("## Why This Matters" in article, "article missing importance section")
     require("## Evidence Packet" in article, "article missing evidence packet section")
     require("## Table Of Contents" in article, "article missing table of contents")
     blocked_article_terms = [
@@ -134,6 +141,42 @@ def main() -> int:
     for amendment in required_enabled:
         actual = amendment_status["public_enabled_features"][amendment]["enabled"]
         require(actual is True, f"required public amendment is not enabled: {amendment}")
+
+    require(
+        runtime_status["source"] == "direct XRPL public JSON-RPC",
+        "runtime receipt must be direct XRPL JSON-RPC",
+    )
+    require(
+        runtime_status["feature_rpc"]["ledger_hash"] == runtime_status["amendments_ledger_entry"]["ledger_hash"],
+        "runtime feature and amendments checks must bind to the same ledger hash",
+    )
+    require(
+        runtime_status["feature_rpc"]["ledger_index"] == runtime_status["amendments_ledger_entry"]["ledger_index"],
+        "runtime feature and amendments checks must bind to the same ledger index",
+    )
+    for server in runtime_status["server_info"]:
+        require(server["rippled_version"] == "3.1.3", "public server runtime version must be 3.1.3")
+    for amendment in required_enabled:
+        actual = runtime_status["feature_status"][amendment]["enabled"]
+        require(actual is True, f"runtime receipt missing enabled amendment: {amendment}")
+
+    require(
+        remediation_status["source"] == "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
+        "unexpected remediation source",
+    )
+    unresolved = set(remediation_status["summary"]["not_confirmed_fixed_in_3_2_0_b7_or_develop"])
+    require(
+        unresolved == {"MPT-TRANSFER-RATE-OVERFLOW-001", "MPT-LOCK-UNAUTH-001"},
+        "unexpected unresolved remediation set",
+    )
+    patched = set(remediation_status["summary"]["patched_in_3_2_0_b7_or_develop"])
+    require(len(patched) == 6, "unexpected remediated finding count")
+    for rid in unresolved:
+        require(rid in article, f"article missing unresolved finding: {rid}")
+        record = remediation_status["records"][rid]
+        for fix in record["fix_commits"]:
+            require(fix["in_3_2_0_b7"] is False, f"{rid} unexpectedly fixed in 3.2.0-b7")
+            require(fix["in_origin_develop"] is False, f"{rid} unexpectedly fixed in origin/develop")
 
     forbidden_ids = {
         "LEND-FREEZE-001",

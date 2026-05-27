@@ -48,7 +48,7 @@ def main() -> int:
     by_name = {value["name"]: {"id": key, **value} for key, value in features.items()}
 
     index = amendments_index()
-    ledger_entry = rpc("ledger_entry", {"ledger_index": "validated", "index": index})
+    ledger_entry = rpc("ledger_entry", {"ledger_hash": feature_result["ledger_hash"], "index": index})
     enabled_hashes = set(ledger_entry["node"]["Amendments"])
 
     public = {}

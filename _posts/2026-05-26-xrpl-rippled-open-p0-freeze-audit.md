@@ -1,8 +1,8 @@
 ---
 layout: report
-title: "RippleD 3.1.3 Audit: Live Mainnet-Enabled High/Critical Findings"
+title: "RippleD 3.1.3 Audit: Live Mainnet Surfaces And Remediation Status"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat evaluated a RippleD-derived implementation path. This live-filtered report includes only reproduced high/critical findings whose required XRPL mainnet amendments were enabled in a direct XRPL validated-ledger query."
+summary: "Post Fiat evaluated a RippleD-derived implementation path. This report separates live XRPL 3.1.3 surface evidence, post-3.1.3 upstream remediation, and two MPT findings without a confirmed upstream fix in 3.2.0-b7 or origin/develop."
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
@@ -17,8 +17,8 @@ tags:
 
 <div class="pearl-primer-box">
   <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the live-filtered reproducibility packet for upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p style="margin-top:12px"><strong>Live scope:</strong> This page includes eight reproduced high/critical findings on XRPL mainnet-enabled amendment surfaces verified through direct XRPL public JSON-RPC against a validated ledger.</p>
-  <p style="margin-top:12px"><strong>Severity:</strong> This is a serious protocol-quality report. The included findings cover live-enabled authorization policy, MPT state, TokenEscrow, AMM state, and PermissionedDEX behavior in code that directly processes ledger transactions or enabled MPT accounting.</p>
+  <p style="margin-top:12px"><strong>What is live:</strong> Direct XRPL JSON-RPC checks on 2026-05-27 showed public XRPL servers reporting <code>rippled_version=3.1.3</code>, while the required AMM, MPTokensV1, PermissionedDomains, PermissionedDEX, and TokenEscrow amendment surfaces were enabled in the validated ledger.</p>
+  <p style="margin-top:12px"><strong>What is being remediated:</strong> Six findings have confirmed post-3.1.3 upstream remediation in <code>3.2.0-b7</code> or <code>origin/develop</code>. Two MPT findings remain without a confirmed upstream fix in those refs at the time of this packet.</p>
   <p style="margin-top:12px"><strong>Proof surface:</strong> The proof surface is a clean local upstream jtx build, not a public-testnet anecdote. That is intentional: local standalone jtx fixes the upstream tag, amendment profile, ledger setup, expected marker, and result code.</p>
 </div>
 
@@ -26,25 +26,67 @@ tags:
 
 ## Executive Summary
 
-This public report contains **8 reproduced high/critical findings** on XRPL mainnet-enabled amendment surfaces. The findings cover MPT authorization and accounting, TokenEscrow cancellation, AMM state carryover, and PermissionedDEX invariants.
+This report contains **8 reproduced 3.1.3 findings** on XRPL mainnet-enabled amendment surfaces. It does not claim that all eight are novel. Several were already identified and patched by XRPLF after 3.1.3. The actionable point is narrower and more important: these behaviors exist in the 3.1.3 release line while the relevant amendment surfaces are live, and two MPT issues did not have a confirmed upstream fix in `3.2.0-b7` or `origin/develop` during this check.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
-    <span class="label">Live findings</span>
+    <span class="label">3.1.3 findings</span>
     <span class="value">8</span>
-    <span class="hint">Only high/critical findings with enabled amendment surfaces.</span>
+    <span class="hint">Reproduced on live-enabled amendment surfaces.</span>
   </div>
   <div class="pearl-scorecard warn">
-    <span class="label">Proof markers</span>
-    <span class="value">8</span>
-    <span class="hint">All markers are present in the bound proof extract.</span>
+    <span class="label">Not fixed upstream</span>
+    <span class="value">2</span>
+    <span class="hint">No confirmed fix in 3.2.0-b7 or origin/develop.</span>
   </div>
   <div class="pearl-scorecard good">
-    <span class="label">Mainnet wallet</span>
-    <span class="value">Not required for proof</span>
-    <span class="hint">jtx standalone mints local test accounts.</span>
+    <span class="label">Known remediations</span>
+    <span class="value">6</span>
+    <span class="hint">Patched after 3.1.3 in beta/develop code.</span>
   </div>
 </div>
+
+## Current Mainnet State
+
+Direct XRPL public JSON-RPC checks on 2026-05-27 produced the following current-state packet:
+
+- Runtime receipt: [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json)
+- Amendment receipt: [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json)
+- Upstream remediation receipt: [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json)
+
+| Check | Result |
+|---|---|
+| Public server versions checked | `s1.ripple.com` and `s2.ripple.com` reported `rippled_version=3.1.3` |
+| Final 3.2.0 release tag | No final `3.2.0` tag was present; latest checked beta was `3.2.0-b7` |
+| Live enabled surfaces used here | `AMM`, `MPTokensV1`, `PermissionedDomains`, `PermissionedDEX`, `TokenEscrow` |
+| Disabled surfaces excluded from this article | `LendingProtocol`, `SingleAssetVault`, `PermissionDelegation`, `Batch` |
+
+This means the report is not about dormant features. The public findings below are scoped to surfaces that were enabled on the validated XRPL ledger at the time of the direct check.
+
+## Remediation Status
+
+The source-signal lines below are intentionally explicit. If XRPLF already patched a finding after 3.1.3, the report says so. That does not make the 3.1.3 finding irrelevant: it tells operators and fork authors which release line is unsafe to inherit and which fixes must be present before reuse.
+
+| Finding | Upstream remediation state checked against `3.2.0-b7` and `origin/develop` |
+|---|---|
+| `MPT-DOMAIN-AUTH-001` | Patched after 3.1.3 in `4b198cd5b` / PR `#6712`; present in `3.2.0-b7` and `origin/develop`. |
+| `ESCROW-CANCEL-IOU-001` | Patched after 3.1.3 in `ad3d172a1` / PR `#6171`; present in `3.2.0-b7` and `origin/develop`. |
+| `AMM-STALE-AUTH-001` | Patched after 3.1.3 in `779b49cd9` / PR `#6996`; present in `3.2.0-b7` and `origin/develop`. |
+| `MPT-NONCANONICAL-AMOUNT-001` | Patched after 3.1.3 in `dcd2ff0b5` / PR `#7117`; present in `origin/develop`, not confirmed in `3.2.0-b7`. |
+| `PDEX-HYBRID-QUALITY-001` | Patched after 3.1.3 in `28cc20c81` / PR `#7087`; present in `3.2.0-b7` and `origin/develop`. |
+| `PDEX-CANCEL-INVARIANT-001` | Patched after 3.1.3 in `8c0080020` / PR `#7118`; present in `3.2.0-b7` and `origin/develop`. |
+| `MPT-TRANSFER-RATE-OVERFLOW-001` | **No confirmed upstream fix in `3.2.0-b7` or `origin/develop`.** Fix-looking commit `22fbf4d06` exists, but was not contained in either ref during this check; the MPT-specific `Number` arithmetic branch was also absent. |
+| `MPT-LOCK-UNAUTH-001` | **No confirmed upstream fix in `3.2.0-b7` or `origin/develop`.** Fix-looking commits `9c967f83b` and `12eb050bf` exist, but were not contained in either ref; current checked source still conditioned the locked-token deletion guard on `featureSingleAssetVault`. |
+
+## Why This Matters
+
+These findings matter for three practical reasons.
+
+First, they are release-line evidence. A project forking or inheriting `rippled 3.1.3` cannot assume that enabled XRPL amendment surfaces are safe merely because the amendments are live on mainnet.
+
+Second, they are upgrade-lag evidence. Several issues have already been remediated upstream, but public servers checked during this packet still reported `3.1.3`. The security question is therefore not just "does a patch exist?" It is also "which release line is actually operating the live network path?"
+
+Third, two MPT findings remain distinct from the remediated set. `MPT-TRANSFER-RATE-OVERFLOW-001` and `MPT-LOCK-UNAUTH-001` were reproduced in the 3.1.3 proof packet, touch a live enabled MPTokensV1 surface, and did not have a confirmed fix in the checked `3.2.0-b7` or `origin/develop` refs.
 
 ## Live Amendment Filter
 
@@ -65,6 +107,8 @@ Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for 
 | Live audit packet index | [`AUDIT_PACKET.md`](/assets/research/xrpl-rippled-p0-audit/AUDIT_PACKET.md) |
 | Live repro manifest | [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json) |
 | Direct XRPL amendment receipt | [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json) |
+| Direct XRPL runtime receipt | [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json) |
+| Upstream remediation receipt | [`upstream_remediation_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/upstream_remediation_status_20260527.json) |
 | Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
 | Common runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
 | Live proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
@@ -148,6 +192,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Source signal.** Later upstream commit 366899d5 / PR #6712.
 
+**Upstream status.** Patched after 3.1.3 in `4b198cd5b`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
 **Remediation prompt.** Disallow MPTClearRequireAuth when DomainID is set.
 
 <a id="mpt-lock-unauth-001"></a>
@@ -179,6 +225,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 - `MPT current - locked holder can delete lock state`
 
 **Source signal.** Source review of MPTokenAuthorize::preclaim plus upstream lock/delete coverage.
+
+**Upstream status.** No confirmed fix in `3.2.0-b7` or `origin/develop`. The checked source still conditions the locked-token deletion guard on `featureSingleAssetVault`, while the live MPTokensV1-only condition has `SingleAssetVault` disabled.
 
 **Remediation prompt.** Enforce locked MPToken deletion checks in the MPT authorization path.
 
@@ -212,6 +260,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Source signal.** Later upstream commit ad3d172a1 / PR #6171.
 
+**Upstream status.** Patched after 3.1.3 in `ad3d172a1`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
 **Remediation prompt.** Switch token escrow cancellation accounting to the account ledger entry rather than the deleted trustline.
 
 <a id="amm-stale-auth-001"></a>
@@ -243,6 +293,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 - `AMM current — stale AuthAccounts survive empty reinit`
 
 **Source signal.** Later upstream commit e1fe35993 / PR #6996.
+
+**Upstream status.** Patched after 3.1.3 in `779b49cd9`; confirmed present in `3.2.0-b7` and `origin/develop`.
 
 **Remediation prompt.** Clear AuthAccounts during empty-pool AMM reinitialization.
 
@@ -276,6 +328,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Source signal.** Later upstream commit dcd2ff0b5 / PR #7117.
 
+**Upstream status.** Patched after 3.1.3 in `dcd2ff0b5`; confirmed present in `origin/develop`, not confirmed in `3.2.0-b7`.
+
 **Remediation prompt.** Reject non-canonical MPT amounts during preflight/preclaim before fee-burning application.
 
 <a id="mpt-transfer-rate-overflow-001"></a>
@@ -307,6 +361,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 - `MPT current — transfer-rate scaling overflows large integral amount`
 
 **Source signal.** Later upstream commit 22fbf4d06.
+
+**Upstream status.** No confirmed fix in `3.2.0-b7` or `origin/develop`. The fix-looking commit `22fbf4d06` was not contained in either ref, and the checked source did not contain the MPT-specific `Number` arithmetic remediation branch.
 
 **Remediation prompt.** Route MPT/V2 transfer-rate math through Number arithmetic.
 
@@ -340,6 +396,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Source signal.** Later upstream commit 28cc20c81 / PR #7087.
 
+**Upstream status.** Patched after 3.1.3 in `28cc20c81`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
 **Remediation prompt.** Use the correct open-book placement rate and repair existing bad sfExchangeRate metadata.
 
 <a id="pdex-cancel-invariant-001"></a>
@@ -372,6 +430,8 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Source signal.** Later upstream commit 8c0080020 / PR #7118.
 
+**Upstream status.** Patched after 3.1.3 in `8c0080020`; confirmed present in `3.2.0-b7` and `origin/develop`.
+
 **Remediation prompt.** Update the permissioned-DEX invariant to ignore deleted regular offers in this path.
 
 ## Implications For Post Fiat
@@ -398,6 +458,6 @@ Issue identifiers are **internal audit labels**, not official CVEs or vendor adv
 
 **Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
 
-*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T14:48:14Z*
+*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T15:25:31Z*
 
 </div>
