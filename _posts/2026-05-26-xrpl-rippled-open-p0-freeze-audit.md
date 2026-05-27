@@ -99,6 +99,188 @@ The dominant pattern is not one isolated transaction bug. It is incomplete recei
 
 That is a serious implementation-quality signal for anyone inheriting `rippled 3.1.3`: policy checks must be centralized or every new transaction family becomes another bypass candidate.
 
+## Plain-English Finding Guide
+
+This section explains the packet in human terms before the raw evidence links.
+Each finding should be read as a state-transition mismatch: the transaction
+family reaches a ledger effect that the surrounding account policy, reserve
+rule, arithmetic rule, or invariant says should not happen.
+
+### Unfixed In Checked 3.2.0-b7 / origin-develop
+
+**MPT-LOCK-UNAUTH-001**
+
+- **What is this?** MPTokens are XRPL multi-purpose tokens. Issuers can authorize holders and mark holder token objects as locked.
+- **Why it matters.** A lock is supposed to be durable issuer control, not state a holder can erase by deleting and recreating its token object.
+- **What is the bug?** A holder can `tfMPTUnauthorize` a locked zero-balance MPToken, deleting the lock state, then re-authorize without `lsfMPTLocked`.
+- **Intended behavior.** Locked-token deletion should preserve the issuer lock or reject deletion while locked.
+- **Actual behavior.** The reproduced path deletes the locked holder object and recreates it unlocked.
+- **Remediation.** Enforce locked MPToken deletion checks in the MPT authorization path. No confirmed fix was found in the checked refs.
+
+**TRUSTLINE-POSITIVE-BALANCE-RESERVE-001**
+
+- **What is this?** XRPL IOUs live on trustlines; a positive holder balance normally creates owned ledger state and consumes owner reserve.
+- **Why it matters.** Reserve accounting is XRPL's anti-state-spam mechanism. A positive balance without owner reserve means durable ledger state exists without the normal cost.
+- **What is the bug?** Offer crossing can give a holder a positive IOU balance while `OwnerCount` stays zero and the receiver reserve flag stays unset.
+- **Intended behavior.** A receiver crossing from non-positive to positive balance should pay owner reserve or the transaction should fail.
+- **Actual behavior.** The reproduced path creates the positive balance without the reserve-side accounting.
+- **Remediation.** Charge receiver owner reserve on the balance transition, or fail if reserve is unavailable. No confirmed fix was found in the checked refs.
+
+**TRUSTLINE-DISALLOW-INCOMING-OFFER-001**
+
+- **What is this?** `asfDisallowIncomingTrustline` is an issuer flag intended to block new incoming trustlines. `OfferCreate` is the DEX path for crossing IOU offers.
+- **Why it matters.** If direct `TrustSet` is blocked but DEX settlement creates the same trustline, the issuer policy is not actually enforced.
+- **What is the bug?** An issuer can block direct trustline creation, but a taker without a trustline can still cross an offer and receive the issuer IOU.
+- **Intended behavior.** `OfferCreate` should apply the same incoming-trustline opt-out check before creating the trustline.
+- **Actual behavior.** Direct `TrustSet` is rejected, then offer crossing creates the trustline anyway.
+- **Remediation.** Reject offer acceptance that would create a blocked issuer trustline. The checked refs do not contain a confirmed fix.
+
+**NFTOKEN-DISALLOW-INCOMING-ACCEPT-001**
+
+- **What is this?** `NFTokenAcceptOffer` settles NFT sales and can pay the seller in an issued IOU.
+- **Why it matters.** NFT settlement should not be a second route to create a trustline that direct issuer policy forbids.
+- **What is the bug?** The seller can receive an issuer IOU through NFT settlement despite the issuer setting `asfDisallowIncomingTrustline`.
+- **Intended behavior.** NFT IOU settlement should enforce the issuer's incoming-trustline opt-out.
+- **Actual behavior.** Direct `TrustSet` is rejected, but `NFTokenAcceptOffer` creates the seller trustline.
+- **Remediation.** Add the same issuer-policy check to NFT IOU settlement. No confirmed fix was found in the checked refs.
+
+**NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001**
+
+- **What is this?** Brokered NFT settlement can pay a broker fee in an issuer IOU.
+- **Why it matters.** Broker fees are easy to miss because the broker is neither buyer nor seller; this tests whether receive-policy enforcement is centralized.
+- **What is the bug?** The broker can receive an issuer IOU fee and get a new trustline despite the issuer opt-out.
+- **Intended behavior.** Broker-fee payment should enforce `asfDisallowIncomingTrustline` before creating a broker trustline.
+- **Actual behavior.** The broker-fee path creates the trustline through settlement.
+- **Remediation.** Apply issuer-policy checks to NFT broker-fee IOU payment. No confirmed fix was found in the checked refs.
+
+**CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001**
+
+- **What is this?** Checks allow delayed settlement; with `CheckCashMakesTrustLine`, cashing an IOU check can create the receiver trustline.
+- **Why it matters.** Delayed settlement should not bypass the same issuer policy that direct trustline creation must obey.
+- **What is the bug?** `CheckCash` can create an incoming trustline to an issuer that has opted out of new incoming trustlines.
+- **Intended behavior.** `CheckCash` should reject IOU cashing when it would create a blocked trustline.
+- **Actual behavior.** Direct `TrustSet` is blocked, then the check-cash path creates the trustline.
+- **Remediation.** Add issuer-policy checks to automatic trustline creation during `CheckCash`. No confirmed fix was found in the checked refs.
+
+**TOKENESCROW-DISALLOW-INCOMING-FINISH-001**
+
+- **What is this?** TokenEscrow releases issued assets when `EscrowFinish` completes.
+- **Why it matters.** Escrow completion is non-interactive for the destination; it should not force a policy-blocked trustline onto the account.
+- **What is the bug?** `EscrowFinish` can deliver an IOU and create a destination trustline despite issuer `DisallowIncomingTrustline`.
+- **Intended behavior.** Finishing an IOU escrow should enforce the issuer's incoming-trustline opt-out.
+- **Actual behavior.** Direct `TrustSet` is rejected, then escrow completion creates the trustline.
+- **Remediation.** Add issuer-policy checks to TokenEscrow finish settlement. No confirmed fix was found in the checked refs.
+
+**AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001**
+
+- **What is this?** `AMMWithdraw` returns pooled assets to a liquidity provider.
+- **Why it matters.** AMMs are a major indirect settlement surface. If withdrawal skips issuer policy, liquidity mechanics can create blocked trustlines.
+- **What is the bug?** A withdrawal can send an issuer IOU to an account with no trustline even after the issuer has opted out.
+- **Intended behavior.** AMM withdrawal should enforce issuer trustline policy before creating a receiver trustline.
+- **Actual behavior.** The AMM withdrawal path creates the trustline through `accountSend`.
+- **Remediation.** Apply issuer-policy checks to AMM withdrawal sends. No confirmed fix was found in the checked refs.
+
+**AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001**
+
+- **What is this?** `AMMCreate` creates the special AMM account and the initial pool.
+- **Why it matters.** Pool creation creates durable ledger state. It should not create an AMM-account trustline to an issuer that opted out of new incoming trustlines.
+- **What is the bug?** A pool can be created for an issuer IOU despite issuer `DisallowIncomingTrustline`.
+- **Intended behavior.** AMM creation should reject pool creation when it would create a blocked issuer trustline.
+- **Actual behavior.** The AMM account trustline is created through the pool creation path.
+- **Remediation.** Apply issuer-policy checks to AMM account trustline creation. No confirmed fix was found in the checked refs.
+
+**AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001**
+
+- **What is this?** `AMMDeposit` with `tfTwoAssetIfEmpty` can reinitialize an empty pool.
+- **Why it matters.** Reinitialization is a lifecycle edge case where old state is recreated; those paths must re-run the same policy checks as first creation.
+- **What is the bug?** Empty-pool reinitialization can recreate an AMM trustline to an issuer that has opted out.
+- **Intended behavior.** Empty-pool deposit should enforce issuer policy before recreating the AMM account trustline.
+- **Actual behavior.** The reinit path recreates the trustline despite `DisallowIncomingTrustline`.
+- **Remediation.** Apply issuer-policy checks to empty-pool reinitialization. No confirmed fix was found in the checked refs.
+
+**AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001**
+
+- **What is this?** `AMMClawback` lets issuer A claw back its asset from a two-asset AMM pool, which can return issuer B's paired asset to a holder.
+- **Why it matters.** Cross-issuer AMM operations must respect both issuers' policies, not only the issuer initiating the clawback.
+- **What is the bug?** Issuer A's clawback can force-return issuer B's IOU to a holder after issuer B opted out of incoming trustlines.
+- **Intended behavior.** Returning the paired asset should enforce issuer B's trustline policy.
+- **Actual behavior.** The paired asset is returned and the issuer B trustline is recreated.
+- **Remediation.** Apply issuer-policy checks to paired-asset returns in AMM clawback. No confirmed fix was found in the checked refs.
+
+**AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001**
+
+- **What is this?** `DepositAuth` is a receiver-side flag that requires authorization before unsolicited funds can be delivered.
+- **Why it matters.** A protocol-generated AMM return is still a delivery to the receiver; it should not bypass the receiver's explicit no-unsolicited-deposits policy.
+- **What is the bug?** AMM clawback can force-return a paired IOU to a holder that rejects direct payment under `DepositAuth`.
+- **Intended behavior.** AMM clawback should enforce the holder's receive authorization before delivering paired assets.
+- **Actual behavior.** Direct payment is rejected, but the AMM clawback return delivers the asset.
+- **Remediation.** Apply `DepositAuth` checks to paired-asset returns. No confirmed fix was found in the checked refs.
+
+**AMMBID-DEPOSITAUTH-REFUND-001**
+
+- **What is this?** `AMMBid` replaces the current AMM auction-slot owner and refunds LP tokens to the previous owner.
+- **Why it matters.** The previous owner is not signing the later bid. Protocol-generated refunds still need to obey receiver policy.
+- **What is the bug?** The previous owner can set `DepositAuth`, reject direct LP-token payment, and still receive an LP-token refund through a later `AMMBid`.
+- **Intended behavior.** AMM bid refunds should respect the previous owner's `DepositAuth` state.
+- **Actual behavior.** The refund path delivers LP tokens despite the receiver policy.
+- **Remediation.** Apply `DepositAuth` checks to AMM bid refunds. No confirmed fix was found in the checked refs.
+
+**MPT-TRANSFER-RATE-OVERFLOW-001**
+
+- **What is this?** MPT transfer rates scale token movements to account for issuer transfer fees.
+- **Why it matters.** Consensus transaction code should not throw arithmetic exceptions on transaction amounts; it should either compute deterministically or reject cleanly.
+- **What is the bug?** A large integral MPT amount with a 1.5 transfer rate reaches a scaled-mantissa overflow path.
+- **Intended behavior.** Transfer-rate math should be bounded and deterministic, or fail before application.
+- **Actual behavior.** The reproduced path hits an `overflow_error`.
+- **Remediation.** Route MPT transfer-rate math through bounded consensus arithmetic. A fix-looking commit exists, but no confirmed fix was found in the checked refs.
+
+### Remediated Or Remediating After 3.1.3
+
+**ESCROW-CANCEL-IOU-001**
+
+- **What is this?** TokenEscrow cancellation should unwind escrow accounting after normal trustline lifecycle changes.
+- **Why it matters.** Cancellation should not strand state or throw a deterministic exception because a related trustline was deleted.
+- **What is the bug?** Canceling an IOU escrow after sender trustline deletion returns `tefEXCEPTION` / owner-count template-field failure.
+- **Intended behavior.** Escrow cancellation should account from durable account state, not require the old trustline to still exist.
+- **Actual behavior.** The cancellation path depends on deleted trustline state and throws.
+- **Remediation.** Patched after 3.1.3 by using the account ledger entry for cancellation accounting; confirmed in `3.2.0-b7` and `origin/develop`.
+
+**AMM-STALE-AUTH-001**
+
+- **What is this?** AMM auction authorization state controls the current discounted trading slot.
+- **Why it matters.** Empty-pool reinitialization should not inherit privilege metadata from a prior pool lifecycle.
+- **What is the bug?** Reinitializing an empty AMM leaves stale `sfAuthAccounts` from the previous auction slot.
+- **Intended behavior.** Empty-pool reinit should clear stale auction authorization state.
+- **Actual behavior.** The old authorization list survives into the new pool lifecycle.
+- **Remediation.** Patched after 3.1.3 by clearing `AuthAccounts` during empty-pool reinitialization; confirmed in `3.2.0-b7` and `origin/develop`.
+
+**MPT-NONCANONICAL-AMOUNT-001**
+
+- **What is this?** XRPL amount encodings are supposed to be canonical before ledger application.
+- **Why it matters.** Malformed values should fail preflight, not reach fee-burning application paths.
+- **What is the bug?** A non-canonical MPT amount reaches transaction application and returns `tecPATH_PARTIAL` instead of `temBAD_AMOUNT`.
+- **Intended behavior.** Non-canonical MPT amounts should be rejected before application.
+- **Actual behavior.** The malformed amount reaches the ledger engine and burns a fee.
+- **Remediation.** Patched in `origin/develop`; not confirmed in checked `3.2.0-b7`.
+
+**PDEX-HYBRID-QUALITY-001**
+
+- **What is this?** Permissioned DEX hybrid offers are indexed by quality for matching and settlement metadata.
+- **Why it matters.** Offer quality is not cosmetic; mismatched quality changes order-book interpretation and can corrupt market metadata.
+- **What is the bug?** A partially crossed hybrid offer leaves its open-book directory key at one quality while `sfExchangeRate` records another.
+- **Intended behavior.** Directory key quality and `sfExchangeRate` should agree after partial crossing.
+- **Actual behavior.** The reproduced path leaves those values inconsistent.
+- **Remediation.** Patched after 3.1.3 by fixing hybrid offer placement and metadata repair; confirmed in `3.2.0-b7` and `origin/develop`.
+
+**PDEX-CANCEL-INVARIANT-001**
+
+- **What is this?** Permissioned DEX offers can cancel or interact with regular offers from the same account.
+- **Why it matters.** Invariants should catch impossible ledger mutation, not reject a valid transaction because two offer families interact.
+- **What is the bug?** A valid domain `OfferCreate` that cancels a regular offer fails with `tecINVARIANT_FAILED`.
+- **Intended behavior.** The invariant should permit the valid deletion caused by the domain offer path.
+- **Actual behavior.** The invariant treats the deleted regular offer as forbidden mutation.
+- **Remediation.** Patched after 3.1.3 by updating the permissioned-DEX invariant; confirmed in `3.2.0-b7` and `origin/develop`.
+
 ## Evidence Packet
 
 | Evidence object | Link |
