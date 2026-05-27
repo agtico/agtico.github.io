@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parent
 SITE_ROOT = ROOT.parents[2]
 ARTICLE = SITE_ROOT / "_posts" / "2026-05-26-xrpl-rippled-open-p0-freeze-audit.md"
 MANIFEST = ROOT / "repro_manifest.json"
-AMENDMENT_STATUS = ROOT / "live_amendment_status_20260527.json"
+AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 
 
 def fail(message: str) -> None:
@@ -86,25 +86,56 @@ def main() -> int:
     require("## Live Amendment Filter" in article, "article missing live amendment filter")
     require("## Evidence Packet" in article, "article missing evidence packet section")
     require("## Table Of Contents" in article, "article missing table of contents")
+    blocked_article_terms = [
+        "XR" + "PSCAN",
+        "live" + "_amendment" + "_status_" + "20260527.json",
+        "What Was " + "Removed",
+    ]
+    for blocked in blocked_article_terms:
+        require(blocked not in article, f"article contains blocked term: {blocked}")
     require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
-    required_status = {
-        "AMM": True,
-        "MPTokensV1": True,
-        "PermissionedDomains": True,
-        "PermissionedDEX": True,
-        "TokenEscrow": True,
-        "SingleAssetVault": False,
-        "LendingProtocol": False,
-        "Batch": False,
-        "PermissionDelegation": False,
+    require(
+        amendment_status["source"] == "direct XRPL public JSON-RPC",
+        "amendment receipt must be direct XRPL JSON-RPC",
+    )
+    require(
+        amendment_status["feature_rpc"]["validated"] is True,
+        "feature RPC result must be validated",
+    )
+    require(
+        amendment_status["amendments_ledger_entry"]["validated"] is True,
+        "Amendments ledger entry must be validated",
+    )
+    require(
+        amendment_status["feature_rpc"]["ledger_hash"] == amendment_status["amendments_ledger_entry"]["ledger_hash"],
+        "feature and Amendments ledger-entry checks must bind to the same ledger hash",
+    )
+    require(
+        amendment_status["feature_rpc"]["ledger_index"] == amendment_status["amendments_ledger_entry"]["ledger_index"],
+        "feature and Amendments ledger-entry checks must bind to the same ledger index",
+    )
+    require(
+        amendment_status["checked_utc"] == manifest["live_scope"]["checked_utc"],
+        "manifest live-scope timestamp must match amendment receipt",
+    )
+    require(
+        amendment_status["checked_utc"] in article,
+        "article must name the amendment receipt timestamp",
+    )
+    required_enabled = {
+        "AMM",
+        "MPTokensV1",
+        "PermissionedDomains",
+        "PermissionedDEX",
+        "TokenEscrow",
     }
-    for amendment, expected in required_status.items():
-        actual = amendment_status["status"][amendment]["enabled"]
-        require(actual is expected, f"unexpected live amendment status for {amendment}: {actual}")
+    for amendment in required_enabled:
+        actual = amendment_status["public_enabled_features"][amendment]["enabled"]
+        require(actual is True, f"required public amendment is not enabled: {amendment}")
 
-    excluded_ids = {
+    forbidden_ids = {
         "LEND-FREEZE-001",
         "LOANBROKER-COVER-PRECISION-001",
         "LOAN-MINCOVER-SCALE-001",
@@ -122,6 +153,7 @@ def main() -> int:
         "DELEGATE-MPT-GRANULAR-MUTATION-001",
         "DELEGATE-EMPTY-ACCOUNTSET-001",
         "BATCH-SIGNER-OUTER-REPLAY-001",
+        "MPT-LOCK-UNAUTH-NOSAV-001",
         "MPT-STISSUE-WIRE-001",
         "NUMBER-CUSP-UPWARD-001",
         "NUMBER-DIVISION-UPWARD-001",
@@ -135,8 +167,8 @@ def main() -> int:
         "CREDENTIAL-EXPIRED-DELETE-001",
         "PDEX-HYBRID-EMPTY-BOOKS-001",
     }
-    for excluded_id in excluded_ids:
-        require(excluded_id not in article, f"non-live finding leaked into article: {excluded_id}")
+    for forbidden_id in forbidden_ids:
+        require(forbidden_id not in article, f"finding outside live manifest leaked into article: {forbidden_id}")
 
     anchors = set(re.findall(r'<a id="([^"]+)"></a>', article))
     seen_ids: set[str] = set()

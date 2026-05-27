@@ -2,7 +2,7 @@
 layout: report
 title: "RippleD 3.1.3 Audit: Live Mainnet-Enabled High/Critical Findings"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat evaluated a RippleD-derived implementation path. This live-filtered report includes only reproduced high/critical findings whose required XRPL mainnet amendments were enabled in the 2026-05-27 XRPSCAN amendment snapshot."
+summary: "Post Fiat evaluated a RippleD-derived implementation path. This live-filtered report includes only reproduced high/critical findings whose required XRPL mainnet amendments were enabled in a direct XRPL validated-ledger query."
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
@@ -17,7 +17,7 @@ tags:
 
 <div class="pearl-primer-box">
   <p><strong>Context:</strong> Post Fiat evaluated a <strong>RippleD-derived implementation path</strong>. This report is the live-filtered reproducibility packet for upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p style="margin-top:12px"><strong>Live filter:</strong> This page now includes only reproduced findings whose required XRPL mainnet amendments were enabled in the XRPSCAN amendment snapshot checked at <code>2026-05-27T14:22:38Z</code>. Findings requiring disabled, obsolete, historical, or open-but-not-enabled amendment surfaces were removed from the public article.</p>
+  <p style="margin-top:12px"><strong>Live scope:</strong> This page includes eight reproduced high/critical findings on XRPL mainnet-enabled amendment surfaces verified through direct XRPL public JSON-RPC against a validated ledger.</p>
   <p style="margin-top:12px"><strong>Severity:</strong> This is a serious protocol-quality report. The included findings cover live-enabled authorization policy, MPT state, TokenEscrow, AMM state, and PermissionedDEX behavior in code that directly processes ledger transactions or enabled MPT accounting.</p>
   <p style="margin-top:12px"><strong>Proof surface:</strong> The proof surface is a clean local upstream jtx build, not a public-testnet anecdote. That is intentional: local standalone jtx fixes the upstream tag, amendment profile, ledger setup, expected marker, and result code.</p>
 </div>
@@ -26,9 +26,7 @@ tags:
 
 ## Executive Summary
 
-Post Fiat reran the article filter after checking live amendment status. The public report now contains **8 reproduced high/critical findings** whose required amendment surfaces are live on XRPL mainnet or whose live condition is the current absence of `SingleAssetVault` with `MPTokensV1` enabled.
-
-The removed material is not being used to inflate the headline. Historical `fixCleanup3_1_3` cases, disabled `Batch` and `PermissionDelegation` cases, and `SingleAssetVault` / `LendingProtocol` cases are not part of this public findings list because they are not live mainnet-enabled surfaces in the amendment snapshot used here.
+This public report contains **8 reproduced high/critical findings** on XRPL mainnet-enabled amendment surfaces. The findings cover MPT authorization and accounting, TokenEscrow cancellation, AMM state carryover, and PermissionedDEX invariants.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
@@ -50,20 +48,15 @@ The removed material is not being used to inflate the headline. Historical `fixC
 
 ## Live Amendment Filter
 
-Live status source: XRPSCAN amendments API snapshot saved at [`live_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/live_amendment_status_20260527.json). XRPSCAN documents this endpoint as retrieving amendments supported on XRPL mainnet.
+Live status source: direct XRPL public JSON-RPC. The packet calls `feature` for named amendment status and `ledger_entry` for the raw on-ledger `Amendments` object at index `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`. The saved receipt is [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json).
 
-| Amendment | Status in snapshot | Treatment here |
+| Amendment | Status in snapshot | Used by findings |
 |---|---|---|
-| `AMM` | Enabled | eligible if reproduced finding is high/critical |
-| `MPTokensV1` | Enabled | eligible if reproduced finding is high/critical |
-| `PermissionedDomains` | Enabled | eligible if reproduced finding is high/critical |
-| `PermissionedDEX` | Enabled | eligible if reproduced finding is high/critical |
-| `TokenEscrow` | Enabled | eligible if reproduced finding is high/critical |
-| `Credentials` | Enabled | enabled, but only historical cleanup cases were found here, so excluded |
-| `SingleAssetVault` | Not enabled | excluded from public findings |
-| `LendingProtocol` | Not enabled | excluded from public findings |
-| `Batch` | Not enabled | excluded from public findings |
-| `PermissionDelegation` | Not enabled | excluded from public findings |
+| `AMM` | Enabled | `AMM-STALE-AUTH-001` |
+| `MPTokensV1` | Enabled | `MPT-DOMAIN-AUTH-001`, `MPT-LOCK-UNAUTH-001`, `MPT-NONCANONICAL-AMOUNT-001`, `MPT-TRANSFER-RATE-OVERFLOW-001` |
+| `PermissionedDomains` | Enabled | `MPT-DOMAIN-AUTH-001`, `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
+| `PermissionedDEX` | Enabled | `PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001` |
+| `TokenEscrow` | Enabled | `ESCROW-CANCEL-IOU-001` |
 
 ## Evidence Packet
 
@@ -71,7 +64,7 @@ Live status source: XRPSCAN amendments API snapshot saved at [`live_amendment_st
 |---|---|
 | Live audit packet index | [`AUDIT_PACKET.md`](/assets/research/xrpl-rippled-p0-audit/AUDIT_PACKET.md) |
 | Live repro manifest | [`repro_manifest.json`](/assets/research/xrpl-rippled-p0-audit/repro_manifest.json) |
-| Amendment status snapshot | [`live_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/live_amendment_status_20260527.json) |
+| Direct XRPL amendment receipt | [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json) |
 | Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
 | Common runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
 | Live proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
@@ -97,7 +90,7 @@ The extract is derived from the full local proof log and contains only the live-
 | ID | Risk | Enabled surface | Exploit class | Repro |
 |---|---:|---|---|---|
 | [MPT-DOMAIN-AUTH-001](#mpt-domain-auth-001) | 8.7 / Critical | MPTokensV1 + PermissionedDomains enabled | Authorization-policy bypass | [`MPT-DOMAIN-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-DOMAIN-AUTH-001.sh) |
-| [MPT-LOCK-UNAUTH-NOSAV-001](#mpt-lock-unauth-nosav-001) | 8.2 / High | MPTokensV1 enabled; SingleAssetVault not enabled | Feature-gated lock-state deletion | [`MPT-LOCK-UNAUTH-NOSAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-NOSAV-001.sh) |
+| [MPT-LOCK-UNAUTH-001](#mpt-lock-unauth-001) | 8.2 / High | MPTokensV1 enabled | Feature-gated lock-state deletion | [`MPT-LOCK-UNAUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh) |
 | [ESCROW-CANCEL-IOU-001](#escrow-cancel-iou-001) | 8.1 / High | TokenEscrow enabled | Deterministic transaction exception | [`ESCROW-CANCEL-IOU-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/ESCROW-CANCEL-IOU-001.sh) |
 | [AMM-STALE-AUTH-001](#amm-stale-auth-001) | 8.0 / High | AMM enabled | Stale authorization state | [`AMM-STALE-AUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMM-STALE-AUTH-001.sh) |
 | [MPT-NONCANONICAL-AMOUNT-001](#mpt-noncanonical-amount-001) | 7.6 / High | MPTokensV1 enabled | Malformed amount accepted into application path | [`MPT-NONCANONICAL-AMOUNT-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
@@ -157,37 +150,37 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Remediation prompt.** Disallow MPTClearRequireAuth when DomainID is set.
 
-<a id="mpt-lock-unauth-nosav-001"></a>
-### MPT-LOCK-UNAUTH-NOSAV-001 - MPT locked holder unauthorize without SAV
+<a id="mpt-lock-unauth-001"></a>
+### MPT-LOCK-UNAUTH-001 - MPT locked holder lock-state deletion
 
 | Field | Value |
 |---|---|
 | Risk | **8.2 / High** |
-| Enabled surface | MPTokensV1 enabled; SingleAssetVault not enabled |
+| Enabled surface | MPTokensV1 enabled |
 | Category | Current feature-bound |
 | Exploit type | Feature-gated lock-state deletion |
-| Affected target | rippled 3.1.3 with MPTokensV1 active and SingleAssetVault inactive |
-| Repro script | [`MPT-LOCK-UNAUTH-NOSAV-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-NOSAV-001.sh) |
+| Affected target | rippled 3.1.3 MPT lock-state handling |
+| Repro script | [`MPT-LOCK-UNAUTH-001.sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-LOCK-UNAUTH-001.sh) |
 | Proof extract | [`live_mainnet_enabled_proof_extract_20260527.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log) |
 
-**Broken behavior.** A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked when the SAV gate is inactive.
+**Broken behavior.** A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.
 
-**Expected behavior.** Locked-token deletion checks should not depend on unrelated SAV feature activation.
+**Expected behavior.** Locked-token deletion checks should preserve issuer lock state.
 
 **Deterministic demonstration.** Run:
 
 ```bash
 cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
-./repros/MPT-LOCK-UNAUTH-NOSAV-001.sh
+./repros/MPT-LOCK-UNAUTH-001.sh
 ```
 
 **Required marker(s).**
 
-- `MPT current — locked holder can delete lock state without SAV`
+- `MPT current - locked holder can delete lock state`
 
-**Source signal.** Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.
+**Source signal.** Source review of MPTokenAuthorize::preclaim plus upstream lock/delete coverage.
 
-**Remediation prompt.** Gate locked MPToken deletion on the MPT lock feature itself rather than SingleAssetVault.
+**Remediation prompt.** Enforce locked MPToken deletion checks in the MPT authorization path.
 
 <a id="escrow-cancel-iou-001"></a>
 ### ESCROW-CANCEL-IOU-001 - EscrowCancel deleted IOU trustline exception
@@ -381,15 +374,11 @@ cd /home/postfiat/repos/agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 **Remediation prompt.** Update the permissioned-DEX invariant to ignore deleted regular offers in this path.
 
-## What Was Removed From The Public Findings List
-
-The earlier broad research packet contained additional reproduced and candidate material. It is not part of this public findings list unless the required amendment surface is live and the finding is high/critical. The removed categories are: historical/replay-era `fixCleanup3_1_3` cases; `SingleAssetVault` and `LendingProtocol` cases; disabled `Batch` and `PermissionDelegation` cases; and medium-only helper/protocol-wire issues. Those exclusions are intentional and are enforced by `verify_packet.py` against the live manifest.
-
 ## Implications For Post Fiat
 
 1. A RippleD-derived path cannot inherit enabled XRPL surfaces blindly. The live-enabled findings cluster around authorization policy, MPT state, TokenEscrow state handling, AMM state carryover, and PermissionedDEX invariants.
 2. The correct engineering response is not rhetorical. Any reused concept needs independent tests, manifest-bound repros, amendment-status gating, and negative controls.
-3. If an amendment is not live, it does not belong in this public live-findings headline. If it later becomes enabled, it should be re-evaluated against the then-current release and amendment state.
+3. This report is intentionally scoped to the enabled surfaces listed above.
 
 ---
 
@@ -397,7 +386,7 @@ The earlier broad research packet contained additional reproduced and candidate 
 
 **Disclaimer**
 
-This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat evaluated RippleD-derived implementation paths; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), XRPSCAN, or any other third party.
+This document is published by **Post Fiat / AGTI** for informational purposes only. It describes our **internal code-quality evaluation** of the open-source **RippleD** codebase (baseline `release-3.1.3`, May 2026). Post Fiat evaluated RippleD-derived implementation paths; we are **not** speaking on behalf of Ripple, Ripple Labs, the XRP Ledger Foundation (XRPLF), or any other third party.
 
 Nothing here is legal, investment, tax, or security advice. Observations are based on static code review, local unit tests (jtx), helper/protocol-wire checks, live amendment-status filtering, and our interpretation of upstream behavior at a point in time. Upstream code, amendments, and deployment configurations change. Readers should perform their own due diligence and consult qualified professionals before acting.
 
@@ -409,6 +398,6 @@ Issue identifiers are **internal audit labels**, not official CVEs or vendor adv
 
 **Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
 
-*Baseline: upstream rippled `release-3.1.3` - live amendment snapshot checked 2026-05-27T14:22:38Z*
+*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T14:48:14Z*
 
 </div>

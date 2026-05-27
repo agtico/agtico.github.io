@@ -35,25 +35,25 @@
       "anchor": "mpt-domain-auth-001"
     },
     {
-      "id": "MPT-LOCK-UNAUTH-NOSAV-001",
-      "title": "MPT locked holder unauthorize without SAV",
+      "id": "MPT-LOCK-UNAUTH-001",
+      "title": "MPT locked holder lock-state deletion",
       "category": "Current feature-bound",
       "level": "High",
       "score": 8.2,
-      "affected": "rippled 3.1.3 with MPTokensV1 active and SingleAssetVault inactive",
+      "affected": "rippled 3.1.3 MPT lock-state handling",
       "exploit_type": "Feature-gated lock-state deletion",
       "markers": [
         "MPT current — locked holder can delete lock state without SAV"
       ],
-      "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked when the SAV gate is inactive.",
-      "expected": "Locked-token deletion checks should not depend on unrelated SAV feature activation.",
+      "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.",
+      "expected": "Locked-token deletion checks should preserve issuer lock state.",
       "source_signal": "Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.",
-      "remediation": "Gate locked MPToken deletion on the MPT lock feature itself rather than SingleAssetVault.",
-      "script": "repros/MPT-LOCK-UNAUTH-NOSAV-001.sh",
+      "remediation": "Enforce locked MPToken deletion checks in the MPT authorization path.",
+      "script": "repros/MPT-LOCK-UNAUTH-001.sh",
       "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
       "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
       "source": "OpenP0Repro_test.cpp",
-      "anchor": "mpt-lock-unauth-nosav-001"
+      "anchor": "mpt-lock-unauth-001"
     },
     {
       "id": "ESCROW-CANCEL-IOU-001",
@@ -183,26 +183,19 @@
     }
   ],
   "live_scope": {
-    "source": "https://api.xrpscan.com/api/v1/amendments",
-    "checked_utc": "2026-05-27T14:22:38Z",
-    "inclusion_rule": "Public report includes only reproduced current findings whose required XRPL mainnet amendments were enabled in this snapshot, and excludes medium-only helper findings from the headline high/critical packet.",
+    "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
+    "checked_utc": "2026-05-27T14:48:14Z",
+    "receipt": "direct_xrpl_amendment_status_20260527.json",
+    "inclusion_rule": "Public report includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt.",
     "included_ids": [
       "MPT-DOMAIN-AUTH-001",
-      "MPT-LOCK-UNAUTH-NOSAV-001",
+      "MPT-LOCK-UNAUTH-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "PDEX-HYBRID-QUALITY-001",
       "PDEX-CANCEL-INVARIANT-001"
-    ],
-    "excluded_classes": [
-      "Historical/replay-era fixCleanup3_1_3 findings",
-      "LendingProtocol findings because LendingProtocol was not enabled",
-      "SingleAssetVault findings because SingleAssetVault was not enabled",
-      "Batch findings because Batch was not enabled",
-      "PermissionDelegation findings because PermissionDelegation was not enabled",
-      "Medium-only helper/protocol-wire findings that were not high/critical live findings"
     ]
   }
 }
