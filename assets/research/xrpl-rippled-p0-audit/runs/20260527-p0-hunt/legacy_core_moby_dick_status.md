@@ -171,6 +171,11 @@ tests, and the following candidates were source-killed rather than promoted:
   `tecHAS_OBLIGATIONS` / `tefBAD_LEDGER` on failed teardown. The current source
   does not show an obvious delete-with-live-obligation P0 on the live-enabled
   path.
+- `MPT-LOCK-UNAUTH-NOSAV-001`: the current `MPToken_test` matrix already
+  expects locked-holder unauthorize/delete to succeed when
+  `featureSingleAssetVault` is off, and `MPTokenAuthorize::preclaim` only
+  blocks the delete path when SAV is enabled. That makes the no-SAV deletion
+  behavior look intentional, not like a live Moby Dick defect.
 
 That leaves the current legacy-core live candidate set unchanged: the best
 remaining old/simple/current target is still

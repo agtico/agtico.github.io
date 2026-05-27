@@ -136,6 +136,12 @@ one of the WHIP gates:
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no
   recipient trustline, so the plain Payment path is source-killed and not packet
   eligible.
+- `MPT-LOCK-UNAUTH-NOSAV-001` was also source-reviewed and treated as a
+  source-kill in this pass. Current upstream `MPToken_test` intentionally
+  allows locked-holder unauthorize/delete when `featureSingleAssetVault` is
+  disabled, and `MPTokenAuthorize::preclaim` only blocks that path when SAV is
+  enabled. That makes the no-SAV delete behavior a product rule, not a new
+  Moby Dick P0.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
