@@ -1,16 +1,16 @@
 {
   "source": "direct XRPL public JSON-RPC",
   "rpc_url": "https://s1.ripple.com:51234/",
-  "checked_utc": "2026-05-27T19:12:55Z",
+  "checked_utc": "2026-05-27T20:06:02Z",
   "feature_rpc": {
-    "ledger_hash": "06F5C4E6C1AD3DF1869BEBE9A404E3053310C5B5EC43E87DF50C018B1D2E387F",
-    "ledger_index": 104521417,
+    "ledger_hash": "C289612CEF9152E7531668FF89C47B6EB751AF72CC0C6C5E1C830433DF236CF9",
+    "ledger_index": 104522241,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "06F5C4E6C1AD3DF1869BEBE9A404E3053310C5B5EC43E87DF50C018B1D2E387F",
-    "ledger_index": 104521417,
+    "ledger_hash": "C289612CEF9152E7531668FF89C47B6EB751AF72CC0C6C5E1C830433DF236CF9",
+    "ledger_index": 104522241,
     "validated": true,
     "enabled_count": 92
   },
@@ -88,6 +88,13 @@
     },
     "CheckCashMakesTrustLine": {
       "id": "98DECF327BF79997AEC178323AD51A830E457BFC6D454DAF3E46E5EC42DC619F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "DepositAuth": {
+      "id": "F64E1EABBE79D55B3BB82020516CEC2C582A98A6BFE20FBE9BB6A0D233418064",
       "enabled": true,
       "supported": true,
       "id_source": "feature_rpc",

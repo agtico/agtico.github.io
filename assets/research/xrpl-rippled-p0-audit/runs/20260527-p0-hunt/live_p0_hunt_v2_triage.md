@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T18:46:36Z`
+Checked: `2026-05-27T20:06:02Z`
 
 ## Live Scope
 
@@ -13,6 +13,7 @@ Enabled live surfaces for this packet:
 - `AMMClawback`
 - `Checks`
 - `CheckCashMakesTrustLine`
+- `DepositAuth`
 - `DisallowIncoming`
 - `fixDisallowIncomingV1`
 - `MPTokensV1`
@@ -101,6 +102,13 @@ A later NFToken broker-fee slice promoted one more unresolved live finding:
   `asfDisallowIncomingTrustline`, creating the broker trustline through
   NFTokenAcceptOffer::pay/accountSend even though direct `TrustSet` is rejected.
 
+A later AMMClawback/DepositAuth slice promoted one more unresolved live finding:
+
+- `AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001`: in a two-issuer AMM, a holder can
+  set `asfDepositAuth` and reject direct issuer payment with `tecNO_PERMISSION`,
+  but AMMClawback can still force-return the paired IOU to that holder and
+  recreate the paired-asset trustline through the AMMWithdraw/accountSend path.
+
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
 
@@ -124,7 +132,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has twelve live-enabled findings with no confirmed upstream fix in
+The packet now has thirteen live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -139,6 +147,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001`
 - `AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001`
 - `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001`
+- `AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001`
 
 ## Next Hunt Targets
 

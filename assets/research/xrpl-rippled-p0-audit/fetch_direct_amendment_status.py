@@ -28,6 +28,7 @@ SCOPE_FEATURES = [
     "AMMClawback",
     "Checks",
     "CheckCashMakesTrustLine",
+    "DepositAuth",
     "DisallowIncoming",
     "fixDisallowIncomingV1",
     "fixDisallowIncomingV1_1",

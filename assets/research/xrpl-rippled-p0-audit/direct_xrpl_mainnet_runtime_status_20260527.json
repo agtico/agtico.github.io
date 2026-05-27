@@ -1,6 +1,6 @@
 {
   "source": "direct XRPL public JSON-RPC",
-  "checked_utc": "2026-05-27T19:13:08Z",
+  "checked_utc": "2026-05-27T20:06:06Z",
   "server_info": [
     {
       "rpc_url": "https://s1.ripple.com:51234/",
@@ -8,15 +8,15 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 5,
-        "hash": "A2F7D27A33D56F25D1F613A99B14B6D256F5DF6DE0C067A1CAE7D23B333F08F6",
-        "seq": 104521418,
+        "age": 1,
+        "hash": "C289612CEF9152E7531668FF89C47B6EB751AF72CC0C6C5E1C830433DF236CF9",
+        "seq": 104522241,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 19:12:56.237851 UTC"
+      "time": "2026-May-27 20:06:01.120235 UTC"
     },
     {
       "rpc_url": "https://s2.ripple.com:51234/",
@@ -24,27 +24,27 @@
       "clio_version": "20260204074407--3215e43",
       "libxrpl_version": "3.0.0",
       "validated_ledger": {
-        "age": 6,
-        "hash": "A2F7D27A33D56F25D1F613A99B14B6D256F5DF6DE0C067A1CAE7D23B333F08F6",
-        "seq": 104521418,
+        "age": 2,
+        "hash": "146EFBC019997D6F8A6213867DD6678FB21FD390C48AE3D316FAA2B412173970",
+        "seq": 104522242,
         "base_fee_xrp": 1e-05,
         "reserve_base_xrp": 1.0,
         "reserve_inc_xrp": 0.2
       },
       "network_id": 0,
-      "time": "2026-May-27 19:12:57.378750 UTC"
+      "time": "2026-May-27 20:06:03.724562 UTC"
     }
   ],
   "feature_rpc": {
     "rpc_url": "https://s1.ripple.com:51234/",
-    "ledger_hash": "48763292A0372ADE3BEB2CA18BA11D248829653E7E209D27871144D6E8538E8D",
-    "ledger_index": 104521420,
+    "ledger_hash": "146EFBC019997D6F8A6213867DD6678FB21FD390C48AE3D316FAA2B412173970",
+    "ledger_index": 104522242,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "48763292A0372ADE3BEB2CA18BA11D248829653E7E209D27871144D6E8538E8D",
-    "ledger_index": 104521420,
+    "ledger_hash": "146EFBC019997D6F8A6213867DD6678FB21FD390C48AE3D316FAA2B412173970",
+    "ledger_index": 104522242,
     "validated": true,
     "enabled_count": 92
   },
@@ -72,6 +72,13 @@
     },
     "CheckCashMakesTrustLine": {
       "id": "98DECF327BF79997AEC178323AD51A830E457BFC6D454DAF3E46E5EC42DC619F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "DepositAuth": {
+      "id": "F64E1EABBE79D55B3BB82020516CEC2C582A98A6BFE20FBE9BB6A0D233418064",
       "enabled": true,
       "supported": true,
       "id_source": "feature_rpc",
