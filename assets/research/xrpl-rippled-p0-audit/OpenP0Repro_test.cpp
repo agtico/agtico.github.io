@@ -2550,6 +2550,56 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineNFTokenAcceptCurrent()
+    {
+        testcase("NFToken current — AcceptOffer bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const seller{"seller"};
+        Account const buyer{"buyer"};
+        auto const USD = gw["USD"];
+
+        Env env{*this};
+        env.fund(XRP(400'000), gw, seller, buyer);
+        env.close();
+
+        env(trust(buyer, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, buyer, USD(100)), THISLINE);
+        env.close();
+
+        auto const nftID = token::getNextID(env, seller, 0u, tfTransferable);
+        env(token::mint(seller, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+
+        auto const sellIdx = keylet::nftoffer(seller, env.seq(seller)).key;
+        env(token::createOffer(seller, nftID, USD(40)),
+            txflags(tfSellNFToken),
+            THISLINE);
+        env.close();
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+        BEAST_EXPECT(!env.le(sellerLine));
+
+        // Control: direct TrustSet honors asfDisallowIncomingTrustline.
+        env(trust(seller, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(sellerLine));
+
+        // Current 3.1.3 NFTokenAcceptOffer checks RequireAuth and deep-freeze,
+        // but not DisallowIncomingTrustline, before paying the seller.
+        env(token::acceptSellOffer(buyer, sellIdx), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        env.require(balance(seller, USD(40)));
+        BEAST_EXPECT(env.le(sellerLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -2827,6 +2877,7 @@ public:
         testMPTLockedHolderUnauthorizeWithoutSavCurrent();
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
+        testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();

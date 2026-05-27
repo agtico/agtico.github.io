@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T16:36:40Z`
+Checked: `2026-05-27T17:16:38Z`
 
 ## Live Scope
 
@@ -14,6 +14,13 @@ Enabled live surfaces for this packet:
 - `DisallowIncoming`
 - `fixDisallowIncomingV1`
 - `MPTokensV1`
+- `NonFungibleTokensV1_1`
+- `fixEnforceNFTokenTrustline`
+- `fixEnforceNFTokenTrustlineV2`
+- `fixRemoveNFTokenAutoTrustLine`
+- `fixNFTokenReserve`
+- `fixNFTokenRemint`
+- `NFTokenMintOffer`
 - `PermissionedDomains`
 - `PermissionedDEX`
 - `TokenEscrow`
@@ -49,7 +56,7 @@ not satisfy the live-mainnet-only constraint.
 
 ## Promotion Result
 
-Two additional findings were promoted during the live-only continuation:
+Three additional findings were promoted during the live-only continuation:
 
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU offer crossing can
   create a positive balance for a receiver while leaving `OwnerCount=0` and the
@@ -59,6 +66,9 @@ Two additional findings were promoted during the live-only continuation:
   `asfDisallowIncomingTrustline`, but `OfferCreate` can still cross into that
   issuer's IOU for a taker with no existing trustline, creating the incoming
   trustline through the offer path.
+- `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`: the same issuer opt-out is bypassed
+  by `NFTokenAcceptOffer`; direct `TrustSet` is rejected, but NFT sell-offer
+  settlement in the issuer's IOU creates the seller trustline anyway.
 
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
@@ -74,13 +84,14 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has four live-enabled findings with no confirmed upstream fix in
+The packet now has five live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
 - `MPT-LOCK-UNAUTH-001`
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`
+- `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`
 
 ## Next Hunt Targets
 

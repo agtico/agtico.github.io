@@ -18,7 +18,8 @@
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "MPT-LOCK-UNAUTH-001",
       "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
-      "TRUSTLINE-DISALLOW-INCOMING-OFFER-001"
+      "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
+      "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001"
     ],
     "excluded_by_live_dependency": [
       {
@@ -196,12 +197,23 @@
           "in_origin_develop": false
         }
       ]
+    },
+    "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001": {
+      "note": "no confirmed fix is present in 3.2.0-b7 or origin/develop; branch origin/copilot/apply-asfdisallowincomingtrustline fixes OfferCreate only and leaves the NFTokenAcceptOffer path without an lsfDisallowIncomingTrustline check",
+      "fix_commits": [],
+      "checked_refs": [
+        "3.2.0-b7",
+        "origin/develop",
+        "origin/copilot/apply-asfdisallowincomingtrustline"
+      ],
+      "source_grep": "No DisallowIncomingTrustline / lsfDisallowIncomingTrustline check was found in NFTokenAcceptOffer.cpp or NFTokenUtils.cpp in the checked refs."
     }
   },
   "source_equivalence_checks": {
     "MPT-TRANSFER-RATE-OVERFLOW-001": "The roundNumberResult / MPT-specific Number arithmetic branch from 22fbf4d06 was not present in 3.2.0-b7 or origin/develop during this check.",
     "MPT-LOCK-UNAUTH-001": "3.2.0-b7 and origin/develop still contain a locked-token deletion guard conditioned on featureSingleAssetVault in MPTokenAuthorize.cpp.",
     "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001": "3.2.0-b7 and origin/develop do not contain fixTrustLineOwnerCount or the receiver-reserve increment in rippleCreditIOU; the only observed fix branch is origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve.",
-    "TRUSTLINE-DISALLOW-INCOMING-OFFER-001": "3.2.0-b7 and origin/develop do not contain fixDisallowIncomingV1_1 or the OfferCreate check that rejects receiving issuer IOUs without an existing trustline when lsfDisallowIncomingTrustline is set; the only observed fix branch is origin/copilot/apply-asfdisallowincomingtrustline."
+    "TRUSTLINE-DISALLOW-INCOMING-OFFER-001": "3.2.0-b7 and origin/develop do not contain fixDisallowIncomingV1_1 or the OfferCreate check that rejects receiving issuer IOUs without an existing trustline when lsfDisallowIncomingTrustline is set; the only observed fix branch is origin/copilot/apply-asfdisallowincomingtrustline.",
+    "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001": "3.2.0-b7, origin/develop, and origin/copilot/apply-asfdisallowincomingtrustline contain NFT RequireAuth/deep-freeze checks but no DisallowIncomingTrustline check in NFTokenAcceptOffer/NFTokenUtils; the reproduced 3.1.3 behavior remains unfixed in the checked refs."
   }
 }

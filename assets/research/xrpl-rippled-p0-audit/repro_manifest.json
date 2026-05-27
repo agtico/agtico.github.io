@@ -8,9 +8,9 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
-    "sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
-    "result": "Live-mainnet eligible extract: 9 findings after adding TRUSTLINE-DISALLOW-INCOMING-OFFER-001; source OpenP0Repro full suite 49 cases / 9229 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+    "sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
+    "result": "Live-mainnet eligible extract: 10 findings after adding NFTOKEN-DISALLOW-INCOMING-ACCEPT-001; source OpenP0Repro full suite 50 cases / 9282 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
@@ -22,15 +22,15 @@
       "affected": "rippled 3.1.3 MPT lock-state handling",
       "exploit_type": "Feature-gated lock-state deletion",
       "markers": [
-        "MPT current \u2014 locked holder can delete lock state without SAV"
+        "MPT current — locked holder can delete lock state without SAV"
       ],
       "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.",
       "expected": "Locked-token deletion checks should preserve issuer lock state.",
       "source_signal": "Source review of MPTokenAuthorize::preclaim plus upstream no-SAV lock/delete coverage.",
       "remediation": "Enforce locked MPToken deletion checks in the MPT authorization path.",
       "script": "repros/MPT-LOCK-UNAUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-lock-unauth-001",
       "required_amendments": [
@@ -49,15 +49,15 @@
       "affected": "rippled 3.1.3 IOU trustline reserve and owner-count accounting",
       "exploit_type": "Reserve and owner-count bypass",
       "markers": [
-        "TrustLine current \u2014 offer crossing creates positive balance without reserve"
+        "TrustLine current — offer crossing creates positive balance without reserve"
       ],
       "broken": "After a holder clears its trust limit and balance, offer crossing can give the holder a positive IOU balance while OwnerCount remains zero and the trustline reserve flag remains unset.",
       "expected": "A receiver whose trustline balance moves from zero or negative to positive should either receive the reserve flag and OwnerCount increment, or the transaction should fail for insufficient reserve.",
       "source_signal": "Unmerged upstream branch origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve, commit b4a45f1f0.",
       "remediation": "Charge the receiver owner reserve when IOU balance crosses from non-positive to positive, and fail if the receiver lacks reserve.",
       "script": "repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
-      "proof_log_sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "trustline-positive-balance-reserve-001",
       "required_amendments": [],
@@ -79,11 +79,41 @@
       "source_signal": "Unmerged upstream branch origin/copilot/apply-asfdisallowincomingtrustline, commits fa0cc0abc and ad840518f, adds a check gated by proposed fixDisallowIncomingV1_1.",
       "remediation": "Reject OfferCreate acceptance of an issuer IOU when the issuer has lsfDisallowIncomingTrustline and the taker has no existing trustline.",
       "script": "repros/TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
-      "proof_log_sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "trustline-disallow-incoming-offer-001",
       "required_amendments": [
+        "DisallowIncoming",
+        "fixDisallowIncomingV1"
+      ],
+      "required_disabled_amendments": [
+        "fixDisallowIncomingV1_1"
+      ]
+    },
+    {
+      "id": "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
+      "title": "NFTokenAcceptOffer bypasses issuer DisallowIncomingTrustline",
+      "category": "Current baseline transaction-path",
+      "level": "High",
+      "score": 8.0,
+      "affected": "rippled 3.1.3 NFTokenAcceptOffer IOU settlement",
+      "exploit_type": "Issuer policy bypass",
+      "markers": [
+        "NFToken current — AcceptOffer bypasses DisallowIncomingTrustline"
+      ],
+      "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but NFTokenAcceptOffer can still settle a sell offer in that issuer's IOU to a seller with no existing trustline, creating the incoming trustline through NFT settlement.",
+      "expected": "NFTokenAcceptOffer should enforce the same incoming-trustline opt-out policy before allowing a seller without an existing trustline to receive the issuer's IOU.",
+      "source_signal": "Source review of NFTokenAcceptOffer and nft::checkTrustlineAuthorized shows RequireAuth and deep-freeze checks but no lsfDisallowIncomingTrustline check; no matching fix was found in 3.2.0-b7 or origin/develop.",
+      "remediation": "Reject NFToken IOU settlement to a receiver with no existing trustline when the IOU issuer has lsfDisallowIncomingTrustline set, unless a governed amendment defines different NFT-specific semantics.",
+      "script": "repros/NFTOKEN-DISALLOW-INCOMING-ACCEPT-001.sh",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
+      "source": "OpenP0Repro_test.cpp",
+      "anchor": "nftoken-disallow-incoming-accept-001",
+      "required_amendments": [
+        "NonFungibleTokensV1_1",
+        "fixEnforceNFTokenTrustlineV2",
         "DisallowIncoming",
         "fixDisallowIncomingV1"
       ],
@@ -100,15 +130,15 @@
       "affected": "rippled 3.1.3 token escrow cancellation",
       "exploit_type": "Deterministic transaction exception",
       "markers": [
-        "EscrowCancel current \u2014 deleted IOU trustline returns tefEXCEPTION"
+        "EscrowCancel current — deleted IOU trustline returns tefEXCEPTION"
       ],
       "broken": "Canceling an IOU escrow after the sender trustline was deleted returns tefEXCEPTION / OwnerCount template-field error.",
       "expected": "Escrow cancellation accounting should not depend on a deleted sender trustline.",
       "source_signal": "Later upstream commit ad3d172a1 / PR #6171.",
       "remediation": "Switch token escrow cancellation accounting to the account ledger entry rather than the deleted trustline.",
       "script": "repros/ESCROW-CANCEL-IOU-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "escrow-cancel-iou-001",
       "required_amendments": [
@@ -125,15 +155,15 @@
       "affected": "rippled 3.1.3 AMM empty-pool reinitialization",
       "exploit_type": "Stale authorization state",
       "markers": [
-        "AMM current \u2014 stale AuthAccounts survive empty reinit"
+        "AMM current — stale AuthAccounts survive empty reinit"
       ],
       "broken": "Empty-pool reinitialization with tfTwoAssetIfEmpty leaves stale sfAuthAccounts from the prior auction slot.",
       "expected": "Reinitializing an empty AMM should clear stale auction authorization state.",
       "source_signal": "Later upstream commit e1fe35993 / PR #6996.",
       "remediation": "Clear AuthAccounts during empty-pool AMM reinitialization.",
       "script": "repros/AMM-STALE-AUTH-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "amm-stale-auth-001",
       "required_amendments": [
@@ -150,15 +180,15 @@
       "affected": "rippled 3.1.3 MPT amount validation",
       "exploit_type": "Malformed amount accepted into application path",
       "markers": [
-        "MPT current \u2014 non-canonical amount reaches ledger engine"
+        "MPT current — non-canonical amount reaches ledger engine"
       ],
       "broken": "A non-canonical MPT amount reaches transaction application and returns fee-burning tecPATH_PARTIAL instead of failing preflight as temBAD_AMOUNT.",
       "expected": "Non-canonical MPT amounts should fail before ledger application.",
       "source_signal": "Later upstream commit dcd2ff0b5 / PR #7117.",
       "remediation": "Reject non-canonical MPT amounts during preflight/preclaim before fee-burning application.",
       "script": "repros/MPT-NONCANONICAL-AMOUNT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-noncanonical-amount-001",
       "required_amendments": [
@@ -175,15 +205,15 @@
       "affected": "rippled 3.1.3 MPT transfer-rate helper",
       "exploit_type": "Arithmetic overflow",
       "markers": [
-        "MPT current \u2014 transfer-rate scaling overflows large integral amount"
+        "MPT current — transfer-rate scaling overflows large integral amount"
       ],
       "broken": "Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.",
       "expected": "Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.",
       "source_signal": "Later upstream commit 22fbf4d06.",
       "remediation": "Route MPT/V2 transfer-rate math through Number arithmetic.",
       "script": "repros/MPT-TRANSFER-RATE-OVERFLOW-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "mpt-transfer-rate-overflow-001",
       "required_amendments": [
@@ -199,15 +229,15 @@
       "affected": "rippled 3.1.3 permissioned DEX hybrid offers",
       "exploit_type": "Order-book metadata corruption",
       "markers": [
-        "Permissioned DEX current \u2014 hybrid offer open-book quality mismatch"
+        "Permissioned DEX current — hybrid offer open-book quality mismatch"
       ],
       "broken": "A partially crossed hybrid offer leaves its open-book directory key at one quality while sfExchangeRate records another.",
       "expected": "Open-book directory key quality and sfExchangeRate metadata must match after partial crossing.",
       "source_signal": "Later upstream commit 28cc20c81 / PR #7087.",
       "remediation": "Use the correct open-book placement rate and repair existing bad sfExchangeRate metadata.",
       "script": "repros/PDEX-HYBRID-QUALITY-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "pdex-hybrid-quality-001",
       "required_amendments": [
@@ -225,15 +255,15 @@
       "affected": "rippled 3.1.3 permissioned DEX OfferCreate",
       "exploit_type": "Valid transaction invariant failure",
       "markers": [
-        "Permissioned DEX current \u2014 cancel regular offer via domain offer invariant"
+        "Permissioned DEX current — cancel regular offer via domain offer invariant"
       ],
       "broken": "A valid domain OfferCreate that cancels the user regular offer fails with tecINVARIANT_FAILED because the invariant treats the deleted regular offer as forbidden mutation.",
       "expected": "The invariant should ignore regular offers deleted as part of a valid domain offer cancellation.",
       "source_signal": "Later upstream commit 8c0080020 / PR #7118.",
       "remediation": "Update the permissioned-DEX invariant to ignore deleted regular offers in this path.",
       "script": "repros/PDEX-CANCEL-INVARIANT-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/definitive_proof_batch_signer_outer_replay_20260527.log",
-      "proof_log_sha256": "a2d3a2f36ae8e2615bb002bef2c25eb047e0c7da8c029a7a1f1f2207ed24ff7c",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v4.log",
+      "proof_log_sha256": "35cdffe94f18edfa3d228bfda0a3a1455eca4aefb37098e5f53252eefa790f7b",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "pdex-cancel-invariant-001",
       "required_amendments": [
@@ -245,13 +275,14 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T16:36:40Z",
+    "checked_utc": "2026-05-27T17:16:38Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
       "MPT-LOCK-UNAUTH-001",
       "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
       "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
+      "NFTOKEN-DISALLOW-INCOMING-ACCEPT-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
