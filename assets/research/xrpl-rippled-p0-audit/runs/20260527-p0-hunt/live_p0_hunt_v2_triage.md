@@ -86,6 +86,14 @@ A later AMMClawback slice promoted one more unresolved live finding:
   trustline through the AMMWithdraw/accountSend path even though direct
   `TrustSet` is rejected.
 
+A later NFToken broker-fee slice promoted one more unresolved live finding:
+
+- `NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001`: a brokered
+  `NFTokenAcceptOffer` can pay the broker fee in an issuer's IOU to a broker
+  with no existing trustline after that issuer has set
+  `asfDisallowIncomingTrustline`, creating the broker trustline through
+  NFTokenAcceptOffer::pay/accountSend even though direct `TrustSet` is rejected.
+
 The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
 
@@ -100,7 +108,7 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet now has eleven live-enabled findings with no confirmed upstream fix in
+The packet now has twelve live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
@@ -108,6 +116,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`
 - `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001`
+- `NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001`
 - `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001`
 - `TOKENESCROW-DISALLOW-INCOMING-FINISH-001`
 - `AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001`

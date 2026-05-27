@@ -2601,6 +2601,62 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent()
+    {
+        testcase("NFToken current — broker fee bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const seller{"seller"};
+        Account const buyer{"buyer"};
+        Account const broker{"broker"};
+        auto const USD = gw["USD"];
+
+        Env env{*this};
+        env.fund(XRP(400'000), gw, seller, buyer, broker);
+        env.close();
+
+        env(trust(buyer, USD(1'000)), THISLINE);
+        env(trust(seller, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, buyer, USD(100)), THISLINE);
+        env.close();
+
+        auto const nftID = token::getNextID(env, seller, 0u, tfTransferable);
+        env(token::mint(seller, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+
+        auto const sellIdx = keylet::nftoffer(seller, env.seq(seller)).key;
+        env(token::createOffer(seller, nftID, USD(40)),
+            txflags(tfSellNFToken),
+            THISLINE);
+        env.close();
+
+        auto const buyIdx = keylet::nftoffer(buyer, env.seq(buyer)).key;
+        env(token::createOffer(buyer, nftID, USD(60)),
+            token::owner(seller),
+            THISLINE);
+        env.close();
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+        env(trust(broker, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+        env.close();
+        BEAST_EXPECT(!env.le(brokerLine));
+
+        env(token::brokerOffers(broker, buyIdx, sellIdx),
+            token::brokerFee(USD(10)),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        env.require(balance(broker, USD(10)));
+        BEAST_EXPECT(env.le(brokerLine));
+    }
+
+    void
     testDisallowIncomingTrustlineCheckCashCurrent()
     {
         testcase("CheckCash current — bypasses DisallowIncomingTrustline");
@@ -3184,6 +3240,7 @@ public:
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
+        testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();
         testDisallowIncomingTrustlineCheckCashCurrent();
         testDisallowIncomingTrustlineEscrowFinishCurrent();
         testDisallowIncomingTrustlineAMMWithdrawCurrent();
