@@ -46,9 +46,14 @@ not satisfy the live-mainnet-only constraint.
 
 ## Promotion Result
 
-No additional finding was promoted in this slice.
+One additional finding was promoted in this slice:
 
-Reason: the highest-volume candidate set in the existing matrix is blocked by
+- `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU offer crossing can
+  create a positive balance for a receiver while leaving `OwnerCount=0` and the
+  receiver reserve flag unset after that receiver previously cleared the
+  trustline limit and balance.
+
+The remaining high-volume candidate set in the existing matrix is blocked by
 one of the WHIP gates:
 
 - cleanup-era candidates are excluded because `fixCleanup3_1_3` is enabled by
@@ -62,11 +67,12 @@ one of the WHIP gates:
 
 ## Still-Promoted Unfixed Set
 
-The packet still has two live-enabled findings with no confirmed upstream fix in
+The packet now has three live-enabled findings with no confirmed upstream fix in
 the checked `3.2.0-b7` or `origin/develop` refs:
 
 - `MPT-TRANSFER-RATE-OVERFLOW-001`
 - `MPT-LOCK-UNAUTH-001`
+- `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
 
 ## Next Hunt Targets
 

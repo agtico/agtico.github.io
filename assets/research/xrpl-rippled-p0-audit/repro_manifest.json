@@ -8,9 +8,9 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527.log",
-    "sha256": "f50e5a25081533c7ed5f32823e76a927a06dd2013a51eea82b386bf87ab4461c",
-    "result": "Proof log contains the OpenP0Repro live-era extract; manifest includes 7 live-mainnet eligible findings after excluding MPT-DOMAIN-AUTH-001 because its MPT DomainID path requires SingleAssetVault, which direct XRPL mainnet status shows disabled; source OpenP0Repro full suite 47 cases / 9119 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v2.log",
+    "sha256": "c2b310077f25080709de3b73c6debe1da2df275d09efff5e2192a633cb73e4fc",
+    "result": "Live-mainnet eligible extract: 8 findings after adding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001; source OpenP0Repro full suite 48 cases / 9180 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
@@ -39,6 +39,29 @@
       "required_disabled_amendments": [
         "SingleAssetVault"
       ]
+    },
+    {
+      "id": "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+      "title": "Positive IOU balance without receiver owner reserve after offer crossing",
+      "category": "Current baseline transaction-path",
+      "level": "High",
+      "score": 8.1,
+      "affected": "rippled 3.1.3 IOU trustline reserve and owner-count accounting",
+      "exploit_type": "Reserve and owner-count bypass",
+      "markers": [
+        "TrustLine current \u2014 offer crossing creates positive balance without reserve"
+      ],
+      "broken": "After a holder clears its trust limit and balance, offer crossing can give the holder a positive IOU balance while OwnerCount remains zero and the trustline reserve flag remains unset.",
+      "expected": "A receiver whose trustline balance moves from zero or negative to positive should either receive the reserve flag and OwnerCount increment, or the transaction should fail for insufficient reserve.",
+      "source_signal": "Unmerged upstream branch origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve, commit b4a45f1f0.",
+      "remediation": "Charge the receiver owner reserve when IOU balance crosses from non-positive to positive, and fail if the receiver lacks reserve.",
+      "script": "repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v2.log",
+      "proof_log_sha256": "c2b310077f25080709de3b73c6debe1da2df275d09efff5e2192a633cb73e4fc",
+      "source": "OpenP0Repro_test.cpp",
+      "anchor": "trustline-positive-balance-reserve-001",
+      "required_amendments": [],
+      "required_baseline_surface": "IOU trustline reserve accounting in rippled 3.1.3"
     },
     {
       "id": "ESCROW-CANCEL-IOU-001",
@@ -199,6 +222,7 @@
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
       "MPT-LOCK-UNAUTH-001",
+      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
@@ -226,7 +250,8 @@
     ],
     "not_confirmed_fixed_in_3_2_0_b7_or_develop": [
       "MPT-TRANSFER-RATE-OVERFLOW-001",
-      "MPT-LOCK-UNAUTH-001"
+      "MPT-LOCK-UNAUTH-001",
+      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001"
     ]
   }
 }

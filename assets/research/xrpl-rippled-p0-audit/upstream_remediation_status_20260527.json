@@ -16,7 +16,8 @@
     ],
     "not_confirmed_fixed_in_3_2_0_b7_or_develop": [
       "MPT-TRANSFER-RATE-OVERFLOW-001",
-      "MPT-LOCK-UNAUTH-001"
+      "MPT-LOCK-UNAUTH-001",
+      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001"
     ],
     "excluded_by_live_dependency": [
       {
@@ -152,10 +153,32 @@
           "in_origin_develop": false
         }
       ]
+    },
+    "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001": {
+      "note": "fix-looking branch exists, but no confirmed fix is present in 3.2.0-b7 or origin/develop",
+      "fix_commits": [
+        {
+          "commit": "b4a45f1f0",
+          "subject": "b4a45f1f0f49d3caf56d2c790960380b5e648a60 2025-10-08 16:36:33 +0100\nfixed positive balance trustline not incrementing owners count in some cases",
+          "tags_containing_commit": [],
+          "in_3_1_3": false,
+          "in_3_2_0_b7": false,
+          "in_origin_develop": false
+        },
+        {
+          "commit": "1bb39b9b4",
+          "subject": "1bb39b9b4f075da1f7cb12b516516d5591652b85 2026-01-20 15:47:34 +0000\n[wip] added test for edge case balance",
+          "tags_containing_commit": [],
+          "in_3_1_3": false,
+          "in_3_2_0_b7": false,
+          "in_origin_develop": false
+        }
+      ]
     }
   },
   "source_equivalence_checks": {
     "MPT-TRANSFER-RATE-OVERFLOW-001": "The roundNumberResult / MPT-specific Number arithmetic branch from 22fbf4d06 was not present in 3.2.0-b7 or origin/develop during this check.",
-    "MPT-LOCK-UNAUTH-001": "3.2.0-b7 and origin/develop still contain a locked-token deletion guard conditioned on featureSingleAssetVault in MPTokenAuthorize.cpp."
+    "MPT-LOCK-UNAUTH-001": "3.2.0-b7 and origin/develop still contain a locked-token deletion guard conditioned on featureSingleAssetVault in MPTokenAuthorize.cpp.",
+    "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001": "3.2.0-b7 and origin/develop do not contain fixTrustLineOwnerCount or the receiver-reserve increment in rippleCreditIOU; the only observed fix branch is origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve."
   }
 }

@@ -21,7 +21,7 @@ AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 
-EXPECTED_RECORD_COUNT = 7
+EXPECTED_RECORD_COUNT = 8
 
 REQUIRED_ENABLED = {
     "AMM",
@@ -193,7 +193,11 @@ def check_remediation(remediation_status: dict) -> None:
     )
     unresolved = set(remediation_status["summary"]["not_confirmed_fixed_in_3_2_0_b7_or_develop"])
     require(
-        unresolved == {"MPT-TRANSFER-RATE-OVERFLOW-001", "MPT-LOCK-UNAUTH-001"},
+        unresolved == {
+            "MPT-TRANSFER-RATE-OVERFLOW-001",
+            "MPT-LOCK-UNAUTH-001",
+            "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+        },
         "unexpected unresolved remediation set",
     )
     patched = set(remediation_status["summary"]["patched_in_3_2_0_b7_or_develop"])
@@ -227,7 +231,12 @@ def check_manifest_records(
         seen_ids.add(rid)
 
         required = record.get("required_amendments")
-        require(isinstance(required, list) and required, f"{rid} missing required_amendments")
+        require(isinstance(required, list), f"{rid} missing required_amendments")
+        if not required:
+            require(
+                isinstance(record.get("required_baseline_surface"), str) and record["required_baseline_surface"],
+                f"{rid} has no amendment gate and must name required_baseline_surface",
+            )
         for amendment in required:
             require(amendment_enabled(amendment_status, amendment), f"{rid} requires disabled amendment: {amendment}")
             require(runtime_enabled(runtime_status, amendment), f"{rid} runtime receipt missing amendment: {amendment}")
@@ -274,7 +283,7 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("47 cases, 9119 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("48 cases, 9180 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)
