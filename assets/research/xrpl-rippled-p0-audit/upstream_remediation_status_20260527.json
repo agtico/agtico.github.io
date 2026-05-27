@@ -1,6 +1,6 @@
 {
   "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
-  "checked_utc": "2026-05-27T16:14:26Z",
+  "checked_utc": "2026-05-27T16:36:40Z",
   "refs": {
     "3.1.3": "tag 3.1.3\nTagger: Ed Hennis <ed@ripple.com>\n\n3.1.3\n-----BEGIN PGP SIGNATURE-----\n\niQJPBAABCAA5FiEEUpSWUHRltZGpgoMc2DUIwPIZjjoFAmn81B4bFIAAAAAABAAO\nbWFudTIsMi41KzEuMTIsMCwzAAoJENg1CMDyGY46p64P/2og+te1weSdDV95MpQc\nTF/y1eWKKm1jrW0cw/J/xFBf14+QV41G4y3LBQP7nQNzjADLbiwZSyPC8QfFE59H\ngEDxpV5kAvMXEIrGunzYv4UpgpjgQc9eD/PHJAMuJU+EZ9x8Z4jzHz4YhsHZGz5c\nrw2c1F1M1fVOKVvaNmzpAhRzcTIwH2eXGqLE+VGZE5Uoob+PcCcpeEv6Uj9pLVu1\nZIX9iC4JSR5d/YhJVeCNUihoF/RmOqbwUKvsXeWWYvhEunnJ611Er3cIWgH5qHAm\nw5i7Lc1khAsXij7Rby6XtLj+qcXFRvSJVQbPojYXoaTIPAvY6G74ljnt0wWIBBEM\nb9XXoQeZ3fdYxNS4a7DaPBpTekKDQNBgwMN2mNqYY2vpVRiUEqdTPqyMN0uDnJuE\nSSSVlPXnsJ/QZ5qXKr+fLIOdb6uAFJIGaSNDggKPBbw8Kl8lt3eP5gchjayRE5eE\n1pUy26RHah02NLm7br7ncpsH+7683ywTCN06qSX1Uy9y+2b+SSiXIXsMCg8PBbSk\nRdjGVJXBtUE/oyN1n6ERZ8j1cbD7WuktwK54qprU1FlxhuCZF1HCTG4IBno1gSjc\ncvmBO/kuz1KS3dh74P/9n7Zltmw7AOHiW7ARq399yt4EcC6LfNZQ1BPiOPbuGjQ1\npCNbz8ezaqmbidZp9ZYbNz9k\n=1C90\n-----END PGP SIGNATURE-----\n46b241ace8b30d9c9775d60ffba7d24b21903896 2026-05-07 13:31:08 -0400 Set version to 3.1.3",
     "3.2.0-b7": "tag 3.2.0-b7\nTagger: Michael Legleux <mlegleux@ripple.com>\n\n3.2.0-b7\n-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQR1yQG/EAAxPJkub2nE0BgdPc5dvgUCahC7IgAKCRDE0BgdPc5d\nviDRAP4vB/ELn0n61db2WZNBKfqHKM2FIxbnUiVkJruBd/DXPQD8CMAVDtl5U8+o\n9cNjY8Bw55LPMIQWw1LfvgTMQVkWmwI=\n=FTIE\n-----END PGP SIGNATURE-----\ndfb9b8ed9a0ad04c1da00c9957fe3c7454930835 2026-05-22 19:32:12 +0000 release: Bump version to 3.2.0-b7 (#7316)",
@@ -17,7 +17,8 @@
     "not_confirmed_fixed_in_3_2_0_b7_or_develop": [
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "MPT-LOCK-UNAUTH-001",
-      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001"
+      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+      "TRUSTLINE-DISALLOW-INCOMING-OFFER-001"
     ],
     "excluded_by_live_dependency": [
       {
@@ -174,11 +175,33 @@
           "in_origin_develop": false
         }
       ]
+    },
+    "TRUSTLINE-DISALLOW-INCOMING-OFFER-001": {
+      "note": "fix-looking branch exists, but no confirmed fix is present in 3.2.0-b7 or origin/develop",
+      "fix_commits": [
+        {
+          "commit": "fa0cc0abc",
+          "subject": "fa0cc0abcd718bfc59ab1c691d71b495ba92997d 2026-02-03 16:45:30 -0500\nAdd asfDisallowIncomingTrustline check to OfferCreate and comprehensive tests",
+          "tags_containing_commit": [],
+          "in_3_1_3": false,
+          "in_3_2_0_b7": false,
+          "in_origin_develop": false
+        },
+        {
+          "commit": "ad840518f",
+          "subject": "ad840518f45e8b146766bf1b8220932aecbf8d93 2026-02-03 16:46:03 -0500\nRename amendment from fixDisallowIncomingV2 to fixDisallowIncomingV1_1",
+          "tags_containing_commit": [],
+          "in_3_1_3": false,
+          "in_3_2_0_b7": false,
+          "in_origin_develop": false
+        }
+      ]
     }
   },
   "source_equivalence_checks": {
     "MPT-TRANSFER-RATE-OVERFLOW-001": "The roundNumberResult / MPT-specific Number arithmetic branch from 22fbf4d06 was not present in 3.2.0-b7 or origin/develop during this check.",
     "MPT-LOCK-UNAUTH-001": "3.2.0-b7 and origin/develop still contain a locked-token deletion guard conditioned on featureSingleAssetVault in MPTokenAuthorize.cpp.",
-    "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001": "3.2.0-b7 and origin/develop do not contain fixTrustLineOwnerCount or the receiver-reserve increment in rippleCreditIOU; the only observed fix branch is origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve."
+    "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001": "3.2.0-b7 and origin/develop do not contain fixTrustLineOwnerCount or the receiver-reserve increment in rippleCreditIOU; the only observed fix branch is origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve.",
+    "TRUSTLINE-DISALLOW-INCOMING-OFFER-001": "3.2.0-b7 and origin/develop do not contain fixDisallowIncomingV1_1 or the OfferCreate check that rejects receiving issuer IOUs without an existing trustline when lsfDisallowIncomingTrustline is set; the only observed fix branch is origin/copilot/apply-asfdisallowincomingtrustline."
   }
 }

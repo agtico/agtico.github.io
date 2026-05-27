@@ -23,6 +23,9 @@ PUBLIC_FEATURES = [
 SCOPE_FEATURES = [
     "AMM",
     "AMMClawback",
+    "DisallowIncoming",
+    "fixDisallowIncomingV1",
+    "fixDisallowIncomingV1_1",
     "MPTokensV1",
     "PermissionedDomains",
     "PermissionedDEX",

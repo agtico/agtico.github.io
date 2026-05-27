@@ -1,16 +1,16 @@
 {
   "source": "direct XRPL public JSON-RPC",
   "rpc_url": "https://s1.ripple.com:51234/",
-  "checked_utc": "2026-05-27T16:14:26Z",
+  "checked_utc": "2026-05-27T16:36:40Z",
   "feature_rpc": {
-    "ledger_hash": "70718FEDD65B87D727F833F0CD09E530C2C62180B358B51FE1C99E47961A32E8",
-    "ledger_index": 104518654,
+    "ledger_hash": "1915D4BA78D2A0A1975A236536CA0BE0D0A215DA71A0F748ACF0B57A6DB40913",
+    "ledger_index": 104518998,
     "validated": true
   },
   "amendments_ledger_entry": {
     "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
-    "ledger_hash": "70718FEDD65B87D727F833F0CD09E530C2C62180B358B51FE1C99E47961A32E8",
-    "ledger_index": 104518654,
+    "ledger_hash": "1915D4BA78D2A0A1975A236536CA0BE0D0A215DA71A0F748ACF0B57A6DB40913",
+    "ledger_index": 104518998,
     "validated": true,
     "enabled_count": 92
   },
@@ -60,6 +60,27 @@
       "supported": true,
       "id_source": "feature_rpc",
       "feature_rpc_visible": true
+    },
+    "DisallowIncoming": {
+      "id": "47C3002ABA31628447E8E9A8B315FAA935CE30183F9A9B86845E469CA2CDC3DF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixDisallowIncomingV1": {
+      "id": "15D61F0C6DB6A2F86BCF96F1E2444FEC54E705923339EC175BD3E517C8B3FF91",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixDisallowIncomingV1_1": {
+      "id": "DA95590DFAF344AE3342A57BF8E23DC48028F1A8FE0AB8C4CE36BEA3E0E35558",
+      "enabled": false,
+      "supported": null,
+      "id_source": "sha512_half_name",
+      "feature_rpc_visible": false
     },
     "MPTokensV1": {
       "id": "950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38",

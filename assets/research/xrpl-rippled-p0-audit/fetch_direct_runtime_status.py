@@ -16,6 +16,9 @@ RPC_URLS = ["https://s1.ripple.com:51234/", "https://s2.ripple.com:51234/"]
 SCOPE_FEATURES = [
     "AMM",
     "AMMClawback",
+    "DisallowIncoming",
+    "fixDisallowIncomingV1",
+    "fixDisallowIncomingV1_1",
     "MPTokensV1",
     "PermissionedDomains",
     "PermissionedDEX",

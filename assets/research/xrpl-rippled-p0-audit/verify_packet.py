@@ -21,11 +21,13 @@ AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 
-EXPECTED_RECORD_COUNT = 8
+EXPECTED_RECORD_COUNT = 9
 
 REQUIRED_ENABLED = {
     "AMM",
     "AMMClawback",
+    "DisallowIncoming",
+    "fixDisallowIncomingV1",
     "MPTokensV1",
     "PermissionedDomains",
     "PermissionedDEX",
@@ -43,6 +45,7 @@ REQUIRED_DISABLED = {
     "PermissionDelegation",
     "Batch",
     "fixDelegateV1_1",
+    "fixDisallowIncomingV1_1",
 }
 
 FORBIDDEN_IDS = {
@@ -197,6 +200,7 @@ def check_remediation(remediation_status: dict) -> None:
             "MPT-TRANSFER-RATE-OVERFLOW-001",
             "MPT-LOCK-UNAUTH-001",
             "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+            "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
         },
         "unexpected unresolved remediation set",
     )
@@ -283,7 +287,7 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("48 cases, 9180 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("49 cases, 9229 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)

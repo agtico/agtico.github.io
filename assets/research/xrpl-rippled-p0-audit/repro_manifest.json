@@ -8,9 +8,9 @@
   "proof": {
     "runner": "run_definitive_proof.sh",
     "source": "OpenP0Repro_test.cpp",
-    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v2.log",
-    "sha256": "c2b310077f25080709de3b73c6debe1da2df275d09efff5e2192a633cb73e4fc",
-    "result": "Live-mainnet eligible extract: 8 findings after adding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001; source OpenP0Repro full suite 48 cases / 9180 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
+    "log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
+    "sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
+    "result": "Live-mainnet eligible extract: 9 findings after adding TRUSTLINE-DISALLOW-INCOMING-OFFER-001; source OpenP0Repro full suite 49 cases / 9229 tests / 0 failures; OpenP0ReproCrash 1 case / 12 tests / 0 failures"
   },
   "records": [
     {
@@ -56,12 +56,40 @@
       "source_signal": "Unmerged upstream branch origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve, commit b4a45f1f0.",
       "remediation": "Charge the receiver owner reserve when IOU balance crosses from non-positive to positive, and fail if the receiver lacks reserve.",
       "script": "repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-001.sh",
-      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v2.log",
-      "proof_log_sha256": "c2b310077f25080709de3b73c6debe1da2df275d09efff5e2192a633cb73e4fc",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
+      "proof_log_sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
       "source": "OpenP0Repro_test.cpp",
       "anchor": "trustline-positive-balance-reserve-001",
       "required_amendments": [],
       "required_baseline_surface": "IOU trustline reserve accounting in rippled 3.1.3"
+    },
+    {
+      "id": "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
+      "title": "OfferCreate bypasses issuer DisallowIncomingTrustline",
+      "category": "Current baseline transaction-path",
+      "level": "High",
+      "score": 8.0,
+      "affected": "rippled 3.1.3 IOU OfferCreate trustline admission",
+      "exploit_type": "Issuer policy bypass",
+      "markers": [
+        "TrustLine current — OfferCreate bypasses DisallowIncomingTrustline"
+      ],
+      "broken": "An issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but a taker without an existing trustline can still cross an offer and receive the issuer's IOU, creating the trustline through OfferCreate.",
+      "expected": "OfferCreate should enforce the same incoming-trustline opt-out policy before allowing a taker without an existing trustline to receive the issuer's IOU.",
+      "source_signal": "Unmerged upstream branch origin/copilot/apply-asfdisallowincomingtrustline, commits fa0cc0abc and ad840518f, adds a check gated by proposed fixDisallowIncomingV1_1.",
+      "remediation": "Reject OfferCreate acceptance of an issuer IOU when the issuer has lsfDisallowIncomingTrustline and the taker has no existing trustline.",
+      "script": "repros/TRUSTLINE-DISALLOW-INCOMING-OFFER-001.sh",
+      "proof_log": "runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v3.log",
+      "proof_log_sha256": "5d3778981feaa359e6f29785be2e511040aa7a84d6bfa2ee97bcdd4e39a9dfeb",
+      "source": "OpenP0Repro_test.cpp",
+      "anchor": "trustline-disallow-incoming-offer-001",
+      "required_amendments": [
+        "DisallowIncoming",
+        "fixDisallowIncomingV1"
+      ],
+      "required_disabled_amendments": [
+        "fixDisallowIncomingV1_1"
+      ]
     },
     {
       "id": "ESCROW-CANCEL-IOU-001",
@@ -217,12 +245,13 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-27T16:14:26Z",
+    "checked_utc": "2026-05-27T16:36:40Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
       "MPT-LOCK-UNAUTH-001",
       "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+      "TRUSTLINE-DISALLOW-INCOMING-OFFER-001",
       "ESCROW-CANCEL-IOU-001",
       "AMM-STALE-AUTH-001",
       "MPT-NONCANONICAL-AMOUNT-001",
@@ -239,7 +268,7 @@
   },
   "upstream_remediation_scope": {
     "source": "local XRPLF/rippled git ancestry after fetch --all --tags --prune",
-    "checked_utc": "2026-05-27T16:14:26Z",
+    "checked_utc": "2026-05-27T16:36:40Z",
     "receipt": "upstream_remediation_status_20260527.json",
     "patched_in_3_2_0_b7_or_develop": [
       "ESCROW-CANCEL-IOU-001",
@@ -251,7 +280,8 @@
     "not_confirmed_fixed_in_3_2_0_b7_or_develop": [
       "MPT-TRANSFER-RATE-OVERFLOW-001",
       "MPT-LOCK-UNAUTH-001",
-      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001"
+      "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
+      "TRUSTLINE-DISALLOW-INCOMING-OFFER-001"
     ]
   }
 }

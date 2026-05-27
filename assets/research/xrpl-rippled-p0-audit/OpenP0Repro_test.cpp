@@ -2508,6 +2508,48 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testDisallowIncomingTrustlineOfferCreateCurrent()
+    {
+        testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+
+        Env env{*this};
+        env.fund(XRP(400'000), gw, alice, bob);
+        env.close();
+
+        env(trust(alice, USD(100)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(50)), THISLINE);
+        env.close();
+
+        env(offer(alice, XRP(4'000), USD(40)), THISLINE);
+        env.close();
+        env.require(offers(alice, 1));
+
+        env(fset(gw, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+        BEAST_EXPECT(!env.le(bobLine));
+
+        // Current 3.1.3 blocks direct TrustSet-created incoming trustlines
+        // but OfferCreate can still cross into the issuer's asset and create
+        // the trustline for the taker.
+        env(offer(bob, USD(40), XRP(4'000)), THISLINE);
+        env.close();
+
+        env.require(offers(alice, 0));
+        env.require(offers(bob, 0));
+        env.require(balance(bob, USD(40)));
+        BEAST_EXPECT(env.le(bobLine));
+    }
+
+    void
     testDelegatedMPTGranularMutationCurrent()
     {
         testcase("Delegate current — MPT granular lock permission mutates issuance fields");
@@ -2784,6 +2826,7 @@ public:
         testMPTSTIssueLegacyWireOrderCurrent();
         testMPTLockedHolderUnauthorizeWithoutSavCurrent();
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
+        testDisallowIncomingTrustlineOfferCreateCurrent();
         testDelegatedMPTGranularMutationCurrent();
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();
