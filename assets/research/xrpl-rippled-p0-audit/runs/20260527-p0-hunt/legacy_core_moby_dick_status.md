@@ -116,6 +116,17 @@ Classification: live-unfixed candidate, already present in the packet as
 "old, obvious, core, current, unfixed" hunt. Older-tag binary reproduction is
 still the next useful hardening step before making a precise years-live claim.
 
+The earliest source hit for the trustline reserve carveout shape in the local
+git history is:
+
+```text
+e416ee72c Rearrange sources (#4997)
+```
+
+That is a source-lineage anchor, not proof that the behavior was introduced in
+that exact refactor. It is enough to support the claim that the shape is
+well-entrenched in the pre-`3.1.3` lineage.
+
 ## Source-Killed Candidate
 
 `CHECK-LEGACY-DIRFULL-PARTIAL-001` was probed and demoted.

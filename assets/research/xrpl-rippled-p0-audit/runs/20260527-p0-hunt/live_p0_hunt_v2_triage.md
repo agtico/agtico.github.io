@@ -147,6 +147,10 @@ one of the WHIP gates:
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
   Moby Dick repro. They remain source-review / older-tag hardening candidates,
   not live packet promotions.
+- The trustline reserve candidate remains the only live legacy-core target
+  worth hardening. The earliest source hit in local git history for the reserve
+  carveout shape is `e416ee72c` (`Rearrange sources (#4997)`), which is a
+  lineage anchor rather than an exact introduction proof.
 
 ## Still-Promoted Unfixed Set
 
