@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T18:30:09Z`
+Checked: `2026-05-27T18:46:36Z`
 
 ## Live Scope
 
@@ -77,6 +77,13 @@ Five additional findings were promoted during the live-only continuation:
 - `TOKENESCROW-DISALLOW-INCOMING-FINISH-001`: the same issuer opt-out is
   bypassed by `EscrowFinish`; direct `TrustSet` is rejected, but finishing an
   IOU TokenEscrow auto-creates the destination trustline anyway.
+
+## Latest Demotion
+
+- `MPT-ESCROW-SENDER-LOCK-001`: tested whether MPT TokenEscrow finish ignores
+  a sender lock applied after escrow creation. The scratch `OpenP0Repro` case
+  returned `tecNO_PERMISSION`, not `tesSUCCESS`, so no live-mainnet P0 was
+  promoted and the scratch repro was removed.
 
 A later AMMClawback slice promoted one more unresolved live finding:
 
