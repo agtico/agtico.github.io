@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-26T23:55:21.957Z",
+  "generated_at": "2026-05-27T02:03:19.605Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:56cbfee5",
+      "timestamp": "2026-05-27T01:45:27.949Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:491e4e28",
+      "category": "network",
+      "title": "Planning a CLI-first Python calibrator for PFT adoption trust tiers from sanitized tool-run e...",
+      "summary": "Planning a CLI-first Python calibrator for PFT adoption trust tiers from sanitized tool-run evidence.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:56cbfee5"
+      }
+    },
     {
       "id": "task:d6eee0c3",
       "timestamp": "2026-05-26T23:36:57.808Z",
@@ -875,48 +898,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:81de7161"
-      }
-    },
-    {
-      "id": "task:edf5c2c8",
-      "timestamp": "2026-05-26T16:00:26.355Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:f80ea623",
-      "category": "network",
-      "title": "Delivered the public dUNL Bland-Altman analysis page and earned a reward.",
-      "summary": "Delivered the public dUNL Bland-Altman analysis page and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7F7DD2A9B856DEF5681CE74DB80A5541C7C3212392D087137462CF702D18D5F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/BD63C36A61130D59C60FB5AFFC7243F94E313318022BA8F3F79B079411D96C1C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/59316AAD2E6503CA978B179222AD0227A726A6F1ACD4FD177CD230F50BCE0DD8/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:edf5c2c8"
       }
     }
   ]
