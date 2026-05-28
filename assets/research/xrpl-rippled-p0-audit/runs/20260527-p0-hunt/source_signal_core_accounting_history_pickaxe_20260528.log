@@ -1,0 +1,234 @@
+49567e728 fix: Fix edge-case where vault-depositor may get stuck (#7139)
+3547a9335 fix: Add assorted MPT/DEX fixes (#7040)
+1eab60b9c fix branch
+9cb049276 feat: Propagate underlying MPT flags to vault shares (#7077)
+6df2047f1 fix: Fix edge-case where vault-depositor may get stuck (#7139)
+7829e6302 fix: Disable unnecessary sanity-check in VaultDeposit (#7288)
+fcbc2f0a6 feat: Propagate underlying MPT flags to vault shares (#7077)
+93ac1aa7a fix: Disable unnecessary sanity-check in VaultDeposit (#7288)
+159ea3d7d Add AI documentation source files (.ai.md + .ai.json)
+ad7232cbc refactor: Rename `account_` to `accountID_` (#7284)
+570845892 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+5b6e8b6f9 refactor: Rename static constants (#7120)
+0f48f94aa refactor: Use STLedgerEntry type aliases instead of std::shared_ptr
+6cb5842a0 fix build
+88794a1ea docs: add Doxygen comments across xrpl and xrpld
+a05f951a0 part 3
+315d1fdb0 part 3
+e63555723 part 2
+cf550ee62 fix: Stop tx processing if failed to delete expired credentials (#6715) (#6962)
+d8febb71b part 1
+af89854a4 fix: Stop tx processing if failed to delete expired credentials (#6715) (#6962)
+87f4a482c refactor: Align identifier naming with develop
+ffaf51043 fix clang-tidy issues
+cedebd5a8 fix tests
+cad129921 add IssuerEncryptedBalance check in ConvertBack (#7060)
+3d0626383 refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+4da46d31a fix: Store `Delegate` object in delegating and authorized account directories for proper deletion (#6681)
+f85e2d5bb refactor: Improve exception handling (#6540) (#6735)
+70b770f99 refactor: Combine `AMMHelpers` and `AMMUtils` (#6733)
+27c28be57 feat: Add MPT support to DEX (#5285)
+79a3ab4c2 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+f2a7ee006 refactor: Move more helper files into `libxrpl/ledger/helpers` (#6731)
+28c53362b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+8995564ed refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+dbd646bd5 fix: Store `Delegate` object in delegating and authorized account directories for proper deletion (#6681)
+235547f46 Revert "Merge develop into ConfidentialTransfer (#6987)" (#7001)
+1e73f3f3f Merge develop into ConfidentialTransfer (#6987)
+08d8e440c Stop tx processing if failed to delete expired credentials (#6715)
+a59a6138b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+415e3d8ca fix: Assorted Permissioned Domain fixes (#6587)
+2f029a212 refactor: Improve exception handling (#6540) (#6735)
+2570c7df0 Sponsored Fees and Reserves for Attackathon (#6842)
+24241a6f9 fix: MPT/DEX assorted fixes (#6840)
+7cdbbc4d9 Fix DynamicMPT for Attackathon (#6834)
+d616aff4e fix tests (typos)
+6eaf0bf18 fix: Bidirection Object Storage for delegation for Attackathon (#6830)
+0a896b795 Fix double adjustOwnerCount() in AMMWithdraw.
+dfa1da47f Confidential Transfer for Attackathon (#6828)
+12eb050bf Change tecFROZEN to tecLOCKED for locked MPT. Replace checkMPTTxAllowed() with canMPTTradeAndTransfer().
+7793b5f10 refactor: Combine `AMMHelpers` and `AMMUtils` (#6733)
+1a0323429 Merge develop: integrate MPT support for checkAcceptAsset with DisallowIncomingTrustline fix
+dfcad6915 feat: Add MPT support to DEX (#5285)
+46e88dc73 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+bc24f2e21 refactor: Move more helper files into `libxrpl/ledger/helpers` (#6731)
+c00ed673a refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+bd9166888 Merge branch 'develop' into dangell7/batch-v1
+f239256d8 refactor: Move more helper files into `libxrpl/ledger/helpers` (#6731)
+42cbecb9e feature
+737d128cc fix build issues
+e9287812e move Journal to constructor
+819d3fcdf Merge branch 'develop' into mvadari/rearch/account
+89a6bb495 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+a911c1059 Merge branch 'develop' to resolve conflicts and update branch
+02fa55df8 fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+8f182e825 refactor: Modularise ledger (#6536)
+5b0b1ff1f refactor: Replace SLE helper inheritance with view-parameterized templates
+deaa23f4e cleanup
+638477c82 fix pre-commit issues
+7900fa9ea more fixes
+b5562cc81 split up read only and write
+43caa7d47 fix remaining build issues
+a8987cf27 fix all the build issues
+4157e3684 First cut of WrappedAccountRoot
+85a4015a6 fix: Assorted Permissioned Domain fixes (#6587)
+0eedefbf4 refactor: Enable more clang-tidy readability checks (#6595)
+8caf6b721 fix all instances of keylet::mptoken
+0c77be93d initial implementation of token holders
+9d67db184 fix rebase issues
+ad2c359f2 more usage of MPToken
+14fbdd5a1 implement most of the token stuff
+8e218a628 cleanup
+e7e48d9bb refactor EscrowCreate
+458dce37b cleanup
+95d57983b fix all instances of keylet::mptoken
+e89e83c80 initial implementation of token holders
+370a420aa fix rebase issues
+48e9c5623 more usage of MPToken
+89e9caed1 implement most of the token stuff
+8a1adc4ec fix pre-commit issues
+89a3a6c37 more fixes
+74b010a90 split up read only and write
+ea1146d41 fix remaining build issues
+d9bf26354 fix all the build issues
+1f73da466 First cut of WrappedAccountRoot
+e0dbe9037 refactor: Move ledger entry helper functions from View.h/View.cpp to dedicated helper files (#6453)
+466540636 fix: Check trustline limits for share-denominated vault withdrawals
+a43cf94ff update `sfBlindingFactor` to type `uint256` and refactor helper functions to return `std::optional`
+59148bb7a refactor: vault share pricing safety and Expected API
+dcaef828b refactor: Replace !=/== tesSuccess with using isTesSuccess (#6409)
+6fbeb04d9 fix: Disallow empty permission list when Delegate object is absent (#6542)
+252c6768d refactor: Clean up `getFeePayer`, `mSourceBalance`, and `mPriorBalance` (#6478)
+2b14ee301 refactor: Split combined transactor files into individual classes (#6495)
+0e3600a18 refactor: Improve exception handling
+5d0bf7851 Clang-format to 100 line length
+8b5ff313b Update formatting
+0f38b4b54 Update formatting
+6266899ac Update formatting
+9b4587f9a Update formatting
+7eee8ca80 Update formatting
+2c1fad102 chore: Apply clang-format width 100 (#6387)
+79be4717f adds vault donation feature
+0976b2b68 refactor: Modularize app/tx (#6228)
+36240116a refactor: Decouple app/tx from `Application` and `Config` (#6227)
+e464e101b Fix formatting
+5f638f555 chore: Set ColumnLimit to 120 in clang-format (#6288)
+1d349c32c fix encrypt zero balance and remove improper throw (#6242)
+1bb39b9b4 [wip] added test for edge case balance
+f6f3542b7 Refactor the sendMulti functions into a common method with callbacks
+ed4e9de73 Move app/tx to libxrpl
+2601442e1 Improve and fix bugs in Lending Protocol (#6102)
+29d530804 Move app/tx to libxrpl
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+418ce6830 VaultClawback: Burn shares of an empty vault (#6120)
+14467fba5 VaultClawback: Burn shares of an empty vault (#6120)
+07ff532d3 refactor: Fix spelling issues in all variables/functions (#6184)
+4c8d9b576 Freeze specific for LP and SAV
+6da92d892 feature
+5eec3305c Update rippled to xrpl
+1eb0fdac6 refactor: Rename `ripple` namespace to `xrpl` (#5982)
+ad190a8d6 Review feedback from @dangell7: early return & coverage
+fe75c5d44 Wasm SmartEscrow
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+b772f6281 Revert "Implement Lending Protocol (unsupported) (#5270)"
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+b195011ef fix: Apply object reserve for Vault pseudo-account (#5954)
+71bb08cd7 Review feedback from @Tapanito, @gregtatcam, and @shawnxie999
+dba187f8c fix build issues
+dd5464d92 From discussion with @gregtatcam: Revert "Payment"
+973a10595 Review feedback: test coverage, round debt total
+d8b944c21 Enforce assets are transferable (#6017)
+b94c95b3e Change err code (#6050)
+23e5f43f9 Refactor Payment transactor.
+362ecbd1c fix: Apply object reserve for Vault pseudo-account (#5954)
+673fb06c7 refactor: Retire fixTrustLinesToSelf amendment (#5989)
+fa6991812 fix: Address permission delegation vulnerability (#5825)
+44d885e39 Basic ConvertBack test (#5979)
+4425f84c1 Remove directory size limit (#5935)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+2dd1d682a Remove directory size limit (#5935)
+07fcbd549 Add authorization check to `LoanSet`  (#5875)
+1efc532b2 Implement Vito's new loan payment part rounding algorithm, and more
+63edf035a Start converting Loans to use fixed payments and track value
+d353f4a2e Remove conditional LoanDraw code
+8637d606a chore: Exclude code/unreachable transaction code from Codecov (#5847)
+b4a45f1f0 fixed positive balance trustline not incrementing owners count in some cases
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+dc8b37a52 refactor: Modularise ledger (#5493)
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+dc8a689a2 feature-subscriptions
+adb260fe1 Review feedback from @dangell7 and @gregtatcam
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+8ac514363 get new fees and reserves working (#5714)
+b5a63b39d refactor: Decouple ledger from xrpld/app (#5492)
+433eeabfa chore: Remove unused code after flow cross retirement (#5575)
+c46d89419 Implement LoanBrokerCoverClawback and many test cases
+6b4236343 Get CoverWithdraw IOU payments working
+b34f59eaf Start implementing LoanBrokerCoverWithdraw.Destination field
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+527e0c916 Lending protocol implementation (XLS-0066)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+848311563 Lending protocol implementation (XLS-0066)
+2db279180 Add PermissionDelegation feature (#5354)
+cc8d36892 Implement LoanPay (untested)
+37f365a05 Start implementing LoanPay transaction
+ba63f8d99 Implement LoanDraw, and made good progress on related tests
+bcece6d68 Update to match latest spec: compute interest, LoanBroker reserves
+9a8660241 Implement LoanDelete, and fix a bunch of math errors in LoanManage
+5295f4799 Finish `LoanManage` functionality and tests, modulo LoanDraw/Pay
+89f0b3b9e [WIP] Continue implementing LoanSet Transactor
+5bed1d94e [WIP] Start implementing LoanSet transactor
+1bb1992cf Add LoanBrokerCoverWithdraw transaction
+ffbc068dc Add LoanBrokerCoverDeposit transaction
+7d6155cc9 Clean ups
+853c42fb9 Initial implementation of LoanBrokerDelete
+24374c548 [WIP] Define remaining transactions, start implementing LoanBrokerSet
+aead1bfb3 Review feedback
+84abcba49 Add defensive checks for IOU issuer and MPTokenIssuance
+4c6c8a08c Add LCOV_EXCL_LINE in appropriate locations
+5472d7e1f Minor cleanup
+22901af25 Minor cleanup
+afeb6287f Cleanup in MPTokenAuthorize
+b2abfc0bd Minor cleanup in MPTokenIssuanceCreate
+6a25ac948 Decouple VaultDestroy from MPTokenIssuanceDestroy
+270355f77 Keep existing order of checks
+0ab792263 Code cleanup
+d6d07e6fc Fix authorization issues
+f839049de Enforce max recursion depth in VaultCreate, improve VaultDeposit checks
+676ed9ad0 Return ter code from dirLink
+ad6e048ab Bring back addEmptyHolding and removeEmptyHolding to View
+2b86a1a55 Enforce Destination checks on VaultWithdraw
+93bd26547 Move addEmptyHolding to VaultCreate and removeEmptyHolding to VaultDelete
+2e13dc1e8 Switch 'vault not found' to tecNO_ENTRY
+dee06df01 Remove tecINVALID_DOMAIN error code
+1f005d237 Add WaiveTransferFee::Yes for consistency
+0959bf82b Enforce no negative balance at the end of transaction
+b6a95f997 PoC Smart Escrows (#5340)
+4c7119b92 Add support for Destination field in VaultWithdraw
+9a7def38b Do not apply IOU fees on VaultDeposit/VaultWithdraw
+6db214491 Improve checks in VaultSet VaultCreate and VaultDeposit
+8e6883854 Remove lsfMPTDomainCheck flag, delete expired MPToken
+3715d7e2e Fix bugs related to perm. domain checks, add unit test
+90fef0216 Factor out static Number getShareTotal() from View.cpp
+1589498ae Improve VaultClawback checks
+a0632a0cb Add WithdrawalPolicy
+9069e430a Permissioned Domains (XLS-80d) (#5161)
+ffaa8bd24 Improve checks in Vault
+ad68074d7 MPT permissioned domain checks
+86d249a5b Fix checo of expired credential
+2c4a2244e Verify credentials in VaultDeposit
+dbaa12aa1 WIP permissioned domain support
+c325b6c7f Fix Vault unit tests
+ccc088980 Permissioned Domains (XLS-80d) (#5161)
+ad581661e wip clawback
+6046fa239 progress
+1680477e3 progress
+ff8c6491d Start vault implementation
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+ec61f5e9d Add fixAMMv1_2 amendment (#5176)
+54a350be7 Add AMMClawback Transaction (XLS-0073d) (#5142)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+e416ee72c Rearrange sources (#4997)

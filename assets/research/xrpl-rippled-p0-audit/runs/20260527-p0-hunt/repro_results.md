@@ -273,6 +273,51 @@ ripple.protocol.Quality had 0 failures.
 114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
 ```
 
+## Current source kill: source-signal core-accounting cluster
+
+Status: source-reviewed, history-reviewed, and tested through existing upstream
+suites; not promoted.
+
+Hypothesis: the remaining reserve, owner-count, trustline, directory, and
+result-code history might point to another old live Moby Dick candidate near
+`rippleCreditIOU`, `accountSend`, `trustCreate`, `trustDelete`,
+`adjustOwnerCount`, or owner-directory helpers.
+
+Static/history result: the sweep clustered source signals around
+`fix-positive-balance-trustline-pay-no-reserve`, reserve/owner-count commits,
+directory helper changes, and result-code changes. The useful signals mapped to
+already-promoted, already-demoted, historical, or future-branch entries:
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`, `DELEGATE-FEE-RESERVE-001`,
+`TXQ-MIN-RESERVE-POTENTIAL-SPEND-001`,
+`PAYMENT-SANDBOX-DEFERRED-CREDITS-001`, `VAULT-WITHDRAW` reserve branches,
+future AMMWithdraw double-owner-count, and directory-limit history. No new
+old-core transaction witness was isolated in this slice.
+
+Source-kill artifacts:
+
+```text
+runs/20260527-p0-hunt/source_signal_core_accounting_static_sweep_20260528.log
+sha256: 8965a760cec40a403aba0173e36a60c3a98a8eaa0d844cbee7d1e80f850f2b21
+
+runs/20260527-p0-hunt/source_signal_core_accounting_history_grep_20260528.log
+sha256: b13b62e85e5c3ee2591967a132cb5b35fd36cd20b53e60222dd03011e0c22b1d
+
+runs/20260527-p0-hunt/source_signal_core_accounting_history_pickaxe_20260528.log
+sha256: f31d5ece55a6498dd680af5a2aaac7dab80bfa971f1b5be4dcfc8cf5d9a2893d
+
+runs/20260527-p0-hunt/source_signal_core_accounting_source_kill_20260528.log
+sha256: d22eee8cc2697c8d6446324ee442c6ebffeac798667ec011018880b048c69f71
+```
+
+Proof excerpt:
+
+```text
+ripple.app.SetTrust had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+ripple.ledger.PaymentSandbox had 0 failures.
+157.9s, 19 suites, 724 cases, 102253 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

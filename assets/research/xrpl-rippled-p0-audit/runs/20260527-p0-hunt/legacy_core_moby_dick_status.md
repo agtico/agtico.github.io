@@ -239,6 +239,32 @@ ripple.protocol.Quality had 0 failures.
 114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
 ```
 
+`SOURCE-SIGNAL-CORE-ACCOUNTING-001` closed the planned source-signal clustering
+phase around reserve, owner-count, trustline, directory, and result-code
+history. The sweep covered `rippleCreditIOU`, `accountSend`, `trustCreate`,
+`trustDelete`, `adjustOwnerCount`, owner-directory helpers, and related history.
+The actionable signals mapped to existing packet or triage entries:
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`, `DELEGATE-FEE-RESERVE-001`,
+`TXQ-MIN-RESERVE-POTENTIAL-SPEND-001`,
+`PAYMENT-SANDBOX-DEFERRED-CREDITS-001`, `VAULT-WITHDRAW` reserve branches,
+future AMMWithdraw double-owner-count, and directory-limit history. No new
+old-core transaction witness was isolated. Static artifact
+`source_signal_core_accounting_static_sweep_20260528.log` has sha256
+`8965a760cec40a403aba0173e36a60c3a98a8eaa0d844cbee7d1e80f850f2b21`. History
+artifacts `source_signal_core_accounting_history_grep_20260528.log` and
+`source_signal_core_accounting_history_pickaxe_20260528.log` have sha256
+`b13b62e85e5c3ee2591967a132cb5b35fd36cd20b53e60222dd03011e0c22b1d` and
+`f31d5ece55a6498dd680af5a2aaac7dab80bfa971f1b5be4dcfc8cf5d9a2893d`.
+Suite artifact `source_signal_core_accounting_source_kill_20260528.log` has
+sha256 `d22eee8cc2697c8d6446324ee442c6ebffeac798667ec011018880b048c69f71`.
+
+```text
+ripple.app.SetTrust had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+ripple.ledger.PaymentSandbox had 0 failures.
+157.9s, 19 suites, 724 cases, 102253 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text

@@ -1,0 +1,770 @@
+src/xrpld/app/misc/AMMUtils.h:118: * otherwise. Return tecINTERNAL if encountered an unexpected condition,
+src/xrpld/app/tx/apply.h:99:    and return `tefEXCEPTION`. For closed ledgers, the
+src/xrpld/app/tx/apply.h:105:    turned into `tefEXCEPTION`.
+src/xrpld/app/ledger/README.md:268:**OwnerCount:** The number of items the account owns that are charged to the
+src/xrpld/app/ledger/README.md:270:the account (but not necessarily). The OwnerCount determines the reserve on
+src/xrpld/app/paths/Pathfinder.cpp:413:        return tefEXCEPTION;
+src/libxrpl/ledger/PaymentSandbox.cpp:88:DeferredCredits::ownerCount(
+src/libxrpl/ledger/PaymentSandbox.cpp:94:    auto r = ownerCounts_.emplace(std::make_pair(id, v));
+src/libxrpl/ledger/PaymentSandbox.cpp:103:DeferredCredits::ownerCount(AccountID const& id) const
+src/libxrpl/ledger/PaymentSandbox.cpp:105:    auto i = ownerCounts_.find(id);
+src/libxrpl/ledger/PaymentSandbox.cpp:106:    if (i != ownerCounts_.end())
+src/libxrpl/ledger/PaymentSandbox.cpp:157:    for (auto const& i : ownerCounts_)
+src/libxrpl/ledger/PaymentSandbox.cpp:159:        auto r = to.ownerCounts_.emplace(i);
+src/libxrpl/ledger/PaymentSandbox.cpp:222:PaymentSandbox::ownerCountHook(AccountID const& account, std::uint32_t count)
+src/libxrpl/ledger/PaymentSandbox.cpp:228:        if (auto adj = curSB->tab_.ownerCount(account))
+src/libxrpl/ledger/PaymentSandbox.cpp:245:PaymentSandbox::adjustOwnerCountHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:250:    tab_.ownerCount(account, cur, next);
+src/libxrpl/ledger/ApplyView.cpp:268:ApplyView::dirRemove(
+src/xrpld/app/tx/detail/PayChan.cpp:127:        if (!view.dirRemove(keylet::ownerDir(src), page, key, true))
+src/xrpld/app/tx/detail/PayChan.cpp:142:        if (!view.dirRemove(keylet::ownerDir(dst), *page, key, true))
+src/xrpld/app/tx/detail/PayChan.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:162:    adjustOwnerCount(view, sle, -1, j);
+src/xrpld/app/tx/detail/PayChan.cpp:212:            ctx.view.fees().accountReserve((*sle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/PayChan.cpp:215:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/PayChan.cpp:264:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:303:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/PayChan.cpp:308:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:315:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/PayChan.cpp:318:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:324:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/PayChan.cpp:396:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:402:            ctx_.view().fees().accountReserve((*sle)[sfOwnerCount]);
+src/xrpld/app/tx/detail/PayChan.cpp:405:            return tecINSUFFICIENT_RESERVE;
+src/libxrpl/ledger/CredentialHelpers.cpp:84:            return tecINTERNAL;
+src/libxrpl/ledger/CredentialHelpers.cpp:90:        if (!view.dirRemove(
+src/libxrpl/ledger/CredentialHelpers.cpp:100:            adjustOwnerCount(view, sleAccount, -1, j);
+src/libxrpl/ledger/CredentialHelpers.cpp:233:    return foundExpired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/CredentialHelpers.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/CredentialHelpers.cpp:254:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetAccount.cpp:314:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/paths/RippleCalc.cpp:122:            exceptResult.setResult(tecINTERNAL);
+src/xrpld/app/misc/detail/TxQ.cpp:1110:               the ownerCount that may occur to the account
+src/xrpld/app/misc/detail/TxQ.cpp:1135:                return {tefINTERNAL, false};
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:598:    if (!view.dirRemove(keylet::ownerDir(account), page, ticketIndex, true))
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:163:// of adjustOwnerCount() (which must be signed).
+src/xrpld/app/tx/detail/SetSignerList.cpp:165:// NOTE: This way of computing the OwnerCount associated with a SignerList
+src/xrpld/app/tx/detail/SetSignerList.cpp:167:// passes then just 1 OwnerCount is associated with a SignerList.
+src/xrpld/app/tx/detail/SetSignerList.cpp:169:signerCountBasedOwnerCountDelta(std::size_t entryCount, Rules const& rules)
+src/xrpld/app/tx/detail/SetSignerList.cpp:171:    // We always compute the full change in OwnerCount, taking into account:
+src/xrpld/app/tx/detail/SetSignerList.cpp:178:    //  o Simply having a SignerList costs 2 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:179:    //  o And each signer in the list costs 1 more OwnerCount unit.
+src/xrpld/app/tx/detail/SetSignerList.cpp:180:    // So, at a minimum, adding a SignerList with 1 entry costs 3 OwnerCount
+src/xrpld/app/tx/detail/SetSignerList.cpp:181:    // units.  A SignerList with 8 entries would cost 10 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:188:        "ripple::signerCountBasedOwnerCountDelta : minimum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:191:        "ripple::signerCountBasedOwnerCountDelta : maximum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:205:    // reduce the OwnerCount.
+src/xrpld/app/tx/detail/SetSignerList.cpp:212:    // There are two different ways that the OwnerCount could be managed.
+src/xrpld/app/tx/detail/SetSignerList.cpp:213:    // If the lsfOneOwnerCount bit is set then remove just one owner count.
+src/xrpld/app/tx/detail/SetSignerList.cpp:215:    int removeFromOwnerCount = -1;
+src/xrpld/app/tx/detail/SetSignerList.cpp:216:    if ((signers->getFlags() & lsfOneOwnerCount) == 0)
+src/xrpld/app/tx/detail/SetSignerList.cpp:219:        removeFromOwnerCount =
+src/xrpld/app/tx/detail/SetSignerList.cpp:220:            signerCountBasedOwnerCountDelta(actualList.size(), view.rules()) *
+src/xrpld/app/tx/detail/SetSignerList.cpp:227:    if (!view.dirRemove(ownerDirKeylet, hint, signerListKeylet.key, false))
+src/xrpld/app/tx/detail/SetSignerList.cpp:235:    adjustOwnerCount(
+src/xrpld/app/tx/detail/SetSignerList.cpp:238:        removeFromOwnerCount,
+src/xrpld/app/tx/detail/SetSignerList.cpp:354:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:357:    std::uint32_t const oldOwnerCount{(*sle)[sfOwnerCount]};
+src/xrpld/app/tx/detail/SetSignerList.cpp:360:    int addedOwnerCount{1};
+src/xrpld/app/tx/detail/SetSignerList.cpp:361:    std::uint32_t flags{lsfOneOwnerCount};
+src/xrpld/app/tx/detail/SetSignerList.cpp:364:        addedOwnerCount = signerCountBasedOwnerCountDelta(
+src/xrpld/app/tx/detail/SetSignerList.cpp:370:        view().fees().accountReserve(oldOwnerCount + addedOwnerCount)};
+src/xrpld/app/tx/detail/SetSignerList.cpp:376:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/SetSignerList.cpp:385:    auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/SetSignerList.cpp:392:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:398:    adjustOwnerCount(view(), sle, addedOwnerCount, viewJ);
+src/xrpld/app/tx/detail/SetSignerList.cpp:410:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:103:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:130:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDelete.cpp:152:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/VaultDelete.cpp:160:    adjustOwnerCount(view(), pseudoAcct, -1, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:182:    if (vaultPseudoSLE->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/VaultDelete.cpp:201:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/VaultDelete.cpp:223:    adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/tx/detail/AMMVote.cpp:88:        return {tecINTERNAL, false};
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:103:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:107:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:114:    if (auto ter = accountSend(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1296:        return tecINTERNAL;
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1685:        return Unexpected(tecINTERNAL);
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1783:        return Unexpected(tecINTERNAL);
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1847:        return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:70:    return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:86:    return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMDeposit.cpp:198:            return tecINTERNAL;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:212:            return tecINTERNAL;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:233:            return tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:264:                return tecFROZEN;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:304:                return tecFROZEN;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:312:                return tecFROZEN;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:362:            return tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:378:        return {tecINTERNAL, false};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMDeposit.cpp:462:        return std::make_pair(tecINTERNAL, STAmount{});
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:687:        return {tecINTERNAL, STAmount{}};
+src/xrpld/app/tx/detail/SetTrust.cpp:296:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetTrust.cpp:382:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetTrust.cpp:384:    std::uint32_t const uOwnerCount = sle->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/SetTrust.cpp:405:        (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/xrpld/app/tx/detail/SetTrust.cpp:406:                          : view().fees().accountReserve(uOwnerCount + 1));
+src/xrpld/app/tx/detail/SetTrust.cpp:434:        return trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:638:            adjustOwnerCount(view(), sleLowAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:648:            adjustOwnerCount(view(), sleLowAccount, -1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:655:            adjustOwnerCount(view(), sleHighAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:665:            adjustOwnerCount(view(), sleHighAccount, -1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:676:            terResult = trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:687:            terResult = tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/SetTrust.cpp:707:        return tecNO_LINE_REDUNDANT;
+src/xrpld/app/tx/detail/SetTrust.cpp:717:        terResult = tecNO_LINE_INSUF_RESERVE;
+src/xrpld/app/tx/detail/SetTrust.cpp:730:        terResult = trustCreate(
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:285:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CashCheck.cpp:92:        return tecINTERNAL;
+src/xrpld/app/tx/detail/CashCheck.cpp:186:                return tecNO_LINE;
+src/xrpld/app/tx/detail/CashCheck.cpp:204:                    return tecNO_AUTH;
+src/xrpld/app/tx/detail/CashCheck.cpp:220:                    return tecNO_AUTH;
+src/xrpld/app/tx/detail/CashCheck.cpp:233:                return tecFROZEN;
+src/xrpld/app/tx/detail/CashCheck.cpp:363:                if (std::uint32_t const ownerCount = {sleDst->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/CashCheck.cpp:364:                    mPriorBalance < psb.fees().accountReserve(ownerCount + 1))
+src/xrpld/app/tx/detail/CashCheck.cpp:369:                    return tecNO_LINE_INSUF_RESERVE;
+src/xrpld/app/tx/detail/CashCheck.cpp:377:                if (TER const ter = trustCreate(
+src/xrpld/app/tx/detail/CashCheck.cpp:412:                return tecNO_LINE;
+src/xrpld/app/tx/detail/CashCheck.cpp:481:        !psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:494:    if (!psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:507:    adjustOwnerCount(psb, psb.peek(keylet::account(srcId)), -1, viewJ);
+src/xrpld/app/tx/detail/Offer.h:276:    return accountSend(std::forward<Args>(args)...);
+src/xrpld/app/tx/detail/Credentials.cpp:120:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:140:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:144:            sleIssuer->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:146:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/Credentials.cpp:157:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:165:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:168:        adjustOwnerCount(view(), sleIssuer, 1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:177:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:185:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:261:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:345:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:349:            sleSubject->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:351:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/Credentials.cpp:358:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:371:    adjustOwnerCount(view(), sleIssuer, -1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:372:    adjustOwnerCount(view(), sleSubject, 1, j_);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:183:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:232:        adjustOwnerCount(view, owner, 2, j_);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:233:        auto const ownerCount = owner->at(sfOwnerCount);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:234:        if (mPriorBalance < view.fees().accountReserve(ownerCount))
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:235:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/misc/detail/AMMUtils.cpp:259:                return {tecINTERNAL, SkipEntry::No};
+src/xrpld/app/misc/detail/AMMUtils.cpp:270:                return {tecINTERNAL, SkipEntry::No};
+src/xrpld/app/misc/detail/AMMUtils.cpp:295:        return tecINTERNAL;
+src/xrpld/app/misc/detail/AMMUtils.cpp:306:        return tecINTERNAL;
+src/xrpld/app/misc/detail/AMMUtils.cpp:316:    if (!sb.dirRemove(
+src/xrpld/app/misc/detail/AMMUtils.cpp:321:        return tecINTERNAL;
+src/xrpld/app/misc/detail/AMMUtils.cpp:329:        return tecINTERNAL;
+src/xrpld/app/misc/detail/AMMUtils.cpp:414:            return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:419:                return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:424:                    return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:429:                return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:444:                        return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:447:                    return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:453:                return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:460:                return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/AMMUtils.cpp:465:    return Unexpected<TER>(tecINTERNAL);  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:651:// Prevent ownerCount from wrapping under error conditions.
+src/libxrpl/ledger/View.cpp:653:// adjustment allows the ownerCount to be adjusted up or down in multiple steps.
+src/libxrpl/ledger/View.cpp:658:confineOwnerCount(
+src/libxrpl/ledger/View.cpp:689:            XRPL_ASSERT(!id, "ripple::confineOwnerCount : id is not set");
+src/libxrpl/ledger/View.cpp:699:    std::int32_t ownerCountAdj,
+src/libxrpl/ledger/View.cpp:707:    std::uint32_t const ownerCount = confineOwnerCount(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:713:        : view.fees().accountReserve(ownerCount);
+src/libxrpl/ledger/View.cpp:727:                    << " reserve=" << reserve << " ownerCount=" << ownerCount
+src/libxrpl/ledger/View.cpp:728:                    << " ownerCountAdj=" << ownerCountAdj;
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1121:    std::uint32_t const adjusted = confineOwnerCount(current, amount, id, j);
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1142:    auto const page = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1145:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1291:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:1357:                        return tecNO_LINE;
+src/libxrpl/ledger/View.cpp:1451:        return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:1457:    return accountSend(
+src/libxrpl/ledger/View.cpp:1476:        return tecFROZEN;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1485:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1487:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1494:    if (priorBalance < view.fees().accountReserve(ownerCount + 1))
+src/libxrpl/ledger/View.cpp:1495:        return tecNO_LINE_INSUF_RESERVE;
+src/libxrpl/ledger/View.cpp:1497:    return trustCreate(
+src/libxrpl/ledger/View.cpp:1526:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1528:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1549:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1566:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1568:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1573:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1596:            return tecINSUFFICIENT_RESERVE;
+src/libxrpl/ledger/View.cpp:1606:                return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1628:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1634:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1638:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1660:trustCreate(
+src/libxrpl/ledger/View.cpp:1690:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:1697:    auto lowNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1703:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1705:    auto highNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1711:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1718:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1797:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1823:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1838:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1847:    return trustDelete(
+src/libxrpl/ledger/View.cpp:1890:trustDelete(
+src/libxrpl/ledger/View.cpp:1903:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1914:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1940:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1949:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1971:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:1991:rippleCreditIOU(
+src/libxrpl/ledger/View.cpp:2005:        "ripple::rippleCreditIOU : matching issuer or don't care");
+src/libxrpl/ledger/View.cpp:2011:        "ripple::rippleCreditIOU : sender is not receiver");
+src/libxrpl/ledger/View.cpp:2018:        "ripple::rippleCreditIOU : sender is not XRP");
+src/libxrpl/ledger/View.cpp:2021:        "ripple::rippleCreditIOU : receiver is not XRP");
+src/libxrpl/ledger/View.cpp:2037:        JLOG(j.trace()) << "rippleCreditIOU: " << to_string(uSenderID) << " -> "
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2095:            return trustDelete(
+src/libxrpl/ledger/View.cpp:2112:    JLOG(j.debug()) << "rippleCreditIOU: "
+src/libxrpl/ledger/View.cpp:2119:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2123:    return trustCreate(
+src/libxrpl/ledger/View.cpp:2167:            rippleCreditIOU(view, uSenderID, uReceiverID, saAmount, false, j);
+src/libxrpl/ledger/View.cpp:2188:        rippleCreditIOU(view, issuer, uReceiverID, saAmount, true, j);
+src/libxrpl/ledger/View.cpp:2191:        terResult = rippleCreditIOU(view, uSenderID, issuer, saActual, true, j);
+src/libxrpl/ledger/View.cpp:2237:            if (auto const ter = rippleCreditIOU(
+src/libxrpl/ledger/View.cpp:2241:            // Do not add amount to takeFromSender, because rippleCreditIOU took
+src/libxrpl/ledger/View.cpp:2263:                rippleCreditIOU(view, issuer, receiverID, amount, true, j))
+src/libxrpl/ledger/View.cpp:2269:        if (TER const terResult = rippleCreditIOU(
+src/libxrpl/ledger/View.cpp:2290:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2402:accountSendMultiIOU(
+src/libxrpl/ledger/View.cpp:2412:        "ripple::accountSendMultiIOU",
+src/libxrpl/ledger/View.cpp:2418:        JLOG(j.trace()) << "accountSendMultiIOU: " << to_string(senderID)
+src/libxrpl/ledger/View.cpp:2442:        stream << "accountSendMultiIOU> " << to_string(senderID) << " ("
+src/libxrpl/ledger/View.cpp:2455:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2476:            stream << "accountSendMultiIOU> " << to_string(senderID) << " -> "
+src/libxrpl/ledger/View.cpp:2502:            stream << "accountSendMultiIOU< " << to_string(senderID) << " -> "
+src/libxrpl/ledger/View.cpp:2533:        stream << "accountSendMultiIOU< " << to_string(senderID) << " ("
+src/libxrpl/ledger/View.cpp:2571:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2584:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2595:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2708:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2820:accountSendMultiMPT(
+src/libxrpl/ledger/View.cpp:2835:accountSend(
+src/libxrpl/ledger/View.cpp:2856:accountSendMulti(
+src/libxrpl/ledger/View.cpp:2866:        "ripple::accountSendMulti",
+src/libxrpl/ledger/View.cpp:2871:                return accountSendMultiIOU(
+src/libxrpl/ledger/View.cpp:2874:                return accountSendMultiMPT(
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:2989:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3011:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3015:    return trustCreate(
+src/libxrpl/ledger/View.cpp:3084:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3104:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3125:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3167:        return tecNO_LINE;
+src/libxrpl/ledger/View.cpp:3178:                : TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3179:        return TER{tecNO_LINE};
+src/libxrpl/ledger/View.cpp:3210:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3215:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3222:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3245:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3255:        // ter = tefINTERNAL | tecOBJECT_NOT_FOUND | tecNO_AUTH | tecEXPIRED
+src/libxrpl/ledger/View.cpp:3276:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3291:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3298:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3325:        // Either way, return tecNO_AUTH and there is nothing else to do
+src/libxrpl/ledger/View.cpp:3326:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3333:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3345:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3378:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3397:            return TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3417:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3528:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3536:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3543:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3553:    if (auto const ter = trustDelete(view, sleState, low, high, j);
+src/libxrpl/ledger/View.cpp:3563:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);
+src/libxrpl/ledger/View.cpp:3571:rippleCredit(
+src/libxrpl/ledger/View.cpp:3583:                return rippleCreditIOU(
+src/libxrpl/ledger/View.cpp:3730:        return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3754:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3767:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3793:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3838:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3851:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3883:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3903:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3914:        return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3933:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3945:            return tecINTERNAL;
+src/libxrpl/ledger/View.cpp:3971:            return tecINTERNAL;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:67:    if (!view().dirRemove(keylet::ownerDir(account_), page, slePd->key(), true))
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:78:        ownerSle && ownerSle->getFieldU32(sfOwnerCount) > 0,
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:80:    adjustOwnerCount(view(), ownerSle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/LoanSet.cpp:469:        return tecINTERNAL;
+src/xrpld/app/tx/detail/LoanSet.cpp:501:    adjustOwnerCount(view, borrowerSle, 1, j_);
+src/xrpld/app/tx/detail/LoanSet.cpp:503:        auto const ownerCount = borrowerSle->at(sfOwnerCount);
+src/xrpld/app/tx/detail/LoanSet.cpp:507:        if (balance < view.fees().accountReserve(ownerCount))
+src/xrpld/app/tx/detail/LoanSet.cpp:508:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/LoanSet.cpp:563:    if (auto const ter = accountSendMulti(
+src/xrpld/app/tx/detail/LoanSet.cpp:633:    adjustOwnerCount(view, brokerSle, 1, j_);
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:46:    if (auto const ownerCount = sleBroker->at(sfOwnerCount); ownerCount != 0)
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:48:        JLOG(ctx.j.warn()) << "LoanBrokerDelete: Owner count is " << ownerCount;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:119:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:127:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:139:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:163:    if (brokerPseudoSLE->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:187:        adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/paths/detail/StrandFlow.h:859:            return {tefEXCEPTION, std::move(ofrsToRmOnFail)};
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:369:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:384:            return tecNO_LINE;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:412:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:414:    auto const result = accountSend(view(), from, to, amount, j_);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:441:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:450:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:452:    std::uint32_t const buyerOwnerCountBefore =
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:453:        sleBuyer->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:459:    // reserve to own a new object, if their OwnerCount changed.
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:473:        auto const buyerOwnerCountAfter = sleBuyer->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:474:        if (buyerOwnerCountAfter > buyerOwnerCountBefore)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:477:                    view().fees().accountReserve(buyerOwnerCountAfter);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:479:                return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:552:                    return tecINTERNAL;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:575:        return tecINTERNAL;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:584:        return tecINTERNAL;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:656:    return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:158:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:162:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:447:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:450:            auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:451:            auto const reserve = psb.fees().accountReserve(ownerCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:563:        // if any phase return a tecINTERNAL or a tef, prefer returning those
+src/xrpld/app/tx/detail/XChainBridge.cpp:566:            (isTefFailure(*mainFundsTer) || *mainFundsTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:569:            (isTefFailure(*rewardTer) || *rewardTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:571:        if (rmSleTer && (isTefFailure(*rmSleTer) || *rmSleTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:574:        // Only after the tecINTERNAL and tef are checked, return the first
+src/xrpld/app/tx/detail/XChainBridge.cpp:706:                if (thTer == tecUNFUNDED_PAYMENT || thTer == tecINTERNAL)
+src/xrpld/app/tx/detail/XChainBridge.cpp:717:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:724:             *result.rewardTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:746:            if (!outerSb.dirRemove(
+src/xrpld/app/tx/detail/XChainBridge.cpp:758:            adjustOwnerCount(outerSb, sleOwner, -1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:788:        return {r, q, tecINTERNAL};
+src/xrpld/app/tx/detail/XChainBridge.cpp:802:        return {r, q, tecINTERNAL};
+src/xrpld/app/tx/detail/XChainBridge.cpp:972:            (!attListChanged || rTer == tecINTERNAL || rTer == tefBAD_LEDGER))
+src/xrpld/app/tx/detail/XChainBridge.cpp:1005:            return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1064:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1069:                psb.fees().accountReserve((*sleDoor)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1072:                return Unexpected(tecINSUFFICIENT_RESERVE);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1110:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1147:            if (rTer == tecINTERNAL || rTer == tecUNFUNDED_PAYMENT ||
+src/xrpld/app/tx/detail/XChainBridge.cpp:1155:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1170:        auto const page = psb.dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1175:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1180:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1183:        adjustOwnerCount(psb, sleDoor, 1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1247:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1278:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1311:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1490:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1493:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1509:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1528:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1531:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1535:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1624:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1632:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1695:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1719:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1784:            return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1795:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1925:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1952:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1956:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2025:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2028:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2044:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2048:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2054:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2063:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2078:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:2083:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2087:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2201:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2227:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2231:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:94:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:113:        sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DelegateSet.cpp:116:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/DelegateSet.cpp:126:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/DelegateSet.cpp:132:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:136:        adjustOwnerCount(ctx_.view(), sleOwner, 1, ctx_.journal);
+src/xrpld/app/tx/detail/DelegateSet.cpp:150:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:152:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DelegateSet.cpp:163:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:165:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:269:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:292:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:401:    TER ter = tefINTERNAL;
+src/xrpld/app/tx/detail/Change.cpp:203:        if (auto const page = tl->getFieldU64(sfLowNode); !sb.dirRemove(
+src/xrpld/app/tx/detail/Change.cpp:212:        if (auto const page = tl->getFieldU64(sfHighNode); !sb.dirRemove(
+src/xrpld/app/tx/detail/Change.cpp:222:            adjustOwnerCount(
+src/xrpld/app/tx/detail/Change.cpp:226:            adjustOwnerCount(
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:72:        return Unexpected{tecINTERNAL};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:202:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:287:        return tecINTERNAL;  // tecINSUFFICIENT_FUNDS; LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:314:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:320:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:326:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:333:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:337:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:346:    return accountSend(
+src/xrpld/app/paths/detail/PaySteps.cpp:421:                tefEXCEPTION, "Step should be either a direct or book step");
+src/xrpld/app/paths/detail/PaySteps.cpp:531:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/paths/detail/PaySteps.cpp:576:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:107:        return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:111:            view.fees().accountReserve((*acct)[sfOwnerCount] + 1))
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:112:        return Unexpected(tecINSUFFICIENT_RESERVE);
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:119:        auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:125:            return Unexpected(tecDIR_FULL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:156:    adjustOwnerCount(view, acct, 1, journal);
+src/xrpld/app/paths/detail/DirectStep.cpp:550:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:571:    rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:675:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:696:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:993:    TER ter = tefINTERNAL;
+src/xrpld/app/tx/detail/applySteps.cpp:351:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:372:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:433:        return {*ctx, tefEXCEPTION};
+src/xrpld/app/tx/detail/applySteps.cpp:456:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/applySteps.cpp:476:        return {tefEXCEPTION, false};
+src/xrpld/app/paths/detail/BookStep.cpp:389:            Throw<FlowException>(tefINTERNAL, "Offer requires quality.");
+src/xrpld/app/paths/detail/BookStep.cpp:1458:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/StepChecks.h:71:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetRegularKey.cpp:69:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteOracle.cpp:53:        return tecINTERNAL;
+src/xrpld/app/tx/detail/DeleteOracle.cpp:67:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteOracle.cpp:69:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DeleteOracle.cpp:80:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteOracle.cpp:85:    adjustOwnerCount(view, sleOwner, count, j);
+src/xrpld/app/tx/detail/DeleteOracle.cpp:99:    return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenMint.cpp:300:    std::uint32_t const ownerCountBefore =
+src/xrpld/app/tx/detail/NFTokenMint.cpp:301:        view().read(keylet::account(account_))->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenMint.cpp:309:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenMint.cpp:354:    if (auto const ownerCountAfter =
+src/xrpld/app/tx/detail/NFTokenMint.cpp:355:            view().read(keylet::account(account_))->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenMint.cpp:356:        ownerCountAfter > ownerCountBefore)
+src/xrpld/app/tx/detail/NFTokenMint.cpp:358:        if (auto const reserve = view().fees().accountReserve(ownerCountAfter);
+src/xrpld/app/tx/detail/NFTokenMint.cpp:360:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/CreateOffer.cpp:175:        return tecFROZEN;
+src/xrpld/app/tx/detail/CreateOffer.cpp:271:            return (flags & tapRETRY) ? TER{terNO_LINE} : TER{tecNO_LINE};
+src/xrpld/app/tx/detail/CreateOffer.cpp:287:            return (flags & tapRETRY) ? TER{terNO_AUTH} : TER{tecNO_AUTH};
+src/xrpld/app/tx/detail/CreateOffer.cpp:314:        return tecFROZEN;
+src/xrpld/app/tx/detail/CreateOffer.cpp:521:    return {tecINTERNAL, takerAmount};
+src/xrpld/app/tx/detail/CreateOffer.cpp:543:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateOffer.cpp:565:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateOffer.cpp:760:            return {tefINTERNAL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:819:        return {tefINTERNAL, false};
+src/xrpld/app/tx/detail/CreateOffer.cpp:823:            sb.fees().accountReserve(sleCreator->getFieldU32(sfOwnerCount) + 1);
+src/xrpld/app/tx/detail/CreateOffer.cpp:831:                result = tecINSUF_RESERVE_OFFER;
+src/xrpld/app/tx/detail/CreateOffer.cpp:846:    auto const ownerNode = sb.dirInsert(
+src/xrpld/app/tx/detail/CreateOffer.cpp:854:        return {tecDIR_FULL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:859:    adjustOwnerCount(sb, sleCreator, 1, viewJ);
+src/xrpld/app/tx/detail/CreateOffer.cpp:901:        return {tecDIR_FULL, true};
+src/xrpld/app/paths/AMMOffer.h:125:        return accountSend(std::forward<Args>(args)..., WaiveTransferFee::Yes);
+src/xrpld/app/tx/detail/Clawback.cpp:125:        return tecNO_LINE;
+src/xrpld/app/tx/detail/Clawback.cpp:238:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Clawback.cpp:249:    return rippleCredit(
+src/xrpld/app/tx/detail/Clawback.cpp:275:    return rippleCredit(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:81:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:91:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:100:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:106:        return vaultAsset.holds<Issue>() ? tecFROZEN : tecLOCKED;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:130:            return tecNO_AUTH;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:156:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:167:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:224:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:233:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:238:            return tecINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:270:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:291:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:296:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:86:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:103:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:112:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:167:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:175:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:199:                    return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:208:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:218:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:222:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:271:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:117:        return tecFROZEN;
+src/xrpld/app/tx/detail/AMMCreate.cpp:144:        return tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/AMMCreate.cpp:200:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMCreate.cpp:272:    auto res = accountSend(sb, accountId, account_, lpTokens, ctx_.journal);
+src/xrpld/app/tx/detail/AMMCreate.cpp:280:        if (auto const res = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:294:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanPay.cpp:562:        return tecINTERNAL;
+src/xrpld/app/tx/detail/LoanPay.cpp:573:        return tecINTERNAL;
+src/xrpld/app/tx/detail/LoanPay.cpp:636:    if (auto const ter = accountSendMulti(
+src/xrpld/app/tx/detail/AMMClawback.cpp:145:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMClawback.cpp:150:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMClawback.cpp:232:    auto const ter = rippleCredit(sb, holder, issuer, amountWithdraw, true, j_);
+src/xrpld/app/tx/detail/AMMClawback.cpp:241:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMClawback.cpp:245:        return rippleCredit(sb, holder, issuer, *amount2Withdraw, true, j_);
+src/xrpld/app/tx/detail/LoanDelete.cpp:49:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:89:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/LoanDelete.cpp:96:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/LoanDelete.cpp:109:    adjustOwnerCount(view, brokerSle, -1, j_);
+src/xrpld/app/tx/detail/LoanDelete.cpp:112:    if (brokerSle->at(sfOwnerCount) == 0)
+src/xrpld/app/tx/detail/LoanDelete.cpp:129:    adjustOwnerCount(view, borrowerSle, -1, j_);
+src/libxrpl/protocol/TER.cpp:55:        MAKE_ERROR(tecDIR_FULL,                      "Can not add entry to full directory."),
+src/libxrpl/protocol/TER.cpp:57:        MAKE_ERROR(tecINSUF_RESERVE_LINE,            "Insufficient reserve to add trust line."),
+src/libxrpl/protocol/TER.cpp:58:        MAKE_ERROR(tecINSUF_RESERVE_OFFER,           "Insufficient reserve to create offer."),
+src/libxrpl/protocol/TER.cpp:61:        MAKE_ERROR(tecNO_LINE_INSUF_RESERVE,         "No such line. Too little reserve to create it."),
+src/libxrpl/protocol/TER.cpp:62:        MAKE_ERROR(tecNO_LINE_REDUNDANT,             "Can't set non-existent line to default."),
+src/libxrpl/protocol/TER.cpp:75:        MAKE_ERROR(tecNO_AUTH,                       "Not authorized to hold asset."),
+src/libxrpl/protocol/TER.cpp:76:        MAKE_ERROR(tecNO_LINE,                       "No such line."),
+src/libxrpl/protocol/TER.cpp:78:        MAKE_ERROR(tecFROZEN,                        "Asset is frozen."),
+src/libxrpl/protocol/TER.cpp:82:        MAKE_ERROR(tecINSUFFICIENT_RESERVE,          "Insufficient reserve to complete requested operation."),
+src/libxrpl/protocol/TER.cpp:85:        MAKE_ERROR(tecINTERNAL,                      "An internal error has occurred during processing."),
+src/libxrpl/protocol/TER.cpp:139:        MAKE_ERROR(tefEXCEPTION,                   "Unexpected program state."),
+src/libxrpl/protocol/TER.cpp:141:        MAKE_ERROR(tefINTERNAL,                    "Internal error."),
+src/xrpld/app/tx/detail/Escrow.cpp:224:    // If the account does not have a trustline to the issuer, return tecNO_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:228:        return tecNO_LINE;
+src/xrpld/app/tx/detail/Escrow.cpp:250:    // If the issuer has frozen the account, return tecFROZEN
+src/xrpld/app/tx/detail/Escrow.cpp:252:        return tecFROZEN;
+src/xrpld/app/tx/detail/Escrow.cpp:254:    // If the issuer has frozen the destination, return tecFROZEN
+src/xrpld/app/tx/detail/Escrow.cpp:256:        return tecFROZEN;
+src/xrpld/app/tx/detail/Escrow.cpp:338:    // If the mpt cannot be transferred, return tecNO_AUTH
+src/xrpld/app/tx/detail/Escrow.cpp:418:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:420:    auto const ter = rippleCredit(
+src/xrpld/app/tx/detail/Escrow.cpp:443:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:494:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:500:        ctx_.view().fees().accountReserve((*sle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/Escrow.cpp:503:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/Escrow.cpp:558:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:563:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:571:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:574:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:585:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:588:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:610:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:732:    // If the issuer has deep frozen the destination, return tecFROZEN
+src/xrpld/app/tx/detail/Escrow.cpp:734:        return tecFROZEN;
+src/xrpld/app/tx/detail/Escrow.cpp:843:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:851:        if (std::uint32_t const ownerCount = {sleDest->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/Escrow.cpp:852:            xrpBalance < view.fees().accountReserve(ownerCount + 1))
+src/xrpld/app/tx/detail/Escrow.cpp:857:            return tecNO_LINE_INSUF_RESERVE;
+src/xrpld/app/tx/detail/Escrow.cpp:865:        if (TER const ter = trustCreate(
+src/xrpld/app/tx/detail/Escrow.cpp:891:        return tecNO_LINE;
+src/xrpld/app/tx/detail/Escrow.cpp:923:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:948:            rippleCredit(view, issuer, receiver, finalAmt, true, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:977:        if (std::uint32_t const ownerCount = {sleDest->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/Escrow.cpp:978:            xrpBalance < view.fees().accountReserve(ownerCount + 1))
+src/xrpld/app/tx/detail/Escrow.cpp:980:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/Escrow.cpp:991:        adjustOwnerCount(view, sleDest, 1, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1038:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:1093:                return tecINTERNAL;
+src/xrpld/app/tx/detail/Escrow.cpp:1145:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1158:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1203:            if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1218:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1256:    // If the issuer is the same as the account, return tecINTERNAL
+src/xrpld/app/tx/detail/Escrow.cpp:1258:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:1276:    // If the issuer is the same as the account, return tecINTERNAL
+src/xrpld/app/tx/detail/Escrow.cpp:1278:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:1334:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:1369:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1382:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1429:            if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1440:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/DID.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:85:            ctx.view().fees().accountReserve((*sleAccount)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/DID.cpp:88:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/DID.cpp:96:        auto page = ctx.view().dirInsert(
+src/xrpld/app/tx/detail/DID.cpp:99:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:102:    adjustOwnerCount(ctx.view(), sleAccount, 1, ctx.journal);
+src/xrpld/app/tx/detail/DID.cpp:189:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DID.cpp:200:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:202:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/VaultCreate.cpp:125:        return vaultAsset.holds<Issue>() ? tecFROZEN : tecLOCKED;
+src/xrpld/app/tx/detail/VaultCreate.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultCreate.cpp:161:    // We will create Vault and PseudoAccount, hence increase OwnerCount by 2
+src/xrpld/app/tx/detail/VaultCreate.cpp:162:    adjustOwnerCount(view(), owner, 2, j_);
+src/xrpld/app/tx/detail/VaultCreate.cpp:163:    auto const ownerCount = owner->at(sfOwnerCount);
+src/xrpld/app/tx/detail/VaultCreate.cpp:164:    if (mPriorBalance < view().fees().accountReserve(ownerCount))
+src/xrpld/app/tx/detail/VaultCreate.cpp:165:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/SetOracle.cpp:81:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:167:        sleSetter->getFieldU32(sfOwnerCount) + adjustReserve);
+src/xrpld/app/tx/detail/SetOracle.cpp:171:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/SetOracle.cpp:177:adjustOwnerCount(ApplyContext& ctx, int count)
+src/xrpld/app/tx/detail/SetOracle.cpp:182:        adjustOwnerCount(ctx.view(), sleAccount, count, ctx.journal);
+src/xrpld/app/tx/detail/SetOracle.cpp:273:        if (adjust != 0 && !adjustOwnerCount(ctx_, adjust))
+src/xrpld/app/tx/detail/SetOracle.cpp:274:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:315:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/SetOracle.cpp:318:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:323:        if (!adjustOwnerCount(ctx_, count))
+src/xrpld/app/tx/detail/SetOracle.cpp:324:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:202:        return tecINTERNAL;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:233:                return tecFROZEN;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:241:                return tecFROZEN;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:302:        return {tecINTERNAL, false};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:306:        return {tecINTERNAL, false};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:398:        return std::make_pair(tecINTERNAL, STAmount{});
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:538:        return {tecINTERNAL, STAmount{}, STAmount{}, STAmount{}};
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:593:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:595:            std::uint32_t const ownerCount = sleAccount->at(sfOwnerCount);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:599:                (ownerCount < 2) ? XRPAmount(beast::zero)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:600:                                 : view.fees().accountReserve(ownerCount + 1));
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:603:                return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:831:    return {tecINTERNAL, STAmount{}, STAmount{}, STAmount{}};
+src/xrpld/app/tx/detail/CreateTicket.cpp:69:        return tecDIR_FULL;
+src/xrpld/app/tx/detail/CreateTicket.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:87:            sleAccountRoot->getFieldU32(sfOwnerCount) + ticketCount);
+src/xrpld/app/tx/detail/CreateTicket.cpp:90:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/CreateTicket.cpp:105:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:117:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateTicket.cpp:126:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:138:    adjustOwnerCount(view(), sleAccountRoot, ticketCount, viewJ);
+src/xrpld/app/tx/detail/LoanManage.cpp:105:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanManage.cpp:235:            return tecINTERNAL;
+src/xrpld/app/tx/detail/LoanManage.cpp:294:    return accountSend(
+src/xrpld/app/tx/detail/VaultSet.cpp:102:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:129:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:149:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultSet.cpp:159:        return tefINTERNAL;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:60:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:89:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:108:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:118:            ctx_.view().fees().accountReserve((*ownerSle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:120:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:131:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:134:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:138:        adjustOwnerCount(view(), ownerSle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Payment.cpp:637:    // ownerCount is the number of entries in this ledger for this
+src/xrpld/app/tx/detail/Payment.cpp:639:    auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/Payment.cpp:642:    auto const reserve = view().fees().accountReserve(ownerCount);
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:78:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:88:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:140:        return tecNO_AUTH;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:165:    auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:169:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:141:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:168:            return {tefINTERNAL};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:175:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:178:                return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:191:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:201:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:206:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:219:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:226:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:229:                return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:257:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:265:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:270:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:300:    if (!view.dirRemove(keylet::ownerDir(account), page, preauthIndex, false))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:311:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:313:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/NFTokenModify.cpp:69:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:111:                return tecFROZEN;
+src/xrpld/app/tx/detail/CreateCheck.cpp:130:                    return tecFROZEN;
+src/xrpld/app/tx/detail/CreateCheck.cpp:144:                    return tecFROZEN;
+src/xrpld/app/tx/detail/CreateCheck.cpp:162:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:169:            view().fees().accountReserve(sle->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/CreateCheck.cpp:172:            return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/CreateCheck.cpp:202:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:212:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:218:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:228:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:233:    adjustOwnerCount(view(), sle, 1, viewJ);
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:256:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:267:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:294:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:461:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:499:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:550:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:689:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:698:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:706:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:920:                return tecNO_LINE;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:924:            return tecNO_LINE;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:928:            return tecFROZEN;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:942:        return tecFROZEN;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1037:        priorBalance < view.fees().accountReserve((*acct)[sfOwnerCount] + 1))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1038:        return tecINSUFFICIENT_RESERVE;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1045:        auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1049:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1055:        auto const offerNode = view.dirInsert(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1066:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1091:    adjustOwnerCount(view, view.peek(acctKeylet), 1, j);
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1135:                return tecNO_LINE;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1144:                return tecNO_AUTH;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1199:            return tecFROZEN;
+src/xrpld/app/tx/detail/CancelCheck.cpp:93:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:104:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:116:    adjustOwnerCount(view(), sleSrc, -1, viewJ);
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:69:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:71:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:77:    adjustOwnerCount(view(), view().peek(keylet::account(account_)), -1, j_);
+src/xrpld/app/tx/detail/CancelOffer.cpp:71:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMBid.cpp:182:        return {tecINTERNAL, false};
+src/xrpld/app/tx/detail/AMMBid.cpp:197:            return {tecINTERNAL, false};
+src/xrpld/app/tx/detail/AMMBid.cpp:254:            return tecINTERNAL;
+src/xrpld/app/tx/detail/AMMBid.cpp:349:            return {tecINTERNAL, false};
+src/xrpld/app/tx/detail/AMMBid.cpp:351:        res = accountSend(
+src/xrpld/app/tx/detail/InvariantCheck.h:786: * 1. If `LoanBroker.OwnerCount = 0` the `DirectoryNode` will have at most one
+src/xrpld/app/tx/detail/VaultClawback.cpp:97:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:218:                        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:253:        return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/VaultClawback.cpp:278:            return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:300:                return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:309:                return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:315:                return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:332:                    return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:339:                return Unexpected(tecINTERNAL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:346:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/VaultClawback.cpp:373:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:381:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:436:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:477:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:499:            return tefINTERNAL;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:578:        if (after->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2493:                           "OwnerCount has multiple directory pages";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2501:               "OwnerCount has multiple indexes in the Directory root";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2518:                   "OwnerCount has an unexpected entry in the directory";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2583:        // If `LoanBroker.OwnerCount = 0` the `DirectoryNode` will have at most
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2586:        if (after->at(sfOwnerCount) == 0)
