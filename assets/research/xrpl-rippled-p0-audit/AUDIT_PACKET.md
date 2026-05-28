@@ -64,6 +64,7 @@ Included findings must satisfy both conditions:
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
 | `repros/*.sh` | Per-finding wrappers. Only IDs present in `repro_manifest.json` are packet findings. |
 | `verify_packet.py` | Packet-only static verifier for manifest records, scripts, markers, amendment snapshots, remediation status, and proof hash. |
+| `SHA256SUMS.txt` | Canonical SHA-256 manifest covering every file in the packet (excludes `legacy/`, Python caches, and the sums file itself). Verify with `sha256sum -c SHA256SUMS.txt`. The published packet root, defined as `sha256(SHA256SUMS.txt)`, and the full external-verification chain live in Appendix A of the article. |
 
 The packet is scoped to the live findings list.
 

@@ -189,6 +189,22 @@ The system-level lesson is that receiver/issuer policy should live at the shared
   </div>
 </div>
 
+## On The Strongest Unfixed Finding
+
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` is qualitatively different from the other thirteen unfixed findings in this packet, and the difference matters for fork-inheritance work. The other thirteen are all gated by recent amendments — a fork that holds back the relevant amendment surface can scope or defer the exposure. The trustline reserve drift is not gated by any amendment in the live receipt: it lives in the baseline IOU credit primitive `rippleCreditIOU` in `src/libxrpl/ledger/View.cpp`, which every IOU settlement that flows through `accountSendIOU` / `rippleSendIOU` eventually calls. A fork inheriting `rippled 3.1.3` inherits this behavior whether or not it activates any surrounding amendment.
+
+Three corroborating facts, each independently checkable in a single command (Appendix A.9 records the exact recipes):
+
+1. **Site is in the core credit primitive at 3.1.3.** At commit `46b241ace8b30d9c9775d60ffba7d24b21903896`, `rippleCreditIOU` has a sender-side reserve-clear branch at `View.cpp` lines 2047–2086 and no symmetric receiver-side branch. A second site, `updateTrustLine` lines 2881–2932, has the same defect shape but no production caller at this commit — its consumers (`AMMBid` LP burn, `AMMWithdraw` LP redeem) only drive holder balances toward zero, which is the sender-side path that is already handled. Active exposure is therefore `rippleCreditIOU` alone.
+
+2. **Fix exists, has an open upstream PR, has not landed.** PR [#5867](https://github.com/XRPLF/rippled/pull/5867) ("Fix: positive balance trustline not incrementing owners count in some cases", author `vvysokikh1`) was opened on 2025-10-08 against `develop`. It introduces an amendment `fixTrustLineOwnerCount` and adds the missing receiver-side block. As of 2026-05-28 the PR is open and non-draft but not mergeable due to conflicts on a develop-side identifier-naming refactor; the most recent maintainer comment, dated 2026-05-07 ("what's the status of this PR?"), has no response on the thread. The fix commit `b4a45f1f0f49d3caf56d2c790960380b5e648a60` is not an ancestor of the `3.1.3` tag, the `3.2.0-b7` tag, or `origin/develop` at the snapshot date.
+
+3. **Invariant layer at 3.1.3 does not catch the resulting state.** `src/xrpld/app/tx/detail/InvariantCheck.h` defines twenty-five invariant classes. The only `sfOwnerCount` checks in `InvariantCheck.cpp` are `AccountRootsDeletedClean::finalize` (fires only when an account is being deleted, requires `OwnerCount == 0`) and `ValidLoanBroker::finalize` (LoanBroker-specific). There is no general invariant for "an account's `OwnerCount` equals the count of its owner-directory entries" or "a trustline's positive-balance side has its reserve flag set." A transaction that leaves either consistency property broken therefore commits without an invariant violation.
+
+We are deliberately not framing this as a fund-draining exploit. Per occurrence it costs the network roughly one trustline owner reserve that should have been charged but was not, plus a `RippleState` object that exists without reserve backing. It is an accounting-integrity defect at a foundational layer, not a balance-theft vector. What makes it the most consequential single item in this packet is the combination of the three facts above: deep in the stack, not amendment-gated, fix not yet landed, and not caught by the invariant pass.
+
+The introducing commit is datable. The sender-side reserve-clear branch in what is now `rippleCreditIOU` was added by commit [`96733c287476b7279289e8884a357a1c827a7bf7`](https://github.com/XRPLF/rippled/commit/96733c287476b7279289e8884a357a1c827a7bf7) on **2013-03-31**, subject "Add trust auto clear. Fixes #28", author Arthur Britto. That commit added the clear-on-balance-falling-to-zero half of trust auto-clear; the matching re-acquire-on-balance-rising-into-positive half on an existing line was never added in the same change and has not been added since. The asymmetry has been carried forward through every restructuring of the IOU credit primitive — present at the introducing commit, at `46b241a` (3.1.3), and at `upstream/develop` HEAD at the snapshot date, where `rippleCreditIOU` still contains a single `saBefore > beast::zero && saBalance <= beast::zero` sender-side branch and no symmetric receiver-side branch. Between 2013-03-31 and 2026-05-28 is approximately thirteen years and two months. The packet's binary repros on tags `1.5.0`, `2.0.0`, `2.5.0`, and `3.1.3` and the source-lineage report in `verify_trustline_positive_balance_lineage.py` (sampled refs `0.12.0` through `3.1.3`) corroborate that the same shape has been live across that span.
+
 ## Inventory
 
 Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact.
@@ -590,6 +606,300 @@ Cleanup-era candidates are also excluded unless they reproduce with `fixCleanup3
 1. A RippleD-derived implementation path cannot inherit enabled XRPL surfaces blindly. The current packet shows repeated gaps between direct policy checks and indirect settlement paths.
 2. Receive-policy enforcement should be centralized. If every transaction family is responsible for remembering `DisallowIncomingTrustline`, `DepositAuth`, freeze, authorization, reserve, and owner-count rules, the surface grows faster than review coverage.
 3. Fork authors should treat `3.1.3` as unsafe to inherit without this packet's fixes or equivalent negative controls.
+
+---
+
+## Appendix A: Independent Verification
+
+This appendix exists so that a reader without access to our build harness — including an LLM reviewer — can confirm the packet's claims from first principles using only public sources. Every claim below decomposes into four independent evidence chains, each verifiable on its own.
+
+### A.1 Upstream codebase pin (GitHub)
+
+The packet pins `XRPLF/rippled` tag `3.1.3`, which is a GPG-signed annotated tag that dereferences to commit `46b241ace8b30d9c9775d60ffba7d24b21903896` ("Set version to 3.1.3", committer date `2026-05-07T17:31:08Z`).
+
+```bash
+# tag → commit (dereferences annotated tag to commit)
+gh api 'repos/XRPLF/rippled/git/refs/tags/3.1.3' --jq '.object.sha'
+# → 7645ce97240e0662774902be39e8eaa3c638c89b (the annotated tag object)
+gh api 'repos/XRPLF/rippled/git/tags/7645ce97240e0662774902be39e8eaa3c638c89b' --jq '.object.sha'
+# → 46b241ace8b30d9c9775d60ffba7d24b21903896  (the pinned commit)
+```
+
+The tag object's payload contains a PGP signature; the commit subject is `Set version to 3.1.3`. Any reviewer can `git clone https://github.com/XRPLF/rippled.git && git checkout 46b241ace8b30d9c9775d60ffba7d24b21903896` to read the exact source the packet claims it is reproducing against.
+
+### A.2 Live mainnet amendment state (direct XRPL JSON-RPC)
+
+The live filter is based on a direct read of the on-ledger `Amendments` ledger object from `https://s1.ripple.com:51234/`. A single curl re-fetches the validated `Amendments` object and lets a reviewer cross-check every name the packet says must be enabled (or disabled). At the live state checked, the on-ledger object carries 92 enabled amendments. All 24 amendments the packet requires to be enabled are present; all 6 amendments the packet requires to be disabled are absent.
+
+```bash
+curl -s -X POST -H 'Content-Type: application/json' https://s1.ripple.com:51234/ \
+  -d '{"method":"ledger_entry","params":[{"index":"7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4","ledger_index":"validated"}]}' \
+  | python3 -c 'import sys,json,hashlib; \
+H = lambda n: hashlib.sha512(n.encode()).hexdigest()[:64].upper(); \
+amends = set(json.load(sys.stdin)["result"]["node"]["Amendments"]); \
+must_on  = ["AMM","AMMClawback","Checks","CheckCashMakesTrustLine","DepositAuth","DisallowIncoming","fixDisallowIncomingV1","MPTokensV1","NonFungibleTokensV1_1","fixEnforceNFTokenTrustline","fixEnforceNFTokenTrustlineV2","fixRemoveNFTokenAutoTrustLine","fixNFTokenReserve","fixNFTokenRemint","NFTokenMintOffer","PermissionedDomains","PermissionedDEX","TokenEscrow","Credentials","fixMPTDeliveredAmount","fixAMMv1_3","fixTokenEscrowV1","fixAMMClawbackRounding","fixCleanup3_1_3"]; \
+must_off = ["LendingProtocol","SingleAssetVault","PermissionDelegation","Batch","fixDelegateV1_1","fixDisallowIncomingV1_1"]; \
+print("enabled_count =", len(amends)); \
+print("on_present  =", all(H(n) in amends for n in must_on)); \
+print("off_absent  =", all(H(n) not in amends for n in must_off))'
+# expected:
+# enabled_count = 92 (or higher, if more amendments enable later)
+# on_present  = True
+# off_absent  = True
+```
+
+Note that public Clio servers do **not** expose `fixCleanup3_1_3` through the `feature` RPC by name — the receipt records `feature_rpc_visible: false` for it. The packet works around this exactly the way the snippet above does: by reading the raw `Amendments` ledger object and matching the SHA-512-half-of-name hash. That is why both checks (raw object + name derivation) appear in the packet rather than only a `feature` RPC lookup.
+
+### A.3 Amendment ID derivation (pure math, no network)
+
+Every XRPL amendment ID equals the first 32 bytes (upper-half) of `SHA-512(amendment_name_ascii)`. The packet's amendment IDs are therefore mathematically derivable from the names — no trust in any party is required.
+
+```python
+import hashlib
+def amendment_id(name): return hashlib.sha512(name.encode()).hexdigest()[:64].upper()
+assert amendment_id("fixCleanup3_1_3") == \
+    "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC"
+assert amendment_id("AMM") == \
+    "8CC0774A3BF66D1D22E76BBDA8E8A232E6B6313834301B3B23E8601196AE6455"
+assert amendment_id("MPTokensV1") == \
+    "950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38"
+```
+
+All 30 amendment names cited by the live filter (24 must-enabled + 6 must-disabled) derive to IDs that exactly match the receipt and the on-ledger Amendments object. Together with A.2 this binds amendment names to live ledger state without anyone having to trust our receipt JSON.
+
+### A.4 Packet content integrity (single root hash)
+
+The packet directory now ships a canonical `SHA256SUMS.txt` covering every packet file (`legacy/` snapshots and Python caches excluded; the sums file does not list itself). The single packet root is the SHA-256 of `SHA256SUMS.txt`.
+
+> **Packet root:** `a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64`
+
+```bash
+cd assets/research/xrpl-rippled-p0-audit
+sha256sum SHA256SUMS.txt
+# expected: a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64  SHA256SUMS.txt
+sha256sum -c SHA256SUMS.txt | grep -v ': OK$'
+# expected: (no output — every file matches)
+```
+
+If a reviewer regenerates `SHA256SUMS.txt` from scratch, the canonical form is:
+
+```bash
+find . -type f -not -path './legacy/*' -not -path '*/__pycache__/*' -not -name 'SHA256SUMS.txt' \
+    -printf '%P\n' | LC_ALL=C sort | xargs sha256sum > SHA256SUMS.txt
+```
+
+### A.5 Headline artifact hashes
+
+The hashes below pin the highest-leverage artifacts. They are also covered by `SHA256SUMS.txt`, but are listed inline so a reader can grep them without downloading the packet.
+
+| Artifact | SHA-256 |
+|---|---|
+| `OpenP0Repro_test.cpp` (full jtx proof source) | `fef2d597f72e8e3091a8cbf7255b9f5406d241711ad8991329dff8b30475d483` |
+| `repro_manifest.json` (canonical 19-finding manifest) | `3d57ab8a272d7dbad149e5f3df8e025c0049f60ec46724ca1e5e55951403e933` |
+| `verify_packet.py` (static verifier) | `0a2a4022d9ccf247829841b670a6c0b0beddfd6b13a9264be6ca28e593525b77` |
+| `run_definitive_proof.sh` (proof runner) | `2b6f48f830169f02a6b62c6d7fb467d9808810aee501f948ba8a4de9f47fdda0` |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v23.log` (proof log) | `dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362` |
+| `direct_xrpl_amendment_status_20260527.json` (live amendment receipt) | `a253335ef4bace451ae98f942d31539d544694a75f8c5e62975a9694cc571079` |
+| `direct_xrpl_mainnet_runtime_status_20260527.json` (live runtime receipt) | `150bcf249021d57293276de238e5bfddb90f5b79f5a13cc3ba4b338ac746af96` |
+| `direct_xrpl_did_feature_status_20260528.json` (DID feature receipt) | `e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c` |
+| `upstream_remediation_status_20260527.json` (git-ancestry remediation receipt) | `a64906012ccddfe86883a4711d464dfba385548e5d2eba1c1910b4de44c3dfac` |
+| `runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json` (continuation-slice live snapshot) | `e4f756f7ae60087a90ff7e4eaf15292fe092caecfab69ff3c22116e6a546c972` |
+
+The proof-log SHA matches what `repro_manifest.json` declares (`proof.sha256`) and what `verify_packet.py` enforces. The proof log itself includes the canonical footers `ripple.tx.OpenP0Repro had 0 failures.` / `70 cases, 16752 tests total, 0 failures` and `ripple.tx.OpenP0ReproCrash had 0 failures.` / `1 case, 12 tests total, 0 failures`.
+
+### A.6 Per-finding hashes and live anchors
+
+Each row binds a finding to (1) the repro shell wrapper a reviewer can read, (2) the marker text the proof log must contain, (3) the live amendment surface required for the reproduction to count, and (4) whether the upstream remediation receipt found a fix in `3.2.0-b7` or `origin/develop`.
+
+| ID | Repro script SHA-256 | Marker (proof-log string) | Required surface | Fixed in 3.2.0-b7 / develop? |
+|---|---|---|---|---|
+| `MPT-LOCK-UNAUTH-001` | `85248096331872fc4b884d6b02ac653573722348f9491bdd4df1e4ba1c712cc7` | `MPT current — locked holder can delete lock state without SAV` | `MPTokensV1` ✓, `SingleAssetVault` ✗ | no |
+| `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` | `b1f13fadca2c2e6a28e9eff911a20a3f2a66f5209e4788b53caa082b9c27ed9e` | 12 markers (offer-crossing, transfer-rate, CheckCash, TokenEscrow, NFToken accept, NFToken broker fee, AMMWithdraw, AMMClawback + boundary controls) | baseline trustline path | no |
+| `TRUSTLINE-DISALLOW-INCOMING-OFFER-001` | `153a72ea2e809f8d61fc27af23f99708337e7a0d86294befc0e5742c81d9598b` | `TrustLine current — OfferCreate bypasses DisallowIncomingTrustline` | `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001` | `e5a2ea5c7c6f1246b7732be9935925190c0a40dd8b727a91c412ab54e3d5647b` | `NFToken current — AcceptOffer bypasses DisallowIncomingTrustline` | `NonFungibleTokensV1_1` ✓, `fixEnforceNFTokenTrustlineV2` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `NFTOKEN-BROKER-FEE-DISALLOW-INCOMING-TRUSTLINE-001` | `f5c7bf606ca36a54cff0de51abf0a8c78717a40020106990fd9dac2559628f62` | `NFToken current — broker fee bypasses DisallowIncomingTrustline` | same as `NFTOKEN-DISALLOW-INCOMING-ACCEPT-001` | no |
+| `CHECKCASH-DISALLOW-INCOMING-TRUSTLINE-001` | `2ee5defde6f7b339eadf2f39e49bbd2afc0c03da562663b03d94946f6f562d70` | `CheckCash current — bypasses DisallowIncomingTrustline` | `Checks` ✓, `CheckCashMakesTrustLine` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `TOKENESCROW-DISALLOW-INCOMING-FINISH-001` | `c082da6a3f132f8db4a2375a33d2fcb2ef41ff5d2a73e209ab52a880dfeb342d` | `TokenEscrow current — Finish bypasses DisallowIncomingTrustline` | `TokenEscrow` ✓, `fixTokenEscrowV1` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001` | `867e87bf1b2e91aaa229fb4f619c4755f95e0856dfda2de2d527c6ec92779154` | `AMM current — Withdraw bypasses DisallowIncomingTrustline` | `AMM` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `AMMCREATE-DISALLOW-INCOMING-TRUSTLINE-001` | `8dfacdaa442c6b67e7c3baae367190e6d80590770ece090b0e9807e4fad87dca` | `AMM current — Create bypasses DisallowIncomingTrustline` | same as `AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001` | no |
+| `AMMDEPOSIT-EMPTY-DISALLOW-INCOMING-TRUSTLINE-001` | `687c2675c425aa34029e379582f708c86886222e6a2b1d56dd96ccd94d22bbc3` | `AMM current — Empty deposit bypasses DisallowIncomingTrustline` | same as `AMMWITHDRAW-DISALLOW-INCOMING-TRUSTLINE-001` | no |
+| `AMMCLAWBACK-DISALLOW-INCOMING-PAIRED-ASSET-001` | `7e3cc5841b38baec081c7ddbc1826f021cc108689fa71a5adfd49c6a85e1b612` | `AMM current — Clawback returns paired asset through DisallowIncomingTrustline` | `AMM` ✓, `AMMClawback` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixAMMClawbackRounding` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `AMMCLAWBACK-DEPOSITAUTH-PAIRED-ASSET-001` | `d3710f57f30a8bf20b85c609d9743d3f9033d545d8f95ac4b9cc96f374f08751` | `AMM current — Clawback bypasses DepositAuth paired asset` | `AMM` ✓, `AMMClawback` ✓, `DepositAuth` ✓, `fixAMMClawbackRounding` ✓ | no |
+| `AMMBID-DEPOSITAUTH-REFUND-001` | `44983a1a1bcd79146e925642fddb98701a5217dee84e0e45b9dcb58332dc6d6d` | `AMM current — Bid refund bypasses DepositAuth` | `AMM` ✓, `DepositAuth` ✓, `fixAMMv1_3` ✓ | no |
+| `ESCROW-CANCEL-IOU-001` | `656fe3162b4d5b1af03a7b5a4857295b6aa9bcf6b98a907a6a6f088a381d0e9c` | `EscrowCancel current — deleted IOU trustline returns tefEXCEPTION` | `TokenEscrow` ✓, `fixTokenEscrowV1` ✓ | yes |
+| `AMM-STALE-AUTH-001` | `8ff1177d17835ab8a73fb0cf391c624e65251d18006d49450b95504f15b8db0a` | `AMM current — stale AuthAccounts survive empty reinit` | `AMM` ✓, `fixAMMv1_3` ✓ | yes |
+| `MPT-NONCANONICAL-AMOUNT-001` | `21fb8e7b4e5402bade2272048648fe7d30caabb841cf812e1afeae596b5df86c` | `MPT current — non-canonical amount reaches ledger engine` | `MPTokensV1` ✓, `fixMPTDeliveredAmount` ✓ | yes |
+| `MPT-TRANSFER-RATE-OVERFLOW-001` | `f8038fbfb26bbf8c0bd81bd22947224c6bbc91533777515f15bc6a77b10f646f` | `MPT current — transfer-rate scaling overflows large integral amount` | `MPTokensV1` ✓ | no |
+| `PDEX-HYBRID-QUALITY-001` | `d2222db17ac0059055820627ccc378896ac2325b45fd005d0f974c05fb8e5b28` | `Permissioned DEX current — hybrid offer open-book quality mismatch` | `PermissionedDEX` ✓, `PermissionedDomains` ✓, `Credentials` ✓ | yes |
+| `PDEX-CANCEL-INVARIANT-001` | `eb272ddc63f9fef6821662d5edf41608853970ac88df833497880c3105ca770f` | `Permissioned DEX current — cancel regular offer via domain offer invariant` | same as `PDEX-HYBRID-QUALITY-001` | yes |
+
+Tally: 14 of 19 are not fixed in the checked `3.2.0-b7` or `origin/develop` refs, matching the report's headline 14/19 figure. The `verify_packet.py` script enforces the exact same `not_confirmed_fixed` set against `upstream_remediation_status_20260527.json`.
+
+### A.7 One-shot verification recipe (no rippled build)
+
+A reviewer can confirm the packet's external claims in under a minute, with no C++ toolchain:
+
+```bash
+# 1. Pull the article repo at the packet snapshot
+git clone https://github.com/agtico/agtico.github.io.git
+cd agtico.github.io/assets/research/xrpl-rippled-p0-audit
+
+# 2. Verify the packet content root
+sha256sum SHA256SUMS.txt
+# → a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64
+sha256sum -c SHA256SUMS.txt | grep -v ': OK$'   # → no output
+
+# 3. Verify the upstream pin
+gh api 'repos/XRPLF/rippled/git/refs/tags/3.1.3' --jq '.object.sha'
+gh api 'repos/XRPLF/rippled/git/tags/<tag-sha-from-step-3>' --jq '.object.sha'
+# → 46b241ace8b30d9c9775d60ffba7d24b21903896
+
+# 4. Verify live amendment state matches the receipt (snippet from A.2)
+
+# 5. Run the static packet verifier (manifest ↔ scripts ↔ markers ↔ receipts)
+python3 verify_packet.py
+# → packet-ok
+# → records=19 markers=30 proof_sha256=dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362
+```
+
+Steps 2 through 5 are sufficient to establish: the packet is the file set the author intended; the live-amendment claim is independently true on mainnet; the codebase pin resolves to a GPG-signed upstream tag; every finding maps to a per-ID repro wrapper and a unique marker in the proof log; and the remediation set declared in the report matches the receipt.
+
+### A.8 Full harness verification (optional, slow)
+
+The recipe above does not rebuild rippled or rerun jtx. For a reviewer who wants to regenerate the proof log itself, `README.md` in the packet directory contains the full `conan install` / `cmake` / `--unittest OpenP0Repro` invocation. A successful run produces a log whose SHA-256 matches the value in `repro_manifest.json` (`dcbef70e...`), and whose footers match the canonical zero-failure lines listed in A.5. Any divergence would indicate non-deterministic test behavior, source drift from the pinned commit, or tampering — all of which are detectable from this appendix alone.
+
+### A.9 Verification trail for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
+
+This sub-appendix maps every concrete claim in "On The Strongest Unfixed Finding" to a one-step external check. None of the commands below require the AGTI packet, our harness, or trust in our infrastructure — only `git`, `gh`, and access to `https://github.com/XRPLF/rippled`.
+
+**Claim 1 — bug site at `46b241a`, sender-side branch only, no receiver-side branch.**
+
+```bash
+git clone https://github.com/XRPLF/rippled.git && cd rippled
+git checkout 46b241ace8b30d9c9775d60ffba7d24b21903896
+
+# rippleCreditIOU function header and sender-side reserve-clear branch
+sed -n '1991,2105p' src/libxrpl/ledger/View.cpp
+
+# the only saBefore-based condition in the function is the sender-side one
+grep -nE 'saBefore' src/libxrpl/ledger/View.cpp
+# expected: lines 2035 and 2047 (declaration and the > zero comparison), no
+# receiver-side "saBefore <= zero && saBalance > zero" line
+```
+
+GitHub blob URL pinned to the commit: <https://github.com/XRPLF/rippled/blob/46b241ace8b30d9c9775d60ffba7d24b21903896/src/libxrpl/ledger/View.cpp#L2047-L2086>
+
+**Claim 2 — `updateTrustLine` has the same defect shape but no live production caller.**
+
+```bash
+# updateTrustLine repeats the sender-side-only shape
+sed -n '2881,2932p' src/libxrpl/ledger/View.cpp
+
+# every caller of issueIOU / redeemIOU at this commit, outside View.cpp
+git grep -nE 'issueIOU|redeemIOU' 46b241ace8b30d9c9775d60ffba7d24b21903896 -- \
+  ':!**/View.cpp' ':!**/View.h'
+# expected: src/test/ledger/PaymentSandbox_test.cpp (tests only)
+#           src/xrpld/app/tx/detail/AMMBid.cpp:258      redeemIOU (LP burn)
+#           src/xrpld/app/tx/detail/AMMWithdraw.cpp:653 redeemIOU (LP redeem)
+# Both AMM sites burn LP tokens — they reduce holder balance toward zero,
+# which is the sender-side path already handled. issueIOU has no production caller.
+```
+
+**Claim 3 — open PR #5867, not mergeable, fix commit absent from named refs.**
+
+```bash
+gh api 'repos/XRPLF/rippled/pulls/5867' \
+  --jq '{state, draft, mergeable, base: .base.ref, head: .head.label,
+         created_at, updated_at, commits, review_comments}'
+# expected at snapshot date 2026-05-28:
+#   state=open, draft=false, mergeable=false (changes over time as branch is rebased),
+#   base=develop, head=XRPLF:vvysokikh1/fix-positive-balance-trustline-pay-no-reserve,
+#   created_at=2025-10-08T15:44:04Z, updated_at=2026-05-07T15:06:53Z
+
+gh api 'repos/XRPLF/rippled/issues/5867/comments' \
+  --jq '.[-1] | {user: .user.login, created_at, body: (.body | .[0:80])}'
+# expected last comment: {"user":"bthomee", ..., "body":"@vvysokikh1 what's the status of this PR?"}
+```
+
+Ancestry of the fix commit (run inside the cloned repo with PR refs fetched):
+
+```bash
+git fetch origin '+refs/pull/5867/head:refs/pull/5867/head'
+FIX=b4a45f1f0f49d3caf56d2c790960380b5e648a60
+for ref in 46b241ace8b30d9c9775d60ffba7d24b21903896 origin/release-3.2 origin/develop; do
+    if git merge-base --is-ancestor "$FIX" "$ref"; then echo "IN $ref"; else echo "NOT_IN $ref"; fi
+done
+# expected: NOT_IN 46b241a... (3.1.3), NOT_IN origin/release-3.2, NOT_IN origin/develop
+git tag --contains "$FIX"     # expected: (empty)
+```
+
+The fix commit `b4a45f1f0f49d3caf56d2c790960380b5e648a60` is dated 2025-10-08 with subject "fixed positive balance trustline not incrementing owners count in some cases". It introduces `XRPL_FIX(TrustLineOwnerCount, Supported::no, VoteBehavior::DefaultNo)` in `include/xrpl/protocol/detail/features.macro` and the missing receiver-side block in `rippleCreditIOU`.
+
+**Claim 4 — invariant layer at 3.1.3 does not enforce owner-count or reserve-flag consistency.**
+
+```bash
+git show 46b241a:src/xrpld/app/tx/detail/InvariantCheck.h \
+  | grep -cE '^class '
+# expected: 25 invariant classes
+
+git show 46b241a:src/xrpld/app/tx/detail/InvariantCheck.cpp \
+  | grep -nE 'sfOwnerCount'
+# expected: only two hits —
+#   line ~578  inside AccountRootsDeletedClean::finalize (fires on deletion only)
+#   line ~2586 inside ValidLoanBroker::finalize (LoanBroker-specific)
+# No general consistency invariant for OwnerCount vs. owner-directory size, and
+# no invariant tying a trustline's positive-balance side to its reserve flag.
+```
+
+The negative claim ("there is no general invariant for these properties") is structural and can also be checked by reading the class list in `InvariantCheck.h`, which is short and lists every invariant name.
+
+**Claim 5 — binary repro across older release tags.** The packet's `verify_packet.py::check_old_tag_trustline_repros()` enforces SHA-256s for the `1.5.0`, `2.0.0`, and `2.5.0` test patches and logs, and for the lineage report covering refs `0.12.0, 0.20.0, 0.30.0, 0.50.0, 0.80.0, 1.0.0, 1.5.0, 2.0.0, 2.5.0, 3.1.3`. The hashes are in `SHA256SUMS.txt` (covered by the packet root in A.4) and are reproduced inline in the verifier script. Each old-tag log carries the marker `Legacy <tag> -- offer crossing creates positive balance without reserve` and a zero-failure footer.
+
+**Claim 6 — Introducing commit anchor and continuity through develop.**
+
+The sender-side reserve-clear branch in what is now `rippleCreditIOU` was added on 2013-03-31 in commit `96733c287476b7279289e8884a357a1c827a7bf7` ("Add trust auto clear. Fixes #28", Arthur Britto). The clear-on-down half was added; the symmetric set-on-up half on an existing line was not added in that commit and has not been added since.
+
+```bash
+git log -1 --format='%H%n%an <%ae>%n%ad%n%s' --date=iso \
+    96733c287476b7279289e8884a357a1c827a7bf7
+# expected:
+#   96733c287476b7279289e8884a357a1c827a7bf7
+#   Arthur Britto <ahbritto@gmail.com>
+#   2013-03-31 16:15:45 -0700
+#   Add trust auto clear. Fixes #28
+
+# the diff at the introducing commit, restricted to LedgerEntrySet.cpp
+git show 96733c287 -- src/cpp/ripple/LedgerEntrySet.cpp \
+  | grep -E '^\+.*saBefore\.isPositive|^\+.*ownerCountAdjust|^\+.*lsfLowReserve|^\+.*lsfHighReserve' \
+  | head -10
+# expected: added lines include `saBefore.isPositive()`, `!saBalance.isPositive()`,
+# `ownerCountAdjust(uSenderID, -1, sleSender)`, and `clear (!bSenderHigh ? lsfLowReserve : lsfHighReserve)`.
+# No added line tests for the receiver-side transition (`!saBefore.isPositive() && saBalance.isPositive()`).
+```
+
+Continuity check — same asymmetry visible at the snapshot's `upstream/develop`:
+
+```bash
+git fetch origin   # if not already fetched
+git show upstream/develop:src/libxrpl/ledger/View.cpp \
+  | awk '/^rippleCreditIOU/,/^}/' \
+  | grep -nE 'saBefore'
+# expected:
+#   STAmount const saBefore = saBalance;
+#   ... log line referencing saBefore ...
+#   if (saBefore > beast::zero        <-- the only conditional on saBefore
+#       && saBalance <= beast::zero   <-- sender-side branch; no receiver-side branch
+```
+
+Date arithmetic from the introducing commit to the snapshot:
+
+```bash
+python3 -c "from datetime import date; \
+  print((date(2026,5,28) - date(2013,3,31)).days, 'days')"
+# expected: 4807 days ≈ 13 years 2 months
+```
+
+Together, claims 1–6 establish: the bug exists at the cited file and lines at a verifiable upstream commit; the asymmetry is datable to a specific 2013 commit and survives to today's `upstream/develop` unchanged; the proposed fix sits at a named commit on an open public PR that has not landed in any release we can name; the invariant pass at 3.1.3 does not stop the resulting state from being committed; and the same root has been reproduced on binaries spanning `1.5.0` through `3.1.3`, with source-lineage evidence reaching the `0.12.0`-era core code. Each of those is a check, not an assertion of intent or quality on anyone's part.
 
 ---
 
