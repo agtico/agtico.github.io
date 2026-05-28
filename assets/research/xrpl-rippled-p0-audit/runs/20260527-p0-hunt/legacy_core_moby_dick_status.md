@@ -18,15 +18,42 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T05:32:50Z
-amendment_checked_utc: 2026-05-28T05:32:52Z
+runtime_checked_utc: 2026-05-28T06:18:15Z
+amendment_checked_utc: 2026-05-28T06:18:13Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
+s1.ripple.com: rippled 3.1.3, ledger 104531735, hash 2DAE8BB262EFCC5A5EDBBAC675F7DB6DB7309E373AFFBB045519FA847990EF14
+s2.ripple.com: rippled 3.1.3, ledger 104531736, hash 037981BECFFE0FB1154918ABF474982F59919204B0CE0DD6F1584FAE3F7A4415
+fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
 ## Current Result
 
 The strongest legacy-core candidate is
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`.
+
+## Legacy-Core Queue Status
+
+This continuation did not promote a new P0. It completed the planned
+legacy-core queue behind the Moby Dick lane and left the packet classification
+unchanged.
+
+Completed and packet-bound work:
+
+- current `3.1.3` repro for the trustline positive-balance reserve drift;
+- old-tag repros for the same root on `2.5.0`, `2.0.0`, and `1.5.0`;
+- trustline/offer reserve sibling probes;
+- old object lifecycle and directory-state probes;
+- raw sequence and ticket key-construction sweep;
+- auth/freeze receive-path sibling sweep;
+- deterministic exception and arithmetic sweep;
+- source-signal clustering around reserve, owner-count, trustline, directory,
+  and result-code fixes.
+
+Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
+old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
+did not isolate another clean legacy-core P0. Broader live-feature hunting can
+continue under the whip's Step 6, but the legacy-core queue should not be
+inflated with source-killed or speculative candidates.
 
 It is a baseline IOU trustline and settlement accounting issue, not a new
 disabled feature surface. The current repro markers are:
