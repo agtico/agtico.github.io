@@ -6,7 +6,7 @@ This directory is the live-filtered evidence packet for the AGTI report:
 
 The packet includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-28T04:43:42Z`. Public XRPL servers checked in
+query checked at `2026-05-28T05:10:31Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
 
@@ -51,7 +51,7 @@ Included findings must satisfy both conditions:
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.log` | Ubuntu 20.04 Docker `1.5.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
 | `verify_trustline_positive_balance_lineage.py` | Source-lineage verifier for the old sender-side-only reserve transition and the later upstream receiver-side fix/test evidence. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_lineage_20260527.json` | Script-generated lineage report covering sampled refs from `0.12.0` through `3.1.3`, the fix commit, fix-branch tests, and latest-ref absence. |
-| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v22.log` | Live-only proof extract with marker coverage and zero-failure footer, including offer-crossing, CheckCash, TokenEscrow finish, NFToken settlement, AMMWithdraw, AMMClawback, existing-owner, and missing-owner-reserve boundary siblings for the trustline reserve finding. |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v23.log` | Live-only proof extract with marker coverage and zero-failure footer, including offer-crossing, transfer-rate offer-crossing, CheckCash, TokenEscrow finish, NFToken settlement, AMMWithdraw, AMMClawback, existing-owner, and missing-owner-reserve boundary siblings for the trustline reserve finding. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
@@ -108,7 +108,7 @@ Expected proof footer:
 
 ```text
 ripple.tx.OpenP0Repro had 0 failures.
-69 cases, 16688 tests total, 0 failures
+70 cases, 16752 tests total, 0 failures
 ripple.tx.OpenP0ReproCrash had 0 failures.
 1 case, 12 tests total, 0 failures
 ```

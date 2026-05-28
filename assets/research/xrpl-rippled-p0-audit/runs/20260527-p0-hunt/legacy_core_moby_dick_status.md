@@ -18,8 +18,8 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T04:43:40Z
-amendment_checked_utc: 2026-05-28T04:43:42Z
+runtime_checked_utc: 2026-05-28T05:10:34Z
+amendment_checked_utc: 2026-05-28T05:10:31Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
 ```
 
@@ -35,6 +35,7 @@ disabled feature surface. The current repro markers are:
 TrustLine current - offer crossing creates positive balance without reserve
 TrustLine current - offer crossing leaves positive balance unowned with existing owner objects
 TrustLine current - offer crossing succeeds below missing owner reserve
+TrustLine current - offer crossing with transfer rate creates positive balance without reserve
 TrustLine current - CheckCash creates positive balance without reserve
 TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
 TrustLine current - CheckCash succeeds below missing owner reserve
@@ -54,23 +55,51 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: 15d8b7e1b07104825a827c4f925925a7701173d2f77d9ad213a19b7d45d03f2f
+local wrapper log sha256: 2c0e58bd68648beac5ec05f82a7aea2b50a0114257a029f68b6128b189bb0a42
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-16.2s, 1 suite, 69 cases, 16688 tests total, 0 failures
+17.2s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=29 proof_sha256=d2259efd6cee2779bb987c13af7d0782ea480a5ddae9c212a1b64f833d861ec2
+records=19 markers=30 proof_sha256=dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362
 ```
 
 The manifest-only wrapper loop also passed for all 19 included IDs after the
-shared runner footer was updated to the 69-case suite. A broader `repros/*.sh`
+shared runner footer was updated to the 70-case suite. A broader `repros/*.sh`
 loop was intentionally not used as evidence because the directory still
 contains non-manifest disabled-surface wrappers.
+
+## Current sibling: transfer-rate offer crossing reserve drift
+
+This continuation promoted one more marker under
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`.
+
+Minimal behavior:
+
+1. Gateway sets a non-default transfer rate.
+2. Alice clears the gateway USD trustline back to zero balance, zero limit,
+   `OwnerCount=0`, and no receiver reserve flag.
+3. A market account posts a USD/XRP offer.
+4. Alice crosses the offer and receives a positive gateway USD balance through
+   the transfer-rate offer path.
+5. Alice's trustline remains in the no-reserve state and `OwnerCount` remains
+   `0`.
+
+Result excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — offer crossing with transfer rate creates positive balance without reserve
+17.3s, 1 suite, 70 cases, 16752 tests total, 0 failures
+```
+
+Interpretation: the missing receiver-side owner-count/reserve transition is not
+limited to the simplest par offer-crossing case. It survives an issuer
+transfer-rate crossing, which is important because the affected path is still
+normal IOU market settlement rather than an exotic disabled feature.
 
 ## Current source-killed siblings
 
@@ -93,7 +122,7 @@ counts unchanged, and left no check entry in either owner directory.
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 ## Current sibling: NFToken settlement positive-balance reserve drift
@@ -123,7 +152,7 @@ Proof excerpts:
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: these are fourth and fifth current-live settlement witnesses
@@ -150,7 +179,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — AMMWithdraw creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is a sixth current-live settlement witness for the same
@@ -178,7 +207,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — AMMClawback creates positive balance without reserve
-17.3s, 1 suite, 69 cases, 16688 tests total, 0 failures
+17.3s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is a seventh current-live settlement witness for the same
@@ -204,7 +233,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is a third current-live settlement path for the same

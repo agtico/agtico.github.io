@@ -5,7 +5,7 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 
 2026-05-27 portability update: the public repro kit is self-locating and defaults to `/home/postfiat/repos/rippled` when a local upstream checkout exists. The Python model is portable. The jtx proof requires a local rippled test build with `OpenP0Repro_test.cpp` copied into `src/test/app/`.
 
-2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has eleven current-live markers. The same cleared/default trustline reserve drift reproduced through offer crossing, `CheckCash`, TokenEscrow finish, NFToken seller proceeds, NFToken broker fees, AMM one-asset withdrawal, and AMMClawback paired-asset return; stronger controls show the drift persists when the receiver already owns two ticket objects, and reserve-boundary controls for offer crossing and `CheckCash` succeed while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 69 cases / 16688 tests / 0 failures.
+2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has twelve current-live markers. The same cleared/default trustline reserve drift reproduced through offer crossing, transfer-rate offer crossing, `CheckCash`, TokenEscrow finish, NFToken seller proceeds, NFToken broker fees, AMM one-asset withdrawal, and AMMClawback paired-asset return; stronger controls show the drift persists when the receiver already owns two ticket objects, and reserve-boundary controls for offer crossing and `CheckCash` succeed while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 70 cases / 16752 tests / 0 failures.
 
 2026-05-27 P0-hunt update: the expanded suite also reproduces nine pre-`fixCleanup3_1_3` historical/replay-era root causes with fixed-path negative controls:
 
@@ -184,6 +184,7 @@ ripple.tx.OpenP0Repro MPT current — locked holder can delete lock state withou
 ripple.tx.OpenP0Repro TrustLine current — offer crossing creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
 ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
+ripple.tx.OpenP0Repro TrustLine current — offer crossing with transfer rate creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
@@ -201,7 +202,7 @@ ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permi
 ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
 ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
 ripple.tx.OpenP0Repro had 0 failures.
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Test source: `src/test/app/OpenP0Repro_test.cpp`
@@ -248,7 +249,7 @@ cmake --build . -j$(nproc)
 
 Code audit + expanded jtx + F6.1 negative controls + logic model = **definitive for seven regular-freeze lending receive paths and for demoting the SetTrust crash claim in this public packet**.
 
-The 2026-05-27 hunt adds twenty-seven current `3.1.3` transaction/helper root-cause repros, one feature-bound MPT lock-state repro, one current protocol-wire serialization proof, nine historical/replay-era root-cause repros, and two demoted false positives. The current root causes now cover twenty-nine current paths beyond the lending-freeze class because the `LoanBrokerCover` precision root includes deposit, withdraw, and clawback sub-ULP paths, plus a separate `Number::operator/=` upward-division proof, a delegated MPT issuance-mutation proof, a delegated empty-`AccountSet` sequence-consumption proof, a batch signer outer-account replay proof, a CheckCash auto-trustline bypass of `DisallowIncomingTrustline`, and a TokenEscrow finish auto-trustline bypass of `DisallowIncomingTrustline`. The feature-bound MPT locked-holder proof requires `MPTokensV1` active and `SingleAssetVault` inactive. The MPT `STIssue` wire-order proof is counted separately from transaction-path P0s. The MPT aggregate `MaximumAmount`, invariant-overwrite, expired-credential cleanup, permissioned-DEX empty-`AdditionalBooks`, loan payment-factor cancellation, Number upward-rounding cusp, Number upward-division, and MPT transfer-rate overflow cases are helper/accounting, cleanup-consumer, or invariant-path repros following upstream regression style rather than standalone transaction-path repros in this suite. Follow-up artifacts:
+The 2026-05-27 hunt adds twenty-seven current `3.1.3` transaction/helper root-cause repros, one feature-bound MPT lock-state repro, one current protocol-wire serialization proof, nine historical/replay-era root-cause repros, and two demoted false positives. The current root causes now cover thirty current paths beyond the lending-freeze class because the `LoanBrokerCover` precision root includes deposit, withdraw, and clawback sub-ULP paths, plus a separate `Number::operator/=` upward-division proof, a delegated MPT issuance-mutation proof, a delegated empty-`AccountSet` sequence-consumption proof, a batch signer outer-account replay proof, a CheckCash auto-trustline bypass of `DisallowIncomingTrustline`, a TokenEscrow finish auto-trustline bypass of `DisallowIncomingTrustline`, and a transfer-rate offer-crossing reserve-drift proof. The feature-bound MPT locked-holder proof requires `MPTokensV1` active and `SingleAssetVault` inactive. The MPT `STIssue` wire-order proof is counted separately from transaction-path P0s. The MPT aggregate `MaximumAmount`, invariant-overwrite, expired-credential cleanup, permissioned-DEX empty-`AdditionalBooks`, loan payment-factor cancellation, Number upward-rounding cusp, Number upward-division, and MPT transfer-rate overflow cases are helper/accounting, cleanup-consumer, or invariant-path repros following upstream regression style rather than standalone transaction-path repros in this suite. Follow-up artifacts:
 
 - `runs/20260527-p0-hunt/candidate_matrix.md`
 - `runs/20260527-p0-hunt/repro_results.md`

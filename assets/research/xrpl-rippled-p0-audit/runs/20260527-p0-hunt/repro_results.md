@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,7 +136,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
@@ -163,7 +163,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side companion to the CheckCash
@@ -192,13 +192,40 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side reserve-boundary companion to the
 CheckCash boundary control. The path succeeds even when the receiver lacks
 reserve capacity for the owner-count increment that should accompany a positive
 trustline balance.
+
+## Current sibling: offer crossing with issuer transfer rate
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Gateway sets a non-default transfer rate.
+2. Alice clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+3. A market account posts a USD/XRP offer.
+4. Alice crosses the offer and receives a positive gateway USD balance through
+   the transfer-rate offer path.
+5. Alice's trustline remains in the no-reserve state while `OwnerCount`
+   remains `0`.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — offer crossing with transfer rate creates positive balance without reserve
+17.3s, 1 suite, 70 cases, 16752 tests total, 0 failures
+```
+
+Interpretation: this is the transfer-rate companion to the base offer-crossing
+witness. It confirms the missing receiver-side owner-count/reserve transition
+survives normal issuer transfer-rate accounting.
 
 ## Current sibling: CheckCash missing-owner-reserve boundary
 
@@ -220,7 +247,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this proves the same root cause at the reserve boundary. The
@@ -244,7 +271,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is a third live settlement path for the same old
@@ -270,7 +297,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this shows NFT seller proceeds can hit the same old
@@ -294,7 +321,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this gives a second NFT-specific witness for the same shared
@@ -318,7 +345,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — AMMWithdraw creates positive balance without reserve
-15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
+15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is another current-live settlement family reaching the
@@ -344,7 +371,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — AMMClawback creates positive balance without reserve
-17.3s, 1 suite, 69 cases, 16688 tests total, 0 failures
+17.3s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 Interpretation: this is the AMMClawback paired-asset companion to the
