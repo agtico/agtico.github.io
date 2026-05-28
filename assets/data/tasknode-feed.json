@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T09:39:40.636Z",
+  "generated_at": "2026-05-28T12:58:41.236Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,391 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:1ba33cd7",
+      "timestamp": "2026-05-28T12:40:45.526Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:0ad81ad6",
+      "category": "travel",
+      "title": "Starting a sponsor-ready pitch and pricing package for a European travel campaign.",
+      "summary": "Starting a sponsor-ready pitch and pricing package for a European travel campaign.",
+      "tickers": [],
+      "tags": [
+        "travel",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1ba33cd7"
+      }
+    },
+    {
+      "id": "task:02c94294",
+      "timestamp": "2026-05-28T12:10:46.868Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning work on a vendored validator parser and UNL selector in the public sidecar repo.",
+      "summary": "Planning work on a vendored validator parser and UNL selector in the public sidecar repo.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:02c94294"
+      }
+    },
+    {
+      "id": "task:208ba54f",
+      "timestamp": "2026-05-28T11:16:17.073Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a Plotly dashboard for the top combined crypto-factor signal using HyperLiquid shado...",
+      "summary": "Planning a Plotly dashboard for the top combined crypto-factor signal using HyperLiquid shadow outputs.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:208ba54f"
+      }
+    },
+    {
+      "id": "task:efbcbcc9",
+      "timestamp": "2026-05-28T10:30:44.056Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Delivered the sidecar scoring design contract and earned a reward.",
+      "summary": "Delivered the sidecar scoring design contract and earned a reward.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:efbcbcc9"
+      }
+    },
+    {
+      "id": "task:4b463840",
+      "timestamp": "2026-05-28T10:30:19.881Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for the sidecar scoring design contract.",
+      "summary": "Uploaded follow-up evidence for the sidecar scoring design contract.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:4b463840"
+      }
+    },
+    {
+      "id": "task:f9ec8b9a",
+      "timestamp": "2026-05-28T10:30:18.065Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded a verification response for the sidecar scoring design contract on PFTL.",
+      "summary": "Recorded a verification response for the sidecar scoring design contract on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f9ec8b9a"
+      }
+    },
+    {
+      "id": "task:a047d04d",
+      "timestamp": "2026-05-28T10:28:16.480Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Requested verification for the sidecar scoring design contract.",
+      "summary": "Requested verification for the sidecar scoring design contract.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a047d04d"
+      }
+    },
+    {
+      "id": "task:b6cb6830",
+      "timestamp": "2026-05-28T10:27:47.189Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded proof of the sidecar scoring design contract on PFTL.",
+      "summary": "Recorded proof of the sidecar scoring design contract on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:b6cb6830"
+      }
+    },
+    {
+      "id": "task:ba2921ed",
+      "timestamp": "2026-05-28T10:27:45.451Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for the sidecar scoring design contract in the public Dynamic UNL scoring...",
+      "summary": "Submitted evidence for the sidecar scoring design contract in the public Dynamic UNL scoring repo.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:ba2921ed"
+      }
+    },
+    {
+      "id": "task:a322c2ec",
+      "timestamp": "2026-05-28T10:08:44.120Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning a sidecar scoring design contract for Dynamic UNL Phase 2 in the public repository.",
+      "summary": "Planning a sidecar scoring design contract for Dynamic UNL Phase 2 in the public repository.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249",
+          "url": "https://explorer.testnet.postfiat.org/transactions/99B7D4E476B0DDC5BCF26A4CD5A7B4BCAFC0D2298D7B6836ADDD75742CA87249/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/5D197001BD5271220E6B6673B32ED7B600B86C276DF338DEA1879EA33F28BF4B/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4A4711401A4C6B56311CFC43B7B9E51B28DF84D8FA798339A772A602B5153A63/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a322c2ec"
+      }
+    },
+    {
+      "id": "task:3f76e9bd",
+      "timestamp": "2026-05-28T09:48:45.816Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Planning a Python gate for governance rollback lifecycle trace consistency.",
+      "summary": "Planning a Python gate for governance rollback lifecycle trace consistency.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:3f76e9bd"
+      }
+    },
     {
       "id": "task:b672a2d4",
       "timestamp": "2026-05-28T09:19:07.831Z",
@@ -502,409 +887,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:23de1b78"
-      }
-    },
-    {
-      "id": "task:48590417",
-      "timestamp": "2026-05-28T07:57:34.155Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a governance learning eligibility reducer for Task Node routing.",
-      "summary": "Requested verification for a governance learning eligibility reducer for Task Node routing.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "199C001BAE93151290074F852B903CE2A3664A9C142B9B65385473BD0EDEEC21",
-          "url": "https://explorer.testnet.postfiat.org/transactions/199C001BAE93151290074F852B903CE2A3664A9C142B9B65385473BD0EDEEC21/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FC4E6205C3C2582364E2B7E4971A65CEF56766E44E5798F9E84B91B3B6E791D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FC4E6205C3C2582364E2B7E4971A65CEF56766E44E5798F9E84B91B3B6E791D0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "DECB5CCC58C66FC4A6491D10D195DB91F98A1AB922DC7FFC066D08A1FFE0190A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DECB5CCC58C66FC4A6491D10D195DB91F98A1AB922DC7FFC066D08A1FFE0190A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:48590417"
-      }
-    },
-    {
-      "id": "task:b55335c0",
-      "timestamp": "2026-05-28T07:57:04.083Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a governance learning eligibility reducer for Task Node routing.",
-      "summary": "Submitted evidence for a governance learning eligibility reducer for Task Node routing.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "199C001BAE93151290074F852B903CE2A3664A9C142B9B65385473BD0EDEEC21",
-          "url": "https://explorer.testnet.postfiat.org/transactions/199C001BAE93151290074F852B903CE2A3664A9C142B9B65385473BD0EDEEC21/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FC4E6205C3C2582364E2B7E4971A65CEF56766E44E5798F9E84B91B3B6E791D0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FC4E6205C3C2582364E2B7E4971A65CEF56766E44E5798F9E84B91B3B6E791D0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "DECB5CCC58C66FC4A6491D10D195DB91F98A1AB922DC7FFC066D08A1FFE0190A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/DECB5CCC58C66FC4A6491D10D195DB91F98A1AB922DC7FFC066D08A1FFE0190A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:b55335c0"
-      }
-    },
-    {
-      "id": "task:97c78a95",
-      "timestamp": "2026-05-28T06:40:36.902Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:be9847b4",
-      "category": "biotech",
-      "title": "Planning a BioMaps graph-schema pilot for experimental data infrastructure and new relationsh...",
-      "summary": "Planning a BioMaps graph-schema pilot for experimental data infrastructure and new relationship tags.",
-      "tickers": [],
-      "tags": [
-        "biotech",
-        "task-node",
-        "personal"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:97c78a95"
-      }
-    },
-    {
-      "id": "task:ff3fc557",
-      "timestamp": "2026-05-28T06:36:05.048Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a deterministic Python reducer for governance rollback execution receipts.",
-      "summary": "Planning a deterministic Python reducer for governance rollback execution receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ff3fc557"
-      }
-    },
-    {
-      "id": "task:7595274d",
-      "timestamp": "2026-05-28T06:30:35.745Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Planning a deterministic Python gate for governance-learning rollback evidence.",
-      "summary": "Planning a deterministic Python gate for governance-learning rollback evidence.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:7595274d"
-      }
-    },
-    {
-      "id": "task:0fc82ca4",
-      "timestamp": "2026-05-28T06:26:35.970Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered a deterministic governance disagreement reducer and earned a reward.",
-      "summary": "Delivered a deterministic governance disagreement reducer and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0fc82ca4"
-      }
-    },
-    {
-      "id": "task:e3af2914",
-      "timestamp": "2026-05-28T06:26:07.977Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a deterministic governance disagreement reducer on PFTL.",
-      "summary": "Recorded a verification response for a deterministic governance disagreement reducer on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e3af2914"
-      }
-    },
-    {
-      "id": "task:df113c76",
-      "timestamp": "2026-05-28T06:26:06.465Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic governance disagreement reducer.",
-      "summary": "Uploaded follow-up evidence for a deterministic governance disagreement reducer.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:df113c76"
-      }
-    },
-    {
-      "id": "task:7949a570",
-      "timestamp": "2026-05-28T05:49:05.643Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic governance disagreement reducer.",
-      "summary": "Requested verification for a deterministic governance disagreement reducer.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:7949a570"
-      }
-    },
-    {
-      "id": "task:e45766ca",
-      "timestamp": "2026-05-28T05:49:03.923Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded proof of a deterministic governance disagreement reducer on PFTL.",
-      "summary": "Recorded proof of a deterministic governance disagreement reducer on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e45766ca"
-      }
-    },
-    {
-      "id": "task:1f1b901a",
-      "timestamp": "2026-05-28T05:48:33.694Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Submitted evidence for a deterministic Python reducer that handles governance outcome disagre...",
-      "summary": "Submitted evidence for a deterministic Python reducer that handles governance outcome disagreement envelopes.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2528F3B54AB070FBBD201C0FC03FB1751265BF936500EEC0CD94F5C9A5D215A0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D03AEC25FD98391F0E58177A323DB6240D35A241F7EE3DE2FBACD2F592B6D2FE/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8634CA03CE626B1BE35EC659CBAE2590B8D99455BF534BC05CB0CA4759E52A63/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:1f1b901a"
       }
     }
   ]
