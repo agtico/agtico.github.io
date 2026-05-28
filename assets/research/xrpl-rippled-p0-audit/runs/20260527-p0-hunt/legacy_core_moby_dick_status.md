@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:56:57Z
-amendment_checked_utc: 2026-05-28T06:56:55Z
+runtime_checked_utc: 2026-05-28T07:06:01Z
+amendment_checked_utc: 2026-05-28T07:05:59Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532334, hash 4DDED2F4E229646C7F150CD408753433E196C012F37E3670ED02C0BF88D9C333
-s2.ripple.com: rippled 3.1.3, ledger 104532334, hash 4DDED2F4E229646C7F150CD408753433E196C012F37E3670ED02C0BF88D9C333
+s1.ripple.com: rippled 3.1.3, ledger 104532474, hash 160A123711A959B61A66C6A214356F8C3054225F95D39A9EB1D5533586E635A1
+s2.ripple.com: rippled 3.1.3, ledger 104532475, hash 62EC1A6863C8B74D3187CBD8C11361A96AE1C599F1DE5E7913E7E3ACF781319D
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -50,6 +50,7 @@ Completed and packet-bound work:
   and result-code fixes.
 - regular-key/master-key authorization and signer cleanup sweep.
 - payment sandbox deferred-credit focused pathing sweep.
+- transaction-queue minimum-reserve potential-spend sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -863,8 +864,25 @@ ripple.ledger.PaymentSandbox had 0 failures.
 commit `e7a69cce6`, "Account for minimum reserve in potential spend." That fix
 is already an ancestor of the current `3.1.3` proof target and `origin/develop`.
 It resolved an old queued-transaction fee/reserve accounting issue and also
-changed legacy Escrow/PayChan owner-count writes to `adjustOwnerCount()`. Since
-the current target already contains it, it is not a live Moby Dick candidate.
+changed legacy Escrow/PayChan owner-count writes to `adjustOwnerCount()`. This
+continuation closed the source signal with a static sweep, the historical patch
+record, and upstream TxQ plus owner-object coverage. Since the current target
+already contains the fix and the current suite passed, it is not a live Moby
+Dick candidate. Static artifact
+`txq_min_reserve_potential_spend_static_sweep_20260528.log` has sha256
+`c6f59dc786d9314f8b1688d1dd3f2fb7edc12a8de254ce1f668fcba6086d900e`.
+History artifact `txq_min_reserve_potential_spend_history_sweep_20260528.log`
+has sha256 `01f957eaf54d92a31f5044e04b6fee3c187eebc448736c97cf6789d3de7ab5fa`.
+Suite artifact `txq_min_reserve_potential_spend_source_kill_20260528.log` has
+sha256 `11fe6edc6b98a17e4b24ea9e90f56b705ecd502b1c7c963310669dc180853cf8`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.Escrow had 0 failures.
+ripple.app.PayChan had 0 failures.
+ripple.app.Ticket had 0 failures.
+101.9s, 13 suites, 502 cases, 71678 tests total, 0 failures
+```
 
 `PAYMENT-HOLDER-TO-HOLDER-RESERVE-SIBLING-001` was scratch-tested as the next
 plain-payment sibling for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. The setup
