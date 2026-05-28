@@ -6,7 +6,7 @@ summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 fork-inheritance audit cu
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
-report_css_version: 20260528f
+report_css_version: 20260528g
 tags:
   - AGTI
   - Post Fiat
@@ -126,7 +126,7 @@ The packet deliberately separates three questions:
 
 ## Current Mainnet State
 
-Direct XRPL public JSON-RPC checks on 2026-05-27 produced the current-state packet:
+Direct XRPL public JSON-RPC checks were refreshed through `2026-05-28T10:28:36Z` and produced the current-state packet:
 
 - Runtime receipt: [`direct_xrpl_mainnet_runtime_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_mainnet_runtime_status_20260527.json)
 - Amendment receipt: [`direct_xrpl_amendment_status_20260527.json`](/assets/research/xrpl-rippled-p0-audit/direct_xrpl_amendment_status_20260527.json)
@@ -522,12 +522,12 @@ Read the `Risk` column as internal fork-inheritance risk. For the policy cluster
 | Live-only triage | [`live_p0_hunt_v2_triage.md`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md) |
 | Static packet verifier | [`verify_packet.py`](/assets/research/xrpl-rippled-p0-audit/verify_packet.py) |
 | Common repro runner | [`run_repro.sh`](/assets/research/xrpl-rippled-p0-audit/run_repro.sh) |
-| Proof extract | [`live_mainnet_enabled_proof_extract_20260527_v13.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v13.log) |
+| Proof extract | [`live_mainnet_enabled_proof_extract_20260527_v23.log`](/assets/research/xrpl-rippled-p0-audit/runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v23.log) |
 
 Proof extract hash:
 
 ```text
-302da1ccf25b3ab103cdccf231be443515e81561593c34912aca87849a22cfd6
+dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362
 ```
 
 ## Reproduction Model
@@ -550,10 +550,24 @@ Expected proof footer:
 
 ```text
 ripple.tx.OpenP0Repro had 0 failures.
-59 cases, 16068 tests total, 0 failures
+70 cases, 16752 tests total, 0 failures
+ripple.tx.OpenP0ReproCrash had 0 failures.
+1 case, 12 tests total, 0 failures
 ```
 
 The per-finding wrapper reads `repro_manifest.json`, runs the upstream local jtx proof suite, asserts the targeted marker, and requires the zero-failure proof footer.
+
+## Current Hunt State
+
+The public packet should be read as the current promoted evidence set, not as a scratchpad of every candidate investigated. After the live-only inventory was assembled, additional continuation sweeps source-killed several branches rather than adding new public findings:
+
+- `Credentials` lifecycle/RPC/invariant sweep;
+- `XChainBridge` live gate, which remains disabled on checked mainnet state;
+- OFAC XRP address, deep-freeze, clawback, NFT settlement, and RPC metadata sweep;
+- MPT delivered-amount metadata/RPC sweep over `fixMPTDeliveredAmount`;
+- broader AMM, PermissionedDEX, and TokenEscrow sibling sweeps beyond the already packeted findings.
+
+Those negative results are useful, but they do not change the public count. The current live packet remains `19` reproduced findings, `14` with no confirmed fix in the checked refs, and `5` with post-3.1.3 remediation evidence. The strongest old-core finding remains `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`, reproduced across the current target and older release-line anchors in the packet evidence.
 
 ## Upstream And Disclosure Boundary
 
@@ -595,6 +609,6 @@ Issue identifiers are **internal audit labels**, not official CVEs or vendor adv
 
 **Corrections.** If you believe any statement is inaccurate, contact us with reproducible evidence and we will review updates in good faith.
 
-*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt checked 2026-05-27T20:06:02Z*
+*Baseline: upstream rippled `release-3.1.3` - direct XRPL validated-ledger amendment receipt refreshed 2026-05-28T10:28:36Z*
 
 </div>
