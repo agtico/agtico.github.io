@@ -1,0 +1,33 @@
+2eca3dca8 2025-11-13 Merge remote-tracking branch 'upstream/develop' into ximinez/lending-number-simple
+508937f3d 2025-11-13 refactor: Retire MultiSignReserve and ExpandedSignerList amendments (#5981)
+89979022f 2025-11-03 Merge remote-tracking branch 'upstream/develop' into ximinez/lending-XLS-66
+50fc93f74 2025-10-31 refactor: Retire fixMasterKeyAsRegularKey amendment (#5959)
+e919a25ec 2025-10-07 Merge develop into ripple/confidential-transfer (#5835)
+510314d34 2025-09-17 fix(amendment): Add missing fields for keylets to ledger objects (#5646)
+527e0c916 2025-05-16 Lending protocol implementation (XLS-0066)
+848311563 2025-01-31 Lending protocol implementation (XLS-0066)
+b7152496c 2025-04-04 Add LoanBroker update tests
+01c37fed6 2022-04-11 Introduce the `ExpandedSignerList` amendment:
+5743dc453 2021-10-25 Change initialization code to use "disable master key" txn as milestone:
+9196d9541 2019-09-24 Include validator's master public key in validation stream:
+c5a938de5 2019-03-05 Disallow using the master key as the regular key:
+6572fc8e9 2018-07-13 Implement MultiSignReserve amendment [RIPD-1647]:
+7e30897ef 2018-06-28 Increase validation quorum to 80%
+b55edfa8f 2016-02-03 Sign manifest with ephemeral and master keys (RIPD-1083)
+1c6e32ccc 2016-08-08 Migrate SetRegularKey unit tests (RIPD-1258): Create SetRegularKey test to replace existing js test. Copy and simplify some existing test logic from Env_test.cpp and MultiSign.test.cpp. Add coverage for tfUniversalMask tx flag error case.
+2f94e1635 2016-01-07 Add SignerList to account_info response (RIPD-1061):
+843385165 2016-01-05 Add SignerList support to account_objects (RIPD-1061):
+03516a14d 2015-11-07 Defer checking whether master key was used for signing
+f1c29ae20 2015-08-06 Allow an account to be exclusively multisigned (RIPD-182):
+9e69bd5c5 2015-06-22 Simple multisigning (RIPD-182):
+0dd6b95ac 2015-04-10 Add Validator Manifests (RIPD-772):
+d6ef66646 2015-02-09 2-level transaction multi-signatures (RIPD-182):
+64ebd64d2 2015-02-06 SignerListSet txn and InnerObjectFormats (RIPD-182):
+d1193093e 2014-11-01 Require the master key when performing certain operations (RIPD-666): * When disabling the use of the master key; or * When enabling 'no freeze'.
+360db3c7c 2014-04-23 Fix RIPD-166:
+82dbf5794 2013-06-19 Fix bug in regular key set transactions.
+3b8201803 2013-06-19 Fix bug in regular key set transactions.
+36a84484e 2013-06-17 Implement clearing the regular key, setting and clearing the no master flag and enforcing the no master flag.
+188628324 2013-06-17 Define flags for disabling the master key.
+280f832c1 2012-11-20 regular key set fee
+44826f1ce 2012-11-13 AuthorizedKey -> RegularKey

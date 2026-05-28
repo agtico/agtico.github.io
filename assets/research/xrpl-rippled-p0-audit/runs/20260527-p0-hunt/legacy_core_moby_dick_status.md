@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:38:59Z
-amendment_checked_utc: 2026-05-28T06:38:57Z
+runtime_checked_utc: 2026-05-28T06:47:02Z
+amendment_checked_utc: 2026-05-28T06:47:00Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532056, hash 38E5352E78AB3D5CD8A6A6EB342DB219B2545CA3717AD8AB991C5297A2B1EA6B
-s2.ripple.com: rippled 3.1.3, ledger 104532056, hash 38E5352E78AB3D5CD8A6A6EB342DB219B2545CA3717AD8AB991C5297A2B1EA6B
+s1.ripple.com: rippled 3.1.3, ledger 104532181, hash 189DAF2EB8EF888BC4DE4E1F68A84D3CEBE90CCBC35179739C3F5C1882BDC2BF
+s2.ripple.com: rippled 3.1.3, ledger 104532181, hash 189DAF2EB8EF888BC4DE4E1F68A84D3CEBE90CCBC35179739C3F5C1882BDC2BF
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -48,6 +48,7 @@ Completed and packet-bound work:
 - deterministic exception and arithmetic sweep;
 - source-signal clustering around reserve, owner-count, trustline, directory,
   and result-code fixes.
+- regular-key/master-key authorization and signer cleanup sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -360,6 +361,39 @@ ripple.app.DepositAuth had 0 failures.
 ripple.app.DepositPreauth had 0 failures.
 ripple.app.Invariants had 0 failures.
 46.2s, 5 suites, 155 cases, 19207 tests total, 0 failures
+```
+
+`REGULARKEY-MASTERKEY-AUTH-SWEEP-001` asked whether old regular-key,
+disabled-master, signer-list, ticket-paid key rotation, or delegated-signature
+behavior can leave an account with broken authorization, unremovable signing
+state, or transaction-visible auth bypass. The source review covered
+`SetRegularKey::preflight`, `SetRegularKey::doApply`, `SetAccount`'s
+`asfDisableMaster` handling, `Transactor::checkSingleSign`,
+`Transactor::checkMultiSign`, signer-list cleanup, delegated signing, ticket
+usage, and account deletion. The history sweep found the old 2013 regular-key
+fixes, the 2015 master-key requirement, the 2019 `fixMasterKeyAsRegularKey`
+amendment, and the 2025 retirement of that amendment, but no current live
+branch with a minimized transaction-visible witness. Existing upstream coverage
+then passed across regular-key setting/revocation, master-key disable/reenable,
+master-as-regular-key before and after the fix, zero-fee password-spent
+behavior, ticket-paid regular-key changes, multisign master/regular-key checks,
+signer-list transitions, delegation, account-delete cleanup, and invariants.
+Static artifact `regularkey_masterkey_auth_static_sweep_20260528.log` has
+sha256 `f776a22896a78511d430d6b2ef2e160cba5afccd0613932256254256cc85b3e2`.
+History artifact `regularkey_masterkey_auth_history_sweep_20260528.log` has
+sha256 `3f8beaa3bb6147f7560eda5e0dfade9ad0bd57d9e48a5ad58f205204fbfc82bc`.
+Suite artifact `regularkey_masterkey_auth_source_kill_20260528.log` has
+sha256 `cd57379575d1eb28747cf3f686e6f28c423d8cf855f2079b757b4c7f246b3a23`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.rpc.AccountSet had 0 failures.
+ripple.app.Delegate had 0 failures.
+ripple.app.Invariants had 0 failures.
+ripple.app.MultiSign had 0 failures.
+ripple.app.SetRegularKey had 0 failures.
+ripple.app.Ticket had 0 failures.
+71.7s, 7 suites, 194 cases, 28923 tests total, 0 failures
 ```
 
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:

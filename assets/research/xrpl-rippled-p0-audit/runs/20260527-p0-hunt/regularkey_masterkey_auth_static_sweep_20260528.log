@@ -1,0 +1,228 @@
+src/test/rpc/AccountSet_test.cpp:62:        // her asfDisableMaster flag.
+src/test/rpc/AccountSet_test.cpp:145:             asfDisableMaster,
+src/test/rpc/AccountSet_test.cpp:156:             asfDisableMaster,
+src/test/rpc/AccountSet_test.cpp:514:        env(fset(alice, asfDisableMaster),
+src/test/rpc/AccountSet_test.cpp:516:            ter(tecNO_ALTERNATIVE_KEY));
+src/test/rpc/Simulate_test.cpp:841:        env(fset(env.master, asfDisableMaster), sig(env.master));
+src/test/rpc/Simulate_test.cpp:856:                            result[jss::engine_result] == "tefMASTER_DISABLED");
+src/test/rpc/Feature_test.cpp:351:                "fixMasterKeyAsRegularKey");
+src/test/rpc/AccountTx_test.cpp:718:            {17, jss::SetRegularKey,          {},                                                         {},                               {jss::AccountRoot}},
+src/xrpld/rpc/detail/TransactionSign.cpp:171:        if (sle.isFlag(lsfDisableMaster))
+src/xrpld/rpc/detail/TransactionSign.cpp:177:    if ((sle.isFieldPresent(sfRegularKey)) &&
+src/xrpld/rpc/detail/TransactionSign.cpp:178:        (publicKeyAcctID == sle.getAccountID(sfRegularKey)))
+src/xrpld/rpc/detail/TransactionSign.cpp:1103:checkMultiSignFields(Json::Value const& jvRequest)
+src/xrpld/rpc/detail/TransactionSign.cpp:1232:        // in order for the `checkMultiSignFields` to not return an error
+src/xrpld/rpc/detail/TransactionSign.cpp:1242:        Json::Value err = checkMultiSignFields(jvRequest);
+src/xrpld/rpc/detail/TransactionSign.cpp:1329:        Json::Value err = checkMultiSignFields(jvRequest);
+src/test/app/XChain_test.cpp:2557:                scEnv.tx(fset(alt_signers[2].account, asfDisableMaster, 0))
+src/test/app/SetRegularKey_test.cpp:26:class SetRegularKey_test : public beast::unit_test::suite
+src/test/app/SetRegularKey_test.cpp:35:        Env env{*this, testable_amendments() - fixMasterKeyAsRegularKey};
+src/test/app/SetRegularKey_test.cpp:43:            ar->isFieldPresent(sfRegularKey) &&
+src/test/app/SetRegularKey_test.cpp:44:            (ar->getAccountID(sfRegularKey) == bob.id()));
+src/test/app/SetRegularKey_test.cpp:50:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:52:        env(noop(alice), sig(alice), ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:55:        env(fclear(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:57:            ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:59:        env(fclear(alice, asfDisableMaster), sig(bob));
+src/test/app/SetRegularKey_test.cpp:65:        env(noop(alice), sig(bob), ter(tefBAD_AUTH_MASTER));
+src/test/app/SetRegularKey_test.cpp:75:        Env env{*this, testable_amendments() | fixMasterKeyAsRegularKey};
+src/test/app/SetRegularKey_test.cpp:85:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:87:        env(noop(alice), sig(alice), ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:90:        env(fclear(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:92:            ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:94:        env(fclear(alice, asfDisableMaster), sig(bob));
+src/test/app/SetRegularKey_test.cpp:100:        env(noop(alice), sig(bob), ter(tefBAD_AUTH));
+src/test/app/SetRegularKey_test.cpp:111:            "Set regular key to master key (before fixMasterKeyAsRegularKey)");
+src/test/app/SetRegularKey_test.cpp:112:        Env env{*this, testable_amendments() - fixMasterKeyAsRegularKey};
+src/test/app/SetRegularKey_test.cpp:116:        // Must be possible unless amendment `fixMasterKeyAsRegularKey` enabled.
+src/test/app/SetRegularKey_test.cpp:118:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:121:        env(noop(alice), ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:122:        env(noop(alice), sig(alice), ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:125:        env.enableFeature(fixMasterKeyAsRegularKey);
+src/test/app/SetRegularKey_test.cpp:129:        env(regkey(alice, disabled), ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/SetRegularKey_test.cpp:130:        env(fclear(alice, asfDisableMaster));
+src/test/app/SetRegularKey_test.cpp:132:        env(fset(alice, asfDisableMaster), ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/SetRegularKey_test.cpp:141:            "Set regular key to master key (after fixMasterKeyAsRegularKey)");
+src/test/app/SetRegularKey_test.cpp:142:        Env env{*this, testable_amendments() | fixMasterKeyAsRegularKey};
+src/test/app/SetRegularKey_test.cpp:146:        // Must be possible unless amendment `fixMasterKeyAsRegularKey` enabled.
+src/test/app/SetRegularKey_test.cpp:174:        // The second SetRegularKey transaction with Fee=0 should fail.
+src/test/app/SetRegularKey_test.cpp:223:        env(fset(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:231:        env(noop(alice), sig(alice), ter(tefMASTER_DISABLED));
+src/test/app/SetRegularKey_test.cpp:237:        env(fclear(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:249:        env(noop(alice), sig(alie), ter(tefBAD_AUTH));
+src/test/app/SetRegularKey_test.cpp:266:BEAST_DEFINE_TESTSUITE(SetRegularKey, app, ripple);
+src/test/app/Delegate_test.cpp:223:            env(delegate::set(gw, alice, {"SetRegularKey"}), res);
+src/test/app/Delegate_test.cpp:1323:            // bob can not set asfDisableMaster on behalf of alice
+src/test/app/Delegate_test.cpp:1327:            env(fset(alice, asfDisableMaster),
+src/test/app/Delegate_test.cpp:1540:            ter(tefBAD_AUTH));
+src/xrpld/app/tx/detail/Transactor.cpp:703:            return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:731:        return checkMultiSign(view, flags, idAccount, sigObject, j);
+src/xrpld/app/tx/detail/Transactor.cpp:741:        return tefBAD_AUTH;  // FIXME: should be better error!
+src/xrpld/app/tx/detail/Transactor.cpp:752:    return checkSingleSign(view, idSigner, idAccount, sleAccount, j);
+src/xrpld/app/tx/detail/Transactor.cpp:777:            if (ret = checkMultiSign(
+src/xrpld/app/tx/detail/Transactor.cpp:786:                return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:797:                    return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:802:            if (ret = checkSingleSign(
+src/xrpld/app/tx/detail/Transactor.cpp:812:Transactor::checkSingleSign(
+src/xrpld/app/tx/detail/Transactor.cpp:819:    bool const isMasterDisabled = sleAccount->isFlag(lsfDisableMaster);
+src/xrpld/app/tx/detail/Transactor.cpp:821:    if (view.rules().enabled(fixMasterKeyAsRegularKey))
+src/xrpld/app/tx/detail/Transactor.cpp:824:        if ((*sleAccount)[~sfRegularKey] == idSigner)
+src/xrpld/app/tx/detail/Transactor.cpp:838:            return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:842:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:849:            return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:851:    else if ((*sleAccount)[~sfRegularKey] == idSigner)
+src/xrpld/app/tx/detail/Transactor.cpp:855:    else if (sleAccount->isFieldPresent(sfRegularKey))
+src/xrpld/app/tx/detail/Transactor.cpp:858:        JLOG(j.trace()) << "checkSingleSign: Not authorized to use account.";
+src/xrpld/app/tx/detail/Transactor.cpp:859:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:864:        // FIXME: Why differentiate this case from tefBAD_AUTH?
+src/xrpld/app/tx/detail/Transactor.cpp:865:        JLOG(j.trace()) << "checkSingleSign: Not authorized to use account.";
+src/xrpld/app/tx/detail/Transactor.cpp:866:        return tefBAD_AUTH_MASTER;
+src/xrpld/app/tx/detail/Transactor.cpp:873:Transactor::checkMultiSign(
+src/xrpld/app/tx/detail/Transactor.cpp:895:        "ripple::Transactor::checkMultiSign : has signer list ID");
+src/xrpld/app/tx/detail/Transactor.cpp:898:        "ripple::Transactor::checkMultiSign : signer list ID is 0");
+src/xrpld/app/tx/detail/Transactor.cpp:944:        // STTx::checkMultiSign
+src/xrpld/app/tx/detail/Transactor.cpp:948:                << "checkMultiSign: signing public key type is unknown";
+src/xrpld/app/tx/detail/Transactor.cpp:954:            "ripple::Transactor::checkMultiSign : non-empty signer or "
+src/xrpld/app/tx/detail/Transactor.cpp:973:        //         asfDisableMaster flag set, then the signature is allowed.
+src/xrpld/app/tx/detail/Transactor.cpp:992:                // Master Key.  Account may not have asfDisableMaster set.
+src/xrpld/app/tx/detail/Transactor.cpp:996:                if (signerAccountFlags & lsfDisableMaster)
+src/xrpld/app/tx/detail/Transactor.cpp:999:                        << "applyTransaction: Signer:Account lsfDisableMaster.";
+src/xrpld/app/tx/detail/Transactor.cpp:1000:                    return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:1015:            if (!sleTxSignerRoot->isFieldPresent(sfRegularKey))
+src/xrpld/app/tx/detail/Transactor.cpp:1022:                sleTxSignerRoot->getAccountID(sfRegularKey))
+src/test/app/Oracle_test.cpp:770:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/jtx/Env_test.cpp:268:        Env env{*this, testable_amendments() | fixMasterKeyAsRegularKey};
+src/test/jtx/Env_test.cpp:277:        env(noop(alice), sig("alice"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:280:            ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:281:        env(noop(bob), sig(Account("bob", KeyType::ed25519)), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:282:        env(noop(alice), sig(carol), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:291:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/jtx/Env_test.cpp:294:        env(noop(alice), sig(alice), ter(tefMASTER_DISABLED));
+src/test/jtx/Env_test.cpp:295:        env(fclear(alice, asfDisableMaster),
+src/test/jtx/Env_test.cpp:297:            ter(tefMASTER_DISABLED));
+src/test/jtx/Env_test.cpp:298:        env(fclear(alice, asfDisableMaster), sig(bob));
+src/test/jtx/Env_test.cpp:322:        env(pay(env.master, "alice", XRP(1000)), sig("bob"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:349:        env(noop("alice"), sig("bob"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:350:        env(fset("alice", asfDisableMaster), ter(tecNEED_MASTER_KEY));
+src/test/jtx/Env_test.cpp:351:        env(fset("alice", asfDisableMaster),
+src/test/jtx/Env_test.cpp:354:        env.require(nflags("alice", asfDisableMaster));
+src/test/jtx/Env_test.cpp:355:        env(fset("alice", asfDisableMaster), sig("alice"));
+src/test/jtx/Env_test.cpp:356:        env.require(flags("alice", asfDisableMaster));
+src/test/jtx/Env_test.cpp:357:        env(regkey("alice", disabled), ter(tecNO_ALTERNATIVE_KEY));
+src/test/jtx/Env_test.cpp:359:        env(noop("alice"), sig("alice"), ter(tefMASTER_DISABLED));
+src/test/jtx/Env_test.cpp:361:        env(noop("alice"), sig("bob"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:362:        env(fclear("alice", asfDisableMaster), sig("bob"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:363:        env(fclear("alice", asfDisableMaster),
+src/test/jtx/Env_test.cpp:365:            ter(tefMASTER_DISABLED));
+src/test/jtx/Env_test.cpp:366:        env(fclear("alice", asfDisableMaster));
+src/test/jtx/Env_test.cpp:367:        env.require(nflags("alice", asfDisableMaster));
+src/test/jtx/Env_test.cpp:369:        env(noop("alice"), sig("eric"), ter(tefBAD_AUTH));
+src/test/jtx/Env_test.cpp:417:        BEAST_EXPECT(jr[jss::result][jss::engine_result] == "tefBAD_AUTH");
+src/test/app/AMMExtended_test.cpp:3583:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/Loan_test.cpp:1707:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1721:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1734:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1739:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1758:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1763:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1782:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1787:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1805:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1810:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1828:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1841:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1855:            ter(tefBAD_AUTH));
+src/test/app/Loan_test.cpp:1907:            ter(tefBAD_AUTH));
+src/test/app/Batch_test.cpp:659:        // checkSign.checkSingleSign
+src/test/app/Batch_test.cpp:661:        // tefBAD_AUTH: Bob is not authorized to sign for Alice
+src/test/app/Batch_test.cpp:669:                ter(tefBAD_AUTH));
+src/test/app/Batch_test.cpp:674:        // checkBatchSign.checkMultiSign
+src/test/app/Batch_test.cpp:718:        // tefMASTER_DISABLED: Master key disabled
+src/test/app/Batch_test.cpp:721:            env(fset(elsa, asfDisableMaster), sig(elsa));
+src/test/app/Batch_test.cpp:728:                ter(tefMASTER_DISABLED));
+src/test/app/Batch_test.cpp:809:        // checkBatchSign.checkSingleSign
+src/test/app/Batch_test.cpp:811:        // tefBAD_AUTH: Inner Account is not signer
+src/test/app/Batch_test.cpp:820:                ter(tefBAD_AUTH));
+src/test/app/Batch_test.cpp:824:        // tefBAD_AUTH: Account is not signer
+src/test/app/Batch_test.cpp:833:                ter(tefBAD_AUTH));
+src/test/app/Batch_test.cpp:862:        // tefMASTER_DISABLED: Signed With Master Key Disabled
+src/test/app/Batch_test.cpp:865:            env(fset(bob, asfDisableMaster), sig(bob));
+src/test/app/Batch_test.cpp:872:                ter(tefMASTER_DISABLED));
+src/xrpld/app/tx/detail/SetAccount.cpp:45:            (*uSetFlag == asfRequireAuth || *uSetFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:50:            (*uClearFlag == asfRequireAuth || *uClearFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:399:    if ((uSetFlag == asfDisableMaster) && !(uFlagsIn & lsfDisableMaster))
+src/xrpld/app/tx/detail/SetAccount.cpp:407:        if ((!sle->isFieldPresent(sfRegularKey)) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:411:            return tecNO_ALTERNATIVE_KEY;
+src/xrpld/app/tx/detail/SetAccount.cpp:414:        JLOG(j_.trace()) << "Set lsfDisableMaster.";
+src/xrpld/app/tx/detail/SetAccount.cpp:415:        uFlagsOut |= lsfDisableMaster;
+src/xrpld/app/tx/detail/SetAccount.cpp:418:    if ((uClearFlag == asfDisableMaster) && (uFlagsIn & lsfDisableMaster))
+src/xrpld/app/tx/detail/SetAccount.cpp:420:        JLOG(j_.trace()) << "Clear lsfDisableMaster.";
+src/xrpld/app/tx/detail/SetAccount.cpp:421:        uFlagsOut &= ~lsfDisableMaster;
+src/xrpld/app/tx/detail/SetAccount.cpp:443:        if (!sigWithMaster && !(uFlagsIn & lsfDisableMaster))
+src/test/app/MultiSign_test.cpp:457:        env(fset(cheri, asfDisableMaster), sig(cheri));
+src/test/app/MultiSign_test.cpp:472:            ter(tefMASTER_DISABLED));
+src/test/app/MultiSign_test.cpp:526:        env(fset(cheri, asfDisableMaster), sig(cheri));
+src/test/app/MultiSign_test.cpp:753:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/MultiSign_test.cpp:764:        env(fset(daria, asfDisableMaster), sig(daria));
+src/test/app/MultiSign_test.cpp:911:        env(fset(alice, asfDisableMaster),
+src/test/app/MultiSign_test.cpp:913:            ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/MultiSign_test.cpp:920:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/MultiSign_test.cpp:923:        env(regkey(alice, disabled), sig(alie), ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/MultiSign_test.cpp:936:            ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/MultiSign_test.cpp:939:        env(fclear(alice, asfDisableMaster), msig(bogie), fee(2 * baseFee));
+src/test/app/MultiSign_test.cpp:948:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/MultiSign_test.cpp:957:        env(fclear(alice, asfDisableMaster), sig(alie));
+src/test/app/MultiSign_test.cpp:1020:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/MultiSign_test.cpp:1338:        env(fset(becky, asfDisableMaster));
+src/test/app/MultiSign_test.cpp:1346:            ter(tefMASTER_DISABLED));
+src/xrpld/app/tx/detail/Transactor.h:340:    checkSingleSign(
+src/xrpld/app/tx/detail/Transactor.h:347:    checkMultiSign(
+src/xrpld/app/tx/detail/SetSignerList.cpp:169:signerCountBasedOwnerCountDelta(std::size_t entryCount, Rules const& rules)
+src/xrpld/app/tx/detail/SetSignerList.cpp:188:        "ripple::signerCountBasedOwnerCountDelta : minimum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:191:        "ripple::signerCountBasedOwnerCountDelta : maximum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:220:            signerCountBasedOwnerCountDelta(actualList.size(), view.rules()) *
+src/xrpld/app/tx/detail/SetSignerList.cpp:247:SetSignerList::removeFromLedger(
+src/xrpld/app/tx/detail/SetSignerList.cpp:364:        addedOwnerCount = signerCountBasedOwnerCountDelta(
+src/xrpld/app/tx/detail/SetSignerList.cpp:403:SetSignerList::destroySignerList()
+src/xrpld/app/tx/detail/SetSignerList.cpp:412:    if ((ledgerEntry->isFlag(lsfDisableMaster)) &&
+src/xrpld/app/tx/detail/SetSignerList.cpp:413:        (!ledgerEntry->isFieldPresent(sfRegularKey)))
+src/xrpld/app/tx/detail/SetSignerList.cpp:414:        return tecNO_ALTERNATIVE_KEY;
+src/test/jtx/flags.h:52:            case asfDisableMaster:
+src/test/jtx/flags.h:53:                mask_ |= lsfDisableMaster;
+src/xrpld/app/tx/detail/XChainBridge.cpp:132:                lsfDisableMaster)
+src/xrpld/app/tx/detail/XChainBridge.cpp:143:                    (*sleAttestationSigningAccount)[~sfRegularKey];
+src/test/app/Ticket_test.cpp:420:        env(fset(env.master, asfDisableMaster),
+src/test/app/Ticket_test.cpp:422:            ter(tecNO_ALTERNATIVE_KEY));
+src/xrpld/app/tx/detail/SetRegularKey.cpp:20:#include <xrpld/app/tx/detail/SetRegularKey.h>
+src/xrpld/app/tx/detail/SetRegularKey.cpp:29:SetRegularKey::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/SetRegularKey.cpp:52:SetRegularKey::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetRegularKey.cpp:54:    if (ctx.rules.enabled(fixMasterKeyAsRegularKey) &&
+src/xrpld/app/tx/detail/SetRegularKey.cpp:55:        ctx.tx.isFieldPresent(sfRegularKey) &&
+src/xrpld/app/tx/detail/SetRegularKey.cpp:56:        (ctx.tx.getAccountID(sfRegularKey) == ctx.tx.getAccountID(sfAccount)))
+src/xrpld/app/tx/detail/SetRegularKey.cpp:65:SetRegularKey::doApply()
+src/xrpld/app/tx/detail/SetRegularKey.cpp:74:    if (ctx_.tx.isFieldPresent(sfRegularKey))
+src/xrpld/app/tx/detail/SetRegularKey.cpp:76:        sle->setAccountID(sfRegularKey, ctx_.tx.getAccountID(sfRegularKey));
+src/xrpld/app/tx/detail/SetRegularKey.cpp:81:        if (sle->isFlag(lsfDisableMaster) &&
+src/xrpld/app/tx/detail/SetRegularKey.cpp:83:            return tecNO_ALTERNATIVE_KEY;
+src/xrpld/app/tx/detail/SetRegularKey.cpp:85:        sle->makeFieldAbsent(sfRegularKey);
+src/test/app/Invariants_test.cpp:1131:                    lsfDisableMaster | lsfDefaultRipple | lsfDefaultRipple);
+src/test/app/Invariants_test.cpp:1148:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:1164:                    sfFlags, lsfDisableMaster | lsfDefaultRipple);
+src/test/app/Invariants_test.cpp:1181:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth |
+src/test/app/Invariants_test.cpp:1795:                    sle->at(sfRegularKey) = Account("regular").id();
+src/test/app/Invariants_test.cpp:3493:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3557:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/jtx/impl/regkey.cpp:33:    jv[jss::TransactionType] = jss::SetRegularKey;
+src/test/jtx/impl/regkey.cpp:43:    jv[jss::TransactionType] = jss::SetRegularKey;
+src/test/app/LoanBroker_test.cpp:184:                    (lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth));
+src/test/app/LoanBroker_test.cpp:191:                BEAST_EXPECT(!pseudo->isFieldPresent(sfRegularKey));
+src/xrpld/app/tx/detail/SetRegularKey.h:27:class SetRegularKey : public Transactor
+src/xrpld/app/tx/detail/SetRegularKey.h:32:    explicit SetRegularKey(ApplyContext& ctx) : Transactor(ctx)
+src/test/jtx/impl/Env.cpp:566:    if (ar && ar->isFieldPresent(sfRegularKey))
+src/test/jtx/impl/Env.cpp:567:        jtx::sign(jv, lookup(ar->getAccountID(sfRegularKey)));
+src/test/app/AMM_test.cpp:4919:                (lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth));
+src/xrpld/app/tx/detail/DeleteAccount.cpp:107:    return SetSignerList::removeFromLedger(app, view, account, j);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1117:                (lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1869:            // 3. The lsfDisableMaster, lsfDefaultRipple, and lsfDepositAuth
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1895:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1899:            if (after->isFieldPresent(sfRegularKey))
