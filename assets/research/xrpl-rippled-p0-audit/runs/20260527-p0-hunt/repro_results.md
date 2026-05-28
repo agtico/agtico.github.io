@@ -232,6 +232,47 @@ ripple.app.TrustAndBalance had 0 failures.
 144.1s, 15 suites, 716 cases, 96462 tests total, 0 failures
 ```
 
+## Current source kill: deterministic exception and arithmetic sweep
+
+Status: source-reviewed, history-reviewed, and tested through existing upstream
+suites; not promoted.
+
+Hypothesis: a normal transaction-shaped input on an old live path might still
+reach `tefINTERNAL`, `tefEXCEPTION`, `overflow_error`, assertion, or
+`tecINVARIANT_FAILED` instead of deterministic rejection.
+
+Static/history result: the sweep covered exception, invariant, overflow, and
+rounding call sites in `src/xrpld/app/tx/detail`, `src/xrpld/app/paths`,
+`src/xrpld/app/misc`, `src/libxrpl/protocol`, and `src/libxrpl/basics`, then
+mined local history for fix-looking arithmetic/result-code signals. The history
+rediscovered already-promoted or already-demoted items: `NUMBER-CUSP-UPWARD-001`,
+`NUMBER-DIVISION-UPWARD-001`, `MPT-TRANSFER-RATE-OVERFLOW-001`,
+`INVARIANT-BOOL-OVERWRITE-001`, LoanBrokerCover precision, vault invariant
+edges, and permissioned-DEX invariant cases. It did not isolate a new old-core
+transaction witness in this slice.
+
+Source-kill artifacts:
+
+```text
+runs/20260527-p0-hunt/deterministic_exception_arithmetic_static_sweep_20260528.log
+sha256: 16207ac6ee3de1c5c82c6205351d28d00c526ea042db2daf83bced518640ae48
+
+runs/20260527-p0-hunt/deterministic_exception_arithmetic_history_sweep_20260528.log
+sha256: 1341fc2cbd5d3c8c308b794a7814e8850c24096c7dca7aa73990cc8ea8cc4e67
+
+runs/20260527-p0-hunt/deterministic_exception_arithmetic_source_kill_20260528.log
+sha256: d6385bd19f70f12a50445601d0095c2821c691505f21f1bcc79d63282b45b284
+```
+
+Proof excerpt:
+
+```text
+ripple.basics.Number had 0 failures.
+ripple.protocol.STAmount had 0 failures.
+ripple.protocol.Quality had 0 failures.
+114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

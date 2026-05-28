@@ -1,0 +1,337 @@
+5abecb9fc Significant rewrite
+7c45a3b19 Merge remote-tracking branch 'XRPLF/ximinez/number-fix-maxrepcusp' into ximinez/number-maxint-range
+5bbc553ac Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+e89e6f50e Merge remote-tracking branch 'XRPLF/ximinez/number-fix-maxrepcusp' into ximinez/number-division-accuracy
+48b1716e6 Make Number::operator/= significantly more accurate
+7fdaa0a5e fix: Fix IOU precision issues in LoanBrokerCover transactions (#7274)
+19c60924a Merge remote-tracking branch 'XRPLF/ximinez/number-fix-maxrepcusp' into ximinez/number-maxint-range
+bf075200b Merge remote-tracking branch 'XRPLF/develop' into ximinez/online-delete-gaps
+3a4b92b05 Change the priority of the amendments for large mantissas
+71cf996fc Review feedback from @tapanito: lambda checks condition in doRoundUp
+08d5e1f6d Merge branch 'develop' into mvadari/constant-field-invariant
+18994a31b Merge branch 'develop' of https://github.com/XRPLF/rippled into mvadari/constant-field-invariant
+bf68edb54 Merge branch 'develop' of https://github.com/XRPLF/rippled into mvadari/constant-field-invariant
+4094f7f6c fix: Fix a rounding error at the Number::maxRep cusp (#7051)
+b5d73b126 fix: Fix IOU precision issues in LoanBrokerCover transactions (#7274)
+22fbf4d06 Fix MPT transfer-rate rounding overflow in STAmount
+e1946278f Merge remote-tracking branch 'origin/develop' into tapanito/lending-cover-precision
+570845892 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+0f48f94aa refactor: Use STLedgerEntry type aliases instead of std::shared_ptr
+c327fc1ee fix: Reject sub-ULP cover amounts with tecPRECISION_LOSS (fixCleanup3_2_0)
+88794a1ea docs: add Doxygen comments across xrpl and xrpld
+9294479a8 Merge remote-tracking branch 'origin/develop' into dangell7/docs
+47f30c913 Fix broken unit tests: EscrowToken
+9f0ca2687 Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+f48311849 Merge remote-tracking branch 'mywork/ximinez/number-fix-maxrepcusp' into ximinez/number-maxint-range
+4c5ab49d2 feat: async trace writer
+96ec754e0 Replace more string literals
+3d7ba941c refactor: Change config section and key string literals into constants
+b40d2a8e7 fix: Fix a rounding error at the Number::maxRep cusp
+d5ca8ef77 Merge branch 'develop' into mvadari/constant-field-invariant
+a8549a7ab fix(telemetry): address code review findings for Phase 8 log-trace correlation
+25d246fc9 Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+5afa29cd3 Merge remote-tracking branch 'upstream/develop' into ct-merge-dev-may-4
+321b86797 fix: Prevents overwriting a bool value in an invariant (#6609)
+ee3ef638f fix: Add description for `terLOCKED` error (#6811)
+fd2040a56 Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+c4527e7b0 Merge remote-tracking branch 'XRPLF/develop' into ximinez/online-delete-gaps
+31180f94c fix: Prevents overwriting a bool value in an invariant (#6609)
+581ab8f55 refactor(telemetry): replace txSpan with generic hashSpan factory
+7b9e2cf91 feat(telemetry): add TxQ tracing with 6 spans (Tasks 3.9/3.10)
+be812b8d2 refactor(telemetry): extract TX span name constants into TxSpanNames.h
+3508917f1 feat(telemetry): Phase 3 transaction tracing with protobuf context propagation
+20fabbc0e fix(telemetry): resolve Clang build, clang-tidy, and rename CI failures
+c2f25c2a3 Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+b46ca16f7 feature: Add invariant checks to ensure only fields that are expected to be modified are modified
+ae7076c05 Address second round of review feedback: non-throwing exists(), direct path streams, errno propagation
+2794a7503 fix: Prevents overwritting a bool value in an invariant (#6609) (#6961)
+5ad05918f fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716) (#6945)
+519d9057a fix: Improve invariant check for Permissioned Domains (#6134) (#6958)
+7e7dc3070 fix: Add rounding to Vault invariants (#6217) (#6957)
+9deae7eef refactor: Enforce 15-char limit and simplify labels for thread naming (#6212)
+24874f7e0 fix: Deletes expired NFToken offers from ledger (#5707)
+a3a277518 Merge remote-tracking branch 'XRPLF/develop' into ximinez/acquireAsyncDispatch
+c9ab6ab25 Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix/validator-cache
+7618b726b fix: bind batch signer signatures to outer account and sequence
+c4ef1e699 Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+9a870c36e Merge remote-tracking branch 'XRPLF/develop' into ximinez/acquireAsyncDispatch
+8bb87e9ca Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+5d807f0d6 Merge remote-tracking branch 'XRPLF/develop' into ximinez/online-delete-gaps
+8f329e3bc Use Validator List (VL) cache files in more scenarios
+4ab295041 Reduce duplicate peer traffic for ledger data (#5126)
+f44dfc89c refactor: acquireAsync will dispatch a job, not the other way around
+56c9d1d49 fix: Add description for `terLOCKED` error (#6811)
+d2641d85b New floats format, STAmount compatible (#6600)
+a92483e07 fix: Improve loan invariant message (#6668)
+92607805c feat(telemetry): add validationsChecked recording hook in recvValidation
+50e6b14c5 feat(telemetry): add external dashboard parity gauges and counters to MetricsRegistry
+62d0b07ee Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+b36aedb4d refactor: Address PR comments after the modularisation PRs (#6389)
+3a477e4d0 refactor: Address PR comments after the modularisation PRs (#6389)
+57e4cbbcd refactor: Add simple clang-tidy readability checks (#6556)
+5ae97fa8a refactor: Add no-ASAN macro for Throw statements (#6373)
+0446bef7e feat: Enforce feature name lengths and character set (#5555)
+734b11c0e Support shared r for ConfidentialMPTSend equality proof (#6496)
+afc660a1b refactor: Fix clang-tidy `bugprone-empty-catch` check (#6419)
+c2f8b9139 Add invariants and tests (#6403)
+bdd106d99 Explicitly trim the heap after cache sweeps (#6022)
+475a78222 Merge remote-tracking branch 'XRPLF/pratik/Fix_asan_lsan_flagged_issues' into ximinez/number_asan
+ac0ad3627 refactor: Modularize `HashRouter`, `Conditions`, and `OrderBookDB` (#6226)
+5edd3566f refactor: Modularize the NetworkOPs interface (#6225)
+e11f6190b fix: Update invariant checks for Permissioned Domains (#6134)
+677758b1c perf: Remove unnecessary caches (#5439)
+65ba43911 cache strings to solve stack-use-after-scope
+127f44a40 fix stack-use-after-scope issue
+4600c381b stack-buffer-overflow in coroutines.
+5e0a8d5c8 Remove the _ suffixes from doNormalize function parameters
+781368309 fix: Deletes expired NFToken offers from ledger (#5707)
+cd3feb979 Fix pointer access
+8249b30dc Merge commit 'a3e9401fbc' into ximinez/online-delete-lastrotated
+a3e9401fb Merge commit '92046785d1fea5f9efe5a770d636792ea6cab78b' into ximinez/online-delete-gaps
+bf8db0555 Remove the _ suffixes from doNormalize function parameters
+1297385b7 Support ConfidentialSend equality proof (#6274)
+981ac7abf simplify fee code (#6249)
+68c9d5ca0 refactor: Enforce 15-char limit and simplify labels for thread naming (#6212)
+75d143a2a support new design to reveal blinding factor (#6237)
+ec6d7cb91 Add equality proof to ConvertBack and refactor to reduce redundancy (#6220)
+7eb5a90b4 Move HashRouter to libxrpl
+4a49f4884 Decouple HashRouter from Config
+69b2be865 Move the NetworkOPs interface to libxrpl
+33f4c92b6 Expand Number to support the full integer range (#6025)
+2601442e1 Improve and fix bugs in Lending Protocol (#6102)
+1ead5a7ac Expand Number to support full integer range (#6192)
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 fix: Inner batch transactions never have valid signatures (#6069)
+b2c5927b4 fix: Inner batch transactions never have valid signatures (#6069)
+a95f58187 Move the NetworkOPs interface to libxrpl
+092216916 Make PahRequest and PathRequests interfaces
+17a6b94dc Move HashRouter to libxrpl
+f920b4480 Decouple HashRouter from Config
+98e6fb9c5 Move Overlay interface to libxrpl. We can revisit this part to decide whether we should move the Overlay implementation to libxrpl
+6c38086f1 ConfidentialConvert with Equality Proof (#6177)
+bd3a6e163 Support equality proof for confidential clawback (#6149)
+1e2118033 extra checks after sync with target
+298ef4a00 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+c81b26b09 Add a few minor changes (#6158)
+93e15039a Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+e0b52e0e0 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+41c1be2ba refactor: remove `Json::Object` and related files/classes (#5894)
+1b180ef66 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+6a54ed7f1 fix fee overflow issue in `EscrowFinish` (#6130)
+73b68b615 Enforce LoanBroker values keep precision when rounded to the asset type
+692070dbf Add semi-automatic rounding of STNumbers based on Asset types
+efae404aa Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+af43572ee Review feedback from @shawnxie999: even more rounding
+813bc4d94 refactor: Replaces secp256k1 source by Conan package (#6089)
+daf031660 Small fixes for Loan merge
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+639d6a953 Refactor the "scaleNumber" conversion functions
+3f87aeb6b Update several unit tests to work with the new number rules
+6b55db490 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+eaaea43f8 Refactor Number internals away from int128 to uint64 & a sign flag
+a87460b89 Restore the original Number interface
+3ef650849 Fix build error with LoanBroker invariant
+c5f5edebc Address a couple of feedback items from @Tapanito and @shawnxie999:
+a7af773dd Add a LoanBroker invariant to compare CoverAvailable to balance
+27a7138f8 Review feedback from @gregtatcam: constructRoundedLoanState
+deab24b58 Review feedback from @gregtatcam: full interest
+b8ad6d395 Review feedback from @a1q123456: LoanDelete
+2fb9a6a29 Review feedback from @Tapanito: tecKILLED logs
+e25bae5e7 Review feedback from @Tapanito
+fa2dea84c Review feedback from @gregtatcam: STAmount
+d353b0ec0 Review feedback
+973a10595 Review feedback: test coverage, round debt total
+d8b944c21 Enforce assets are transferable (#6017)
+31d6ad727 Refactors method and struct names (#6039)
+3451d15e1 Step 3: Automatically switch precision in the transaction engine
+2b2b361c8 add malloc trim after sync complete
+03ea1deed Merge remote-tracking branch 'upstream/develop' into ximinez/lending-rebased
+ba19d7f32 Add tfLoanLatePayment flag; full payment is no longer a special case
+7e94916d0 Always round cover minimum calculations up
+1fa366576 doc: Expand explanation for LoanBrokerCoverClawback::determineBrokerID
+348e7f7cf Fix RIPD-3901 - faulty assert
+cc46e9430 Check for Grace Period overflow in LoanSet
+e001681ad fix: Improve rounding for IOU loans
+8580a5795 chore: Set version 3.1.0-b0 (#5986)
+a32b5723e fixup! fixup! Step 1: Convert Number to use 128-bit numbers internally
+d030fdaa2 Step 1: Convert Number to use 128-bit numbers internally
+a1ed175b6 trim min internal
+4396b77c4 Add tfLoanLatePayment flag; full payment is no longer a special case
+6ad4b2987 Always round cover minimum calculations up
+0ae835b35 doc: Expand explanation for LoanBrokerCoverClawback::determineBrokerID
+3b810c305 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+b5b31efe0 Fix RIPD-3901 - faulty assert
+8e56af20e Add a distinction between a "valid" and a "representable" Number
+972841ae2 Check for Grace Period overflow in LoanSet
+0175dd70d Catch up the consequences of Number changes
+2264713d5 fix: Improve rounding for IOU loans
+bd196c760 Catch up the consequences of Number changes
+aed8e2b16 Fill in payment computation shortages (#5941)
+1d42c4f6d refactor: Remove unnecessary copyright notices already covered by LICENSE.md (#5929)
+63a08560c refactor: retire/remove NFT amendments (#5971)
+89979022f Merge remote-tracking branch 'upstream/develop' into ximinez/lending-XLS-66
+50fc93f74 refactor: Retire fixMasterKeyAsRegularKey amendment (#5959)
+fa6991812 fix: Address permission delegation vulnerability (#5825)
+2b9f70b0b Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-XLS-66
+8951419db fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+5ebc29c48 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+220ab2622 Add vault invariants (#5518)
+b39d7a651 refactor: Retire fixQualityUpperBound amendment (#5960)
+7a758a42f Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-XLS-66
+f8b4f692f refactor: Retire fixSTAmountCanonicalize code (#5956)
+ed5d6f3e2 feat: Add public key to log messages (#5678)
+122d8f96b Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-XLS-66
+ec60dcf90 Ensure payment does not exceed Loan balance
+310852ba2 refactor: Payment component calculation will target next true state
+21f3c12d8 fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+da14c6f01 Prevent numerical overflow of payment due dates
+b8b9e7a51 Add repro unit tests, with modifications, from audit
+40ef91e7e Limit how many payments can be made in a single LoanPay
+fe4269cf8 Avoid negative payments: limit origination fee to the loan principal
+0950d41fc refactor: De-templatize and move LendingHelper functions from .h to .cpp
+45819477d refactor: change what values are tracked as Payment Components - Part 2
+83e249eb8 refactor: change what values are tracked as Payment Components - Part 1
+88a770c71 Don't create empty holding for MPT or trust line issuer (#5877)
+78ef800e3 Fix more problems introduced by 6adb2ec
+66b547f6f Review feedback from @Tapanito
+6adb2eca7 Review feedbak from @tequdev, plus helpers
+dfc4933c3 Convert Loans to track management fee and use updated rounding
+83ee3788e fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+f9bd9f390 Remove some unused variables, increase rounding tolerance
+d7196a8e5 Get remaining Loan unit tests working
+1efc532b2 Implement Vito's new loan payment part rounding algorithm, and more
+2dd239c59 Update payment component computation and rounding, and more tests
+fc2163708 Update InvariantCheck, LoanManage, and LoanPay to make tests work
+8d982758c Ensure interest portion doesn't go negative
+fb8dafa6a Refactor Number, add tests, update LoanManage, update LoanPay
+250929394 Disable blocks of code using #if LOANCOMPLETE to enable build
+9c2857826 Review feedback from @a1q123456
+8637d606a chore: Exclude code/unreachable transaction code from Codecov (#5847)
+c179135e1 Fix the build and test errors introduced by the previous merge:
+5ecde3cf3 Add vault invariants (#5518)
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+e1b234cc5 fix: Transaction sig checking functions do not get a full context
+4c8f7968c Tweak payment rounding
+51c5f2bfc Improve ValidatorList invalid UNL manifest logging (#5804)
+3cbdf818a Miscellaneous refactors and updates (#5590)
+510314d34 fix(amendment): Add missing fields for keylets to ledger objects (#5646)
+b9a2eb339 Review feedback from @gregtatcam
+4d5afbea3 Merge remote-tracking branch 'XRPLF/ximinez/lending-refactoring-4' into ximinez/lending-XLS-66
+84e97f0ef Merge remote-tracking branch 'XRPLF/ximinez/lending-refactoring-2' into ximinez/lending-refactoring-3
+1897ac5ee Make a few tweaks to the changes in 43fe49e7
+3f1a0f3a3 Fix some build errors from yesterday
+adb260fe1 Review feedback from @dangell7 and @gregtatcam
+0d500343e New invariant privilege "mayDeleteMPT", used by VauleDeposit & Clawback
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+bb491431b Review feedback from @dangell7 and @mvadari
+a72c23737 Review feedback from @Bronek
+1506e6555 refactor: Update to Boost 1.88 (#5570)
+cf83d9263 Merge remote-tracking branch 'upstream/develop' into ximinez/online-delete-gaps
+29300fc97 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-refactoring-1
+9920037d1 Review feedback from @dangell7
+6d137e44d Add Counterparty signing support
+7dcc682e2 Make LoanSet.CounterpartySignature optional in the Tx layout
+162875616 Correct more issues related to 0-interest loans and some rounding issues
+4eae037fe fix: Ensures canonical order for `PriceDataSeries` upon `PriceOracle` creation (#5485)
+284707570 fix: ensure `GasUsed` shows up in the metadata even on `tecWASM_REJECTED` (#5633)
+84acebeb7 Enforce valid range of LoanSet.InterestRate
+9d1a23a81 Ensure Counterparty Signatures are properly handled by Batch tx
+e7a7bb83c VaultWithdraw destination account bugfix (#5572)
+760a9aad8 Merge remote-tracking branch 'XRPLF/ximinez/lending-refactoring-2' into ximinez/lending-refactoring-3
+1e7462606 Fix divide by 0 error on 0-interest loans; allow broker to self-lend
+433eeabfa chore: Remove unused code after flow cross retirement (#5575)
+c233df720 refactor: Makes HashRouter flags more type-safe (#5371)
+5edaad41a Merge branch 'ximinez/lending-refactoring-3' into ximinez/lending-refactoring-4
+96ad348fb Merge branch 'ximinez/lending-refactoring-2' into ximinez/lending-refactoring-3
+72f33d8f3 Merge branch 'ximinez/lending-refactoring-1' into ximinez/lending-refactoring-2
+43fe49e75 Merge remote-tracking branch 'upstream/develop' into ximinez/lending-refactoring-1
+e95683a0f refactor: Change boost::shared_mutex to std::shared_mutex (#5576)
+6b4236343 Get CoverWithdraw IOU payments working
+5199c5e07 Improve / add freeze checking helper functions
+0a3c728a9 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-XLS-66
+8aa94ea09 fixAMMClawbackRounding: adjust last holder's LPToken balance (#5513)
+ac6dc6943 Tweak when the starting range of ledger gap detection is set
+9874d47d7 Decouple CredentialHelpers from xrpld/app/tx (#5487)
+a5e953b19 fix: Add tecNO_DELEGATE_PERMISSION and fix flags (#5465)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+7e24adbdd fix: Address NFT interactions with trustlines (#5297)
+621df422a fix: Add AMMv1_3 amendment (#5203)
+6a6fed5dc More hostfunctions (#5451)
+1f8aece8c feat: add a `GasUsed` parameter to the metadata (#5456)
+9e1fe9a85 Fix: Improve handling of expired credentials in `VaultDeposit` (#5452)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+aef32ead2 better WASM logging to match rippled (#5395)
+527e0c916 Lending protocol implementation (XLS-0066)
+dc7033805 Fix or work around loan payment rounding problems
+2d767f273 These tiny rounding errors are going to be the death of me
+784b3ae64 Resolve some of these annoying test rounding issues`
+bd014e270 Expand LoanPay test cases, and fix rounding errors
+848311563 Lending protocol implementation (XLS-0066)
+1e9ff88a0 Fix CI build issues
+7ff2f58a9 fixup! Update to match latest spec: compute interest, LoanBroker reserves
+bcece6d68 Update to match latest spec: compute interest, LoanBroker reserves
+ef2a0edc6 Start implementing LoanManage transaction (untested)
+ceeb11aee Ensure that an account is not deleted with a non-zero owner count
+b97811d45 Change Loan object indexing, fix several broken LoanSet unit tests
+7823c8b18 Start writing Loan tests
+cbb14627e Generalize the check*Sign functions to support CounterParty
+1798be0ba Ensure that an account is not deleted with an XRP balance
+27fbf2db8 Start writing Loan Broker invariants and tests
+a8118ff58 Add unit tests for new invariants:
+e3241dc14 Clean up more Invariant privilege checking
+b7152496c Add LoanBroker update tests
+1db5e9b4d Pseudo-account improvements
+33e666bff Enumerate transaction privileges for invariants
+3b5981795 Generalize some of the Invariant checks using macro files
+145215d4a Fix bug in new invariant
+34f7bc750 refactor: Check transaction flags in preflight0
+60a888619 Add Loan Broker and Loan ledger objects:
+8eaa9e7b9 Minor, use tecLOCKED when appropriate
+4a084ce34 Improve transaction relay logic (#4985)
+7eadb88d0 Replace tecKILLED with tecLIMIT_EXCEEDED in VaultCreate depth exceeded
+a574ec602 fix: `fixPayChanV1` (#4717)
+676ed9ad0 Return ter code from dirLink
+392e3846e Change error code to tecLOCKED
+124512eba Add terADDRESS_COLLISION to AMMCreate::preclaim
+d3c1d02c7 Return terADDRESS_COLLISION from preclaim if cannot allocate AccountID
+aff08b754 Add invariant checks for pseudo-account
+2e13dc1e8 Switch 'vault not found' to tecNO_ENTRY
+dee06df01 Remove tecINVALID_DOMAIN error code
+372555bda Rename tecVAULT_ACCOUNT to tecPSEUDO_ACCOUNT
+911c0466c Merge develop into ripple/smart-escrow (#5357)
+d22a5057b Prevent consensus from getting stuck in the establish phase (#5277)
+345ddc723 fix: Remove null pointer deref, just do abort (#5338)
+c3ecdb474 Rename "deadlock" to "stall" in `LoadManager` (#5341)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+ac6d26a8b Switch error code for non-transferable to tecNO_AUTH
+c4d9635f2 Add logging and improve counting of amendment votes from UNL (#5173)
+8f6208eb6 Revert "Reduce duplicate peer traffic for ledger data (#5126)" (#5300)
+51f427c4e Reduce duplicate peer traffic for ledger data (#5126)
+aa0aa44cf refactor: Change recursive_mutex to mutex in DatabaseRotatingImp (#5276)
+ffc88d703 Add deep freeze feature (XLS-77d) (#5187)
+b991d2407 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+e742a6f9f Add missing space character to a log message (#5251)
+117306f8a refactor: add `rpcName` to `LEDGER_ENTRY` macro (#5202)
+670419494 Add Antithesis intrumentation (#5042)
+dce3e1efa Add logging and improve counting of amendment votes from UNL (#5173)
+159dfb5ac Revert "Reduce duplicate peer traffic for ledger data (#5126)" (#5300)
+dd5e6559d Reduce duplicate peer traffic for ledger data (#5126)
+01fe9477f refactor: Change recursive_mutex to mutex in DatabaseRotatingImp (#5276)
+33e1c4259 Add deep freeze feature (XLS-77d) (#5187)
+dcc458122 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+409c1d5aa Add missing space character to a log message (#5251)
+679e35fd4 refactor: add `rpcName` to `LEDGER_ENTRY` macro (#5202)
+d7e949193 Add Antithesis intrumentation (#5042)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+c5c0e70e2 Fix token comparison in Payment (#5172)
+ec61f5e9d Add fixAMMv1_2 amendment (#5176)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+fa1cbb074 Merge remote-tracking branch 'origin/master' into develop-next
+37b3e96b0 Merge remote-tracking branch 'upstream/master' into upstream--develop
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+8b181ed81 Merge branch 'master' into develop
+20707fac4 chore: Rename two files from Directory* to Dir*: (#5058)
+a17ccca61 Invariant: prevent a deleted account from leaving (most) artifacts on the ledger. (#4663)
+9fec615dc fixInnerObjTemplate2 amendment (#5047)

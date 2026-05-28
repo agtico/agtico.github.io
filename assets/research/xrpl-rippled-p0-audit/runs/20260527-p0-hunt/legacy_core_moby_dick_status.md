@@ -215,6 +215,30 @@ ripple.app.TrustAndBalance had 0 failures.
 144.1s, 15 suites, 716 cases, 96462 tests total, 0 failures
 ```
 
+`DETERMINISTIC-EXCEPTION-ARITHMETIC-SWEEP-001` asked whether old live
+IOU/path/offer arithmetic hides another normal-input `tefINTERNAL`,
+`tefEXCEPTION`, overflow, assertion, or invariant-failure witness beyond the
+current packet. The static sweep covered exception, invariant, overflow, and
+rounding call sites across transaction, path, misc, protocol, and basics code.
+The history sweep rediscovered already-promoted or already-demoted signals:
+Number upward rounding and division, MPT transfer-rate overflow, invariant
+bool-overwrite, LoanBrokerCover precision, vault invariant edges, and
+permissioned-DEX invariant cases. No new old-core transaction witness was
+isolated. Static artifact
+`deterministic_exception_arithmetic_static_sweep_20260528.log` has sha256
+`16207ac6ee3de1c5c82c6205351d28d00c526ea042db2daf83bced518640ae48`. History
+artifact `deterministic_exception_arithmetic_history_sweep_20260528.log` has
+sha256 `1341fc2cbd5d3c8c308b794a7814e8850c24096c7dca7aa73990cc8ea8cc4e67`.
+Suite artifact `deterministic_exception_arithmetic_source_kill_20260528.log`
+has sha256 `d6385bd19f70f12a50445601d0095c2821c691505f21f1bcc79d63282b45b284`.
+
+```text
+ripple.basics.Number had 0 failures.
+ripple.protocol.STAmount had 0 failures.
+ripple.protocol.Quality had 0 failures.
+114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text

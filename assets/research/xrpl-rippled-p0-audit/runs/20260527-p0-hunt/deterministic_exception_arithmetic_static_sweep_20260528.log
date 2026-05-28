@@ -1,0 +1,1034 @@
+src/libxrpl/protocol/STVar.cpp:123:        Throw<std::runtime_error>("Maximum nesting depth of STVar exceeded");
+src/libxrpl/protocol/STVar.cpp:129:    XRPL_ASSERT(
+src/libxrpl/protocol/STVar.cpp:168:            static_assert(alwaysFalse, "Invalid STVar constructor arguments");
+src/libxrpl/protocol/STVar.cpp:242:            Throw<std::runtime_error>("Unknown object type");
+src/libxrpl/protocol/STBlob.cpp:65:    XRPL_ASSERT(getFName().isBinary(), "ripple::STBlob::add : field is binary");
+src/libxrpl/protocol/STBlob.cpp:66:    XRPL_ASSERT(
+src/libxrpl/basics/contract.cpp:37:LogicError(std::string const& s) noexcept
+src/libxrpl/basics/contract.cpp:47:    UNREACHABLE("LogicError", {{"message", s}});
+src/libxrpl/basics/Archive.cpp:41:        Throw<std::runtime_error>("Invalid source file");
+src/libxrpl/basics/Archive.cpp:48:        Throw<std::runtime_error>("Failed to allocate archive");
+src/libxrpl/basics/Archive.cpp:51:        Throw<std::runtime_error>(archive_error_string(ar.get()));
+src/libxrpl/basics/Archive.cpp:54:        Throw<std::runtime_error>(archive_error_string(ar.get()));
+src/libxrpl/basics/Archive.cpp:60:        Throw<std::runtime_error>(archive_error_string(ar.get()));
+src/libxrpl/basics/Archive.cpp:67:        Throw<std::runtime_error>("Failed to allocate archive");
+src/libxrpl/basics/Archive.cpp:74:        Throw<std::runtime_error>(archive_error_string(aw.get()));
+src/libxrpl/basics/Archive.cpp:78:        Throw<std::runtime_error>(archive_error_string(aw.get()));
+src/libxrpl/basics/Archive.cpp:88:            Throw<std::runtime_error>(archive_error_string(ar.get()));
+src/libxrpl/basics/Archive.cpp:93:            Throw<std::runtime_error>(archive_error_string(aw.get()));
+src/libxrpl/basics/Archive.cpp:106:                    Throw<std::runtime_error>(archive_error_string(ar.get()));
+src/libxrpl/basics/Archive.cpp:111:                    Throw<std::runtime_error>(archive_error_string(aw.get()));
+src/libxrpl/basics/Archive.cpp:117:            Throw<std::runtime_error>(archive_error_string(aw.get()));
+src/libxrpl/protocol/Feature.cpp:141:            LogicError("Invalid FeatureBitset index");
+src/libxrpl/protocol/Feature.cpp:233:    XRPL_ASSERT(
+src/libxrpl/protocol/Feature.cpp:246:        LogicError(logicErrorMessage);
+src/libxrpl/protocol/Feature.cpp:300:        LogicError("Duplicate feature registration");
+src/libxrpl/protocol/Feature.cpp:314:    XRPL_ASSERT(
+src/libxrpl/protocol/Feature.cpp:320:        LogicError("Invalid Feature ID");
+src/libxrpl/protocol/Feature.cpp:328:    XRPL_ASSERT(
+src/libxrpl/protocol/Feature.cpp:338:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:105:        Throw<std::runtime_error>(error);
+src/libxrpl/protocol/STAmount.cpp:106:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:111:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:145:static_assert(INITIAL_XRP.drops() == STAmount::cMaxNativeN);
+src/libxrpl/protocol/STAmount.cpp:176:            Throw<std::runtime_error>("negative zero is not canonical");
+src/libxrpl/protocol/STAmount.cpp:188:        Throw<std::runtime_error>("invalid native currency");
+src/libxrpl/protocol/STAmount.cpp:193:        Throw<std::runtime_error>("invalid native account");
+src/libxrpl/protocol/STAmount.cpp:208:            Throw<std::runtime_error>("invalid currency value");
+src/libxrpl/protocol/STAmount.cpp:220:        Throw<std::runtime_error>("invalid currency value");
+src/libxrpl/protocol/STAmount.cpp:242:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:255:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:269:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:313:        Throw<std::logic_error>(
+src/libxrpl/protocol/STAmount.cpp:317:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::xrp : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:329:        Throw<std::logic_error>("Cannot return non-IOU STAmount as IOUAmount");
+src/libxrpl/protocol/STAmount.cpp:344:        Throw<std::logic_error>("Cannot return STAmount as MPTAmount");
+src/libxrpl/protocol/STAmount.cpp:347:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::mpt : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:358:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:414:        Throw<std::runtime_error>("Can't add amounts that are't comparable!");
+src/libxrpl/protocol/STAmount.cpp:519:        XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:758:    XRPL_ASSERT(mOffset + 43 > 0, "ripple::STAmount::getText : minimum offset");
+src/libxrpl/protocol/STAmount.cpp:782:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:793:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:831:        XRPL_ASSERT(mOffset == 0, "ripple::STAmount::add : zero offset");
+src/libxrpl/protocol/STAmount.cpp:915:                Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:919:                Throw<std::runtime_error>("MPT amount out of range");
+src/libxrpl/protocol/STAmount.cpp:935:                Throw<std::runtime_error>("Unknown integral asset type");
+src/libxrpl/protocol/STAmount.cpp:953:                        Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:956:                        Throw<std::runtime_error>("MPT amount out of range");
+src/libxrpl/protocol/STAmount.cpp:964:            Throw<std::runtime_error>("Native currency amount out of range");
+src/libxrpl/protocol/STAmount.cpp:966:            Throw<std::runtime_error>("MPT amount out of range");
+src/libxrpl/protocol/STAmount.cpp:993:            Throw<std::runtime_error>("value overflow");
+src/libxrpl/protocol/STAmount.cpp:1008:        Throw<std::runtime_error>("value overflow");
+src/libxrpl/protocol/STAmount.cpp:1010:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:1013:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:1016:    XRPL_ASSERT(
+src/libxrpl/protocol/STAmount.cpp:1055:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:1072:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:1078:            Throw<std::runtime_error>("Invalid Asset's Json specification");
+src/libxrpl/protocol/STAmount.cpp:1105:            Throw<std::runtime_error>("invalid amount string");
+src/libxrpl/protocol/STAmount.cpp:1127:            Throw<std::runtime_error>("XRP may not be specified as an object");
+src/libxrpl/protocol/STAmount.cpp:1137:                Throw<std::runtime_error>("invalid MPTokenIssuanceID");
+src/libxrpl/protocol/STAmount.cpp:1144:                Throw<std::runtime_error>("invalid currency");
+src/libxrpl/protocol/STAmount.cpp:1147:                Throw<std::runtime_error>("invalid issuer");
+src/libxrpl/protocol/STAmount.cpp:1149:                Throw<std::runtime_error>("invalid issuer");
+src/libxrpl/protocol/STAmount.cpp:1177:            Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:1182:        Throw<std::runtime_error>("invalid amount type");
+src/libxrpl/protocol/STAmount.cpp:1221:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STAmount.cpp:1287:        Throw<std::overflow_error>(
+src/libxrpl/protocol/STAmount.cpp:1310:        Throw<std::overflow_error>(
+src/libxrpl/protocol/STAmount.cpp:1323:        Throw<std::runtime_error>("division by zero");
+src/libxrpl/protocol/STAmount.cpp:1376:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1379:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1389:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1392:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1613:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1616:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1627:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1630:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1733:        Throw<std::runtime_error>("division by zero");
+src/libxrpl/basics/ResolverAsio.cpp:65:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:172:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:175:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:198:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:200:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:242:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:245:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:264:        XRPL_ASSERT(
+src/libxrpl/basics/ResolverAsio.cpp:412:        XRPL_ASSERT(
+src/xrpld/app/paths/Pathfinder.cpp:194:    XRPL_ASSERT(
+src/xrpld/app/paths/Pathfinder.cpp:413:        return tefEXCEPTION;
+src/xrpld/app/paths/Pathfinder.cpp:588:    XRPL_ASSERT(
+src/xrpld/app/paths/Pathfinder.cpp:696:        XRPL_ASSERT(
+src/xrpld/app/paths/Pathfinder.cpp:847:            XRPL_ASSERT(
+src/xrpld/app/paths/Pathfinder.cpp:1302:    XRPL_ASSERT(list.empty(), "ripple::fillPaths : empty paths");
+src/libxrpl/protocol/STAccount.cpp:52:    // Is it safe to throw from this constructor?  Today (November 2015)
+src/libxrpl/protocol/STAccount.cpp:55:    // which throws.  If STVar can throw in its constructor, then so can
+src/libxrpl/protocol/STAccount.cpp:58:        Throw<std::runtime_error>("Invalid STAccount size");
+src/libxrpl/protocol/STAccount.cpp:95:    XRPL_ASSERT(
+src/libxrpl/protocol/STAccount.cpp:97:    XRPL_ASSERT(
+src/libxrpl/protocol/STPathSet.cpp:75:                Throw<std::runtime_error>("empty path");
+src/libxrpl/protocol/STPathSet.cpp:88:            Throw<std::runtime_error>("bad path element");
+src/libxrpl/protocol/STPathSet.cpp:222:    XRPL_ASSERT(
+src/libxrpl/protocol/STPathSet.cpp:224:    XRPL_ASSERT(
+src/libxrpl/basics/make_SSLContext.cpp:118:            LogicError("RSA_new failed");
+src/libxrpl/basics/make_SSLContext.cpp:121:            LogicError("RSA_generate_key_ex failure");
+src/libxrpl/basics/make_SSLContext.cpp:132:            LogicError("EVP_PKEY_new failed");
+src/libxrpl/basics/make_SSLContext.cpp:137:            LogicError(
+src/libxrpl/basics/make_SSLContext.cpp:141:            LogicError("EVP_PKEY_assign_RSA failed");
+src/libxrpl/basics/make_SSLContext.cpp:150:            LogicError("X509_new failed");
+src/libxrpl/basics/make_SSLContext.cpp:169:            LogicError("Unable to set certificate validity date");
+src/libxrpl/basics/make_SSLContext.cpp:234:            LogicError("X509_sign failed");
+src/libxrpl/basics/make_SSLContext.cpp:242:        LogicError("SSL_CTX_use_certificate failed");
+src/libxrpl/basics/make_SSLContext.cpp:245:        LogicError("SSL_CTX_use_PrivateKey failed");
+src/libxrpl/basics/make_SSLContext.cpp:271:            LogicError("Problem with SSL certificate file" + fmt_error(ec));
+src/libxrpl/basics/make_SSLContext.cpp:283:            LogicError(
+src/libxrpl/basics/make_SSLContext.cpp:301:                        LogicError(
+src/libxrpl/basics/make_SSLContext.cpp:310:                    LogicError("Problem adding SSL chain certificate.");
+src/libxrpl/basics/make_SSLContext.cpp:319:            LogicError(
+src/libxrpl/basics/make_SSLContext.cpp:335:            LogicError(
+src/libxrpl/basics/make_SSLContext.cpp:342:        LogicError("Invalid key in SSL private key file.");
+src/libxrpl/basics/make_SSLContext.cpp:367:        LogicError("SSL_CTX_set_cipher_list failed");
+src/libxrpl/protocol/STCurrency.cpp:110:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STCurrency.cpp:117:        Throw<std::runtime_error>(
+src/xrpld/app/paths/Flow.cpp:194:    XRPL_ASSERT(!srcIsXRP && !dstIsXRP, "ripple::flow : neither is XRP");
+src/libxrpl/protocol/STXChainBridge.cpp:82:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STXChainBridge.cpp:94:                Throw<std::runtime_error>(
+src/libxrpl/protocol/STXChainBridge.cpp:109:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STXChainBridge.cpp:114:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STXChainBridge.cpp:124:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STXChainBridge.cpp:129:        Throw<std::runtime_error>(
+src/libxrpl/protocol/tokens.cpp:255:        XRPL_ASSERT(
+src/libxrpl/protocol/tokens.cpp:306:        XRPL_ASSERT(
+src/libxrpl/protocol/tokens.cpp:544:    XRPL_ASSERT(
+src/libxrpl/protocol/AccountID.cpp:88:        XRPL_ASSERT(
+src/libxrpl/protocol/AccountID.cpp:170:    static_assert(AccountID::bytes == sizeof(ripesha_hasher::result_type));
+src/libxrpl/protocol/SecretKey.cpp:64:        LogicError("SecretKey::SecretKey: invalid size");
+src/libxrpl/protocol/SecretKey.cpp:116:    Throw<std::runtime_error>("Unable to derive generator from seed");
+src/libxrpl/protocol/SecretKey.cpp:175:        Throw<std::runtime_error>("Unable to derive generator from seed");
+src/libxrpl/protocol/SecretKey.cpp:185:            LogicError("derivePublicKey: secp256k1_ec_pubkey_create failed");
+src/libxrpl/protocol/SecretKey.cpp:195:            LogicError("derivePublicKey: secp256k1_ec_pubkey_serialize failed");
+src/libxrpl/protocol/SecretKey.cpp:220:            LogicError("Unable to add a tweak!");
+src/libxrpl/protocol/SecretKey.cpp:233:        LogicError("sign: secp256k1 required for digest signing");
+src/libxrpl/protocol/SecretKey.cpp:244:        LogicError("sign: secp256k1_ecdsa_sign failed");
+src/libxrpl/protocol/SecretKey.cpp:250:        LogicError("sign: secp256k1_ecdsa_signature_serialize_der failed");
+src/libxrpl/protocol/SecretKey.cpp:260:        LogicError("sign: invalid type");
+src/libxrpl/protocol/SecretKey.cpp:282:                LogicError("sign: secp256k1_ecdsa_sign failed");
+src/libxrpl/protocol/SecretKey.cpp:288:                LogicError(
+src/libxrpl/protocol/SecretKey.cpp:294:            LogicError("sign: invalid type");
+src/libxrpl/protocol/SecretKey.cpp:327:    LogicError("generateSecretKey: unknown key type");
+src/libxrpl/protocol/SecretKey.cpp:341:                LogicError(
+src/libxrpl/protocol/SecretKey.cpp:352:                LogicError(
+src/libxrpl/protocol/SecretKey.cpp:364:            LogicError("derivePublicKey: bad key type");
+src/libxrpl/protocol/STBase.cpp:39:    XRPL_ASSERT(fName, "ripple::STBase::STBase : field is set");
+src/libxrpl/protocol/STBase.cpp:123:    XRPL_ASSERT(
+src/libxrpl/protocol/STBase.cpp:139:    XRPL_ASSERT(fName, "ripple::STBase::setFName : field is set");
+src/libxrpl/protocol/STBase.cpp:151:    XRPL_ASSERT(
+src/libxrpl/basics/Number.cpp:74:        LogicError("Unknown mantissa scale");
+src/libxrpl/basics/Number.cpp:290:        throw std::overflow_error(location);
+src/libxrpl/basics/Number.cpp:323:            static_assert(sizeof(internalrep) == sizeof(rep));
+src/libxrpl/basics/Number.cpp:330:            throw std::overflow_error(location);  // LCOV_EXCL_LINE
+src/libxrpl/basics/Number.cpp:392:    XRPL_ASSERT(&range_.get() == &largeRange, "Number::one() : valid range_");
+src/libxrpl/basics/Number.cpp:433:            throw std::overflow_error("Number::normalize 1");
+src/libxrpl/basics/Number.cpp:462:            throw std::overflow_error("Number::normalize 1.5");
+src/libxrpl/basics/Number.cpp:471:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:484:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:539:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:543:        throw std::overflow_error("Number::shiftExponent");
+src/libxrpl/basics/Number.cpp:549:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:573:    XRPL_ASSERT(
+src/libxrpl/basics/Number.cpp:753:        throw std::overflow_error("Number: divide by 0");
+src/libxrpl/basics/Number.cpp:783:    static_assert(smallRange.log == 15);
+src/libxrpl/basics/Number.cpp:784:    static_assert(largeRange.log == 18);
+src/libxrpl/basics/Number.cpp:788:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:840:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:866:                throw std::overflow_error("Number::operator rep() overflow");
+src/libxrpl/basics/Number.cpp:886:    // We are guaranteed that normalize() will never throw an exception
+src/libxrpl/basics/Number.cpp:922:    XRPL_ASSERT(
+src/libxrpl/basics/Number.cpp:949:    XRPL_ASSERT(
+src/libxrpl/basics/Number.cpp:960:    XRPL_ASSERT(
+src/libxrpl/basics/Number.cpp:1030:        throw std::overflow_error("Number::root infinity");
+src/libxrpl/basics/Number.cpp:1033:        throw std::overflow_error("Number::root nan");
+src/libxrpl/basics/Number.cpp:1051:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:1085:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:1101:        throw std::overflow_error("Number::root nan");
+src/libxrpl/basics/Number.cpp:1110:    XRPL_ASSERT_PARTS(f.isnormal(), "ripple::root2(Number)", "f is normalized");
+src/libxrpl/basics/Number.cpp:1132:    XRPL_ASSERT_PARTS(
+src/libxrpl/basics/Number.cpp:1150:        throw std::overflow_error("Number::power nan");
+src/libxrpl/basics/Number.cpp:1158:        throw std::overflow_error("Number::power infinity");
+src/libxrpl/basics/Number.cpp:1165:        throw std::overflow_error("Number::power nan");
+src/xrpld/app/paths/PathRequest.cpp:161:    XRPL_ASSERT(
+src/libxrpl/protocol/SOTemplate.cpp:48:            Throw<std::runtime_error>("Invalid field index for SOTemplate.");
+src/libxrpl/protocol/SOTemplate.cpp:53:            Throw<std::runtime_error>("Duplicate field index for SOTemplate.");
+src/libxrpl/protocol/SOTemplate.cpp:67:        Throw<std::runtime_error>("Invalid field index for getIndex().");
+src/libxrpl/protocol/Keylet.cpp:30:    XRPL_ASSERT(
+src/libxrpl/protocol/MPTIssue.cpp:43:    static_assert(sizeof(MPTID) == (sizeof(std::uint32_t) + sizeof(AccountID)));
+src/libxrpl/protocol/MPTIssue.cpp:82:        Throw<std::runtime_error>(
+src/libxrpl/protocol/MPTIssue.cpp:89:        Throw<std::runtime_error>(
+src/libxrpl/protocol/MPTIssue.cpp:97:        Throw<Json::error>(
+src/libxrpl/protocol/MPTIssue.cpp:104:        Throw<Json::error>("mptIssueFromJson MPTID is invalid");
+src/libxrpl/protocol/Seed.cpp:52:        LogicError("Seed::Seed: invalid size");
+src/libxrpl/protocol/Seed.cpp:59:        LogicError("Seed::Seed: invalid size");
+src/libxrpl/protocol/Rules.cpp:114:        XRPL_ASSERT(
+src/libxrpl/protocol/Rules.cpp:144:    XRPL_ASSERT(impl_, "ripple::Rules::enabled : initialized");
+src/libxrpl/protocol/Rules.cpp:163:    XRPL_ASSERT(
+src/libxrpl/protocol/digest.cpp:31:    static_assert(
+src/libxrpl/protocol/digest.cpp:60:    static_assert(
+src/libxrpl/protocol/digest.cpp:86:    static_assert(
+src/xrpld/app/misc/HashRouter.cpp:108:    XRPL_ASSERT(
+src/xrpld/app/misc/HashRouter.cpp:149:            Throw<std::runtime_error>(
+src/xrpld/app/misc/HashRouter.cpp:157:            Throw<std::runtime_error>(
+src/xrpld/app/misc/HashRouter.cpp:164:        Throw<std::runtime_error>(
+src/libxrpl/protocol/AMMCore.cpp:113:    XRPL_ASSERT(
+src/xrpld/app/paths/RippleLineCache.cpp:81:                XRPL_ASSERT(
+src/xrpld/app/paths/RippleLineCache.cpp:103:        XRPL_ASSERT(
+src/xrpld/app/paths/RippleLineCache.cpp:116:    XRPL_ASSERT(
+src/libxrpl/protocol/Issue.cpp:105:        Throw<std::runtime_error>(
+src/libxrpl/protocol/Issue.cpp:111:        Throw<std::runtime_error>(
+src/libxrpl/protocol/Issue.cpp:120:        Throw<Json::error>(
+src/libxrpl/protocol/Issue.cpp:127:        Throw<Json::error>("issueFromJson currency must be a valid currency");
+src/libxrpl/protocol/Issue.cpp:134:            Throw<Json::error>("Issue, XRP should not have issuer");
+src/libxrpl/protocol/Issue.cpp:141:        Throw<Json::error>("issueFromJson issuer must be a string Json value");
+src/libxrpl/protocol/Issue.cpp:147:        Throw<Json::error>("issueFromJson issuer must be a valid account");
+src/libxrpl/protocol/PublicKey.cpp:196:        LogicError(
+src/libxrpl/protocol/PublicKey.cpp:201:        LogicError("PublicKey::PublicKey invalid type");
+src/libxrpl/protocol/PublicKey.cpp:246:        LogicError("sign: secp256k1 required for digest signing");
+src/libxrpl/protocol/PublicKey.cpp:322:    static_assert(NodeID::bytes == sizeof(ripesha_hasher::result_type));
+src/xrpld/app/misc/NegativeUNLVote.cpp:92:            XRPL_ASSERT(
+src/xrpld/app/misc/NegativeUNLVote.cpp:102:            XRPL_ASSERT(
+src/xrpld/app/misc/NegativeUNLVote.cpp:147:    XRPL_ASSERT(
+src/xrpld/app/misc/NegativeUNLVote.cpp:150:    static_assert(NodeID::bytes <= uint256::bytes);
+src/libxrpl/protocol/STTx.cpp:82:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STTx.cpp:102:        Throw<std::runtime_error>("Transaction length invalid");
+src/libxrpl/protocol/STTx.cpp:105:        Throw<std::runtime_error>("Transaction contains an object terminator");
+src/libxrpl/protocol/STTx.cpp:126:        LogicError("Transaction type was mutated during assembly");
+src/libxrpl/protocol/STTx.cpp:170:            XRPL_ASSERT(
+src/libxrpl/protocol/STTx.cpp:306:        XRPL_ASSERT(
+src/libxrpl/protocol/STTx.cpp:406:    XRPL_ASSERT(format, "ripple::STTx::getMetaSQL : non-null type format");
+src/libxrpl/protocol/STTx.cpp:629:    XRPL_ASSERT(
+src/libxrpl/protocol/STTx.cpp:632:    XRPL_ASSERT(
+src/libxrpl/protocol/STTx.cpp:645:    XRPL_ASSERT(
+src/libxrpl/protocol/STInteger.cpp:230:        XRPL_ASSERT(
+src/libxrpl/protocol/STInteger.cpp:237:        XRPL_ASSERT(
+src/xrpld/app/misc/Transaction.h:334:        // Calling the wrong getter function will throw an exception.
+src/xrpld/app/misc/FeeVoteImpl.cpp:202:    XRPL_ASSERT(
+src/xrpld/app/misc/FeeVoteImpl.cpp:260:                    // not provided. Don't throw because this value is
+src/xrpld/app/misc/SHAMapStoreImp.cpp:99:        Throw<std::runtime_error>(
+src/xrpld/app/misc/SHAMapStoreImp.cpp:143:            Throw<std::runtime_error>(
+src/xrpld/app/misc/SHAMapStoreImp.cpp:150:            Throw<std::runtime_error>(
+src/xrpld/app/misc/SHAMapStoreImp.cpp:399:            Throw<std::runtime_error>("node db path must be a directory.");
+src/xrpld/app/misc/SHAMapStoreImp.cpp:472:        Throw<std::runtime_error>("state db error");
+src/xrpld/app/misc/SHAMapStoreImp.cpp:516:    XRPL_ASSERT(
+src/xrpld/app/misc/SHAMapStoreImp.cpp:596:        Throw<std::runtime_error>("Failed to get relational database");
+src/libxrpl/protocol/STNumber.cpp:73:    XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STNumber.cpp:84:    XRPL_ASSERT(
+src/libxrpl/protocol/STNumber.cpp:86:    XRPL_ASSERT(
+src/libxrpl/protocol/STNumber.cpp:103:            XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STNumber.cpp:117:            XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STNumber.cpp:125:    XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STNumber.cpp:161:    XRPL_ASSERT(
+src/libxrpl/protocol/STNumber.cpp:195:        Throw<std::runtime_error>("'" + number + "' is not a number");
+src/libxrpl/protocol/STNumber.cpp:261:        XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STNumber.cpp:268:        static_assert(
+src/libxrpl/protocol/STNumber.cpp:274:        Throw<std::runtime_error>("not a number");
+src/libxrpl/protocol/STArray.cpp:77:            Throw<std::runtime_error>("Illegal terminator in array");
+src/libxrpl/protocol/STArray.cpp:86:            Throw<std::runtime_error>("Unknown field");
+src/libxrpl/protocol/STArray.cpp:92:            Throw<std::runtime_error>("Non-object in array");
+src/xrpld/app/misc/TxQ.h:559:            @invariant `pfresult` is never allowed to be empty. The
+src/xrpld/app/misc/AMMHelpers.h:390:                Throw<std::runtime_error>("changeSpotPriceQuality failed");
+src/xrpld/app/misc/AMMHelpers.h:441:/** AMM pool invariant - the product (A * B) after swap in/out has to remain
+src/xrpld/app/misc/AMMHelpers.h:657:    // AMM invariant sqrt(poolAsset1 * poolAsset2) >= LPTokensBalance
+src/xrpld/app/misc/AMMHelpers.h:665:    // AMM invariant sqrt(poolAsset1 * poolAsset2) >= LPTokensBalance
+src/xrpld/app/tx/detail/SetAccount.cpp:314:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/XChainAttestations.cpp:120:    : attestationSignerAccount{Json::getOrThrow<AccountID>(
+src/libxrpl/protocol/XChainAttestations.cpp:123:    , publicKey{Json::getOrThrow<PublicKey>(v, sfPublicKey)}
+src/libxrpl/protocol/XChainAttestations.cpp:124:    , signature{Json::getOrThrow<Buffer>(v, sfSignature)}
+src/libxrpl/protocol/XChainAttestations.cpp:125:    , sendingAccount{Json::getOrThrow<AccountID>(v, sfAccount)}
+src/libxrpl/protocol/XChainAttestations.cpp:126:    , sendingAmount{Json::getOrThrow<STAmount>(v, sfAmount)}
+src/libxrpl/protocol/XChainAttestations.cpp:127:    , rewardAccount{Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount)}
+src/libxrpl/protocol/XChainAttestations.cpp:128:    , wasLockingChainSend{Json::getOrThrow<bool>(v, sfWasLockingChainSend)}
+src/libxrpl/protocol/XChainAttestations.cpp:200:    , claimID{Json::getOrThrow<std::uint64_t>(v, sfXChainClaimID)}
+src/libxrpl/protocol/XChainAttestations.cpp:203:        dst = Json::getOrThrow<AccountID>(v, sfDestination);
+src/libxrpl/protocol/XChainAttestations.cpp:288:    , createCount{Json::getOrThrow<std::uint64_t>(
+src/libxrpl/protocol/XChainAttestations.cpp:291:    , toCreate{Json::getOrThrow<AccountID>(v, sfDestination)}
+src/libxrpl/protocol/XChainAttestations.cpp:292:    , rewardAmount{Json::getOrThrow<STAmount>(v, sfSignatureReward)}
+src/libxrpl/protocol/XChainAttestations.cpp:479:          Json::getOrThrow<AccountID>(v, sfAttestationSignerAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:480:          Json::getOrThrow<PublicKey>(v, sfPublicKey),
+src/libxrpl/protocol/XChainAttestations.cpp:481:          Json::getOrThrow<STAmount>(v, sfAmount),
+src/libxrpl/protocol/XChainAttestations.cpp:482:          Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:483:          Json::getOrThrow<bool>(v, sfWasLockingChainSend),
+src/libxrpl/protocol/XChainAttestations.cpp:487:        dst = Json::getOrThrow<AccountID>(v, sfDestination);
+src/libxrpl/protocol/XChainAttestations.cpp:591:          Json::getOrThrow<AccountID>(v, sfAttestationSignerAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:592:          Json::getOrThrow<PublicKey>(v, sfPublicKey),
+src/libxrpl/protocol/XChainAttestations.cpp:593:          Json::getOrThrow<STAmount>(v, sfAmount),
+src/libxrpl/protocol/XChainAttestations.cpp:594:          Json::getOrThrow<STAmount>(v, sfSignatureReward),
+src/libxrpl/protocol/XChainAttestations.cpp:595:          Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:596:          Json::getOrThrow<bool>(v, sfWasLockingChainSend),
+src/libxrpl/protocol/XChainAttestations.cpp:597:          Json::getOrThrow<AccountID>(v, sfDestination)}
+src/libxrpl/protocol/XChainAttestations.cpp:719:        Throw<std::runtime_error>(
+src/libxrpl/protocol/XChainAttestations.cpp:728:            Throw<std::runtime_error>(
+src/libxrpl/protocol/XChainAttestations.cpp:743:        Throw<std::runtime_error>(
+src/xrpld/app/misc/NetworkOPs.cpp:111:            XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1283:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1458:        XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1488:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1491:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1770:                XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:1813:                XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:2048:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:2073:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:2077:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:2999:    static_assert(std::is_sorted(std::begin(protocols), std::end(protocols)));
+src/xrpld/app/misc/NetworkOPs.cpp:3112:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:3531:        XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:3608:        XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:4187:    XRPL_ASSERT(
+src/xrpld/app/misc/NetworkOPs.cpp:4191:        Throw<std::runtime_error>(
+src/libxrpl/protocol/Serializer.cpp:56:    static_assert(
+src/libxrpl/protocol/Serializer.cpp:129:    XRPL_ASSERT(
+src/libxrpl/protocol/Serializer.cpp:200:    XRPL_ASSERT(
+src/libxrpl/protocol/Serializer.cpp:254:        Throw<std::overflow_error>("lenlen");
+src/libxrpl/protocol/Serializer.cpp:263:        Throw<std::overflow_error>("len<0");
+src/libxrpl/protocol/Serializer.cpp:274:    Throw<std::overflow_error>("len>918744");
+src/libxrpl/protocol/Serializer.cpp:282:        Throw<std::overflow_error>("b1<0");
+src/libxrpl/protocol/Serializer.cpp:293:    Throw<std::overflow_error>("b1>254");
+src/libxrpl/protocol/Serializer.cpp:301:        Throw<std::overflow_error>("b1<0");
+src/libxrpl/protocol/Serializer.cpp:304:        Throw<std::overflow_error>("b1>254");
+src/libxrpl/protocol/Serializer.cpp:313:        Throw<std::overflow_error>("b1<193");
+src/libxrpl/protocol/Serializer.cpp:316:        Throw<std::overflow_error>("b1>240");
+src/libxrpl/protocol/Serializer.cpp:325:        Throw<std::overflow_error>("b1<241");
+src/libxrpl/protocol/Serializer.cpp:328:        Throw<std::overflow_error>("b1>254");
+src/libxrpl/protocol/Serializer.cpp:352:        Throw<std::runtime_error>("invalid SerialIter skip");
+src/libxrpl/protocol/Serializer.cpp:362:        Throw<std::runtime_error>("invalid SerialIter get8");
+src/libxrpl/protocol/Serializer.cpp:374:        Throw<std::runtime_error>("invalid SerialIter get16");
+src/libxrpl/protocol/Serializer.cpp:386:        Throw<std::runtime_error>("invalid SerialIter get32");
+src/libxrpl/protocol/Serializer.cpp:399:        Throw<std::runtime_error>("invalid SerialIter get64");
+src/libxrpl/protocol/Serializer.cpp:414:        Throw<std::runtime_error>("invalid SerialIter geti32");
+src/libxrpl/protocol/Serializer.cpp:426:        Throw<std::runtime_error>("invalid SerialIter geti64");
+src/libxrpl/protocol/Serializer.cpp:446:            Throw<std::runtime_error>(
+src/libxrpl/protocol/Serializer.cpp:455:            Throw<std::runtime_error>(
+src/libxrpl/protocol/Serializer.cpp:465:    static_assert(
+src/libxrpl/protocol/Serializer.cpp:468:        Throw<std::runtime_error>("invalid SerialIter getRaw");
+src/libxrpl/protocol/Serializer.cpp:507:        XRPL_ASSERT(
+src/libxrpl/protocol/Serializer.cpp:520:        Throw<std::runtime_error>("invalid SerialIter getSlice");
+src/libxrpl/protocol/STLedgerEntry.cpp:56:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STLedgerEntry.cpp:85:        Throw<std::runtime_error>("invalid ledger entry type");
+src/libxrpl/protocol/STLedgerEntry.cpp:97:        Throw<std::runtime_error>("invalid ledger entry type");
+src/libxrpl/protocol/STLedgerEntry.cpp:177:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultSet.cpp:102:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:129:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:149:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultSet.cpp:159:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:193:    // in Issuance object. Otherwise it's really difficult for Vault invariants
+src/libxrpl/protocol/STVector256.cpp:41:        Throw<std::runtime_error>(
+src/libxrpl/protocol/STVector256.cpp:81:    XRPL_ASSERT(
+src/libxrpl/protocol/STVector256.cpp:83:    XRPL_ASSERT(
+src/libxrpl/protocol/Asset.cpp:80:        Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/SetSignerList.cpp:148:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/SetSignerList.cpp:151:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/SetSignerList.cpp:186:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/SetSignerList.cpp:189:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/SetSignerList.cpp:231:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/SetSignerList.cpp:281:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/SetSignerList.cpp:354:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:410:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:73:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/misc/LendingHelpers.h:115:        XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/IOUAmount.cpp:104:            Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:124:            Throw<std::overflow_error>("IOUAmount::normalize");
+src/libxrpl/protocol/IOUAmount.cpp:137:        Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:146:        Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:183:    // This addition cannot overflow an std::int64_t but we may throw from
+src/libxrpl/protocol/IOUAmount.cpp:213:        Throw<std::runtime_error>("division by zero");
+src/xrpld/app/tx/detail/ApplyContext.h:67:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/ApplyContext.h:134:    /** Applies all invariant checkers one by one.
+src/libxrpl/protocol/TER.cpp:87:        MAKE_ERROR(tecINVARIANT_FAILED,              "One or more invariants for the transaction were not satisfied."),
+src/libxrpl/protocol/TER.cpp:139:        MAKE_ERROR(tefEXCEPTION,                   "Unexpected program state."),
+src/libxrpl/protocol/TER.cpp:141:        MAKE_ERROR(tefINTERNAL,                    "Internal error."),
+src/libxrpl/protocol/TER.cpp:149:        MAKE_ERROR(tefINVARIANT_FAILED,            "Fee claim violated invariants for the transaction."),
+src/xrpld/app/tx/detail/Payment.cpp:293:    // Calling dstAmount.issue() in the next line would throw if it holds MPT.
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:629:    XRPL_ASSERT(dstAmount.native(), "ripple::Payment::doApply : amount is XRP");
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/QualityFunction.cpp:37:        Throw<std::runtime_error>("QualityFunction quality rate is 0.");
+src/libxrpl/protocol/BuildInfo.cpp:74:            LogicError(s + ": Bad server version string");
+src/libxrpl/protocol/STIssue.cpp:66:            static_assert(
+src/libxrpl/protocol/STIssue.cpp:82:                Throw<std::runtime_error>(
+src/libxrpl/protocol/SField.cpp:104:    XRPL_ASSERT(
+src/libxrpl/protocol/SField.cpp:107:    XRPL_ASSERT(
+src/libxrpl/protocol/SField.cpp:124:    XRPL_ASSERT(
+src/libxrpl/protocol/SField.cpp:127:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultCreate.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/STValidation.cpp:122:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:242:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:503:                    XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:722:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:743:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:746:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:760:            return {tefINTERNAL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:776:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateOffer.cpp:819:        return {tefINTERNAL, false};
+src/libxrpl/protocol/Quality.cpp:43:    XRPL_ASSERT(m_value > 0, "ripple::Quality::operator++() : minimum value");
+src/libxrpl/protocol/Quality.cpp:59:    XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:91:        XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:95:    XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:132:        XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:137:    XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:161:    XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:166:    XRPL_ASSERT(
+src/libxrpl/protocol/Quality.cpp:175:    XRPL_ASSERT(
+src/libxrpl/protocol/ErrorCodes.cpp:140:        static_assert(rpcSUCCESS == 0, "Unexpected error_code_i layout.");
+src/libxrpl/protocol/ErrorCodes.cpp:225:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.h:44: * @brief Prototype for invariant check implementations.
+src/xrpld/app/tx/detail/InvariantCheck.h:47: * communicate the interface required of any invariant checker. Any invariant
+src/xrpld/app/tx/detail/InvariantCheck.h:178: * AccountRootsNotDeleted. This invariant will handle multiple deleted account
+src/xrpld/app/tx/detail/InvariantCheck.h:474: * @brief Invariant: Validates several invariants for NFToken pages.
+src/xrpld/app/tx/detail/InvariantCheck.h:607: * means that there are no rules and the invariant is violated.
+src/xrpld/app/tx/detail/InvariantCheck.h:951:// additional invariant checks can be declared above and then added to this
+src/xrpld/app/tx/detail/InvariantCheck.h:980: * @brief get a tuple of all invariant checks
+src/xrpld/app/tx/detail/InvariantCheck.h:982: * @return std::tuple of instances that implement the required invariant check
+src/xrpld/app/paths/detail/PaySteps.cpp:107:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/PaySteps.cpp:124:    XRPL_ASSERT(e2->isOffer(), "ripple::toStep : is offer");
+src/xrpld/app/paths/detail/PaySteps.cpp:420:            Throw<FlowException>(
+src/xrpld/app/paths/detail/PaySteps.cpp:421:                tefEXCEPTION, "Step should be either a direct or book step");
+src/xrpld/app/paths/detail/PaySteps.cpp:530:            Throw<FlowException>(
+src/xrpld/app/paths/detail/PaySteps.cpp:531:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/paths/detail/PaySteps.cpp:575:            Throw<FlowException>(
+src/xrpld/app/paths/detail/PaySteps.cpp:576:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/paths/detail/AMMLiquidity.cpp:52:        Throw<std::runtime_error>("AMMLiquidity: invalid balances");
+src/xrpld/app/paths/detail/AMMLiquidity.cpp:80:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/AMMLiquidity.cpp:90:        Throw<std::overflow_error>(
+src/xrpld/app/paths/detail/AMMLiquidity.cpp:224:        catch (std::overflow_error const& e)
+src/xrpld/app/tx/detail/PayChan.cpp:132:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/PayChan.cpp:147:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/PayChan.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:157:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/PayChan.cpp:264:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:396:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:581:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanSet.h:45:    static_assert(defaultPaymentTotal >= minPaymentTotal);
+src/xrpld/app/tx/detail/LoanSet.h:49:    static_assert(defaultPaymentInterval >= minPaymentInterval);
+src/xrpld/app/tx/detail/LoanSet.h:52:    static_assert(defaultGracePeriod >= minPaymentInterval);
+src/libxrpl/protocol/STTakesAsset.cpp:26:            XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STTakesAsset.cpp:31:            XRPL_ASSERT_PARTS(
+src/libxrpl/protocol/STParsedJSON.cpp:72:        Throw<std::runtime_error>("Value out of range");
+src/libxrpl/protocol/STParsedJSON.cpp:82:        Throw<std::runtime_error>("Value out of range");
+src/libxrpl/protocol/STParsedJSON.cpp:236:                    beast::lexicalCastThrow<Integer>(value.asString())));
+src/libxrpl/protocol/STParsedJSON.cpp:370:                        beast::lexicalCastThrow<Integer>(value.asString())));
+src/libxrpl/protocol/STParsedJSON.cpp:450:                            beast::lexicalCastThrow<std::uint8_t>(strValue));
+src/libxrpl/protocol/STParsedJSON.cpp:524:                        Throw<std::invalid_argument>("invalid data");
+src/libxrpl/protocol/STParsedJSON.cpp:655:                        beast::lexicalCastThrow<std::int32_t>(
+src/libxrpl/protocol/STParsedJSON.cpp:663:                    static_assert(
+src/libxrpl/protocol/STParsedJSON.cpp:710:                    Throw<std::invalid_argument>("invalid data");
+src/libxrpl/protocol/STParsedJSON.cpp:769:                        Throw<std::invalid_argument>("invalid data");
+src/xrpld/app/tx/detail/AMMBid.cpp:193:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/AMMBid.cpp:322:        XRPL_ASSERT(timeSlot, "ripple::applyBid : timeSlot is set");
+src/xrpld/app/tx/detail/VaultDelete.cpp:103:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:118:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/VaultDelete.cpp:130:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDelete.cpp:157:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/VaultDelete.cpp:171:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:209:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/VaultDelete.cpp:218:        return tefBAD_LEDGER;
+src/xrpld/app/paths/detail/FlowDebugInfo.h:93:            XRPL_ASSERT(
+src/xrpld/app/paths/detail/DirectStep.cpp:519:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/DirectStep.cpp:640:    XRPL_ASSERT(cache_, "ripple::DirectStepI::fwdImp : cache is set");
+src/xrpld/app/paths/detail/DirectStep.cpp:727:    XRPL_ASSERT(!in.native, "ripple::DirectStepI::validFwd : input is not XRP");
+src/xrpld/app/paths/detail/DirectStep.cpp:791:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/DirectStep.cpp:993:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/AmountSpec.h:120:    static_assert(sizeof(T) == -1, "Must used specialized function");
+src/xrpld/app/paths/detail/AmountSpec.h:128:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/AmountSpec.h:137:    XRPL_ASSERT(amt.native, "ripple::get<XRPAmount>(EitherAmount&) : is XRP");
+src/xrpld/app/paths/detail/AmountSpec.h:145:    static_assert(sizeof(T) == -1, "Must used specialized function");
+src/xrpld/app/paths/detail/AmountSpec.h:153:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/AmountSpec.h:163:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/AmountSpec.h:171:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/AmountSpec.h:208:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:86:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:103:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:112:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:122:        catch (std::overflow_error const&)
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:167:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:175:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:222:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:224:    catch (std::overflow_error const&)
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:252:    XRPL_ASSERT(
+src/libxrpl/protocol/Indexes.cpp:119:    XRPL_ASSERT(
+src/libxrpl/protocol/Indexes.cpp:167:    XRPL_ASSERT(ticketSeq.isTicket(), "ripple::getTicketIndex : valid input");
+src/libxrpl/protocol/Indexes.cpp:254:    // XRPL_ASSERT(id0 != id1, "ripple::keylet::line : accounts must be
+src/libxrpl/protocol/Indexes.cpp:284:    XRPL_ASSERT(
+src/libxrpl/protocol/Indexes.cpp:303:    XRPL_ASSERT(
+src/libxrpl/protocol/Indexes.cpp:423:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:216:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:236:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/Transactor.cpp:341:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:500:            return tefPAST_SEQ;
+src/xrpld/app/tx/detail/Transactor.cpp:523:            return tefNO_TICKET;
+src/xrpld/app/tx/detail/Transactor.cpp:548:        return tefWRONG_PRIOR;
+src/xrpld/app/tx/detail/Transactor.cpp:552:        return tefMAX_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:555:        return tefALREADY;
+src/xrpld/app/tx/detail/Transactor.cpp:563:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:593:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:602:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:613:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:628:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:644:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:660:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:703:            return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:735:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:741:        return tefBAD_AUTH;  // FIXME: should be better error!
+src/xrpld/app/tx/detail/Transactor.cpp:786:                return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:797:                    return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:838:            return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:842:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:849:            return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:859:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:866:        return tefBAD_AUTH_MASTER;
+src/xrpld/app/tx/detail/Transactor.cpp:888:        return tefNOT_MULTI_SIGNING;
+src/xrpld/app/tx/detail/Transactor.cpp:893:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:896:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:927:                return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:935:            return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:949:            return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:952:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:1000:                    return tefMASTER_DISABLED;
+src/xrpld/app/tx/detail/Transactor.cpp:1012:                return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:1019:                return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:1026:                return tefBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:1037:        return tefBAD_QUORUM;
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:1159:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:1177:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:1245:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:1302:                    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.cpp:1364:        // Check invariants: if `tecINVARIANT_FAILED` is not returned, we can
+src/xrpld/app/tx/detail/Transactor.cpp:1368:        if (result == tecINVARIANT_FAILED)
+src/xrpld/app/tx/detail/Transactor.cpp:1370:            // if invariants checking failed again, reset the context and
+src/xrpld/app/tx/detail/Transactor.cpp:1378:            // Check invariants again to ensure the fee claiming doesn't
+src/xrpld/app/tx/detail/Transactor.cpp:1379:            // violate invariants.
+src/xrpld/app/tx/detail/Transactor.cpp:1384:        // We ran through the invariant checker, which can, in some cases,
+src/xrpld/app/tx/detail/Transactor.cpp:1396:        // The transactor and invariant checkers guarantee that this will
+src/xrpld/app/tx/detail/Transactor.cpp:1400:            Throw<std::logic_error>("fee charged is negative!");
+src/xrpld/app/tx/detail/LoanPay.cpp:39:    static_assert(
+src/xrpld/app/tx/detail/LoanPay.cpp:114:    static_assert(
+src/xrpld/app/tx/detail/LoanPay.cpp:141:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanPay.cpp:196:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanPay.cpp:206:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanPay.cpp:268:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanPay.cpp:274:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanPay.cpp:280:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanPay.cpp:359:        XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:370:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:375:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:380:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:385:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:420:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:434:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:444:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:470:        XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:480:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:492:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:514:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:655:        XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:811:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:817:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:822:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:826:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:830:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanPay.cpp:834:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/AMMVote.cpp:196:    XRPL_ASSERT(
+src/xrpld/app/paths/detail/StepChecks.h:39:    XRPL_ASSERT(src != dst, "ripple::checkFreeze : unequal input accounts");
+src/xrpld/app/tx/detail/SetTrust.cpp:209:        return tefNO_AUTH_REQUIRED;
+src/xrpld/app/tx/detail/SetTrust.cpp:310:    // Checking all freeze/deep freeze flag invariants.
+src/xrpld/app/tx/detail/SetTrust.cpp:382:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:97:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:218:                        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:351:    catch (std::overflow_error const&)
+src/xrpld/app/tx/detail/VaultClawback.cpp:373:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:381:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:393:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultClawback.cpp:414:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultClawback.cpp:499:            return tefINTERNAL;
+src/xrpld/app/paths/detail/StrandFlow.h:717:            XRPL_ASSERT(
+src/xrpld/app/paths/detail/StrandFlow.h:743:                XRPL_ASSERT(!best, "ripple::flow : best is unset");
+src/xrpld/app/paths/detail/StrandFlow.h:859:            return {tefEXCEPTION, std::move(ofrsToRmOnFail)};
+src/xrpld/app/paths/detail/StrandFlow.h:894:        XRPL_ASSERT(remainingIn, "ripple::flow : nonzero remainingIn");
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:56:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.h:58:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.h:70:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.h:106:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/Transactor.h:127:        XRPL_ASSERT(
+src/xrpld/app/paths/detail/AMMOffer.cpp:70:        Throw<std::logic_error>("Invalid consumed AMM offer.");
+src/xrpld/app/tx/detail/CancelOffer.cpp:71:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:120:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:140:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:261:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:345:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:358:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/STObject.cpp:90:        Throw<std::runtime_error>("Maximum nesting depth of STObject exceeded");
+src/libxrpl/protocol/STObject.cpp:179:        Throw<FieldErr>(text);
+src/libxrpl/protocol/STObject.cpp:263:            Throw<std::runtime_error>("Illegal end-of-array marker in object");
+src/libxrpl/protocol/STObject.cpp:272:            Throw<std::runtime_error>("Unknown field");
+src/libxrpl/protocol/STObject.cpp:284:    // duplicate fields. This is a key invariant:
+src/libxrpl/protocol/STObject.cpp:293:        Throw<std::runtime_error>("Duplicate field detected");
+src/libxrpl/protocol/STObject.cpp:745:            Throw<std::runtime_error>("missing field in templated STObject");
+src/libxrpl/protocol/STObject.cpp:929:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/Change.cpp:161:            return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:169:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Change.cpp:274:        return tefALREADY;
+src/xrpld/app/tx/detail/Change.cpp:296:                    return tefALREADY;
+src/xrpld/app/tx/detail/Change.cpp:308:        return tefALREADY;
+src/xrpld/app/tx/detail/Change.cpp:401:        return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:410:        return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:418:        return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:425:        return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:462:            return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:472:                return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:481:            return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:492:            return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:502:                return tefFAILURE;
+src/xrpld/app/tx/detail/Change.cpp:511:            return tefFAILURE;
+src/xrpld/app/tx/detail/LoanDelete.cpp:71:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:75:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:80:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:85:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:94:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:101:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanDelete.cpp:117:            XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/Transaction.cpp:91:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/Transaction.cpp:153:        Throw<std::runtime_error>("Failed to get relational database");
+src/xrpld/app/tx/detail/SetRegularKey.cpp:69:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/Rate2.cpp:55:    XRPL_ASSERT(rate.value, "ripple::nft::multiply : nonzero rate input");
+src/libxrpl/protocol/Rate2.cpp:66:    XRPL_ASSERT(rate.value, "ripple::nft::multiplyRound : nonzero rate input");
+src/libxrpl/protocol/Rate2.cpp:81:    XRPL_ASSERT(
+src/libxrpl/protocol/Rate2.cpp:95:    XRPL_ASSERT(rate.value, "ripple::nft::divide : nonzero rate input");
+src/libxrpl/protocol/Rate2.cpp:106:    XRPL_ASSERT(rate.value, "ripple::nft::divideRound : nonzero rate input");
+src/libxrpl/protocol/Rate2.cpp:121:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:41:            return tefINVALID_LEDGER_FIX_TYPE;
+src/xrpld/app/tx/detail/CashCheck.cpp:489:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/CashCheck.cpp:502:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:81:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:91:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:100:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:156:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:167:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:199:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:243:    catch (std::overflow_error const&)
+src/xrpld/app/tx/detail/VaultDeposit.cpp:256:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:291:        return tefINTERNAL;
+src/xrpld/app/tx/detail/NFTokenMint.cpp:174:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:57:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:109:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:113:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:125:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:133:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:154:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:183:            return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/applySteps.cpp:53:// throw an "UnknownTxnType" exception on error
+src/xrpld/app/tx/detail/applySteps.cpp:102:            throw UnknownTxnType(txnType);
+src/xrpld/app/tx/detail/applySteps.cpp:278:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/applySteps.cpp:351:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:372:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:433:        return {*ctx, tefEXCEPTION};
+src/xrpld/app/tx/detail/applySteps.cpp:456:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/applySteps.cpp:476:        return {tefEXCEPTION, false};
+src/xrpld/app/misc/detail/WorkBase.h:267:    XRPL_ASSERT(cb_, "ripple::detail::WorkBase::onResponse : callback is set");
+src/xrpld/app/tx/detail/SetOracle.cpp:274:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:324:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:285:    XRPL_ASSERT(cache_, "ripple::XRPEndpointStep::fwdImp : cache is set");
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:313:    XRPL_ASSERT(in.native, "ripple::XRPEndpointStep::validFwd : input is XRP");
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:401:    TER ter = tefINTERNAL;
+src/xrpld/app/misc/detail/ValidatorSite.cpp:41:        throw std::runtime_error("URI '" + uri + "' cannot be parsed");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:46:            throw std::runtime_error("file URI cannot contain a hostname");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:55:            throw std::runtime_error("file URI must contain a path");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:60:            throw std::runtime_error("http URI must contain a hostname");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:68:            throw std::runtime_error("https URI must contain a hostname");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:74:        throw std::runtime_error("Unsupported scheme: '" + pUrl.scheme + "'");
+src/xrpld/app/misc/detail/ValidatorSite.cpp:357:        // the WorkSSL client ctor can throw if SSL init fails
+src/xrpld/app/misc/detail/ValidatorSite.cpp:384:            throw std::runtime_error{"bad json"};
+src/xrpld/app/misc/detail/ValidatorSite.cpp:410:        throw std::runtime_error{"missing fields"};
+src/xrpld/app/misc/detail/ValidatorSite.cpp:414:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorSite.cpp:508:        throw std::runtime_error{"missing location"};
+src/xrpld/app/misc/detail/ValidatorSite.cpp:515:        throw std::runtime_error{"max redirects"};
+src/xrpld/app/misc/detail/ValidatorSite.cpp:529:            throw std::runtime_error(
+src/xrpld/app/misc/detail/ValidatorSite.cpp:591:                        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorSite.cpp:647:                throw std::runtime_error{"fetch error"};
+src/xrpld/app/misc/detail/Manifest.cpp:47:        Throw<std::runtime_error>("No SigningKey in manifest " + mk);
+src/xrpld/app/misc/detail/Manifest.cpp:394:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:911:        XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:74:    XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:134:    XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:157:            XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:166:                        XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:179:                        XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:224:    XRPL_ASSERT(
+src/libxrpl/protocol/TxMeta.cpp:243:    Throw<std::runtime_error>("Affected node not found");
+src/libxrpl/protocol/TxMeta.cpp:252:    XRPL_ASSERT(mResult != 255, "ripple::TxMeta::getAsObject : result is set");
+src/libxrpl/protocol/TxMeta.cpp:270:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/CancelCheck.cpp:98:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/CancelCheck.cpp:109:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:144:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:263:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:344:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:357:            return tefTOO_BIG;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:369:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:374:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:378:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:422:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/Escrow.cpp:494:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:1150:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Escrow.cpp:1163:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Escrow.cpp:1208:                return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Escrow.cpp:1374:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Escrow.cpp:1390:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Escrow.cpp:1434:                return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DID.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:194:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanSet.cpp:209:        static_assert(std::is_same_v<timeType, std::uint32_t>);
+src/xrpld/app/tx/detail/LoanSet.cpp:211:        static_assert(maxTime == 4'294'967'295);
+src/xrpld/app/tx/detail/LoanSet.cpp:287:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:366:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:370:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:374:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:383:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:390:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.cpp:425:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanSet.cpp:517:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanSet.cpp:542:        XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/LoanSet.cpp:622:    XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:468:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/AMMHelpers.cpp:30:    // AMM invariant: sqrt(asset1 * asset2) >= LPTokensBalance
+src/xrpld/app/misc/detail/AMMHelpers.cpp:256:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/CreateCheck.cpp:162:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:105:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/protocol/Permissions.cpp:91:        XRPL_ASSERT(
+src/libxrpl/protocol/Permissions.cpp:154:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LoadFeeTrack.cpp:108:        Throw<std::overflow_error>("scaleFeeLoad");
+src/xrpld/app/tx/detail/DeleteOracle.cpp:74:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/XChainBridge.cpp:445:        XRPL_ASSERT(sleSrc, "ripple::transferHelper : non-null source account");
+src/xrpld/app/tx/detail/XChainBridge.cpp:1197:    static_assert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1333:    static_assert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1476:        // Allowing clawing back funds would break the bridge's invariant that
+src/xrpld/app/paths/detail/BookStep.cpp:385:        XRPL_ASSERT(
+src/xrpld/app/paths/detail/BookStep.cpp:389:            Throw<FlowException>(tefINTERNAL, "Offer requires quality.");
+src/xrpld/app/paths/detail/BookStep.cpp:891:            Throw<FlowException>(
+src/xrpld/app/paths/detail/BookStep.cpp:892:                tecINVARIANT_FAILED, "AMM pool product invariant failed.");
+src/xrpld/app/paths/detail/BookStep.cpp:906:            Throw<FlowException>(dr);
+src/xrpld/app/paths/detail/BookStep.cpp:919:            Throw<FlowException>(cr);
+src/xrpld/app/paths/detail/BookStep.cpp:1143:    XRPL_ASSERT(cache_, "ripple::BookStep::fwdImp : cache is set");
+src/xrpld/app/paths/detail/BookStep.cpp:1162:        XRPL_ASSERT(
+src/xrpld/app/paths/detail/BookStep.cpp:1458:    TER ter = tefINTERNAL;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:141:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:168:            return {tefINTERNAL};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:219:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:304:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:311:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanManage.cpp:197:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanManage.cpp:248:                return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanManage.cpp:273:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanManage.cpp:368:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanManage.cpp:409:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanManage.cpp:414:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanManage.cpp:418:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Batch.cpp:46: * @throws std::overflow_error If any fee calculation would overflow the
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:60:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:89:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:108:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/ApplyContext.cpp:47:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/ApplyContext.cpp:85:    // If we already failed invariant checks before and we are now attempting to
+src/xrpld/app/tx/detail/ApplyContext.cpp:86:    // only charge a fee, and even that fails the invariant checks something is
+src/xrpld/app/tx/detail/ApplyContext.cpp:90:    return (result == tecINVARIANT_FAILED || result == tefINVARIANT_FAILED)
+src/xrpld/app/tx/detail/ApplyContext.cpp:91:        ? TER{tefINVARIANT_FAILED}
+src/xrpld/app/tx/detail/ApplyContext.cpp:92:        : TER{tecINVARIANT_FAILED};
+src/xrpld/app/tx/detail/ApplyContext.cpp:118:        // message won't be. Every failed invariant should write to the log,
+src/xrpld/app/tx/detail/ApplyContext.cpp:131:                << "Transaction has failed one or more invariants: "
+src/xrpld/app/tx/detail/ApplyContext.cpp:140:            << "Transaction caused an exception in an invariant"
+src/xrpld/app/tx/detail/ApplyContext.cpp:153:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/AMMUtils.cpp:182:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:73:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:78:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:88:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/misc/detail/TxQ.cpp:56:    XRPL_ASSERT(baseFee.signum() > 0, "ripple::getFeeLevelPaid : positive fee");
+src/xrpld/app/misc/detail/TxQ.cpp:99:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:216:static_assert(sumOfFirstSquares(1).first == true);
+src/xrpld/app/misc/detail/TxQ.cpp:217:static_assert(sumOfFirstSquares(1).second == 1);
+src/xrpld/app/misc/detail/TxQ.cpp:219:static_assert(sumOfFirstSquares(2).first == true);
+src/xrpld/app/misc/detail/TxQ.cpp:220:static_assert(sumOfFirstSquares(2).second == 5);
+src/xrpld/app/misc/detail/TxQ.cpp:222:static_assert(sumOfFirstSquares(0x1FFFFF).first == true, "");
+src/xrpld/app/misc/detail/TxQ.cpp:223:static_assert(sumOfFirstSquares(0x1FFFFF).second == 0x2AAAA8AAAAB00000ul, "");
+src/xrpld/app/misc/detail/TxQ.cpp:225:static_assert(sumOfFirstSquares(0x200000).first == false, "");
+src/xrpld/app/misc/detail/TxQ.cpp:226:static_assert(
+src/xrpld/app/misc/detail/TxQ.cpp:253:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:301:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:347:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:349:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:378:    static_assert(
+src/xrpld/app/misc/detail/TxQ.cpp:460:    XRPL_ASSERT(found, "ripple::TxQ::erase : account removed");
+src/xrpld/app/misc/detail/TxQ.cpp:472:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:479:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:483:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:532:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1020:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1135:                return {tefINTERNAL, false};
+src/xrpld/app/misc/detail/TxQ.cpp:1142:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1176:    XRPL_ASSERT(feeLevelPaid >= baseLevel, "ripple::TxQ::apply : minimum fee");
+src/xrpld/app/misc/detail/TxQ.cpp:1301:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1332:        XRPL_ASSERT(created, "ripple::TxQ::apply : account created");
+src/xrpld/app/misc/detail/TxQ.cpp:1545:                        XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1601:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1762:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1765:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1768:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1771:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/TxQ.cpp:1938:            Throw<std::runtime_error>(
+src/xrpld/app/misc/detail/TxQ.cpp:1946:            Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/DelegateSet.cpp:94:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:157:        return tefBAD_LEDGER;
+src/xrpld/app/misc/detail/AmendmentTable.cpp:59:            Throw<std::runtime_error>(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:65:            Throw<std::runtime_error>(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:231:                    XRPL_ASSERT(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:250:                    XRPL_ASSERT(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:273:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:637:                Throw<std::runtime_error>(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:642:                Throw<std::runtime_error>(
+src/xrpld/app/misc/detail/AmendmentTable.cpp:728:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:339:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:233:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:296:        return tefBAD_LEDGER;
+src/xrpld/app/misc/detail/WorkSSL.cpp:46:        Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:46:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:59:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:72:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:77:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/apply.cpp:188:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/apply.cpp:202:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/apply.cpp:224:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/WorkFile.h:91:    XRPL_ASSERT(cb_, "ripple::detail::WorkFile::run : callback is set");
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:107:            return tefBAD_LEDGER;
+src/xrpld/app/misc/detail/ValidatorList.cpp:201:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:313:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:415:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:452:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:486:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:511:    XRPL_ASSERT(begin < end, "ripple::splitMessage : valid inputs");
+src/xrpld/app/misc/detail/ValidatorList.cpp:545:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:595:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:609:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:631:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:650:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:682:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:768:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:787:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:803:                XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:901:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1048:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1236:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1530:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1720:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1787:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1877:        XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1954:                    XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1959:                XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1968:                XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:1976:                XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:2035:            XRPL_ASSERT(
+src/xrpld/app/misc/detail/ValidatorList.cpp:2062:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:177:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:206:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:219:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:195:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:282:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:328:        Throw<std::runtime_error>("mergePages: pages passed in out of order!");
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:331:        Throw<std::runtime_error>("mergePages: next link broken!");
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:334:        Throw<std::runtime_error>("mergePages: previous link broken!");
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:372:            Throw<std::runtime_error>("mergePages: p0 can't be located!");
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:433:                Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:641:                    Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:665:                return tefTOO_BIG;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:675:                return tefTOO_BIG;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:813:                Throw<std::runtime_error>(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:824:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:934:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:938:            return tefNFTOKEN_IS_NOT_TRANSFERABLE;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1104:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1160:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/OfferStream.cpp:58:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/OfferStream.cpp:146:    static_assert(
+src/xrpld/app/tx/detail/OfferStream.cpp:151:    static_assert(
+src/xrpld/app/tx/detail/OfferStream.cpp:156:    static_assert(
+src/xrpld/app/tx/detail/Offer.h:114:            Throw<std::logic_error>("can't consume more than is available.");
+src/xrpld/app/tx/detail/Offer.h:117:            Throw<std::logic_error>("can't produce more than is available.");
+src/xrpld/app/tx/detail/Offer.h:169:    /** Check any required invariant. Limit order book offer
+src/xrpld/app/tx/detail/Offer.h:232:    static_assert(sizeof(TOut) == -1, "Must be specialized");
+src/xrpld/app/misc/detail/LendingHelpers.cpp:17:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:22:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:26:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:269:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:276:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:280:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:284:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:316:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:320:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:326:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:338:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:346:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:525:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:644:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:666:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:675:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:740:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:743:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:769:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:895:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:956:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:962:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1013:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1022:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1034:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1057:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1090:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1106:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1112:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1118:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1123:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1128:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1134:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1177:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1220:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1371:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1381:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1539:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1586:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1705:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1709:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1802:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1854:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1870:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1887:        XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1918:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1924:    XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1968:            XRPL_ASSERT_PARTS(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:1999:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:2003:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:2007:    XRPL_ASSERT(
+src/xrpld/app/misc/detail/LendingHelpers.cpp:2010:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:51:assert(enforce)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:53:There are several asserts (or XRPL_ASSERTs) in this file that check a variable
+src/xrpld/app/tx/detail/InvariantCheck.cpp:54:named `enforce` when an invariant fails. At first glance, those asserts may look
+src/xrpld/app/tx/detail/InvariantCheck.cpp:62:This makes `assert(enforce)` sort of a second-layer of invariant enforcement
+src/xrpld/app/tx/detail/InvariantCheck.cpp:64:violates an invariant, and runs it in unit tests or a develop build that _does
+src/xrpld/app/tx/detail/InvariantCheck.cpp:551:            // The comment above starting with "assert(enforce)" explains this
+src/xrpld/app/tx/detail/InvariantCheck.cpp:553:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:570:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:582:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:810:     * We check this invariant regardless of deep freeze amendment status,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:835:            // The comment above starting with "assert(enforce)" explains this
+src/xrpld/app/tx/detail/InvariantCheck.cpp:837:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:840:                "invariant.");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:863:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:876:    /* While LedgerEntryTypesMatch invariant also checks types, all invariants
+src/xrpld/app/tx/detail/InvariantCheck.cpp:918:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1036:    // The comment above starting with "assert(enforce)" explains this assert.
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1037:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1040:        "invariant.");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1530:            // The comment above starting with "assert(enforce)" explains this
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1532:            XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1644:            XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1916:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1919:        "changes or enforce invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2086:        JLOG(j.error()) << "AMMVote invariant failed: "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2105:        JLOG(j.error()) << "AMMBid invariant failed: pool changed";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2117:        JLOG(j.error()) << "AMMBid invariant failed: " << *lptAMMBalanceBefore_
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2138:            << "AMMCreate invariant failed: AMM object is not created";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2152:        // Create invariant:
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2160:            JLOG(j.error()) << "AMMCreate invariant failed: " << amount << " "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2179:        JLOG(j.error()) << "AMMDelete invariant failed: " << msg;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2194:        JLOG(j.error()) << "AMM swap invariant failed: AMM object changed";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2217:    // Deposit and Withdrawal invariant:
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2234:        JLOG(j.error()) << "AMM " << tx.getTxnType() << " invariant failed: "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2259:        JLOG(j.error()) << "AMMDeposit invariant failed: AMM object is deleted";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2372:                 * We check this invariant regardless of lending protocol
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2391:                 * We check this invariant regardless of lending protocol
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2419:                 * We check this invariant regardless of lending protocol
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2431:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2434:            "changes or enforce invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2582:        // https://github.com/Tapanito/XRPL-Standards/blob/xls-66-lending-protocol/XLS-0066d-lending-protocol/README.md#3123-invariants
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2681:        // https://github.com/Tapanito/XRPL-Standards/blob/xls-66-lending-protocol/XLS-0066d-lending-protocol/README.md#3223-invariants
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2746:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2766:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2787:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2897:        XRPL_ASSERT_PARTS(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2926:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2927:                enforce, "ripple::ValidVault::finalize : vault noop invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2938:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2941:            "invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2949:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2950:            enforce, "ripple::ValidVault::finalize : single vault invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2964:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2967:                "invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2991:            XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2993:                "ripple::ValidVault::finalize : shares deletion invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3023:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3024:            enforce, "ripple::ValidVault::finalize : vault deletion invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3030:    XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3072:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3074:            "ripple::ValidVault::finalize : vault has shares invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3137:    // Thanks to this check we can simply do `assert(!beforeVault_.empty()` when
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3138:    // enforcing invariants on transaction types other than ttVAULT_CREATE
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3143:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3144:            enforce, "ripple::ValidVault::finalize : vault creation invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3178:        XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3179:            enforce, "ripple::ValidVault::finalize : shares noop invariant");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3314:                XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3366:                XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3532:                XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3694:                XRPL_ASSERT(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3827:        // The comment at the top of this file starting with "assert(enforce)"
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3829:        XRPL_ASSERT(enforce, "ripple::ValidVault::finalize : vault invariants");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3857:    XRPL_ASSERT_PARTS(
