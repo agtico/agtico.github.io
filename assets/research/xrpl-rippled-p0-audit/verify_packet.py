@@ -20,6 +20,7 @@ MANIFEST = ROOT / "repro_manifest.json"
 AMENDMENT_STATUS = ROOT / "direct_xrpl_amendment_status_20260527.json"
 RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
+MOBY_DICK_LIVE_STATE = ROOT / "runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json"
 
 EXPECTED_RECORD_COUNT = 19
 
@@ -281,6 +282,32 @@ def check_old_tag_trustline_repros() -> None:
         require(footer in log, f"old-tag trustline repro log missing zero-failure footer: {tag_key}")
 
 
+def check_moby_dick_live_state() -> None:
+    require(MOBY_DICK_LIVE_STATE.exists(), "missing Moby Dick live-state snapshot")
+    require(
+        sha256(MOBY_DICK_LIVE_STATE) == "e4f756f7ae60087a90ff7e4eaf15292fe092caecfab69ff3c22116e6a546c972",
+        "Moby Dick live-state snapshot SHA-256 mismatch",
+    )
+    snapshot = read_json(MOBY_DICK_LIVE_STATE)
+    require(snapshot["source"] == "direct XRPL public JSON-RPC", "unexpected Moby Dick snapshot source")
+    require(snapshot["feature_rpc"]["validated"] is True, "Moby Dick feature RPC must be validated")
+    require(
+        snapshot["feature_rpc"]["ledger_hash"] == snapshot["amendments_ledger_entry"]["ledger_hash"],
+        "Moby Dick feature and Amendments checks must bind to the same ledger hash",
+    )
+    for server in snapshot["server_info"]:
+        require(server["rippled_version"] == "3.1.3", "Moby Dick snapshot server runtime must be 3.1.3")
+    require(
+        snapshot["feature_status"]["fixCleanup3_1_3"]["enabled"] is True,
+        "Moby Dick snapshot must show fixCleanup3_1_3 enabled",
+    )
+    require(
+        snapshot["feature_status"]["Checks"]["enabled"] is True
+        and snapshot["feature_status"]["CheckCashMakesTrustLine"]["enabled"] is True,
+        "Moby Dick snapshot must show CheckCash live features enabled",
+    )
+
+
 def check_manifest_records(
     manifest: dict,
     amendment_status: dict,
@@ -355,12 +382,13 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("59 cases, 16068 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("60 cases, 16114 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)
     check_remediation(remediation_status)
     check_old_tag_trustline_repros()
+    check_moby_dick_live_state()
     marker_count = check_manifest_records(manifest, amendment_status, runtime_status, proof_text)
 
     print("packet-ok")

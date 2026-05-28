@@ -8,11 +8,11 @@ edits are out of scope for this run and were not made.
 Fresh live-state snapshot for this slice:
 
 ```text
-live_state_snapshot_20260527_moby_dick.json
-sha256: bf5f91401de37d39b79820d32ad9c46ac621e145c1295b9698647b2cb8290f47
-checked_utc: 2026-05-27T21:04:03Z
-s1.ripple.com: rippled 3.1.3, ledger 104523140, hash 9772A3C0D787CC963A696BE47F2BFC23806EF23B4E2D796D587DE9B87D32152D
-s2.ripple.com: rippled 3.1.3, ledger 104523140, hash 9772A3C0D787CC963A696BE47F2BFC23806EF23B4E2D796D587DE9B87D32152D
+live_state_snapshot_20260528_moby_dick.json
+sha256: e4f756f7ae60087a90ff7e4eaf15292fe092caecfab69ff3c22116e6a546c972
+checked_utc: 2026-05-28T01:33:19Z
+s1.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1
+s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1
 ```
 
 ## Current Result
@@ -20,11 +20,12 @@ s2.ripple.com: rippled 3.1.3, ledger 104523140, hash 9772A3C0D787CC963A696BE47F2
 The strongest legacy-core candidate is
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`.
 
-It is a baseline IOU trustline and offer-crossing accounting issue, not a new
-disabled feature surface. The current repro marker is:
+It is a baseline IOU trustline and settlement accounting issue, not a new
+disabled feature surface. The current repro markers are:
 
 ```text
 TrustLine current - offer crossing creates positive balance without reserve
+TrustLine current - CheckCash creates positive balance without reserve
 ```
 
 The packet wrapper reproduced the marker:
@@ -36,24 +37,52 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: e2385380b2c4c91ccf5a46472c46450acdfa9ea58468a46a6e2804a4e7ae88ab
+local wrapper log sha256: d3bd7e3ffe437fe30b97159538fe6ec0247a0608417011385e3192a01e7bd946
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-14.9s, 1 suite, 59 cases, 16068 tests total, 0 failures
+17.5s, 1 suite, 60 cases, 16114 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=19 proof_sha256=302da1ccf25b3ab103cdccf231be443515e81561593c34912aca87849a22cfd6
+records=19 markers=20 proof_sha256=6f2e7abb04f556299b79d180c778df6fce1a9e131f306fedeb26051c639bf191
 ```
+
+## CheckCash Sibling Repro
+
+This slice added a second current-live marker under the same finding, not a new
+finding count.
+
+Minimal behavior:
+
+1. Alice opens a gateway USD trustline, receives 100 USD, clears the limit, and
+   pays the 100 USD back.
+2. The line remains in default/no-reserve state with `OwnerCount=0`.
+3. The gateway writes a USD check to Alice.
+4. Alice cashes the check.
+5. Alice ends with a positive 50 USD balance while `OwnerCount=0` and the
+   receiver reserve flag remains unset.
+
+The packet proof marker is:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
+```
+
+This matters because `CheckCash` already has explicit reserve logic for
+auto-created trustlines. The sibling proves the issue is not only an
+`OfferCreate` edge case; it is a shared IOU-credit transition problem when an
+existing default trustline crosses from non-positive receiver balance to
+positive receiver balance.
 
 ## Why This Is The Moby Dick Candidate
 
 The broken behavior is simple: after a holder clears its trust limit and
-balance, offer crossing can give that holder a positive IOU balance while
-`OwnerCount` remains zero and the trustline reserve flag remains unset.
+balance, old live settlement paths can give that holder a positive IOU balance
+while `OwnerCount` remains zero and the trustline reserve flag remains unset.
+This is now reproduced through both offer crossing and CheckCash.
 
 The expected behavior is also simple: if an account's trustline balance moves
 from non-positive to positive, the receiver should either be charged the owner
@@ -63,7 +92,8 @@ insufficient reserve.
 This sits in old core ledger accounting:
 
 - `TrustSet` reserve and owner-count history reaches back to 2012-era code.
-- `OfferCreate` and offer crossing are long-running core IOU paths.
+- `OfferCreate`, offer crossing, Checks, and CheckCash are long-running core
+  IOU paths.
 - The fix-looking branch touches `rippleCreditIOU` in `src/libxrpl/ledger/View.cpp`,
   a shared ledger helper rather than a narrow new amendment module.
 
@@ -253,12 +283,13 @@ That leaves the current legacy-core live candidate set unchanged: the best
 remaining old/simple/current target is still
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`; the current slice moved it from
 source-lineage plus current repro to source-lineage plus current, `2.5.0`,
-`2.0.0`, and `1.5.0` binary repro.
+`2.0.0`, and `1.5.0` binary repro, then added CheckCash as a second
+current-live settlement-path marker for the same root cause.
 
 ## Next Step
 
-Keep drilling trustline/offer reserve siblings unless an even older and cleaner
-source signal appears:
+Keep drilling trustline/settlement reserve siblings unless an even older and
+cleaner source signal appears:
 
 1. source-review sibling crossings that can move IOU balances across zero
    without the shared receiver-side owner-count transition;

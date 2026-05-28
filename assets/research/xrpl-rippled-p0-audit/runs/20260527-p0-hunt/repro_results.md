@@ -91,6 +91,32 @@ gives this candidate a reproduced release-tag binary span of more than six
 years by May 2026. Claims earlier than `1.5.0` still require older toolchain
 provisioning.
 
+## Current sibling: CheckCash positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice opens a gateway USD trustline, receives 100 USD, clears the limit, and
+   pays the 100 USD back.
+2. The line remains with `OwnerCount=0` and no receiver reserve flag.
+3. The gateway writes a USD check to Alice.
+4. Alice cashes the check and receives 50 USD.
+5. Alice still has `OwnerCount=0` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
+15.9s, 1 suite, 60 cases, 16114 tests total, 0 failures
+```
+
+Interpretation: this is a second current-live settlement path for the same
+reserve/owner-count root cause. It is not counted as a new finding; it expands
+the existing finding from an offer-crossing witness into a shared IOU-credit
+transition witness.
+
 Additional dispositions:
 
 - `BATCH-INNER-001`: a direct non-batch `LoanSet` carrying `tfInnerBatchTxn`

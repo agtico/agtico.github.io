@@ -5,6 +5,8 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 
 2026-05-27 portability update: the public repro kit is self-locating and defaults to `/home/postfiat/repos/rippled` when a local upstream checkout exists. The Python model is portable. The jtx proof requires a local rippled test build with `OpenP0Repro_test.cpp` copied into `src/test/app/`.
 
+2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has a second current-live marker. The same cleared/default trustline reserve drift reproduced through `CheckCash`, not only offer crossing. The full `OpenP0Repro` suite now reports 60 cases / 16114 tests / 0 failures.
+
 2026-05-27 P0-hunt update: the expanded suite also reproduces nine pre-`fixCleanup3_1_3` historical/replay-era root causes with fixed-path negative controls:
 
 - `PermissionedDomainSet` ticket-sequence collision: two ticket-paid creates from the same account collide on `keylet::permissionedDomain(account, 0)` and the second transaction returns `tefEXCEPTION` / `dirInsert: double insertion`; with `fixCleanup3_1_3` enabled, the same sequence creates two distinct domains keyed by ticket sequence.
@@ -180,6 +182,7 @@ ripple.tx.OpenP0Repro MPT current — non-canonical amount reaches ledger engine
 ripple.tx.OpenP0Repro MPT current — STIssue sequence bytes are legacy-swapped
 ripple.tx.OpenP0Repro MPT current — locked holder can delete lock state without SAV
 ripple.tx.OpenP0Repro TrustLine current — offer crossing creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — OfferCreate bypasses DisallowIncomingTrustline
 ripple.tx.OpenP0Repro NFToken current — AcceptOffer bypasses DisallowIncomingTrustline
 ripple.tx.OpenP0Repro CheckCash current — bypasses DisallowIncomingTrustline
@@ -189,7 +192,7 @@ ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permi
 ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
 ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
 ripple.tx.OpenP0Repro had 0 failures.
-9.8s, 1 suite, 52 cases, 9385 tests total, 0 failures
+15.9s, 1 suite, 60 cases, 16114 tests total, 0 failures
 ```
 
 Test source: `src/test/app/OpenP0Repro_test.cpp`

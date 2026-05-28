@@ -41,6 +41,7 @@ Included findings must satisfy both conditions:
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
+| `runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json` | Direct `s1.ripple.com` / `s2.ripple.com` runtime and amendment snapshot for the legacy-core continuation slice. |
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch` | Focused `2.5.0` old-tag test patch for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log` | `2.5.0` old-tag `SetTrust` proof log showing the reserve/owner-count drift probe passed. |
@@ -48,7 +49,7 @@ Included findings must satisfy both conditions:
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log` | `2.0.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.patch` | Focused `1.5.0` old-tag test patch plus build-only compatibility edits for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.log` | Ubuntu 20.04 Docker `1.5.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
-| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v13.log` | Live-only proof extract with marker coverage and zero-failure footer. |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v14.log` | Live-only proof extract with marker coverage and zero-failure footer, including the CheckCash sibling for the trustline reserve finding. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
@@ -105,7 +106,7 @@ Expected proof footer:
 
 ```text
 ripple.tx.OpenP0Repro had 0 failures.
-59 cases, 16068 tests total, 0 failures
+60 cases, 16114 tests total, 0 failures
 ripple.tx.OpenP0ReproCrash had 0 failures.
 1 case, 12 tests total, 0 failures
 ```

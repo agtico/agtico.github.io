@@ -1,0 +1,215 @@
+{
+  "source": "direct XRPL public JSON-RPC",
+  "checked_utc": "2026-05-28T01:33:19Z",
+  "server_info": [
+    {
+      "rpc_url": "https://s1.ripple.com:51234/",
+      "rippled_version": "3.1.3",
+      "clio_version": "20260204074407--3215e43",
+      "libxrpl_version": "3.0.0",
+      "validated_ledger": {
+        "age": 7,
+        "hash": "561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1",
+        "seq": 104527318,
+        "base_fee_xrp": 1e-05,
+        "reserve_base_xrp": 1.0,
+        "reserve_inc_xrp": 0.2
+      },
+      "network_id": 0,
+      "time": "2026-May-28 01:33:18.113957 UTC"
+    },
+    {
+      "rpc_url": "https://s2.ripple.com:51234/",
+      "rippled_version": "3.1.3",
+      "clio_version": "20260204074407--3215e43",
+      "libxrpl_version": "3.0.0",
+      "validated_ledger": {
+        "age": 7,
+        "hash": "561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1",
+        "seq": 104527318,
+        "base_fee_xrp": 1e-05,
+        "reserve_base_xrp": 1.0,
+        "reserve_inc_xrp": 0.2
+      },
+      "network_id": 0,
+      "time": "2026-May-28 01:33:18.985052 UTC"
+    }
+  ],
+  "feature_rpc": {
+    "rpc_url": "https://s1.ripple.com:51234/",
+    "ledger_hash": "561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1",
+    "ledger_index": 104527318,
+    "validated": true
+  },
+  "amendments_ledger_entry": {
+    "index": "7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4",
+    "ledger_hash": "561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1",
+    "ledger_index": 104527318,
+    "validated": true,
+    "enabled_count": 92,
+    "sha256_enabled_hashes": "09cc10fb7517e53450cfcf65e6c16bb60b7155bbe9629d4d8568c4b80be957a6"
+  },
+  "feature_status": {
+    "AMM": {
+      "id": "8CC0774A3BF66D1D22E76BBDA8E8A232E6B6313834301B3B23E8601196AE6455",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "AMMClawback": {
+      "id": "726F944886BCDF7433203787E93DD9AA87FAB74DFE3AF4785BA03BEFC97ADA1F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Checks": {
+      "id": "157D2D480E006395B76F948E3E07A45A05FE10230D88A7993C71F97AE4B1F2D1",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "CheckCashMakesTrustLine": {
+      "id": "98DECF327BF79997AEC178323AD51A830E457BFC6D454DAF3E46E5EC42DC619F",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "DepositAuth": {
+      "id": "F64E1EABBE79D55B3BB82020516CEC2C582A98A6BFE20FBE9BB6A0D233418064",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "DisallowIncoming": {
+      "id": "47C3002ABA31628447E8E9A8B315FAA935CE30183F9A9B86845E469CA2CDC3DF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixDisallowIncomingV1": {
+      "id": "15D61F0C6DB6A2F86BCF96F1E2444FEC54E705923339EC175BD3E517C8B3FF91",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixDisallowIncomingV1_1": {
+      "id": "DA95590DFAF344AE3342A57BF8E23DC48028F1A8FE0AB8C4CE36BEA3E0E35558",
+      "enabled": false,
+      "supported": null,
+      "id_source": "sha512_half_name",
+      "feature_rpc_visible": false
+    },
+    "MPTokensV1": {
+      "id": "950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "NonFungibleTokensV1_1": {
+      "id": "32A122F1352A4C7B3A6D790362CC34749C5E57FCE896377BFDC6CCD14F6CD627",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionedDomains": {
+      "id": "A730EB18A9D4BB52502C898589558B4CCEB4BE10044500EE5581137A2E80E849",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionedDEX": {
+      "id": "677E401A423E3708363A36BA8B3A7D019D21AC5ABD00387BDBEA6BDE4C91247E",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "TokenEscrow": {
+      "id": "138B968F25822EFBF54C00F97031221C47B1EAB8321D93C7C2AEAF85F04EC5DF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Credentials": {
+      "id": "1CB67D082CF7D9102412D34258CEDB400E659352D3B207348889297A6D90F5EF",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "LendingProtocol": {
+      "id": "565B90CA1AB2B9D42208ED10884188C64F9E19083DECB9634AAF06EB03299509",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "SingleAssetVault": {
+      "id": "81BD2619B6B3C8625AC5D0BC01DE17F06C3F0AB95C7C87C93715B87A4FD240D8",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "PermissionDelegation": {
+      "id": "AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "Batch": {
+      "id": "894646DD5284E97DECFE6674A6D6152686791C4A95F8C132CCA9BAF9E5812FB6",
+      "enabled": false,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixMPTDeliveredAmount": {
+      "id": "AB8D932A5F338903FE5BCBD80B611FFED70839ABA3170E9CE01D947C0EDEDCF2",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixAMMv1_3": {
+      "id": "7CA70A7674A26FA517412858659EBC7EDEEF7D2D608824464E6FDEFD06854E14",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixTokenEscrowV1": {
+      "id": "32B8614321F7E070419115ABEAB1742EA20F3E3AF34432B5E2F474F8083260DC",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixAMMClawbackRounding": {
+      "id": "5E9586DB3D765B4C5794658FB6BB385071E9838DF4016027E6E26820C8526724",
+      "enabled": true,
+      "supported": true,
+      "id_source": "feature_rpc",
+      "feature_rpc_visible": true
+    },
+    "fixCleanup3_1_3": {
+      "id": "303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC",
+      "enabled": true,
+      "supported": null,
+      "id_source": "sha512_half_name",
+      "feature_rpc_visible": false
+    }
+  }
+}
