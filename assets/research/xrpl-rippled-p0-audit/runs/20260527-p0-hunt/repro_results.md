@@ -34,6 +34,38 @@ the batch signer outer-account replay proof. `OpenP0Repro` then passed with 47
 cases and 9,119 tests.
 `OpenP0ReproCrash` passed with 1 case and 12 tests.
 
+## Current source kill: PaymentChannel destination directory full
+
+Status: tested and not promoted.
+
+Hypothesis: `PaymentChannelCreate` writes the channel object and source owner
+directory before adding the recipient owner-directory entry under
+`fixPayChanRecipientOwnerDir`. If the recipient owner directory is full, the
+transaction might leave the channel object or source owner-count state behind.
+
+Scratch behavior: a forced destination-dir-full setup returned `tecDIR_FULL`,
+left no PayChannel object, and left the source `OwnerCount` unchanged.
+
+Source-kill artifact:
+
+```text
+runs/20260527-p0-hunt/paychan_dest_dirfull_source_kill_20260528.log
+sha256: ff0ac270d50fc9424eed8d077be0b91e08d7f771ec4cbf1aed37f7425dd3f8cc
+```
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro SCRATCH PayChanCreate tecDIR_FULL leaves no partial channel
+16.9s, 1 suite, 71 cases, 16783 tests total, 0 failures
+```
+
+After the scratch-only case was removed, the upstream packet harness returned:
+
+```text
+16.0s, 1 suite, 70 cases, 16752 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

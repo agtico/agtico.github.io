@@ -119,10 +119,18 @@ destination-directory insertion point. A forced source-dir-full scratch probe
 returned `tecDIR_FULL`, left no Check object, left source and destination owner
 counts unchanged, and left no check entry in either owner directory.
 
+`PAYCHAN-DIRFULL-PARTIAL-001` asked whether `PaymentChannelCreate` leaves a
+partial source-side channel object when the destination owner-directory insert
+fails under `fixPayChanRecipientOwnerDir`. A forced destination-dir-full scratch
+probe returned `tecDIR_FULL`, left no PayChannel object, and left the source
+`OwnerCount` unchanged. Scratch artifact
+`paychan_dest_dirfull_source_kill_20260528.log` has sha256
+`ff0ac270d50fc9424eed8d077be0b91e08d7f771ec4cbf1aed37f7425dd3f8cc`.
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
-15.1s, 1 suite, 70 cases, 16752 tests total, 0 failures
+16.0s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 ## Current sibling: NFToken settlement positive-balance reserve drift
