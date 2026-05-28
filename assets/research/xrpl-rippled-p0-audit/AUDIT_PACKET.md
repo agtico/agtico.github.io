@@ -49,6 +49,8 @@ Included findings must satisfy both conditions:
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log` | `2.0.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.patch` | Focused `1.5.0` old-tag test patch plus build-only compatibility edits for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.log` | Ubuntu 20.04 Docker `1.5.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
+| `verify_trustline_positive_balance_lineage.py` | Source-lineage verifier for the old sender-side-only reserve transition and the later upstream receiver-side fix/test evidence. |
+| `runs/20260527-p0-hunt/trustline_positive_balance_lineage_20260527.json` | Script-generated lineage report covering sampled refs from `0.12.0` through `3.1.3`, the fix commit, fix-branch tests, and latest-ref absence. |
 | `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v18.log` | Live-only proof extract with marker coverage and zero-failure footer, including offer-crossing, CheckCash, existing-owner, and missing-owner-reserve boundary siblings for the trustline reserve finding. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |

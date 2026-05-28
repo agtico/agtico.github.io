@@ -281,6 +281,34 @@ def check_old_tag_trustline_repros() -> None:
         require(marker in log, f"old-tag trustline repro log missing marker: {tag_key}")
         require(footer in log, f"old-tag trustline repro log missing zero-failure footer: {tag_key}")
 
+    lineage = read_json(ROOT / "runs/20260527-p0-hunt/trustline_positive_balance_lineage_20260527.json")
+    require(lineage["finding_id"] == "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001", "unexpected trustline lineage finding")
+    require(lineage["passed"] is True, "trustline positive-balance lineage report did not pass")
+    require(
+        [item["ref"] for item in lineage["sampled_refs"]]
+        == ["0.12.0", "0.20.0", "0.30.0", "0.50.0", "0.80.0", "1.0.0", "1.5.0", "2.0.0", "2.5.0", "3.1.3"],
+        "unexpected trustline lineage sampled refs",
+    )
+    require(
+        all(item["passes_lineage_shape"] for item in lineage["sampled_refs"]),
+        "trustline lineage sampled refs did not all pass",
+    )
+    fix_branch = lineage["fix_branch"]
+    for key in [
+        "fix_commit_feature_macro",
+        "receiver_transition_comment",
+        "fix_symbol",
+        "receiver_reserve_not_set_comment",
+        "fix_commit_trust_and_balance_test",
+        "fix_commit_positive_transition_comment",
+        "fix_commit_offer_test_feature_conditional_owner_count",
+    ]:
+        require(fix_branch.get(key), f"trustline lineage missing fix evidence: {key}")
+    require(
+        all(not item["contains_fix_commit"] for item in lineage["latest_refs"].values()),
+        "trustline lineage fix commit unexpectedly present in latest refs",
+    )
+
 
 def check_moby_dick_live_state() -> None:
     require(MOBY_DICK_LIVE_STATE.exists(), "missing Moby Dick live-state snapshot")

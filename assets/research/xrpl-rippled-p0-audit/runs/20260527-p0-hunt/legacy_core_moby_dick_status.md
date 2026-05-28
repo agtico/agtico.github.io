@@ -230,11 +230,14 @@ The source-lineage check is now script-bound:
 
 ```text
 script: verify_trustline_positive_balance_lineage.py
-script_sha256: c85f62a3003052cffa39a9c41cc79273dbc53029e8f29a6f995774983094022c
+script_sha256: 085f6aaf26b4969ad01edd38d551c9404794bb64fa1f706032763cfd7a8f74e2
 report: runs/20260527-p0-hunt/trustline_positive_balance_lineage_20260527.json
-report_sha256: 9e09f480c2d0e7a4494b7a67dda4819f8c0076d11bf88bb882816922d9f8ab82
+report_sha256: 6c5b694085fd6aff9583e5b9c7ca1f88dad2417edb61d49ecc0a4d83240083e5
 result: passed=True
 sampled refs: 0.12.0, 0.20.0, 0.30.0, 0.50.0, 0.80.0, 1.0.0, 1.5.0, 2.0.0, 2.5.0, 3.1.3
+fix evidence: `fixTrustLineOwnerCount`, receiver-side reserve transition in `View.cpp`,
+`TrustAndBalance::testOwnerCountOnBalanceChange`, and `Offer_test` owner-count
+expectations conditional on the fix.
 ```
 
 The current source signal is upstream branch

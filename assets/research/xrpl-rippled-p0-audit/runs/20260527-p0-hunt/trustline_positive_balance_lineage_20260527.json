@@ -1,6 +1,6 @@
 {
   "source": "local XRPLF/rippled git source-lineage check",
-  "checked_utc": "2026-05-27T21:11:07Z",
+  "checked_utc": "2026-05-28T02:46:12Z",
   "finding_id": "TRUSTLINE-POSITIVE-BALANCE-RESERVE-001",
   "rippled_root": "/home/postfiat/repos/rippled",
   "scope_note": "This proves source-lineage shape only. It does not replace the current 3.1.3 binary repro and does not prove an old binary tag.",
@@ -90,9 +90,13 @@
   "fix_branch": {
     "ref": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve",
     "commit_contains_fix": true,
+    "fix_commit_feature_macro": "b4a45f1f0f49d3caf56d2c790960380b5e648a60:include/xrpl/protocol/detail/features.macro:35:XRPL_FIX    (TrustLineOwnerCount,        Supported::no,  VoteBehavior::DefaultNo)",
     "receiver_transition_comment": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1801:        // Check if receiver's balance went from zero/negative to positive",
     "fix_symbol": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1805:        if (view.rules().enabled(fixTrustLineOwnerCount) &&",
-    "receiver_reserve_not_set_comment": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1811:        // Receiver reserve is not set."
+    "receiver_reserve_not_set_comment": "origin/vvysokikh1/fix-positive-balance-trustline-pay-no-reserve:src/libxrpl/ledger/View.cpp:1811:        // Receiver reserve is not set.",
+    "fix_commit_trust_and_balance_test": "b4a45f1f0f49d3caf56d2c790960380b5e648a60:src/test/app/TrustAndBalance_test.cpp:462:    testOwnerCountOnBalanceChange(FeatureBitset features)",
+    "fix_commit_positive_transition_comment": "b4a45f1f0f49d3caf56d2c790960380b5e648a60:src/test/app/TrustAndBalance_test.cpp:522:        // market's. Balance goes from 0 to positive - this triggers the new",
+    "fix_commit_offer_test_feature_conditional_owner_count": "b4a45f1f0f49d3caf56d2c790960380b5e648a60:src/test/app/Offer_test.cpp:2412:            {\"dan\", drops(10) + reserve(env, 0) + 1 * f,    1,   gwPreTrust, 1000,             tesSUCCESS, drops(10)   + f, USD(0.00001),    0, features[fixTrustLineOwnerCount] ? 1 : 0},"
   },
   "latest_refs": {
     "3.2.0-b7": {

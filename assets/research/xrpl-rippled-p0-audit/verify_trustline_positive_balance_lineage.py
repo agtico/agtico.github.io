@@ -78,6 +78,21 @@ def grep_first(ref: str, pattern: str) -> str | None:
     )
 
 
+def grep_first_in(ref: str, pattern: str, path: str) -> str | None:
+    result = run_git(
+        ["grep", "-n", "--fixed-strings", pattern, ref, "--", path],
+        check=False,
+    )
+    if result.returncode == 0:
+        return result.stdout.splitlines()[0]
+    if result.returncode == 1:
+        return None
+    raise RuntimeError(
+        f"git grep failed for {ref} path={path} pattern={pattern!r}\n"
+        f"stdout={result.stdout}\nstderr={result.stderr}"
+    )
+
+
 def is_ancestor(commit: str, ref: str) -> bool:
     return run_git(["merge-base", "--is-ancestor", commit, ref], check=False).returncode == 0
 
@@ -102,11 +117,31 @@ def main() -> int:
     fix_branch = {
         "ref": FIX_BRANCH,
         "commit_contains_fix": is_ancestor(FIX_COMMIT, FIX_BRANCH),
+        "fix_commit_feature_macro": grep_first_in(
+            FIX_COMMIT,
+            "XRPL_FIX    (TrustLineOwnerCount",
+            "include/xrpl/protocol/detail/features.macro",
+        ),
         "receiver_transition_comment": grep_first(
             FIX_BRANCH, "receiver's balance went from zero/negative to positive"
         ),
         "fix_symbol": grep_first(FIX_BRANCH, "fixTrustLineOwnerCount"),
         "receiver_reserve_not_set_comment": grep_first(FIX_BRANCH, "Receiver reserve is not set."),
+        "fix_commit_trust_and_balance_test": grep_first_in(
+            FIX_COMMIT,
+            "testOwnerCountOnBalanceChange",
+            "src/test/app/TrustAndBalance_test.cpp",
+        ),
+        "fix_commit_positive_transition_comment": grep_first_in(
+            FIX_COMMIT,
+            "Balance goes from 0 to positive - this triggers the new",
+            "src/test/app/TrustAndBalance_test.cpp",
+        ),
+        "fix_commit_offer_test_feature_conditional_owner_count": grep_first_in(
+            FIX_COMMIT,
+            "features[fixTrustLineOwnerCount] ? 1 : 0",
+            "src/test/app/Offer_test.cpp",
+        ),
     }
 
     latest_refs = {
@@ -117,9 +152,13 @@ def main() -> int:
     passed = (
         all(item["passes_lineage_shape"] for item in sampled)
         and fix_branch["commit_contains_fix"]
+        and bool(fix_branch["fix_commit_feature_macro"])
         and bool(fix_branch["receiver_transition_comment"])
         and bool(fix_branch["fix_symbol"])
         and bool(fix_branch["receiver_reserve_not_set_comment"])
+        and bool(fix_branch["fix_commit_trust_and_balance_test"])
+        and bool(fix_branch["fix_commit_positive_transition_comment"])
+        and bool(fix_branch["fix_commit_offer_test_feature_conditional_owner_count"])
         and all(not item["contains_fix_commit"] for item in latest_refs.values())
     )
 
