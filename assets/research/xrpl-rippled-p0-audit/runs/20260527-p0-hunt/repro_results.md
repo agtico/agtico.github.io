@@ -1914,9 +1914,38 @@ stale `AuthAccounts`, and trustline reserve drift, but did not produce a new
 authorization, freeze, clawback, pool-state, owner-count, offer-crossing, or
 invariant witness.
 
+## Demoted: PermissionedDEX domain, credential, and invariant sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The next broader live-feature pass focused on PermissionedDEX domain,
+credential, hybrid-offer quality, cancellation, book-directory, and invariant
+paths. The sweep covered `PermissionedDEXHelpers`,
+`PermissionedDomainSet/Delete`, `Credentials`, credential helper cleanup,
+`CreateOffer`, `CancelOffer`, `OfferStream`, `sfAdditionalBooks`,
+`sfExchangeRate`, domain and credential lookup, owner-count paths, directory
+paths, and invariant checks.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+pdex_domain_credential_invariant_static_sweep_20260528.log sha256 7ffa888179fdde633a202e96ad00001a50416d7f79b37fd2209faa7940c3fb31
+pdex_domain_credential_invariant_history_sweep_20260528.log sha256 a4d5db210f6bb2c18278b64d0945baf2f096311ed58c672765a1dabc0eeed89e
+pdex_domain_credential_invariant_source_kill_20260528.log sha256 048f829278f8ab75d2f085eb3b3872d0575634341f673fa3bbe67f00a3ee4f8b
+125.7s, 13 suites, 513 cases, 89613 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new live PermissionedDEX P0. The
+checked paths reinforce existing packet and triage entries around
+`PDEX-HYBRID-QUALITY-001`, `PDEX-CANCEL-INVARIANT-001`, the cleanup-era
+empty-AdditionalBooks exclusion, and credential/domain lifecycle handling, but
+did not produce a new domain, credential, hybrid-book, cancellation,
+book-directory, owner-count, or invariant witness.
+
 ## Open candidates
 
-The bridge, NFT, PermissionedDEX, TokenEscrow, Credentials, authorization, and
-remaining vault/loan candidates are source-backed or model-triaged but not
-reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level
-repro exists.
+The bridge, NFT, TokenEscrow, Credentials, authorization, and remaining
+vault/loan candidates are source-backed or model-triaged but not reproduced.
+They stay in `candidate_matrix.md` until a clean jtx or unit-level repro
+exists.

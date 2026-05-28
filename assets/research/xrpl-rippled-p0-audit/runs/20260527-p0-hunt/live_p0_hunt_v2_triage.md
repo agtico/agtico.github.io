@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-28T09:44:45Z`
+Checked: `2026-05-28T09:54:41Z`
 
 ## Live Scope
 
@@ -194,6 +194,14 @@ one of the WHIP gates:
   passed with 688 cases and 154,192 tests. No new AMM authorization, freeze,
   clawback, auction-slot, LP-token, pool-state, owner-count, offer-crossing, or
   invariant witness was isolated beyond the already packeted AMM findings.
+- `PDEX-DOMAIN-CREDENTIAL-INVARIANT-SWEEP-001` source-killed the next
+  live-feature lane after the AMM pass. Static/history review plus
+  `PermissionedDEX`, `PermissionedDomains`, `Credentials`, `Invariants`,
+  `Offer`, `OfferStream`, `ReducedOffer`, and `Directory` passed with 513
+  cases and 89,613 tests.
+  No new PermissionedDEX domain, credential, hybrid-book, cancellation,
+  owner-count, directory, or invariant witness was isolated beyond the already
+  packeted PDEX findings and cleanup-era exclusions.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
@@ -237,7 +245,6 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 
 The next high-yield live-only review should stay inside:
 
-1. PermissionedDEX domain/credential quality and cancellation invariants.
-2. TokenEscrow result-code and owner-count/invariant paths.
-3. Credentials current-tag transaction paths that do not rely on disabled
+1. TokenEscrow result-code and owner-count/invariant paths.
+2. Credentials current-tag transaction paths that do not rely on disabled
    cleanup-era behavior.

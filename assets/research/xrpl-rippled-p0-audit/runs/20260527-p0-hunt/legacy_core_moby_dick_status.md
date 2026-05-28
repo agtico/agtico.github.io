@@ -18,14 +18,15 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:44:47Z
-amendment_checked_utc: 2026-05-28T09:44:45Z
+runtime_checked_utc: 2026-05-28T09:54:42Z
+amendment_checked_utc: 2026-05-28T09:54:41Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
-s2.ripple.com: rippled 3.1.3, ledger 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
-feature/amendment receipt ledger: 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
-runtime receipt sha256: 16223a513e18434d6fae04dee572296d0a3636bc0b8aacba18f569ed5edf2d52
-amendment receipt sha256: 8dd95c788fe7772c20ae1fb9759795f9659ffbadf201102a5cea480bdf26dc64
+s1.ripple.com: rippled 3.1.3, ledger 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
+s2.ripple.com: rippled 3.1.3, ledger 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
+runtime feature/amendment receipt ledger: 104535089, hash 157259449B6194C6F5D1CC6AC96DFB60E03E9AD0CD60D9C917BB9F0A54D2BB2E
+amendment feature/amendment receipt ledger: 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
+runtime receipt sha256: d0b2572b87ab5d3bb616a4c80d6ce2afce7b1c1393a60960e8154bf4cdd18e41
+amendment receipt sha256: ce2be7e9e3bae2d14ef70918788e869bf53b3066fa91362d2b86a14fd7b8e621
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -103,6 +104,19 @@ amm_auth_freeze_invariant_static_sweep_20260528.log sha256 2f82bff1fb0a81f2dff83
 amm_auth_freeze_invariant_history_sweep_20260528.log sha256 131fb56e5f428e29e098976978305c27c27ad91aedf8921835e11ec890a69459
 amm_auth_freeze_invariant_source_kill_20260528.log sha256 7ec02a6f30a672bdcf992ae663800a5506b3a5af44cdf8e6b83d05b9ae2d91e6
 212.0s, 14 suites, 688 cases, 154192 tests total, 0 failures
+```
+
+The following broader live-feature continuation checked PermissionedDEX domain,
+credential, hybrid-offer quality, cancellation, book-directory, and invariant
+paths. It did not promote a new finding. The pass source-killed adjacent
+PermissionedDEX and credential siblings beyond the packeted PDEX findings and
+left the 19-record packet manifest unchanged.
+
+```text
+pdex_domain_credential_invariant_static_sweep_20260528.log sha256 7ffa888179fdde633a202e96ad00001a50416d7f79b37fd2209faa7940c3fb31
+pdex_domain_credential_invariant_history_sweep_20260528.log sha256 a4d5db210f6bb2c18278b64d0945baf2f096311ed58c672765a1dabc0eeed89e
+pdex_domain_credential_invariant_source_kill_20260528.log sha256 048f829278f8ab75d2f085eb3b3872d0575634341f673fa3bbe67f00a3ee4f8b
+125.7s, 13 suites, 513 cases, 89613 tests total, 0 failures
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new
