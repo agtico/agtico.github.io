@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:11:11Z
-amendment_checked_utc: 2026-05-28T08:11:13Z
+runtime_checked_utc: 2026-05-28T08:18:00Z
+amendment_checked_utc: 2026-05-28T08:18:02Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533485, hash AB8CC2AD6A292FE1E069D2262C15A1051593F2480DA26A578D2936CA57388A5E
-s2.ripple.com: rippled 3.1.3, ledger 104533485, hash AB8CC2AD6A292FE1E069D2262C15A1051593F2480DA26A578D2936CA57388A5E
-runtime receipt sha256: 948955bed83c537c17e4122415e0e348497a1e5f8e9689317897060b4c50a41b
-amendment receipt sha256: 179e960b3e003a9d1fbc46edca072c46dbbd5aaf0152aa9e54870e779c7c30f6
+s1.ripple.com: rippled 3.1.3, ledger 104533591, hash 99FD81AFE5911A8097E3364D1AA5A25C4B81492FA018627810250DBC803E663C
+s2.ripple.com: rippled 3.1.3, ledger 104533591, hash 99FD81AFE5911A8097E3364D1AA5A25C4B81492FA018627810250DBC803E663C
+runtime receipt sha256: d62614f191c672ecc57a4fdd14f85908069d3d0ecd660275d6276cd21eda83b8
+amendment receipt sha256: d8432954359598609d978379a392e92e82122d07de225d5b5874c5cd3be5c0ad
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -59,6 +59,7 @@ Completed and packet-bound work:
 - TrustSet legacy reserve-carveout source and suite sweep.
 - legacy amount/quality arithmetic continuation sweep.
 - AccountSet legacy flag and policy-setting sweep.
+- legacy transaction envelope/signing/sequence source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1093,6 +1094,25 @@ tests, and the following candidates were source-killed rather than promoted:
   forbidden flag-combination mutation, broken alternate-key state, freeze/auth
   policy drift, reserve/object drift, or invariant failure from AccountSet
   itself.
+- `LEGACY-TX-ENVELOPE-SWEEP-001`: old transaction envelope, signing,
+  multi-sign, ticket/sequence, canonical serialization, pseudo-transaction,
+  transaction-ordering, and apply-boundary code was reviewed as a possible
+  source of a replay, auth bypass, sequence collision, malformed canonical
+  object, or deterministic ordering witness below individual transaction
+  families. The sweep covered `STTx`, `STObject`, `Serializer`, `SeqProxy`,
+  `Transactor`, `ApplyContext`, `CreateTicket`, `SetRegularKey`, multisign,
+  pseudo transactions, and transaction ordering. Static artifact
+  `legacy_tx_envelope_static_sweep_20260528.log` has sha256
+  `5d27bc9d2065dba98556c9fd9a029de33305ac4c95a6f414bbe15d5e0ddbe8c3`.
+  History artifact `legacy_tx_envelope_history_sweep_20260528.log` has sha256
+  `ca4d8acc13cecef9687515db3b2a1ef12b6314779b56ee9050954840d665a882`.
+  Suite artifact `legacy_tx_envelope_source_kill_20260528.log` has sha256
+  `b490584f0860342399e30e3220f39a633afbb2bb2a8f46d8c9f020bc33f3eb7a`.
+  The envelope suites passed with 10 suites, 92 cases, and 6,782 tests across
+  `STTx`, `STObject`, `Serializer`, `SeqProxy`, `Ticket`, `MultiSign`,
+  `SetRegularKey`, `Transaction_ordering`, `PseudoTx`, and `Apply`. No clean
+  transaction-visible replay, signature/auth, sequence, serialization, or
+  canonical-ordering P0 was isolated.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.

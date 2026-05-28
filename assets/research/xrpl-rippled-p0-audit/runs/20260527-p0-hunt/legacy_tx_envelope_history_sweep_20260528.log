@@ -1,0 +1,370 @@
+25ec394d5 2026-05-20 Merge branch 'develop' into mvadari/fix-naming
+9cb074067 2026-05-20 fix: Fix multisign and signfor to check for delegate (#7064)
+242ce3e9e 2026-05-20 refactor: Fix `sfGeneric` and `sfInvalid` field names (#7300)
+c8efacc8d 2026-05-20 fix clang & address review comments
+33b406ee8 2026-05-20 Merge branch 'develop' into dangell7/batch-v1
+d90fc44c0 2026-05-19 fix: bound sfRawTransactions before eager batch txn id hashing
+4d349abb1 2026-05-18 Merge branch 'develop' of https://github.com/XRPLF/rippled into mvadari/fix-naming
+759c6bac1 2026-05-07 chore: More fixes for bad renames (#7092)
+4539bb074 2026-05-07 chore: Consolidate fix amendments (#104)
+7afdd71a5 2026-05-07 chore: More fixes for bad renames (#7092)
+b62987bda 2026-05-06 Revert "fix: revert all unrelated upstream develop changes from phase-7 PR"
+dde7ca9f2 2026-05-04 fix: Use transaction sequence numbers in permissioned domains (#98)
+dc707b9f3 2026-04-24 feat: Enable and rename fixSecurity3_1_3 amendment (#90)
+f4555c80f 2026-04-30 fix: revert all unrelated upstream develop changes from phase-7 PR
+7ea4a5f3f 2026-04-22 fix: Cap the base fee for LoanPay (#6969)
+2794a7503 2026-04-22 fix: Prevents overwritting a bool value in an invariant (#6609) (#6961)
+5ad05918f 2026-04-21 fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716) (#6945)
+519d9057a 2026-04-20 fix: Improve invariant check for Permissioned Domains (#6134) (#6958)
+7e7dc3070 2026-04-17 fix: Add rounding to Vault invariants (#6217) (#6957)
+e09949ccd 2026-04-14 fix: Fix touchy "funds are conserved" assertion in LoanPay (#6231)
+c979643d0 2026-04-03 fix: Add assorted Lending Protocol fixes (#6678)
+dd99ecc65 2026-04-06 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback (#6646)
+a59a6138b 2026-04-01 fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+415e3d8ca 2026-03-24 fix: Assorted Permissioned Domain fixes (#6587)
+26d416123 2026-03-24 fix: Assorted Vault fixes (#6607)
+baa78ad13 2026-03-22 fix: Assorted Oracle fixes (#6570)
+fb19338b9 2026-03-18 fix: Make assorted NFT fixes (#6566)
+24874f7e0 2026-02-03 fix: Deletes expired NFToken offers from ledger (#5707)
+7618b726b 2026-04-21 fix: bind batch signer signatures to outer account and sequence
+5351d4f08 2026-04-11 Fix STJson and multiple emitted transactions (#6724)
+2570c7df0 2026-04-10 Sponsored Fees and Reserves for Attackathon (#6842)
+4e2b41c42 2026-04-09 Batch for Attackathon (#6732)
+bd9166888 2026-04-07 Merge branch 'develop' into dangell7/batch-v1
+8158d28f3 2026-04-02 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback
+111edef28 2026-04-02 fix: Assorted lending fixes (port of #6653)
+a92483e07 2026-03-26 fix: Improve loan invariant message (#6668)
+b7d9f5a35 2026-04-01 Merge branch 'tapanito/lending-fix-amendment' into ximinez/assetsmaximum-wip
+6acf730b9 2026-03-30 Merge branch 'tapanito/lending-fix-amendment' into ximinez/assetsmaximum-wip
+6cb9f336d 2026-03-19 Merge branch 'develop' into dangell7/batch-v1
+d0b54a0a5 2026-03-18 Merge branch 'develop' into dangell7/batch-v1
+252c6768d 2026-03-17 refactor: Clean up `getFeePayer`, `mSourceBalance`, and `mPriorBalance` (#6478)
+7e7b71d84 2026-03-16 chore: Fix tests for clang-tidy `bugprone-unchecked-optional-access` check (#6502)
+91a23cf80 2026-03-12 chore: Fix minor issues in the comments (#6535)
+c2ca6907d 2026-03-03 Merge branch 'tapanito/lending-fix-amendment' into ximinez/assetsmaximum-wip
+afc660a1b 2026-03-02 refactor: Fix clang-tidy `bugprone-empty-catch` check (#6419)
+359a94b76 2026-02-26 add account id to batch serialization
+6766a176a 2026-02-23 Merge branch 'tapanito/lending-fix-amendment' into ximinez/assetsmaximum-wip
+ecb2ba5e1 2026-02-18 Merge branch 'tapanito/lending-fix-amendment' into ximinez/assetsmaximum-wip
+cd218346f 2026-02-13 chore: Fix minor issues in comments (#6346)
+5edd3566f 2026-02-12 refactor: Modularize the NetworkOPs interface (#6225)
+e11f6190b 2026-02-10 fix: Update invariant checks for Permissioned Domains (#6134)
+a43f5abed 2026-02-10 fixes returned error code
+781368309 2026-02-03 fix: Deletes expired NFToken offers from ledger (#5707)
+a2f197357 2026-01-26 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259) (#6273)
+e3644f265 2026-01-22 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259)
+69b2be865 2026-01-09 Move the NetworkOPs interface to libxrpl
+2601442e1 2026-01-13 Improve and fix bugs in Lending Protocol (#6102)
+91d239f10 2026-01-12 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 2026-01-09 fix: Inner batch transactions never have valid signatures (#6069)
+b2c5927b4 2026-01-09 fix: Inner batch transactions never have valid signatures (#6069)
+d25915ca1 2026-01-08 fix: Reorder Batch Preflight Errors (#6176)
+a95f58187 2026-01-09 Move the NetworkOPs interface to libxrpl
+c24a6041f 2026-01-10 docs: Fix minor spelling issues in comments (#6194)
+53aa5ca90 2026-01-08 refactor: Fix typos, enable cspell pre-commit (#5719)
+510c0d82e 2026-01-08 fix: Reorder Batch Preflight Errors (#6176)
+07ff532d3 2026-01-07 refactor: Fix spelling issues in all variables/functions (#6184)
+3c9f5b625 2026-01-07 refactor: Fix typos in comments, configure cspell (#6164)
+59f5dfa9f 2026-01-05 fixing Freeze tests
+9449ce931 2025-12-24 fixing renaming
+298ef4a00 2025-12-24 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+c91b9a022 2025-12-19 fix: Enable LP Deposits when the broker is the asset issuer (#6119)
+e0b52e0e0 2025-12-19 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+b9aa35478 2025-12-19 Fix Overpayment ValueChange calculation in Lending Protocol (#6114)
+14790724a 2025-12-17 Disallow pseudo accounts to be Destination for LoanBrokerCoverWithdraw (#6106)
+397141192 2025-12-17 Fix some minor bugs in Lending Protocol (#6101)
+40c29bbfd 2025-12-16 Fix LoanBrokerSet debtMaximum limits (#6116)
+e91641664 2025-12-15 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+827ecc6e3 2025-12-15 Merge branch 'ripple/wasmi-host-functions' into ripple/se/fees
+1b180ef66 2025-12-15 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+3e9fc4dea 2025-12-12 Fix test errors
+6a54ed7f1 2025-12-12 fix fee overflow issue in `EscrowFinish` (#6130)
+71e9d78c1 2025-12-09 fix and unit-test
+4e4e62640 2025-12-08 fix LoanBrokerCoverDeposit
+efae404aa 2025-12-08 Merge branch 'ximinez/lending-XLS-66-ongoing' into vlntb/RIPD-4257-fix-tecFROZEN
+af43572ee 2025-12-05 Review feedback from @shawnxie999: even more rounding
+5fe00e32a 2025-12-04 fix
+0650e6e89 2025-12-03 Fix LCOV exclusion
+ad190a8d6 2025-12-01 Review feedback from @dangell7: early return & coverage
+4a04181ad 2025-11-11 Wasm fee voting
+b195011ef 2025-11-14 fix: Apply object reserve for Vault pseudo-account (#5954)
+40cd57355 2025-11-25 Review feedback from @shawnxie999: MPT Clawback
+587d4ac5c 2025-10-30 refactor: Add support for extra transaction signature validation (#5851)
+77e3bbdc8 2025-11-25 Move the ValidPseudoAccounts class back to its original location
+49ee70ea2 2025-11-25 Fix formatting again
+b8d830a81 2025-11-24 Fix formatting
+dedafbe32 2025-11-24 Review feedback from @gregtatcam: typo
+71bb08cd7 2025-11-24 Review feedback from @Tapanito, @gregtatcam, and @shawnxie999
+005390e26 2025-11-24 Fix formatting
+3ef650849 2025-11-24 Fix build error with LoanBroker invariant
+c5f5edebc 2025-11-24 Address a couple of feedback items from @Tapanito and @shawnxie999:
+7e6647e76 2025-11-24 Review feedback from @shawnxie999: broker owner count
+dba187f8c 2025-11-25 fix build issues
+49acc6196 2025-11-25 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+95d78a860 2025-11-25 Merge branch 'wasmi-host-functions' into ripple/se/fees
+21c02232a 2025-11-24 refactor: Retire RequireFullyCanonicalSig amendment (#6035)
+a791c03dc 2025-11-24 refactor: Retire DeletableAccounts amendment (#6056)
+800a31538 2025-11-24 refactor: Retire CryptoConditionsSuite amendment (#6036)
+27a7138f8 2025-11-23 Review feedback from @gregtatcam: constructRoundedLoanState
+58497541c 2025-11-23 Review feedback from @gregtatcam: LoanPay flags
+b8ad6d395 2025-11-23 Review feedback from @a1q123456: LoanDelete
+a3b2ce91d 2025-11-22 Review feedback from @gregtatcam: frozen broker pseudo-account
+1ceff3dde 2025-11-22 Review feedback from @greptatcam: getStartDate
+2fb9a6a29 2025-11-22 Review feedback from @Tapanito: tecKILLED logs
+f8ee979ff 2025-11-22 Review feedback from @gregtatcam
+1c38bbdf4 2025-11-22 Review feedback from @gregtatcam
+b82481858 2025-11-22 Review feedback from @gregtatcam
+d353b0ec0 2025-11-22 Review feedback
+973a10595 2025-11-22 Review feedback: test coverage, round debt total
+cc9b6fc68 2025-11-21 Restore code that needs to be amendment gated
+e4dccfd49 2025-11-21 refactor: Retire DisallowIncoming amendment (#6045)
+2c187461c 2025-11-17 refactor: Retire NegativeUNL amendment (#6033)
+546bfa89d 2025-11-16 For now, skip the larger mantissas in AMM transactions and tests
+3451d15e1 2025-11-15 Step 3: Automatically switch precision in the transaction engine
+362ecbd1c 2025-11-14 fix: Apply object reserve for Vault pseudo-account (#5954)
+7025e9208 2025-11-14 refactor: Retire TicketBatch amendment (#6032)
+508937f3d 2025-11-13 refactor: Retire MultiSignReserve and ExpandedSignerList amendments (#5981)
+ad124ce7b 2025-11-13 Fix balance checking assertion in LoanPay when issuer is borrower
+694abd1c7 2025-11-12 Revert "Catch up the consequences of Number changes"
+bdffe9902 2025-11-12 Disable inner Batch transactions for Vault and Loan types
+f3677c9be 2025-11-10 fix: Check for empty or zero VaultID in LoanBrokerSet
+348e7f7cf 2025-11-09 Fix RIPD-3901 - faulty assert
+54d738b93 2025-11-07 Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+2a9eec6c4 2025-11-06 Fix empty/zero broker ID in LoanBrokerSet and LoanSet (#5977)
+3a45fc336 2025-11-06 fix: Use ".value()" instead of "->" when with STObject::Proxy objects
+e001681ad 2025-11-06 fix: Improve rounding for IOU loans
+b7ed35cb0 2025-11-12 Fix merge issue: references to retired features
+ef66a1cc0 2025-11-12 Disable inner Batch transactions for Vault and Loan types
+ff18cfef9 2025-11-11 refactor: Retire DepositPreAuth and DepositAuth amendments (#5978)
+9b332d88c 2025-11-11 refactor: Retire PayChanRecipientOwnerDir amendment (#5946)
+9e25b4753 2025-11-10 fix: Check for empty or zero VaultID in LoanBrokerSet
+12c629a1d 2025-11-10 refactor: Retire CheckCashMakesTrustLine amendment (#5974)
+b5b31efe0 2025-11-09 Fix RIPD-3901 - faulty assert
+ebfca636f 2025-11-07 Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+0175dd70d 2025-11-05 Catch up the consequences of Number changes
+c56387d12 2025-11-06 Fix empty/zero broker ID in LoanBrokerSet and LoanSet (#5977)
+fdb659dc7 2025-11-06 fix: Use ".value()" instead of "->" when with STObject::Proxy objects
+2264713d5 2025-11-06 fix: Improve rounding for IOU loans
+bd196c760 2025-11-05 Catch up the consequences of Number changes
+673fb06c7 2025-11-05 refactor: Retire fixTrustLinesToSelf amendment (#5989)
+a891b49c6 2025-11-04 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+eed280d16 2025-11-04 Merge branch 'wamr-host-functions' into ripple/se/fees
+7925cc405 2025-11-03 fix: Check the borrower's balance in LoanSet for reserve
+63a08560c 2025-11-03 refactor: retire/remove NFT amendments (#5971)
+4920e65b1 2025-11-03 fix: LoanBrokerSet is malformed if Cover fields don't align
+8ac8a47c9 2025-11-03 refactor: Retire ImmediateOfferKilled amendment (#5973)
+50fc93f74 2025-10-31 refactor: Retire fixMasterKeyAsRegularKey amendment (#5959)
+ab45a8a73 2025-10-31 refactor: Retire fixReducedOffersV1 amendment (#5972)
+fa6991812 2025-10-31 fix: Address permission delegation vulnerability (#5825)
+8951419db 2025-10-28 fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+5ebc29c48 2025-10-21 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+eb66ae1bd 2025-10-15 refactor: replace JSON LastLedgerSequence with last_ledger_seq (#5884)
+b444457c1 2025-10-13 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+e8dddcbb7 2025-10-30 Fix LoanBrokerDelete with empty or zero broker ID (RIPD-3858) (#5967)
+8d1b3b399 2025-10-30 refactor: Add support for extra transaction signature validation (#5851)
+b0910e359 2025-10-30 refactor: Retire fix1623 amendment (#5928)
+f8b4f692f 2025-10-29 refactor: Retire fixSTAmountCanonicalize code (#5956)
+80a3ae638 2025-10-29 refactor: Retire fixRmSmallIncreasedQOffers amendment (#5955)
+efa917d9f 2025-10-29 refactor: Retire fix1578 amendment (#5927)
+bd3bc917f 2025-10-29 refactor: Retire fix1571 amendment (#5925)
+060eff0cf 2025-10-29 removed amendmend code
+21f3c12d8 2025-10-28 fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+d9960d5ba 2025-10-28 refactor: Retire fix1543 amendment (#5926)
+f4404eafb 2025-10-26 Fix build error
+fe4269cf8 2025-10-24 Avoid negative payments: limit origination fee to the loan principal
+07fcbd549 2025-10-24 Add authorization check to `LoanSet`  (#5875)
+78ef800e3 2025-10-24 Fix more problems introduced by 6adb2ec
+6adb2eca7 2025-10-23 Review feedbak from @tequdev, plus helpers
+7d22fe804 2025-10-23 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+ce19c1305 2025-10-23 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+92431e11c 2025-10-21 Fix build error - unused variables
+dfc4933c3 2025-10-16 Convert Loans to track management fee and use updated rounding
+83ee3788e 2025-10-21 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+3a0e9aab4 2025-10-20 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+43caa1ef2 2025-10-20 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+baabf142e 2025-10-15 Fix some build errors
+f8b63228b 2025-10-05 Cool idea: Charge one extra base fee per 25 payments
+63edf035a 2025-10-01 Start converting Loans to use fixed payments and track value
+d700f6876 2025-10-17 Merge remote-tracking branch 'mywork/ximinez/lending-sttx-checksign' into ximinez/lending-XLS-66
+9c2857826 2025-10-17 Review feedback from @a1q123456
+48d458afc 2025-10-16 Merge branch 'develop' into ximinez/lending-sttx-checksign
+a422855ea 2025-10-15 refactor: replace JSON LastLedgerSequence with last_ledger_seq (#5884)
+519d1dbc3 2025-10-16 refactor: Replace fee().accountReserve(0) with fee().reserve (#5843)
+3b6cd22e3 2025-10-14 fix
+f16f243c2 2025-10-13 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+fe601308e 2025-10-13 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+8637d606a 2025-10-13 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+e41f6a71b 2025-10-09 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+51f1be7f5 2025-10-09 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+c179135e1 2025-10-09 Fix the build and test errors introduced by the previous merge:
+311da8fdc 2025-10-08 Merge branch 'develop' into ximinez/lending-sttx-checksign
+7120cce99 2025-10-06 Add jtx, STObject, and RPC support for sig object fields
+23045fcbe 2025-10-03 Add support for extra transaction signature validation
+d576e9d21 2025-10-02 Include exception messages in multi signature check result
+965a9e89a 2025-10-02 Merge remote-tracking branch 'upstream/ripple/se/fees' into ripple/smart-escrow
+51ee06429 2025-10-02 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+51ef35ab5 2025-10-01 fix: Transaction sig checking functions do not get a full context (#5829)
+b127b24da 2025-09-30 Addressed review feedback from @gregtatcam:
+c2a0824da 2025-09-30 Merge remote-tracking branch 'mywork/ximinez/lending-tx-fix' into ximinez/lending-XLS-66
+ca85d09f0 2025-09-30 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+e1b234cc5 2025-09-30 fix: Transaction sig checking functions do not get a full context
+7a3f7aebc 2025-09-29 Review feedback from @gregtatcam
+550f90a75 2025-09-29 refactor: Add support for extra transaction signatures (#5594)
+a3365545d 2025-09-28 Review feedback from @Bronek
+7612fd0ba 2025-09-26 Review feedback from @gregtatcam
+c8b06e7de 2025-09-26 Merge branch 'ripple/wamr-host-functions' into ripple/se/fees
+0bd6b1ae4 2025-09-26 Review feedback from @mvadari
+dc221de60 2025-08-28 Fix issues
+6e2965f01 2025-09-25 Add test cases for Vault prereq amendments being disabled
+9bfa88cd8 2025-09-24 Fix build error
+e6592e93a 2025-09-22 Merge branch 'ripple/se/fees' into ripple/smart-escrow
+7420f4765 2025-09-22 SmartEscrow fee voting changes
+67578b8f5 2025-09-22 Review feedback from @mvadari
+267b537a1 2025-09-20 Review feedback from @Bronek
+b5ddc812e 2025-09-17 Review feedback from @gregtatcam:
+510314d34 2025-09-17 fix(amendment): Add missing fields for keylets to ledger objects (#5646)
+b9a2eb339 2025-09-17 Review feedback from @gregtatcam
+5c072579d 2025-09-16 Review feedback from @yinyiqian1 and @Bronek
+49e1f9747 2025-09-16 Fix formatting
+49eb1cc54 2025-09-15 Remove LoanDraw transaction (#5792)
+37c377a1b 2025-09-15 Fix: EscrowTokenV1 (#5571)
+61d628d65 2025-09-10 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+3f1a0f3a3 2025-09-09 Fix some build errors from yesterday
+6db14ccb1 2025-09-05 More review feedback from @gregtatcam
+adb260fe1 2025-09-04 Review feedback from @dangell7 and @gregtatcam
+7a78449f6 2025-09-04 Fix minor review feedback from @Bronek
+bb491431b 2025-09-03 Review feedback from @dangell7 and @mvadari
+a72c23737 2025-09-03 Review feedback from @Bronek
+1de3fb045 2025-08-28 Fix issues
+8ac514363 2025-08-29 get new fees and reserves working (#5714)
+ffa323808 2025-08-28 Fix issues
+044697c43 2025-08-27 fix: Allow the borrower to delete a completed / inactive loan, too.
+896b8c3b5 2025-08-22 chore: Fix file formatting (#5718)
+9920037d1 2025-08-19 Review feedback from @dangell7
+b7ed99426 2025-08-11 fix: Make test suite names match the directory name (#5597)
+6d137e44d 2025-08-09 Add Counterparty signing support
+7dcc682e2 2025-08-06 Make LoanSet.CounterpartySignature optional in the Tx layout
+4eae037fe 2025-08-06 fix: Ensures canonical order for `PriceDataSeries` upon `PriceOracle` creation (#5485)
+284707570 2025-07-31 fix: ensure `GasUsed` shows up in the metadata even on `tecWASM_REJECTED` (#5633)
+9d1a23a81 2025-07-29 Ensure Counterparty Signatures are properly handled by Batch tx
+bba9119a7 2025-07-29 Fix a couple of errors
+baf4b8381 2025-07-29 fix `DeliveredAmount` and `delivered_amount` in transaction metadata for direct MPT transfer (#5569)
+e7a7bb83c 2025-07-25 VaultWithdraw destination account bugfix (#5572)
+1e7462606 2025-07-23 Fix divide by 0 error on 0-interest loans; allow broker to self-lend
+98b898686 2025-07-23 fix merge issues (mostly with Conan2 upgrade)
+80d82c5b2 2025-07-23 Add support for `DomainID` in `MPTokenIssuance` transactions (#5509)
+24447969b 2025-07-22 fixup! Rename Transactor preflight functions
+021bee8dd 2025-07-22 fixup! Make preflight1 and preflight2 private static Transactor functions
+10b73525b 2025-07-16 fixup! Start implementing LoanBrokerCoverWithdraw.Destination field
+8bfaa7fe0 2025-07-16 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+c9135a63c 2025-07-16 Retire Flow Cross amendment (#5562)
+38cb371c7 2025-07-15 Make requireAuth work more similarly between IOUs and MPTs
+e9d2dfe32 2025-07-11 fixup! Make a few tweaks to the changes in merge cc83ea8
+8aa94ea09 2025-07-11 fixAMMClawbackRounding: adjust last holder's LPToken balance (#5513)
+8f2f5310e 2025-06-19 Fix: Improve error handling in Batch RPC response (#5503)
+35a40a8e6 2025-06-10 fix: Improve multi-sign usage of `simulate` (#5479)
+58c2c82a3 2025-06-05 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+a5e953b19 2025-06-03 fix: Add tecNO_DELEGATE_PERMISSION and fix flags (#5465)
+7e24adbdd 2025-06-02 fix: Address NFT interactions with trustlines (#5297)
+621df422a 2025-06-02 fix: Add AMMv1_3 amendment (#5203)
+2a61aee56 2025-05-23 Add Batch feature (XLS-56) (#5060)
+fb5d94bbe 2025-05-17 Refactor 4: Transactor extra signing support
+5656f8329 2025-05-15 Remove limits on Loan Origination Fee
+dc7033805 2025-05-15 Fix or work around loan payment rounding problems
+bd014e270 2025-05-09 Expand LoanPay test cases, and fix rounding errors
+b3c23de0a 2025-05-08 fixup! Implement LoanPay (untested)
+37f365a05 2025-05-07 Start implementing LoanPay transaction
+f2b78454d 2025-05-06 fixup! Implement LoanDraw, and made good progress on related tests
+7ff2f58a9 2025-05-06 fixup! Update to match latest spec: compute interest, LoanBroker reserves
+9a8660241 2025-05-05 Implement LoanDelete, and fix a bunch of math errors in LoanManage
+ef2a0edc6 2025-05-02 Start implementing LoanManage transaction (untested)
+b97811d45 2025-04-29 Change Loan object indexing, fix several broken LoanSet unit tests
+01538ef10 2025-04-29 Fix build errors
+70155a5ac 2025-04-28 Add more LoanSet unit tests, added LoanBroker LoanSequence field
+327d576d7 2025-04-17 Move inclusion of Transactor headers to transactions.macro
+1bb1992cf 2025-04-15 Add LoanBrokerCoverWithdraw transaction
+ffbc068dc 2025-04-15 Add LoanBrokerCoverDeposit transaction
+c63cc88dc 2025-04-08 Fix a couple more build errors
+1db5e9b4d 2025-04-04 Pseudo-account improvements
+33e666bff 2025-04-03 Enumerate transaction privileges for invariants
+d4c2d4698 2025-04-02 Update tests, update pseudo-account checking
+f77d435fd 2025-03-27 Create some helper classes for transaction fields
+a04c07c5c 2025-03-24 Fix a couple of build errors
+24374c548 2025-03-21 [WIP] Define remaining transactions, start implementing LoanBrokerSet
+145215d4a 2025-03-19 Fix bug in new invariant
+34f7bc750 2025-03-19 refactor: Check transaction flags in preflight0
+687b7944f 2025-03-13 Fix build error - missing include
+aead1bfb3 2025-05-06 Review feedback
+298aaac45 2025-04-28 Check for pseudo-account in other transaction types
+a205906e5 2025-04-28 Prevent pseudo-accounts from receiving checks
+afeb6287f 2025-04-25 Cleanup in MPTokenAuthorize
+f37d52d8e 2025-04-24 Set up fees for WASM processing (#5393)
+d6d07e6fc 2025-04-14 Fix authorization issues
+a574ec602 2025-04-10 fix: `fixPayChanV1` (#4717)
+1494ae38e 2025-04-04 Fix VaultDeposit::preclaim checks
+85e7d293c 2025-04-02 Factor out isPseudoAccount
+aff08b754 2025-03-28 Add invariant checks for pseudo-account
+372555bda 2025-03-25 Rename tecVAULT_ACCOUNT to tecPSEUDO_ACCOUNT
+2bc5cb240 2025-03-25 test: enable unit tests to work with variable reference fee (#5145)
+1e565e848 2025-03-24 Pseudo-accounts to use sequence 0
+1f005d237 2025-03-21 Add WaiveTransferFee::Yes for consistency
+0959bf82b 2025-03-21 Enforce no negative balance at the end of transaction
+9a7def38b 2025-03-20 Do not apply IOU fees on VaultDeposit/VaultWithdraw
+2a8861d1c 2025-03-17 DomainID authorization check moved to doApply
+7b5680f53 2025-03-13 Fix VaultClawback and unit test
+e0932635e 2025-03-13 Fix formatting
+c17676a9b 2025-03-12 refactor: Improve ordering of headers with clang-format (#5343)
+3715d7e2e 2025-03-11 Fix bugs related to perm. domain checks, add unit test
+ac6d26a8b 2025-03-06 Switch error code for non-transferable to tecNO_AUTH
+359565b37 2025-02-10 fix: Amendment to add transaction flag checking functionality for Credentials (#5250)
+f5dac74af 2025-02-07 fix: Do not allow creating Permissioned Domains if credentials are not enabled (#5275)
+b991d2407 2025-01-28 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+090393930 2025-01-17 Fix the flag processing of NFTokenModify (#5246)
+fa5a85439 2025-02-10 fix: Amendment to add transaction flag checking functionality for Credentials (#5250)
+0968cdf34 2025-02-07 fix: Do not allow creating Permissioned Domains if credentials are not enabled (#5275)
+c1d8bc492 2025-02-07 Enforce freeze of pseudo-account
+9decc053e 2025-02-03 Rename getSequence to getSeqValue
+c3f9a4c6f 2025-01-31 Fix MSVC build: Get the intended const& for some fields
+a98e59a29 2025-01-31 Revert "WIP trying to fix MSVC compilation error"
+06a8a61b2 2025-01-31 WIP trying to fix MSVC compilation error
+dcc458122 2025-01-28 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+c08f86d47 2025-01-21 Remove temSTRING_TOO_LARGE, fix authorizedDomain, refactor Vault_test
+c325b6c7f 2025-01-17 Fix Vault unit tests
+9e4a7d587 2025-01-17 Fix the flag processing of NFTokenModify (#5246)
+b9f120065 2024-12-18 Fix formatting
+ecec6e5d3 2024-12-17 Fix failing MPToken payment test
+ea1fffeeb 2024-12-06 Enforce levelization in libxrpl with CMake (#5111)
+c5c0e70e2 2024-11-06 Fix token comparison in Payment (#5172)
+ec61f5e9d 2024-11-05 Add fixAMMv1_2 amendment (#5176)
+54a350be7 2024-11-04 Add AMMClawback Transaction (XLS-0073d) (#5142)
+63209c264 2024-10-16 Consolidate definitions of fields, objects, transactions, and features (#5122)
+9a6af9c43 2024-09-17 chore: fix typos in comments (#5094)
+c19a88fee 2024-08-07 Address rare corruption of NFTokenPage linked list (#4945)
+0a331ea72 2024-08-05 Factor out Transactor::trapTransaction (#5087)
+e1534a320 2024-07-02 fix "account_nfts" with unassociated marker returning issue (#5045)
+9fec615dc 2024-06-27 fixInnerObjTemplate2 amendment (#5047)
+df8d8796f 2024-02-23 Introduce in-development Hooks amendment (#4225)
+c53a5e7a7 2023-12-20 Revert "Apply transaction batches in periodic intervals (#4504)" (#4852)
+002893f28 2023-09-11 Apply transaction batches in periodic intervals (#4504)
+d943c58b3 2023-08-30 Revert "Apply transaction batches in periodic intervals (#4504)"
+b580049ec 2023-08-18 Apply transaction batches in periodic intervals (#4504)
+01c37fed6 2022-04-11 Introduce the `ExpandedSignerList` amendment:
+a2e1a7a84 2021-02-09 TicketSequence with non-zero Sequence is an error:
+44fe0e1fc 2020-12-11 Add support for the 'TicketBatch' amendment:
+795de3a75 2020-07-22 Load transaction metadata from SQLite:
+7724cca38 2018-10-18 Implement enhanced Ticket support:
+ec137044a 2020-02-11 Protocol Amendment: Always Require Fully-Canonical Signatures
+6e4945c56 2020-01-15 Remove conditionals for featureMultiSign enabled 27Jun2016
+e3b5b808c 2019-02-14 Add units to all fee calculations:
+cd01502d1 2019-10-16 Relax STTx test failure criterion:
+b39b0fef3 2019-05-01 Get names of transactions and ledger types from jss
+ea76103d5 2018-11-12 Detect malformed data earlier during deserialization (RIPD-1695):
+ad5c5f196 2018-11-02 STObject::applyTemplate() throws with description of error:
+6572fc8e9 2018-07-13 Implement MultiSignReserve amendment [RIPD-1647]:
+38c3a46a3 2018-08-10 Deprecate commands that perform remote tx signing (RIPD-1649):
+881cd4cfa 2018-03-03 Limit STVar recursion during deserialization (RIPD-1603):
+40dc6b145 2018-03-03 Limit STVar recursion during deserialization (RIPD-1603):
+db17ae899 2017-10-17 Increase multisign test coverage
+feb7582ac 2017-08-03 Unit tests don't enable Tickets or SHAMapV2 by default:
+7e39d645b 2016-11-01 Add Ticket Tests (RIPD-1328):
+51d7e7336 2016-09-08 Improve multisign tests (RIPD-1273):

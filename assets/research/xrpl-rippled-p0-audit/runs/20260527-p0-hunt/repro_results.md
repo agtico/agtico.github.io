@@ -1616,6 +1616,33 @@ Interpretation: this did not isolate a new Moby Dick P0. AccountSet remains a
 high-leverage review surface, but this bounded pass did not produce a clean
 current transaction witness.
 
+## Demoted: legacy transaction envelope sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether old transaction envelope/signing/sequence code
+could expose a normal-input replay, signature/auth bypass, ticket/sequence
+collision, malformed canonical object, pseudo-transaction flag issue, or
+deterministic ordering witness below individual transaction families. The sweep
+covered `STTx`, `STObject`, `Serializer`, `SeqProxy`, `Transactor`,
+`ApplyContext`, `CreateTicket`, `SetRegularKey`, multisign, pseudo
+transactions, and transaction ordering.
+
+The focused source/history sweep and upstream protocol/transaction suites were
+packet-bound:
+
+```text
+legacy_tx_envelope_static_sweep_20260528.log sha256 5d27bc9d2065dba98556c9fd9a029de33305ac4c95a6f414bbe15d5e0ddbe8c3
+legacy_tx_envelope_history_sweep_20260528.log sha256 ca4d8acc13cecef9687515db3b2a1ef12b6314779b56ee9050954840d665a882
+legacy_tx_envelope_source_kill_20260528.log sha256 b490584f0860342399e30e3220f39a633afbb2bb2a8f46d8c9f020bc33f3eb7a
+9.4s, 10 suites, 92 cases, 6782 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. The old envelope
+layer remains security-critical, but this bounded pass did not produce a clean
+transaction-visible replay, signature/auth, sequence, serialization, or
+canonical-ordering witness.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

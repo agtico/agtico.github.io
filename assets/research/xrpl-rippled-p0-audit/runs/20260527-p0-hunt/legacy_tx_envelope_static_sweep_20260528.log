@@ -1,0 +1,1982 @@
+src/test/protocol/STObject_test.cpp:61:                    {sfAccount, soeREQUIRED},
+src/test/protocol/STObject_test.cpp:62:                    {sfAccount, soeREQUIRED},
+src/test/protocol/STObject_test.cpp:75:            {sfFlags, soeREQUIRED},
+src/test/protocol/STObject_test.cpp:183:        auto const& sf1Outer = sfSequence;
+src/test/protocol/STObject_test.cpp:373:            st[sfAccount] = AccountID{};
+src/test/protocol/STObject_test.cpp:376:            [&](AccountID) {}(st[sfAccount]);
+src/test/app/PseudoTx_test.cpp:32:    std::vector<STTx>
+src/test/app/PseudoTx_test.cpp:35:        std::vector<STTx> res;
+src/test/app/PseudoTx_test.cpp:37:        res.emplace_back(STTx(ttFEE, [&](auto& obj) {
+src/test/app/PseudoTx_test.cpp:38:            obj[sfAccount] = AccountID();
+src/test/app/PseudoTx_test.cpp:39:            obj[sfLedgerSequence] = seq;
+src/test/app/PseudoTx_test.cpp:55:        res.emplace_back(STTx(ttAMENDMENT, [&](auto& obj) {
+src/test/app/PseudoTx_test.cpp:56:            obj.setAccountID(sfAccount, AccountID());
+src/test/app/PseudoTx_test.cpp:58:            obj.setFieldU32(sfLedgerSequence, seq);
+src/test/app/PseudoTx_test.cpp:64:    std::vector<STTx>
+src/test/app/PseudoTx_test.cpp:67:        std::vector<STTx> res;
+src/test/app/PseudoTx_test.cpp:69:        res.emplace_back(STTx(
+src/test/app/PseudoTx_test.cpp:70:            ttACCOUNT_SET, [&](auto& obj) { obj[sfAccount] = AccountID(1); }));
+src/test/app/PseudoTx_test.cpp:72:        res.emplace_back(STTx(ttPAYMENT, [&](auto& obj) {
+src/test/app/PseudoTx_test.cpp:73:            obj.setAccountID(sfAccount, AccountID(2));
+src/test/app/PseudoTx_test.cpp:92:            BEAST_EXPECT(reason == "Cannot submit pseudo transactions.");
+src/test/app/PseudoTx_test.cpp:97:                    BEAST_EXPECT(!result.applied && result.ter == temINVALID);
+src/test/app/Transaction_ordering_test.cpp:37:        auto const aliceSequence = env.seq(alice);
+src/test/app/Transaction_ordering_test.cpp:39:        auto const tx1 = env.jt(noop(alice), seq(aliceSequence));
+src/test/app/Transaction_ordering_test.cpp:41:            env.jt(noop(alice), seq(aliceSequence + 1), last_ledger_seq(7));
+src/test/app/Transaction_ordering_test.cpp:45:        BEAST_EXPECT(env.seq(alice) == aliceSequence + 1);
+src/test/app/Transaction_ordering_test.cpp:48:        BEAST_EXPECT(env.seq(alice) == aliceSequence + 2);
+src/test/app/Transaction_ordering_test.cpp:81:        auto const aliceSequence = env.seq(alice);
+src/test/app/Transaction_ordering_test.cpp:83:        auto const tx1 = env.jt(noop(alice), seq(aliceSequence));
+src/test/app/Transaction_ordering_test.cpp:85:            env.jt(noop(alice), seq(aliceSequence + 1), last_ledger_seq(7));
+src/test/app/Transaction_ordering_test.cpp:87:        env(tx2, ter(terPRE_SEQ));
+src/test/app/Transaction_ordering_test.cpp:88:        BEAST_EXPECT(env.seq(alice) == aliceSequence);
+src/test/app/Transaction_ordering_test.cpp:91:        BEAST_EXPECT(env.seq(alice) == aliceSequence + 2);
+src/test/app/Transaction_ordering_test.cpp:124:        auto const aliceSequence = env.seq(alice);
+src/test/app/Transaction_ordering_test.cpp:130:                noop(alice), seq(aliceSequence + i), last_ledger_seq(7)));
+src/test/app/Transaction_ordering_test.cpp:135:            env(tx[i], ter(terPRE_SEQ));
+src/test/app/Transaction_ordering_test.cpp:136:            BEAST_EXPECT(env.seq(alice) == aliceSequence);
+src/test/app/Transaction_ordering_test.cpp:141:        BEAST_EXPECT(env.seq(alice) == aliceSequence + 5);
+src/test/app/SetRegularKey_test.cpp:65:        env(noop(alice), sig(bob), ter(tefBAD_AUTH_MASTER));
+src/test/app/SetRegularKey_test.cpp:100:        env(noop(alice), sig(bob), ter(tefBAD_AUTH));
+src/test/app/SetRegularKey_test.cpp:163:            ar->isFieldPresent(sfFlags) &&
+src/test/app/SetRegularKey_test.cpp:164:            ((ar->getFieldU32(sfFlags) & lsfPasswordSpent) == 0));
+src/test/app/SetRegularKey_test.cpp:170:            ar->isFieldPresent(sfFlags) &&
+src/test/app/SetRegularKey_test.cpp:171:            ((ar->getFieldU32(sfFlags) & lsfPasswordSpent) ==
+src/test/app/SetRegularKey_test.cpp:181:            ar->isFieldPresent(sfFlags) &&
+src/test/app/SetRegularKey_test.cpp:182:            ((ar->getFieldU32(sfFlags) & lsfPasswordSpent) == 0));
+src/test/app/SetRegularKey_test.cpp:197:        jv[sfFlags.fieldName] = tfUniversalMask;
+src/test/app/SetRegularKey_test.cpp:198:        env(jv, ter(temINVALID_FLAG));
+src/test/app/SetRegularKey_test.cpp:249:        env(noop(alice), sig(alie), ter(tefBAD_AUTH));
+src/test/protocol/STTx_test.cpp:26:#include <xrpl/protocol/STTx.h>
+src/test/protocol/STTx_test.cpp:47:class STTx_test : public beast::unit_test::suite
+src/test/protocol/STTx_test.cpp:56:        testSTTx(KeyType::secp256k1);
+src/test/protocol/STTx_test.cpp:59:        testSTTx(KeyType::ed25519);
+src/test/protocol/STTx_test.cpp:1415:                // there is no sfTransactionType field.
+src/test/protocol/STTx_test.cpp:1420:                    auto stx = std::make_shared<ripple::STTx const>(tenSit);
+src/test/protocol/STTx_test.cpp:1421:                    fail("STTx construction should have thrown.");
+src/test/protocol/STTx_test.cpp:1439:                auto stx = std::make_shared<ripple::STTx const>(tooDeepSit);
+src/test/protocol/STTx_test.cpp:1440:                fail("STTx construction should have thrown.");
+src/test/protocol/STTx_test.cpp:1480:                // exception that there is no sfTransactionType field.
+src/test/protocol/STTx_test.cpp:1485:                    auto stx = std::make_shared<ripple::STTx const>(nineSit);
+src/test/protocol/STTx_test.cpp:1486:                    fail("STTx construction should have thrown.");
+src/test/protocol/STTx_test.cpp:1505:                auto stx = std::make_shared<ripple::STTx const>(tooDeepSit);
+src/test/protocol/STTx_test.cpp:1506:                fail("STTx construction should have thrown.");
+src/test/protocol/STTx_test.cpp:1518:            // Make an otherwise legit STTx with a duplicate field.  Should
+src/test/protocol/STTx_test.cpp:1521:            STTx acctSet(ttACCOUNT_SET, [&keypair](auto& obj) {
+src/test/protocol/STTx_test.cpp:1522:                obj.setAccountID(sfAccount, calcAccountID(keypair.first));
+src/test/protocol/STTx_test.cpp:1523:                obj.setFieldU32(sfSequence, 7);
+src/test/protocol/STTx_test.cpp:1524:                obj.setFieldAmount(sfFee, STAmount(2557891634ull));
+src/test/protocol/STTx_test.cpp:1525:                obj.setFieldVL(sfSigningPubKey, keypair.first.slice());
+src/test/protocol/STTx_test.cpp:1534:                auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1546:                auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1565:            // message means that the STTx constructor will throw slightly
+src/test/protocol/STTx_test.cpp:1569:            // we expect an exception from STTx, but the specific message will
+src/test/protocol/STTx_test.cpp:1575:            auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1586:            auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1597:            auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1609:            auto stx = std::make_shared<ripple::STTx const>(sit);
+src/test/protocol/STTx_test.cpp:1619:    testSTTx(KeyType keyType)
+src/test/protocol/STTx_test.cpp:1623:        STTx j(ttACCOUNT_SET, [&keypair](auto& obj) {
+src/test/protocol/STTx_test.cpp:1624:            obj.setAccountID(sfAccount, calcAccountID(keypair.first));
+src/test/protocol/STTx_test.cpp:1626:            obj.setFieldVL(sfSigningPubKey, keypair.first.slice());
+src/test/protocol/STTx_test.cpp:1637:            !j.checkSign(STTx::RequireFullyCanonicalSig::yes, defaultRules),
+src/test/protocol/STTx_test.cpp:1643:        STTx copy(sit);
+src/test/protocol/STTx_test.cpp:1686:            payment.setFieldU16(sfTransactionType, ttPAYMENT);
+src/test/protocol/STTx_test.cpp:1687:            payment.setAccountID(sfAccount, id1);
+src/test/protocol/STTx_test.cpp:1690:            payment.setFieldAmount(sfFee, STAmount(10ull));
+src/test/protocol/STTx_test.cpp:1691:            payment.setFieldU32(sfSequence, 1);
+src/test/protocol/STTx_test.cpp:1693:                sfSigningPubKey, Slice(kp1.first.data(), kp1.first.size()));
+src/test/protocol/STTx_test.cpp:1701:                STTx{getPayment()};
+src/test/protocol/STTx_test.cpp:1703:            catch (STTx::FieldErr const& err)
+src/test/protocol/STTx_test.cpp:1717:                STTx{std::move(defaultPath)};
+src/test/protocol/STTx_test.cpp:1719:            catch (STTx::FieldErr const& err)
+src/test/protocol/STTx_test.cpp:1734:                STTx{std::move(extraField)};
+src/test/protocol/STTx_test.cpp:1736:            catch (STTx::FieldErr const& err)
+src/test/protocol/STTx_test.cpp:1746:            extraField.delField(sfFee);
+src/test/protocol/STTx_test.cpp:1751:                STTx{std::move(extraField)};
+src/test/protocol/STTx_test.cpp:1753:            catch (STTx::FieldErr const& err)
+src/test/protocol/STTx_test.cpp:1771:        STTx txn(ttACCOUNT_SET, [&id1, &kp1](auto& obj) {
+src/test/protocol/STTx_test.cpp:1772:            obj.setAccountID(sfAccount, id1);
+src/test/protocol/STTx_test.cpp:1774:            // Make empty signature for multi-signing
+src/test/protocol/STTx_test.cpp:1775:            obj.setFieldVL(sfSigningPubKey, Slice{});
+src/test/protocol/STTx_test.cpp:1782:        // Get the stream of the transaction for use in multi-signing.
+src/test/protocol/STTx_test.cpp:1783:        Serializer s = buildMultiSigningData(txn, id2);
+src/test/protocol/STTx_test.cpp:1785:        auto const saMultiSignature = sign(kp2.first, kp2.second, s.slice());
+src/test/protocol/STTx_test.cpp:1791:        //     TxnSignature: "...",
+src/test/protocol/STTx_test.cpp:1806:                STTx tempTxn(txn);
+src/test/protocol/STTx_test.cpp:1815:                    STTx copy(sit);
+src/test/protocol/STTx_test.cpp:1828:            soTest1.setAccountID(sfAccount, id2);
+src/test/protocol/STTx_test.cpp:1829:            soTest1.setFieldVL(sfSigningPubKey, kp1.first.slice());
+src/test/protocol/STTx_test.cpp:1830:            soTest1.setFieldVL(sfTxnSignature, saMultiSignature);
+src/test/protocol/STTx_test.cpp:1834:            // Test case 2.  Omit sfSigningPubKey from SigningAccount.
+src/test/protocol/STTx_test.cpp:1836:            soTest2.setAccountID(sfAccount, id2);
+src/test/protocol/STTx_test.cpp:1837:            soTest2.setFieldVL(sfTxnSignature, saMultiSignature);
+src/test/protocol/STTx_test.cpp:1843:            soTest3.setAccountID(sfAccount, id2);
+src/test/protocol/STTx_test.cpp:1844:            soTest3.setFieldVL(sfSigningPubKey, kp1.first.slice());
+src/test/protocol/STTx_test.cpp:1845:            soTest3.setFieldVL(sfTxnSignature, saMultiSignature);
+src/test/protocol/STTx_test.cpp:1852:            soTest4.setFieldVL(sfSigningPubKey, kp1.first.slice());
+src/test/protocol/STTx_test.cpp:1853:            soTest4.setFieldVL(sfTxnSignature, saMultiSignature);
+src/test/protocol/STTx_test.cpp:1860:BEAST_DEFINE_TESTSUITE(STTx, protocol, ripple);
+src/test/app/Ticket_test.cpp:42:                tx[sfTransactionType.jsonName].asString();
+src/test/app/Ticket_test.cpp:46:                    "Unexpected TransactionType: "s + txType))
+src/test/app/Ticket_test.cpp:56:        std::uint32_t const txSeq = {tx[sfSequence.jsonName].asUInt()};
+src/test/app/Ticket_test.cpp:57:        std::string const account = tx[sfAccount.jsonName].asString();
+src/test/app/Ticket_test.cpp:87:                        // Verify the account root Sequence did the right thing.
+src/test/app/Ticket_test.cpp:89:                            previousFields[sfSequence.jsonName].asUInt();
+src/test/app/Ticket_test.cpp:92:                            finalFields[sfSequence.jsonName].asUInt();
+src/test/app/Ticket_test.cpp:96:                            // Transaction used a TicketSequence.
+src/test/app/Ticket_test.cpp:101:                            // Transaction used a (plain) Sequence.
+src/test/app/Ticket_test.cpp:193:                        newFields[sfAccount.jsonName].asString() == account);
+src/test/app/Ticket_test.cpp:195:                        newFields[sfTicketSequence.jsonName].asUInt());
+src/test/app/Ticket_test.cpp:217:                    // Verify the transaction's Sequence == 0.
+src/test/app/Ticket_test.cpp:223:                        finalFields[sfAccount.jsonName].asString() == account);
+src/test/app/Ticket_test.cpp:225:                    // Verify the deleted ticket has the right TicketSequence.
+src/test/app/Ticket_test.cpp:227:                        finalFields[sfTicketSequence.jsonName].asUInt() ==
+src/test/app/Ticket_test.cpp:228:                        tx[sfTicketSequence.jsonName].asUInt());
+src/test/app/Ticket_test.cpp:260:        // Verify that the transaction includes a TicketSequence.
+src/test/app/Ticket_test.cpp:262:        // Capture that TicketSequence.
+src/test/app/Ticket_test.cpp:273:        //       TicketSequence == the transaction TicketSequence
+src/test/app/Ticket_test.cpp:282:        BEAST_EXPECT(tx[sfSequence.jsonName].asUInt() == 0);
+src/test/app/Ticket_test.cpp:283:        std::string const account{tx[sfAccount.jsonName].asString()};
+src/test/app/Ticket_test.cpp:285:                tx.isMember(sfTicketSequence.jsonName),
+src/test/app/Ticket_test.cpp:289:        std::uint32_t const ticketSeq{tx[sfTicketSequence.jsonName].asUInt()};
+src/test/app/Ticket_test.cpp:321:                    modified[sfFinalFields.jsonName][sfAccount.jsonName]
+src/test/app/Ticket_test.cpp:330:                    acctRootSeq = finalFields[sfSequence.jsonName].asUInt();
+src/test/app/Ticket_test.cpp:364:                        deleted[sfFinalFields.jsonName][sfAccount.jsonName]
+src/test/app/Ticket_test.cpp:367:                    // Verify the deleted ticket has the right TicketSequence.
+src/test/app/Ticket_test.cpp:370:                               [sfTicketSequence.jsonName]
+src/test/app/Ticket_test.cpp:439:        env(ticket::create(master, 0), ter(temINVALID_COUNT));
+src/test/app/Ticket_test.cpp:440:        env(ticket::create(master, 251), ter(temINVALID_COUNT));
+src/test/app/Ticket_test.cpp:458:        env(ticket::create(master, 1), txflags(tfSell), ter(temINVALID_FLAG));
+src/test/app/Ticket_test.cpp:488:                json(jss::Sequence, 1),
+src/test/app/Ticket_test.cpp:489:                ter(terNO_ACCOUNT));
+src/test/app/Ticket_test.cpp:699:        // AccountTxnID.
+src/test/app/Ticket_test.cpp:707:            json(R"({"AccountTxnID": "0"})"),
+src/test/app/Ticket_test.cpp:708:            ter(temINVALID));
+src/test/app/Ticket_test.cpp:737:            std::shared_ptr<STTx const> tx{env.tx()};
+src/test/app/Ticket_test.cpp:811:                std::shared_ptr<STTx const> const& sttx = tx->getSTransaction();
+src/test/app/Ticket_test.cpp:812:                BEAST_EXPECT((*sttx)[sfSequence] == txSeq);
+src/test/app/Ticket_test.cpp:814:                    BEAST_EXPECT((*sttx)[sfTicketSequence] == *ticketSeq);
+src/test/app/Ticket_test.cpp:815:                BEAST_EXPECT((*sttx)[sfTransactionType] == txType);
+src/test/app/Ticket_test.cpp:836:    testSignWithTicketSequence()
+src/test/app/Ticket_test.cpp:839:        // Sequence field of a transaction if none is provided.  If a
+src/test/app/Ticket_test.cpp:840:        // TicketSequence is provided in the transaction, then the
+src/test/app/Ticket_test.cpp:841:        // auto-filled Sequence should be zero.
+src/test/app/Ticket_test.cpp:842:        testcase("Sign with TicketSequence");
+src/test/app/Ticket_test.cpp:860:            // Test that the "sign" RPC command fills in a "Sequence": 0 field
+src/test/app/Ticket_test.cpp:863:            // Create a noop transaction using a TicketSequence but don't fill
+src/test/app/Ticket_test.cpp:864:            // in the Sequence field.
+src/test/app/Ticket_test.cpp:867:            tx[jss::tx_json][sfTicketSequence.jsonName] = ticketSeq;
+src/test/app/Ticket_test.cpp:870:            // Verify that there is no "Sequence" field.
+src/test/app/Ticket_test.cpp:871:            BEAST_EXPECT(!tx[jss::tx_json].isMember(sfSequence.jsonName));
+src/test/app/Ticket_test.cpp:873:            // Call the "sign" RPC command and see the "Sequence": 0 field
+src/test/app/Ticket_test.cpp:877:            // Verify that "sign" inserted a "Sequence": 0 field.
+src/test/app/Ticket_test.cpp:879:                    sfSequence.jsonName)))
+src/test/app/Ticket_test.cpp:882:                    jr[jss::result][jss::tx_json][sfSequence.jsonName] == 0);
+src/test/app/Ticket_test.cpp:895:            // Test that the "submit" RPC command fills in a "Sequence": 0
+src/test/app/Ticket_test.cpp:898:            // Create a noop transaction using a TicketSequence but don't fill
+src/test/app/Ticket_test.cpp:899:            // in the Sequence field.
+src/test/app/Ticket_test.cpp:902:            tx[jss::tx_json][sfTicketSequence.jsonName] = ticketSeq + 1;
+src/test/app/Ticket_test.cpp:905:            // Verify that there is no "Sequence" field.
+src/test/app/Ticket_test.cpp:906:            BEAST_EXPECT(!tx[jss::tx_json].isMember(sfSequence.jsonName));
+src/test/app/Ticket_test.cpp:908:            // Call the "submit" RPC command and see the "Sequence": 0 field
+src/test/app/Ticket_test.cpp:912:            // Verify that "submit" inserted a "Sequence": 0 field.
+src/test/app/Ticket_test.cpp:914:                    sfSequence.jsonName)))
+src/test/app/Ticket_test.cpp:917:                    jr[jss::result][jss::tx_json][sfSequence.jsonName] == 0);
+src/test/app/Ticket_test.cpp:929:        // It is an error if a transaction contains a non-zero Sequence field
+src/test/app/Ticket_test.cpp:930:        // and a TicketSequence field.  Verify that the error is detected.
+src/test/app/Ticket_test.cpp:998:        testSignWithTicketSequence();
+src/test/app/MultiSign_test.cpp:28:class MultiSign_test : public beast::unit_test::suite
+src/test/app/MultiSign_test.cpp:30:    // Unfunded accounts to use for phantom signing.
+src/test/app/MultiSign_test.cpp:75:        // of featureMultiSignReserve.  Make the required adjustments.
+src/test/app/MultiSign_test.cpp:76:        bool const reserve1{features[featureMultiSignReserve]};
+src/test/app/MultiSign_test.cpp:231:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:308:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 10));
+src/test/app/MultiSign_test.cpp:363:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:402:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:536:            jv[jss::tx_json][jss::TransactionType] = jss::AccountSet;
+src/test/app/MultiSign_test.cpp:538:            jv[jss::tx_json][jss::Sequence] = env.seq(alice);
+src/test/app/MultiSign_test.cpp:539:            jv[jss::tx_json][jss::SigningPubKey] = "";
+src/test/app/MultiSign_test.cpp:582:            // failure case -- SigningPubKey not empty
+src/test/app/MultiSign_test.cpp:585:            jv_one[jss::tx_json][jss::SigningPubKey] =
+src/test/app/MultiSign_test.cpp:594:                "When multi-signing 'tx_json.SigningPubKey' must be empty.");
+src/test/app/MultiSign_test.cpp:771:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 6));
+src/test/app/MultiSign_test.cpp:818:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 6));
+src/test/app/MultiSign_test.cpp:849:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 10));
+src/test/app/MultiSign_test.cpp:964:    // master key, but not when multisigning.
+src/test/app/MultiSign_test.cpp:1025:        int const signerListOwners{features[featureMultiSignReserve] ? 1 : 4};
+src/test/app/MultiSign_test.cpp:1088:        env.require(owners(alice, features[featureMultiSignReserve] ? 2 : 6));
+src/test/app/MultiSign_test.cpp:1101:        // lambda that submits an STTx and returns the resulting JSON.
+src/test/app/MultiSign_test.cpp:1102:        auto submitSTTx = [&env](STTx const& stx) {
+src/test/app/MultiSign_test.cpp:1115:            // Single-sign, but leave an empty SigningPubKey.
+src/test/app/MultiSign_test.cpp:1117:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1118:            local.setFieldVL(sfSigningPubKey, Blob());  // Empty SigningPubKey
+src/test/app/MultiSign_test.cpp:1119:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1122:                "fails local checks: Empty SigningPubKey.");
+src/test/app/MultiSign_test.cpp:1127:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1129:            auto badSig = local.getFieldVL(sfTxnSignature);
+src/test/app/MultiSign_test.cpp:1131:            local.setFieldVL(sfTxnSignature, badSig);
+src/test/app/MultiSign_test.cpp:1133:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1141:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1143:            auto seq = local.getFieldU32(sfSequence);
+src/test/app/MultiSign_test.cpp:1144:            local.setFieldU32(sfSequence, seq + 1);
+src/test/app/MultiSign_test.cpp:1146:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1152:            // Multisign, but leave a nonempty sfSigningPubKey.
+src/test/app/MultiSign_test.cpp:1154:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1155:            local[sfSigningPubKey] = alice.pk();  // Insert sfSigningPubKey
+src/test/app/MultiSign_test.cpp:1156:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1162:            // Both multi- and single-sign with an empty SigningPubKey.
+src/test/app/MultiSign_test.cpp:1164:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1166:            local.setFieldVL(sfSigningPubKey, Blob());  // Empty SigningPubKey
+src/test/app/MultiSign_test.cpp:1167:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1175:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1178:            auto badSig = signer.getFieldVL(sfTxnSignature);
+src/test/app/MultiSign_test.cpp:1180:            signer.setFieldVL(sfTxnSignature, badSig);
+src/test/app/MultiSign_test.cpp:1182:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1190:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1192:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1248:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1249:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1257:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1258:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1266:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1267:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1275:            STTx local = *(tx.stx);
+src/test/app/MultiSign_test.cpp:1280:            auto const info = submitSTTx(local);
+src/test/app/MultiSign_test.cpp:1288:    testNoMultiSigners(FeatureBitset features)
+src/test/app/MultiSign_test.cpp:1307:    testMultisigningMultisigner(FeatureBitset features)
+src/test/app/MultiSign_test.cpp:1309:        testcase("Multisigning multisigner");
+src/test/app/MultiSign_test.cpp:1313:        // exclusively multisigning).  That signer should no longer be
+src/test/app/MultiSign_test.cpp:1349:        // Becky cannot 2-level multisign for alice.  2-level multisigning
+src/test/app/MultiSign_test.cpp:1418:        jvSig1[jss::tx_json][jss::Sequence] = env.seq(alice);
+src/test/app/MultiSign_test.cpp:1419:        jvSig1[jss::tx_json][jss::TransactionType] = jss::Payment;
+src/test/app/MultiSign_test.cpp:1451:        // second signing.
+src/test/app/MultiSign_test.cpp:1472:        // featureMultiSignReserve amendment goes live.  Create a couple
+src/test/app/MultiSign_test.cpp:1481:        Env env{*this, testable_amendments() - featureMultiSignReserve};
+src/test/app/MultiSign_test.cpp:1504:        env.enableFeature(featureMultiSignReserve);
+src/test/app/MultiSign_test.cpp:1629:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:1698:        ter const expected(enabled ? TER(temINVALID_FLAG) : TER(tesSUCCESS));
+src/test/app/MultiSign_test.cpp:1751:        testNoMultiSigners(features);
+src/test/app/MultiSign_test.cpp:1752:        testMultisigningMultisigner(features);
+src/test/app/MultiSign_test.cpp:1765:        // featureMultiSignReserve.  Limits on the number of signers
+src/test/app/MultiSign_test.cpp:1768:        testAll(all - featureMultiSignReserve - featureExpandedSignerList);
+src/test/app/MultiSign_test.cpp:1782:BEAST_DEFINE_TESTSUITE(MultiSign, app, ripple);
+src/test/app/OpenP0Repro_test.cpp:34:#include <xrpl/protocol/STTx.h>
+src/test/app/OpenP0Repro_test.cpp:121:            Account{"vaultPseudo", vaultSle->at(sfAccount)},
+src/test/app/OpenP0Repro_test.cpp:122:            Account{"brokerPseudo", brokerSle->at(sfAccount)}};
+src/test/app/OpenP0Repro_test.cpp:145:        auto const loanSequence = brokerSle->at(sfLoanSequence);
+src/test/app/OpenP0Repro_test.cpp:146:        auto const loanKeylet = keylet::loan(fixture.brokerID, loanSequence);
+src/test/app/OpenP0Repro_test.cpp:255:        testcase("F3.9 LoanBrokerCoverDeposit — regular-freeze-only broker pseudo receives cover");
+src/test/app/OpenP0Repro_test.cpp:347:        testcase("F3.8 LoanPay — regular-freeze-only vault pseudo receives repayment");
+src/test/app/OpenP0Repro_test.cpp:378:        testcase("F3.10 LoanPay — regular-freeze-only broker pseudo receives fallback fee");
+src/test/app/OpenP0Repro_test.cpp:559:    testPermissionedDomainTicketSequencePrefixCollision()
+src/test/app/OpenP0Repro_test.cpp:593:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:676:            auto const stx = std::make_shared<STTx>(*jtx.stx);
+src/test/app/OpenP0Repro_test.cpp:735:            offer->setAccountID(sfAccount, a2);
+src/test/app/OpenP0Repro_test.cpp:746:                STTx{ttOFFER_CREATE,
+src/test/app/OpenP0Repro_test.cpp:1003:            env.memoize(Account{"vault", vaultSle->at(sfAccount)});
+src/test/app/OpenP0Repro_test.cpp:1036:                ter(withFix ? TER{tesSUCCESS} : TER{tefINTERNAL}),
+src/test/app/OpenP0Repro_test.cpp:1090:            auto const loanSequence = brokerSleBefore->at(sfLoanSequence);
+src/test/app/OpenP0Repro_test.cpp:1092:                keylet::loan(fixture.brokerID, loanSequence);
+src/test/app/OpenP0Repro_test.cpp:1195:        env.memoize(Account{"vault", vaultSle->at(sfAccount)});
+src/test/app/OpenP0Repro_test.cpp:1401:                return brokerSle->at(sfLoanSequence);
+src/test/app/OpenP0Repro_test.cpp:1417:                return brokerSle->at(sfLoanSequence);
+src/test/app/OpenP0Repro_test.cpp:1452:            Account const pseudo{"pseudo", brokerSle->at(sfAccount)};
+src/test/app/OpenP0Repro_test.cpp:1453:            auto const pseudoBefore = env.balance(pseudo, iou);
+src/test/app/OpenP0Repro_test.cpp:1468:            auto const pseudoAfter = env.balance(pseudo, iou);
+src/test/app/OpenP0Repro_test.cpp:1469:            BEAST_EXPECT((pseudoAfter.number() > pseudoBefore.number()) == expectPseudoFee);
+src/test/app/OpenP0Repro_test.cpp:1474:        // loan's fee to the pseudo account while the tiny loan's fee goes to
+src/test/app/OpenP0Repro_test.cpp:1527:        auto const brokerPseudoID = broker->at(sfAccount);
+src/test/app/OpenP0Repro_test.cpp:1528:        auto const pseudoMptKey =
+src/test/app/OpenP0Repro_test.cpp:1530:        auto const pseudoMpt = env.le(pseudoMptKey);
+src/test/app/OpenP0Repro_test.cpp:1531:        if (!BEAST_EXPECT(pseudoMpt))
+src/test/app/OpenP0Repro_test.cpp:1536:        lock[jss::TransactionType] = jss::MPTokenIssuanceSet;
+src/test/app/OpenP0Repro_test.cpp:1543:        auto const lockedPseudoMpt = env.le(pseudoMptKey);
+src/test/app/OpenP0Repro_test.cpp:1555:        BEAST_EXPECT(!env.le(pseudoMptKey));
+src/test/app/OpenP0Repro_test.cpp:1562:        testcase("VaultDeposit current — opposite trustline limit causes tefINTERNAL");
+src/test/app/OpenP0Repro_test.cpp:1594:            ter(tefINTERNAL),
+src/test/app/OpenP0Repro_test.cpp:1602:        testcase("EscrowCancel current — deleted IOU trustline returns tefEXCEPTION");
+src/test/app/OpenP0Repro_test.cpp:1652:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:1805:        // with tecNO_PERMISSION because a domain-bound issuance must not be
+src/test/app/OpenP0Repro_test.cpp:2051:        tx[jss::OfferSequence] = regularSeq;
+src/test/app/OpenP0Repro_test.cpp:2220:        auto const loanKeylet = keylet::loan(brokerID, brokerSle->at(sfLoanSequence));
+src/test/app/OpenP0Repro_test.cpp:2318:        // Current 3.1.3 checks multisign self-signing against sfAccount
+src/test/app/OpenP0Repro_test.cpp:2330:        testcase("MPT current — non-canonical amount reaches ledger engine");
+src/test/app/OpenP0Repro_test.cpp:2362:        STTx tx{*jt.stx};
+src/test/app/OpenP0Repro_test.cpp:2365:        jt.stx = std::make_shared<STTx const>(tx);
+src/test/app/OpenP0Repro_test.cpp:2371:        // Current 3.1.3 accepts the non-canonical amount far enough into the
+src/test/app/OpenP0Repro_test.cpp:2389:        // makeMptID stores the sequence in canonical big-endian byte order:
+src/test/app/OpenP0Repro_test.cpp:2391:        MPTID const canonical = makeMptID(0xDEADBEEF, alice.id());
+src/test/app/OpenP0Repro_test.cpp:2392:        STIssue const original(sfAsset, Asset{MPTIssue{canonical}});
+src/test/app/OpenP0Repro_test.cpp:2407:        BEAST_EXPECT(STIssue(legacyIter, sfAsset) == Asset{MPTIssue{canonical}});
+src/test/app/OpenP0Repro_test.cpp:2409:        // A canonical client path that embeds the raw MPTID sequence bytes
+src/test/app/OpenP0Repro_test.cpp:2411:        Serializer canonicalWire;
+src/test/app/OpenP0Repro_test.cpp:2412:        canonicalWire.addBitString(alice.id());
+src/test/app/OpenP0Repro_test.cpp:2413:        canonicalWire.addBitString(noAccount());
+src/test/app/OpenP0Repro_test.cpp:2414:        canonicalWire.addRaw(canonical.data(), sizeof(std::uint32_t));
+src/test/app/OpenP0Repro_test.cpp:2416:        SerialIter canonicalIter(canonicalWire.slice());
+src/test/app/OpenP0Repro_test.cpp:2417:        BEAST_EXPECT(STIssue(canonicalIter, sfAsset) != Asset{MPTIssue{canonical}});
+src/test/app/OpenP0Repro_test.cpp:3257:        env(trust(seller, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3312:        env(trust(broker, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3360:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3413:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3463:        env(trust(alice, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3501:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3561:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3618:        env(trust(alice, EUR(10'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3670:        env(pay(gw2, alice, EUR(1)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3723:            ter(tecNO_PERMISSION),
+src/test/app/OpenP0Repro_test.cpp:3869:                STTx{ttACCOUNT_SET, [](STObject&) {}},
+src/test/app/OpenP0Repro_test.cpp:3922:            bad->setFieldU32(sfFlags, lsfLowDeepFreeze);
+src/test/app/OpenP0Repro_test.cpp:3929:            good->setFieldU32(sfFlags, 0);
+src/test/app/OpenP0Repro_test.cpp:3978:        testPermissionedDomainTicketSequencePrefixCollision();
+src/xrpld/app/tx/applySteps.h:29:class STTx;
+src/xrpld/app/tx/applySteps.h:50:    return isTecClaim(ter) && !(flags & tapRETRY);
+src/xrpld/app/tx/applySteps.h:88:    /// Constructor if the STTx has no notable consequences for the TxQ.
+src/xrpld/app/tx/applySteps.h:89:    explicit TxConsequences(STTx const& tx);
+src/xrpld/app/tx/applySteps.h:92:    TxConsequences(STTx const& tx, Category category);
+src/xrpld/app/tx/applySteps.h:94:    /// Constructor for an STTx that may consume more XRP than the fee.
+src/xrpld/app/tx/applySteps.h:95:    TxConsequences(STTx const& tx, XRPAmount potentialSpend);
+src/xrpld/app/tx/applySteps.h:97:    /// Constructor for an STTx that consumes more than the usual sequences.
+src/xrpld/app/tx/applySteps.h:98:    TxConsequences(STTx const& tx, std::uint32_t sequencesConsumed);
+src/xrpld/app/tx/applySteps.h:132:    /// Sequences consumed
+src/xrpld/app/tx/applySteps.h:166:    STTx const& tx;
+src/xrpld/app/tx/applySteps.h:214:    STTx const& tx;
+src/xrpld/app/tx/applySteps.h:269:    STTx const& tx,
+src/xrpld/app/tx/applySteps.h:278:    STTx const& tx,
+src/xrpld/app/tx/applySteps.h:334:calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/applySteps.h:348:calculateDefaultBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/apply.h:28:#include <xrpl/protocol/STTx.h>
+src/xrpld/app/tx/apply.h:53:        `STTx` is and, if not `Valid`, a reason string.
+src/xrpld/app/tx/apply.h:66:    STTx const& tx,
+src/xrpld/app/tx/apply.h:84:    This function is the canonical way to apply a transaction
+src/xrpld/app/tx/apply.h:98:    For open ledgers, the `Transactor` will catch exceptions
+src/xrpld/app/tx/apply.h:99:    and return `tefEXCEPTION`. For closed ledgers, the
+src/xrpld/app/tx/apply.h:100:    `Transactor` will attempt to only charge a fee,
+src/xrpld/app/tx/apply.h:103:    If the `Transactor` gets an exception while trying
+src/xrpld/app/tx/apply.h:105:    turned into `tefEXCEPTION`.
+src/xrpld/app/tx/apply.h:107:    For network health, a `Transactor` makes its
+src/xrpld/app/tx/apply.h:127:    STTx const& tx,
+src/xrpld/app/tx/apply.h:155:    STTx const& tx,
+src/test/app/tx/apply_test.cpp:42:        // Construct a payments w/out a fully-canonical tx
+src/test/app/tx/apply_test.cpp:43:        std::string const non_fully_canonical_tx =
+src/test/app/tx/apply_test.cpp:51:        auto ret = strUnHex(non_fully_canonical_tx);
+src/test/app/tx/apply_test.cpp:53:        STTx const tx = *std::make_shared<STTx const>(std::ref(sitTrans));
+src/test/app/tx/apply_test.cpp:56:            test::jtx::Env no_fully_canonical(
+src/test/app/tx/apply_test.cpp:62:                                 no_fully_canonical.app().getHashRouter(),
+src/test/app/tx/apply_test.cpp:64:                                 no_fully_canonical.current()->rules(),
+src/test/app/tx/apply_test.cpp:65:                                 no_fully_canonical.app().config())
+src/test/app/tx/apply_test.cpp:69:                fail("Non-Fully canonical signature was not permitted");
+src/test/app/tx/apply_test.cpp:73:            test::jtx::Env fully_canonical(
+src/test/app/tx/apply_test.cpp:77:                                 fully_canonical.app().getHashRouter(),
+src/test/app/tx/apply_test.cpp:79:                                 fully_canonical.current()->rules(),
+src/test/app/tx/apply_test.cpp:80:                                 fully_canonical.app().config())
+src/test/app/tx/apply_test.cpp:83:                fail("Non-Fully canonical signature was permitted");
+src/libxrpl/protocol/NFTokenOfferID.cpp:26:#include <xrpl/protocol/STTx.h>
+src/libxrpl/protocol/NFTokenOfferID.cpp:39:    std::shared_ptr<STTx const> const& serializedTx,
+src/libxrpl/protocol/NFTokenOfferID.cpp:74:    std::shared_ptr<STTx const> const& transaction,
+src/libxrpl/protocol/SecretKey.cpp:233:        LogicError("sign: secp256k1 required for digest signing");
+src/libxrpl/protocol/STTx.cpp:46:#include <xrpl/protocol/STTx.h>
+src/libxrpl/protocol/STTx.cpp:90:STTx::STTx(STObject&& object) : STObject(std::move(object))
+src/libxrpl/protocol/STTx.cpp:92:    tx_type_ = safe_cast<TxType>(getFieldU16(sfTransactionType));
+src/libxrpl/protocol/STTx.cpp:97:STTx::STTx(SerialIter& sit) : STObject(sfTransaction)
+src/libxrpl/protocol/STTx.cpp:107:    tx_type_ = safe_cast<TxType>(getFieldU16(sfTransactionType));
+src/libxrpl/protocol/STTx.cpp:113:STTx::STTx(TxType type, std::function<void(STObject&)> assembler)
+src/libxrpl/protocol/STTx.cpp:119:    setFieldU16(sfTransactionType, format->getType());
+src/libxrpl/protocol/STTx.cpp:123:    tx_type_ = safe_cast<TxType>(getFieldU16(sfTransactionType));
+src/libxrpl/protocol/STTx.cpp:132:STTx::copy(std::size_t n, void* buf) const
+src/libxrpl/protocol/STTx.cpp:138:STTx::move(std::size_t n, void* buf)
+src/libxrpl/protocol/STTx.cpp:145:STTx::getSType() const
+src/libxrpl/protocol/STTx.cpp:151:STTx::getFullText() const
+src/libxrpl/protocol/STTx.cpp:162:STTx::getMentionedAccounts() const
+src/libxrpl/protocol/STTx.cpp:172:                "ripple::STTx::getMentionedAccounts : account is set");
+src/libxrpl/protocol/STTx.cpp:188:getSigningData(STTx const& that)
+src/libxrpl/protocol/STTx.cpp:197:STTx::getSigningHash() const
+src/libxrpl/protocol/STTx.cpp:203:STTx::getSignature(STObject const& sigObject)
+src/libxrpl/protocol/STTx.cpp:207:        return sigObject.getFieldVL(sfTxnSignature);
+src/libxrpl/protocol/STTx.cpp:216:STTx::getSeqProxy() const
+src/libxrpl/protocol/STTx.cpp:218:    std::uint32_t const seq{getFieldU32(sfSequence)};
+src/libxrpl/protocol/STTx.cpp:222:    std::optional<std::uint32_t> const ticketSeq{operator[](~sfTicketSequence)};
+src/libxrpl/protocol/STTx.cpp:224:        // No TicketSequence specified.  Return the Sequence, whatever it is.
+src/libxrpl/protocol/STTx.cpp:231:STTx::getSeqValue() const
+src/libxrpl/protocol/STTx.cpp:237:STTx::sign(
+src/libxrpl/protocol/STTx.cpp:249:        target.setFieldVL(sfTxnSignature, sig);
+src/libxrpl/protocol/STTx.cpp:253:        setFieldVL(sfTxnSignature, sig);
+src/libxrpl/protocol/STTx.cpp:259:STTx::checkSign(
+src/libxrpl/protocol/STTx.cpp:266:        // Determine whether we're single- or multi-signing by looking
+src/libxrpl/protocol/STTx.cpp:267:        // at the SigningPubKey.  If it's empty we must be
+src/libxrpl/protocol/STTx.cpp:268:        // multi-signing.  Otherwise we're single-signing.
+src/libxrpl/protocol/STTx.cpp:270:        Blob const& signingPubKey = sigObject.getFieldVL(sfSigningPubKey);
+src/libxrpl/protocol/STTx.cpp:271:        return signingPubKey.empty()
+src/libxrpl/protocol/STTx.cpp:272:            ? checkMultiSign(requireCanonicalSig, rules, sigObject)
+src/libxrpl/protocol/STTx.cpp:282:STTx::checkSign(
+src/libxrpl/protocol/STTx.cpp:300:STTx::checkBatchSign(
+src/libxrpl/protocol/STTx.cpp:308:            "STTx::checkBatchSign : not a batch transaction");
+src/libxrpl/protocol/STTx.cpp:317:            Blob const& signingPubKey = signer.getFieldVL(sfSigningPubKey);
+src/libxrpl/protocol/STTx.cpp:318:            auto const result = signingPubKey.empty()
+src/libxrpl/protocol/STTx.cpp:319:                ? checkBatchMultiSign(signer, requireCanonicalSig, rules)
+src/libxrpl/protocol/STTx.cpp:336:STTx::getJson(JsonOptions options) const
+src/libxrpl/protocol/STTx.cpp:345:STTx::getJson(JsonOptions options, bool binary) const
+src/libxrpl/protocol/STTx.cpp:373:STTx::getMetaSQLInsertReplaceHeader()
+src/libxrpl/protocol/STTx.cpp:385:STTx::getMetaSQL(std::uint32_t inLedger, std::string const& escapedMetaData)
+src/libxrpl/protocol/STTx.cpp:395:STTx::getMetaSQL(
+src/libxrpl/protocol/STTx.cpp:406:    XRPL_ASSERT(format, "ripple::STTx::getMetaSQL : non-null type format");
+src/libxrpl/protocol/STTx.cpp:410:        format->getName() % toBase58(getAccountID(sfAccount)) %
+src/libxrpl/protocol/STTx.cpp:411:        getFieldU32(sfSequence) % inLedger % status % rTxn % escapedMetaData);
+src/libxrpl/protocol/STTx.cpp:420:    // We don't allow both a non-empty sfSigningPubKey and an sfSigners.
+src/libxrpl/protocol/STTx.cpp:429:        auto const spk = sigObject.getFieldVL(sfSigningPubKey);
+src/libxrpl/protocol/STTx.cpp:432:            Blob const signature = sigObject.getFieldVL(sfTxnSignature);
+src/libxrpl/protocol/STTx.cpp:452:STTx::checkSingleSign(
+src/libxrpl/protocol/STTx.cpp:458:        (requireCanonicalSig == STTx::RequireFullyCanonicalSig::yes);
+src/libxrpl/protocol/STTx.cpp:463:STTx::checkBatchSingleSign(
+src/libxrpl/protocol/STTx.cpp:470:        (requireCanonicalSig == STTx::RequireFullyCanonicalSig::yes);
+src/libxrpl/protocol/STTx.cpp:482:    // Make sure the MultiSigners are present.  Otherwise they are not
+src/libxrpl/protocol/STTx.cpp:483:    // attempting multi-signing and we just have a bad SigningPubKey.
+src/libxrpl/protocol/STTx.cpp:485:        return Unexpected("Empty SigningPubKey.");
+src/libxrpl/protocol/STTx.cpp:487:    // We don't allow both an sfSigners and an sfTxnSignature.  Both fields
+src/libxrpl/protocol/STTx.cpp:489:    if (sigObject.isFieldPresent(sfTxnSignature))
+src/libxrpl/protocol/STTx.cpp:495:    if (signers.size() < STTx::minMultiSigners ||
+src/libxrpl/protocol/STTx.cpp:496:        signers.size() > STTx::maxMultiSigners(&rules))
+src/libxrpl/protocol/STTx.cpp:504:        auto const accountID = signer.getAccountID(sfAccount);
+src/libxrpl/protocol/STTx.cpp:528:            auto spk = signer.getFieldVL(sfSigningPubKey);
+src/libxrpl/protocol/STTx.cpp:531:                Blob const signature = signer.getFieldVL(sfTxnSignature);
+src/libxrpl/protocol/STTx.cpp:555:STTx::checkBatchMultiSign(
+src/libxrpl/protocol/STTx.cpp:574:            finishMultiSigningData(accountID, s);
+src/libxrpl/protocol/STTx.cpp:581:STTx::checkMultiSign(
+src/libxrpl/protocol/STTx.cpp:593:        : std::optional<AccountID>(getAccountID(sfAccount));
+src/libxrpl/protocol/STTx.cpp:598:    Serializer dataStart = startMultiSigningData(*this);
+src/libxrpl/protocol/STTx.cpp:605:            finishMultiSigningData(accountID, s);
+src/libxrpl/protocol/STTx.cpp:612: * @brief Retrieves a batch of transaction IDs from the STTx.
+src/libxrpl/protocol/STTx.cpp:615: * the field array `sfRawTransactions` within the STTx. If the batch
+src/libxrpl/protocol/STTx.cpp:627:STTx::getBatchTransactionIDs() const
+src/libxrpl/protocol/STTx.cpp:631:        "STTx::getBatchTransactionIDs : not a batch transaction");
+src/libxrpl/protocol/STTx.cpp:634:        "STTx::getBatchTransactionIDs : empty raw transactions");
+src/libxrpl/protocol/STTx.cpp:647:        "STTx::getBatchTransactionIDs : batch transaction IDs size mismatch");
+src/libxrpl/protocol/STTx.cpp:761:    auto const txType = tx[~sfTransactionType];
+src/libxrpl/protocol/STTx.cpp:810:                safe_cast<TxType>(raw.getFieldU16(sfTransactionType));
+src/libxrpl/protocol/STTx.cpp:842:        reason = "Cannot submit pseudo transactions.";
+src/libxrpl/protocol/STTx.cpp:858:std::shared_ptr<STTx const>
+src/libxrpl/protocol/STTx.cpp:859:sterilize(STTx const& stx)
+src/libxrpl/protocol/STTx.cpp:864:    return std::make_shared<STTx const>(std::ref(sit));
+src/libxrpl/protocol/STTx.cpp:870:    auto const t = tx[~sfTransactionType];
+src/libxrpl/protocol/STAmount.cpp:176:            Throw<std::runtime_error>("negative zero is not canonical");
+src/libxrpl/protocol/STAmount.cpp:215:        canonicalize();
+src/libxrpl/protocol/STAmount.cpp:226:    canonicalize();
+src/libxrpl/protocol/STAmount.cpp:258:    canonicalize();
+src/libxrpl/protocol/STAmount.cpp:283:    canonicalize();
+src/libxrpl/protocol/STAmount.cpp:317:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::xrp : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:347:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::mpt : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:386:    canonicalize();
+src/libxrpl/protocol/STAmount.cpp:897:STAmount::canonicalize()
+src/libxrpl/protocol/STAmount.cpp:1012:        "ripple::STAmount::canonicalize : value inside range");
+src/libxrpl/protocol/STAmount.cpp:1015:        "ripple::STAmount::canonicalize : offset inside range");
+src/libxrpl/protocol/STAmount.cpp:1018:        "ripple::STAmount::canonicalize : value or offset set");
+src/libxrpl/protocol/STAmount.cpp:1437:// This is the legacy version of canonicalizeRound.  It's been in use
+src/libxrpl/protocol/STAmount.cpp:1444:// represented in drops.  `canonicalizeRound()` currently does some unusual
+src/libxrpl/protocol/STAmount.cpp:1458:canonicalizeRound(bool native, std::uint64_t& value, int& offset, bool)
+src/libxrpl/protocol/STAmount.cpp:1492:// The original canonicalizeRound did not allow the rounding direction to
+src/libxrpl/protocol/STAmount.cpp:1494:// rounding decisions.  canonicalizeRoundStrict() tracks all of the bits in
+src/libxrpl/protocol/STAmount.cpp:1497:canonicalizeRoundStrict(
+src/libxrpl/protocol/STAmount.cpp:1588:// Pass the canonicalizeRound function pointer as a template parameter.
+src/libxrpl/protocol/STAmount.cpp:1676:        // result from STAmount::canonicalize.
+src/libxrpl/protocol/STAmount.cpp:1707:    return mulRoundImpl<canonicalizeRound, DontAffectNumberRoundMode>(
+src/libxrpl/protocol/STAmount.cpp:1718:    return mulRoundImpl<canonicalizeRoundStrict, NumberRoundModeGuard>(
+src/libxrpl/protocol/STAmount.cpp:1775:        canonicalizeRound(
+src/libxrpl/protocol/STNumber.cpp:264:            "Not in a Transactor context");
+src/libxrpl/protocol/STInteger.cpp:122:    if (getFName() == sfTransactionType)
+src/libxrpl/protocol/STInteger.cpp:147:    if (getFName() == sfTransactionType)
+src/libxrpl/protocol/InnerObjectFormats.cpp:34:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:42:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:43:            {sfSigningPubKey, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:44:            {sfTxnSignature, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:58:            {sfFirstLedgerSequence, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:71:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:78:        {{sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:91:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:105:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:139:            {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:164:        {{sfAccount, soeREQUIRED},
+src/libxrpl/protocol/InnerObjectFormats.cpp:165:         {sfSigningPubKey, soeOPTIONAL},
+src/libxrpl/protocol/InnerObjectFormats.cpp:166:         {sfTxnSignature, soeOPTIONAL},
+src/libxrpl/protocol/InnerObjectFormats.cpp:179:            {sfSigningPubKey, soeOPTIONAL},
+src/libxrpl/protocol/InnerObjectFormats.cpp:180:            {sfTxnSignature, soeOPTIONAL},
+src/libxrpl/protocol/Sign.cpp:64:// Questions regarding buildMultiSigningData:
+src/libxrpl/protocol/Sign.cpp:68:// Unless you include the Account which is signing in the signing blob,
+src/libxrpl/protocol/Sign.cpp:71:// Signer.SigningPubKey.
+src/libxrpl/protocol/Sign.cpp:82:// Why would we include the signingFor account in the blob to be signed?
+src/libxrpl/protocol/Sign.cpp:84:// In the current signing scheme, the account that a signer is `signing
+src/libxrpl/protocol/Sign.cpp:87:// Later we might support more levels of signing.  Suppose Bob is a signer
+src/libxrpl/protocol/Sign.cpp:91:// distinguish between Carol signing for Bob and Carol signing for Dave.
+src/libxrpl/protocol/Sign.cpp:93:// So, if we support multiple levels of signing, then we'll need to
+src/libxrpl/protocol/Sign.cpp:94:// incorporate the "signing for" accounts into the signing data as well.
+src/libxrpl/protocol/Sign.cpp:96:buildMultiSigningData(STObject const& obj, AccountID const& signingID)
+src/libxrpl/protocol/Sign.cpp:98:    Serializer s{startMultiSigningData(obj)};
+src/libxrpl/protocol/Sign.cpp:99:    finishMultiSigningData(signingID, s);
+src/libxrpl/protocol/Sign.cpp:104:startMultiSigningData(STObject const& obj)
+src/libxrpl/protocol/Sign.cpp:107:    s.add32(HashPrefix::txMultiSign);
+src/libxrpl/protocol/XChainAttestations.cpp:112:    , sendingAccount{o[sfAccount]}
+src/libxrpl/protocol/XChainAttestations.cpp:125:    , sendingAccount{Json::getOrThrow<AccountID>(v, sfAccount)}
+src/libxrpl/protocol/XChainAttestations.cpp:139:    o[sfAccount] = sendingAccount;
+src/libxrpl/protocol/TxFormats.cpp:33:        {sfTransactionType, soeREQUIRED},
+src/libxrpl/protocol/TxFormats.cpp:34:        {sfFlags, soeOPTIONAL},
+src/libxrpl/protocol/TxFormats.cpp:36:        {sfAccount, soeREQUIRED},
+src/libxrpl/protocol/TxFormats.cpp:37:        {sfSequence, soeREQUIRED},
+src/libxrpl/protocol/TxFormats.cpp:39:        {sfLastLedgerSequence, soeOPTIONAL},
+src/libxrpl/protocol/TxFormats.cpp:40:        {sfAccountTxnID, soeOPTIONAL},
+src/libxrpl/protocol/TxFormats.cpp:41:        {sfFee, soeREQUIRED},
+src/libxrpl/protocol/TxFormats.cpp:44:        {sfSigningPubKey, soeREQUIRED},
+src/libxrpl/protocol/TxFormats.cpp:45:        {sfTicketSequence, soeOPTIONAL},
+src/libxrpl/protocol/TxFormats.cpp:46:        {sfTxnSignature, soeOPTIONAL},
+src/libxrpl/protocol/TxFormats.cpp:48:        {sfNetworkID, soeOPTIONAL},
+src/libxrpl/protocol/tokens.cpp:53:the number C[m]*B^m + ... + C[0]*B^0; The following pseudo-code converts the
+src/libxrpl/protocol/tokens.cpp:69:coefficients. The following pseudo-code converts the (infinite precision)
+src/libxrpl/protocol/tokens.cpp:118:However, the algorithm above is pseudo-code. In particular, the variable "N" is
+src/libxrpl/protocol/tokens.cpp:119:an infinite precision integer in that pseudo-code. Real computers do
+src/libxrpl/protocol/STValidation.cpp:60:        {sfFlags,               soeREQUIRED},
+src/libxrpl/protocol/STValidation.cpp:62:        {sfLedgerSequence,      soeREQUIRED},
+src/libxrpl/protocol/STValidation.cpp:70:        {sfSigningPubKey,       soeREQUIRED},
+src/libxrpl/protocol/Indexes.cpp:262:    // side of the line we're looking at, we define a "canonical" order for the
+src/xrpld/app/tx/detail/DeleteAccount.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/DeleteAccount.h:27:class DeleteAccount : public Transactor
+src/xrpld/app/tx/detail/DeleteAccount.h:32:    explicit DeleteAccount(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DeleteAccount.h:43:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/libxrpl/protocol/PublicKey.cpp:117:/** Determine whether a signature is canonical.
+src/libxrpl/protocol/PublicKey.cpp:122:    @param strict_param whether to enforce strictly canonical semantics
+src/libxrpl/protocol/PublicKey.cpp:163:    // (R,S) and (R,G-S) are canonical,
+src/libxrpl/protocol/PublicKey.cpp:164:    // but is fully canonical when S <= G-S
+src/libxrpl/protocol/PublicKey.cpp:167:        return ECDSACanonicality::canonical;
+src/libxrpl/protocol/PublicKey.cpp:246:        LogicError("sign: secp256k1 required for digest signing");
+src/libxrpl/protocol/PublicKey.cpp:247:    auto const canonicality = ecdsaCanonicality(sig);
+src/libxrpl/protocol/PublicKey.cpp:248:    if (!canonicality)
+src/libxrpl/protocol/PublicKey.cpp:251:        (*canonicality != ECDSACanonicality::fullyCanonical))
+src/libxrpl/protocol/PublicKey.cpp:269:    if (*canonicality != ECDSACanonicality::fullyCanonical)
+src/xrpld/app/tx/detail/VaultClawback.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultClawback.h:27:class VaultClawback : public Transactor
+src/xrpld/app/tx/detail/VaultClawback.h:32:    explicit VaultClawback(ApplyContext& ctx) : Transactor(ctx)
+src/libxrpl/protocol/SField.cpp:94:    IsSigning signing)
+src/libxrpl/protocol/SField.cpp:101:    , signingField(signing)
+src/libxrpl/protocol/SField.cpp:106:        "ripple::SField::SField(tid,fv,fn,meta,signing) : fieldCode is unique");
+src/libxrpl/protocol/SField.cpp:109:        "ripple::SField::SField(tid,fv,fn,meta,signing) : fieldName is unique");
+src/libxrpl/protocol/SField.cpp:121:    , signingField(IsSigning::yes)
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:19:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:29:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:44:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:114:    auto const vaultPseudoID = sleVault->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:117:    auto const brokerPseudoID = broker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:157:    // obligations associated with the broker or broker pseudo-account.
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:186:        // one for the pseudo-account.
+src/libxrpl/protocol/TER.cpp:54:        MAKE_ERROR(tecCLAIM,                         "Fee claimed. Sequence used. No action."),
+src/libxrpl/protocol/TER.cpp:80:        MAKE_ERROR(tecNO_PERMISSION,                 "No permission to perform requested operation."),
+src/libxrpl/protocol/TER.cpp:128:        MAKE_ERROR(tecPSEUDO_ACCOUNT,                "This operation is not allowed against a pseudo-account."),
+src/libxrpl/protocol/TER.cpp:134:        MAKE_ERROR(tefBAD_AUTH,                    "Transaction's public key is not authorized."),
+src/libxrpl/protocol/TER.cpp:139:        MAKE_ERROR(tefEXCEPTION,                   "Unexpected program state."),
+src/libxrpl/protocol/TER.cpp:141:        MAKE_ERROR(tefINTERNAL,                    "Internal error."),
+src/libxrpl/protocol/TER.cpp:146:        MAKE_ERROR(tefPAST_SEQ,                    "This sequence number has already passed."),
+src/libxrpl/protocol/TER.cpp:148:        MAKE_ERROR(tefBAD_AUTH_MASTER,             "Auth for unclaimed account needs correct master key."),
+src/libxrpl/protocol/TER.cpp:169:        MAKE_ERROR(telREQUIRES_NETWORK_ID,    "Transactions submitted to this node/network must include a correct NetworkID field."),
+src/libxrpl/protocol/TER.cpp:170:        MAKE_ERROR(telNETWORK_ID_MAKES_TX_NON_CANONICAL, "Transactions submitted to this node/network must NOT include a NetworkID field."),
+src/libxrpl/protocol/TER.cpp:191:        MAKE_ERROR(temBAD_SEQUENCE,              "Malformed: Sequence is not in the past."),
+src/libxrpl/protocol/TER.cpp:200:        MAKE_ERROR(temINVALID,                   "The transaction is ill-formed."),
+src/libxrpl/protocol/TER.cpp:201:        MAKE_ERROR(temINVALID_FLAG,              "The transaction has an invalid flag."),
+src/libxrpl/protocol/TER.cpp:208:        MAKE_ERROR(temINVALID_ACCOUNT_ID,        "Malformed: A field contains an invalid account ID."),
+src/libxrpl/protocol/TER.cpp:210:        MAKE_ERROR(temINVALID_COUNT,             "Malformed: Count field outside valid range."),
+src/libxrpl/protocol/TER.cpp:211:        MAKE_ERROR(temSEQ_AND_TICKET,            "Transaction contains a TicketSequence and a non-zero Sequence."),
+src/libxrpl/protocol/TER.cpp:222:        MAKE_ERROR(temINVALID_INNER_BATCH,       "Malformed: Invalid inner batch transaction."),
+src/libxrpl/protocol/TER.cpp:229:        MAKE_ERROR(terNO_ACCOUNT,             "The source account does not exist."),
+src/libxrpl/protocol/TER.cpp:232:        MAKE_ERROR(terPRE_SEQ,                "Missing/inapplicable prior transaction."),
+src/libxrpl/protocol/TER.cpp:234:        MAKE_ERROR(terQUEUED,                 "Held until escalated fee drops."),
+src/libxrpl/protocol/NFTSyntheticSerializer.cpp:24:#include <xrpl/protocol/STTx.h>
+src/libxrpl/protocol/NFTSyntheticSerializer.cpp:36:    std::shared_ptr<STTx const> const& transaction,
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.h:8:class LoanBrokerCoverDeposit : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.h:13:    explicit LoanBrokerCoverDeposit(ApplyContext& ctx) : Transactor(ctx)
+src/libxrpl/protocol/NFTokenID.cpp:27:#include <xrpl/protocol/STTx.h>
+src/libxrpl/protocol/NFTokenID.cpp:43:    std::shared_ptr<STTx const> const& serializedTx,
+src/libxrpl/protocol/NFTokenID.cpp:174:    std::shared_ptr<STTx const> const& transaction,
+src/xrpld/app/tx/detail/Change.cpp:38:Transactor::invokePreflight<Change>(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Change.cpp:48:    auto account = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Change.cpp:56:    auto const fee = ctx.tx.getFieldAmount(sfFee);
+src/xrpld/app/tx/detail/Change.cpp:63:    if (!ctx.tx.getSigningPubKey().empty() || !ctx.tx.getSignature().empty() ||
+src/xrpld/app/tx/detail/Change.cpp:70:    if (ctx.tx.getFieldU32(sfSequence) != 0 ||
+src/xrpld/app/tx/detail/Change.cpp:95:        return temINVALID;
+src/xrpld/app/tx/detail/Change.cpp:282:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Change.cpp:366:    auto set = [](SLE::pointer& feeObject, STTx const& tx, auto const& field) {
+src/xrpld/app/tx/detail/Change.cpp:406:        !ctx_.tx.isFieldPresent(sfLedgerSequence) ||
+src/xrpld/app/tx/detail/Change.cpp:414:    auto const seq = ctx_.tx.getFieldU32(sfLedgerSequence);
+src/libxrpl/protocol/STLedgerEntry.cpp:143:            makeMptID(getFieldU32(sfSequence), getAccountID(sfIssuer)));
+src/xrpld/app/tx/detail/Clawback.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Clawback.h:27:class Clawback : public Transactor
+src/xrpld/app/tx/detail/Clawback.h:32:    explicit Clawback(ApplyContext& ctx) : Transactor(ctx)
+src/libxrpl/protocol/LedgerFormats.cpp:35:        {sfFlags, soeREQUIRED},
+src/libxrpl/protocol/STObject.cpp:509:    STUInt32* t = dynamic_cast<STUInt32*>(getPField(sfFlags, true));
+src/libxrpl/protocol/STObject.cpp:521:    STUInt32* t = dynamic_cast<STUInt32*>(getPField(sfFlags));
+src/libxrpl/protocol/STObject.cpp:539:    STUInt32 const* t = dynamic_cast<STUInt32 const*>(peekAtPField(sfFlags));
+src/libxrpl/protocol/STObject.cpp:917:    // Depending on whichFields, signing fields are either serialized or
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.h:8:class LoanBrokerCoverClawback : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.h:13:    explicit LoanBrokerCoverClawback(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.h:27:class MPTokenIssuanceDestroy : public Transactor
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.h:32:    explicit MPTokenIssuanceDestroy(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanPay.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanPay.h:8:class LoanPay : public Transactor
+src/xrpld/app/tx/detail/LoanPay.h:13:    explicit LoanPay(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanPay.h:27:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/MPTokenAuthorize.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/MPTokenAuthorize.h:36:class MPTokenAuthorize : public Transactor
+src/xrpld/app/tx/detail/MPTokenAuthorize.h:41:    explicit MPTokenAuthorize(ApplyContext& ctx) : Transactor(ctx)
+src/libxrpl/protocol/ErrorCodes.cpp:105:    {rpcSIGNING_MALFORMED,      "signingMalformed",     "Signing of transaction is malformed.", 400},
+src/xrpld/app/tx/detail/applySteps.cpp:60:    // they were only included in doApply (via Transactor::operator()). That may
+src/xrpld/app/tx/detail/applySteps.cpp:69:    // See also Transactor::operator().
+src/xrpld/app/tx/detail/applySteps.cpp:114:// For Transactor::Normal
+src/xrpld/app/tx/detail/applySteps.cpp:120:requires(T::ConsequencesFactory == Transactor::Normal)
+src/xrpld/app/tx/detail/applySteps.cpp:127:// For Transactor::Blocker
+src/xrpld/app/tx/detail/applySteps.cpp:129:requires(T::ConsequencesFactory == Transactor::Blocker)
+src/xrpld/app/tx/detail/applySteps.cpp:136:// For Transactor::Custom
+src/xrpld/app/tx/detail/applySteps.cpp:138:requires(T::ConsequencesFactory == Transactor::Custom)
+src/xrpld/app/tx/detail/applySteps.cpp:152:            auto const tec = Transactor::invokePreflight<T>(ctx);
+src/xrpld/app/tx/detail/applySteps.cpp:177:        // class functions for Transactor and derived classes.
+src/xrpld/app/tx/detail/applySteps.cpp:192:                auto const id = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/applySteps.cpp:198:                                    T::checkSeqProxy(ctx.view, ctx.tx, ctx.j))
+src/xrpld/app/tx/detail/applySteps.cpp:212:                    if (TER const result = T::checkFee(
+src/xrpld/app/tx/detail/applySteps.cpp:253:invoke_calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/applySteps.cpp:283:TxConsequences::TxConsequences(STTx const& tx)
+src/xrpld/app/tx/detail/applySteps.cpp:286:          tx[sfFee].native() && !tx[sfFee].negative() ? tx[sfFee].xrp()
+src/xrpld/app/tx/detail/applySteps.cpp:294:TxConsequences::TxConsequences(STTx const& tx, Category category)
+src/xrpld/app/tx/detail/applySteps.cpp:300:TxConsequences::TxConsequences(STTx const& tx, XRPAmount potentialSpend)
+src/xrpld/app/tx/detail/applySteps.cpp:306:TxConsequences::TxConsequences(STTx const& tx, std::uint32_t sequencesConsumed)
+src/xrpld/app/tx/detail/applySteps.cpp:339:    STTx const& tx,
+src/xrpld/app/tx/detail/applySteps.cpp:351:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:360:    STTx const& tx,
+src/xrpld/app/tx/detail/applySteps.cpp:372:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:433:        return {*ctx, tefEXCEPTION};
+src/xrpld/app/tx/detail/applySteps.cpp:438:calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/applySteps.cpp:444:calculateDefaultBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/applySteps.cpp:446:    return Transactor::calculateBaseFee(view, tx);
+src/xrpld/app/tx/detail/applySteps.cpp:456:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/applySteps.cpp:476:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/LoanManage.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanManage.h:8:class LoanManage : public Transactor
+src/xrpld/app/tx/detail/LoanManage.h:13:    explicit LoanManage(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetAccount.cpp:39:    auto getTxConsequencesCategory = [](STTx const& tx) {
+src/xrpld/app/tx/detail/SetAccount.cpp:46:             *uSetFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:51:             *uClearFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:80:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:94:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:108:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:122:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:190:SetAccount::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/SetAccount.cpp:198:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/SetAccount.cpp:247:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/SetAccount.cpp:253:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/SetAccount.cpp:255:    std::uint32_t const uFlagsIn = sle->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/SetAccount.cpp:271:            return (ctx.flags & tapRETRY) ? TER{terOWNERS} : TER{tecOWNERS};
+src/xrpld/app/tx/detail/SetAccount.cpp:285:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:301:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:314:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetAccount.cpp:316:    std::uint32_t const uFlagsIn = sle->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/SetAccount.cpp:319:    STTx const& tx{ctx_.tx};
+src/xrpld/app/tx/detail/SetAccount.cpp:339:        auto const spk = tx.getSigningPubKey();
+src/xrpld/app/tx/detail/SetAccount.cpp:343:            PublicKey const signingPubKey(makeSlice(spk));
+src/xrpld/app/tx/detail/SetAccount.cpp:345:            if (calcAccountID(signingPubKey) == acct)
+src/xrpld/app/tx/detail/SetAccount.cpp:473:    if ((uSetFlag == asfAccountTxnID) && !sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:475:        JLOG(j_.trace()) << "Set AccountTxnID.";
+src/xrpld/app/tx/detail/SetAccount.cpp:476:        sle->makeFieldPresent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:479:    if ((uClearFlag == asfAccountTxnID) && sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:481:        JLOG(j_.trace()) << "Clear AccountTxnID.";
+src/xrpld/app/tx/detail/SetAccount.cpp:482:        sle->makeFieldAbsent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:668:        sle->setFieldU32(sfFlags, uFlagsOut);
+src/xrpld/app/tx/detail/Payment.cpp:38:    auto calculateMaxXRPSpend = [](STTx const& tx) -> XRPAmount {
+src/xrpld/app/tx/detail/Payment.cpp:117:    auto const account = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Payment.cpp:166:        // You're signing yourself a payment.
+src/xrpld/app/tx/detail/Payment.cpp:254:Payment::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Payment.cpp:260:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/Payment.cpp:283:            amountAsset.getIssuer() == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:301:        amountIssue.account == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:393:            credentials::valid(ctx.tx, ctx.view, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/Payment.cpp:400:                ctx.view, ctx.tx[sfAccount], ctx.tx[sfDomainID]))
+src/xrpld/app/tx/detail/Payment.cpp:401:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:405:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:445:        sleDst->setAccountID(sfAccount, dstAccountID);
+src/xrpld/app/tx/detail/Payment.cpp:446:        sleDst->setFieldU32(sfSequence, seqno);
+src/xrpld/app/tx/detail/Payment.cpp:471:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Payment.cpp:647:    auto const mmm = std::max(reserve, ctx_.tx.getFieldAmount(sfFee).xrp());
+src/xrpld/app/tx/detail/Payment.cpp:664:    // to pseudo-account discriminator fields **are** amendment gated, hence the
+src/xrpld/app/tx/detail/Payment.cpp:667:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:70:    auto const& vaultAccount = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:71:    auto const& account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:86:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:103:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:112:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:167:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:175:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:222:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:258:    // instead of the pseudo-account balance.
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:269:    auto const& vaultAccount = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:282:    // pseudo-account will never set lsfMPTAuthorized, so we ignore flags.
+src/xrpld/app/tx/detail/LedgerStateFix.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LedgerStateFix.h:27:class LedgerStateFix : public Transactor
+src/xrpld/app/tx/detail/LedgerStateFix.h:36:    explicit LedgerStateFix(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LedgerStateFix.h:44:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/libxrpl/protocol/STParsedJSON.cpp:286:                if (field == sfTransactionType)
+src/xrpld/app/tx/detail/VaultCreate.cpp:109:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/VaultCreate.cpp:114:    // Check for pseudo-account issuers - we do not want a vault to hold such
+src/xrpld/app/tx/detail/VaultCreate.cpp:136:    if (auto const accountId = pseudoAccountAddress(
+src/xrpld/app/tx/detail/VaultCreate.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultCreate.cpp:170:    auto& pseudo = *maybePseudo;
+src/xrpld/app/tx/detail/VaultCreate.cpp:171:    auto pseudoId = pseudo->at(sfAccount);
+src/xrpld/app/tx/detail/VaultCreate.cpp:174:    if (auto ter = addEmptyHolding(view(), pseudoId, mPriorBalance, asset, j_);
+src/xrpld/app/tx/detail/VaultCreate.cpp:198:            .account = pseudoId->value(),
+src/xrpld/app/tx/detail/VaultCreate.cpp:210:    vault->at(sfFlags) = txFlags & tfVaultPrivate;
+src/xrpld/app/tx/detail/VaultCreate.cpp:211:    vault->at(sfSequence) = sequence;
+src/xrpld/app/tx/detail/VaultCreate.cpp:213:    vault->at(sfAccount) = pseudoId;
+src/xrpld/app/tx/detail/VaultCreate.cpp:245:                pseudoId,
+src/xrpld/app/tx/detail/XChainBridge.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/XChainBridge.h:33:class XChainCreateBridge : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:38:    explicit XChainCreateBridge(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:52:class BridgeModify : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:57:    explicit BridgeModify(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:87:class XChainClaim : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:93:    explicit XChainClaim(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:112:class XChainCommit : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:120:    explicit XChainCommit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:144:class XChainCreateClaimID : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:149:    explicit XChainCreateClaimID(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:172:class XChainAddClaimAttestation : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:178:    explicit XChainAddClaimAttestation(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:192:class XChainAddAccountCreateAttestation : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:199:        : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:238:class XChainCreateAccountCommit : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:243:    explicit XChainCreateAccountCommit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanBrokerDelete.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanBrokerDelete.h:8:class LoanBrokerDelete : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerDelete.h:13:    explicit LoanBrokerDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:22:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/XChainBridge.cpp:84:   chains by signing messages with the event information.
+src/xrpld/app/tx/detail/XChainBridge.cpp:120:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/XChainBridge.cpp:131:            if (sleAttestationSigningAccount->getFieldU32(sfFlags) &
+src/xrpld/app/tx/detail/XChainBridge.cpp:434:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/XChainBridge.cpp:490:            sleDst->setAccountID(sfAccount, dst);
+src/xrpld/app/tx/detail/XChainBridge.cpp:491:            sleDst->setFieldU32(sfSequence, seqno);
+src/xrpld/app/tx/detail/XChainBridge.cpp:741:        auto const cidOwner = (*sleClaimID)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:783:    AccountID const thisDoor = sleBridge[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:791:    auto const sleS = view.read(keylet::signers(sleBridge[sfAccount]));
+src/xrpld/app/tx/detail/XChainBridge.cpp:943:            (*sleClaimID)[sfAccount]};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1162:        (*createdSleClaimID)[sfAccount] = doorAccount;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1195:toClaim(STTx const& tx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1204:        o.setAccountID(sfAccount, o[sfOtherChainSource]);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1302:        AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1376:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1451:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1479:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1486:            return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1502:    auto const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1517:    (*sleBridge)[sfAccount] = account;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1554:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1598:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1615:    auto const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1671:    AccountID const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1687:    auto const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1741:        if ((*sleClaimID)[sfAccount] != account)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1743:            // Sequence number isn't owned by the sender of this transaction
+src/xrpld/app/tx/detail/XChainBridge.cpp:1757:    AccountID const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1786:        AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1829:            (*sleClaimID)[sfAccount],
+src/xrpld/app/tx/detail/XChainBridge.cpp:1909:    AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1910:    AccountID const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1947:    auto const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1958:    auto const dst = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2000:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2021:            return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2037:    auto const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2068:    (*sleClaimID)[sfAccount] = account;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2186:    AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2187:    AccountID const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2220:    AccountID const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2233:    auto const dst = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/LoanDelete.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanDelete.h:8:class LoanDelete : public Transactor
+src/xrpld/app/tx/detail/LoanDelete.h:13:    explicit LoanDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CancelCheck.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CancelCheck.h:27:class CancelCheck : public Transactor
+src/xrpld/app/tx/detail/CancelCheck.h:32:    explicit CancelCheck(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenCancelOffer.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenCancelOffer.h:27:class NFTokenCancelOffer : public Transactor
+src/xrpld/app/tx/detail/NFTokenCancelOffer.h:32:    explicit NFTokenCancelOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DeleteOracle.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/DeleteOracle.h:36:class DeleteOracle : public Transactor
+src/xrpld/app/tx/detail/DeleteOracle.h:41:    explicit DeleteOracle(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenCreateOffer.cpp:44:            ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenCreateOffer.cpp:69:            ctx.tx[(txFlags & tfSellNFToken) ? sfAccount : sfOwner],
+src/xrpld/app/tx/detail/NFTokenCreateOffer.cpp:76:        ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenCreateOffer.cpp:93:        ctx_.tx[sfAccount],
+src/xrpld/app/tx/detail/VaultDeposit.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultDeposit.h:27:class VaultDeposit : public Transactor
+src/xrpld/app/tx/detail/VaultDeposit.h:32:    explicit VaultDeposit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DID.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/DID.h:27:class DIDSet : public Transactor
+src/xrpld/app/tx/detail/DID.h:32:    explicit DIDSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DID.h:45:class DIDDelete : public Transactor
+src/xrpld/app/tx/detail/DID.h:50:    explicit DIDDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/PayChan.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/PayChan.h:27:class PayChanCreate : public Transactor
+src/xrpld/app/tx/detail/PayChan.h:32:    explicit PayChanCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/PayChan.h:56:class PayChanFund : public Transactor
+src/xrpld/app/tx/detail/PayChan.h:61:    explicit PayChanFund(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/PayChan.h:82:class PayChanClaim : public Transactor
+src/xrpld/app/tx/detail/PayChan.h:87:    explicit PayChanClaim(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Transactor.h:38:    STTx const& tx;
+src/xrpld/app/tx/detail/Transactor.h:46:        STTx const& tx_,
+src/xrpld/app/tx/detail/Transactor.h:64:        STTx const& tx_,
+src/xrpld/app/tx/detail/Transactor.h:86:    STTx const& tx;
+src/xrpld/app/tx/detail/Transactor.h:94:        STTx const& tx_,
+src/xrpld/app/tx/detail/Transactor.h:115:        STTx const& tx_,
+src/xrpld/app/tx/detail/Transactor.h:140:class Transactor
+src/xrpld/app/tx/detail/Transactor.h:151:    virtual ~Transactor() = default;
+src/xrpld/app/tx/detail/Transactor.h:152:    Transactor(Transactor const&) = delete;
+src/xrpld/app/tx/detail/Transactor.h:153:    Transactor&
+src/xrpld/app/tx/detail/Transactor.h:154:    operator=(Transactor const&) = delete;
+src/xrpld/app/tx/detail/Transactor.h:185:    checkSeqProxy(ReadView const& view, STTx const& tx, beast::Journal j);
+src/xrpld/app/tx/detail/Transactor.h:191:    checkFee(PreclaimContext const& ctx, XRPAmount baseFee);
+src/xrpld/app/tx/detail/Transactor.h:201:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/Transactor.h:236:        // after checkSeq/Fee/Sign.
+src/xrpld/app/tx/detail/Transactor.h:241:    checkPermission(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/Transactor.h:256:    explicit Transactor(ApplyContext& ctx);
+src/xrpld/app/tx/detail/Transactor.h:282:    calculateOwnerReserveFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/Transactor.h:347:    checkMultiSign(
+src/xrpld/app/tx/detail/Transactor.h:376:Transactor::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.h:387:/** Checks the validity of the transactor signing key.
+src/xrpld/app/tx/detail/Transactor.h:394:/** Checks the special signing key state needed for simulation
+src/xrpld/app/tx/detail/Transactor.h:408:Transactor::invokePreflight<Change>(PreflightContext const& ctx);
+src/xrpld/app/tx/detail/Transactor.h:412:Transactor::invokePreflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.h:439:Transactor::validNumericRange(std::optional<T> value, T max, T min)
+src/xrpld/app/tx/detail/Transactor.h:448:Transactor::validNumericRange(
+src/xrpld/app/tx/detail/Transactor.h:458:Transactor::validNumericMinimum(std::optional<T> value, T min)
+src/xrpld/app/tx/detail/Transactor.h:467:Transactor::validNumericMinimum(
+src/xrpld/app/tx/detail/SetOracle.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/SetOracle.h:36:class SetOracle : public Transactor
+src/xrpld/app/tx/detail/SetOracle.h:41:    explicit SetOracle(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CashCheck.cpp:80:    if (ctx.tx[sfAccount] != dstId)
+src/xrpld/app/tx/detail/CashCheck.cpp:83:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/CashCheck.cpp:85:    AccountID const srcId = sleCheck->at(sfAccount);
+src/xrpld/app/tx/detail/CashCheck.cpp:126:        STAmount const value{[](STTx const& tx) {
+src/xrpld/app/tx/detail/CashCheck.cpp:155:                sleCheck->at(sfAccount),
+src/xrpld/app/tx/detail/CashCheck.cpp:198:            if (sleIssuer->at(sfFlags) & lsfRequireAuth)
+src/xrpld/app/tx/detail/CashCheck.cpp:207:                // Entries have a canonical representation, determined by a
+src/xrpld/app/tx/detail/CashCheck.cpp:210:                bool const canonical_gt(dstId > issuerId);
+src/xrpld/app/tx/detail/CashCheck.cpp:213:                    sleTrustLine->at(sfFlags) &
+src/xrpld/app/tx/detail/CashCheck.cpp:214:                    (canonical_gt ? lsfLowAuth : lsfHighAuth));
+src/xrpld/app/tx/detail/CashCheck.cpp:256:    AccountID const srcId{sleCheck->getAccountID(sfAccount)};
+src/xrpld/app/tx/detail/CashCheck.cpp:406:            // Since the destination is signing the check, they clearly want
+src/xrpld/app/tx/detail/NFTokenMint.cpp:98:    if (auto iss = ctx.tx[~sfIssuer]; iss == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenMint.cpp:118:                ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenMint.cpp:194:            minter != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenMint.cpp:195:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenMint.cpp:209:                ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenMint.cpp:210:                ctx.tx[~sfIssuer].value_or(ctx.tx[sfAccount]),
+src/xrpld/app/tx/detail/NFTokenMint.cpp:252:        // FirstNFTokenSequence field to the issuer's AccountRoot.  The
+src/xrpld/app/tx/detail/NFTokenMint.cpp:253:        // value of the FirstNFTokenSequence must equal the issuer's
+src/xrpld/app/tx/detail/NFTokenMint.cpp:258:        //     * If the transaction consumes a Sequence number, then the
+src/xrpld/app/tx/detail/NFTokenMint.cpp:259:        //       Sequence has been pre-incremented by the time we get here in
+src/xrpld/app/tx/detail/NFTokenMint.cpp:260:        //       doApply.  We must decrement the value in the Sequence field.
+src/xrpld/app/tx/detail/NFTokenMint.cpp:261:        //     * Otherwise the transaction uses a Ticket so the Sequence has
+src/xrpld/app/tx/detail/NFTokenMint.cpp:262:        //       not been pre-incremented.  We use the Sequence value as is.
+src/xrpld/app/tx/detail/NFTokenMint.cpp:264:        //    this case the issuer's Sequence field has been left untouched.
+src/xrpld/app/tx/detail/NFTokenMint.cpp:265:        //    We use the issuer's Sequence value as is.
+src/xrpld/app/tx/detail/NFTokenMint.cpp:266:        if (!root->isFieldPresent(sfFirstNFTokenSequence))
+src/xrpld/app/tx/detail/NFTokenMint.cpp:268:            std::uint32_t const acctSeq = root->at(sfSequence);
+src/xrpld/app/tx/detail/NFTokenMint.cpp:270:            root->at(sfFirstNFTokenSequence) =
+src/xrpld/app/tx/detail/NFTokenMint.cpp:285:        // sfFirstNFTokenSequence + sfMintedNFTokens
+src/xrpld/app/tx/detail/NFTokenMint.cpp:286:        std::uint32_t const offset = (*root)[sfFirstNFTokenSequence];
+src/xrpld/app/tx/detail/NFTokenMint.cpp:338:                ctx_.tx[sfAccount],
+src/xrpld/app/tx/detail/PayChan.cpp:123:    AccountID const src = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:191:    if (ctx.tx[sfAccount] == ctx.tx[sfDestination])
+src/xrpld/app/tx/detail/PayChan.cpp:203:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:206:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/PayChan.cpp:234:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PayChan.cpp:248:        // writes to pseudo-account discriminator fields **are** amendment
+src/xrpld/app/tx/detail/PayChan.cpp:252:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PayChan.cpp:261:    auto const account = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:264:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:287:    (*slep)[sfAccount] = account;
+src/xrpld/app/tx/detail/PayChan.cpp:296:        (*slep)[sfSequence] = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/PayChan.cpp:362:    AccountID const src = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:363:    auto const txAccount = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:378:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PayChan.cpp:396:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:486:        if (!verify(pk, msg.slice(), *sig, /*canonical*/ true))
+src/xrpld/app/tx/detail/PayChan.cpp:501:        return Transactor::preclaim(ctx);
+src/xrpld/app/tx/detail/PayChan.cpp:504:            credentials::valid(ctx.tx, ctx.view, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/PayChan.cpp:519:    AccountID const src = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:521:    AccountID const txAccount = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/PayChan.cpp:535:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PayChan.cpp:592:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:59:    auto const& account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/VaultDeposit.cpp:65:    auto const& vaultAccount = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultDeposit.cpp:81:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:91:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:100:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:119:        // pseudo-account, which cannot grant an authorization.
+src/xrpld/app/tx/detail/VaultDeposit.cpp:156:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:167:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:171:    auto const& vaultAccount = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultDeposit.cpp:291:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultWithdraw.h:27:class VaultWithdraw : public Transactor
+src/xrpld/app/tx/detail/VaultWithdraw.h:32:    explicit VaultWithdraw(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetTrust.cpp:90:            return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetTrust.cpp:131:SetTrust::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/SetTrust.cpp:137:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/SetTrust.cpp:159:        tx[sfAccount], saLimitAmount.getIssuer(), saLimitAmount.getCurrency()));
+src/xrpld/app/tx/detail/SetTrust.cpp:180:    auto const curLimit = tx[sfAccount] > saLimitAmount.getIssuer()
+src/xrpld/app/tx/detail/SetTrust.cpp:185:    saLimitAllow.setIssuer(tx[sfAccount]);
+src/xrpld/app/tx/detail/SetTrust.cpp:196:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/SetTrust.cpp:200:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/SetTrust.cpp:206:    if (bSetAuth && !(sle->getFieldU32(sfFlags) & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetTrust.cpp:266:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:270:    // In general, trust lines to pseudo accounts are not permitted, unless
+src/xrpld/app/tx/detail/SetTrust.cpp:272:    // amendment-gated because sleDst will not have a pseudo-account designator
+src/xrpld/app/tx/detail/SetTrust.cpp:293:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:303:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:320:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:330:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:338:            sleRippleState ? sleRippleState->getFieldU32(sfFlags) : 0u;
+src/xrpld/app/tx/detail/SetTrust.cpp:358:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:382:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetTrust.cpp:573:        std::uint32_t const uFlagsIn(sleRippleState->getFieldU32(sfFlags));
+src/xrpld/app/tx/detail/SetTrust.cpp:583:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:670:            sleRippleState->setFieldU32(sfFlags, uFlagsOut);
+src/xrpld/app/tx/detail/CreateOffer.cpp:38:    auto calculateMaxXRPSpend = [](STTx const& tx) -> XRPAmount {
+src/xrpld/app/tx/detail/CreateOffer.cpp:77:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/CreateOffer.cpp:85:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/CreateOffer.cpp:96:    if (auto const cancelSequence = tx[~sfOfferSequence];
+src/xrpld/app/tx/detail/CreateOffer.cpp:97:        cancelSequence && *cancelSequence == 0)
+src/xrpld/app/tx/detail/CreateOffer.cpp:151:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/CreateOffer.cpp:161:    auto const cancelSequence = ctx.tx[~sfOfferSequence];
+src/xrpld/app/tx/detail/CreateOffer.cpp:165:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/CreateOffer.cpp:167:    std::uint32_t const uAccountSequence = sleCreator->getFieldU32(sfSequence);
+src/xrpld/app/tx/detail/CreateOffer.cpp:188:    if (cancelSequence && (uAccountSequence <= *cancelSequence))
+src/xrpld/app/tx/detail/CreateOffer.cpp:190:        JLOG(ctx.j.debug()) << "uAccountSequenceNext=" << uAccountSequence
+src/xrpld/app/tx/detail/CreateOffer.cpp:191:                            << " uOfferSequence=" << *cancelSequence;
+src/xrpld/app/tx/detail/CreateOffer.cpp:227:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/CreateOffer.cpp:254:        return (flags & tapRETRY) ? TER{terNO_ACCOUNT} : TER{tecNO_ISSUER};
+src/xrpld/app/tx/detail/CreateOffer.cpp:264:    if ((*issuerAccount)[sfFlags] & lsfRequireAuth)
+src/xrpld/app/tx/detail/CreateOffer.cpp:271:            return (flags & tapRETRY) ? TER{terNO_LINE} : TER{tecNO_LINE};
+src/xrpld/app/tx/detail/CreateOffer.cpp:274:        // Entries have a canonical representation, determined by a
+src/xrpld/app/tx/detail/CreateOffer.cpp:277:        bool const canonical_gt(id > issue.account);
+src/xrpld/app/tx/detail/CreateOffer.cpp:280:            (*trustLine)[sfFlags] & (canonical_gt ? lsfLowAuth : lsfHighAuth));
+src/xrpld/app/tx/detail/CreateOffer.cpp:287:            return (flags & tapRETRY) ? TER{terNO_AUTH} : TER{tecNO_AUTH};
+src/xrpld/app/tx/detail/CreateOffer.cpp:310:        (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/CreateOffer.cpp:598:    auto const cancelSequence = ctx_.tx[~sfOfferSequence];
+src/xrpld/app/tx/detail/CreateOffer.cpp:602:    auto const offerSequence = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/CreateOffer.cpp:614:    if (cancelSequence)
+src/xrpld/app/tx/detail/CreateOffer.cpp:617:            sb.peek(keylet::offer(account_, *cancelSequence));
+src/xrpld/app/tx/detail/CreateOffer.cpp:624:            JLOG(j_.debug()) << "Create cancels order " << *cancelSequence;
+src/xrpld/app/tx/detail/CreateOffer.cpp:760:            return {tefINTERNAL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:819:        return {tefINTERNAL, false};
+src/xrpld/app/tx/detail/CreateOffer.cpp:827:            // If we are here, the signing account had an insufficient reserve
+src/xrpld/app/tx/detail/CreateOffer.cpp:843:    auto const offer_index = keylet::offer(account_, offerSequence);
+src/xrpld/app/tx/detail/CreateOffer.cpp:906:    sleOffer->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:907:    sleOffer->setFieldU32(sfSequence, offerSequence);
+src/xrpld/app/tx/detail/Clawback.cpp:42:    AccountID const issuer = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/Clawback.cpp:68:    if (ctx.tx[sfAccount] == *mptHolder)
+src/xrpld/app/tx/detail/Clawback.cpp:114:    std::uint32_t const issuerFlagsIn = sleIssuer.getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/Clawback.cpp:120:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:131:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:135:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:173:    if (!((*sleIssuance)[sfFlags] & lsfMPTCanClawback))
+src/xrpld/app/tx/detail/Clawback.cpp:174:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:177:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:197:    AccountID const issuer = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/Clawback.cpp:205:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/Clawback.cpp:231:    AccountID const issuer = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/Clawback.cpp:262:    AccountID const issuer = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMCreate.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMCreate.h:27:/** AMMCreate implements Automatic Market Maker(AMM) creation Transactor.
+src/xrpld/app/tx/detail/AMMCreate.h:57:class AMMCreate : public Transactor
+src/xrpld/app/tx/detail/AMMCreate.h:62:    explicit AMMCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/AMMCreate.h:73:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/AMMDelete.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMDelete.h:33:class AMMDelete : public Transactor
+src/xrpld/app/tx/detail/AMMDelete.h:38:    explicit AMMDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Payment.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Payment.h:27:class Payment : public Transactor
+src/xrpld/app/tx/detail/Payment.h:38:    explicit Payment(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Payment.h:55:    checkPermission(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/CreateCheck.cpp:34:    if (ctx.tx[sfAccount] == ctx.tx[sfDestination])
+src/xrpld/app/tx/detail/CreateCheck.cpp:85:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/CreateCheck.cpp:88:    // because all writes to pseudo-account discriminator fields **are**
+src/xrpld/app/tx/detail/CreateCheck.cpp:92:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/CreateCheck.cpp:118:            AccountID const srcId{ctx.tx.getAccountID(sfAccount)};
+src/xrpld/app/tx/detail/CreateCheck.cpp:162:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:181:    sleCheck->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/CreateCheck.cpp:184:    sleCheck->setFieldU32(sfSequence, seq);
+src/xrpld/app/tx/detail/VaultSet.cpp:90:    if (ctx.tx[sfAccount] != vault->at(sfOwner))
+src/xrpld/app/tx/detail/VaultSet.cpp:93:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultSet.cpp:102:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:112:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultSet.cpp:129:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:149:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultSet.cpp:159:        return tefINTERNAL;
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.h:8:class LoanBrokerCoverWithdraw : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.h:13:    explicit LoanBrokerCoverWithdraw(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenModify.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenModify.h:27:class NFTokenModify : public Transactor
+src/xrpld/app/tx/detail/NFTokenModify.h:32:    explicit NFTokenModify(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenUtils.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CreateOffer.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CreateOffer.h:32:/** Transactor specialized for creating offers in the ledger. */
+src/xrpld/app/tx/detail/CreateOffer.h:33:class CreateOffer : public Transactor
+src/xrpld/app/tx/detail/CreateOffer.h:38:    /** Construct a Transactor subclass that creates an offer in the ledger. */
+src/xrpld/app/tx/detail/CreateOffer.h:39:    explicit CreateOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CreateOffer.h:52:    /** Enforce constraints beyond those of the Transactor base class. */
+src/xrpld/app/tx/detail/CreateOffer.h:56:    /** Enforce constraints beyond those of the Transactor base class. */
+src/xrpld/app/tx/detail/Batch.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Batch.h:31:class Batch : public Transactor
+src/xrpld/app/tx/detail/Batch.h:36:    explicit Batch(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Batch.h:41:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/AMMWithdraw.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMWithdraw.h:31:/** AMMWithdraw implements AMM withdraw Transactor.
+src/xrpld/app/tx/detail/AMMWithdraw.h:70:class AMMWithdraw : public Transactor
+src/xrpld/app/tx/detail/AMMWithdraw.h:75:    explicit AMMWithdraw(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/AMMWithdraw.h:312:    isWithdrawAll(STTx const& tx);
+src/xrpld/app/tx/detail/LoanBrokerSet.h:4:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanBrokerSet.h:8:class LoanBrokerSet : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerSet.h:13:    explicit LoanBrokerSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/VaultCreate.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultCreate.h:27:class VaultCreate : public Transactor
+src/xrpld/app/tx/detail/VaultCreate.h:32:    explicit VaultCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.h:27:class NFTokenAcceptOffer : public Transactor
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.h:50:    explicit NFTokenAcceptOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CreateCheck.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CreateCheck.h:27:class CreateCheck : public Transactor
+src/xrpld/app/tx/detail/CreateCheck.h:32:    explicit CreateCheck(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetSignerList.cpp:29:#include <xrpl/protocol/STTx.h>
+src/xrpld/app/tx/detail/SetSignerList.cpp:48:    STTx const& tx,
+src/xrpld/app/tx/detail/SetSignerList.cpp:106:        auto const account = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/SetSignerList.cpp:159:    return Transactor::preCompute();
+src/xrpld/app/tx/detail/SetSignerList.cpp:166:// is valid until the featureMultiSignReserve amendment passes.  Once it
+src/xrpld/app/tx/detail/SetSignerList.cpp:187:        entryCount >= STTx::minMultiSigners,
+src/xrpld/app/tx/detail/SetSignerList.cpp:190:        entryCount <= STTx::maxMultiSigners(&rules),
+src/xrpld/app/tx/detail/SetSignerList.cpp:214:    // Otherwise use the pre-MultiSignReserve amendment calculation.
+src/xrpld/app/tx/detail/SetSignerList.cpp:272:        if ((signerCount < STTx::minMultiSigners) ||
+src/xrpld/app/tx/detail/SetSignerList.cpp:273:            (signerCount > STTx::maxMultiSigners(&rules)))
+src/xrpld/app/tx/detail/SetSignerList.cpp:354:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:359:    // The required reserve changes based on featureMultiSignReserve...
+src/xrpld/app/tx/detail/SetSignerList.cpp:362:    if (!ctx_.view().rules().enabled(featureMultiSignReserve))
+src/xrpld/app/tx/detail/SetSignerList.cpp:410:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:435:        ledgerEntry->setFieldU32(sfFlags, flags);
+src/xrpld/app/tx/detail/SetSignerList.cpp:447:        obj[sfAccount] = entry.account;
+src/xrpld/app/tx/detail/DepositPreauth.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/DepositPreauth.h:27:class DepositPreauth : public Transactor
+src/xrpld/app/tx/detail/DepositPreauth.h:32:    explicit DepositPreauth(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:26:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Transactor.cpp:46:    if (isPseudoTx(ctx.tx) && ctx.tx.isFlag(tfInnerBatchTxn))
+src/xrpld/app/tx/detail/Transactor.cpp:49:                              "tfInnerBatchTxn flag.";
+src/xrpld/app/tx/detail/Transactor.cpp:50:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Transactor.cpp:53:    if (!isPseudoTx(ctx.tx) || ctx.tx.isFieldPresent(sfNetworkID))
+src/xrpld/app/tx/detail/Transactor.cpp:56:        std::optional<uint32_t> txNID = ctx.tx[~sfNetworkID];
+src/xrpld/app/tx/detail/Transactor.cpp:61:            // specify NetworkID in txn
+src/xrpld/app/tx/detail/Transactor.cpp:83:        return temINVALID;
+src/xrpld/app/tx/detail/Transactor.cpp:89:            << ctx.tx.peekAtField(sfTransactionType).getFullText()
+src/xrpld/app/tx/detail/Transactor.cpp:91:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Transactor.cpp:99:/** Checks the validity of the transactor signing key.
+src/xrpld/app/tx/detail/Transactor.cpp:106:    if (auto const spk = sigObject.getFieldVL(sfSigningPubKey);
+src/xrpld/app/tx/detail/Transactor.cpp:109:        JLOG(j.debug()) << "preflightCheckSigningKey: invalid signing key";
+src/xrpld/app/tx/detail/Transactor.cpp:121:    if (flags & tapDRY_RUN)  // simulation
+src/xrpld/app/tx/detail/Transactor.cpp:123:        std::optional<Slice> const signature = sigObject[~sfTxnSignature];
+src/xrpld/app/tx/detail/Transactor.cpp:128:            return temINVALID;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:139:            if (signer.isFieldPresent(sfTxnSignature) &&
+src/xrpld/app/tx/detail/Transactor.cpp:140:                !signer[sfTxnSignature].empty())
+src/xrpld/app/tx/detail/Transactor.cpp:144:                return temINVALID;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:148:        Slice const signingPubKey = sigObject[sfSigningPubKey];
+src/xrpld/app/tx/detail/Transactor.cpp:149:        if (!signingPubKey.empty())
+src/xrpld/app/tx/detail/Transactor.cpp:152:            return temINVALID;
+src/xrpld/app/tx/detail/Transactor.cpp:163:Transactor::preflight1(PreflightContext const& ctx, std::uint32_t flagMask)
+src/xrpld/app/tx/detail/Transactor.cpp:166:    // skip this function, and those do not allow an sfTicketSequence field.
+src/xrpld/app/tx/detail/Transactor.cpp:167:    if (ctx.tx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:178:        if (ctx.tx[sfDelegate] == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/Transactor.cpp:185:    auto const id = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:193:    auto const fee = ctx.tx.getFieldAmount(sfFee);
+src/xrpld/app/tx/detail/Transactor.cpp:203:    // An AccountTxnID field constrains transaction ordering more than the
+src/xrpld/app/tx/detail/Transactor.cpp:204:    // Sequence field.  Tickets, on the other hand, reduce ordering
+src/xrpld/app/tx/detail/Transactor.cpp:205:    // constraints.  Because Tickets and AccountTxnID work against one
+src/xrpld/app/tx/detail/Transactor.cpp:208:    // We return temINVALID for such transactions.
+src/xrpld/app/tx/detail/Transactor.cpp:210:        ctx.tx.isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:211:        return temINVALID;
+src/xrpld/app/tx/detail/Transactor.cpp:213:    if (ctx.tx.isFlag(tfInnerBatchTxn) && !ctx.rules.enabled(featureBatch))
+src/xrpld/app/tx/detail/Transactor.cpp:214:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Transactor.cpp:217:        ctx.tx.isFlag(tfInnerBatchTxn) == ctx.parentBatchId.has_value() ||
+src/xrpld/app/tx/detail/Transactor.cpp:226:Transactor::preflight2(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:237:        !ctx.tx.isFlag(tfInnerBatchTxn) || ctx.rules.enabled(featureBatch),
+src/xrpld/app/tx/detail/Transactor.cpp:238:        "ripple::Transactor::preflight2",
+src/xrpld/app/tx/detail/Transactor.cpp:241:    if (ctx.tx.isFlag(tfInnerBatchTxn) && ctx.rules.enabled(featureBatch))
+src/xrpld/app/tx/detail/Transactor.cpp:251:        return temINVALID;
+src/xrpld/app/tx/detail/Transactor.cpp:263:Transactor::Transactor(ApplyContext& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:267:    , account_(ctx.tx.getAccountID(sfAccount))
+src/xrpld/app/tx/detail/Transactor.cpp:272:Transactor::validDataLength(
+src/xrpld/app/tx/detail/Transactor.cpp:282:Transactor::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:288:Transactor::preflightSigValidated(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:294:Transactor::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Transactor.cpp:300:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/Transactor.cpp:310:Transactor::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Transactor.cpp:329:Transactor::calculateOwnerReserveFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Transactor.cpp:343:        "ripple::Transactor::calculateOwnerReserveFee : Owner reserve is "
+src/xrpld/app/tx/detail/Transactor.cpp:349:Transactor::minimumFee(
+src/xrpld/app/tx/detail/Transactor.cpp:359:Transactor::checkFee(PreclaimContext const& ctx, XRPAmount baseFee)
+src/xrpld/app/tx/detail/Transactor.cpp:361:    if (!ctx.tx[sfFee].native())
+src/xrpld/app/tx/detail/Transactor.cpp:364:    auto const feePaid = ctx.tx[sfFee].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:398:        : ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:401:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/Transactor.cpp:424:Transactor::payFee()
+src/xrpld/app/tx/detail/Transactor.cpp:426:    auto const feePaid = ctx_.tx[sfFee].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:459:Transactor::checkSeqProxy(
+src/xrpld/app/tx/detail/Transactor.cpp:461:    STTx const& tx,
+src/xrpld/app/tx/detail/Transactor.cpp:464:    auto const id = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:473:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/Transactor.cpp:477:    SeqProxy const a_seq = SeqProxy::sequence((*sle)[sfSequence]);
+src/xrpld/app/tx/detail/Transactor.cpp:481:        if (tx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:484:            JLOG(j.trace()) << "applyTransaction: has both a TicketSequence "
+src/xrpld/app/tx/detail/Transactor.cpp:485:                               "and a non-zero Sequence number";
+src/xrpld/app/tx/detail/Transactor.cpp:495:                return terPRE_SEQ;
+src/xrpld/app/tx/detail/Transactor.cpp:500:            return tefPAST_SEQ;
+src/xrpld/app/tx/detail/Transactor.cpp:531:Transactor::checkPriorTxAndLastLedger(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:533:    auto const id = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:542:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/Transactor.cpp:545:    if (ctx.tx.isFieldPresent(sfAccountTxnID) &&
+src/xrpld/app/tx/detail/Transactor.cpp:546:        (sle->getFieldH256(sfAccountTxnID) !=
+src/xrpld/app/tx/detail/Transactor.cpp:547:         ctx.tx.getFieldH256(sfAccountTxnID)))
+src/xrpld/app/tx/detail/Transactor.cpp:550:    if (ctx.tx.isFieldPresent(sfLastLedgerSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:551:        (ctx.view.seq() > ctx.tx.getFieldU32(sfLastLedgerSequence)))
+src/xrpld/app/tx/detail/Transactor.cpp:561:Transactor::consumeSeqProxy(SLE::pointer const& sleAccount)
+src/xrpld/app/tx/detail/Transactor.cpp:564:        sleAccount, "ripple::Transactor::consumeSeqProxy : non-null account");
+src/xrpld/app/tx/detail/Transactor.cpp:569:        // the transaction will modify the account root sfSequence
+src/xrpld/app/tx/detail/Transactor.cpp:571:        sleAccount->setFieldU32(sfSequence, seqProx.value() + 1);
+src/xrpld/app/tx/detail/Transactor.cpp:580:Transactor::ticketDelete(
+src/xrpld/app/tx/detail/Transactor.cpp:642:Transactor::preCompute()
+src/xrpld/app/tx/detail/Transactor.cpp:646:        "ripple::Transactor::preCompute : nonzero account");
+src/xrpld/app/tx/detail/Transactor.cpp:650:Transactor::apply()
+src/xrpld/app/tx/detail/Transactor.cpp:662:        "ripple::Transactor::apply : non-null SLE or zero account");
+src/xrpld/app/tx/detail/Transactor.cpp:677:        if (sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:678:            sle->setFieldH256(sfAccountTxnID, ctx_.tx.getTransactionID());
+src/xrpld/app/tx/detail/Transactor.cpp:687:Transactor::checkSign(
+src/xrpld/app/tx/detail/Transactor.cpp:703:            return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:706:    auto const pkSigner = sigObject.getFieldVL(sfSigningPubKey);
+src/xrpld/app/tx/detail/Transactor.cpp:711:        if (sigObject.isFieldPresent(sfTxnSignature) || !pkSigner.empty() ||
+src/xrpld/app/tx/detail/Transactor.cpp:714:            return temINVALID_FLAG;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:719:    if ((flags & tapDRY_RUN) && pkSigner.empty() &&
+src/xrpld/app/tx/detail/Transactor.cpp:722:        // simulate: skip signature validation when neither SigningPubKey nor
+src/xrpld/app/tx/detail/Transactor.cpp:728:    // then we must be multi-signing.
+src/xrpld/app/tx/detail/Transactor.cpp:731:        return checkMultiSign(view, flags, idAccount, sigObject, j);
+src/xrpld/app/tx/detail/Transactor.cpp:736:        !pkSigner.empty(), "ripple::Transactor::checkSign : non-empty signer");
+src/xrpld/app/tx/detail/Transactor.cpp:740:        JLOG(j.trace()) << "checkSign: signing public key type is unknown";
+src/xrpld/app/tx/detail/Transactor.cpp:741:        return tefBAD_AUTH;  // FIXME: should be better error!
+src/xrpld/app/tx/detail/Transactor.cpp:750:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/Transactor.cpp:756:Transactor::checkSign(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:760:        : ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:766:Transactor::checkBatchSign(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/Transactor.cpp:772:        auto const idAccount = signer.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:774:        Blob const& pkSigner = signer.getFieldVL(sfSigningPubKey);
+src/xrpld/app/tx/detail/Transactor.cpp:777:            if (ret = checkMultiSign(
+src/xrpld/app/tx/detail/Transactor.cpp:786:                return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:797:                    return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:812:Transactor::checkSingleSign(
+src/xrpld/app/tx/detail/Transactor.cpp:842:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:859:        return tefBAD_AUTH;
+src/xrpld/app/tx/detail/Transactor.cpp:863:        // No regular key on account and signing key does not match master key.
+src/xrpld/app/tx/detail/Transactor.cpp:864:        // FIXME: Why differentiate this case from tefBAD_AUTH?
+src/xrpld/app/tx/detail/Transactor.cpp:866:        return tefBAD_AUTH_MASTER;
+src/xrpld/app/tx/detail/Transactor.cpp:873:Transactor::checkMultiSign(
+src/xrpld/app/tx/detail/Transactor.cpp:883:    // If the signer list doesn't exist the account is not multi-signing.
+src/xrpld/app/tx/detail/Transactor.cpp:887:            << "applyTransaction: Invalid: Not a multi-signing account.";
+src/xrpld/app/tx/detail/Transactor.cpp:895:        "ripple::Transactor::checkMultiSign : has signer list ID");
+src/xrpld/app/tx/detail/Transactor.cpp:898:        "ripple::Transactor::checkMultiSign : signer list ID is 0");
+src/xrpld/app/tx/detail/Transactor.cpp:918:        AccountID const txSignerAcctID = txSigner.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:941:        auto const spk = txSigner.getFieldVL(sfSigningPubKey);
+src/xrpld/app/tx/detail/Transactor.cpp:944:        // STTx::checkMultiSign
+src/xrpld/app/tx/detail/Transactor.cpp:948:                << "checkMultiSign: signing public key type is unknown";
+src/xrpld/app/tx/detail/Transactor.cpp:953:            (flags & tapDRY_RUN) || !spk.empty(),
+src/xrpld/app/tx/detail/Transactor.cpp:954:            "ripple::Transactor::checkMultiSign : non-empty signer or "
+src/xrpld/app/tx/detail/Transactor.cpp:956:        AccountID const signingAcctIDFromPubKey = spk.empty()
+src/xrpld/app/tx/detail/Transactor.cpp:960:        // Verify that the signingAcctID and the signingAcctIDFromPubKey
+src/xrpld/app/tx/detail/Transactor.cpp:964:        //      A. If signingAcctID == signingAcctIDFromPubKey and the
+src/xrpld/app/tx/detail/Transactor.cpp:965:        //         signingAcctID is not in the ledger then we have a phantom
+src/xrpld/app/tx/detail/Transactor.cpp:970:        //      A. signingAcctID == signingAcctIDFromPubKey, and signingAcctID
+src/xrpld/app/tx/detail/Transactor.cpp:972:        //      B. If the signingAcctID in the ledger does not have the
+src/xrpld/app/tx/detail/Transactor.cpp:976:        //      A. signingAcctID != signingAcctIDFromPubKey, and signingAcctID
+src/xrpld/app/tx/detail/Transactor.cpp:978:        //      B. If signingAcctIDFromPubKey == signingAcctID.RegularKey (from
+src/xrpld/app/tx/detail/Transactor.cpp:987:        if (signingAcctIDFromPubKey == txSignerAcctID)
+src/xrpld/app/tx/detail/Transactor.cpp:994:                    sleTxSignerRoot->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/Transactor.cpp:1021:            if (signingAcctIDFromPubKey !=
+src/xrpld/app/tx/detail/Transactor.cpp:1138:Transactor::reset(XRPAmount fee)
+src/xrpld/app/tx/detail/Transactor.cpp:1143:        view().peek(keylet::account(ctx_.tx.getAccountID(sfAccount)));
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:1158:    // balance should have already been checked in checkFee / preFlight.
+src/xrpld/app/tx/detail/Transactor.cpp:1161:        "ripple::Transactor::reset : valid balance");
+src/xrpld/app/tx/detail/Transactor.cpp:1178:        isTesSuccess(ter), "ripple::Transactor::reset : result is tesSUCCESS");
+src/xrpld/app/tx/detail/Transactor.cpp:1193:Transactor::trapTransaction(uint256 txHash) const
+src/xrpld/app/tx/detail/Transactor.cpp:1200:Transactor::operator()()
+src/xrpld/app/tx/detail/Transactor.cpp:1218:        STTx s2(sit);
+src/xrpld/app/tx/detail/Transactor.cpp:1227:                "ripple::Transactor::operator() : transaction serdes mismatch");
+src/xrpld/app/tx/detail/Transactor.cpp:1247:        "ripple::Transactor::operator() : result is not temUNKNOWN");
+src/xrpld/app/tx/detail/Transactor.cpp:1253:    auto fee = ctx_.tx.getFieldAmount(sfFee).xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:1304:                        "ripple::Transactor::operator()::visit : non-null SLE "
+src/xrpld/app/tx/detail/Transactor.cpp:1413:    if (ctx_.flags() & tapDRY_RUN)
+src/xrpld/app/tx/detail/Credentials.cpp:101:            keylet::credential(subject, ctx.tx[sfAccount], credType)))
+src/xrpld/app/tx/detail/Credentials.cpp:120:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:140:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:173:        sleCred->setFieldU32(sfFlags, lsfAccepted);
+src/xrpld/app/tx/detail/Credentials.cpp:223:        return temINVALID_ACCOUNT_ID;
+src/xrpld/app/tx/detail/Credentials.cpp:240:    AccountID const account{ctx.tx[sfAccount]};
+src/xrpld/app/tx/detail/Credentials.cpp:261:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:267:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Credentials.cpp:288:        return temINVALID_ACCOUNT_ID;
+src/xrpld/app/tx/detail/Credentials.cpp:305:    AccountID const subject = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/Credentials.cpp:324:    if (sleCred->getFieldU32(sfFlags) & lsfAccepted)
+src/xrpld/app/tx/detail/Credentials.cpp:345:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:358:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:368:    sleCred->setFieldU32(sfFlags, lsfAccepted);
+src/xrpld/app/tx/detail/AMMCreate.cpp:75:AMMCreate::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/AMMCreate.cpp:84:    auto const accountID = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMCreate.cpp:182:        if (auto const accountId = pseudoAccountAddress(
+src/xrpld/app/tx/detail/AMMCreate.cpp:202:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/AMMCreate.cpp:228:        JLOG(j_.error()) << "AMM Instance: failed to create pseudo account.";
+src/xrpld/app/tx/detail/AMMCreate.cpp:232:    auto const accountId = (*account)[sfAccount];
+src/xrpld/app/tx/detail/AMMCreate.cpp:254:    ammSle->setAccountID(sfAccount, accountId);
+src/xrpld/app/tx/detail/AMMCreate.cpp:298:                sleRippleState->setFieldU32(sfFlags, flags | lsfAMMNode);
+src/xrpld/app/tx/detail/DID.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:144:    (*sleDID)[sfAccount] = account_;
+src/xrpld/app/tx/detail/CancelOffer.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CancelOffer.h:29:class CancelOffer : public Transactor
+src/xrpld/app/tx/detail/CancelOffer.h:34:    explicit CancelOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenBurn.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenBurn.h:27:class NFTokenBurn : public Transactor
+src/xrpld/app/tx/detail/NFTokenBurn.h:32:    explicit NFTokenBurn(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanDelete.cpp:19:        return temINVALID;
+src/xrpld/app/tx/detail/LoanDelete.cpp:29:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanDelete.cpp:56:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanDelete.cpp:81:    auto const brokerPseudoAccount = brokerSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanDelete.cpp:88:    // Remove LoanID from Directory of the LoanBroker pseudo-account.
+src/xrpld/app/tx/detail/LoanDelete.cpp:108:    // and is distinct from the broker's pseudo-account's owner count
+src/xrpld/app/tx/detail/PermissionedDomainDelete.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/PermissionedDomainDelete.h:27:class PermissionedDomainDelete : public Transactor
+src/xrpld/app/tx/detail/PermissionedDomainDelete.h:32:    explicit PermissionedDomainDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CreateTicket.cpp:41:        return temINVALID_COUNT;
+src/xrpld/app/tx/detail/CreateTicket.cpp:49:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/CreateTicket.cpp:52:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/CreateTicket.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:99:    std::uint32_t const firstTicketSeq = (*sleAccountRoot)[sfSequence];
+src/xrpld/app/tx/detail/CreateTicket.cpp:102:    // increment the account root Sequence.
+src/xrpld/app/tx/detail/CreateTicket.cpp:103:    if (std::uint32_t const txSeq = ctx_.tx[sfSequence];
+src/xrpld/app/tx/detail/CreateTicket.cpp:105:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:113:        sleTicket->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/CreateTicket.cpp:114:        sleTicket->setFieldU32(sfTicketSequence, curTicketSeq);
+src/xrpld/app/tx/detail/CreateTicket.cpp:141:    // Sequence field to increase by more than one.  October 2018.
+src/xrpld/app/tx/detail/CreateTicket.cpp:142:    sleAccountRoot->setFieldU32(sfSequence, firstTicketSeq + ticketCount);
+src/xrpld/app/tx/detail/SetOracle.cpp:65:        ctx.view.read(keylet::account(ctx.tx.getAccountID(sfAccount)));
+src/xrpld/app/tx/detail/SetOracle.cpp:67:        return terNO_ACCOUNT;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:87:        ctx.tx.getAccountID(sfAccount), ctx.tx[sfOracleDocumentID]));
+src/xrpld/app/tx/detail/SetOracle.cpp:180:            ctx.view().peek(keylet::account(ctx.tx[sfAccount])))
+src/xrpld/app/tx/detail/SetOracle.cpp:274:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:283:        sle->setAccountID(sfOwner, ctx_.tx.getAccountID(sfAccount));
+src/xrpld/app/tx/detail/SetOracle.cpp:324:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetRegularKey.cpp:29:SetRegularKey::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/SetRegularKey.cpp:31:    auto const id = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/SetRegularKey.cpp:32:    auto const spk = tx.getSigningPubKey();
+src/xrpld/app/tx/detail/SetRegularKey.cpp:48:    return Transactor::calculateBaseFee(view, tx);
+src/xrpld/app/tx/detail/SetRegularKey.cpp:56:        (ctx.tx.getAccountID(sfRegularKey) == ctx.tx.getAccountID(sfAccount)))
+src/xrpld/app/tx/detail/SetRegularKey.cpp:69:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanSet.h:5:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/LoanSet.h:9:class LoanSet : public Transactor
+src/xrpld/app/tx/detail/LoanSet.h:14:    explicit LoanSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanSet.h:31:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:50:    if ((*sleMPT)[sfIssuer] != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:51:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/AMMBid.cpp:77:            AccountID account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMBid.cpp:81:                auto authAccount = obj[sfAccount];
+src/xrpld/app/tx/detail/AMMBid.cpp:114:            if (!ctx.view.read(keylet::account(account[sfAccount])))
+src/xrpld/app/tx/detail/AMMBid.cpp:117:                return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/AMMBid.cpp:123:        ammLPHolds(ctx.view, *ammSle, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/AMMBid.cpp:229:        auctionSlot.setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/AMMBid.cpp:311:    if (auto const acct = auctionSlot[~sfAccount]; !acct || !validOwner(*acct))
+src/xrpld/app/tx/detail/AMMBid.cpp:354:            auctionSlot[sfAccount],
+src/xrpld/app/tx/detail/LoanPay.cpp:32:        return temINVALID;
+src/xrpld/app/tx/detail/LoanPay.cpp:47:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/LoanPay.cpp:54:LoanPay::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/LoanPay.cpp:58:    auto const normalCost = Transactor::calculateBaseFee(view, tx);
+src/xrpld/app/tx/detail/LoanPay.cpp:155:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanPay.cpp:169:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanPay.cpp:176:        return ctx.view.rules().enabled(fixCleanup3_1_3) ? TER{tecNO_PERMISSION}
+src/xrpld/app/tx/detail/LoanPay.cpp:177:                                                         : temINVALID_FLAG;
+src/xrpld/app/tx/detail/LoanPay.cpp:210:    auto const vaultPseudoAccount = vaultSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanPay.cpp:226:            << "Vault pseudo-account can not receive funds (deep frozen).";
+src/xrpld/app/tx/detail/LoanPay.cpp:276:    auto const brokerPseudoAccount = brokerSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanPay.cpp:281:    auto const vaultPseudoAccount = vaultSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanPay.cpp:293:    // pseudo account).
+src/xrpld/app/tx/detail/LoanPay.cpp:316:        // If we can't send the fee to the owner, and the pseudo-account is
+src/xrpld/app/tx/detail/LoanPay.cpp:321:                << "Both Loan Broker and Loan Broker pseudo-account "
+src/xrpld/app/tx/detail/LoanPay.cpp:462:        Number const pseudoAccountBalanceBefore = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:471:            assetsAvailableBefore == pseudoAccountBalanceBefore,
+src/xrpld/app/tx/detail/LoanPay.cpp:473:            "vault pseudo balance agrees before");
+src/xrpld/app/tx/detail/LoanPay.cpp:648:        Number const pseudoAccountBalanceAfter = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:656:            assetsAvailableAfter == pseudoAccountBalanceAfter,
+src/xrpld/app/tx/detail/LoanPay.cpp:658:            "vault pseudo balance agrees after");
+src/xrpld/app/tx/detail/SetSignerList.h:24:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/SetSignerList.h:27:#include <xrpl/protocol/STTx.h>
+src/xrpld/app/tx/detail/SetSignerList.h:38:class SetSignerList : public Transactor
+src/xrpld/app/tx/detail/SetSignerList.h:50:    explicit SetSignerList(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetSignerList.h:79:    determineOperation(STTx const& tx, ApplyFlags flags, beast::Journal j);
+src/xrpld/app/tx/detail/AMMClawback.cpp:45:    AccountID const issuer = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMClawback.cpp:69:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/AMMClawback.cpp:97:    auto const sleIssuer = ctx.view.read(keylet::account(ctx.tx[sfAccount]));
+src/xrpld/app/tx/detail/AMMClawback.cpp:99:        return terNO_ACCOUNT;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/AMMClawback.cpp:102:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/AMMClawback.cpp:111:    std::uint32_t const issuerFlagsIn = sleIssuer->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/AMMClawback.cpp:117:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/AMMClawback.cpp:138:    AccountID const issuer = ctx_.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMClawback.cpp:147:    auto const ammAccount = (*ammSle)[sfAccount];
+src/xrpld/app/tx/detail/InvariantCheck.h:28:#include <xrpl/protocol/STTx.h>
+src/xrpld/app/tx/detail/InvariantCheck.h:83:        STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.h:108:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:136:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:164:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:201:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:228:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:253:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:279:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:306:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:347:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:380:        STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.h:388:        STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.h:414:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:438:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:454:    bool pseudoAccount_ = false;
+src/xrpld/app/tx/detail/InvariantCheck.h:466:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:503:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:539:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:568:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:595:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:632:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:643: * unique to pseudo-accounts. Check that all pseudo-accounts are following the
+src/xrpld/app/tx/detail/InvariantCheck.h:644: * rules, and that only pseudo-accounts look like pseudo-accounts.
+src/xrpld/app/tx/detail/InvariantCheck.h:660:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:685:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:713:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:726:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:734:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:741:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:749:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:776:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:803:    // pseudo-accounts. Key is the brokerID / index. It will be used to find the
+src/xrpld/app/tx/detail/InvariantCheck.h:807:    // loaded to look for LoanBroker pseudo-accounts.
+src/xrpld/app/tx/detail/InvariantCheck.h:810:    // for LoanBroker pseudo-accounts.
+src/xrpld/app/tx/detail/InvariantCheck.h:828:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:856:        STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.h:867: * - vault created must be linked to pseudo-account for shares and assets
+src/xrpld/app/tx/detail/InvariantCheck.h:890:        AccountID pseudoId = {};
+src/xrpld/app/tx/detail/InvariantCheck.h:940:        STTx const&,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:171:    auto const accountID = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:206:    auto const ammAccountID = ammSle->getAccountID(sfAccount);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:254:        ammLPHolds(ctx.view, *ammSle, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:303:    auto const ammAccountID = (*ammSle)[sfAccount];
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:308:        ammLPHolds(ctx_.view(), *ammSle, ctx_.tx[sfAccount], ctx_.journal);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:1100:AMMWithdraw::isWithdrawAll(STTx const& tx)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:1102:    if (tx[sfFlags] & (tfWithdrawAll | tfOneAssetWithdrawAll))
+src/xrpld/app/tx/detail/VaultClawback.cpp:86:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/VaultClawback.cpp:97:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:125:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:138:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:172:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:180:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:188:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:201:                        mptIssue->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/VaultClawback.cpp:206:                        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:218:                        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:223:                        issuerSle->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/VaultClawback.cpp:229:                        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:373:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:381:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:434:    auto const& vaultAccount = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultClawback.cpp:447:    // pseudo-account will never set lsfMPTAuthorized, so we ignore flags.
+src/xrpld/app/tx/detail/VaultClawback.cpp:499:            return tefINTERNAL;
+src/xrpld/app/tx/detail/SetRegularKey.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/SetRegularKey.h:27:class SetRegularKey : public Transactor
+src/xrpld/app/tx/detail/SetRegularKey.h:32:    explicit SetRegularKey(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetRegularKey.h:40:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/Escrow.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Escrow.h:27:class EscrowCreate : public Transactor
+src/xrpld/app/tx/detail/Escrow.h:32:    explicit EscrowCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Escrow.h:54:class EscrowFinish : public Transactor
+src/xrpld/app/tx/detail/Escrow.h:59:    explicit EscrowFinish(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Escrow.h:76:    calculateBaseFee(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/Escrow.h:87:class EscrowCancel : public Transactor
+src/xrpld/app/tx/detail/Escrow.h:92:    explicit EscrowCancel(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/ApplyContext.h:28:#include <xrpl/protocol/STTx.h>
+src/xrpld/app/tx/detail/ApplyContext.h:43:        STTx const& tx,
+src/xrpld/app/tx/detail/ApplyContext.h:52:        STTx const& tx,
+src/xrpld/app/tx/detail/ApplyContext.h:72:    STTx const& tx;
+src/xrpld/app/tx/detail/Credentials.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Credentials.h:27:class CredentialCreate : public Transactor
+src/xrpld/app/tx/detail/Credentials.h:32:    explicit CredentialCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Credentials.h:51:class CredentialDelete : public Transactor
+src/xrpld/app/tx/detail/Credentials.h:56:    explicit CredentialDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Credentials.h:75:class CredentialAccept : public Transactor
+src/xrpld/app/tx/detail/Credentials.h:80:    explicit CredentialAccept(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CancelOffer.cpp:31:    if (!ctx.tx[sfOfferSequence])
+src/xrpld/app/tx/detail/CancelOffer.cpp:45:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/CancelOffer.cpp:46:    auto const offerSequence = ctx.tx[sfOfferSequence];
+src/xrpld/app/tx/detail/CancelOffer.cpp:50:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/CancelOffer.cpp:52:    if ((*sle)[sfSequence] <= offerSequence)
+src/xrpld/app/tx/detail/CancelOffer.cpp:55:                            << "Sequence " << offerSequence << " is invalid.";
+src/xrpld/app/tx/detail/CancelOffer.cpp:67:    auto const offerSequence = ctx_.tx[sfOfferSequence];
+src/xrpld/app/tx/detail/CancelOffer.cpp:71:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CancelOffer.cpp:73:    if (auto sleOffer = view().peek(keylet::offer(account_, offerSequence)))
+src/xrpld/app/tx/detail/CancelOffer.cpp:75:        JLOG(j_.debug()) << "Trying to cancel offer #" << offerSequence;
+src/xrpld/app/tx/detail/CancelOffer.cpp:79:    JLOG(j_.debug()) << "Offer #" << offerSequence << " can't be found.";
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.h:44:class MPTokenIssuanceCreate : public Transactor
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.h:49:    explicit MPTokenIssuanceCreate(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DelegateSet.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/DelegateSet.h:27:class DelegateSet : public Transactor
+src/xrpld/app/tx/detail/DelegateSet.h:32:    explicit DelegateSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/PermissionedDomainSet.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/PermissionedDomainSet.h:27:class PermissionedDomainSet : public Transactor
+src/xrpld/app/tx/detail/PermissionedDomainSet.h:32:    explicit PermissionedDomainSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Escrow.cpp:213:    // If the issuer is the same as the account, return tecNO_PERMISSION
+src/xrpld/app/tx/detail/Escrow.cpp:215:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:217:    // If the lsfAllowTrustLineLocking is not enabled, return tecNO_PERMISSION
+src/xrpld/app/tx/detail/Escrow.cpp:222:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:234:        return tecNO_PERMISSION;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:238:        return tecNO_PERMISSION;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:291:    // If the issuer is the same as the account, return tecNO_PERMISSION
+src/xrpld/app/tx/detail/Escrow.cpp:293:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:302:    // If the lsfMPTCanEscrow is not enabled, return tecNO_PERMISSION
+src/xrpld/app/tx/detail/Escrow.cpp:304:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:307:    // tecNO_PERMISSION
+src/xrpld/app/tx/detail/Escrow.cpp:309:        return tecNO_PERMISSION;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:367:    AccountID const account{ctx.tx[sfAccount]};
+src/xrpld/app/tx/detail/Escrow.cpp:375:    // because all writes to pseudo-account discriminator fields **are**
+src/xrpld/app/tx/detail/Escrow.cpp:379:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:464:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:467:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:479:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:487:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:494:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:518:        if (((*sled)[sfFlags] & lsfRequireDestTag) &&
+src/xrpld/app/tx/detail/Escrow.cpp:525:            ((*sled)[sfFlags] & lsfDisallowXRP))
+src/xrpld/app/tx/detail/Escrow.cpp:534:    (*slep)[sfAccount] = account_;
+src/xrpld/app/tx/detail/Escrow.cpp:544:        (*slep)[sfSequence] = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/Escrow.cpp:696:EscrowFinish::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Escrow.cpp:705:    return Transactor::calculateBaseFee(view, tx) + extraFee;
+src/xrpld/app/tx/detail/Escrow.cpp:779:                credentials::valid(ctx.tx, ctx.view, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/Escrow.cpp:786:        auto const k = keylet::escrow(ctx.tx[sfOwner], ctx.tx[sfOfferSequence]);
+src/xrpld/app/tx/detail/Escrow.cpp:996:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1033:    auto const k = keylet::escrow(ctx_.tx[sfOwner], ctx_.tx[sfOfferSequence]);
+src/xrpld/app/tx/detail/Escrow.cpp:1052:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1056:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1067:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1073:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1140:    AccountID const account = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/Escrow.cpp:1303:        auto const k = keylet::escrow(ctx.tx[sfOwner], ctx.tx[sfOfferSequence]);
+src/xrpld/app/tx/detail/Escrow.cpp:1308:        AccountID const account = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/Escrow.cpp:1329:    auto const k = keylet::escrow(ctx_.tx[sfOwner], ctx_.tx[sfOfferSequence]);
+src/xrpld/app/tx/detail/Escrow.cpp:1345:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1349:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1360:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Escrow.cpp:1364:    AccountID const account = (*slep)[sfAccount];
+src/xrpld/app/tx/detail/NFTokenCreateOffer.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenCreateOffer.h:27:class NFTokenCreateOffer : public Transactor
+src/xrpld/app/tx/detail/NFTokenCreateOffer.h:32:    explicit NFTokenCreateOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/VaultSet.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultSet.h:27:class VaultSet : public Transactor
+src/xrpld/app/tx/detail/VaultSet.h:32:    explicit VaultSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/AMMVote.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMVote.h:27:/** AMMVote implements AMM vote Transactor.
+src/xrpld/app/tx/detail/AMMVote.h:50:class AMMVote : public Transactor
+src/xrpld/app/tx/detail/AMMVote.h:55:    explicit AMMVote(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/AMMClawback.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMClawback.h:27:class AMMClawback : public Transactor
+src/xrpld/app/tx/detail/AMMClawback.h:32:    explicit AMMClawback(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/ApplyContext.cpp:33:    STTx const& tx_,
+src/xrpld/app/tx/detail/ApplyContext.cpp:63:        base_, tx, ter, parentBatchId_, flags_ & tapDRY_RUN, journal);
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:38:    if (ctx.tx[sfAccount] == ctx.tx[~sfHolder])
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:47:    auto const accountID = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:78:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:88:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:94:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:107:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:125:    std::uint32_t const mptIssuanceFlags = sleMptIssuance->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:135:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:147:    // Can't unauthorize the pseudo-accounts because they are implicitly
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:151:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:172:    (*mptoken)[sfAccount] = account;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:174:    (*mptoken)[sfFlags] = flags;
+src/xrpld/app/tx/detail/NFTokenMint.h:24:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/NFTokenMint.h:30:class NFTokenMint : public Transactor
+src/xrpld/app/tx/detail/NFTokenMint.h:35:    explicit NFTokenMint(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/AMMDeposit.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMDeposit.h:29:/** AMMDeposit implements AMM deposit Transactor.
+src/xrpld/app/tx/detail/AMMDeposit.h:62:class AMMDeposit : public Transactor
+src/xrpld/app/tx/detail/AMMDeposit.h:67:    explicit AMMDeposit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:57:    auto const account = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:60:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:77:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:89:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:108:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:124:            fix313 ? ctx_.tx.getSeqValue() : ctx_.tx.getFieldU32(sfSequence);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:129:        slePd->setFieldU32(sfSequence, seq);
+src/xrpld/app/tx/detail/AMMBid.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/AMMBid.h:27:/** AMMBid implements AMM bid Transactor.
+src/xrpld/app/tx/detail/AMMBid.h:65:class AMMBid : public Transactor
+src/xrpld/app/tx/detail/AMMBid.h:70:    explicit AMMBid(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SignerEntries.cpp:47:    accountVec.reserve(STTx::maxMultiSigners());
+src/xrpld/app/tx/detail/SignerEntries.cpp:61:        AccountID const account = sEntry.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:79:            return temINVALID_ACCOUNT_ID;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:83:        if (optAuth && (target == ctx.tx[sfAccount]))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:108:    AccountID const account(ctx.tx[sfAccount]);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:141:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:168:            return {tefINTERNAL};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:187:        slePreauth->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:219:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:251:        slePreauth->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:298:    AccountID const account{(*slePreauth)[sfAccount]};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:311:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CancelCheck.cpp:61:        AccountID const acctId{ctx.tx[sfAccount]};
+src/xrpld/app/tx/detail/CancelCheck.cpp:62:        if (acctId != (*sleCheck)[sfAccount] &&
+src/xrpld/app/tx/detail/CancelCheck.cpp:67:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/CancelCheck.cpp:84:    AccountID const srcId{sleCheck->getAccountID(sfAccount)};
+src/xrpld/app/tx/detail/NFTokenModify.cpp:37:    if (auto owner = ctx.tx[~sfOwner]; owner == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenModify.cpp:52:    AccountID const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/NFTokenModify.cpp:54:        ctx.tx[ctx.tx.isFieldPresent(sfOwner) ? sfOwner : sfAccount];
+src/xrpld/app/tx/detail/NFTokenModify.cpp:61:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenModify.cpp:71:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenModify.cpp:82:        ctx_.tx[ctx_.tx.isFieldPresent(sfOwner) ? sfOwner : sfAccount];
+src/xrpld/app/tx/detail/LoanManage.cpp:26:        return temINVALID;
+src/xrpld/app/tx/detail/LoanManage.cpp:29:    if (auto const flagField = ctx.tx[~sfFlags]; flagField && *flagField)
+src/xrpld/app/tx/detail/LoanManage.cpp:37:            return temINVALID_FLAG;
+src/xrpld/app/tx/detail/LoanManage.cpp:49:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanManage.cpp:68:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanManage.cpp:74:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanManage.cpp:82:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanManage.cpp:88:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanManage.cpp:112:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanManage.cpp:292:    // Return funds from the LoanBroker pseudo-account to the
+src/xrpld/app/tx/detail/LoanManage.cpp:293:    // Vault pseudo-account:
+src/xrpld/app/tx/detail/LoanManage.cpp:296:        brokerSle->at(sfAccount),
+src/xrpld/app/tx/detail/LoanManage.cpp:297:        vaultSle->at(sfAccount),
+src/xrpld/app/tx/detail/VaultDelete.cpp:51:    if (vault->at(sfOwner) != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/VaultDelete.cpp:54:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultDelete.cpp:81:    if (sleMPT->at(sfIssuer) != vault->getAccountID(sfAccount))
+src/xrpld/app/tx/detail/VaultDelete.cpp:85:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultDelete.cpp:103:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:108:    if (auto ter = removeEmptyHolding(view(), vault->at(sfAccount), asset, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:112:    auto const& pseudoID = vault->at(sfAccount);
+src/xrpld/app/tx/detail/VaultDelete.cpp:113:    auto const pseudoAcct = view().peek(keylet::account(pseudoID));
+src/xrpld/app/tx/detail/VaultDelete.cpp:114:    if (!pseudoAcct)
+src/xrpld/app/tx/detail/VaultDelete.cpp:117:        JLOG(j_.error()) << "VaultDelete: missing vault pseudo-account.";
+src/xrpld/app/tx/detail/VaultDelete.cpp:130:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDelete.cpp:153:            keylet::ownerDir(pseudoID), (*mpt)[sfOwnerNode], mpt->key(), false))
+src/xrpld/app/tx/detail/VaultDelete.cpp:160:    adjustOwnerCount(view(), pseudoAcct, -1, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:164:    // The pseudo-account's directory should have been deleted already.
+src/xrpld/app/tx/detail/VaultDelete.cpp:165:    if (view().peek(keylet::ownerDir(pseudoID)))
+src/xrpld/app/tx/detail/VaultDelete.cpp:168:    // Destroy the pseudo-account.
+src/xrpld/app/tx/detail/VaultDelete.cpp:169:    auto vaultPseudoSLE = view().peek(keylet::account(pseudoID));
+src/xrpld/app/tx/detail/VaultDelete.cpp:174:    // obligations associated with the vault or vault pseudo-account.
+src/xrpld/app/tx/detail/VaultDelete.cpp:178:        JLOG(j_.error()) << "VaultDelete: pseudo-account has a balance";
+src/xrpld/app/tx/detail/VaultDelete.cpp:185:        JLOG(j_.error()) << "VaultDelete: pseudo-account still owns objects";
+src/xrpld/app/tx/detail/VaultDelete.cpp:189:    if (view().exists(keylet::ownerDir(pseudoID)))
+src/xrpld/app/tx/detail/VaultDelete.cpp:192:        JLOG(j_.error()) << "VaultDelete: pseudo-account has a directory";
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:23:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:25:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:27:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:29:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:32:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:41:            return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:44:            return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:50:            return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:60:            return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:81:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:95:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:112:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:117:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:138:                ctx.view, sleVault->at(sfAccount), sleVault->at(sfAsset)))
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:140:            JLOG(ctx.j.warn()) << "Vault pseudo-account is frozen.";
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:209:        auto const vaultPseudoID = sleVault->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:231:        // one for the pseudo-account.
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:241:        auto& pseudo = *maybePseudo;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:242:        auto pseudoId = pseudo->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:245:                view, pseudoId, mPriorBalance, sleVault->at(sfAsset), j_))
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:249:        broker->at(sfSequence) = sequence;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:252:        broker->at(sfAccount) = pseudoId;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:253:        // The LoanSequence indexes loans created by this broker, starting at 1
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:254:        broker->at(sfLoanSequence) = 1;
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:21:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:46:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:54:        JLOG(ctx.j.warn()) << "Trying to withdraw into a pseudo-account.";
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:66:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:81:    // The broker's pseudo-account is the source of funds.
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:82:    auto const pseudoAccountID = sleBroker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:85:            canTransfer(ctx.view, vaultAsset, pseudoAccountID, dstAcct))
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:109:        if (auto const ret = checkFrozen(ctx.view, pseudoAccountID, vaultAsset))
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:137:            pseudoAccountID,
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:166:    auto const brokerPseudoID = *broker->at(sfAccount);
+src/xrpld/app/tx/detail/SignerEntries.h:23:#include <xrpld/app/tx/detail/Transactor.h>  // NotTEC
+src/xrpld/app/tx/detail/SignerEntries.h:38:// Support for SignerEntries that is needed by a few Transactors.
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:699:            ((*offer)[sfFlags] & lsfSellNFToken) ? keylet::nft_sells(nftokenID)
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:986:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1003:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1060:                (*sle)[sfFlags] =
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1077:        (*offer)[sfFlags] = sleFlags;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1138:            // Entries have a canonical representation, determined by a
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1195:            (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:47:        sleDomain->isFieldPresent(sfOwner) && ctx.tx.isFieldPresent(sfAccount),
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:49:    if (sleDomain->getAccountID(sfOwner) != ctx.tx.getAccountID(sfAccount))
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:50:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:74:    createPseudoAcct = 0x0002,  // The transaction can create a pseudo account,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:113:hasPrivilege(STTx const& tx, Privilege priv)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:139:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:164:    if (fee > tx.getFieldAmount(sfFee).xrp())
+src/xrpld/app/tx/detail/InvariantCheck.cpp:234:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:295:    STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:339:    STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:438:    STTx const& txn,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:467:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:519:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:564:        auto const accountID = before->getAccountID(sfAccount);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:611:        // If the account is a pseudo account, then the linked object must
+src/xrpld/app/tx/detail/InvariantCheck.cpp:662:    STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:711:    STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:737:        std::uint32_t const uFlags = after->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:755:    STTx const&,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:803:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:872:        possibleIssuers_.emplace(after->at(sfAccount), after);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:963:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:990:                issuer->at(sfAccount);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1006:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1061:        accountSeq_ = (*after)[sfSequence];
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1062:        pseudoAccount_ = isPseudoAccount(after);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1069:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1088:        bool const pseudoAccount =
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1089:            (pseudoAccount_ &&
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1093:        if (pseudoAccount && !hasPrivilege(tx, createPseudoAcct))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1095:            JLOG(j.fatal()) << "Invariant failed: pseudo-account created by a "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1101:            pseudoAccount                                     //
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1114:        if (pseudoAccount)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1121:                    << "Invariant failed: pseudo-account created with "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1245:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1321:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1421:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1448:            AccountID const issuer = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1506:            if (mptIssue.getIssuer() == after->at(sfAccount))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1514:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1721:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1853:            // isPseudoAccount checks that any of the pseudo-account fields are
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1857:            // Not all pseudo-accounts have a zero sequence, but all accounts
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1858:            // with a zero sequence had better be pseudo-accounts.
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1859:            if (after->at(sfSequence) == 0)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1867:            // 1. Exactly one of the pseudo-account fields is set.
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1885:                    error << "pseudo-account has " << numFields
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1886:                          << " pseudo-account fields set";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1890:            if (before && before->at(sfSequence) != after->at(sfSequence))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1892:                errors_.emplace_back("pseudo-account sequence changed");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1897:                errors_.emplace_back("pseudo-account flags are not set");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1901:                errors_.emplace_back("pseudo-account has a regular key");
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1909:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1972:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2041:            ammAccount_ = after->getAccountID(sfAccount);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2129:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2205:    ripple::STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2251:    ripple::STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2272:    ripple::STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2292:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2348:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2379:                    fieldChanged(before, after, sfSequence) ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2383:                    fieldChanged(before, after, sfAccount) ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2398:                    fieldChanged(before, after, sfSequence) ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2528:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2545:            // loop is only concerned with finding Broker pseudo-accounts
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2556:        auto const account = view.read(keylet::account(mpt->at(sfAccount)));
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2559:        // loop is only concerned with finding Broker pseudo-accounts
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2588:            auto const dir = view.read(keylet::ownerDir(after->at(sfAccount)));
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2597:        if (before && before->at(sfLoanSequence) > after->at(sfLoanSequence))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2623:        auto const pseudoBalance = accountHolds(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2625:            after->at(sfAccount),
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2630:        if (after->at(sfCoverAvailable) < pseudoBalance)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2633:                               "is less than pseudo-account asset balance";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2642:                after->at(sfCoverAvailable) > pseudoBalance)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2646:                                   "than pseudo-account asset balance";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2670:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2753:    self.pseudoId = from.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2772:        makeMptID(from.getFieldU32(sfSequence), from.getAccountID(sfIssuer)));
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2908:    STTx const& tx,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3060:            afterVault.pseudoId != beforeVault.pseudoId ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3214:        auto ret = deltaAssets(tx[sfAccount]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3221:            delegate.has_value() && *delegate != tx[sfAccount])
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3233:            if (id == afterVault.pseudoId)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3275:                if (afterVault.pseudoId != updatedShares->share.getIssuer())
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3279:                           "pseudo-account must be the same";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3296:                           "pseudo-account";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3304:                        << "Invariant failed: shares issuer pseudo-account "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3319:                auto const vaultDeltaAssets = deltaAssets(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3372:                    deltaAssets(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3420:                    return tx[sfAccount] == vaultAsset.getIssuer();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3467:                auto const maybeAccDeltaShares = deltaShares(tx[sfAccount]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3486:                    deltaShares(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3539:                    deltaAssets(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3576:                        tx[~sfDestination].value_or(tx[sfAccount]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3586:                            destination && *destination != tx[sfAccount])
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3631:                auto const accountDeltaShares = deltaShares(tx[sfAccount]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3649:                auto const vaultDeltaShares = deltaShares(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3700:                    vaultAsset.getIssuer() != tx[sfAccount])
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3706:                          beforeVault.owner == tx[sfAccount]))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3717:                    deltaAssets(afterVault.pseudoId);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:3789:                auto const vaultDeltaShares = deltaShares(afterVault.pseudoId);
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:42:        return ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:50:    if (auto const account = ctx.tx[sfAccount]; owner != account)
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:53:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:62:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:84:                                        : ctx_.tx.getAccountID(sfAccount),
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:46:    // This mask is only compared against sfFlags
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:57:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:128:        (*mptIssuance)[sfFlags] = args.flags & ~tfUniversal;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:132:        (*mptIssuance)[sfSequence] = args.sequence;
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:57:    auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:91:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/SetTrust.h:29:class SetTrust : public Transactor
+src/xrpld/app/tx/detail/SetTrust.h:34:    explicit SetTrust(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetTrust.h:45:    checkPermission(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:170:    auto const accountID = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/AMMDeposit.cpp:279:    auto const ammAccountID = ammSle->getAccountID(sfAccount);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:379:    auto const ammAccountID = (*ammSle)[sfAccount];
+src/xrpld/app/tx/detail/CashCheck.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CashCheck.h:27:class CashCheck : public Transactor
+src/xrpld/app/tx/detail/CashCheck.h:32:    explicit CashCheck(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:22:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:25:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:44:                return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:46:            auto const account = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:48:            // broker's pseudo-account, but we don't know yet whether it is, so
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:52:                return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:60:determineBrokerID(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:82:    // pseudo-account, but we don't know yet whether it is.
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:91:    // is a pseudo-account), that's the
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:151:    // circumstances. The amount may be an IOU indicating the pseudo-account's
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:179:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:198:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:201:    if (sleIssuance->at(sfIssuer) != sleIssuer[sfAccount])
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:212:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:226:    auto const brokerPseudoAccountID = sleBroker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:242:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:250:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:311:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:322:    auto const brokerPseudoID = *sleBroker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:345:    // Transfer assets from pseudo-account to depositor.
+src/xrpld/app/tx/detail/VaultDelete.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/VaultDelete.h:27:class VaultDelete : public Transactor
+src/xrpld/app/tx/detail/VaultDelete.h:32:    explicit VaultDelete(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:135:                if (*dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:136:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:138:            else if (*dest != so->at(sfOwner) && *dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:149:                if (*dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:150:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:152:            else if (*dest != bo->at(sfOwner) && *dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:177:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:185:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:196:        if (((*bo)[sfFlags] & lsfSellNFToken) == lsfSellNFToken)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:200:        if ((*bo)[sfOwner] == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:205:            !nft::findToken(ctx.view, ctx.tx[sfAccount], (*bo)[sfNFTokenID]))
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:206:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:214:                dest.has_value() && *dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:215:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:256:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:264:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:275:        if (((*so)[sfFlags] & lsfSellNFToken) != lsfSellNFToken)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:279:        if ((*so)[sfOwner] == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:284:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:292:                dest.has_value() && *dest != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:293:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:302:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:325:                    ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:349:                        ctx.tx[sfAccount],
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:37:                return temINVALID;
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:48:LedgerStateFix::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:57:    if (ctx.tx[sfAccount] == ctx.tx[sfDestination])
+src/xrpld/app/tx/detail/DeleteAccount.cpp:69:DeleteAccount::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:119:    return Transactor::ticketDelete(view, account, delIndex, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:233:    AccountID const account{ctx.tx[sfAccount]};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:241:    if ((*sleDst)[sfFlags] & lsfRequireDestTag && !ctx.tx[~sfDestinationTag])
+src/xrpld/app/tx/detail/DeleteAccount.cpp:258:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:266:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:291:    // We look at the account's Sequence rather than the transaction's
+src/xrpld/app/tx/detail/DeleteAccount.cpp:292:    // Sequence in preparation for Tickets.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:294:    if ((*sleAccount)[sfSequence] + seqDelta > ctx.view.seq())
+src/xrpld/app/tx/detail/DeleteAccount.cpp:298:    // deleted if <FirstNFTokenSequence + MintedNFTokens> is within 256 of the
+src/xrpld/app/tx/detail/DeleteAccount.cpp:306:    // NFTokenSequence of this NFToken is the same as the one that the
+src/xrpld/app/tx/detail/DeleteAccount.cpp:309:        ((*sleAccount)[~sfFirstNFTokenSequence].value_or(0) +
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:85:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:87:    auto const accountID = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:120:                return temINVALID_FLAG;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:130:                return temINVALID_FLAG;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:144:MPTokenIssuanceSet::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:150:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:194:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:196:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:200:    if ((*sleMptIssuance)[sfIssuer] != ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:201:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:218:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:247:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:252:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:261:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:264:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:287:    std::uint32_t const flagsIn = sle->getFieldU32(sfFlags);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:314:        sle->setFieldU32(sfFlags, flagsOut);
+src/xrpld/app/tx/detail/AMMVote.cpp:68:                 ammLPHolds(ctx.view, *ammSle, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/AMMVote.cpp:107:        auto const account = entry[sfAccount];
+src/xrpld/app/tx/detail/AMMVote.cpp:127:        newEntry.setAccountID(sfAccount, account);
+src/xrpld/app/tx/detail/AMMVote.cpp:163:            newEntry.setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/CreateTicket.h:24:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/CreateTicket.h:28:class CreateTicket : public Transactor
+src/xrpld/app/tx/detail/CreateTicket.h:65:    explicit CreateTicket(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/CreateTicket.h:72:    /** Enforce constraints beyond those of the Transactor base class. */
+src/xrpld/app/tx/detail/CreateTicket.h:76:    /** Enforce constraints beyond those of the Transactor base class. */
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.h:27:class MPTokenIssuanceSet : public Transactor
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.h:32:    explicit MPTokenIssuanceSet(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.h:46:    checkPermission(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/DelegateSet.cpp:38:    if (ctx.tx[sfAccount] == ctx.tx[sfAuthorize])
+src/xrpld/app/tx/detail/DelegateSet.cpp:60:    if (!ctx.view.exists(keylet::account(ctx.tx[sfAccount])))
+src/xrpld/app/tx/detail/DelegateSet.cpp:61:        return terNO_ACCOUNT;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:82:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/DelegateSet.cpp:94:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:122:        sle->setAccountID(sfAccount, account_);
+src/xrpld/app/tx/detail/Batch.cpp:54:Batch::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/Batch.cpp:60:    XRPAmount const baseFee = Transactor::calculateBaseFee(view, tx);
+src/xrpld/app/tx/detail/Batch.cpp:89:            STTx const stx = STTx{std::move(txn)};
+src/xrpld/app/tx/detail/Batch.cpp:130:            if (signer.isFieldPresent(sfTxnSignature))
+src/xrpld/app/tx/detail/Batch.cpp:179: * transactions, and enforces correct signing and fee requirements.
+src/xrpld/app/tx/detail/Batch.cpp:189: *   - Have the tfInnerBatchTxn flag set.
+src/xrpld/app/tx/detail/Batch.cpp:190: *   - Not include a TxnSignature or Signers field.
+src/xrpld/app/tx/detail/Batch.cpp:191: *   - Have an empty SigningPubKey.
+src/xrpld/app/tx/detail/Batch.cpp:194: *   - Have either Sequence or TicketSequence set, but not both or neither.
+src/xrpld/app/tx/detail/Batch.cpp:195: *   - Not duplicate Sequence or TicketSequence values for the same account (for
+src/xrpld/app/tx/detail/Batch.cpp:218:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Batch.cpp:244:        if (sig.isFieldPresent(sfTxnSignature))
+src/xrpld/app/tx/detail/Batch.cpp:248:                << "inner txn " << label << "cannot include TxnSignature. "
+src/xrpld/app/tx/detail/Batch.cpp:262:        if (!sig.getFieldVL(sfSigningPubKey).empty())
+src/xrpld/app/tx/detail/Batch.cpp:266:                << "inner txn " << label << " SigningPubKey must be empty. "
+src/xrpld/app/tx/detail/Batch.cpp:275:        STTx const stx = STTx{std::move(rb)};
+src/xrpld/app/tx/detail/Batch.cpp:285:        auto const txType = stx.getFieldU16(sfTransactionType);
+src/xrpld/app/tx/detail/Batch.cpp:291:            return temINVALID;
+src/xrpld/app/tx/detail/Batch.cpp:299:            return temINVALID_INNER_BATCH;
+src/xrpld/app/tx/detail/Batch.cpp:302:        if (!(stx.getFlags() & tfInnerBatchTxn))
+src/xrpld/app/tx/detail/Batch.cpp:306:                << "inner txn must have the tfInnerBatchTxn flag. "
+src/xrpld/app/tx/detail/Batch.cpp:308:            return temINVALID_FLAG;
+src/xrpld/app/tx/detail/Batch.cpp:328:        if (auto const fee = stx.getFieldAmount(sfFee);
+src/xrpld/app/tx/detail/Batch.cpp:337:        auto const innerAccount = stx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Batch.cpp:346:            return temINVALID_INNER_BATCH;
+src/xrpld/app/tx/detail/Batch.cpp:349:        // Check that Sequence and TicketSequence are not both present
+src/xrpld/app/tx/detail/Batch.cpp:350:        if (stx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Batch.cpp:351:            stx.getFieldU32(sfSequence) != 0)
+src/xrpld/app/tx/detail/Batch.cpp:355:                << "inner txn must have exactly one of Sequence and "
+src/xrpld/app/tx/detail/Batch.cpp:356:                   "TicketSequence. "
+src/xrpld/app/tx/detail/Batch.cpp:361:        // Verify that either Sequence or TicketSequence is present
+src/xrpld/app/tx/detail/Batch.cpp:362:        if (!stx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Batch.cpp:363:            stx.getFieldU32(sfSequence) == 0)
+src/xrpld/app/tx/detail/Batch.cpp:366:                                << "inner txn must have either Sequence or "
+src/xrpld/app/tx/detail/Batch.cpp:367:                                   "TicketSequence. "
+src/xrpld/app/tx/detail/Batch.cpp:375:            if (auto const seq = stx.getFieldU32(sfSequence); seq != 0)
+src/xrpld/app/tx/detail/Batch.cpp:387:            if (stx.isFieldPresent(sfTicketSequence))
+src/xrpld/app/tx/detail/Batch.cpp:389:                if (auto const ticket = stx.getFieldU32(sfTicketSequence);
+src/xrpld/app/tx/detail/Batch.cpp:409:    auto const outerAccount = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Batch.cpp:416:        auto const innerAccount = rb.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Batch.cpp:450:            AccountID const signerAccount = signer.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Batch.cpp:479:            STTx::RequireFullyCanonicalSig::yes, ctx.rules);
+src/xrpld/app/tx/detail/Batch.cpp:503: * Transactor::checkSign. If the signature is not valid it returns the
+src/xrpld/app/tx/detail/Batch.cpp:507: * Transactor::checkBatchSign. If this check fails, it also returns the
+src/xrpld/app/tx/detail/Batch.cpp:519:    if (auto ret = Transactor::checkSign(ctx); !isTesSuccess(ret))
+src/xrpld/app/tx/detail/Batch.cpp:522:    if (auto ret = Transactor::checkBatchSign(ctx); !isTesSuccess(ret))
+src/xrpld/app/tx/detail/LoanSet.cpp:30:    if (tx.isFlag(tfInnerBatchTxn) && ctx.rules.enabled(featureBatch) &&
+src/xrpld/app/tx/detail/LoanSet.cpp:45:    if (!tx.isFlag(tfInnerBatchTxn) && !counterPartySig)
+src/xrpld/app/tx/detail/LoanSet.cpp:61:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:66:            return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:70:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:72:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:74:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:76:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:78:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:80:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:83:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:87:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:91:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:98:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:110:        return temINVALID;
+src/xrpld/app/tx/detail/LoanSet.cpp:118:    if (auto ret = Transactor::checkSign(ctx))
+src/xrpld/app/tx/detail/LoanSet.cpp:140:    return Transactor::checkSign(
+src/xrpld/app/tx/detail/LoanSet.cpp:150:LoanSet::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/LoanSet.cpp:152:    auto const normalCost = Transactor::calculateBaseFee(view, tx);
+src/xrpld/app/tx/detail/LoanSet.cpp:170:            : (counterSig.isFieldPresent(sfTxnSignature) ? 1 : 0);
+src/xrpld/app/tx/detail/LoanSet.cpp:253:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanSet.cpp:270:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanSet.cpp:272:    auto const brokerPseudo = brokerSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanSet.cpp:279:        // signature check with terNO_ACCOUNT.
+src/xrpld/app/tx/detail/LoanSet.cpp:281:        return terNO_ACCOUNT;
+src/xrpld/app/tx/detail/LoanSet.cpp:299:    auto const vaultPseudo = vault->at(sfAccount);
+src/xrpld/app/tx/detail/LoanSet.cpp:323:        JLOG(ctx.j.warn()) << "Vault pseudo-account is frozen.";
+src/xrpld/app/tx/detail/LoanSet.cpp:332:        JLOG(ctx.j.warn()) << "Broker pseudo-account is frozen.";
+src/xrpld/app/tx/detail/LoanSet.cpp:375:    auto const vaultPseudo = vaultSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanSet.cpp:386:    auto const brokerPseudo = brokerSle->at(sfAccount);
+src/xrpld/app/tx/detail/LoanSet.cpp:514:    // from vault pseudo-account to the borrower.
+src/xrpld/app/tx/detail/LoanSet.cpp:536:    // 2. Transfer originationFee, if any, from vault pseudo-account to
+src/xrpld/app/tx/detail/LoanSet.cpp:574:    auto loanSequenceProxy = brokerSle->at(sfLoanSequence);
+src/xrpld/app/tx/detail/LoanSet.cpp:578:        std::make_shared<SLE>(keylet::loan(brokerID, *loanSequenceProxy));
+src/xrpld/app/tx/detail/LoanSet.cpp:592:    loan->at(sfLoanSequence) = *loanSequenceProxy;
+src/xrpld/app/tx/detail/LoanSet.cpp:632:    // and is distinct from the broker's pseudo-account's owner count
+src/xrpld/app/tx/detail/LoanSet.cpp:634:    loanSequenceProxy += 1;
+src/xrpld/app/tx/detail/LoanSet.cpp:637:    if (loanSequenceProxy == 0)
+src/xrpld/app/tx/detail/LoanSet.cpp:641:    // Put the loan into the pseudo-account's directory
+src/xrpld/app/tx/detail/Offer.h:201:    , m_account(m_entry->getAccountID(sfAccount))
+src/xrpld/app/tx/detail/Offer.h:217:    , m_account(m_entry->getAccountID(sfAccount))
+src/xrpld/app/tx/detail/Change.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/Change.h:27:class Change : public Transactor
+src/xrpld/app/tx/detail/Change.h:32:    explicit Change(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Change.h:42:    calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:19:        return temINVALID;
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:36:    auto const account = tx[sfAccount];
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:49:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:64:    auto const pseudoAccountID = sleBroker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:67:            canTransfer(ctx.view, vaultAsset, account, pseudoAccountID))
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:73:    if (auto const ret = checkDeepFrozen(ctx.view, pseudoAccountID, vaultAsset))
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:111:    auto const brokerPseudoID = broker->at(sfAccount);
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:113:    // Transfer assets from depositor to pseudo-account.
+src/xrpld/app/tx/detail/DeleteOracle.cpp:38:    if (!ctx.view.exists(keylet::account(ctx.tx.getAccountID(sfAccount))))
+src/xrpld/app/tx/detail/DeleteOracle.cpp:39:        return terNO_ACCOUNT;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteOracle.cpp:42:            ctx.tx.getAccountID(sfAccount), ctx.tx[sfOracleDocumentID]));
+src/xrpld/app/tx/detail/DeleteOracle.cpp:48:    else if (ctx.tx.getAccountID(sfAccount) != sle->getAccountID(sfOwner))
+src/xrpld/app/tx/detail/SetAccount.h:23:#include <xrpld/app/tx/detail/Transactor.h>
+src/xrpld/app/tx/detail/SetAccount.h:29:class SetAccount : public Transactor
+src/xrpld/app/tx/detail/SetAccount.h:34:    explicit SetAccount(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetAccount.h:48:    checkPermission(ReadView const& view, STTx const& tx);
+src/xrpld/app/tx/detail/apply.cpp:46:    STTx const& tx,
+src/xrpld/app/tx/detail/apply.cpp:54:    if (tx.isFlag(tfInnerBatchTxn) && rules.enabled(featureBatch))
+src/xrpld/app/tx/detail/apply.cpp:57:        if (tx.isFieldPresent(sfTxnSignature) ||
+src/xrpld/app/tx/detail/apply.cpp:58:            !tx.getSigningPubKey().empty() || tx.isFieldPresent(sfSigners))
+src/xrpld/app/tx/detail/apply.cpp:90:            ? STTx::RequireFullyCanonicalSig::yes
+src/xrpld/app/tx/detail/apply.cpp:91:            : STTx::RequireFullyCanonicalSig::no;
+src/xrpld/app/tx/detail/apply.cpp:158:    STTx const& tx,
+src/xrpld/app/tx/detail/apply.cpp:172:    STTx const& tx,
+src/xrpld/app/tx/detail/apply.cpp:185:    STTx const& batchTxn,
+src/xrpld/app/tx/detail/apply.cpp:197:        [&app, &j, &parentBatchId, &batchView](STTx&& tx) {
+src/xrpld/app/tx/detail/apply.cpp:223:        auto const result = applyOneTransaction(STTx{std::move(rb)});
+src/xrpld/app/tx/detail/apply.cpp:251:    STTx const& txn,
+src/xrpld/app/tx/detail/apply.cpp:258:        flags = flags | tapRETRY;
