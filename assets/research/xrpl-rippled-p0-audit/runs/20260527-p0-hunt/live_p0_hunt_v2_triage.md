@@ -249,6 +249,15 @@ one of the WHIP gates:
   path is blocked here by Python 2-era SCons assumptions (`commands`,
   `platform.linux_distribution`), missing `protoc`, and missing Boost headers.
   That is an environment limit, not a packet promotion.
+- The OFAC XRP address milestone was refreshed from official OFAC SLS data and
+  direct XRPL RPC. The current SDN advanced extraction still returns exactly one
+  XRP address, `rnXyVQzgxZe7TR1EPzTkGj2jxH4LMJYh66`. Direct account-state
+  checks still show `requireDestinationTag=true`, `disableMasterKey=true`,
+  four owned objects, three account lines, no current offers, and no current
+  payment channels. The direct `account_tx` scan found 18 own-signed and 37
+  counterparty-signed transactions at/after `2021-11-08T00:00:00Z`, with the
+  address visible in every returned tx or metadata object. No OFAC-specific P0
+  was promoted.
 
 ## Still-Promoted Unfixed Set
 

@@ -77,6 +77,8 @@ Completed and packet-bound work:
   owner-directory, owner-count, and invariant source and suite sweep.
 - XChainBridge live-gate, bridge transaction, bridge RPC, and bridge invariant
   source and suite sweep.
+- OFAC XRP address milestone refresh from official OFAC SLS data plus direct
+  XRPL account-state and `account_tx` scans.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -163,6 +165,29 @@ xchain_bridge_live_gate_static_sweep_20260528.log sha256 52c3491dc8719c9b1c7c522
 xchain_bridge_live_gate_history_sweep_20260528.log sha256 a8cb4a51b0cfe3ec74664abae9a043130dab239da4e3a2b37864472ccab47187
 xchain_bridge_live_gate_source_kill_20260528.log sha256 e5c9c16fc01a604825af90d63340b94beaefb3c2abbbb708108ad3b46e3774de
 42.8s, 4 suites, 42 cases, 56064 tests total, 0 failures
+```
+
+The following continuation refreshed the OFAC XRP address milestone. The
+official OFAC SLS `SDN_ADVANCED.ZIP` extraction still returned one XRP address:
+`rnXyVQzgxZe7TR1EPzTkGj2jxH4LMJYh66`. Direct XRPL account-state checks on
+`s1.ripple.com` and `s2.ripple.com` showed the account remains visible on
+mainnet with `requireDestinationTag=true`, `disableMasterKey=true`, four owned
+objects, three account lines, no current offers, and no current payment
+channels. The direct `account_tx` activity scan found no metadata-hiding
+witness: all transactions at/after `2021-11-08T00:00:00Z` visibly contained the
+address in tx or metadata.
+
+This refreshed triage did not promote an OFAC-specific P0. The address remains
+relevant context for compliance and metadata screening, but the live packet
+still requires a concrete local repro showing unauthorized state mutation,
+deep-freeze bypass, metadata hiding, or another consensus-visible failure.
+
+```text
+ofac_xrp_sdn_snapshot_20260528.json sha256 6713a69f2f3de145e357e39e954136db3b13387e34dcef42fc8907591872721b
+ofac_xrp_live_account_state_20260528.json sha256 9a04f5492d3bb99832172bc8173553f940fd887ef5f78acb381171f8178eb675
+ofac_xrp_activity_scan_20260528.json sha256 bab6cb82c1943a4b82f546921b7a45a18e0713dd7a9a8a5fff6f468368a7bb73
+official SDN XML sha256 802ca279d4ec173dfd86b8c4cbefc8067d5354cd58fb5fc1f0aab1cca2eda818
+account_tx at/after cutoff: 18 own-signed, 37 counterparty-signed, visible-address check pass
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new

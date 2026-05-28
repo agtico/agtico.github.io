@@ -1,6 +1,6 @@
 # OFAC XRP Address Candidate Matrix
 
-Date: 2026-05-27
+Date: 2026-05-27, refreshed 2026-05-28
 
 Scope: live-mainnet XRPL surfaces that can touch the current OFAC XRP
 address set. This matrix is triage only. No public article change is
@@ -18,6 +18,34 @@ authorized in this lane.
   `d0ea17d9a345cedade07bbe6e6159e19da4467e7c3686d7d5b467ca805697405`
 - Live XRPL account-state snapshot SHA-256:
   `b1725a8204882a8de3f9eaef3d2fd53ccfd79dfea1760cf8000552b020f5dcbb`
+
+2026-05-28 refresh:
+
+- Official source: OFAC SLS `SDN_ADVANCED.ZIP`,
+  `https://sanctionslistservice.ofac.treas.gov/api/download/sdn_advanced.zip`
+- Retrieval UTC: `2026-05-28T10:49:48Z`
+- Download SHA-256:
+  `de372a10ff9d1c3c4b8689b7f0b51a8a4ae3bd42c7129a1274a2f822b3b486a2`
+- XML member SHA-256:
+  `802ca279d4ec173dfd86b8c4cbefc8067d5354cd58fb5fc1f0aab1cca2eda818`
+- Extracted XRP addresses: `rnXyVQzgxZe7TR1EPzTkGj2jxH4LMJYh66`
+- Extracted XRP subset SHA-256:
+  `6e2bad2102facc738f5aa55aa2526a8addb17cb23d0b78d22c193379ef38d343`
+- SDN snapshot file SHA-256:
+  `6713a69f2f3de145e357e39e954136db3b13387e34dcef42fc8907591872721b`
+- Live XRPL scope snapshot SHA-256:
+  `9a04f5492d3bb99832172bc8173553f940fd887ef5f78acb381171f8178eb675`
+- Activity scan SHA-256:
+  `bab6cb82c1943a4b82f546921b7a45a18e0713dd7a9a8a5fff6f468368a7bb73`
+
+The refresh found the same single XRP SDN address. Direct XRPL JSON-RPC against
+`s1.ripple.com` and `s2.ripple.com` showed `rippled_version=3.1.3`, the account
+still has `requireDestinationTag=true` and `disableMasterKey=true`, owns four
+objects, has three account lines, and has no current offers or payment
+channels. The refreshed `account_tx` scan still found 18 own-signed and 37
+counterparty-signed transactions at/after `2021-11-08T00:00:00Z`; all returned
+transactions visibly contain the address in tx or metadata, and counterparty
+successful fee burn remains `5.086555` XRP.
 
 Direct XRPL JSON-RPC against `s1.ripple.com` and `s2.ripple.com` showed:
 
