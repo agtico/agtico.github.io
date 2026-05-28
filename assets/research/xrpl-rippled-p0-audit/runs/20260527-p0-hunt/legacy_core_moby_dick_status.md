@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:34:44Z
-amendment_checked_utc: 2026-05-28T08:34:46Z
+runtime_checked_utc: 2026-05-28T08:41:44Z
+amendment_checked_utc: 2026-05-28T08:41:46Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533849, hash BD2BA4E8000A4A94AF54E9F73A9B5BFC503EF8777E43EB53DC4A36B0F8C69759
-s2.ripple.com: rippled 3.1.3, ledger 104533849, hash BD2BA4E8000A4A94AF54E9F73A9B5BFC503EF8777E43EB53DC4A36B0F8C69759
-runtime receipt sha256: e9f3a9dd4d7daaf3690983a696b6135b3e7e67042df0d97f80fca26bde378618
-amendment receipt sha256: cb1f8ed30e16ed75c7d4120dd89ce8d4988c686b8f725c7da6936c8bc8ce27c0
+s1.ripple.com: rippled 3.1.3, ledger 104533957, hash 6B6DCAC514095FB8D7F788000EE31B26B540AF256DE42D40A6CEB7C8C2A35F73
+s2.ripple.com: rippled 3.1.3, ledger 104533957, hash 6B6DCAC514095FB8D7F788000EE31B26B540AF256DE42D40A6CEB7C8C2A35F73
+runtime receipt sha256: 6b14b039d5feaabd23efc18e5595e41c9bc0f2c4ee5180c6fa619441b284ce23
+amendment receipt sha256: 7cae807fc9e9a1fa7b63802da387e61001bac6fb7a72e2c66bf83bd764197221
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -62,6 +62,7 @@ Completed and packet-bound work:
 - legacy transaction envelope/signing/sequence source and suite sweep.
 - legacy IOU zero-cross settlement source and suite sweep.
 - legacy account-root owner-directory cleanup source and suite sweep.
+- legacy governance, validator-list, and pseudo-transaction source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1155,6 +1156,28 @@ tests, and the following candidates were source-killed rather than promoted:
   legacy-core witness showed account deletion with live obligations, stranded
   core owner objects, owner-count drift, or missing cleanup on the checked
   paths.
+- `LEGACY-GOVERNANCE-PSEUDOTX-SWEEP-001`: old amendment voting, fee voting,
+  validator-list, negative-UNL, validator-site, validator-key, load-fee, and
+  pseudo-transaction machinery was reviewed as a possible source of consensus
+  governance drift, bad pseudo-transaction validation, malformed fee setting,
+  validator-list quorum/trust error, negative-UNL handling error, or unsigned
+  governance state transition. The sweep covered `AmendmentTable`, `FeeVote`,
+  `PseudoTx`, `ValidatorList`, `ValidatorSite`, `ValidatorKeys`,
+  `LoadFeeTrack`, amendment majority/veto logic, `SetFee`, negative-UNL
+  handling, and trusted-validator list parsing. Static artifact
+  `legacy_governance_pseudotx_static_sweep_20260528.log` has sha256
+  `575cb9b65f3d4d308f695f030d8e2a78b8d7d588d741ce3b277f8af9b5e83ccd`.
+  History artifact `legacy_governance_pseudotx_history_sweep_20260528.log`
+  has sha256
+  `bccaf0e1845876d1d4caa6069d621bc7a0b905f36d6ad4caedbb0a6f7da1d1d4`.
+  Suite artifact `legacy_governance_pseudotx_source_kill_20260528.log` has
+  sha256 `7c0448b965667a5e765543a26302f6856bbf6f125f3293dbe56a76138bf6e46e`.
+  The governance suites passed with 7 suites, 126 cases, and 9,939 tests
+  across `AmendmentTable`, `FeeVote`, `PseudoTx`, `ValidatorList`,
+  `ValidatorKeys`, `ValidatorSite`, and `LoadFeeTrack`. No clean witness showed
+  bad amendment majority/veto state, malformed fee-vote pseudo transaction,
+  validator-list trust/quorum drift, negative-UNL state corruption, or unsigned
+  pseudo-transaction acceptance.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.

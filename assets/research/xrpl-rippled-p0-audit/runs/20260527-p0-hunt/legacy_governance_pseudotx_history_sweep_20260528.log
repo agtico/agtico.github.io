@@ -1,0 +1,431 @@
+legacy governance pseudo-transaction history sweep
+repo: XRPLF/rippled
+target: 46b241ace8b30d9c9775d60ffba7d24b21903896
+tag: 3.1.3
+
+-- grep history: amendment / fee vote / validator list / negative UNL / pseudo tx --
+14cf4ae1a (origin/copilot/fix-vetoed-type-error) Merge branch 'develop' into copilot/fix-vetoed-type-error
+ffdb36d09 fix: Restore correct behavior for vetoed/obsolete fields and move changelog to Unreleased
+bab0c48d0 add amm pseudo account test with confidential Transfer (#7276)
+9e27120a1 refactor(telemetry): simplify ledger/peer attr naming on phase-6, update dashboards
+aa5b02cde test: Update Vault+AMM tests for develop renames
+ef10c754b fix(telemetry): address code review findings for Phase 4 consensus tracing
+5f7de1bb4 feat(telemetry): complete Phase 4 consensus tracing
+7be06aaae fix(telemetry): address code review findings for Phase 4 consensus tracing
+0a371dca7 feat(telemetry): complete Phase 4 consensus tracing
+c01f8ae99 fix(telemetry): address code review findings for Phase 4 consensus tracing
+bc49eb6f8 feat(telemetry): complete Phase 4 consensus tracing
+cbbd6ebee feat(telemetry): add Phase 6 StatsD metrics, ledger/peer spans, and expanded dashboards
+36fb84926 Update src/test/app/FeeVote_test.cpp
+c5037b0dc Merge branch 'develop' into copilot/fix-vetoed-type-error
+ee368f709 Fix amendment vetoed field type - use boolean and add obsolete field
+3823dbc74 Merge commit '92046785d1fea5f9efe5a770d636792ea6cab78b' into ximinez/lending-shortages
+8249b30dc Merge commit 'a3e9401fbc' into ximinez/online-delete-lastrotated
+a3e9401fb Merge commit '92046785d1fea5f9efe5a770d636792ea6cab78b' into ximinez/online-delete-gaps
+2601442e1 Improve and fix bugs in Lending Protocol (#6102)
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 fix: Inner batch transactions never have valid signatures (#6069)
+b2c5927b4 fix: Inner batch transactions never have valid signatures (#6069)
+14790724a Disallow pseudo accounts to be Destination for LoanBrokerCoverWithdraw (#6106)
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+b195011ef fix: Apply object reserve for Vault pseudo-account (#5954)
+b124c9f7e refactor: Retire Flow and FlowSortStrands amendments (#6054)
+a7af773dd Add a LoanBroker invariant to compare CoverAvailable to balance
+21c02232a refactor: Retire RequireFullyCanonicalSig amendment (#6035)
+a791c03dc refactor: Retire DeletableAccounts amendment (#6056)
+800a31538 refactor: Retire CryptoConditionsSuite amendment (#6036)
+a3b2ce91d Review feedback from @gregtatcam: frozen broker pseudo-account
+e4dccfd49 refactor: Retire DisallowIncoming amendment (#6045)
+57f4b4eb7 refactor: Retire Checks amendment (#6055)
+2c187461c refactor: Retire NegativeUNL amendment (#6033)
+362ecbd1c fix: Apply object reserve for Vault pseudo-account (#5954)
+7025e9208 refactor: Retire TicketBatch amendment (#6032)
+508937f3d refactor: Retire MultiSignReserve and ExpandedSignerList amendments (#5981)
+54d738b93 Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+ff18cfef9 refactor: Retire DepositPreAuth and DepositAuth amendments (#5978)
+9b332d88c refactor: Retire PayChanRecipientOwnerDir amendment (#5946)
+12c629a1d refactor: Retire CheckCashMakesTrustLine amendment (#5974)
+ebfca636f Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+673fb06c7 refactor: Retire fixTrustLinesToSelf amendment (#5989)
+f28ba57b8 refactor: Retire HardenedValidations amendment (#5988)
+63a08560c refactor: retire/remove NFT amendments (#5971)
+89979022f Merge remote-tracking branch 'upstream/develop' into ximinez/lending-XLS-66
+8ac8a47c9 refactor: Retire ImmediateOfferKilled amendment (#5973)
+50fc93f74 refactor: Retire fixMasterKeyAsRegularKey amendment (#5959)
+ab45a8a73 refactor: Retire fixReducedOffersV1 amendment (#5972)
+dfafb141c refactor: Retire fixAmendmentMajorityCalc amendment (#5961)
+b0910e359 refactor: Retire fix1623 amendment (#5928)
+44e027e51 refactor: Retire fixTakerDryOfferRemoval amendment (#5958)
+f8b4f692f refactor: Retire fixSTAmountCanonicalize code (#5956)
+80a3ae638 refactor: Retire fixRmSmallIncreasedQOffers amendment (#5955)
+efa917d9f refactor: Retire fix1578 amendment (#5927)
+bd3bc917f refactor: Retire fix1571 amendment (#5925)
+ed5d6f3e2 feat: Add public key to log messages (#5678)
+a8e4da0b1 Retire fix1781 amendment (#5931)
+d9960d5ba refactor: Retire fix1543 amendment (#5926)
+2dd239c59 Update payment component computation and rounding, and more tests
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+7612fd0ba Review feedback from @gregtatcam
+d02c306f1 test: add more comprehensive tests for `FeeVote` (#5746)
+51c5f2bfc Improve ValidatorList invalid UNL manifest logging (#5804)
+3cbdf818a Miscellaneous refactors and updates (#5590)
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+9920037d1 Review feedback from @dangell7
+ed00018ad fixup! Add pseudo account type to injected data in RPC account_info result
+f7aef4950 Add pseudo account type to injected data in RPC account_info result
+58c2c82a3 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+527e0c916 Lending protocol implementation (XLS-0066)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+848311563 Lending protocol implementation (XLS-0066)
+79a1a8a9c Finish(?) unit tests for Loan Broker Cover amounts. Untested.
+b7152496c Add LoanBroker update tests
+1db5e9b4d Pseudo-account improvements
+3b5981795 Generalize some of the Invariant checks using macro files
+d4c2d4698 Update tests, update pseudo-account checking
+19900bb87 Finish creating helper classes for JTx fields
+24374c548 [WIP] Define remaining transactions, start implementing LoanBrokerSet
+298aaac45 Check for pseudo-account in other transaction types
+a205906e5 Prevent pseudo-accounts from receiving checks
+1807b441e Fix bug in pseudoAccountAddress and add unit test
+aff08b754 Add invariant checks for pseudo-account
+911c0466c Merge develop into ripple/smart-escrow (#5357)
+d22a5057b Prevent consensus from getting stuck in the establish phase (#5277)
+c4d9635f2 Add logging and improve counting of amendment votes from UNL (#5173)
+359565b37 fix: Amendment to add transaction flag checking functionality for Credentials (#5250)
+7fdfbc7b8 Amendment `fixFrozenLPTokenTransfer` (#5227)
+1a341cb9c Add [validator_list_threshold] to validators.txt to improve UNL security (#5112)
+1bb3c9db5 XLS-46: DynamicNFT (#5048)
+dce3e1efa Add logging and improve counting of amendment votes from UNL (#5173)
+fa5a85439 fix: Amendment to add transaction flag checking functionality for Credentials (#5250)
+c1d8bc492 Enforce freeze of pseudo-account
+fb3713bc2 Amendment `fixFrozenLPTokenTransfer` (#5227)
+b14c24960 Reduce the peer charges for well-behaved peers:
+5fbee8c82 Add [validator_list_threshold] to validators.txt to improve UNL security (#5112)
+58af62f38 XLS-46: DynamicNFT (#5048)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+54a350be7 Add AMMClawback Transaction (XLS-0073d) (#5142)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+659bd99a6 fix amendment to add `PreviousTxnID`/`PreviousTxnLgrSequence` (#4751)
+2bb8de030 fix: stabilize voting threshold for amendment majority mechanism (#4410)
+c5003969d Use quorum specified via command line: (#4489)
+b4699c3b4 Improve the Byzantine validator detector:
+4b9d3ca7d Support UNLs with future effective dates:
+28ed2b9e6 Persist API-configured voting settings:
+b1d47c65d Add public_key to the "vl" method response:
+707868be3 Implement sticky DNS resolution for validator list retrieval:
+12c0e8148 Improve naming of fields associated with the NegativeUNL
+706ca874b Implement negative UNL functionality:
+df29e98ea Improve amendment processing and activation logic:
+68494a308 AmendmentTable improvements
+268e28a27 Tune relaying of untrusted proposals & validations:
+ec137044a Protocol Amendment: Always Require Fully-Canonical Signatures
+2c71802e3 Propagate validator lists (VLs or UNLs) over the peer network:
+5ff23f8f3 Warn operators about upcoming unknown amendments:
+dd99bf479 Enforce a 20s timeout when making validator list requests (RIPD-1737)
+88cb0e592 Allow manifests to include an optional 'domain' field:
+c1a02440d Load validator list from file:
+6bdc9e7b3 Use correct manifest cache when loading ValidatorList
+945493d9c Allow servers to detect transaction censorship attempts (RIPD-1626):
+58f786cbb Make the FeeEscalation amendment permanent (RIPD-1654):
+7fe1d4b9c Accept redirects from validator list sites:
+bdaad19e7 Accept redirects from validator list sites:
+7e30897ef Increase validation quorum to 80%
+20defb484 Update validations on UNL change (RIPD-1566):
+94c6a2a85 Use LedgerTrie for preferred ledger (RIPD-1551):
+feb7582ac Unit tests don't enable Tickets or SHAMapV2 by default:
+dffb999ef Set quorum to tolerate 2 failures for validator list of 6 members.
+044dd5351 Add validator list RPC commands (RIPD-1541):
+02059a27d Make quorum unreachable if validator list expires (RIPD-1539)
+bce9bca2c Include validator manifests in published list:
+d90a0647d Change UNL and quorum rules:
+8c155dd87 Make minimum quorum Byzantine fault tolerant (RIPD-1461)
+f2787dc35 Improve pseudo-transaction handling (RIPD-1454, RIPD-1455):
+ffc7cf8f6 Use lower quorum for smaller validator sets
+b45f45dce Fetch validator lists from remote sites:
+e823e60ca Dynamize trusted validator list and quorum (RIPD-1220):
+e00a6b0e5 Enable amendments in genesis ledger (RIPD-1281)
+
+-- pickaxe history: governance / pseudo tx symbols --
+49567e728 fix: Fix edge-case where vault-depositor may get stuck (#7139)
+633ef4706 fix: Fix `VaultInvariant` and `VaultDeposit` precision bugs at IOU scale boundaries (#7272)
+a911f9089 fix: Use consistent scale for `debtTotal` (#7093)
+e34c2667d fix: Skip deleted book directories and non-root modifications in `ValidBookDirectory` invariant (#7312)
+dcd2ff0b5 fix: Fix non-canonical MPT amount (#7117)
+3547a9335 fix: Add assorted MPT/DEX fixes (#7040)
+7fdaa0a5e fix: Fix IOU precision issues in LoanBrokerCover transactions (#7274)
+795dc5e36 fix: Avoid principal-zeroing in non-final loan payments at coarse scale (#7050)
+28cc20c81 fix: Fix wrong hybrid offer orderbook placement and update `LedgerStateFix` to amend `ExchangeRate` meta (#7087)
+3a4b92b05 Change the priority of the amendments for large mantissas
+a830ab10e style: More clang-tidy identifier renaming (#7290)
+4c657bc92 fix build
+9cb049276 feat: Propagate underlying MPT flags to vault shares (#7077)
+9cf2c0c3a more fixes
+ff896b226 fix more build issues
+d85bf722e (origin/ripple/wasmi-host-functions) fix: Fix build issues post-clang-tidy changes (#7298)
+c8efacc8d fix clang & address review comments
+b664989cf fix clang-tidy issues
+1dbab8e34 fix: Use the consistent scale for debtTotal (#7093)
+20fd059e6 fix: Avoid principal-zeroing in non-final loan payments at coarse scale (#7050)
+4094f7f6c fix: Fix a rounding error at the Number::maxRep cusp (#7051)
+6df2047f1 fix: Fix edge-case where vault-depositor may get stuck (#7139)
+19296eba7 fix: Fix VaultInvariant and VaultDeposit precision bugs at IOU scale boundaries (#7272)
+7829e6302 fix: Disable unnecessary sanity-check in VaultDeposit (#7288)
+fcbc2f0a6 feat: Propagate underlying MPT flags to vault shares (#7077)
+2e7927a90 fix: Fix non-canonical MPT amount. (#7117)
+93ac1aa7a fix: Disable unnecessary sanity-check in VaultDeposit (#7288)
+159ea3d7d (origin/dangell7/docs-ai) Add AI documentation source files (.ai.md + .ai.json)
+748143041 Strengthen Clawback invariant checks for MPT balances
+d38f45701 clean up (roll back AI weirdness)
+ffdb36d09 fix: Restore correct behavior for vetoed/obsolete fields and move changelog to Unreleased
+570845892 (origin/copilot/add-ctid-to-ledger-response) Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+5b6e8b6f9 refactor: Rename static constants (#7120)
+6cb5842a0 fix build
+88794a1ea (origin/dangell7/docs-full) docs: add Doxygen comments across xrpl and xrpld
+7a2562dc2 chore: Consolidate fix amendments (#7134)
+dbd6c84e5 fix: Backport Permissioned Domains fixes (#7016)
+62b942f1c feat: Enable and rename fixSecurity3_1_3 to fixCleanup3_1_3 (#7128)
+364aa220e refactor: Replace `featureInvariantsV1_1` with `fixCleanup3_2_0` (#7116)
+d6f65a9e8 refactor: Use more scoped enums (#7086)
+ad2195f12 fix: Numerically-stable (1+r)^n-1 in computePaymentFactor (#7033)
+d8febb71b part 1
+afbccf971 chore: Consolidate fix amendments (#7134)
+d4ebd6a16 fix: Backport Permissioned Domains fixes (#7016)
+46d1012ad refactor(telemetry): simplify consensus attr naming on phase-4 — drop xrpl.consensus. prefix
+6340c986c feat: Enable and rename fixSecurity3_1_3 to fixCleanup3_1_3 (#7128)
+c4c95dbe7 refactor: Replace `featureInvariantsV1_1` with `fixCleanup3_2_0` (#7116)
+cdee9a675 refactor: Use more scoped enums (#7086)
+4f8142fd1 fix: Numerically-stable (1+r)^n-1 in computePaymentFactor (#7033)
+4539bb074 chore: Consolidate fix amendments (#104)
+597202a6f Refactoring float hostfunctions (#7053)
+0bf77885b Use structs instead
+3d7ba941c refactor: Change config section and key string literals into constants
+b40d2a8e7 fix: Fix a rounding error at the Number::maxRep cusp
+b62987bda Revert "fix: revert all unrelated upstream develop changes from phase-7 PR"
+dc707b9f3 feat: Enable and rename fixSecurity3_1_3 amendment (#90)
+f1de2738a Fix clang tidy and compile errors
+3d0626383 refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+aa5b02cde test: Update Vault+AMM tests for develop renames
+321b86797 fix: Prevents overwriting a bool value in an invariant (#6609)
+1c6fab834 chore: Enable clang-tidy v21 new checks (#7031)
+7345de6c6 fix: Remaining clang-tidy unchecked optionals (#6979)
+dab0ceaf8 chore: Enable clang-tidy modernize checks (#6975)
+6c9244e81 fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716)
+9e8ac4198 chore: Enable clang-tidy include cleaner (#6947)
+27c28be57 feat: Add MPT support to DEX (#5285)
+79a3ab4c2 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+28c53362b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+8995564ed refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+f4555c80f fix: revert all unrelated upstream develop changes from phase-7 PR
+31180f94c fix: Prevents overwriting a bool value in an invariant (#6609)
+ef10c754b fix(telemetry): address code review findings for Phase 4 consensus tracing
+7be06aaae fix(telemetry): address code review findings for Phase 4 consensus tracing
+f7275b7ad chore: Enable clang-tidy v21 new checks (#7031)
+c01f8ae99 fix(telemetry): address code review findings for Phase 4 consensus tracing
+cf33298ab add tests, fix issues
+19da25812 fix: Remaining clang-tidy unchecked optionals (#6979)
+235547f46 Revert "Merge develop into ConfidentialTransfer (#6987)" (#7001)
+1e73f3f3f Merge develop into ConfidentialTransfer (#6987)
+2794a7503 fix: Prevents overwritting a bool value in an invariant (#6609) (#6961)
+5ad05918f fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716) (#6945)
+519d9057a fix: Improve invariant check for Permissioned Domains (#6134) (#6958)
+a59a6138b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+24874f7e0 fix: Deletes expired NFToken offers from ledger (#5707)
+ce3951bbb chore: Enable clang-tidy modernize checks (#6975)
+96643bb0f fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716)
+653a383ff chore: Enable clang-tidy include cleaner (#6947)
+807e763bb (origin/gregtatcam/mpt/dex-unit-tests-disabled-mptv2) Extend DEX unit-tests with featureMPTokensV2 disabled
+4ab295041 Reduce duplicate peer traffic for ledger data (#5126)
+2570c7df0 Sponsored Fees and Reserves for Attackathon (#6842)
+f44dfc89c refactor: acquireAsync will dispatch a job, not the other way around
+8cc216993 test: Calling wrap functions  from c++ side (#6699)
+4e2b41c42 Batch for Attackathon (#6732)
+dfa1da47f Confidential Transfer for Attackathon (#6828)
+1a0323429 Merge develop: integrate MPT support for checkAcceptAsset with DisallowIncomingTrustline fix
+dfcad6915 feat: Add MPT support to DEX (#5285)
+46e88dc73 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+c00ed673a refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+bd9166888 Merge branch 'develop' into dangell7/batch-v1
+c5598a428 fix clang-tidy issues
+819d3fcdf Merge branch 'develop' into mvadari/rearch/account
+89a6bb495 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+a911c1059 Merge branch 'develop' to resolve conflicts and update branch
+02fa55df8 fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+2dc705bd9 chore: Enable clang-tidy misc checks (#6655)
+2502befb4 chore: Enable clang-tidy misc checks (#6655)
+20d6e93b5 fix: bugs from merge
+23eee6192 feat: Make VaultID conditional on LoanBrokerSet
+810ffde48 (origin/tapanito/lending-impairment) fix: Prevent early loan impairment and due-date manipulation
+b36aedb4d refactor: Address PR comments after the modularisation PRs (#6389)
+e26624dcd refactor: Make function naming in ServiceRegistry consistent (#6390)
+3a477e4d0 refactor: Address PR comments after the modularisation PRs (#6389)
+0bc4be2b9 Fix PR comments
+addc1e8e2 refactor: Make function naming in ServiceRegistry consistent (#6390)
+8f182e825 refactor: Modularise ledger (#6536)
+f170f4c2c fix tests, improve code
+137de6f8a add obsolete field to non-admin
+ee368f709 Fix amendment vetoed field type - use boolean and add obsolete field
+0eedefbf4 refactor: Enable more clang-tidy readability checks (#6595)
+57e4cbbcd refactor: Add simple clang-tidy readability checks (#6556)
+72f4cb097 refactor: Enable remaining clang-tidy `cppcoreguidelines` checks (#6538)
+722215009 refactor: Rename fixLendingProtocolV1_1 to featureLendingProtocolV1_1 (#6527)
+a896ed398 chore: Enable clang-tidy `bugprone-optional-value-conversion` check (#6470)
+803ab67fc fix: address auditor feedbacks (#6511)
+945cfa3e5 Fix build errors
+29b0076fa Use new protocol version instead of amendment, add tests
+5d0bf7851 Clang-format to 100 line length
+953b9a350 Disable reusing wasm module (#6364)
+69084a6ff feature BatchV1_1
+44e099e45 fix merge errors
+8b5ff313b Update formatting
+6266899ac Update formatting
+7eee8ca80 Update formatting
+2c1fad102 chore: Apply clang-format width 100 (#6387)
+1b4a56436 fix build issues
+fe8cc02bf Refine
+0976b2b68 refactor: Modularize app/tx (#6228)
+36240116a refactor: Decouple app/tx from `Application` and `Config` (#6227)
+958d8f375 chore: Update clang-format to 21.1.8 (#6352)
+832a7e7e4 Remove depth, do not include node ID for leaf nodes
+9b9027112 Use helper functions
+ac0ad3627 refactor: Modularize `HashRouter`, `Conditions`, and `OrderBookDB` (#6226)
+8e7889c66 Refactor
+5edd3566f refactor: Modularize the NetworkOPs interface (#6225)
+10864f195 Remove ability to re-use wasm module
+281dbd287 Add unit tests
+1cb7c0293 Check if amendment is enabled
+93e98ac71 Allow Lending transactions in Batch
+2d78d41f7 perf: Replace node ID by depth in TMLedgerNode
+ef284692d refactor: Modularize WalletDB and Manifest (#6223)
+e11f6190b fix: Update invariant checks for Permissioned Domains (#6134)
+3422c11d0 adds lending v1.1 fix amendment
+781368309 fix: Deletes expired NFToken offers from ledger (#5707)
+69c61b223 fix merge issues
+803a344c6 fix clang-format
+5f638f555 chore: Set ColumnLimit to 120 in clang-format (#6288)
+f2a428750 (origin/vlntb/number-perf-experiments-2) disable tests
+981ac7abf simplify fee code (#6249)
+f76bf5340 flyby change removing unused includes
+ed4e9de73 (origin/a1q123456/modularise-transactors) Move app/tx to libxrpl
+5aa5ce1ce Move OrderBookDB to libxrpl
+7eb5a90b4 Move HashRouter to libxrpl
+8bba90df0 Decouple app/tx from Application
+69b2be865 Move the NetworkOPs interface to libxrpl
+947963d46 Modularise WalletDB and Manifest
+2601442e1 Improve and fix bugs in Lending Protocol (#6102)
+29d530804 (origin/a1q123456/modularise-jtx) Move app/tx to libxrpl
+131629387 Move OrderBookDB to libxrpl
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 fix: Inner batch transactions never have valid signatures (#6069)
+b2c5927b4 fix: Inner batch transactions never have valid signatures (#6069)
+a95f58187 Move the NetworkOPs interface to libxrpl
+17a6b94dc Move HashRouter to libxrpl
+2c1eebbd2 Decouple app/tx from Application
+d5fc0cdc5 Remove Application from NetworkOPs
+07ff532d3 refactor: Fix spelling issues in all variables/functions (#6184)
+3666cedf5 Modularise WalletDB and Manifest
+046e84664 Update app/ledger
+4c8d9b576 (origin/vlntb/RIPD-4257-fix-tecFROZEN) Freeze specific for LP and SAV
+6da92d892 (origin/dangell/smart-contracts) feature
+1eb0fdac6 refactor: Rename `ripple` namespace to `xrpl` (#5982)
+cb744e76a GlobalFreezeIssuer amendment
+354531f94 Fix Overpayment Calculation  (#6087)
+4a04181ad Wasm fee voting
+801110ee0 Wasmi engine
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+b772f6281 Revert "Implement Lending Protocol (unsupported) (#5270)"
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+a791c03dc refactor: Retire DeletableAccounts amendment (#6056)
+2c187461c refactor: Retire NegativeUNL amendment (#6033)
+508937f3d refactor: Retire MultiSignReserve and ExpandedSignerList amendments (#5981)
+dfafb141c refactor: Retire fixAmendmentMajorityCalc amendment (#5961)
+fa6991812 fix: Address permission delegation vulnerability (#5825)
+5b2ab905c chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+5117ef831 Merge branch 'develop' into ximinez/lending-XLS-66
+176fd2b6e chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+86525d858 test: add tests for fee voting (#5747)
+51ef35ab5 fix: Transaction sig checking functions do not get a full context (#5829)
+e1b234cc5 fix: Transaction sig checking functions do not get a full context
+550f90a75 refactor: Add support for extra transaction signatures (#5594)
+d02c306f1 test: add more comprehensive tests for `FeeVote` (#5746)
+51c5f2bfc Improve ValidatorList invalid UNL manifest logging (#5804)
+7420f4765 SmartEscrow fee voting changes
+6be8f2124 Latests HF perf test (#5789)
+dc8b37a52 refactor: Modularise ledger (#5493)
+510314d34 fix(amendment): Add missing fields for keylets to ledger objects (#5646)
+49eb1cc54 Remove LoanDraw transaction (#5792)
+f03c3aafe misc host function files
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+1d141bf2e chore: move WASM files to separate folder (#5666)
+0d0e279ae Float point Hostfunctions unit tests (#5656)
+b7ed99426 fix: Make test suite names match the directory name (#5597)
+97f0747e1 chore: Run prettier on all files (#5657)
+38c7a2701 clean up WASM functions a bit (#5628)
+842647050 feat: add other misc host functions (#5574)
+3b849ff49 Add unit tests for host functions (#5578)
+c233df720 refactor: Makes HashRouter flags more type-safe (#5371)
+b8626ea3c Add MPT related txns into issuer's account history  (#5530)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+28f50cb7c fix: enable LedgerStateFix for delegation (#5427)
+3e152fec7 refactor: use east const convention (#5409)
+2db279180 Add PermissionDelegation feature (#5354)
+911c0466c Merge develop into ripple/smart-escrow (#5357)
+d22a5057b Prevent consensus from getting stuck in the establish phase (#5277)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+c4d9635f2 Add logging and improve counting of amendment votes from UNL (#5173)
+8f6208eb6 Revert "Reduce duplicate peer traffic for ledger data (#5126)" (#5300)
+51f427c4e Reduce duplicate peer traffic for ledger data (#5126)
+1a341cb9c Add [validator_list_threshold] to validators.txt to improve UNL security (#5112)
+670419494 Add Antithesis intrumentation (#5042)
+dce3e1efa Add logging and improve counting of amendment votes from UNL (#5173)
+159dfb5ac Revert "Reduce duplicate peer traffic for ledger data (#5126)" (#5300)
+dd5e6559d Reduce duplicate peer traffic for ledger data (#5126)
+5fbee8c82 Add [validator_list_threshold] to validators.txt to improve UNL security (#5112)
+d7e949193 Add Antithesis intrumentation (#5042)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+63209c264 Consolidate definitions of fields, objects, transactions, and features (#5122)
+552377c76 Reformat code with clang-format-18
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+9fec615dc fixInnerObjTemplate2 amendment (#5047)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+22b751834 feat: add user version of `feature` RPC (#4781)
+62dae3c6c Remove default ctors from SecretKey and PublicKey: (#4607)
+e718378bd  Price Oracle (XLS-47d): (#4789) (#4789)
+09e0f103f fix: check for valid public key in attestations (#4798)
+2bb8de030 fix: stabilize voting threshold for amendment majority mechanism (#4410)
+649c11a78 `XChainBridge`: Introduce sidechain support (XLS-38): (#4292)
+3c9db4b69 Introduce AMM support (XLS-30d): (#4294)
+c5003969d Use quorum specified via command line: (#4489)
+66627b26c Refactor fee initialization and configuration: (#4319)
+7aad6e512 feat: mark 4 amendments as obsolete: (#4291)
+e4b17d1cf `XRPFees`: Fee setting and handling improvements (#4247)
+28f4cc781 Remove gRPC code previously used for the xpring SDK
+01c37fed6 Introduce the `ExpandedSignerList` amendment:
+4a9bd7ed6 Refactor Feature name management and creation:
+8d59c7dd4 Redistribute unit test priorities based on current measurements
+3b33318dc Prefer std::optional over boost:optional:
+4b9d3ca7d Support UNLs with future effective dates:
+28ed2b9e6 Persist API-configured voting settings:
+068db1f48 Generalize unit test that depends on number of amendments
+b1d47c65d Add public_key to the "vl" method response:
+7724cca38 Implement enhanced Ticket support:
+12c0e8148 Improve naming of fields associated with the NegativeUNL
+706ca874b Implement negative UNL functionality:
+df29e98ea Improve amendment processing and activation logic:
+68494a308 AmendmentTable improvements
+381606aba Harden validations:
+3bf0b724a Adjust timeouts in Validator Site tests:
+50760c693 Format first-party source according to .clang-format
+e7ce3909d gRPC support for account_tx and tx
+2c71802e3 Propagate validator lists (VLs or UNLs) over the peer network:
+5ff23f8f3 Warn operators about upcoming unknown amendments:
+e3b5b808c Add units to all fee calculations:
+a3a9dc26b Introduce support for deletable accounts:
+9213c49ca Honor SSL config settings for ValidatorSites:
+b9e73b485 Fix shadowing variables
+dd99bf479 Enforce a 20s timeout when making validator list requests (RIPD-1737)
+88cb0e592 Allow manifests to include an optional 'domain' field:

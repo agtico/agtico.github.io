@@ -1696,6 +1696,34 @@ Interpretation: this did not isolate a new Moby Dick P0. The checked core
 cleanup paths did not show account deletion with live obligations, stranded
 core owner objects, owner-count drift, or missing cleanup.
 
+## Demoted: legacy governance and pseudo-transaction sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether old amendment voting, fee voting, validator-list,
+negative-UNL, validator-site, validator-key, load-fee, or pseudo-transaction
+machinery could expose consensus governance drift, bad pseudo-transaction
+validation, malformed fee setting, validator-list quorum/trust error,
+negative-UNL handling error, or unsigned governance state transition. The sweep
+covered `AmendmentTable`, `FeeVote`, `PseudoTx`, `ValidatorList`,
+`ValidatorSite`, `ValidatorKeys`, `LoadFeeTrack`, amendment majority/veto
+logic, `SetFee`, negative-UNL handling, and trusted-validator list parsing.
+
+The focused source/history sweep and upstream governance suites were
+packet-bound:
+
+```text
+legacy_governance_pseudotx_static_sweep_20260528.log sha256 575cb9b65f3d4d308f695f030d8e2a78b8d7d588d741ce3b277f8af9b5e83ccd
+legacy_governance_pseudotx_history_sweep_20260528.log sha256 bccaf0e1845876d1d4caa6069d621bc7a0b905f36d6ad4caedbb0a6f7da1d1d4
+legacy_governance_pseudotx_source_kill_20260528.log sha256 7c0448b965667a5e765543a26302f6856bbf6f125f3293dbe56a76138bf6e46e
+40.5s, 7 suites, 126 cases, 9939 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. The checked governance
+and pseudo-transaction paths did not show bad amendment majority/veto state,
+malformed fee-vote pseudo transaction, validator-list trust/quorum drift,
+negative-UNL state corruption, or unsigned pseudo-transaction acceptance.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
