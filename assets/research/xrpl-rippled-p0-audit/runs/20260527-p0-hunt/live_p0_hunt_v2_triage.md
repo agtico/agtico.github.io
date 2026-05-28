@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-28T10:16:34Z`
+Checked: `2026-05-28T10:28:36Z`
 
 ## Live Scope
 
@@ -40,8 +40,10 @@ Disabled surfaces that remain excluded:
 - `SingleAssetVault`
 - `PermissionDelegation`
 - `Batch`
+- `XChainBridge`
 - `fixDelegateV1_1`
 - `fixDisallowIncomingV1_1`
+- `fixXChainRewardRounding`
 
 `fixCleanup3_1_3` is included by raw amendment hash
 `303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC`.
@@ -220,6 +222,15 @@ one of the WHIP gates:
   expired-credential cleanup, DepositAuth, PermissionedDomain, DID,
   account-cleanup, RPC visibility, owner-count, directory, or invariant witness
   was isolated.
+- `XCHAIN-BRIDGE-LIVE-GATE-SWEEP-001` closed the open bridge candidate lane.
+  Direct `feature` calls against `s1.ripple.com` and `s2.ripple.com` showed
+  `XChainBridge` and `fixXChainRewardRounding` are supported but disabled at
+  validated ledger `104535656`, hash
+  `45489521F86EBEBE317210579A50D680802199BF6D912A737147EAFD9AC2E58D`.
+  Static/history review plus `XChain`, `XChainSim`, `AccountObjects`, and
+  `LedgerEntry` passed with 42 cases and 56,064 tests. Bridge candidates remain
+  excluded from the live packet unless direct mainnet status later shows the
+  bridge amendment surface enabled.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
@@ -263,5 +274,5 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 
 No explicit remaining current-tag live-feature target is listed in this lane.
 The next pass should pivot only if a new source signal appears, or return to
-the whip's legacy-core source-signal queue instead of forcing another
+the whip's legacy-core source-signal queue instead of forcing another bridge or
 Credentials variant without a new lead.

@@ -1,0 +1,65 @@
+5aa3d5e23 refactor: Remove erroneous base_uint ctor from container (#46)
+4e066ea45 refactor: Apply various minor improvements and corrections (#6739)
+b8577bd7b Fix: Perform array size check (#6030)
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+5b2ab905c chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+d67dcfe3c refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+dc8b37a52 refactor: Modularise ledger (#5493)
+e0b9812fc Refactor `ledger_entry` RPC source code and tests (#5237)
+b7ed99426 fix: Make test suite names match the directory name (#5597)
+8bfaa7fe0 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+3e152fec7 refactor: use east const convention (#5409)
+2db279180 Add PermissionDelegation feature (#5354)
+e429455f4 refactor(trivial): reorganize ledger entry tests and helper functions (#5376)
+2bc5cb240 test: enable unit tests to work with variable reference fee (#5145)
+c17676a9b refactor: Improve ordering of headers with clang-format (#5343)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+50b8f19cb Fix CI unit tests (#5196)
+ccc088980 Permissioned Domains (XLS-80d) (#5161)
+5cd72f243 Add MPTIssue to STIssue (#5200)
+eabca8439 Antithesis instrumentation improvements (#5213)
+ea1fffeeb Enforce levelization in libxrpl with CMake (#5111)
+d7e949193 Add Antithesis intrumentation (#5042)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+d4a5f8390 fix: reject invalid markers in account_objects RPC calls (#5046)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+63209c264 Consolidate definitions of fields, objects, transactions, and features (#5122)
+8b181ed81 Merge branch 'master' into develop
+d54151e7c Disallow filtering account_objects by unsupported types (#5056)
+eba5d1937 Improve error handling in some RPC commands
+e1534a320 fix "account_nfts" with unassociated marker returning issue (#5045)
+9fec615dc fixInnerObjTemplate2 amendment (#5047)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+0eebe6a5f Rewrite includes
+62dae3c6c Remove default ctors from SecretKey and PublicKey: (#4607)
+09e0f103f fix: check for valid public key in attestations (#4798)
+b421945e7 `DID`: Decentralized identifiers (DIDs) (XLS-40): (#4636)
+925aca764 fix(XLS-38): disallow the same bridge on one chain: (#4720)
+5b7d2c133 Change `XChainBridge` amendment to `Supported::yes` (#4709)
+649c11a78 `XChainBridge`: Introduce sidechain support (XLS-38): (#4292)
+b014b79d8 amm_info: fetch by amm account id; add AMM object entry (#4682)
+78076a690 fix!: Prevent API from accepting seed or public key for account (#4404)
+f191c911d Add NFTokenPages to account_objects RPC: (#4352)
+44fe0e1fc Add support for the 'TicketBatch' amendment:
+f07246940 Simplify & modernize code:
+7724cca38 Implement enhanced Ticket support:
+50760c693 Format first-party source according to .clang-format
+906b9ae00 Don't use `set` in AccountObjects test:
+a3a9dc26b Introduce support for deletable accounts:
+7e7664c29 Add deletion_blockers_only param to account_objects RPC command
+28b942b18 Enhance AccountTx unit test
+f8365f500 Add JsonOptions enum class to contain options passed to getJSON methods
+b39b0fef3 Get names of transactions and ledger types from jss
+64b55c0f8 Rename JsonFields.h to jss.h:
+008ff67ac Add DepositPreauth ledger type and transaction (RIPD-1624):
+88570df13 Allow account_objects RPC to filter by "check" (RIPD-1589):
+cd1924693 Enable batch rpc processing
+463b154e3 Improve directory insertion & deletion (RIPD-1353, RIPD-1488):
+fb60cc9b5 Cleanup unit test support code (RIPD-1380):
+b6a01ea41 Move support test code to src/test/support (RIPD-1313)
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

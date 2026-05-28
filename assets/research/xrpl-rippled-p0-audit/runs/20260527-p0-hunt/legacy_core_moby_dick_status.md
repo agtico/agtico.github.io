@@ -18,15 +18,15 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T10:16:36Z
-amendment_checked_utc: 2026-05-28T10:16:34Z
+runtime_checked_utc: 2026-05-28T10:28:38Z
+amendment_checked_utc: 2026-05-28T10:28:36Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
-s2.ripple.com: rippled 3.1.3, ledger 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
-runtime feature/amendment receipt ledger: 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
-amendment feature/amendment receipt ledger: 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
-runtime receipt sha256: 38785ee304da1efe3d4bce62f183ef7d5db0b3927fd63ec01a6307461e3b3ae5
-amendment receipt sha256: 0abb2801c2d86dc6cef0da3215f059733d82644b3ac957e58fb8e7e5eb8361ae
+s1.ripple.com: rippled 3.1.3, ledger 104535615, hash 6B0DF51146700A1E30CA68D5DAA53AD958246A843323CD85F955EF66B516DE37
+s2.ripple.com: rippled 3.1.3, ledger 104535615, hash 6B0DF51146700A1E30CA68D5DAA53AD958246A843323CD85F955EF66B516DE37
+runtime feature/amendment receipt ledger: 104535615, hash 6B0DF51146700A1E30CA68D5DAA53AD958246A843323CD85F955EF66B516DE37
+amendment feature/amendment receipt ledger: 104535615, hash 6B0DF51146700A1E30CA68D5DAA53AD958246A843323CD85F955EF66B516DE37
+runtime receipt sha256: 150bcf249021d57293276de238e5bfddb90f5b79f5a13cc3ba4b338ac746af96
+amendment receipt sha256: a253335ef4bace451ae98f942d31539d544694a75f8c5e62975a9694cc571079
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -75,6 +75,8 @@ Completed and packet-bound work:
   DepositAuth, and result-code boundary sweep.
 - Credentials create, accept, delete, helper cleanup, DepositAuth, domain, RPC,
   owner-directory, owner-count, and invariant source and suite sweep.
+- XChainBridge live-gate, bridge transaction, bridge RPC, and bridge invariant
+  source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -146,6 +148,21 @@ credentials_current_tag_surface_static_sweep_20260528.log sha256 43b494f6da8ca4c
 credentials_current_tag_surface_history_sweep_20260528.log sha256 0ba4427881b5e9100b76ba4ac4a1f115370dd8ab59686171330baaa2bcd219be
 credentials_current_tag_surface_source_kill_20260528.log sha256 de40b800e94e4a19b09e3e54d14ffd2731cad298e9cbd60924fb533ef3555b58
 101.7s, 15 suites, 381 cases, 48135 tests total, 0 failures
+```
+
+The following continuation closed the open bridge lane by live gate. Direct
+XRPL `feature` calls to `s1.ripple.com` and `s2.ripple.com` showed
+`XChainBridge` and `fixXChainRewardRounding` are supported but disabled on the
+same validated ledger. Focused XChain, XChainSim, AccountObjects, and
+LedgerEntry suites passed locally, but the live-mainnet packet cannot promote a
+bridge candidate while the required amendment surface is disabled.
+
+```text
+xchain_bridge_feature_status_20260528.json sha256 86a50d1de9df2601e07be0e09d5ddefb77c22b11106c3eec58af9cd9672d8b9e
+xchain_bridge_live_gate_static_sweep_20260528.log sha256 52c3491dc8719c9b1c7c5228d63c18336f5547aceb87bed75ac0fe861b31dd38
+xchain_bridge_live_gate_history_sweep_20260528.log sha256 a8cb4a51b0cfe3ec74664abae9a043130dab239da4e3a2b37864472ccab47187
+xchain_bridge_live_gate_source_kill_20260528.log sha256 e5c9c16fc01a604825af90d63340b94beaefb3c2abbbb708108ad3b46e3774de
+42.8s, 4 suites, 42 cases, 56064 tests total, 0 failures
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new

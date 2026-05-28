@@ -6,7 +6,7 @@ This directory is the live-filtered evidence packet for the AGTI report:
 
 The packet includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-28T10:16:34Z`. Public XRPL servers checked in
+query checked at `2026-05-28T10:28:36Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
 
@@ -43,6 +43,7 @@ Included findings must satisfy both conditions:
 | `direct_xrpl_did_feature_status_20260528.json` | Direct XRPL feature receipt binding `DID` and `fixEmptyDID` live status for a demoted source-kill sweep; it is not a packet finding. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
 | `runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json` | Direct `s1.ripple.com` / `s2.ripple.com` runtime and amendment snapshot for the legacy-core continuation slice. |
+| `runs/20260527-p0-hunt/xchain_bridge_feature_status_20260528.json` | Direct XRPL feature receipt showing `XChainBridge` and `fixXChainRewardRounding` are supported but disabled on the checked validated ledger; it is not a packet finding. |
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch` | Focused `2.5.0` old-tag test patch for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log` | `2.5.0` old-tag `SetTrust` proof log showing the reserve/owner-count drift probe passed. |

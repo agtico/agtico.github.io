@@ -2004,8 +2004,37 @@ but did not produce a new credential create/accept/delete, expired-credential
 cleanup, PermissionedDomain, DID, account-cleanup, owner-count, directory, or
 invariant witness.
 
+## Demoted: XChainBridge live-gate sweep
+
+Status: direct-live-gated and suite-tested on upstream `3.1.3`; not a packet
+finding.
+
+The open bridge lane asked whether XChain claim/account-create counters,
+attestations, bridge object lookup, bridge RPC visibility, or bridge
+transaction result-code paths could produce a live-mainnet candidate.
+
+Direct XRPL `feature` calls against `s1.ripple.com` and `s2.ripple.com` showed
+both `XChainBridge` and `fixXChainRewardRounding` are supported but disabled on
+validated ledger `104535656`, hash
+`45489521F86EBEBE317210579A50D680802199BF6D912A737147EAFD9AC2E58D`.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+xchain_bridge_feature_status_20260528.json sha256 86a50d1de9df2601e07be0e09d5ddefb77c22b11106c3eec58af9cd9672d8b9e
+xchain_bridge_live_gate_static_sweep_20260528.log sha256 52c3491dc8719c9b1c7c5228d63c18336f5547aceb87bed75ac0fe861b31dd38
+xchain_bridge_live_gate_history_sweep_20260528.log sha256 a8cb4a51b0cfe3ec74664abae9a043130dab239da4e3a2b37864472ccab47187
+xchain_bridge_live_gate_source_kill_20260528.log sha256 e5c9c16fc01a604825af90d63340b94beaefb3c2abbbb708108ad3b46e3774de
+42.8s, 4 suites, 42 cases, 56064 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a live bridge P0. The live gate alone
+excludes bridge candidates from the packet unless mainnet later enables the
+amendment surface; the local suite run also passed across XChain transaction,
+simulation, AccountObjects, and LedgerEntry coverage.
+
 ## Open candidates
 
-The bridge, NFT, authorization, and remaining vault/loan candidates are
+The NFT, authorization, and remaining vault/loan candidates are
 source-backed or model-triaged but not reproduced. They stay in
 `candidate_matrix.md` until a clean jtx or unit-level repro exists.

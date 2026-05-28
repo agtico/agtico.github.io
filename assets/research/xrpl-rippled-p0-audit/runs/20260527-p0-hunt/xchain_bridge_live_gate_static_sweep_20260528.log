@@ -1,0 +1,1098 @@
+src/test/jtx/xchain_bridge.h:29:#include <xrpl/protocol/XChainAttestations.h>
+src/test/jtx/xchain_bridge.h:90:    AnyAmount const& xChainFee);
+src/test/jtx/xchain_bridge.h:102:    Json::Value const& jvBridge,
+src/test/jtx/xchain_bridge.h:114:    Json::Value const& jvBridge,
+src/test/jtx/xchain_bridge.h:127:    Json::Value const& jvBridge,
+src/test/jtx/xchain_bridge.h:141:    Json::Value const& jvBridge,
+src/test/jtx/xchain_bridge.h:153:struct XChainBridgeObjects
+src/test/jtx/xchain_bridge.h:167:    Account const scReward;
+src/test/jtx/xchain_bridge.h:184:    Json::Value const jvXRPBridgeRPC;
+src/test/jtx/xchain_bridge.h:208:    XChainBridgeObjects();
+src/test/jtx/xchain_bridge.h:211:    createMcBridgeObjects(Env& mcEnv);
+src/test/jtx/xchain_bridge.h:214:    createScBridgeObjects(Env& scEnv);
+src/test/jtx/xchain_bridge.h:217:    createBridgeObjects(Env& mcEnv, Env& scEnv);
+src/test/jtx/impl/xchain_bridge.cpp:31:#include <xrpl/protocol/XChainAttestations.h>
+src/test/jtx/impl/xchain_bridge.cpp:80:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:81:    jv[sfSignatureReward.getJsonName()] = reward.getJson(JsonOptions::none);
+src/test/jtx/impl/xchain_bridge.cpp:86:    jv[jss::TransactionType] = jss::XChainCreateBridge;
+src/test/jtx/impl/xchain_bridge.cpp:100:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:102:        jv[sfSignatureReward.getJsonName()] =
+src/test/jtx/impl/xchain_bridge.cpp:108:    jv[jss::TransactionType] = jss::XChainModifyBridge;
+src/test/jtx/impl/xchain_bridge.cpp:122:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:123:    jv[sfSignatureReward.getJsonName()] = reward.getJson(JsonOptions::none);
+src/test/jtx/impl/xchain_bridge.cpp:126:    jv[jss::TransactionType] = jss::XChainCreateClaimID;
+src/test/jtx/impl/xchain_bridge.cpp:141:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:142:    jv[sfXChainClaimID.getJsonName()] = claimID;
+src/test/jtx/impl/xchain_bridge.cpp:147:    jv[jss::TransactionType] = jss::XChainCommit;
+src/test/jtx/impl/xchain_bridge.cpp:162:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:163:    jv[sfXChainClaimID.getJsonName()] = claimID;
+src/test/jtx/impl/xchain_bridge.cpp:167:    jv[jss::TransactionType] = jss::XChainClaim;
+src/test/jtx/impl/xchain_bridge.cpp:182:    jv[sfXChainBridge.getJsonName()] = bridge;
+src/test/jtx/impl/xchain_bridge.cpp:185:    jv[sfSignatureReward.getJsonName()] =
+src/test/jtx/impl/xchain_bridge.cpp:188:    jv[jss::TransactionType] = jss::XChainAccountCreateCommit;
+src/test/jtx/impl/xchain_bridge.cpp:195:    Json::Value const& jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:204:    STXChainBridge const stBridge(jvBridge);
+src/test/jtx/impl/xchain_bridge.cpp:211:        stBridge,
+src/test/jtx/impl/xchain_bridge.cpp:222:    result[sfXChainBridge.getJsonName()] = jvBridge;
+src/test/jtx/impl/xchain_bridge.cpp:224:    result[sfAttestationSignerAccount.getJsonName()] = signer.account.human();
+src/test/jtx/impl/xchain_bridge.cpp:230:    result[sfAttestationRewardAccount.getJsonName()] = toBase58(rewardAccount);
+src/test/jtx/impl/xchain_bridge.cpp:233:    result[sfXChainClaimID.getJsonName()] =
+src/test/jtx/impl/xchain_bridge.cpp:238:    result[jss::TransactionType] = jss::XChainAddClaimAttestation;
+src/test/jtx/impl/xchain_bridge.cpp:246:    Json::Value const& jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:256:    STXChainBridge const stBridge(jvBridge);
+src/test/jtx/impl/xchain_bridge.cpp:263:        stBridge,
+src/test/jtx/impl/xchain_bridge.cpp:275:    result[sfXChainBridge.getJsonName()] = jvBridge;
+src/test/jtx/impl/xchain_bridge.cpp:277:    result[sfAttestationSignerAccount.getJsonName()] = signer.account.human();
+src/test/jtx/impl/xchain_bridge.cpp:283:    result[sfAttestationRewardAccount.getJsonName()] = toBase58(rewardAccount);
+src/test/jtx/impl/xchain_bridge.cpp:286:    result[sfXChainAccountCreateCount.getJsonName()] =
+src/test/jtx/impl/xchain_bridge.cpp:289:    result[sfSignatureReward.getJsonName()] =
+src/test/jtx/impl/xchain_bridge.cpp:292:    result[jss::TransactionType] = jss::XChainAddAccountCreateAttestation;
+src/test/jtx/impl/xchain_bridge.cpp:300:    Json::Value const& jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:318:            jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:332:    Json::Value const& jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:351:            jvBridge,
+src/test/jtx/impl/xchain_bridge.cpp:363:XChainBridgeObjects::XChainBridgeObjects()
+src/test/jtx/impl/xchain_bridge.cpp:375:    , scReward("scReward")
+src/test/jtx/impl/xchain_bridge.cpp:388:    , jvXRPBridgeRPC(
+src/test/jtx/impl/xchain_bridge.cpp:392:    , features(testable_amendments() | FeatureBitset{featureXChainBridge})
+src/test/jtx/impl/xchain_bridge.cpp:426:            r.push_back(scReward);
+src/test/jtx/impl/xchain_bridge.cpp:466:XChainBridgeObjects::createMcBridgeObjects(Env& mcEnv)
+src/test/jtx/impl/xchain_bridge.cpp:483:XChainBridgeObjects::createScBridgeObjects(Env& scEnv)
+src/test/jtx/impl/xchain_bridge.cpp:487:        xrp_funds, scDoor, scAlice, scBob, scCarol, scGw, scAttester, scReward);
+src/test/jtx/impl/xchain_bridge.cpp:501:XChainBridgeObjects::createBridgeObjects(Env& mcEnv, Env& scEnv)
+src/test/jtx/impl/xchain_bridge.cpp:503:    createMcBridgeObjects(mcEnv);
+src/test/jtx/impl/xchain_bridge.cpp:504:    createScBridgeObjects(scEnv);
+src/test/rpc/LedgerEntry_test.cpp:31:#include <xrpl/protocol/STXChainBridge.h>
+src/test/rpc/LedgerEntry_test.cpp:68:    {jss::owner, FieldType::AccountField},
+src/test/rpc/LedgerEntry_test.cpp:120:class LedgerEntry_test : public beast::unit_test::suite
+src/test/rpc/LedgerEntry_test.cpp:404:    runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:427:    runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:466:    testLedgerEntryInvalid()
+src/test/rpc/LedgerEntry_test.cpp:548:    testLedgerEntryAccountRoot()
+src/test/rpc/LedgerEntry_test.cpp:654:    testLedgerEntryCheck()
+src/test/rpc/LedgerEntry_test.cpp:677:                jrr[jss::node][sfLedgerEntryType.jsonName] == jss::Check);
+src/test/rpc/LedgerEntry_test.cpp:701:            runLedgerEntryTest(env, jss::check);
+src/test/rpc/LedgerEntry_test.cpp:706:    testLedgerEntryCredentials()
+src/test/rpc/LedgerEntry_test.cpp:733:                    sfLedgerEntryType.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:734:                jv[jss::result][jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:745:                    sfLedgerEntryType.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:746:                jv[jss::result][jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:762:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:774:    testLedgerEntryDelegate()
+src/test/rpc/LedgerEntry_test.cpp:798:                jrr[jss::node][sfLedgerEntryType.jsonName] == jss::Delegate);
+src/test/rpc/LedgerEntry_test.cpp:811:                jrr[jss::node][sfLedgerEntryType.jsonName] == jss::Delegate);
+src/test/rpc/LedgerEntry_test.cpp:818:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:829:    testLedgerEntryDepositPreauth()
+src/test/rpc/LedgerEntry_test.cpp:848:            // Request a depositPreauth by owner and authorized.
+src/test/rpc/LedgerEntry_test.cpp:850:            jvParams[jss::deposit_preauth][jss::owner] = alice.human();
+src/test/rpc/LedgerEntry_test.cpp:857:                jrr[jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:872:                jrr[jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:879:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:883:                    {jss::owner, "malformedOwner"},
+src/test/rpc/LedgerEntry_test.cpp:890:    testLedgerEntryDepositPreauthCred()
+src/test/rpc/LedgerEntry_test.cpp:917:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:936:                    sfLedgerEntryType.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:937:                jrr[jss::result][jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:945:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:977:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1002:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1035:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1061:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1076:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1096:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1118:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1148:            jvParams[jss::deposit_preauth][jss::owner] = bob.human();
+src/test/rpc/LedgerEntry_test.cpp:1173:    testLedgerEntryDirectory()
+src/test/rpc/LedgerEntry_test.cpp:1187:        // Run up the number of directory entries so alice has two
+src/test/rpc/LedgerEntry_test.cpp:1188:        // directory nodes.
+src/test/rpc/LedgerEntry_test.cpp:1206:            // Locate directory by index.
+src/test/rpc/LedgerEntry_test.cpp:1208:            jvParams[jss::directory] = dirRootIndex;
+src/test/rpc/LedgerEntry_test.cpp:1215:            // Locate directory by directory root.
+src/test/rpc/LedgerEntry_test.cpp:1217:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1218:            jvParams[jss::directory][jss::dir_root] = dirRootIndex;
+src/test/rpc/LedgerEntry_test.cpp:1224:            // Locate directory by owner.
+src/test/rpc/LedgerEntry_test.cpp:1226:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1227:            jvParams[jss::directory][jss::owner] = alice.human();
+src/test/rpc/LedgerEntry_test.cpp:1234:            // Locate directory by directory root and sub_index.
+src/test/rpc/LedgerEntry_test.cpp:1236:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1237:            jvParams[jss::directory][jss::dir_root] = dirRootIndex;
+src/test/rpc/LedgerEntry_test.cpp:1238:            jvParams[jss::directory][jss::sub_index] = 1;
+src/test/rpc/LedgerEntry_test.cpp:1245:            // Locate directory by owner and sub_index.
+src/test/rpc/LedgerEntry_test.cpp:1247:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1248:            jvParams[jss::directory][jss::owner] = alice.human();
+src/test/rpc/LedgerEntry_test.cpp:1249:            jvParams[jss::directory][jss::sub_index] = 1;
+src/test/rpc/LedgerEntry_test.cpp:1257:            // Bad directory argument.
+src/test/rpc/LedgerEntry_test.cpp:1263:                jss::directory,
+src/test/rpc/LedgerEntry_test.cpp:1270:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1271:            jvParams[jss::directory][jss::dir_root] = dirRootIndex;
+src/test/rpc/LedgerEntry_test.cpp:1276:                jss::directory,
+src/test/rpc/LedgerEntry_test.cpp:1283:            // Malformed owner entry.
+src/test/rpc/LedgerEntry_test.cpp:1285:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1291:                jss::directory,
+src/test/rpc/LedgerEntry_test.cpp:1292:                jss::owner,
+src/test/rpc/LedgerEntry_test.cpp:1298:            // Malformed directory object.  Specifies both dir_root and owner.
+src/test/rpc/LedgerEntry_test.cpp:1300:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1301:            jvParams[jss::directory][jss::owner] = alice.human();
+src/test/rpc/LedgerEntry_test.cpp:1302:            jvParams[jss::directory][jss::dir_root] = dirRootIndex;
+src/test/rpc/LedgerEntry_test.cpp:1309:                "Must have exactly one of `owner` and `dir_root` fields.");
+src/test/rpc/LedgerEntry_test.cpp:1312:            // Incomplete directory object.  Missing both dir_root and owner.
+src/test/rpc/LedgerEntry_test.cpp:1314:            jvParams[jss::directory] = Json::objectValue;
+src/test/rpc/LedgerEntry_test.cpp:1315:            jvParams[jss::directory][jss::sub_index] = 1;
+src/test/rpc/LedgerEntry_test.cpp:1322:                "Must have exactly one of `owner` and `dir_root` fields.");
+src/test/rpc/LedgerEntry_test.cpp:1327:    testLedgerEntryEscrow()
+src/test/rpc/LedgerEntry_test.cpp:1358:            // Request the escrow using owner and sequence.
+src/test/rpc/LedgerEntry_test.cpp:1361:            jvParams[jss::escrow][jss::owner] = alice.human();
+src/test/rpc/LedgerEntry_test.cpp:1381:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:1384:                {{jss::owner, "malformedOwner"}, {jss::seq, "malformedSeq"}});
+src/test/rpc/LedgerEntry_test.cpp:1389:    testLedgerEntryOffer()
+src/test/rpc/LedgerEntry_test.cpp:1406:            // Request the offer using owner and sequence.
+src/test/rpc/LedgerEntry_test.cpp:1428:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:1437:    testLedgerEntryPayChan()
+src/test/rpc/LedgerEntry_test.cpp:1494:            runLedgerEntryTest(env, jss::payment_channel);
+src/test/rpc/LedgerEntry_test.cpp:1499:    testLedgerEntryRippleState()
+src/test/rpc/LedgerEntry_test.cpp:1538:                runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:1649:    testLedgerEntryTicket()
+src/test/rpc/LedgerEntry_test.cpp:1683:                jrr[jss::node][sfLedgerEntryType.jsonName] == jss::Ticket);
+src/test/rpc/LedgerEntry_test.cpp:1723:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:1734:    testLedgerEntryDID()
+src/test/rpc/LedgerEntry_test.cpp:1795:    testInvalidOracleLedgerEntry()
+src/test/rpc/LedgerEntry_test.cpp:1802:        Account const owner("owner");
+src/test/rpc/LedgerEntry_test.cpp:1803:        env.fund(XRP(1'000), owner);
+src/test/rpc/LedgerEntry_test.cpp:1806:            {.owner = owner,
+src/test/rpc/LedgerEntry_test.cpp:1811:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:1822:    testOracleLedgerEntry()
+src/test/rpc/LedgerEntry_test.cpp:1835:            Account const owner(std::string("owner") + std::to_string(i));
+src/test/rpc/LedgerEntry_test.cpp:1836:            env.fund(XRP(1'000), owner);
+src/test/rpc/LedgerEntry_test.cpp:1839:                env, {.owner = owner, .documentID = i, .fee = baseFee});
+src/test/rpc/LedgerEntry_test.cpp:1840:            accounts.push_back(owner.id());
+src/test/rpc/LedgerEntry_test.cpp:1844:                env, {.owner = owner, .documentID = i + 10, .fee = baseFee});
+src/test/rpc/LedgerEntry_test.cpp:1845:            accounts.push_back(owner.id());
+src/test/rpc/LedgerEntry_test.cpp:1871:    testLedgerEntryMPT()
+src/test/rpc/LedgerEntry_test.cpp:1884:             .ownerCount = 1,
+src/test/rpc/LedgerEntry_test.cpp:1917:            // Request the MPToken using its owner + mptIssuanceID.
+src/test/rpc/LedgerEntry_test.cpp:1954:    testLedgerEntryPermissionedDomain()
+src/test/rpc/LedgerEntry_test.cpp:1987:                    sfLedgerEntryType.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:1988:                jv[jss::result][jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:2004:                    sfLedgerEntryType.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:2005:                jv[jss::result][jss::node][sfLedgerEntryType.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:2022:            runLedgerEntryTest(
+src/test/rpc/LedgerEntry_test.cpp:2033:    testLedgerEntryCLI()
+src/test/rpc/LedgerEntry_test.cpp:2054:                jrr[jss::node][sfLedgerEntryType.jsonName] == jss::Check);
+src/test/rpc/LedgerEntry_test.cpp:2063:        testLedgerEntryInvalid();
+src/test/rpc/LedgerEntry_test.cpp:2064:        testLedgerEntryAccountRoot();
+src/test/rpc/LedgerEntry_test.cpp:2065:        testLedgerEntryCheck();
+src/test/rpc/LedgerEntry_test.cpp:2066:        testLedgerEntryCredentials();
+src/test/rpc/LedgerEntry_test.cpp:2067:        testLedgerEntryDelegate();
+src/test/rpc/LedgerEntry_test.cpp:2068:        testLedgerEntryDepositPreauth();
+src/test/rpc/LedgerEntry_test.cpp:2069:        testLedgerEntryDepositPreauthCred();
+src/test/rpc/LedgerEntry_test.cpp:2070:        testLedgerEntryDirectory();
+src/test/rpc/LedgerEntry_test.cpp:2071:        testLedgerEntryEscrow();
+src/test/rpc/LedgerEntry_test.cpp:2072:        testLedgerEntryOffer();
+src/test/rpc/LedgerEntry_test.cpp:2073:        testLedgerEntryPayChan();
+src/test/rpc/LedgerEntry_test.cpp:2074:        testLedgerEntryRippleState();
+src/test/rpc/LedgerEntry_test.cpp:2075:        testLedgerEntryTicket();
+src/test/rpc/LedgerEntry_test.cpp:2076:        testLedgerEntryDID();
+src/test/rpc/LedgerEntry_test.cpp:2077:        testInvalidOracleLedgerEntry();
+src/test/rpc/LedgerEntry_test.cpp:2078:        testOracleLedgerEntry();
+src/test/rpc/LedgerEntry_test.cpp:2079:        testLedgerEntryMPT();
+src/test/rpc/LedgerEntry_test.cpp:2080:        testLedgerEntryPermissionedDomain();
+src/test/rpc/LedgerEntry_test.cpp:2081:        testLedgerEntryCLI();
+src/test/rpc/LedgerEntry_test.cpp:2085:class LedgerEntry_XChain_test : public beast::unit_test::suite,
+src/test/rpc/LedgerEntry_test.cpp:2086:                                public test::jtx::XChainBridgeObjects
+src/test/rpc/LedgerEntry_test.cpp:2109:    testLedgerEntryBridge()
+src/test/rpc/LedgerEntry_test.cpp:2117:        createBridgeObjects(mcEnv, scEnv);
+src/test/rpc/LedgerEntry_test.cpp:2121:        Json::Value mcBridge;
+src/test/rpc/LedgerEntry_test.cpp:2138:            BEAST_EXPECT(r.isMember(sfLedgerEntryType.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2139:            BEAST_EXPECT(r[sfLedgerEntryType.jsonName] == jss::Bridge);
+src/test/rpc/LedgerEntry_test.cpp:2142:            BEAST_EXPECT(r.isMember(sfXChainAccountCreateCount.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2143:            BEAST_EXPECT(r[sfXChainAccountCreateCount.jsonName].asInt() == 0);
+src/test/rpc/LedgerEntry_test.cpp:2146:            BEAST_EXPECT(r.isMember(sfXChainAccountClaimCount.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2147:            BEAST_EXPECT(r[sfXChainAccountClaimCount.jsonName].asInt() == 0);
+src/test/rpc/LedgerEntry_test.cpp:2151:            mcBridge = r;
+src/test/rpc/LedgerEntry_test.cpp:2161:            BEAST_EXPECT(jrr[jss::node] == mcBridge);
+src/test/rpc/LedgerEntry_test.cpp:2194:            BEAST_EXPECT(r.isMember(sfXChainClaimID.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2195:            BEAST_EXPECT(r[sfXChainClaimID.jsonName].asInt() == 2);
+src/test/rpc/LedgerEntry_test.cpp:2200:    testLedgerEntryClaimID()
+src/test/rpc/LedgerEntry_test.cpp:2208:        createBridgeObjects(mcEnv, scEnv);
+src/test/rpc/LedgerEntry_test.cpp:2219:            jvParams[jss::xchain_owned_claim_id] = jvXRPBridgeRPC;
+src/test/rpc/LedgerEntry_test.cpp:2231:                r[sfLedgerEntryType.jsonName] == jss::XChainOwnedClaimID);
+src/test/rpc/LedgerEntry_test.cpp:2232:            BEAST_EXPECT(r[sfXChainClaimID.jsonName].asInt() == 1);
+src/test/rpc/LedgerEntry_test.cpp:2239:            jvParams[jss::xchain_owned_claim_id] = jvXRPBridgeRPC;
+src/test/rpc/LedgerEntry_test.cpp:2251:                r[sfLedgerEntryType.jsonName] == jss::XChainOwnedClaimID);
+src/test/rpc/LedgerEntry_test.cpp:2252:            BEAST_EXPECT(r[sfXChainClaimID.jsonName].asInt() == 2);
+src/test/rpc/LedgerEntry_test.cpp:2258:    testLedgerEntryCreateAccountClaimID()
+src/test/rpc/LedgerEntry_test.cpp:2266:        // note: signers.size() and quorum are both 5 in createBridgeObjects
+src/test/rpc/LedgerEntry_test.cpp:2267:        createBridgeObjects(mcEnv, scEnv);
+src/test/rpc/LedgerEntry_test.cpp:2302:                jvXRPBridgeRPC;
+src/test/rpc/LedgerEntry_test.cpp:2314:            BEAST_EXPECT(r.isMember(sfXChainAccountCreateCount.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2315:            BEAST_EXPECT(r[sfXChainAccountCreateCount.jsonName].asInt() == 1);
+src/test/rpc/LedgerEntry_test.cpp:2318:                r.isMember(sfXChainCreateAccountAttestations.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2319:            auto attest = r[sfXChainCreateAccountAttestations.jsonName];
+src/test/rpc/LedgerEntry_test.cpp:2323:                sfXChainCreateAccountProofSig.jsonName));
+src/test/rpc/LedgerEntry_test.cpp:2328:                             [sfXChainCreateAccountProofSig.jsonName];
+src/test/rpc/LedgerEntry_test.cpp:2336:                    a[i].isMember(sfAttestationSignerAccount.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:2339:                            return a[i][sfAttestationSignerAccount.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:2343:                    a[i].isMember(sfAttestationRewardAccount.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:2348:                            return a[i][sfAttestationRewardAccount.jsonName] ==
+src/test/rpc/LedgerEntry_test.cpp:2355:                    a[i].isMember(sfSignatureReward.jsonName) &&
+src/test/rpc/LedgerEntry_test.cpp:2356:                    a[i][sfSignatureReward.jsonName].asInt() ==
+src/test/rpc/LedgerEntry_test.cpp:2361:        // complete attestations quorum - CreateAccountClaimID should not be
+src/test/rpc/LedgerEntry_test.cpp:2372:                jvXRPBridgeRPC;
+src/test/rpc/LedgerEntry_test.cpp:2385:        testLedgerEntryBridge();
+src/test/rpc/LedgerEntry_test.cpp:2386:        testLedgerEntryClaimID();
+src/test/rpc/LedgerEntry_test.cpp:2387:        testLedgerEntryCreateAccountClaimID();
+src/test/rpc/LedgerEntry_test.cpp:2391:BEAST_DEFINE_TESTSUITE(LedgerEntry, rpc, ripple);
+src/test/rpc/LedgerEntry_test.cpp:2392:BEAST_DEFINE_TESTSUITE(LedgerEntry_XChain, rpc, ripple);
+src/test/rpc/AccountObjects_test.cpp:45:  "LedgerEntryType" : "Offer",
+src/test/rpc/AccountObjects_test.cpp:69:    "LedgerEntryType" : "RippleState",
+src/test/rpc/AccountObjects_test.cpp:91:    "LedgerEntryType" : "RippleState",
+src/test/rpc/AccountObjects_test.cpp:105:    "LedgerEntryType" : "Offer",
+src/test/rpc/AccountObjects_test.cpp:117:class AccountObjects_test : public beast::unit_test::suite
+src/test/rpc/AccountObjects_test.cpp:428:                aobjs[0u][sfLedgerEntryType.jsonName] == jss::NFTokenPage);
+src/test/rpc/AccountObjects_test.cpp:479:                aobjs[0u][sfLedgerEntryType.jsonName] == jss::NFTokenPage);
+src/test/rpc/AccountObjects_test.cpp:580:        auto const features = testable_amendments() | featureXChainBridge |
+src/test/rpc/AccountObjects_test.cpp:636:        BEAST_EXPECT(acctObjsTypeIsInvalid(acctObjs(gw, jss::directory)));
+src/test/rpc/AccountObjects_test.cpp:762:            test::jtx::XChainBridgeObjects x;
+src/test/rpc/AccountObjects_test.cpp:764:            x.createScBridgeObjects(scEnv);
+src/test/rpc/AccountObjects_test.cpp:783:                acct_bridge[sfLedgerEntryType.getJsonName()] == "Bridge");
+src/test/rpc/AccountObjects_test.cpp:785:                acct_bridge[sfXChainClaimID.getJsonName()].asUInt() == 0);
+src/test/rpc/AccountObjects_test.cpp:787:                acct_bridge[sfXChainAccountClaimCount.getJsonName()].asUInt() ==
+src/test/rpc/AccountObjects_test.cpp:790:                acct_bridge[sfXChainAccountCreateCount.getJsonName()]
+src/test/rpc/AccountObjects_test.cpp:796:                acct_bridge[sfSignatureReward.getJsonName()].asUInt() ==
+src/test/rpc/AccountObjects_test.cpp:798:            BEAST_EXPECT(acct_bridge[sfXChainBridge.getJsonName()] == x.jvb);
+src/test/rpc/AccountObjects_test.cpp:803:            test::jtx::XChainBridgeObjects x;
+src/test/rpc/AccountObjects_test.cpp:805:            x.createScBridgeObjects(scEnv);
+src/test/rpc/AccountObjects_test.cpp:832:                    xchain_seq[sfXChainClaimID.getJsonName()].asUInt() == 1);
+src/test/rpc/AccountObjects_test.cpp:844:                    xchain_seq[sfXChainClaimID.getJsonName()].asUInt() == 2);
+src/test/rpc/AccountObjects_test.cpp:848:            test::jtx::XChainBridgeObjects x;
+src/test/rpc/AccountObjects_test.cpp:850:            x.createScBridgeObjects(scEnv);
+src/test/rpc/AccountObjects_test.cpp:890:                    xchain_create_account_claim_id[sfXChainAccountCreateCount
+src/test/rpc/AccountObjects_test.cpp:982:            BEAST_EXPECT(ticket[sfLedgerEntryType.jsonName] == jss::Ticket);
+src/test/rpc/AccountObjects_test.cpp:987:            // See how "deletion_blockers_only" handles gw's directory.
+src/test/rpc/AccountObjects_test.cpp:1005:            std::uint32_t const expectedAccountObjects{
+src/test/rpc/AccountObjects_test.cpp:1008:            if (BEAST_EXPECT(acctObjsIsSize(resp, expectedAccountObjects)))
+src/test/rpc/AccountObjects_test.cpp:1012:                gotLedgerTypes.reserve(expectedAccountObjects);
+src/test/rpc/AccountObjects_test.cpp:1013:                for (std::uint32_t i = 0; i < expectedAccountObjects; ++i)
+src/test/rpc/AccountObjects_test.cpp:1016:                        aobjs[i]["LedgerEntryType"].asString());
+src/test/rpc/AccountObjects_test.cpp:1024:            // directory.
+src/test/rpc/AccountObjects_test.cpp:1034:                BEAST_EXPECT(aobjs[0u]["LedgerEntryType"] == jss::Escrow);
+src/test/rpc/AccountObjects_test.cpp:1044:                        obj[sfLedgerEntryType.fieldName].asString());
+src/test/rpc/AccountObjects_test.cpp:1101:        BEAST_EXPECT(acctObjsTypeIsInvalid(acctObjs(gw, jss::directory)));
+src/test/rpc/AccountObjects_test.cpp:1106:        // Run up the number of directory entries so gw has two
+src/test/rpc/AccountObjects_test.cpp:1107:        // directory nodes.
+src/test/rpc/AccountObjects_test.cpp:1449:BEAST_DEFINE_TESTSUITE(AccountObjects, rpc, ripple);
+src/test/app/XChain_test.cpp:31:#include <xrpl/protocol/STXChainBridge.h>
+src/test/app/XChain_test.cpp:34:#include <xrpl/protocol/XChainAttestations.h>
+src/test/app/XChain_test.cpp:152:        STXChainBridge b(jvb);
+src/test/app/XChain_test.cpp:155:            [&](STXChainBridge::ChainType ct) -> std::shared_ptr<SLE const> {
+src/test/app/XChain_test.cpp:158:                if ((*r)[sfXChainBridge] == b)
+src/test/app/XChain_test.cpp:163:        if (auto r = tryGet(STXChainBridge::ChainType::locking))
+src/test/app/XChain_test.cpp:165:        return tryGet(STXChainBridge::ChainType::issuing);
+src/test/app/XChain_test.cpp:171:        return (*bridge(jvb))[sfXChainAccountClaimCount];
+src/test/app/XChain_test.cpp:177:        return (*bridge(jvb))[sfXChainClaimID];
+src/test/app/XChain_test.cpp:183:        return env_.le(keylet::xChainClaimID(STXChainBridge(jvb), seq));
+src/test/app/XChain_test.cpp:187:    caClaimID(Json::Value const& jvb, std::uint64_t seq)
+src/test/app/XChain_test.cpp:190:            keylet::xChainCreateAccountClaimID(STXChainBridge(jvb), seq));
+src/test/app/XChain_test.cpp:194:// XEnv class used for XChain tests. The only difference with SEnv<T> is that it
+src/test/app/XChain_test.cpp:196:// FeatureBitset{featureXChainBridge}` by default.
+src/test/app/XChain_test.cpp:199:struct XEnv : public jtx::XChainBridgeObjects, public SEnv<T>
+src/test/app/XChain_test.cpp:225:                scReward);
+src/test/app/XChain_test.cpp:349:struct BridgeDef
+src/test/app/XChain_test.cpp:363:    initBridge(ENV& mcEnv, ENV& scEnv)
+src/test/app/XChain_test.cpp:382:struct XChain_test : public beast::unit_test::suite,
+src/test/app/XChain_test.cpp:383:                     public jtx::XChainBridgeObjects
+src/test/app/XChain_test.cpp:398:    testXChainBridgeExtraFields()
+src/test/app/XChain_test.cpp:400:        auto jBridge = create_bridge(mcDoor)[sfXChainBridge.jsonName];
+src/test/app/XChain_test.cpp:405:            [[maybe_unused]] STXChainBridge testBridge1(jBridge);
+src/test/app/XChain_test.cpp:417:            jBridge["Extra"] = 1;
+src/test/app/XChain_test.cpp:418:            [[maybe_unused]] STXChainBridge testBridge2(jBridge);
+src/test/app/XChain_test.cpp:429:    testXChainCreateBridge()
+src/test/app/XChain_test.cpp:434:        testcase("Create Bridge");
+src/test/app/XChain_test.cpp:439:        // Bridge not owned by one of the door account.
+src/test/app/XChain_test.cpp:462:        // Bridge where the two door accounts are equal.
+src/test/app/XChain_test.cpp:494:        // Reward amount is non-xrp
+src/test/app/XChain_test.cpp:499:        // Reward amount is XRP and negative
+src/test/app/XChain_test.cpp:504:        // Reward amount is 1 xrp => should succeed
+src/test/app/XChain_test.cpp:526:        // coverage test: BridgeCreate::preflight() - create bridge when feature
+src/test/app/XChain_test.cpp:529:            Env env(*this, testable_amendments() - featureXChainBridge);
+src/test/app/XChain_test.cpp:533:        // coverage test: BridgeCreate::preclaim() returns tecNO_ISSUER.
+src/test/app/XChain_test.cpp:547:            .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:552:    testXChainBridgeCreateConstraints()
+src/test/app/XChain_test.cpp:555:         * Bridge create constraints tests.
+src/test/app/XChain_test.cpp:591:         * Commit to sidechain door accounts:
+src/test/app/XChain_test.cpp:596:         * We also test ModifyBridge txns modify correct bridges.
+src/test/app/XChain_test.cpp:600:        testcase("Bridge create constraints");
+src/test/app/XChain_test.cpp:645:        auto const goodBridge1 = bridge(A, GUSD, B, BUSD);
+src/test/app/XChain_test.cpp:646:        auto const goodBridge2 = bridge(A, BUSD, C, CUSD);
+src/test/app/XChain_test.cpp:647:        env.tx(create_bridge(B, goodBridge1)).close();
+src/test/app/XChain_test.cpp:651:        env.tx(create_bridge(A, goodBridge2), ter(tesSUCCESS)).close();
+src/test/app/XChain_test.cpp:668:        env.tx(xchain_commit(C, goodBridge1, 1, BUSD(50))).close();
+src/test/app/XChain_test.cpp:671:        env.tx(xchain_commit(C, goodBridge2, 1, BUSD(60))).close();
+src/test/app/XChain_test.cpp:676:        env.tx(bridge_modify(B, goodBridge1, XRP(33), std::nullopt)).close();
+src/test/app/XChain_test.cpp:677:        BEAST_EXPECT((*env.bridge(goodBridge1))[sfSignatureReward] == XRP(33));
+src/test/app/XChain_test.cpp:678:        env.tx(bridge_modify(A, goodBridge2, XRP(44), std::nullopt)).close();
+src/test/app/XChain_test.cpp:679:        BEAST_EXPECT((*env.bridge(goodBridge2))[sfSignatureReward] == XRP(44));
+src/test/app/XChain_test.cpp:683:    testXChainCreateBridgeMatrix()
+src/test/app/XChain_test.cpp:686:        testcase("Create Bridge Matrix");
+src/test/app/XChain_test.cpp:975:    testXChainModifyBridge()
+src/test/app/XChain_test.cpp:978:        testcase("Modify Bridge");
+src/test/app/XChain_test.cpp:1001:        // Reward amount is non-xrp
+src/test/app/XChain_test.cpp:1006:        // Reward amount is XRP and negative
+src/test/app/XChain_test.cpp:1245:            .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:1257:         * test tfClearAccountCreateAmount flag in BridgeModify tx
+src/test/app/XChain_test.cpp:1260:         * -- XChainCreateAccountCommit tx fail after previous step
+src/test/app/XChain_test.cpp:1282:    testXChainCreateClaimID()
+src/test/app/XChain_test.cpp:1288:        testcase("Create ClaimID");
+src/test/app/XChain_test.cpp:1364:            .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:1372:    testXChainCommit()
+src/test/app/XChain_test.cpp:1378:        testcase("Commit");
+src/test/app/XChain_test.cpp:1380:        // Commit to a non-existent bridge
+src/test/app/XChain_test.cpp:1400:        // Commit a negative amount
+src/test/app/XChain_test.cpp:1407:        // Commit an amount whose issue that does not match the expected
+src/test/app/XChain_test.cpp:1416:        // Commit an amount that would put the sender below the required
+src/test/app/XChain_test.cpp:1433:        // Commit an amount above the account's balance (for both XRP and
+src/test/app/XChain_test.cpp:1501:            .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:1508:    testXChainAddAttestation()
+src/test/app/XChain_test.cpp:1512:        testcase("Add Attestation");
+src/test/app/XChain_test.cpp:1950:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 1));  // ca claim id present
+src/test/app/XChain_test.cpp:1951:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 2));  // ca claim id present
+src/test/app/XChain_test.cpp:1952:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 3));  // ca claim id present
+src/test/app/XChain_test.cpp:1970:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 2));  // ca claim id present
+src/test/app/XChain_test.cpp:1988:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 3));  // ca claim id present
+src/test/app/XChain_test.cpp:2007:                BEAST_EXPECT(!scEnv.caClaimID(jvb, 1));    // claim id 1 deleted
+src/test/app/XChain_test.cpp:2008:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 2));   // claim id 2 present
+src/test/app/XChain_test.cpp:2009:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 3));   // claim id 3 present
+src/test/app/XChain_test.cpp:2026:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 2));  // claim id 2 present
+src/test/app/XChain_test.cpp:2027:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 3));  // claim id 3 present
+src/test/app/XChain_test.cpp:2044:                BEAST_EXPECT(!scEnv.caClaimID(jvb, 2));    // claim id 2 deleted
+src/test/app/XChain_test.cpp:2045:                BEAST_EXPECT(!!scEnv.caClaimID(jvb, 3));   // claim id 3 present
+src/test/app/XChain_test.cpp:2060:                BEAST_EXPECT(!scEnv.caClaimID(jvb, 3));    // claim id 3 deleted
+src/test/app/XChain_test.cpp:2097:            BEAST_EXPECT(!!scEnv.caClaimID(jvb, 1));  // claim id present
+src/test/app/XChain_test.cpp:2102:            BEAST_EXPECT(!scEnv.caClaimID(jvb, 1));  // claim id deleted
+src/test/app/XChain_test.cpp:2144:            BEAST_EXPECT(!!scEnv.caClaimID(jvb, 1));  // claim id present
+src/test/app/XChain_test.cpp:2149:            BEAST_EXPECT(!scEnv.caClaimID(jvb, 1));  // claim id deleted
+src/test/app/XChain_test.cpp:2192:            BEAST_EXPECT(!!scEnv.caClaimID(jvb, 1));  // claim id present
+src/test/app/XChain_test.cpp:2197:            BEAST_EXPECT(!scEnv.caClaimID(jvb, 1));  // claim id deleted
+src/test/app/XChain_test.cpp:2259:                BEAST_EXPECTS(!!scEnv.caClaimID(jvb, 1), "claim id 1 created");
+src/test/app/XChain_test.cpp:2260:                BEAST_EXPECTS(!!scEnv.caClaimID(jvb, 2), "claim id 2 created");
+src/test/app/XChain_test.cpp:2261:                BEAST_EXPECTS(!!scEnv.caClaimID(jvb, 3), "claim id 3 created");
+src/test/app/XChain_test.cpp:2274:                    !!scEnv.caClaimID(jvb, 1), "claim id 1 still there");
+src/test/app/XChain_test.cpp:2276:                    !!scEnv.caClaimID(jvb, 2), "claim id 2 still there");
+src/test/app/XChain_test.cpp:2278:                    !!scEnv.caClaimID(jvb, 3), "claim id 3 still there");
+src/test/app/XChain_test.cpp:2287:                    !!scEnv.caClaimID(jvb, 3), "claim id 3 still there");
+src/test/app/XChain_test.cpp:2295:                BEAST_EXPECTS(!scEnv.caClaimID(jvb, 1), "claim id 1 deleted");
+src/test/app/XChain_test.cpp:2305:                BEAST_EXPECTS(!scEnv.caClaimID(jvb, 2), "claim id 2 deleted");
+src/test/app/XChain_test.cpp:2306:                BEAST_EXPECTS(!scEnv.caClaimID(jvb, 1), "claim id 1 not added");
+src/test/app/XChain_test.cpp:2314:                BEAST_EXPECTS(!scEnv.caClaimID(jvb, 3), "claim id 3 deleted");
+src/test/app/XChain_test.cpp:2363:                .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:2381:    testXChainAddClaimNonBatchAttestation()
+src/test/app/XChain_test.cpp:2385:        testcase("Add Non Batch Claim Attestation");
+src/test/app/XChain_test.cpp:2439:             * sfAttestationSignerAccount related cases.
+src/test/app/XChain_test.cpp:2451:             * --B5: missing sfAttestationSignerAccount field
+src/test/app/XChain_test.cpp:2506:                att[sfAttestationSignerAccount.getJsonName()] =
+src/test/app/XChain_test.cpp:2527:                att[sfAttestationSignerAccount.getJsonName()] =
+src/test/app/XChain_test.cpp:2531:                att[sfAttestationSignerAccount.getJsonName()] =
+src/test/app/XChain_test.cpp:2550:                att[sfAttestationSignerAccount.getJsonName()] =
+src/test/app/XChain_test.cpp:2587:                // --B5: missing sfAttestationSignerAccount field
+src/test/app/XChain_test.cpp:2599:                att.removeMember(sfAttestationSignerAccount.getJsonName());
+src/test/app/XChain_test.cpp:2602:                att[sfAttestationSignerAccount.getJsonName()] =
+src/test/app/XChain_test.cpp:2611:    testXChainAddAccountCreateNonBatchAttestation()
+src/test/app/XChain_test.cpp:2615:        testcase("Add Non Batch Account Create Attestation");
+src/test/app/XChain_test.cpp:2631:        BridgeDef xrp_b{
+src/test/app/XChain_test.cpp:2642:        xrp_b.initBridge(mcEnv, scEnv);
+src/test/app/XChain_test.cpp:2686:    testXChainClaim()
+src/test/app/XChain_test.cpp:3274:        // Claim where the claim id owner does not have enough XRP to pay
+src/test/app/XChain_test.cpp:3358:        // Claim where the claim id owner has enough XRP to pay the reward,
+src/test/app/XChain_test.cpp:3736:        // accounts, the remaining amount goes to the claim id owner.
+src/test/app/XChain_test.cpp:3795:        // claim id owner.
+src/test/app/XChain_test.cpp:3927:            .disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:3933:        // coverage test: XChainClaim::preclaim - isLockingChain = true;
+src/test/app/XChain_test.cpp:3942:    testXChainCreateAccount()
+src/test/app/XChain_test.cpp:3946:        testcase("Bridge Create Account");
+src/test/app/XChain_test.cpp:3966:            BEAST_EXPECT(!!scEnv.caClaimID(jvb, 1));  // claim id present
+src/test/app/XChain_test.cpp:3974:            BEAST_EXPECT(!scEnv.caClaimID(jvb, 1));  // claim id deleted
+src/test/app/XChain_test.cpp:4019:        // Check that creating an account with the XChainBridge feature
+src/test/app/XChain_test.cpp:4028:            mcEnv.disableFeature(featureXChainBridge)
+src/test/app/XChain_test.cpp:4157:    testXChainDeleteDoor()
+src/test/app/XChain_test.cpp:4161:        testcase("Bridge Delete Door Account");
+src/test/app/XChain_test.cpp:4276:        testXChainBridgeExtraFields();
+src/test/app/XChain_test.cpp:4277:        testXChainCreateBridge();
+src/test/app/XChain_test.cpp:4278:        testXChainBridgeCreateConstraints();
+src/test/app/XChain_test.cpp:4279:        testXChainCreateBridgeMatrix();
+src/test/app/XChain_test.cpp:4280:        testXChainModifyBridge();
+src/test/app/XChain_test.cpp:4281:        testXChainCreateClaimID();
+src/test/app/XChain_test.cpp:4282:        testXChainCommit();
+src/test/app/XChain_test.cpp:4283:        testXChainAddAttestation();
+src/test/app/XChain_test.cpp:4284:        testXChainAddClaimNonBatchAttestation();
+src/test/app/XChain_test.cpp:4285:        testXChainAddAccountCreateNonBatchAttestation();
+src/test/app/XChain_test.cpp:4286:        testXChainClaim();
+src/test/app/XChain_test.cpp:4287:        testXChainCreateAccount();
+src/test/app/XChain_test.cpp:4289:        testXChainDeleteDoor();
+src/test/app/XChain_test.cpp:4296:struct XChainSim_test : public beast::unit_test::suite,
+src/test/app/XChain_test.cpp:4297:                        public jtx::XChainBridgeObjects
+src/test/app/XChain_test.cpp:4327:    using ENV = XEnv<XChainSim_test>;
+src/test/app/XChain_test.cpp:4328:    using BridgeID = BridgeDef const*;
+src/test/app/XChain_test.cpp:4366:        sendAttestations(size_t signer_idx, BridgeID bridge, ClaimVec& claims)
+src/test/app/XChain_test.cpp:4377:        sendCreateAttestations(
+src/test/app/XChain_test.cpp:4379:            BridgeID bridge,
+src/test/app/XChain_test.cpp:4398:        sendAttestations()
+src/test/app/XChain_test.cpp:4412:                        sendAttestations(i, bridge, claims.xfer_claims);
+src/test/app/XChain_test.cpp:4420:                            c.num_create_attn_sent += sendCreateAttestations(
+src/test/app/XChain_test.cpp:4506:        struct BridgeCounters
+src/test/app/XChain_test.cpp:4528:        using SignerAttns = std::unordered_map<BridgeID, Claims>;
+src/test/app/XChain_test.cpp:4534:        std::map<BridgeID, BridgeCounters> counters;
+src/test/app/XChain_test.cpp:4551:        sendAttestations()
+src/test/app/XChain_test.cpp:4553:            a_.sendAttestations();
+src/test/app/XChain_test.cpp:4554:            b_.sendAttestations();
+src/test/app/XChain_test.cpp:4586:            BridgeDef const& bridge)
+src/test/app/XChain_test.cpp:4616:        BridgeDef const& bridge_;
+src/test/app/XChain_test.cpp:4621:    class SmCreateAccount : public SmBase<SmCreateAccount>
+src/test/app/XChain_test.cpp:4624:        using Base = SmBase<SmCreateAccount>;
+src/test/app/XChain_test.cpp:4626:        SmCreateAccount(
+src/test/app/XChain_test.cpp:4628:            BridgeDef const& bridge,
+src/test/app/XChain_test.cpp:4760:            BridgeDef const& bridge,
+src/test/app/XChain_test.cpp:4921:    using Sm = std::variant<SmCreateAccount, SmTransfer>;
+src/test/app/XChain_test.cpp:4930:        BridgeDef const& bridge,
+src/test/app/XChain_test.cpp:4940:       BridgeDef const& bridge,
+src/test/app/XChain_test.cpp:4944:            time, SmCreateAccount(chainstate, bridge, std::move(ac)));
+src/test/app/XChain_test.cpp:4975:            st->sendAttestations();
+src/test/app/XChain_test.cpp:4989:    testXChainSimulation()
+src/test/app/XChain_test.cpp:4993:        testcase("Bridge usage simulation");
+src/test/app/XChain_test.cpp:5068:        // initialize a bridge from a BridgeDef
+src/test/app/XChain_test.cpp:5069:        auto initBridge = [&mcEnv, &scEnv, &st](BridgeDef& bd) {
+src/test/app/XChain_test.cpp:5070:            bd.initBridge(mcEnv, scEnv);
+src/test/app/XChain_test.cpp:5077:        BridgeDef xrp_b{
+src/test/app/XChain_test.cpp:5088:        initBridge(xrp_b);
+src/test/app/XChain_test.cpp:5092:        BridgeDef usd_b{
+src/test/app/XChain_test.cpp:5103:        initBridge(usd_b);
+src/test/app/XChain_test.cpp:5189:        testXChainSimulation();
+src/test/app/XChain_test.cpp:5193:BEAST_DEFINE_TESTSUITE(XChain, app, ripple);
+src/test/app/XChain_test.cpp:5194:BEAST_DEFINE_TESTSUITE(XChainSim, app, ripple);
+src/libxrpl/protocol/Indexes.cpp:31:#include <xrpl/protocol/STXChainBridge.h>
+src/libxrpl/protocol/Indexes.cpp:344:depositPreauth(AccountID const& owner, AccountID const& preauthorized) noexcept
+src/libxrpl/protocol/Indexes.cpp:348:        indexHash(LedgerNameSpace::DEPOSIT_PREAUTH, owner, preauthorized)};
+src/libxrpl/protocol/Indexes.cpp:354:    AccountID const& owner,
+src/libxrpl/protocol/Indexes.cpp:364:        indexHash(LedgerNameSpace::DEPOSIT_PREAUTH_CREDENTIALS, owner, hashes)};
+src/libxrpl/protocol/Indexes.cpp:376:ownerDir(AccountID const& id) noexcept
+src/libxrpl/protocol/Indexes.cpp:405:nftpage_min(AccountID const& owner)
+src/libxrpl/protocol/Indexes.cpp:408:    std::memcpy(buf.data(), owner.data(), owner.size());
+src/libxrpl/protocol/Indexes.cpp:413:nftpage_max(AccountID const& owner)
+src/libxrpl/protocol/Indexes.cpp:416:    std::memcpy(id.data(), owner.data(), owner.size());
+src/libxrpl/protocol/Indexes.cpp:429:nftoffer(AccountID const& owner, std::uint32_t seq)
+src/libxrpl/protocol/Indexes.cpp:432:        ltNFTOKEN_OFFER, indexHash(LedgerNameSpace::NFTOKEN_OFFER, owner, seq)};
+src/libxrpl/protocol/Indexes.cpp:475:bridge(STXChainBridge const& bridge, STXChainBridge::ChainType chainType)
+src/libxrpl/protocol/Indexes.cpp:488:xChainClaimID(STXChainBridge const& bridge, std::uint64_t seq)
+src/libxrpl/protocol/Indexes.cpp:502:xChainCreateAccountClaimID(STXChainBridge const& bridge, std::uint64_t seq)
+src/libxrpl/protocol/Indexes.cpp:566:vault(AccountID const& owner, std::uint32_t seq) noexcept
+src/libxrpl/protocol/Indexes.cpp:568:    return vault(indexHash(LedgerNameSpace::VAULT, owner, seq));
+src/libxrpl/protocol/Indexes.cpp:572:loanbroker(AccountID const& owner, std::uint32_t seq) noexcept
+src/libxrpl/protocol/Indexes.cpp:574:    return loanbroker(indexHash(LedgerNameSpace::LOAN_BROKER, owner, seq));
+src/libxrpl/protocol/XChainAttestations.cpp:33:#include <xrpl/protocol/XChainAttestations.h>
+src/libxrpl/protocol/XChainAttestations.cpp:45:namespace Attestations {
+src/libxrpl/protocol/XChainAttestations.cpp:47:AttestationBase::AttestationBase(
+src/libxrpl/protocol/XChainAttestations.cpp:66:AttestationBase::equalHelper(
+src/libxrpl/protocol/XChainAttestations.cpp:67:    AttestationBase const& lhs,
+src/libxrpl/protocol/XChainAttestations.cpp:68:    AttestationBase const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:89:AttestationBase::sameEventHelper(
+src/libxrpl/protocol/XChainAttestations.cpp:90:    AttestationBase const& lhs,
+src/libxrpl/protocol/XChainAttestations.cpp:91:    AttestationBase const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:102:AttestationBase::verify(STXChainBridge const& bridge) const
+src/libxrpl/protocol/XChainAttestations.cpp:108:AttestationBase::AttestationBase(STObject const& o)
+src/libxrpl/protocol/XChainAttestations.cpp:109:    : attestationSignerAccount{o[sfAttestationSignerAccount]}
+src/libxrpl/protocol/XChainAttestations.cpp:114:    , rewardAccount{o[sfAttestationRewardAccount]}
+src/libxrpl/protocol/XChainAttestations.cpp:119:AttestationBase::AttestationBase(Json::Value const& v)
+src/libxrpl/protocol/XChainAttestations.cpp:122:          sfAttestationSignerAccount)}
+src/libxrpl/protocol/XChainAttestations.cpp:127:    , rewardAccount{Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount)}
+src/libxrpl/protocol/XChainAttestations.cpp:133:AttestationBase::addHelper(STObject& o) const
+src/libxrpl/protocol/XChainAttestations.cpp:135:    o[sfAttestationSignerAccount] = attestationSignerAccount;
+src/libxrpl/protocol/XChainAttestations.cpp:140:    o[sfAttestationRewardAccount] = rewardAccount;
+src/libxrpl/protocol/XChainAttestations.cpp:144:AttestationClaim::AttestationClaim(
+src/libxrpl/protocol/XChainAttestations.cpp:154:    : AttestationBase(
+src/libxrpl/protocol/XChainAttestations.cpp:167:AttestationClaim::AttestationClaim(
+src/libxrpl/protocol/XChainAttestations.cpp:168:    STXChainBridge const& bridge,
+src/libxrpl/protocol/XChainAttestations.cpp:178:    : AttestationClaim{
+src/libxrpl/protocol/XChainAttestations.cpp:193:AttestationClaim::AttestationClaim(STObject const& o)
+src/libxrpl/protocol/XChainAttestations.cpp:194:    : AttestationBase(o), claimID{o[sfXChainClaimID]}, dst{o[~sfDestination]}
+src/libxrpl/protocol/XChainAttestations.cpp:198:AttestationClaim::AttestationClaim(Json::Value const& v)
+src/libxrpl/protocol/XChainAttestations.cpp:199:    : AttestationBase{v}
+src/libxrpl/protocol/XChainAttestations.cpp:200:    , claimID{Json::getOrThrow<std::uint64_t>(v, sfXChainClaimID)}
+src/libxrpl/protocol/XChainAttestations.cpp:207:AttestationClaim::toSTObject() const
+src/libxrpl/protocol/XChainAttestations.cpp:210:        STObject::makeInnerObject(sfXChainClaimAttestationCollectionElement);
+src/libxrpl/protocol/XChainAttestations.cpp:212:    o[sfXChainClaimID] = claimID;
+src/libxrpl/protocol/XChainAttestations.cpp:219:AttestationClaim::message(
+src/libxrpl/protocol/XChainAttestations.cpp:220:    STXChainBridge const& bridge,
+src/libxrpl/protocol/XChainAttestations.cpp:230:    o[sfXChainClaimID] = claimID;
+src/libxrpl/protocol/XChainAttestations.cpp:235:    o[sfAttestationRewardAccount] = rewardAccount;
+src/libxrpl/protocol/XChainAttestations.cpp:237:    o[sfXChainBridge] = bridge;
+src/libxrpl/protocol/XChainAttestations.cpp:246:AttestationClaim::message(STXChainBridge const& bridge) const
+src/libxrpl/protocol/XChainAttestations.cpp:248:    return AttestationClaim::message(
+src/libxrpl/protocol/XChainAttestations.cpp:259:AttestationClaim::validAmounts() const
+src/libxrpl/protocol/XChainAttestations.cpp:265:AttestationClaim::sameEvent(AttestationClaim const& rhs) const
+src/libxrpl/protocol/XChainAttestations.cpp:267:    return AttestationClaim::sameEventHelper(*this, rhs) &&
+src/libxrpl/protocol/XChainAttestations.cpp:272:operator==(AttestationClaim const& lhs, AttestationClaim const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:274:    return AttestationClaim::equalHelper(lhs, rhs) &&
+src/libxrpl/protocol/XChainAttestations.cpp:278:AttestationCreateAccount::AttestationCreateAccount(STObject const& o)
+src/libxrpl/protocol/XChainAttestations.cpp:279:    : AttestationBase(o)
+src/libxrpl/protocol/XChainAttestations.cpp:280:    , createCount{o[sfXChainAccountCreateCount]}
+src/libxrpl/protocol/XChainAttestations.cpp:282:    , rewardAmount{o[sfSignatureReward]}
+src/libxrpl/protocol/XChainAttestations.cpp:286:AttestationCreateAccount::AttestationCreateAccount(Json::Value const& v)
+src/libxrpl/protocol/XChainAttestations.cpp:287:    : AttestationBase{v}
+src/libxrpl/protocol/XChainAttestations.cpp:290:          sfXChainAccountCreateCount)}
+src/libxrpl/protocol/XChainAttestations.cpp:292:    , rewardAmount{Json::getOrThrow<STAmount>(v, sfSignatureReward)}
+src/libxrpl/protocol/XChainAttestations.cpp:296:AttestationCreateAccount::AttestationCreateAccount(
+src/libxrpl/protocol/XChainAttestations.cpp:307:    : AttestationBase(
+src/libxrpl/protocol/XChainAttestations.cpp:321:AttestationCreateAccount::AttestationCreateAccount(
+src/libxrpl/protocol/XChainAttestations.cpp:322:    STXChainBridge const& bridge,
+src/libxrpl/protocol/XChainAttestations.cpp:333:    : AttestationCreateAccount{
+src/libxrpl/protocol/XChainAttestations.cpp:350:AttestationCreateAccount::toSTObject() const
+src/libxrpl/protocol/XChainAttestations.cpp:353:        sfXChainCreateAccountAttestationCollectionElement);
+src/libxrpl/protocol/XChainAttestations.cpp:356:    o[sfXChainAccountCreateCount] = createCount;
+src/libxrpl/protocol/XChainAttestations.cpp:358:    o[sfSignatureReward] = rewardAmount;
+src/libxrpl/protocol/XChainAttestations.cpp:364:AttestationCreateAccount::message(
+src/libxrpl/protocol/XChainAttestations.cpp:365:    STXChainBridge const& bridge,
+src/libxrpl/protocol/XChainAttestations.cpp:376:    o[sfXChainAccountCreateCount] = createCount;
+src/libxrpl/protocol/XChainAttestations.cpp:378:    o[sfSignatureReward] = rewardAmount;
+src/libxrpl/protocol/XChainAttestations.cpp:381:    o[sfAttestationRewardAccount] = rewardAccount;
+src/libxrpl/protocol/XChainAttestations.cpp:383:    o[sfXChainBridge] = bridge;
+src/libxrpl/protocol/XChainAttestations.cpp:392:AttestationCreateAccount::message(STXChainBridge const& bridge) const
+src/libxrpl/protocol/XChainAttestations.cpp:394:    return AttestationCreateAccount::message(
+src/libxrpl/protocol/XChainAttestations.cpp:406:AttestationCreateAccount::validAmounts() const
+src/libxrpl/protocol/XChainAttestations.cpp:412:AttestationCreateAccount::sameEvent(AttestationCreateAccount const& rhs) const
+src/libxrpl/protocol/XChainAttestations.cpp:414:    return AttestationCreateAccount::sameEventHelper(*this, rhs) &&
+src/libxrpl/protocol/XChainAttestations.cpp:421:    AttestationCreateAccount const& lhs,
+src/libxrpl/protocol/XChainAttestations.cpp:422:    AttestationCreateAccount const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:424:    return AttestationCreateAccount::equalHelper(lhs, rhs) &&
+src/libxrpl/protocol/XChainAttestations.cpp:429:}  // namespace Attestations
+src/libxrpl/protocol/XChainAttestations.cpp:431:SField const& XChainClaimAttestation::ArrayFieldName{sfXChainClaimAttestations};
+src/libxrpl/protocol/XChainAttestations.cpp:432:SField const& XChainCreateAccountAttestation::ArrayFieldName{
+src/libxrpl/protocol/XChainAttestations.cpp:433:    sfXChainCreateAccountAttestations};
+src/libxrpl/protocol/XChainAttestations.cpp:435:XChainClaimAttestation::XChainClaimAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:451:XChainClaimAttestation::XChainClaimAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:458:    : XChainClaimAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:468:XChainClaimAttestation::XChainClaimAttestation(STObject const& o)
+src/libxrpl/protocol/XChainAttestations.cpp:469:    : XChainClaimAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:470:          o[sfAttestationSignerAccount],
+src/libxrpl/protocol/XChainAttestations.cpp:473:          o[sfAttestationRewardAccount],
+src/libxrpl/protocol/XChainAttestations.cpp:477:XChainClaimAttestation::XChainClaimAttestation(Json::Value const& v)
+src/libxrpl/protocol/XChainAttestations.cpp:478:    : XChainClaimAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:479:          Json::getOrThrow<AccountID>(v, sfAttestationSignerAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:482:          Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:490:XChainClaimAttestation::XChainClaimAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:491:    XChainClaimAttestation::TSignedAttestation const& claimAtt)
+src/libxrpl/protocol/XChainAttestations.cpp:492:    : XChainClaimAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:503:XChainClaimAttestation::toSTObject() const
+src/libxrpl/protocol/XChainAttestations.cpp:505:    STObject o = STObject::makeInnerObject(sfXChainClaimProofSig);
+src/libxrpl/protocol/XChainAttestations.cpp:506:    o[sfAttestationSignerAccount] =
+src/libxrpl/protocol/XChainAttestations.cpp:507:        STAccount{sfAttestationSignerAccount, keyAccount};
+src/libxrpl/protocol/XChainAttestations.cpp:510:    o[sfAttestationRewardAccount] =
+src/libxrpl/protocol/XChainAttestations.cpp:511:        STAccount{sfAttestationRewardAccount, rewardAccount};
+src/libxrpl/protocol/XChainAttestations.cpp:519:operator==(XChainClaimAttestation const& lhs, XChainClaimAttestation const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:537:XChainClaimAttestation::MatchFields::MatchFields(
+src/libxrpl/protocol/XChainAttestations.cpp:538:    XChainClaimAttestation::TSignedAttestation const& att)
+src/libxrpl/protocol/XChainAttestations.cpp:545:AttestationMatch
+src/libxrpl/protocol/XChainAttestations.cpp:546:XChainClaimAttestation::match(
+src/libxrpl/protocol/XChainAttestations.cpp:547:    XChainClaimAttestation::MatchFields const& rhs) const
+src/libxrpl/protocol/XChainAttestations.cpp:551:        return AttestationMatch::nonDstMismatch;
+src/libxrpl/protocol/XChainAttestations.cpp:553:        return AttestationMatch::matchExceptDst;
+src/libxrpl/protocol/XChainAttestations.cpp:554:    return AttestationMatch::match;
+src/libxrpl/protocol/XChainAttestations.cpp:559:XChainCreateAccountAttestation::XChainCreateAccountAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:570:    , rewardAmount(sfSignatureReward, rewardAmount_)
+src/libxrpl/protocol/XChainAttestations.cpp:577:XChainCreateAccountAttestation::XChainCreateAccountAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:579:    : XChainCreateAccountAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:580:          o[sfAttestationSignerAccount],
+src/libxrpl/protocol/XChainAttestations.cpp:583:          o[sfSignatureReward],
+src/libxrpl/protocol/XChainAttestations.cpp:584:          o[sfAttestationRewardAccount],
+src/libxrpl/protocol/XChainAttestations.cpp:588:XChainCreateAccountAttestation ::XChainCreateAccountAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:590:    : XChainCreateAccountAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:591:          Json::getOrThrow<AccountID>(v, sfAttestationSignerAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:594:          Json::getOrThrow<STAmount>(v, sfSignatureReward),
+src/libxrpl/protocol/XChainAttestations.cpp:595:          Json::getOrThrow<AccountID>(v, sfAttestationRewardAccount),
+src/libxrpl/protocol/XChainAttestations.cpp:601:XChainCreateAccountAttestation::XChainCreateAccountAttestation(
+src/libxrpl/protocol/XChainAttestations.cpp:602:    XChainCreateAccountAttestation::TSignedAttestation const& createAtt)
+src/libxrpl/protocol/XChainAttestations.cpp:603:    : XChainCreateAccountAttestation{
+src/libxrpl/protocol/XChainAttestations.cpp:615:XChainCreateAccountAttestation::toSTObject() const
+src/libxrpl/protocol/XChainAttestations.cpp:617:    STObject o = STObject::makeInnerObject(sfXChainCreateAccountProofSig);
+src/libxrpl/protocol/XChainAttestations.cpp:619:    o[sfAttestationSignerAccount] =
+src/libxrpl/protocol/XChainAttestations.cpp:620:        STAccount{sfAttestationSignerAccount, keyAccount};
+src/libxrpl/protocol/XChainAttestations.cpp:623:    o[sfSignatureReward] = STAmount{sfSignatureReward, rewardAmount};
+src/libxrpl/protocol/XChainAttestations.cpp:624:    o[sfAttestationRewardAccount] =
+src/libxrpl/protocol/XChainAttestations.cpp:625:        STAccount{sfAttestationRewardAccount, rewardAccount};
+src/libxrpl/protocol/XChainAttestations.cpp:632:XChainCreateAccountAttestation::MatchFields::MatchFields(
+src/libxrpl/protocol/XChainAttestations.cpp:633:    XChainCreateAccountAttestation::TSignedAttestation const& att)
+src/libxrpl/protocol/XChainAttestations.cpp:641:AttestationMatch
+src/libxrpl/protocol/XChainAttestations.cpp:642:XChainCreateAccountAttestation::match(
+src/libxrpl/protocol/XChainAttestations.cpp:643:    XChainCreateAccountAttestation::MatchFields const& rhs) const
+src/libxrpl/protocol/XChainAttestations.cpp:647:        return AttestationMatch::nonDstMismatch;
+src/libxrpl/protocol/XChainAttestations.cpp:649:        return AttestationMatch::matchExceptDst;
+src/libxrpl/protocol/XChainAttestations.cpp:650:    return AttestationMatch::match;
+src/libxrpl/protocol/XChainAttestations.cpp:655:    XChainCreateAccountAttestation const& lhs,
+src/libxrpl/protocol/XChainAttestations.cpp:656:    XChainCreateAccountAttestation const& rhs)
+src/libxrpl/protocol/XChainAttestations.cpp:678:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:679:XChainAttestationsBase<TAttestation>::XChainAttestationsBase(
+src/libxrpl/protocol/XChainAttestations.cpp:680:    XChainAttestationsBase<TAttestation>::AttCollection&& atts)
+src/libxrpl/protocol/XChainAttestations.cpp:685:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:686:typename XChainAttestationsBase<TAttestation>::AttCollection::const_iterator
+src/libxrpl/protocol/XChainAttestations.cpp:687:XChainAttestationsBase<TAttestation>::begin() const
+src/libxrpl/protocol/XChainAttestations.cpp:692:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:693:typename XChainAttestationsBase<TAttestation>::AttCollection::const_iterator
+src/libxrpl/protocol/XChainAttestations.cpp:694:XChainAttestationsBase<TAttestation>::end() const
+src/libxrpl/protocol/XChainAttestations.cpp:699:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:700:typename XChainAttestationsBase<TAttestation>::AttCollection::iterator
+src/libxrpl/protocol/XChainAttestations.cpp:701:XChainAttestationsBase<TAttestation>::begin()
+src/libxrpl/protocol/XChainAttestations.cpp:706:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:707:typename XChainAttestationsBase<TAttestation>::AttCollection::iterator
+src/libxrpl/protocol/XChainAttestations.cpp:708:XChainAttestationsBase<TAttestation>::end()
+src/libxrpl/protocol/XChainAttestations.cpp:713:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:714:XChainAttestationsBase<TAttestation>::XChainAttestationsBase(
+src/libxrpl/protocol/XChainAttestations.cpp:720:            "XChainAttestationsBase can only be specified with an 'object' "
+src/libxrpl/protocol/XChainAttestations.cpp:727:        if (jAtts.size() > maxAttestations)
+src/libxrpl/protocol/XChainAttestations.cpp:729:                "XChainAttestationsBase exceeded max number of attestations");
+src/libxrpl/protocol/XChainAttestations.cpp:731:        std::vector<TAttestation> r;
+src/libxrpl/protocol/XChainAttestations.cpp:739:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:740:XChainAttestationsBase<TAttestation>::XChainAttestationsBase(STArray const& arr)
+src/libxrpl/protocol/XChainAttestations.cpp:742:    if (arr.size() > maxAttestations)
+src/libxrpl/protocol/XChainAttestations.cpp:744:            "XChainAttestationsBase exceeded max number of attestations");
+src/libxrpl/protocol/XChainAttestations.cpp:751:template <class TAttestation>
+src/libxrpl/protocol/XChainAttestations.cpp:753:XChainAttestationsBase<TAttestation>::toSTArray() const
+src/libxrpl/protocol/XChainAttestations.cpp:755:    STArray r{TAttestation::ArrayFieldName, attestations_.size()};
+src/libxrpl/protocol/XChainAttestations.cpp:761:template class XChainAttestationsBase<XChainClaimAttestation>;
+src/libxrpl/protocol/XChainAttestations.cpp:762:template class XChainAttestationsBase<XChainCreateAccountAttestation>;
+src/xrpld/app/tx/detail/XChainBridge.h:25:#include <xrpl/protocol/XChainAttestations.h>
+src/xrpld/app/tx/detail/XChainBridge.h:33:class XChainCreateBridge : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:38:    explicit XChainCreateBridge(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:52:class BridgeModify : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:57:    explicit BridgeModify(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:74:using XChainModifyBridge = BridgeModify;
+src/xrpld/app/tx/detail/XChainBridge.h:78:// Claim funds from a `XChainCommit` transaction. This is normally not needed,
+src/xrpld/app/tx/detail/XChainBridge.h:80:// was not specified in the `XChainCommit` transaction. It may only be used
+src/xrpld/app/tx/detail/XChainBridge.h:83:// If the transaction succeeds in moving funds, the referenced `XChainClaimID`
+src/xrpld/app/tx/detail/XChainBridge.h:85:// transaction fails, the `XChainClaimID` will not be destroyed and the
+src/xrpld/app/tx/detail/XChainBridge.h:87:class XChainClaim : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:93:    explicit XChainClaim(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:112:class XChainCommit : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:120:    explicit XChainCommit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:138:// before the `XChainCommit` transaction (which must reference this number) can
+src/xrpld/app/tx/detail/XChainBridge.h:139:// be sent on the source chain. The account that will send the `XChainCommit` on
+src/xrpld/app/tx/detail/XChainBridge.h:141:// `SourceAccount` field in the `XChainClaimID` ledger object for
+src/xrpld/app/tx/detail/XChainBridge.h:144:class XChainCreateClaimID : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:149:    explicit XChainCreateClaimID(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:172:class XChainAddClaimAttestation : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:178:    explicit XChainAddClaimAttestation(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:192:class XChainAddAccountCreateAttestation : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:198:    explicit XChainAddAccountCreateAttestation(ApplyContext& ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:220:// the destination chain in the same order that the `XChainCreateAccountCommit`
+src/xrpld/app/tx/detail/XChainBridge.h:234:// account. However, note that unlike the `XChainCommit` transaction, there is
+src/xrpld/app/tx/detail/XChainBridge.h:238:class XChainCreateAccountCommit : public Transactor
+src/xrpld/app/tx/detail/XChainBridge.h:243:    explicit XChainCreateAccountCommit(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/XChainBridge.h:257:using XChainAccountCreateCommit = XChainCreateAccountCommit;
+src/libxrpl/protocol/STXChainBridge.cpp:28:#include <xrpl/protocol/STXChainBridge.h>
+src/libxrpl/protocol/STXChainBridge.cpp:42:STXChainBridge::STXChainBridge() : STBase{sfXChainBridge}
+src/libxrpl/protocol/STXChainBridge.cpp:46:STXChainBridge::STXChainBridge(SField const& name) : STBase{name}
+src/libxrpl/protocol/STXChainBridge.cpp:50:STXChainBridge::STXChainBridge(
+src/libxrpl/protocol/STXChainBridge.cpp:55:    : STBase{sfXChainBridge}
+src/libxrpl/protocol/STXChainBridge.cpp:63:STXChainBridge::STXChainBridge(STObject const& o)
+src/libxrpl/protocol/STXChainBridge.cpp:64:    : STBase{sfXChainBridge}
+src/libxrpl/protocol/STXChainBridge.cpp:72:STXChainBridge::STXChainBridge(Json::Value const& v)
+src/libxrpl/protocol/STXChainBridge.cpp:73:    : STXChainBridge{sfXChainBridge, v}
+src/libxrpl/protocol/STXChainBridge.cpp:77:STXChainBridge::STXChainBridge(SField const& name, Json::Value const& v)
+src/libxrpl/protocol/STXChainBridge.cpp:83:            "STXChainBridge can only be specified with a 'object' Json value");
+src/libxrpl/protocol/STXChainBridge.cpp:88:            ripple::STXChainBridge().getJson(ripple::JsonOptions::none);
+src/libxrpl/protocol/STXChainBridge.cpp:95:                    "STXChainBridge extra field detected: " + name);
+src/libxrpl/protocol/STXChainBridge.cpp:110:            "STXChainBridge LockingChainDoor must be a string Json value");
+src/libxrpl/protocol/STXChainBridge.cpp:115:            "STXChainBridge IssuingChainDoor must be a string Json value");
+src/libxrpl/protocol/STXChainBridge.cpp:125:            "STXChainBridge LockingChainDoor must be a valid account");
+src/libxrpl/protocol/STXChainBridge.cpp:130:            "STXChainBridge IssuingChainDoor must be a valid account");
+src/libxrpl/protocol/STXChainBridge.cpp:141:STXChainBridge::STXChainBridge(SerialIter& sit, SField const& name)
+src/libxrpl/protocol/STXChainBridge.cpp:151:STXChainBridge::add(Serializer& s) const
+src/libxrpl/protocol/STXChainBridge.cpp:160:STXChainBridge::getJson(JsonOptions jo) const
+src/libxrpl/protocol/STXChainBridge.cpp:171:STXChainBridge::getText() const
+src/libxrpl/protocol/STXChainBridge.cpp:182:STXChainBridge::toSTObject() const
+src/libxrpl/protocol/STXChainBridge.cpp:184:    STObject o{sfXChainBridge};
+src/libxrpl/protocol/STXChainBridge.cpp:193:STXChainBridge::getSType() const
+src/libxrpl/protocol/STXChainBridge.cpp:199:STXChainBridge::isEquivalent(STBase const& t) const
+src/libxrpl/protocol/STXChainBridge.cpp:201:    STXChainBridge const* v = dynamic_cast<STXChainBridge const*>(&t);
+src/libxrpl/protocol/STXChainBridge.cpp:206:STXChainBridge::isDefault() const
+src/libxrpl/protocol/STXChainBridge.cpp:212:std::unique_ptr<STXChainBridge>
+src/libxrpl/protocol/STXChainBridge.cpp:213:STXChainBridge::construct(SerialIter& sit, SField const& name)
+src/libxrpl/protocol/STXChainBridge.cpp:215:    return std::make_unique<STXChainBridge>(sit, name);
+src/libxrpl/protocol/STXChainBridge.cpp:219:STXChainBridge::copy(std::size_t n, void* buf) const
+src/libxrpl/protocol/STXChainBridge.cpp:225:STXChainBridge::move(std::size_t n, void* buf)
+src/xrpld/app/tx/detail/XChainBridge.cpp:23:#include <xrpld/app/tx/detail/XChainBridge.h>
+src/xrpld/app/tx/detail/XChainBridge.cpp:40:#include <xrpl/protocol/STXChainBridge.h>
+src/xrpld/app/tx/detail/XChainBridge.cpp:43:#include <xrpl/protocol/XChainAttestations.h>
+src/xrpld/app/tx/detail/XChainBridge.cpp:52:   Bridges connect two independent ledgers: a "locking chain" and an "issuing
+src/xrpld/app/tx/detail/XChainBridge.cpp:111:checkAttestationPublicKey(
+src/xrpld/app/tx/detail/XChainBridge.cpp:125:    if (auto const sleAttestationSigningAccount =
+src/xrpld/app/tx/detail/XChainBridge.cpp:131:            if (sleAttestationSigningAccount->getFieldU32(sfFlags) &
+src/xrpld/app/tx/detail/XChainBridge.cpp:143:                    (*sleAttestationSigningAccount)[~sfRegularKey];
+src/xrpld/app/tx/detail/XChainBridge.cpp:183:// from an `addAttestation` transaction, it is not used in a `claim`
+src/xrpld/app/tx/detail/XChainBridge.cpp:189:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:192:    XChainAttestationsBase<TAttestation>& attestations,
+src/xrpld/app/tx/detail/XChainBridge.cpp:194:    typename TAttestation::MatchFields const& toMatch,
+src/xrpld/app/tx/detail/XChainBridge.cpp:204:        return checkAttestationPublicKey(
+src/xrpld/app/tx/detail/XChainBridge.cpp:219:        using enum AttestationMatch;
+src/xrpld/app/tx/detail/XChainBridge.cpp:247: signer's list. Attestations that are not part of the current signer's
+src/xrpld/app/tx/detail/XChainBridge.cpp:274:struct OnNewAttestationResult
+src/xrpld/app/tx/detail/XChainBridge.cpp:282:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:283:[[nodiscard]] OnNewAttestationResult
+src/xrpld/app/tx/detail/XChainBridge.cpp:284:onNewAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:285:    XChainAttestationsBase<TAttestation>& attestations,
+src/xrpld/app/tx/detail/XChainBridge.cpp:287:    typename TAttestation::TSignedAttestation const* attBegin,
+src/xrpld/app/tx/detail/XChainBridge.cpp:288:    typename TAttestation::TSignedAttestation const* attEnd,
+src/xrpld/app/tx/detail/XChainBridge.cpp:296:        if (checkAttestationPublicKey(
+src/xrpld/app/tx/detail/XChainBridge.cpp:303:            // The checkAttestationPublicKey is not strictly necessary here (it
+src/xrpld/app/tx/detail/XChainBridge.cpp:321:            *i = TAttestation{*att};
+src/xrpld/app/tx/detail/XChainBridge.cpp:334:        typename TAttestation::MatchFields{*attBegin},
+src/xrpld/app/tx/detail/XChainBridge.cpp:351:    XChainClaimAttestations& attestations,
+src/xrpld/app/tx/detail/XChainBridge.cpp:359:    XChainClaimAttestation::MatchFields toMatch{
+src/xrpld/app/tx/detail/XChainBridge.cpp:390:           it is also the claim owner.
+src/xrpld/app/tx/detail/XChainBridge.cpp:425:        // If the destination is the claim owner, and this is a claim
+src/xrpld/app/tx/detail/XChainBridge.cpp:447:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:450:            auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:451:            auto const reserve = psb.fees().accountReserve(ownerCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:512:        /*owner pays transfer fee*/ true,
+src/xrpld/app/tx/detail/XChainBridge.cpp:563:        // if any phase return a tecINTERNAL or a tef, prefer returning those
+src/xrpld/app/tx/detail/XChainBridge.cpp:566:            (isTefFailure(*mainFundsTer) || *mainFundsTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:569:            (isTefFailure(*rewardTer) || *rewardTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:571:        if (rmSleTer && (isTefFailure(*rmSleTer) || *rmSleTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:574:        // Only after the tecINTERNAL and tef are checked, return the first
+src/xrpld/app/tx/detail/XChainBridge.cpp:589:    @param bridgeSpc Bridge
+src/xrpld/app/tx/detail/XChainBridge.cpp:595:    @param rewardPoolSrc Source of the funds for the reward pool (claim owner).
+src/xrpld/app/tx/detail/XChainBridge.cpp:599:    @param sleClaimID sle for the claim id (may be NULL or XChainClaimID or
+src/xrpld/app/tx/detail/XChainBridge.cpp:600:           XChainCreateAccountClaimID). Don't read fields that aren't in common
+src/xrpld/app/tx/detail/XChainBridge.cpp:617:    STXChainBridge const& bridgeSpec,
+src/xrpld/app/tx/detail/XChainBridge.cpp:625:    STXChainBridge::ChainType const srcChain,
+src/xrpld/app/tx/detail/XChainBridge.cpp:633:    STXChainBridge::ChainType const dstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:634:        STXChainBridge::otherChain(srcChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:681:                auto const round_mode =
+src/xrpld/app/tx/detail/XChainBridge.cpp:682:                    innerSb.rules().enabled(fixXChainRewardRounding)
+src/xrpld/app/tx/detail/XChainBridge.cpp:683:                    ? Number::rounding_mode::downward
+src/xrpld/app/tx/detail/XChainBridge.cpp:684:                    : Number::getround();
+src/xrpld/app/tx/detail/XChainBridge.cpp:685:                saveNumberRoundMode _{Number::setround(round_mode)};
+src/xrpld/app/tx/detail/XChainBridge.cpp:698:                    // claim owner is not relevant to distributing rewards
+src/xrpld/app/tx/detail/XChainBridge.cpp:706:                if (thTer == tecUNFUNDED_PAYMENT || thTer == tecINTERNAL)
+src/xrpld/app/tx/detail/XChainBridge.cpp:717:                return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:724:             *result.rewardTer == tecINTERNAL))
+src/xrpld/app/tx/detail/XChainBridge.cpp:739:    if (auto const sleClaimID = outerSb.peek(claimIDKeylet))
+src/xrpld/app/tx/detail/XChainBridge.cpp:741:        auto const cidOwner = (*sleClaimID)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:745:            auto const page = (*sleClaimID)[sfOwnerNode];
+src/xrpld/app/tx/detail/XChainBridge.cpp:746:            if (!outerSb.dirRemove(
+src/xrpld/app/tx/detail/XChainBridge.cpp:747:                    keylet::ownerDir(cidOwner), page, sleClaimID->key(), true))
+src/xrpld/app/tx/detail/XChainBridge.cpp:750:                    << "Unable to delete xchain seq number from owner.";
+src/xrpld/app/tx/detail/XChainBridge.cpp:756:            outerSb.erase(sleClaimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:758:            adjustOwnerCount(outerSb, sleOwner, -1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:768:    @param sleBridge Sle of the bridge.
+src/xrpld/app/tx/detail/XChainBridge.cpp:777:    SLE const& sleBridge,
+src/xrpld/app/tx/detail/XChainBridge.cpp:783:    AccountID const thisDoor = sleBridge[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:788:        return {r, q, tecINTERNAL};
+src/xrpld/app/tx/detail/XChainBridge.cpp:791:    auto const sleS = view.read(keylet::signers(sleBridge[sfAccount]));
+src/xrpld/app/tx/detail/XChainBridge.cpp:802:        return {r, q, tecINTERNAL};
+src/xrpld/app/tx/detail/XChainBridge.cpp:815:readOrpeekBridge(F&& getter, STXChainBridge const& bridgeSpec)
+src/xrpld/app/tx/detail/XChainBridge.cpp:817:    auto tryGet = [&](STXChainBridge::ChainType ct) -> std::shared_ptr<R> {
+src/xrpld/app/tx/detail/XChainBridge.cpp:820:            if ((*r)[sfXChainBridge] == bridgeSpec)
+src/xrpld/app/tx/detail/XChainBridge.cpp:825:    if (auto r = tryGet(STXChainBridge::ChainType::locking))
+src/xrpld/app/tx/detail/XChainBridge.cpp:827:    return tryGet(STXChainBridge::ChainType::issuing);
+src/xrpld/app/tx/detail/XChainBridge.cpp:831:peekBridge(ApplyView& v, STXChainBridge const& bridgeSpec)
+src/xrpld/app/tx/detail/XChainBridge.cpp:833:    return readOrpeekBridge<SLE>(
+src/xrpld/app/tx/detail/XChainBridge.cpp:834:        [&v](STXChainBridge const& b, STXChainBridge::ChainType ct)
+src/xrpld/app/tx/detail/XChainBridge.cpp:840:readBridge(ReadView const& v, STXChainBridge const& bridgeSpec)
+src/xrpld/app/tx/detail/XChainBridge.cpp:842:    return readOrpeekBridge<SLE const>(
+src/xrpld/app/tx/detail/XChainBridge.cpp:843:        [&v](STXChainBridge const& b, STXChainBridge::ChainType ct)
+src/xrpld/app/tx/detail/XChainBridge.cpp:854:applyClaimAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:859:    STXChainBridge const& bridgeSpec,
+src/xrpld/app/tx/detail/XChainBridge.cpp:860:    STXChainBridge::ChainType const srcChain,
+src/xrpld/app/tx/detail/XChainBridge.cpp:871:        keylet::xChainClaimID(bridgeSpec, attBegin->claimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:875:        OnNewAttestationResult newAttResult;
+src/xrpld/app/tx/detail/XChainBridge.cpp:885:        auto const sleClaimID = psb.peek(claimIDKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:886:        if (!sleClaimID)
+src/xrpld/app/tx/detail/XChainBridge.cpp:890:        std::vector<Attestations::AttestationClaim> atts;
+src/xrpld/app/tx/detail/XChainBridge.cpp:904:        AccountID const otherChainSource = (*sleClaimID)[sfOtherChainSource];
+src/xrpld/app/tx/detail/XChainBridge.cpp:911:            STXChainBridge::ChainType const dstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:912:                STXChainBridge::otherChain(srcChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:914:            STXChainBridge::ChainType const attDstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:915:                STXChainBridge::dstChain(attBegin->wasLockingChainSend);
+src/xrpld/app/tx/detail/XChainBridge.cpp:923:        XChainClaimAttestations curAtts{
+src/xrpld/app/tx/detail/XChainBridge.cpp:924:            sleClaimID->getFieldArray(sfXChainClaimAttestations)};
+src/xrpld/app/tx/detail/XChainBridge.cpp:926:        auto const newAttResult = onNewAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:936:        sleClaimID->setFieldArray(
+src/xrpld/app/tx/detail/XChainBridge.cpp:937:            sfXChainClaimAttestations, curAtts.toSTArray());
+src/xrpld/app/tx/detail/XChainBridge.cpp:938:        psb.update(sleClaimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:942:            (*sleClaimID)[sfSignatureReward],
+src/xrpld/app/tx/detail/XChainBridge.cpp:943:            (*sleClaimID)[sfAccount]};
+src/xrpld/app/tx/detail/XChainBridge.cpp:972:            (!attListChanged || rTer == tecINTERNAL || rTer == tefBAD_LEDGER))
+src/xrpld/app/tx/detail/XChainBridge.cpp:983:applyCreateAccountAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:990:    STXChainBridge const& bridgeSpec,
+src/xrpld/app/tx/detail/XChainBridge.cpp:992:    STXChainBridge::ChainType const srcChain,
+src/xrpld/app/tx/detail/XChainBridge.cpp:1003:        auto const sleBridge = psb.peek(bridgeK);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1004:        if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1005:            return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1007:        return (*sleBridge)[sfXChainAccountClaimCount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1026:        STXChainBridge::ChainType const dstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1027:            STXChainBridge::otherChain(srcChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1029:        STXChainBridge::ChainType const attDstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1030:            STXChainBridge::dstChain(attBegin->wasLockingChainSend);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1039:        keylet::xChainCreateAccountClaimID(bridgeSpec, attBegin->createCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1043:        OnNewAttestationResult newAttResult;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1045:        XChainCreateAccountAttestations curAtts;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1054:        // sleClaimID may be null. If it's null it isn't created until the end
+src/xrpld/app/tx/detail/XChainBridge.cpp:1056:        auto const sleClaimID = psb.peek(claimIDKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1058:        if (!sleClaimID)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1064:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1069:                psb.fees().accountReserve((*sleDoor)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1075:        std::vector<Attestations::AttestationCreateAccount> atts;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1088:        XChainCreateAccountAttestations curAtts = [&] {
+src/xrpld/app/tx/detail/XChainBridge.cpp:1089:            if (sleClaimID)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1090:                return XChainCreateAccountAttestations{
+src/xrpld/app/tx/detail/XChainBridge.cpp:1091:                    sleClaimID->getFieldArray(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1092:                        sfXChainCreateAccountAttestations)};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1093:            return XChainCreateAccountAttestations{};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1096:        auto const newAttResult = onNewAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1109:            if (!sleClaimID)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1110:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1111:            sleClaimID->setFieldArray(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1112:                sfXChainCreateAccountAttestations, curAtts.toSTArray());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1113:            psb.update(sleClaimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1147:            if (rTer == tecINTERNAL || rTer == tecUNFUNDED_PAYMENT ||
+src/xrpld/app/tx/detail/XChainBridge.cpp:1153:        auto const sleBridge = psb.peek(bridgeK);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1154:        if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1155:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1156:        (*sleBridge)[sfXChainAccountClaimCount] = attBegin->createCount;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1157:        psb.update(sleBridge);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1161:        auto const createdSleClaimID = std::make_shared<SLE>(claimIDKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1162:        (*createdSleClaimID)[sfAccount] = doorAccount;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1163:        (*createdSleClaimID)[sfXChainBridge] = bridgeSpec;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1164:        (*createdSleClaimID)[sfXChainAccountCreateCount] =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1166:        createdSleClaimID->setFieldArray(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1167:            sfXChainCreateAccountAttestations, curAtts.toSTArray());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1169:        // Add to owner directory of the door account
+src/xrpld/app/tx/detail/XChainBridge.cpp:1170:        auto const page = psb.dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1171:            keylet::ownerDir(doorAccount),
+src/xrpld/app/tx/detail/XChainBridge.cpp:1176:        (*createdSleClaimID)[sfOwnerNode] = *page;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1180:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1183:        adjustOwnerCount(psb, sleDoor, 1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1184:        psb.insert(createdSleClaimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1193:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:1194:std::optional<TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:1198:        std::is_same_v<TAttestation, Attestations::AttestationClaim> ||
+src/xrpld/app/tx/detail/XChainBridge.cpp:1199:        std::is_same_v<TAttestation, Attestations::AttestationCreateAccount>);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1205:        return TAttestation(o);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1213:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:1220:    auto const att = toClaim<TAttestation>(ctx.tx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1224:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1233:        bridgeSpec.issue(STXChainBridge::srcChain(att->wasLockingChainSend));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1240:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:1244:    auto const att = toClaim<TAttestation>(ctx.tx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1247:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1249:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1250:    auto const sleBridge = readBridge(ctx.view, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1251:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1257:        ctx.tx[sfAttestationSignerAccount]};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1262:        getSignersListAndQuorum(ctx.view, *sleBridge, ctx.j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1267:    return checkAttestationPublicKey(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1271:template <class TAttestation>
+src/xrpld/app/tx/detail/XChainBridge.cpp:1275:    auto const att = toClaim<TAttestation>(ctx.tx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1278:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1280:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1284:        STXChainBridge::ChainType srcChain;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1296:        auto sleBridge = readBridge(ctx.view(), bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1297:        if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1301:        Keylet const bridgeK{ltBRIDGE, sleBridge->key()};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1302:        AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1304:        STXChainBridge::ChainType dstChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1307:                dstChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1309:                dstChain = STXChainBridge::ChainType::issuing;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1311:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1313:        STXChainBridge::ChainType const srcChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1314:            STXChainBridge::otherChain(dstChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1318:            getSignersListAndQuorum(ctx.view(), *sleBridge, ctx.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1334:        std::is_same_v<TAttestation, Attestations::AttestationClaim> ||
+src/xrpld/app/tx/detail/XChainBridge.cpp:1335:        std::is_same_v<TAttestation, Attestations::AttestationCreateAccount>);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1337:    if constexpr (std::is_same_v<TAttestation, Attestations::AttestationClaim>)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1339:        return applyClaimAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1351:                           TAttestation,
+src/xrpld/app/tx/detail/XChainBridge.cpp:1352:                           Attestations::AttestationCreateAccount>)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1354:        return applyCreateAccountAttestations(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1374:XChainCreateBridge::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1377:    auto const reward = ctx.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1379:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1449:XChainCreateBridge::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1452:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1453:    STXChainBridge::ChainType const chainType =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1454:        STXChainBridge::srcChain(account == bridgeSpec.lockingChainDoor());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1457:        auto hasBridge = [&](STXChainBridge::ChainType ct) -> bool {
+src/xrpld/app/tx/detail/XChainBridge.cpp:1461:        if (hasBridge(STXChainBridge::ChainType::issuing) ||
+src/xrpld/app/tx/detail/XChainBridge.cpp:1462:            hasBridge(STXChainBridge::ChainType::locking))
+src/xrpld/app/tx/detail/XChainBridge.cpp:1490:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1500:XChainCreateBridge::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:1503:    auto const bridgeSpec = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1504:    auto const reward = ctx_.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1509:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1511:    STXChainBridge::ChainType const chainType =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1512:        STXChainBridge::srcChain(account == bridgeSpec.lockingChainDoor());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1515:    auto const sleBridge = std::make_shared<SLE>(bridgeKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1517:    (*sleBridge)[sfAccount] = account;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1518:    (*sleBridge)[sfSignatureReward] = reward;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1520:        (*sleBridge)[sfMinAccountCreateAmount] = *minAccountCreate;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1521:    (*sleBridge)[sfXChainBridge] = bridgeSpec;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1522:    (*sleBridge)[sfXChainClaimID] = 0;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1523:    (*sleBridge)[sfXChainAccountCreateCount] = 0;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1524:    (*sleBridge)[sfXChainAccountClaimCount] = 0;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1526:    // Add to owner directory
+src/xrpld/app/tx/detail/XChainBridge.cpp:1528:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1529:            keylet::ownerDir(account), bridgeKeylet, describeOwnerDir(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1532:        (*sleBridge)[sfOwnerNode] = *page;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1535:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1537:    ctx_.view().insert(sleBridge);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1546:BridgeModify::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1548:    return tfBridgeModifyMask;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1552:BridgeModify::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1555:    auto const reward = ctx.tx[~sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1557:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1596:BridgeModify::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1599:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1601:    STXChainBridge::ChainType const chainType =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1602:        STXChainBridge::srcChain(account == bridgeSpec.lockingChainDoor());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1613:BridgeModify::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:1616:    auto const bridgeSpec = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1617:    auto const reward = ctx_.tx[~sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1624:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1626:    STXChainBridge::ChainType const chainType =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1627:        STXChainBridge::srcChain(account == bridgeSpec.lockingChainDoor());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1629:    auto const sleBridge =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1631:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1632:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1635:        (*sleBridge)[sfSignatureReward] = *reward;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1638:        (*sleBridge)[sfMinAccountCreateAmount] = *minAccountCreate;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1641:        sleBridge->isFieldPresent(sfMinAccountCreateAmount))
+src/xrpld/app/tx/detail/XChainBridge.cpp:1643:        sleBridge->makeFieldAbsent(sfMinAccountCreateAmount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1645:    ctx_.view().update(sleBridge);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1653:XChainClaim::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1655:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1669:XChainClaim::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1672:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1674:    auto const claimID = ctx.tx[sfXChainClaimID];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1676:    auto const sleBridge = readBridge(ctx.view, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1677:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1687:    auto const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1695:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1719:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1731:    auto const sleClaimID =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1732:        ctx.view.read(keylet::xChainClaimID(bridgeSpec, claimID));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1736:        if (!sleClaimID)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1741:        if ((*sleClaimID)[sfAccount] != account)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1753:XChainClaim::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:1759:    STXChainBridge const bridgeSpec = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1761:    auto const claimID = ctx_.tx[sfXChainClaimID];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1762:    auto const claimIDKeylet = keylet::xChainClaimID(bridgeSpec, claimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1769:        STXChainBridge::ChainType srcChain;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1770:        STAmount signatureReward;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1780:        auto const sleBridge = peekBridge(psb, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1781:        auto const sleClaimID = psb.peek(claimIDKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1783:        if (!(sleBridge && sleClaimID && sleAcct))
+src/xrpld/app/tx/detail/XChainBridge.cpp:1784:            return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1786:        AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1788:        STXChainBridge::ChainType dstChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1791:                dstChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1793:                dstChain = STXChainBridge::ChainType::issuing;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1795:                return Unexpected(tecINTERNAL);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1797:        STXChainBridge::ChainType const srcChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1798:            STXChainBridge::otherChain(dstChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1807:            getSignersListAndQuorum(ctx_.view(), *sleBridge, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1812:        XChainClaimAttestations curAtts{
+src/xrpld/app/tx/detail/XChainBridge.cpp:1813:            sleClaimID->getFieldArray(sfXChainClaimAttestations)};
+src/xrpld/app/tx/detail/XChainBridge.cpp:1820:                STXChainBridge::ChainType::locking,
+src/xrpld/app/tx/detail/XChainBridge.cpp:1829:            (*sleClaimID)[sfAccount],
+src/xrpld/app/tx/detail/XChainBridge.cpp:1832:            (*sleClaimID)[sfSignatureReward],
+src/xrpld/app/tx/detail/XChainBridge.cpp:1839:    auto const& [rewardAccounts, rewardPoolSrc, sendingAmount, srcChain, signatureReward] =
+src/xrpld/app/tx/detail/XChainBridge.cpp:1851:        signatureReward,
+src/xrpld/app/tx/detail/XChainBridge.cpp:1869:XChainCommit::makeTxConsequences(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1882:XChainCommit::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1885:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1898:XChainCommit::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1900:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1903:    auto const sleBridge = readBridge(ctx.view, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1904:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1909:    AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1925:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1943:XChainCommit::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:1949:    auto const bridgeSpec = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1952:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1954:    auto const sleBridge = readBridge(psb, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1955:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1956:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:1958:    auto const dst = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1987:XChainCreateClaimID::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1989:    auto const reward = ctx.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1998:XChainCreateClaimID::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2001:    auto const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2002:    auto const sleBridge = readBridge(ctx.view, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2004:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2010:    auto const reward = ctx.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2012:    if (reward != (*sleBridge)[sfSignatureReward])
+src/xrpld/app/tx/detail/XChainBridge.cpp:2025:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2035:XChainCreateClaimID::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:2038:    auto const bridgeSpec = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2039:    auto const reward = ctx_.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2044:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2046:    auto const sleBridge = peekBridge(ctx_.view(), bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2047:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2048:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2050:    std::uint32_t const claimID = (*sleBridge)[sfXChainClaimID] + 1;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2054:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2057:    (*sleBridge)[sfXChainClaimID] = claimID;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2059:    Keylet const claimIDKeylet = keylet::xChainClaimID(bridgeSpec, claimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2063:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2066:    auto const sleClaimID = std::make_shared<SLE>(claimIDKeylet);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2068:    (*sleClaimID)[sfAccount] = account;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2069:    (*sleClaimID)[sfXChainBridge] = bridgeSpec;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2070:    (*sleClaimID)[sfXChainClaimID] = claimID;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2071:    (*sleClaimID)[sfOtherChainSource] = otherChainSrc;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2072:    (*sleClaimID)[sfSignatureReward] = reward;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2073:    sleClaimID->setFieldArray(
+src/xrpld/app/tx/detail/XChainBridge.cpp:2074:        sfXChainClaimAttestations, STArray{sfXChainClaimAttestations});
+src/xrpld/app/tx/detail/XChainBridge.cpp:2076:    // Add to owner directory
+src/xrpld/app/tx/detail/XChainBridge.cpp:2078:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:2079:            keylet::ownerDir(account),
+src/xrpld/app/tx/detail/XChainBridge.cpp:2084:        (*sleClaimID)[sfOwnerNode] = *page;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2087:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2089:    ctx_.view().insert(sleClaimID);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2090:    ctx_.view().update(sleBridge);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2099:XChainAddClaimAttestation::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2101:    return attestationpreflight<Attestations::AttestationClaim>(ctx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2105:XChainAddClaimAttestation::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2107:    return attestationPreclaim<Attestations::AttestationClaim>(ctx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2111:XChainAddClaimAttestation::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:2113:    return attestationDoApply<Attestations::AttestationClaim>(ctx_);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2119:XChainAddAccountCreateAttestation::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2121:    return attestationpreflight<Attestations::AttestationCreateAccount>(ctx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2125:XChainAddAccountCreateAttestation::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2127:    return attestationPreclaim<Attestations::AttestationCreateAccount>(ctx);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2131:XChainAddAccountCreateAttestation::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:2133:    return attestationDoApply<Attestations::AttestationCreateAccount>(ctx_);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2139:XChainCreateAccountCommit::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2146:    auto const reward = ctx.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2157:XChainCreateAccountCommit::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2159:    STXChainBridge const bridgeSpec = ctx.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2161:    STAmount const reward = ctx.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2163:    auto const sleBridge = readBridge(ctx.view, bridgeSpec);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2164:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2169:    if (reward != (*sleBridge)[sfSignatureReward])
+src/xrpld/app/tx/detail/XChainBridge.cpp:2175:        (*sleBridge)[~sfMinAccountCreateAmount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2186:    AccountID const thisDoor = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2194:    STXChainBridge::ChainType srcChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2197:            srcChain = STXChainBridge::ChainType::locking;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2199:            srcChain = STXChainBridge::ChainType::issuing;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2201:            return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2203:    STXChainBridge::ChainType const dstChain =
+src/xrpld/app/tx/detail/XChainBridge.cpp:2204:        STXChainBridge::otherChain(srcChain);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2216:XChainCreateAccountCommit::doApply()
+src/xrpld/app/tx/detail/XChainBridge.cpp:2222:    STAmount const reward = ctx_.tx[sfSignatureReward];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2223:    STXChainBridge const bridge = ctx_.tx[sfXChainBridge];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2227:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2229:    auto const sleBridge = peekBridge(psb, bridge);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2230:    if (!sleBridge)
+src/xrpld/app/tx/detail/XChainBridge.cpp:2231:        return tecINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/XChainBridge.cpp:2233:    auto const dst = (*sleBridge)[sfAccount];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2254:    (*sleBridge)[sfXChainAccountCreateCount] =
+src/xrpld/app/tx/detail/XChainBridge.cpp:2255:        (*sleBridge)[sfXChainAccountCreateCount] + 1;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2256:    psb.update(sleBridge);
