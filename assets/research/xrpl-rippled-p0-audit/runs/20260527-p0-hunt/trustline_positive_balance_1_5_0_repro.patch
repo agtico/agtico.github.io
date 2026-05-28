@@ -1,0 +1,154 @@
+diff --git a/Builds/CMake/CMake_sqlite3.txt b/Builds/CMake/CMake_sqlite3.txt
+index d80557a9f..d99c920b2 100644
+--- a/Builds/CMake/CMake_sqlite3.txt
++++ b/Builds/CMake/CMake_sqlite3.txt
+@@ -7,6 +7,9 @@
+   this file to build the lib with ExternalProject
+ #]=========================================================]
+
++cmake_minimum_required(VERSION 3.5)
++project(sqlite3 C)
++
+ add_library (sqlite3 STATIC sqlite3.c)
+ #[=========================================================[
+    When compiled with SQLITE_THREADSAFE=1, SQLite operates
+@@ -57,4 +60,3 @@ install (
+     sqlite3ext.h
+   DESTINATION include)
+
+-
+diff --git a/Builds/CMake/deps/Rocksdb.cmake b/Builds/CMake/deps/Rocksdb.cmake
+index f7979c82a..348949d73 100644
+--- a/Builds/CMake/deps/Rocksdb.cmake
++++ b/Builds/CMake/deps/Rocksdb.cmake
+@@ -124,7 +124,7 @@ if (local_rocksdb)
+         "-DCMAKE_CXX_FLAGS=-GR -Gd -fp:precise -FS -MP /DNDEBUG"
+       >
+       $<$<NOT:$<BOOL:${MSVC}>>:
+-        "-DCMAKE_CXX_FLAGS=-DNDEBUG"
++        "-DCMAKE_CXX_FLAGS=-DNDEBUG -include cstdint -include system_error"
+       >
+     LOG_BUILD ON
+     LOG_CONFIGURE ON
+diff --git a/src/ripple/basics/base64.h b/src/ripple/basics/base64.h
+index 516b588b3..20267cdf2 100644
+--- a/src/ripple/basics/base64.h
++++ b/src/ripple/basics/base64.h
+@@ -57,6 +57,7 @@
+ #ifndef RIPPLE_BASICS_BASE64_H_INCLUDED
+ #define RIPPLE_BASICS_BASE64_H_INCLUDED
+
++#include <cstdint>
+ #include <string>
+
+ namespace ripple {
+diff --git a/src/ripple/beast/net/IPAddress.h b/src/ripple/beast/net/IPAddress.h
+index ee473ba1a..9ecc67cce 100644
+--- a/src/ripple/beast/net/IPAddress.h
++++ b/src/ripple/beast/net/IPAddress.h
+@@ -24,6 +24,7 @@
+ #include <ripple/beast/net/IPAddressV6.h>
+ #include <ripple/beast/hash/hash_append.h>
+ #include <ripple/beast/hash/uhash.h>
++#include <boost/version.hpp>
+ #include <boost/functional/hash.hpp>
+ #include <boost/asio/ip/address.hpp>
+ #include <cassert>
+@@ -111,6 +112,7 @@ hash_append(Hasher& h, beast::IP::Address const& addr) noexcept
+ }
+
+ namespace std {
++#if BOOST_VERSION < 107400
+ template <>
+ struct hash <beast::IP::Address>
+ {
+@@ -122,6 +124,7 @@ struct hash <beast::IP::Address>
+         return beast::uhash<>{} (addr);
+     }
+ };
++#endif
+ }
+
+ namespace boost {
+diff --git a/src/test/app/SetTrust_test.cpp b/src/test/app/SetTrust_test.cpp
+index 2770a5280..d5b18dd52 100644
+--- a/src/test/app/SetTrust_test.cpp
++++ b/src/test/app/SetTrust_test.cpp
+@@ -204,6 +204,69 @@ public:
+
+     }
+
++    void testPositiveBalanceWithoutReserveLegacy()
++    {
++        testcase(
++            "Legacy 1.5.0 -- offer crossing creates positive balance without "
++            "reserve");
++
++        using namespace jtx;
++
++        Account const gw{"gateway"};
++        Account const alice{"alice"};
++        Account const market{"market"};
++        auto const USD = gw["USD"];
++        bool const aliceHigh = alice.id() > gw.id();
++
++        Env env{*this};
++        env.fund(XRP(100000), gw, alice, market);
++        env.close();
++
++        env(trust(alice, USD(1000)));
++        env(trust(market, USD(1000)));
++        env.close();
++
++        env(pay(gw, alice, USD(100)));
++        env(pay(gw, market, USD(1000)));
++        env.close();
++
++        env(fclear(gw, asfDefaultRipple));
++        env.close();
++
++        env(trust(alice, USD(0)));
++        env.close();
++        env(pay(alice, gw, USD(100)));
++        env.close();
++
++        auto const lineKey = keylet::line(alice.id(), USD.issue());
++        auto const cleared = env.le(lineKey);
++        if (!BEAST_EXPECT(cleared))
++            return;
++        auto const aliceBefore = env.le(alice);
++        if (!BEAST_EXPECT(aliceBefore))
++            return;
++        BEAST_EXPECT(aliceBefore->getFieldU32(sfOwnerCount) == 0);
++        BEAST_EXPECT(!cleared->isFlag(
++            aliceHigh ? lsfHighReserve : lsfLowReserve));
++
++        env(offer(market, XRP(100), USD(100)));
++        env.close();
++
++        env(offer(alice, USD(50), XRP(50)));
++        env.close();
++
++        auto const crossed = env.le(lineKey);
++        if (!BEAST_EXPECT(crossed))
++            return;
++        env.require(balance(alice, USD(50)));
++        auto const aliceAfter = env.le(alice);
++        if (!BEAST_EXPECT(aliceAfter))
++            return;
++        BEAST_EXPECT(aliceAfter->getFieldU32(sfOwnerCount) == 0);
++        BEAST_EXPECT(!crossed->isFlag(
++            aliceHigh ? lsfHighReserve : lsfLowReserve));
++    }
++
+     void run() override
+     {
+         testFreeTrustlines(true, false);
+@@ -217,6 +280,7 @@ public:
+         testModifyQualityOfTrustline(false, true);
+         testModifyQualityOfTrustline(true, false);
+         testModifyQualityOfTrustline(true, true);
++        testPositiveBalanceWithoutReserveLegacy();
+     }
+ };
+ BEAST_DEFINE_TESTSUITE(SetTrust, app, ripple);

@@ -233,6 +233,54 @@ def check_remediation(remediation_status: dict) -> None:
             require(fix["in_origin_develop"] is False, f"{rid} unexpectedly fixed in origin/develop")
 
 
+def check_old_tag_trustline_repros() -> None:
+    expected = {
+        "runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch": (
+            "f2b8bb9a31890aa91c7389b9a79157b64dc3d9824d22d6876d3716c4fc28e48d"
+        ),
+        "runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log": (
+            "3e9968cf305851dbd2cdf9f8a50d55b3dab784649af1fb7d9993fdd0fcccb494"
+        ),
+        "runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.patch": (
+            "07651b66c8e5f0e3e39fac776d57933a767988b8e663efb072eae1804be08cd9"
+        ),
+        "runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log": (
+            "8fc64bef728cb84a1f38e4763877e530a6ce54716706ac34ffb3957b070794b2"
+        ),
+        "runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.patch": (
+            "b30a319451845797e1f55416990018b7c73a6759d5d2b9b6c853a83c57f5b047"
+        ),
+        "runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.log": (
+            "cba00449acaaad475b6e3d8824ffb0ee0abb4b981bbb62e44ca4ae9777c7c12f"
+        ),
+    }
+
+    for relative, expected_hash in expected.items():
+        path = ROOT / relative
+        require(path.exists(), f"missing old-tag trustline repro artifact: {relative}")
+        require(sha256(path) == expected_hash, f"old-tag trustline repro hash mismatch: {relative}")
+
+    checks = {
+        "2_5_0": (
+            "Legacy 2.5.0 -- offer crossing creates positive balance without reserve",
+            "32 cases, 1656 tests total, 0 failures",
+        ),
+        "2_0_0": (
+            "Legacy 2.0.0 -- offer crossing creates positive balance without reserve",
+            "22 cases, 700 tests total, 0 failures",
+        ),
+        "1_5_0": (
+            "Legacy 1.5.0 -- offer crossing creates positive balance without reserve",
+            "9 cases, 271 tests total, 0 failures",
+        ),
+    }
+
+    for tag_key, (marker, footer) in checks.items():
+        log = read_text(ROOT / f"runs/20260527-p0-hunt/trustline_positive_balance_{tag_key}_repro.log")
+        require(marker in log, f"old-tag trustline repro log missing marker: {tag_key}")
+        require(footer in log, f"old-tag trustline repro log missing zero-failure footer: {tag_key}")
+
+
 def check_manifest_records(
     manifest: dict,
     amendment_status: dict,
@@ -312,6 +360,7 @@ def main() -> int:
 
     check_direct_receipts(manifest, amendment_status, runtime_status)
     check_remediation(remediation_status)
+    check_old_tag_trustline_repros()
     marker_count = check_manifest_records(manifest, amendment_status, runtime_status, proof_text)
 
     print("packet-ok")

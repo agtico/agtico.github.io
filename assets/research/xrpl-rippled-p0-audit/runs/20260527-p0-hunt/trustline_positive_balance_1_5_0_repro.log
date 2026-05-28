@@ -1,0 +1,777 @@
+debconf: delaying package configuration, since apt-utils is not installed
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Git: /usr/bin/git (found version "2.25.1")
+-- Using 16 cores for ExternalProject builds.
+-- rippled version: 1.5.0
+-- NIH-EP cache path: /cache/nih/unix_makefiles/GNU_9.4.0/Release
+-- docker NOT found -- won't be able to build containers for packaging
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE
+-- BOOST_ROOT:
+-- BOOST_LIBRARYDIR:
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.70") found components: chrono context coroutine date_time filesystem program_options regex serialization system thread
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found suitable version "1.1.1f", minimum required is "1.0.2")
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11")
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1")
+-- Using local build of RocksDB.
+-- Pausing to download NuDB...
+# date: USE_SYSTEM_TZ_DB OFF
+# date: USE_TZ_DB_IN_DOT OFF
+# date: BUILD_SHARED_LIBS OFF
+# date: ENABLE_DATE_TESTING OFF
+# date: DISABLE_STRING_VIEW OFF
+-- Could NOT find Protobuf (missing: Protobuf_INCLUDE_DIR) (Required is at least version "3.8")
+-- using local protobuf build.
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+-- doxygen executable not found -- skipping docs target
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cache/build
+Scanning dependencies of target snappy
+Scanning dependencies of target c-ares_src
+Scanning dependencies of target lz4
+Scanning dependencies of target sqlite3
+Scanning dependencies of target protobuf_src
+Scanning dependencies of target ed25519-donna
+Scanning dependencies of target secp256k1
+[  0%] Building C object CMakeFiles/ed25519-donna.dir/src/ed25519-donna/ed25519.c.o
+[  1%] Creating directories for 'snappy'
+[  1%] Creating directories for 'c-ares_src'
+[  1%] Creating directories for 'sqlite3'
+[  2%] Creating directories for 'protobuf_src'
+[  2%] Creating directories for 'lz4'
+[  2%] Building C object CMakeFiles/secp256k1.dir/src/secp256k1/src/secp256k1.c.o
+[  3%] Performing download step (download, verify and extract) for 'sqlite3'
+[  4%] Performing download step (git clone) for 'c-ares_src'
+-- Downloading...
+   dst='/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite-amalgamation-3260000.zip'
+   timeout='none'
+-- Using src='https://www.sqlite.org/2018/sqlite-amalgamation-3260000.zip'
+[  4%] Performing download step (git clone) for 'snappy'
+[  4%] Performing download step (git clone) for 'protobuf_src'
+[  5%] Performing download step (git clone) for 'lz4'
+Cloning into 'c-ares_src'...
+Cloning into 'snappy'...
+Cloning into 'protobuf_src'...
+Cloning into 'lz4'...
+[  6%] Linking C static library libsecp256k1.a
+[  7%] Linking C static library libed25519-donna.a
+[  7%] Built target secp256k1
+[  7%] Built target ed25519-donna
+Scanning dependencies of target xrpl_core
+[  8%] Building CXX object CMakeFiles/xrpl_core.dir/Unity/unity_4_cxx.cxx.o
+[  9%] Building CXX object CMakeFiles/xrpl_core.dir/Unity/unity_3_cxx.cxx.o
+[  9%] Building CXX object CMakeFiles/xrpl_core.dir/Unity/unity_2_cxx.cxx.o
+Note: switching to '1.1.7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b02bfa7 Tag open source release 1.1.7.
+-- [download 0% complete]
+[  9%] No patch step for 'snappy'
+[ 10%] Performing update step for 'snappy'
+[ 11%] Performing configure step for 'snappy'
+-- [download 1% complete]
+-- [download 2% complete]
+-- [download 3% complete]
+-- [download 4% complete]
+Note: switching to 'v1.8.2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b3692db4 Merge pull request #531 from lz4/dev
+[ 11%] No patch step for 'lz4'
+[ 12%] Performing update step for 'lz4'
+-- [download 5% complete]
+[ 13%] Performing configure step for 'lz4'
+-- [download 6% complete]
+-- [download 7% complete]
+-- [download 8% complete]
+-- [download 9% complete]
+Note: switching to 'cares-1_15_0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at e982924a last minute 1.15.0 addition
+-- [download 10% complete]
+-- [download 11% complete]
+-- [download 12% complete]
+[ 14%] No patch step for 'c-ares_src'
+-- [download 13% complete]
+-- [download 14% complete]
+-- [download 15% complete]
+-- [download 16% complete]
+-- [download 17% complete]
+-- [download 18% complete]
+-- [download 19% complete]
+[ 14%] Performing update step for 'c-ares_src'
+[ 15%] Performing configure step for 'c-ares_src'
+-- [download 20% complete]
+-- [download 21% complete]
+-- [download 22% complete]
+-- [download 23% complete]
+-- [download 24% complete]
+-- [download 25% complete]
+-- [download 26% complete]
+-- [download 27% complete]
+-- [download 28% complete]
+-- [download 29% complete]
+-- [download 30% complete]
+-- [download 31% complete]
+-- [download 32% complete]
+-- [download 33% complete]
+-- [download 34% complete]
+-- [download 35% complete]
+-- [download 36% complete]
+-- [download 37% complete]
+-- [download 38% complete]
+-- [download 39% complete]
+-- [download 40% complete]
+-- [download 41% complete]
+-- [download 42% complete]
+-- [download 43% complete]
+-- [download 44% complete]
+-- [download 45% complete]
+-- [download 46% complete]
+-- [download 47% complete]
+-- [download 48% complete]
+-- [download 49% complete]
+-- [download 50% complete]
+-- [download 51% complete]
+-- [download 52% complete]
+-- [download 53% complete]
+-- [download 54% complete]
+-- [download 55% complete]
+-- [download 56% complete]
+-- [download 57% complete]
+-- [download 58% complete]
+-- [download 59% complete]
+-- [download 60% complete]
+-- [download 61% complete]
+-- [download 62% complete]
+-- [download 63% complete]
+-- [download 64% complete]
+-- [download 65% complete]
+-- [download 66% complete]
+-- [download 67% complete]
+-- [download 68% complete]
+-- [download 69% complete]
+-- [download 70% complete]
+-- [download 71% complete]
+-- [download 72% complete]
+-- [download 73% complete]
+-- [download 74% complete]
+-- [download 75% complete]
+-- [download 76% complete]
+-- [download 77% complete]
+-- [download 78% complete]
+-- [download 79% complete]
+-- [download 80% complete]
+-- [download 81% complete]
+-- [download 82% complete]
+-- [download 83% complete]
+-- [download 84% complete]
+-- [download 85% complete]
+-- [download 86% complete]
+-- [download 87% complete]
+-- [download 88% complete]
+-- [download 89% complete]
+-- [download 90% complete]
+-- [download 91% complete]
+-- [download 92% complete]
+-- [download 93% complete]
+-- [download 94% complete]
+-- [download 95% complete]
+-- [download 96% complete]
+-- [download 97% complete]
+-- [download 98% complete]
+-- [download 99% complete]
+-- [download 100% complete]
+-- verifying file...
+       file='/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite-amalgamation-3260000.zip'
+-- Downloading... done
+-- extracting...
+     src='/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite-amalgamation-3260000.zip'
+     dst='/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite3'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 15%] Performing patch step for 'sqlite3'
+[ 16%] No update step for 'sqlite3'
+[ 17%] Performing configure step for 'sqlite3'
+-- lz4 configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/lz4-stamp/lz4-configure-*.log
+[ 17%] Performing build step for 'lz4'
+-- sqlite3 configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite3-stamp/sqlite3-configure-*.log
+[ 17%] Performing build step for 'sqlite3'
+-- snappy configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/snappy-stamp/snappy-configure-*.log
+[ 18%] Performing build step for 'snappy'
+-- snappy build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/snappy-stamp/snappy-build-*.log
+[ 19%] Performing install step for 'snappy'
+[ 19%] No test step for 'snappy'
+[ 19%] Completed 'snappy'
+[ 19%] Built target snappy
+[ 19%] Building CXX object CMakeFiles/xrpl_core.dir/Unity/unity_1_cxx.cxx.o
+-- lz4 build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/lz4-stamp/lz4-build-*.log
+[ 20%] No install step for 'lz4'
+[ 21%] No test step for 'lz4'
+[ 21%] Completed 'lz4'
+[ 21%] Built target lz4
+Scanning dependencies of target rocksdb
+[ 21%] Creating directories for 'rocksdb'
+[ 22%] Performing download step (git clone) for 'rocksdb'
+Cloning into 'rocksdb'...
+[ 23%] Building CXX object CMakeFiles/xrpl_core.dir/Unity/unity_0_cxx.cxx.o
+Scanning dependencies of target libarchive
+[ 24%] Creating directories for 'libarchive'
+[ 25%] Performing download step (git clone) for 'libarchive'
+Cloning into 'libarchive'...
+Note: switching to 'v3.3.3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 5fe69dd0 3.3.3
+[ 26%] No patch step for 'libarchive'
+[ 26%] Performing update step for 'libarchive'
+[ 26%] Performing configure step for 'libarchive'
+[ 27%] Linking CXX static library libxrpl_core.a
+[ 27%] Built target xrpl_core
+-- c-ares_src configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-stamp/c-ares_src-configure-*.log
+[ 27%] Performing build step for 'c-ares_src'
+-- c-ares_src build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-stamp/c-ares_src-build-*.log
+[ 28%] Performing install step for 'c-ares_src'
+make[4]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+[ 77%] Built target c-ares
+[ 84%] Built target acountry
+[ 92%] Built target adig
+[100%] Built target ahost
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/lib/libcares.a
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/include/ares.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/include/ares_version.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/include/ares_dns.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/include/ares_build.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/include/ares_rules.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/lib/cmake/c-ares/c-ares-targets.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/lib/cmake/c-ares/c-ares-targets-release.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/lib/cmake/c-ares/c-ares-config.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/lib/pkgconfig/libcares.pc
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/bin/ahost
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/bin/adig
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/c-ares_src-build/_installed_/bin/acountry
+[ 29%] No test step for 'c-ares_src'
+[ 29%] Completed 'c-ares_src'
+[ 29%] Built target c-ares_src
+Note: switching to 'v3.8.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 09745575a Merge pull request #6160 from haon4/3.8.x-20190521140707
+Submodule 'third_party/benchmark' (https://github.com/google/benchmark.git) registered for path 'third_party/benchmark'
+Submodule 'third_party/googletest' (https://github.com/google/googletest.git) registered for path 'third_party/googletest'
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src/third_party/benchmark'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src/third_party/googletest'...
+-- sqlite3 build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/sqlite3-stamp/sqlite3-build-*.log
+[ 30%] No install step for 'sqlite3'
+[ 31%] No test step for 'sqlite3'
+[ 31%] Completed 'sqlite3'
+[ 31%] Built target sqlite3
+Scanning dependencies of target soci
+[ 32%] Creating directories for 'soci'
+[ 33%] Performing download step (git clone) for 'soci'
+Cloning into 'soci'...
+Submodule path 'third_party/benchmark': checked out '5b7683f49e1e9223cf9927b24f6fd3d6bd82e3f8'
+Submodule path 'third_party/googletest': checked out '5ec7f0c4a113e2f18ac2c6cc7df51ad6afc24081'
+[ 33%] No patch step for 'protobuf_src'
+[ 34%] Performing update step for 'protobuf_src'
+[ 35%] Performing configure step for 'protobuf_src'
+-- protobuf_src configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-stamp/protobuf_src-configure-*.log
+[ 35%] Performing build step for 'protobuf_src'
+Note: switching to '04e1870294918d20761736743bb6136314c42dd5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 04e18702 Fix crash in Windows by correctly initializing session member in copy constructor (#739)
+[ 36%] Performing patch step for 'soci'
+[ 36%] Performing update step for 'soci'
+[ 36%] Performing configure step for 'soci'
+-- soci configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/soci-stamp/soci-configure-*.log
+[ 37%] Performing build step for 'soci'
+Note: switching to 'v6.5.3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f48aa1c30 Bump up version to 6.5.3
+[ 38%] Performing patch step for 'rocksdb'
+[ 38%] Performing update step for 'rocksdb'
+[ 38%] Performing configure step for 'rocksdb'
+-- soci build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/soci-stamp/soci-build-*.log
+[ 38%] No install step for 'soci'
+[ 39%] No test step for 'soci'
+[ 40%] Completed 'soci'
+-- rocksdb configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/rocksdb-stamp/rocksdb-configure-*.log
+[ 40%] Built target soci
+[ 41%] Performing build step for 'rocksdb'
+-- libarchive configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/libarchive-stamp/libarchive-configure-*.log
+[ 42%] Performing build step for 'libarchive'
+-- libarchive build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/libarchive-stamp/libarchive-build-*.log
+[ 42%] No install step for 'libarchive'
+[ 43%] No test step for 'libarchive'
+[ 44%] Completed 'libarchive'
+[ 44%] Built target libarchive
+-- protobuf_src build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-stamp/protobuf_src-build-*.log
+[ 45%] Performing install step for 'protobuf_src'
+make[4]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+[ 42%] Built target libprotobuf
+[ 85%] Built target libprotoc
+[ 87%] Built target protoc
+[100%] Built target libprotobuf-lite
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/libprotobuf-lite.a
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/libprotobuf.a
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/libprotoc.a
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/bin/protoc-3.8.0.0
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/bin/protoc
+-- Set runtime path of "/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/bin/protoc-3.8.0.0" to "$ORIGIN/../lib"
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/pkgconfig/protobuf.pc
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/pkgconfig/protobuf-lite.pc
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/any.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/any.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/api.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/arena.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/arena_impl.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/arenastring.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/code_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/command_line_interface.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/cpp/cpp_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/csharp/csharp_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/csharp/csharp_names.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/importer.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/java/java_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/java/java_names.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/js/js_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/js/well_known_types_embed.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/objectivec/objectivec_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/objectivec/objectivec_helpers.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/parser.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/php/php_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/plugin.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/plugin.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/python/python_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/ruby/ruby_generator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/descriptor.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/descriptor.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/descriptor_database.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/duration.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/dynamic_message.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/empty.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/extension_set.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/extension_set_inl.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/field_mask.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/generated_enum_reflection.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/generated_enum_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/generated_message_reflection.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/generated_message_table_driven.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/generated_message_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/has_bits.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/implicit_weak_message.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/inlined_string_field.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/coded_stream.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/gzip_stream.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/printer.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/strtod.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/tokenizer.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/zero_copy_stream.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/zero_copy_stream_impl.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_entry.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_entry_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_field.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_field_inl.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_field_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/map_type_handler.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/message.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/message_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/metadata.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/metadata_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/parse_context.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/port.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/port_def.inc
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/port_undef.inc
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/reflection.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/reflection_ops.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/repeated_field.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/service.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/source_context.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/struct.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/bytestream.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/callback.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/casts.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/common.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/fastmem.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/hash.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/logging.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/macros.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/mutex.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/once.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/platform_macros.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/port.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/status.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/stl_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/stringpiece.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/strutil.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/stubs/template_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/text_format.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/timestamp.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/type.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/unknown_field_set.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/delimited_message_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/field_comparator.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/field_mask_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/json_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/message_differencer.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/time_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/type_resolver.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/util/type_resolver_util.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/wire_format.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/wire_format_lite.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/wrappers.pb.h
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/any.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/api.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/plugin.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/descriptor.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/duration.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/empty.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/field_mask.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/source_context.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/struct.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/timestamp.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/type.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/wrappers.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/descriptor.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/any.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/api.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/duration.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/empty.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/field_mask.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/source_context.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/struct.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/timestamp.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/type.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/wrappers.proto
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/include/google/protobuf/compiler/plugin.proto
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-targets.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-targets-release.cmake
+-- Up-to-date: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-config-version.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-options.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-config.cmake
+-- Installing: /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/protobuf_src-build/_installed_/lib/cmake/protobuf/protobuf-module.cmake
+[ 46%] No test step for 'protobuf_src'
+[ 46%] Completed 'protobuf_src'
+[ 46%] Built target protobuf_src
+Scanning dependencies of target grpc_src
+[ 47%] Running cpp protocol buffer compiler on src/ripple/proto/ripple.proto
+[ 48%] Creating directories for 'grpc_src'
+Scanning dependencies of target pbufs
+[ 48%] Building CXX object CMakeFiles/pbufs.dir/proto_gen/ripple.pb.cc.o
+[ 48%] Performing download step (git clone) for 'grpc_src'
+Cloning into 'grpc_src'...
+[ 49%] Linking CXX static library libpbufs.a
+[ 49%] Built target pbufs
+-- rocksdb build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/rocksdb-stamp/rocksdb-build-*.log
+[ 50%] No install step for 'rocksdb'
+[ 51%] No test step for 'rocksdb'
+[ 52%] Completed 'rocksdb'
+[ 52%] Built target rocksdb
+Note: switching to 'v1.25.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at c1d176528f Merge pull request #20948 from yashykt/v1.25.0-bump
+Submodule 'third_party/abseil-cpp' (https://github.com/abseil/abseil-cpp) registered for path 'third_party/abseil-cpp'
+Submodule 'third_party/benchmark' (https://github.com/google/benchmark) registered for path 'third_party/benchmark'
+Submodule 'third_party/bloaty' (https://github.com/google/bloaty.git) registered for path 'third_party/bloaty'
+Submodule 'third_party/boringssl' (https://github.com/google/boringssl.git) registered for path 'third_party/boringssl'
+Submodule 'third_party/boringssl-with-bazel' (https://github.com/google/boringssl.git) registered for path 'third_party/boringssl-with-bazel'
+Submodule 'third_party/cares/cares' (https://github.com/c-ares/c-ares.git) registered for path 'third_party/cares/cares'
+Submodule 'third_party/envoy-api' (https://github.com/envoyproxy/data-plane-api.git) registered for path 'third_party/envoy-api'
+Submodule 'third_party/gflags' (https://github.com/gflags/gflags.git) registered for path 'third_party/gflags'
+Submodule 'third_party/googleapis' (https://github.com/googleapis/googleapis.git) registered for path 'third_party/googleapis'
+Submodule 'third_party/googletest' (https://github.com/google/googletest.git) registered for path 'third_party/googletest'
+Submodule 'third_party/protobuf' (https://github.com/google/protobuf.git) registered for path 'third_party/protobuf'
+Submodule 'third_party/protoc-gen-validate' (https://github.com/envoyproxy/protoc-gen-validate.git) registered for path 'third_party/protoc-gen-validate'
+Submodule 'third_party/udpa' (https://github.com/cncf/udpa.git) registered for path 'third_party/udpa'
+Submodule 'third_party/zlib' (https://github.com/madler/zlib) registered for path 'third_party/zlib'
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/abseil-cpp'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/benchmark'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/bloaty'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/boringssl'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/boringssl-with-bazel'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/cares/cares'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/envoy-api'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/gflags'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/googleapis'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/googletest'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/protobuf'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/protoc-gen-validate'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/udpa'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/zlib'...
+Submodule path 'third_party/abseil-cpp': checked out '74d91756c11bc22f9b0108b94da9326f7f9e376f'
+Submodule path 'third_party/benchmark': checked out '090faecb454fbd6e6e17a75ef8146acb037118d4'
+Submodule path 'third_party/bloaty': checked out '73594cde8c9a52a102c4341c244c833aa61b9c06'
+Submodule 'third_party/googletest' (https://github.com/google/googletest.git) registered for path 'third_party/bloaty/third_party/googletest'
+Submodule 'third_party/libFuzzer' (https://chromium.googlesource.com/chromium/llvm-project/llvm/lib/Fuzzer) registered for path 'third_party/bloaty/third_party/libFuzzer'
+Submodule 'third_party/re2' (https://github.com/google/re2) registered for path 'third_party/bloaty/third_party/re2'
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/bloaty/third_party/googletest'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/bloaty/third_party/libFuzzer'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/bloaty/third_party/re2'...
+Submodule path 'third_party/bloaty/third_party/googletest': checked out 'a2b8a8e07628e5fd60644b6dd99c1b5e7d7f1f47'
+Submodule path 'third_party/bloaty/third_party/libFuzzer': checked out '1b543d6e5073b56be214394890c9193979a3d7e1'
+Submodule path 'third_party/bloaty/third_party/re2': checked out 'c964d9b07816f9b52ca692e23b8b3dba33beec54'
+Submodule path 'third_party/boringssl': checked out '7f02881e96e51f1873afcf384d02f782b48967ca'
+Submodule path 'third_party/boringssl-with-bazel': checked out '83da28a68f32023fd3b95a8ae94991a07b1f6c62'
+Submodule path 'third_party/cares/cares': checked out 'e982924acee7f7313b4baa4ee5ec000c5e373c30'
+Submodule path 'third_party/envoy-api': checked out 'c181f78882e54c0e5c63f332562ef6954ee7932f'
+Submodule path 'third_party/gflags': checked out '28f50e0fed19872e0fd50dd23ce2ee8cd759338e'
+Submodule 'doc' (https://github.com/gflags/gflags.git) registered for path 'third_party/gflags/doc'
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/gflags/doc'...
+Submodule path 'third_party/gflags/doc': checked out '8411df715cf522606e3b1aca386ddfc0b63d34b4'
+Submodule path 'third_party/googleapis': checked out '80ed4d0bbf65d57cc267dfc63bd2584557f11f9b'
+Submodule path 'third_party/googletest': checked out 'c9ccac7cb7345901884aabf5d1a786cfa6e2f397'
+Submodule path 'third_party/protobuf': checked out '09745575a923640154bcf307fba8aedff47f240a'
+Submodule 'third_party/benchmark' (https://github.com/google/benchmark.git) registered for path 'third_party/protobuf/third_party/benchmark'
+Submodule 'third_party/googletest' (https://github.com/google/googletest.git) registered for path 'third_party/protobuf/third_party/googletest'
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/protobuf/third_party/benchmark'...
+Cloning into '/cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src/third_party/protobuf/third_party/googletest'...
+Submodule path 'third_party/protobuf/third_party/benchmark': checked out '5b7683f49e1e9223cf9927b24f6fd3d6bd82e3f8'
+Submodule path 'third_party/protobuf/third_party/googletest': checked out '5ec7f0c4a113e2f18ac2c6cc7df51ad6afc24081'
+Submodule path 'third_party/protoc-gen-validate': checked out 'e143189bf6f37b3957fb31743df6a1bcf4a8c685'
+Submodule path 'third_party/udpa': checked out '94324803a497c8f76dbc78df393ef629d3a9f3c3'
+Submodule path 'third_party/zlib': checked out 'cacf7f1d4e3d44d871b605da3b647f07d718623f'
+[ 52%] No patch step for 'grpc_src'
+[ 53%] Performing update step for 'grpc_src'
+[ 54%] Performing configure step for 'grpc_src'
+-- grpc_src configure command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src-stamp/grpc_src-configure-*.log
+[ 55%] Performing build step for 'grpc_src'
+-- grpc_src build command succeeded.  See also /cache/nih/unix_makefiles/GNU_9.4.0/Release/src/grpc_src-stamp/grpc_src-build-*.log
+[ 56%] No install step for 'grpc_src'
+[ 56%] No test step for 'grpc_src'
+[ 56%] Completed 'grpc_src'
+[ 56%] Built target grpc_src
+[ 56%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/get_account_info.proto
+[ 57%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/get_account_transaction_history.proto
+[ 58%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/xrp_ledger.proto
+[ 58%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/amount.proto
+[ 59%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/account.proto
+[ 60%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/get_fee.proto
+[ 60%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/get_transaction.proto
+[ 61%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/common.proto
+[ 61%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/ledger_objects.proto
+[ 62%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/ledger.proto
+[ 63%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/meta.proto
+[ 64%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/submit.proto
+[ 64%] Running gRPC C++ protocol buffer compiler on /work/src/ripple/proto/org/xrpl/rpc/v1/transaction.proto
+Scanning dependencies of target grpc_pbufs
+[ 64%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/account.grpc.pb.cc.o
+[ 65%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/account.pb.cc.o
+[ 67%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/common.grpc.pb.cc.o
+[ 67%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/common.pb.cc.o
+[ 67%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/amount.grpc.pb.cc.o
+[ 68%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_account_info.pb.cc.o
+[ 69%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/amount.pb.cc.o
+[ 69%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_account_info.grpc.pb.cc.o
+[ 69%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_account_transaction_history.grpc.pb.cc.o
+[ 70%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_account_transaction_history.pb.cc.o
+[ 70%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_fee.grpc.pb.cc.o
+[ 71%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_fee.pb.cc.o
+[ 72%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_transaction.grpc.pb.cc.o
+[ 72%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/get_transaction.pb.cc.o
+[ 73%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/ledger.grpc.pb.cc.o
+[ 73%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/ledger.pb.cc.o
+[ 74%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/ledger_objects.grpc.pb.cc.o
+[ 75%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/ledger_objects.pb.cc.o
+[ 75%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/meta.grpc.pb.cc.o
+[ 76%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/meta.pb.cc.o
+[ 76%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/submit.grpc.pb.cc.o
+[ 77%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/submit.pb.cc.o
+[ 77%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/transaction.grpc.pb.cc.o
+[ 78%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/transaction.pb.cc.o
+[ 79%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/xrp_ledger.grpc.pb.cc.o
+[ 79%] Building CXX object CMakeFiles/grpc_pbufs.dir/proto_gen_grpc/org/xrpl/rpc/v1/xrp_ledger.pb.cc.o
+[ 80%] Linking CXX static library libgrpc_pbufs.a
+[ 80%] Built target grpc_pbufs
+Scanning dependencies of target rippled
+[ 81%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_27_cxx.cxx.o
+[ 82%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_31_cxx.cxx.o
+[ 82%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_30_cxx.cxx.o
+[ 83%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_29_cxx.cxx.o
+[ 83%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_28_cxx.cxx.o
+[ 83%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_25_cxx.cxx.o
+[ 84%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_24_cxx.cxx.o
+[ 85%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_26_cxx.cxx.o
+[ 85%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_23_cxx.cxx.o
+[ 86%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_22_cxx.cxx.o
+[ 87%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_21_cxx.cxx.o
+[ 87%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_20_cxx.cxx.o
+[ 88%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_19_cxx.cxx.o
+[ 88%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_18_cxx.cxx.o
+[ 89%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_17_cxx.cxx.o
+[ 90%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_16_cxx.cxx.o
+[ 90%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_15_cxx.cxx.o
+[ 91%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_14_cxx.cxx.o
+[ 91%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_13_cxx.cxx.o
+[ 92%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_12_cxx.cxx.o
+[ 93%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_11_cxx.cxx.o
+[ 93%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_10_cxx.cxx.o
+[ 94%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_9_cxx.cxx.o
+[ 94%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_8_cxx.cxx.o
+[ 95%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_7_cxx.cxx.o
+[ 96%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_6_cxx.cxx.o
+[ 96%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_5_cxx.cxx.o
+[ 97%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_4_cxx.cxx.o
+[ 97%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_3_cxx.cxx.o
+[ 98%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_2_cxx.cxx.o
+[ 99%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_1_cxx.cxx.o
+[ 99%] Building CXX object CMakeFiles/rippled.dir/Unity/unity_0_cxx.cxx.o
+[100%] Building CXX object CMakeFiles/rippled.dir/src/test/rpc/ValidatorRPC_test.cpp.o
+[100%] Linking CXX executable rippled
+[100%] Built target rippled
+ripple.app.SetTrust Allow two free trustlines
+ripple.app.SetTrust Dynamic reserve for trustline
+ripple.app.SetTrust Dynamic reserve for trustline
+ripple.app.SetTrust SetTrust checks for malformed transactions
+ripple.app.SetTrust SetTrust removes quality of trustline for low account
+ripple.app.SetTrust SetTrust removes quality of trustline for high account
+ripple.app.SetTrust SetTrust creates quality of trustline for low account
+ripple.app.SetTrust SetTrust creates quality of trustline for high account
+ripple.app.SetTrust Legacy 1.5.0 -- offer crossing creates positive balance without reserve
+Longest suite times:
+    2.6s ripple.app.SetTrust
+2.7s, 1 suite, 9 cases, 271 tests total, 0 failures
