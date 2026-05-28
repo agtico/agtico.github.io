@@ -1,0 +1,163 @@
+src/test/app/OpenP0Repro_test.cpp:1922:        auto const reserve = env.current()->fees().accountReserve(1);
+src/test/app/OpenP0Repro_test.cpp:2619:            env.current()->fees().accountReserve(2) + XRP(50) + feeAmount;
+src/test/app/OpenP0Repro_test.cpp:2633:        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+src/test/app/OpenP0Repro_test.cpp:2851:            env.current()->fees().accountReserve(2) + feeAmount;
+src/test/app/OpenP0Repro_test.cpp:2865:        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+src/test/app/OpenP0Repro_test.cpp:3065:    testTrustlinePositiveBalanceAMMWithdrawCurrent()
+src/test/app/OpenP0Repro_test.cpp:3067:        testcase("TrustLine current — AMMWithdraw creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3162:        auto const preOwnerCount = ownerCount(env, alice);
+src/test/app/OpenP0Repro_test.cpp:3174:        BEAST_EXPECT(ownerCount(env, alice) == preOwnerCount);
+src/test/app/OpenP0Repro_test.cpp:3433:    testDisallowIncomingTrustlineAMMWithdrawCurrent()
+src/test/app/OpenP0Repro_test.cpp:3475:    testDisallowIncomingTrustlineAMMCreateCurrent()
+src/test/app/OpenP0Repro_test.cpp:3683:    testAMMBidDepositAuthRefundCandidate()
+src/test/app/OpenP0Repro_test.cpp:4020:        testTrustlinePositiveBalanceAMMWithdrawCurrent();
+src/test/app/OpenP0Repro_test.cpp:4027:        testDisallowIncomingTrustlineAMMWithdrawCurrent();
+src/test/app/OpenP0Repro_test.cpp:4028:        testDisallowIncomingTrustlineAMMCreateCurrent();
+src/test/app/OpenP0Repro_test.cpp:4032:        testAMMBidDepositAuthRefundCandidate();
+src/xrpld/app/tx/detail/AMMBid.cpp:22:#include <xrpld/app/tx/detail/AMMBid.h>
+src/xrpld/app/tx/detail/AMMBid.cpp:34:AMMBid::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMBid.cpp:40:AMMBid::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMBid.cpp:96:AMMBid::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMBid.cpp:351:        res = accountSend(
+src/xrpld/app/tx/detail/AMMBid.cpp:371:AMMBid::doApply()
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:22:#include <xrpld/app/tx/detail/AMMWithdraw.h>
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:32:AMMWithdraw::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:38:AMMWithdraw::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:44:AMMWithdraw::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:169:AMMWithdraw::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:295:AMMWithdraw::applyGuts(Sandbox& sb)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:425:AMMWithdraw::doApply()
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:439:AMMWithdraw::withdraw(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:471:AMMWithdraw::withdraw(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:595:            std::uint32_t const ownerCount = sleAccount->at(sfOwnerCount);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:600:                                 : view.fees().accountReserve(ownerCount + 1));
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:689:AMMWithdraw::equalWithdrawTokens(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:722:AMMWithdraw::deleteAMMAccountIfEmpty(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:753:AMMWithdraw::equalWithdrawTokens(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:829:            << "AMMWithdraw::equalWithdrawTokens exception " << e.what();
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:861:AMMWithdraw::equalWithdrawLimit(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:913:            "ripple::AMMWithdraw::equalWithdrawLimit : maximum amountWithdraw");
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:936:AMMWithdraw::singleWithdraw(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:985:AMMWithdraw::singleWithdrawTokens(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:1039:AMMWithdraw::singleWithdrawEPrice(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:1100:AMMWithdraw::isWithdrawAll(STTx const& tx)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:491:    // A successful AMMWithdraw/AMMClawback MAY delete one account root
+src/xrpld/app/tx/detail/InvariantCheck.cpp:578:        if (after->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1017:    bool const isAMMLine = change.line->isFlag(lsfAMMNode);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2046:            (type == ltRIPPLE_STATE && after->getFlags() & lsfAMMNode) ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2047:            (type == ltACCOUNT_ROOT && after->isFieldPresent(sfAMMID)))
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2105:        JLOG(j.error()) << "AMMBid invariant failed: pool changed";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2117:        JLOG(j.error()) << "AMMBid invariant failed: " << *lptAMMBalanceBefore_
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2138:            << "AMMCreate invariant failed: AMM object is not created";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2160:            JLOG(j.error()) << "AMMCreate invariant failed: " << amount << " "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2259:        JLOG(j.error()) << "AMMDeposit invariant failed: AMM object is deleted";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2493:                           "OwnerCount has multiple directory pages";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2501:               "OwnerCount has multiple indexes in the Directory root";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2518:                   "OwnerCount has an unexpected entry in the directory";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2583:        // If `LoanBroker.OwnerCount = 0` the `DirectoryNode` will have at most
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2586:        if (after->at(sfOwnerCount) == 0)
+src/test/app/AMM_test.cpp:31:#include <xrpld/app/tx/detail/AMMBid.h>
+src/test/app/AMM_test.cpp:658:                jv[jss::TransactionType] = jss::AMMDeposit;
+src/test/app/AMM_test.cpp:680:                jv[jss::TransactionType] = jss::AMMDeposit;
+src/test/app/AMM_test.cpp:2822:        // burn all the LPTokens through a AMMBid transaction
+src/test/app/AMM_test.cpp:2832:            // this transaction fails because AMMBid transaction can not burn
+src/test/app/AMM_test.cpp:2841:        // burn all the LPTokens through a AMMBid transaction
+src/test/app/AMM_test.cpp:2870:            // gw attempts to burn the last of its LPTokens in an AMMBid
+src/test/app/AMM_test.cpp:3590:                auto pf = Transactor::invokePreflight<AMMBid>(pfctx);
+src/test/app/AMM_test.cpp:3605:                auto pf = Transactor::invokePreflight<AMMBid>(pfctx);
+src/test/app/AMM_test.cpp:3620:                auto pf = Transactor::invokePreflight<AMMBid>(pfctx);
+src/test/app/AMM_test.cpp:6694:            jv[jss::TransactionType] = jss::AMMWithdraw;
+src/test/app/AMM_test.cpp:7335:        // If featureAMMClawback is not enabled, AMMCreate is not allowed for
+src/test/app/AMM_test.cpp:7346:        // If featureAMMClawback is enabled, AMMCreate is allowed for
+src/test/app/AMM_test.cpp:7374:    testAMMDepositWithFrozenAssets(FeatureBitset features)
+src/test/app/AMM_test.cpp:7376:        testcase("test AMMDeposit with frozen assets");
+src/test/app/AMM_test.cpp:7382:        auto testAMMDeposit = [&](Env& env, std::function<void(AMM & amm)> cb) {
+src/test/app/AMM_test.cpp:7395:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7410:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7427:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7443:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7978:        testAMMDepositWithFrozenAssets(all);
+src/test/app/AMM_test.cpp:7979:        testAMMDepositWithFrozenAssets(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7980:        testAMMDepositWithFrozenAssets(all - fixAMMv1_1 - featureAMMClawback);
+src/test/app/AMM_test.cpp:7981:        testAMMDepositWithFrozenAssets(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:22:#include <xrpld/app/tx/detail/AMMDeposit.h>
+src/xrpld/app/tx/detail/AMMDeposit.cpp:33:AMMDeposit::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:39:AMMDeposit::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:46:AMMDeposit::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:168:AMMDeposit::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:248:        // Check if either of the assets is frozen, AMMDeposit is not allowed
+src/xrpld/app/tx/detail/AMMDeposit.cpp:370:AMMDeposit::applyGuts(Sandbox& sb)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:470:            "ripple::AMMDeposit::applyGuts : valid new LP token balance");
+src/xrpld/app/tx/detail/AMMDeposit.cpp:485:AMMDeposit::doApply()
+src/xrpld/app/tx/detail/AMMDeposit.cpp:499:AMMDeposit::deposit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:645:AMMDeposit::equalDepositTokens(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:685:        JLOG(j_.error()) << "AMMDeposit::equalDepositTokens exception "
+src/xrpld/app/tx/detail/AMMDeposit.cpp:721:AMMDeposit::equalDepositLimit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:798:AMMDeposit::singleDeposit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:845:AMMDeposit::singleDepositTokens(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:903:AMMDeposit::singleDepositEPrice(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:1008:AMMDeposit::equalDepositInEmptyState(
+src/xrpld/app/tx/detail/AMMCreate.cpp:23:#include <xrpld/app/tx/detail/AMMCreate.h>
+src/xrpld/app/tx/detail/AMMCreate.cpp:35:AMMCreate::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMCreate.cpp:41:AMMCreate::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMCreate.cpp:75:AMMCreate::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/AMMCreate.cpp:77:    // The fee required for AMMCreate is one owner reserve.
+src/xrpld/app/tx/detail/AMMCreate.cpp:82:AMMCreate::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMCreate.cpp:169:            return sle->isFieldPresent(sfAMMID);
+src/xrpld/app/tx/detail/AMMCreate.cpp:188:    // If featureAMMClawback is enabled, allow AMMCreate without checking
+src/xrpld/app/tx/detail/AMMCreate.cpp:224:    auto const maybeAccount = createPseudoAccount(sb, ammKeylet.key, sfAMMID);
+src/xrpld/app/tx/detail/AMMCreate.cpp:247:    // either an AMMDeposit, TrustSet, crossing an offer, etc.
+src/xrpld/app/tx/detail/AMMCreate.cpp:272:    auto res = accountSend(sb, accountId, account_, lpTokens, ctx_.journal);
+src/xrpld/app/tx/detail/AMMCreate.cpp:280:        if (auto const res = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:298:                sleRippleState->setFieldU32(sfFlags, flags | lsfAMMNode);
+src/xrpld/app/tx/detail/AMMCreate.cpp:339:AMMCreate::doApply()
+src/xrpld/app/tx/detail/AMMClawback.cpp:23:#include <xrpld/app/tx/detail/AMMWithdraw.h>
+src/xrpld/app/tx/detail/AMMClawback.cpp:191:            AMMWithdraw::equalWithdrawTokens(
+src/xrpld/app/tx/detail/AMMClawback.cpp:222:    auto const res = AMMWithdraw::deleteAMMAccountIfEmpty(
+src/xrpld/app/tx/detail/AMMClawback.cpp:272:        return AMMWithdraw::equalWithdrawTokens(
+src/xrpld/app/tx/detail/AMMClawback.cpp:307:        return AMMWithdraw::withdraw(
+src/xrpld/app/tx/detail/AMMClawback.cpp:326:    return AMMWithdraw::withdraw(
+src/libxrpl/ledger/View.cpp:420:            else if (sleIssuer->isFieldPresent(sfAMMID))
+src/libxrpl/ledger/View.cpp:423:                    view.read(keylet::amm((*sleIssuer)[sfAMMID]));
+src/libxrpl/ledger/View.cpp:658:confineOwnerCount(
+src/libxrpl/ledger/View.cpp:689:            XRPL_ASSERT(!id, "ripple::confineOwnerCount : id is not set");
+src/libxrpl/ledger/View.cpp:707:    std::uint32_t const ownerCount = confineOwnerCount(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:713:        : view.fees().accountReserve(ownerCount);
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1121:    std::uint32_t const adjusted = confineOwnerCount(current, amount, id, j);
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1221:createPseudoAccount(
+src/libxrpl/ledger/View.cpp:1235:        "ripple::createPseudoAccount : valid owner field");
+src/libxrpl/ledger/View.cpp:1457:    return accountSend(
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1494:    if (priorBalance < view.fees().accountReserve(ownerCount + 1))
+src/libxrpl/ledger/View.cpp:1497:    return trustCreate(
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1660:trustCreate(
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2123:    return trustCreate(
+src/libxrpl/ledger/View.cpp:2835:accountSend(
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:3015:    return trustCreate(
+src/libxrpl/ledger/View.cpp:3521:deleteAMMTrustLine(
+src/libxrpl/ledger/View.cpp:3538:    bool const ammLow = sleLow->isFieldPresent(sfAMMID);
+src/libxrpl/ledger/View.cpp:3539:    bool const ammHigh = sleHigh->isFieldPresent(sfAMMID);
+src/libxrpl/ledger/View.cpp:3557:            << "deleteAMMTrustLine: failed to delete the trustline.";
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);

@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:18:15Z
-amendment_checked_utc: 2026-05-28T06:18:13Z
+runtime_checked_utc: 2026-05-28T06:23:38Z
+amendment_checked_utc: 2026-05-28T06:23:36Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104531735, hash 2DAE8BB262EFCC5A5EDBBAC675F7DB6DB7309E373AFFBB045519FA847990EF14
-s2.ripple.com: rippled 3.1.3, ledger 104531736, hash 037981BECFFE0FB1154918ABF474982F59919204B0CE0DD6F1584FAE3F7A4415
+s1.ripple.com: rippled 3.1.3, ledger 104531819, hash 3289A60169E953A65E2C2A0799BA1946737E133228501B7CD8A5440901B8D8FA
+s2.ripple.com: rippled 3.1.3, ledger 104531820, hash CC818803D9EED63E489CC1FF7F49EE2EAD1CD14F905E667DCD9BC5EA629E83CB
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -290,6 +290,25 @@ ripple.app.SetTrust had 0 failures.
 ripple.app.TrustAndBalance had 0 failures.
 ripple.ledger.PaymentSandbox had 0 failures.
 157.9s, 19 suites, 724 cases, 102253 tests total, 0 failures
+```
+
+`AMM-PSEUDO-ACCOUNT-RESERVE-SIBLING-001` asked whether `AMMCreate` or
+empty-pool `AMMDeposit` creates a trustline/owner-count reserve drift analogous
+to the user-account reserve bug when IOU assets are sent into an AMM
+pseudo-account. The source review found that this is deliberately special AMM
+pool state, not a normal receiver trustline: `createPseudoAccount` marks the
+account with `sfAMMID`, `AMMCreate::sendAndTrustSet` marks pool trustlines with
+`lsfAMMNode`, `deleteAMMTrustLine` has AMM-specific deletion and owner-count
+logic, and invariant checks treat `sfAMMID` account roots and `lsfAMMNode`
+trustlines as AMM pool mutations. Existing upstream AMM coverage then passed.
+Static artifact `amm_pseudo_account_reserve_static_sweep_20260528.log` has
+sha256 `3648f82757e66b392a8eaa6ad06f85c12150da222f7a3bc4eac5eced37a28a25`.
+Suite artifact `amm_pseudo_account_reserve_source_kill_20260528.log` has
+sha256 `bcf4b6972a5181954c73f77eb416430f662252e0333bc770c5b424f2c008fadc`.
+
+```text
+ripple.app.AMM had 0 failures.
+90.5s, 1 suite, 90 cases, 77270 tests total, 0 failures
 ```
 
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
