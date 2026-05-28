@@ -1,0 +1,1537 @@
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:47:    auto const domain = ctx.tx.at(~sfDomainID);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:60:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:70:    if (ctx.tx.isFieldPresent(sfDomainID))
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:73:            keylet::permissionedDomain(ctx.tx.getFieldH256(sfDomainID)));
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:77:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:89:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:102:    if (ctx_.tx.isFieldPresent(sfDomainID))
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:106:            keylet::permissionedDomain(ctx_.tx.getFieldH256(sfDomainID)));
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:108:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:131:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:134:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:138:        adjustOwnerCount(view(), ownerSle, 1, ctx_.journal);
+src/test/app/Credentials_test.cpp:577:                env(jv, ter(tecDIR_FULL));
+src/test/app/Credentials_test.cpp:589:                env(jv, ter(tecDIR_FULL));
+src/test/app/Credentials_test.cpp:865:                    ter(tecNO_PERMISSION));
+src/test/app/Credentials_test.cpp:902:                    ter(tecNO_PERMISSION));
+src/test/app/Credentials_test.cpp:945:                testcase("deleteSLE fail, bad SLE.");
+src/test/app/Credentials_test.cpp:949:                    ripple::credentials::deleteSLE(*view, {}, env.journal);
+src/test/app/Credentials_test.cpp:1117:            "removeExpired ignores deleteSLE failure " +
+src/test/app/PermissionedDomains_test.cpp:420:            ter(tecNO_PERMISSION));
+src/test/app/PermissionedDomains_test.cpp:487:        env(pdomain::deleteTx(bob, domain), ter(tecNO_PERMISSION));
+src/xrpld/app/tx/detail/VaultClawback.cpp:25:#include <xrpl/protocol/MPTIssue.h>
+src/xrpld/app/tx/detail/VaultClawback.cpp:54:            JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback XRP.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:63:clawbackAmount(
+src/xrpld/app/tx/detail/VaultClawback.cpp:71:    Asset const share = MPTIssue{vault->at(sfShareMPTID)};
+src/xrpld/app/tx/detail/VaultClawback.cpp:97:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:101:    Asset const share = MPTIssue{mptIssuanceID};
+src/xrpld/app/tx/detail/VaultClawback.cpp:112:    auto const amount = clawbackAmount(vault, maybeAmount, account);
+src/xrpld/app/tx/detail/VaultClawback.cpp:114:    // There is a special case that allows the VaultOwner to use clawback to
+src/xrpld/app/tx/detail/VaultClawback.cpp:120:        // Only the Vault Owner may clawback shares
+src/xrpld/app/tx/detail/VaultClawback.cpp:124:                << "VaultClawback: only vault owner can clawback shares.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:125:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:130:        auto const sharesTotal = sleShareIssuance->at(sfOutstandingAmount);
+src/xrpld/app/tx/detail/VaultClawback.cpp:132:        // Owner can clawback funds when the vault has shares but no assets
+src/xrpld/app/tx/detail/VaultClawback.cpp:136:                << "VaultClawback: vault owner can clawback shares only"
+src/xrpld/app/tx/detail/VaultClawback.cpp:138:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:156:                    << "VaultClawback: vault owner must clawback all "
+src/xrpld/app/tx/detail/VaultClawback.cpp:171:            JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback XRP.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:172:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:175:        // Only the Asset Issuer may clawback the asset
+src/xrpld/app/tx/detail/VaultClawback.cpp:179:                << "VaultClawback: only asset issuer can clawback asset.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:180:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:183:        // The issuer cannot clawback from itself
+src/xrpld/app/tx/detail/VaultClawback.cpp:188:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:193:                if constexpr (std::is_same_v<TIss, MPTIssue>)
+src/xrpld/app/tx/detail/VaultClawback.cpp:202:                    if (!(issueFlags & lsfMPTCanClawback))
+src/xrpld/app/tx/detail/VaultClawback.cpp:204:                        JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback "
+src/xrpld/app/tx/detail/VaultClawback.cpp:206:                        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:218:                        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:227:                        JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback "
+src/xrpld/app/tx/detail/VaultClawback.cpp:229:                        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/VaultClawback.cpp:246:    STAmount const& clawbackAmount)
+src/xrpld/app/tx/detail/VaultClawback.cpp:248:    if (clawbackAmount.asset() != vault->at(sfAsset))
+src/xrpld/app/tx/detail/VaultClawback.cpp:250:        // preclaim should have blocked this , now it's an internal error
+src/xrpld/app/tx/detail/VaultClawback.cpp:252:        JLOG(j_.error()) << "VaultClawback: asset mismatch in clawback.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:259:    MPTIssue const share{mptIssuanceID};
+src/xrpld/app/tx/detail/VaultClawback.cpp:261:    // Pre-fixCleanup3_1_3: zero-amount clawback returned early without
+src/xrpld/app/tx/detail/VaultClawback.cpp:266:        clawbackAmount == beast::zero)
+src/xrpld/app/tx/detail/VaultClawback.cpp:288:        if (clawbackAmount == beast::zero)
+src/xrpld/app/tx/detail/VaultClawback.cpp:307:                assetsToSharesWithdraw(vault, sleShareIssuance, clawbackAmount);
+src/xrpld/app/tx/detail/VaultClawback.cpp:359:            << ", sharesTotal=" << sleShareIssuance->at(sfOutstandingAmount)
+src/xrpld/app/tx/detail/VaultClawback.cpp:360:            << ", amount=" << clawbackAmount.value();
+src/xrpld/app/tx/detail/VaultClawback.cpp:373:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:381:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:384:    MPTIssue const share{mptIssuanceID};
+src/xrpld/app/tx/detail/VaultClawback.cpp:387:    STAmount const amount = clawbackAmount(vault, tx[~sfAmount], account_);
+src/xrpld/app/tx/detail/VaultClawback.cpp:412:    else  // The Issuer is clawbacking vault assets
+src/xrpld/app/tx/detail/VaultClawback.cpp:418:        auto const clawbackParts =
+src/xrpld/app/tx/detail/VaultClawback.cpp:420:        if (!clawbackParts)
+src/xrpld/app/tx/detail/VaultClawback.cpp:421:            return clawbackParts.error();
+src/xrpld/app/tx/detail/VaultClawback.cpp:423:        assetsRecovered = clawbackParts->first;
+src/xrpld/app/tx/detail/VaultClawback.cpp:424:        sharesDestroyed = clawbackParts->second;
+src/xrpld/app/tx/detail/VaultClawback.cpp:442:            WaiveTransferFee::Yes);
+src/xrpld/app/tx/detail/VaultClawback.cpp:446:    // Try to remove MPToken for shares, if the holder balance is zero. Vault
+src/xrpld/app/tx/detail/VaultClawback.cpp:448:    // Keep MPToken if holder is the vault owner.
+src/xrpld/app/tx/detail/VaultClawback.cpp:456:                << "VaultClawback: removed empty MPToken for vault shares"
+src/xrpld/app/tx/detail/VaultClawback.cpp:464:                << "VaultClawback: failed to remove MPToken for vault shares"
+src/xrpld/app/tx/detail/VaultClawback.cpp:483:                WaiveTransferFee::Yes);
+src/xrpld/app/tx/detail/VaultClawback.cpp:499:            return tefINTERNAL;
+src/xrpld/app/tx/detail/Clawback.cpp:25:#include <xrpl/protocol/MPTAmount.h>
+src/xrpld/app/tx/detail/Clawback.cpp:56:preflightHelper<MPTIssue>(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Clawback.cpp:58:    if (!ctx.rules.enabled(featureMPTokensV1))
+src/xrpld/app/tx/detail/Clawback.cpp:71:    if (clawAmount.mpt() > MPTAmount{maxMPTokenAmount} ||
+src/xrpld/app/tx/detail/Clawback.cpp:120:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:131:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:135:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:160:preclaimHelper<MPTIssue>(
+src/xrpld/app/tx/detail/Clawback.cpp:168:        keylet::mptIssuance(clawAmount.get<MPTIssue>().getMptID());
+src/xrpld/app/tx/detail/Clawback.cpp:173:    if (!((*sleIssuance)[sfFlags] & lsfMPTCanClawback))
+src/xrpld/app/tx/detail/Clawback.cpp:174:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:177:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Clawback.cpp:185:            clawAmount.get<MPTIssue>(),
+src/xrpld/app/tx/detail/Clawback.cpp:260:applyHelper<MPTIssue>(ApplyContext& ctx)
+src/xrpld/app/tx/detail/Clawback.cpp:270:        clawAmount.get<MPTIssue>(),
+src/test/app/Clawback_test.cpp:46:    // Helper function that returns the freeze status of a trustline
+src/test/app/Clawback_test.cpp:91:            env(fset(alice, asfNoFreeze), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:114:            env(fset(alice, asfAllowTrustLineClawback), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:142:            // alice fails to enable clawback because she has trustline with bob
+src/test/app/Clawback_test.cpp:182:            // now enable clawback amendment
+src/test/app/Clawback_test.cpp:223:            // clawback fails because amendment is disabled
+src/test/app/Clawback_test.cpp:227:            // now enable clawback amendment
+src/test/app/Clawback_test.cpp:231:            // clawback fails because asfAllowTrustLineClawback has not been set
+src/test/app/Clawback_test.cpp:232:            env(claw(alice, bob["USD"](5)), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:304:            // clawback fails because because balance is 0
+src/test/app/Clawback_test.cpp:316:            // clawback fails because trustline does not exist
+src/test/app/Clawback_test.cpp:325:        // Checks the tx submitter has the permission to clawback.
+src/test/app/Clawback_test.cpp:419:            // bob then attempts to submit a clawback tx to claw USD from alice.
+src/test/app/Clawback_test.cpp:434:                env(claw(bob, alice["USD"](5)), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:439:            // alice then attempts to submit a clawback tx to claw CAD from bob.
+src/test/app/Clawback_test.cpp:454:                env(claw(alice, bob["CAD"](5)), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:463:        testcase("Enable clawback");
+src/test/app/Clawback_test.cpp:466:        // Test that alice is able to successfully clawback tokens from bob
+src/test/app/Clawback_test.cpp:645:        // perspective is allowed to clawback
+src/test/app/Clawback_test.cpp:692:        // alice fails to clawback. Even though she is also an issuer,
+src/test/app/Clawback_test.cpp:694:        env(claw(alice, bob["USD"](200)), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:697:        // bob is able to successfully clawback from alice because
+src/test/app/Clawback_test.cpp:714:        // bob is now the holder and fails to clawback
+src/test/app/Clawback_test.cpp:715:        env(claw(bob, alice["USD"](200)), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:732:        // If clawback results the trustline to be default,
+src/test/app/Clawback_test.cpp:806:        // freeze trustline
+src/test/app/Clawback_test.cpp:881:        // Tests clawback with tickets
+src/test/app/Clawback_test.cpp:954:        testWithFeats(all - featureMPTokensV1);
+src/test/app/AMMClawback_test.cpp:116:            // Issuer can not clawback from himself.
+src/test/app/AMMClawback_test.cpp:120:            // Holder can not clawback from himself.
+src/test/app/AMMClawback_test.cpp:253:                ter(tecNO_PERMISSION));
+src/test/app/AMMClawback_test.cpp:420:            // gw clawback 1000 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:446:            // gw clawback another 1000 USD from the AMM pool. The AMM pool will
+src/test/app/AMMClawback_test.cpp:497:            // gw clawback 1000 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:522:            // gw clawback another 1000 USD from the AMM pool. The AMM pool will
+src/test/app/AMMClawback_test.cpp:592:            // gw clawback 1000 USD from the AMM pool
+src/test/app/AMMClawback_test.cpp:624:            // gw clawback another 500 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:649:            // gw clawback small amount, 1 USD.
+src/test/app/AMMClawback_test.cpp:681:            // gw clawback 4000 USD, exceeding the current balance. We
+src/test/app/AMMClawback_test.cpp:682:            // will clawback all.
+src/test/app/AMMClawback_test.cpp:779:            // gw clawback 500 USD from alice in amm
+src/test/app/AMMClawback_test.cpp:826:            // gw clawback 10 USD from bob in amm.
+src/test/app/AMMClawback_test.cpp:872:            // gw2 clawback 200 EUR from amm2.
+src/test/app/AMMClawback_test.cpp:917:            // balance. This will clawback all the remaining LP tokens of alice
+src/test/app/AMMClawback_test.cpp:965:            // gw clawback 1000 USD from bob in amm, which also exceeds bob's
+src/test/app/AMMClawback_test.cpp:1155:            // gw clawback all the bob's USD in amm. (2000 USD / 2500 EUR)
+src/test/app/AMMClawback_test.cpp:1203:            // gw2 clawback all carol's EUR in amm. (1000 USD / 1250 EUR)
+src/test/app/AMMClawback_test.cpp:1227:            // gw2 clawback all alice's EUR in amm. (4000 USD / 5000 EUR)
+src/test/app/AMMClawback_test.cpp:1287:            // gw clawback all alice's USD in amm. (1000 USD / 200 XRP)
+src/test/app/AMMClawback_test.cpp:1307:            // gw clawback all bob's USD in amm. (2000 USD / 400 XRP)
+src/test/app/AMMClawback_test.cpp:1380:        // gw clawback 1000 USD from carol.
+src/test/app/AMMClawback_test.cpp:1402:        // gw clawback 1000 USD from bob with tfClawTwoAssets flag.
+src/test/app/AMMClawback_test.cpp:1428:        // gw clawback all USD from alice and set tfClawTwoAssets.
+src/test/app/AMMClawback_test.cpp:1512:        // gw2 clawback 500 gw2[USD] from alice.
+src/test/app/AMMClawback_test.cpp:1536:        // gw clawback all gw["USD"] from bob.
+src/test/app/AMMClawback_test.cpp:1795:            // freeze trustline
+src/test/app/AMMClawback_test.cpp:1799:            // gw clawback 1000 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:1813:            // gw clawback another 1000 USD from the AMM pool. The AMM pool will
+src/test/app/AMMClawback_test.cpp:1863:            // freeze trustlines
+src/test/app/AMMClawback_test.cpp:1868:            // gw clawback 1000 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:1881:        // test gw global freeze.
+src/test/app/AMMClawback_test.cpp:1916:            // global freeze
+src/test/app/AMMClawback_test.cpp:1920:            // gw clawback 1000 USD from the AMM pool.
+src/test/app/AMMClawback_test.cpp:1934:        // global freeze.
+src/test/app/AMMClawback_test.cpp:1982:            // global freeze
+src/test/app/AMMClawback_test.cpp:1986:            // gw clawback 1000 USD from carol.
+src/test/app/AMMClawback_test.cpp:2009:            // gw clawback 1000 USD from bob with tfClawTwoAssets flag.
+src/test/app/AMMClawback_test.cpp:2035:            // gw clawback all USD from alice and set tfClawTwoAssets.
+src/test/app/AMMClawback_test.cpp:2063:        testcase("test single depoit and clawback");
+src/test/app/AMMClawback_test.cpp:2128:            "balance before clawback");
+src/test/app/AMMClawback_test.cpp:2445:        // For now, just disable SAV entirely, which locks in the small Number
+src/test/app/EscrowToken_test.cpp:47:        if (sle && sle->isFieldPresent(sfLockedAmount))
+src/test/app/EscrowToken_test.cpp:48:            return (*sle)[sfLockedAmount];
+src/test/app/EscrowToken_test.cpp:56:        if (sle && sle->isFieldPresent(sfLockedAmount))
+src/test/app/EscrowToken_test.cpp:57:            return (*sle)[sfLockedAmount];
+src/test/app/EscrowToken_test.cpp:89:        auto const locked = result[jss::locked][to_string(issue.currency)];
+src/test/app/EscrowToken_test.cpp:90:        if (locked.isNull())
+src/test/app/EscrowToken_test.cpp:92:        STAmount const amount = amountFromString(issue, locked.asString());
+src/test/app/EscrowToken_test.cpp:236:            ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:319:        // tecNO_PERMISSION: issuer is the same as the account
+src/test/app/EscrowToken_test.cpp:333:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:357:        // tecNO_PERMISSION: asfAllowTrustLineLocking is not set
+src/test/app/EscrowToken_test.cpp:377:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:400:        // tecNO_PERMISSION: Not testable
+src/test/app/EscrowToken_test.cpp:401:        // tecNO_PERMISSION: Not testable
+src/test/app/EscrowToken_test.cpp:402:        // tecNO_AUTH: requireAuth
+src/test/app/EscrowToken_test.cpp:412:            env(fset(gw, asfRequireAuth));
+src/test/app/EscrowToken_test.cpp:421:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:425:        // tecNO_AUTH: requireAuth
+src/test/app/EscrowToken_test.cpp:436:            env(fset(gw, asfRequireAuth));
+src/test/app/EscrowToken_test.cpp:446:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:450:        // tecFROZEN: account is frozen
+src/test/app/EscrowToken_test.cpp:469:            // set freeze on alice trustline
+src/test/app/EscrowToken_test.cpp:477:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:481:        // tecFROZEN: dest is frozen
+src/test/app/EscrowToken_test.cpp:500:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:508:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:601:        // tecNO_AUTH: requireAuth set: dest not authorized
+src/test/app/EscrowToken_test.cpp:613:            env(fset(gw, asfRequireAuth));
+src/test/app/EscrowToken_test.cpp:639:            // bob cannot finish because he is not authorized
+src/test/app/EscrowToken_test.cpp:644:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:648:        // tecFROZEN: issuer has deep frozen the dest
+src/test/app/EscrowToken_test.cpp:673:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:676:            // bob cannot finish because of deep freeze
+src/test/app/EscrowToken_test.cpp:681:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:851:        // tecNO_AUTH: requireAuth set: account not authorized
+src/test/app/EscrowToken_test.cpp:863:            env(fset(gw, asfRequireAuth));
+src/test/app/EscrowToken_test.cpp:889:            // alice cannot cancel because she is not authorized
+src/test/app/EscrowToken_test.cpp:892:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:1250:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:1406:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:1474:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:1492:        // test locked rate
+src/test/app/EscrowToken_test.cpp:1705:    testIOURequireAuth(FeatureBitset features)
+src/test/app/EscrowToken_test.cpp:1724:        env(fset(gw, asfRequireAuth));
+src/test/app/EscrowToken_test.cpp:1740:            ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:1804:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:1807:            // clear global freeze
+src/test/app/EscrowToken_test.cpp:1819:            // set global freeze
+src/test/app/EscrowToken_test.cpp:1830:            // clear global freeze
+src/test/app/EscrowToken_test.cpp:1842:            // set global freeze
+src/test/app/EscrowToken_test.cpp:1866:            // set freeze on alice trustline
+src/test/app/EscrowToken_test.cpp:1879:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:1882:            // clear freeze on alice trustline
+src/test/app/EscrowToken_test.cpp:1894:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:1905:            // reset freeze on bob and alice trustline
+src/test/app/EscrowToken_test.cpp:1918:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:1942:            // set freeze on alice trustline
+src/test/app/EscrowToken_test.cpp:1955:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:1958:            // clear freeze on alice trustline
+src/test/app/EscrowToken_test.cpp:1971:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:1980:                ter(tecFROZEN));
+src/test/app/EscrowToken_test.cpp:1983:            // reset freeze on alice and bob trustline
+src/test/app/EscrowToken_test.cpp:1997:            // set freeze on bob trustline
+src/test/app/EscrowToken_test.cpp:2152:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2153:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2199:                withMPT ? features : features - featureMPTokensV1;
+src/test/app/EscrowToken_test.cpp:2234:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2235:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2236:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2258:        // tecNO_PERMISSION: issuer is the same as the account
+src/test/app/EscrowToken_test.cpp:2269:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2270:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2279:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:2306:        // tecNO_PERMISSION: tfMPTCanEscrow is not enabled
+src/test/app/EscrowToken_test.cpp:2316:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2317:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2318:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2328:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:2344:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2355:        // tecNO_AUTH: requireAuth set: account not authorized
+src/test/app/EscrowToken_test.cpp:2368:                     tfMPTCanEscrow | tfMPTCanTransfer | tfMPTRequireAuth});
+src/test/app/EscrowToken_test.cpp:2369:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2370:            mptGw.authorize({.account = gw, .holder = alice});
+src/test/app/EscrowToken_test.cpp:2375:            // unauthorize account
+src/test/app/EscrowToken_test.cpp:2376:            mptGw.authorize(
+src/test/app/EscrowToken_test.cpp:2377:                {.account = gw, .holder = alice, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:2383:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:2387:        // tecNO_AUTH: requireAuth set: dest not authorized
+src/test/app/EscrowToken_test.cpp:2400:                     tfMPTCanEscrow | tfMPTCanTransfer | tfMPTRequireAuth});
+src/test/app/EscrowToken_test.cpp:2401:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2402:            mptGw.authorize({.account = gw, .holder = alice});
+src/test/app/EscrowToken_test.cpp:2403:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2404:            mptGw.authorize({.account = gw, .holder = bob});
+src/test/app/EscrowToken_test.cpp:2410:            // unauthorize dest
+src/test/app/EscrowToken_test.cpp:2411:            mptGw.authorize(
+src/test/app/EscrowToken_test.cpp:2412:                {.account = gw, .holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:2418:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:2422:        // tecLOCKED: issuer has locked the account
+src/test/app/EscrowToken_test.cpp:2434:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/EscrowToken_test.cpp:2435:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2436:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2442:            // lock account
+src/test/app/EscrowToken_test.cpp:2449:                ter(tecLOCKED));
+src/test/app/EscrowToken_test.cpp:2453:        // tecLOCKED: issuer has locked the dest
+src/test/app/EscrowToken_test.cpp:2465:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/EscrowToken_test.cpp:2466:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2467:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2473:            // lock dest
+src/test/app/EscrowToken_test.cpp:2480:                ter(tecLOCKED));
+src/test/app/EscrowToken_test.cpp:2484:        // tecNO_AUTH: mpt cannot be transferred
+src/test/app/EscrowToken_test.cpp:2494:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanEscrow});
+src/test/app/EscrowToken_test.cpp:2495:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2496:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2506:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:2522:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2523:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2524:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2549:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2550:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2551:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2573:        // tecNO_AUTH: requireAuth set: dest not authorized
+src/test/app/EscrowToken_test.cpp:2586:                     tfMPTCanEscrow | tfMPTCanTransfer | tfMPTRequireAuth});
+src/test/app/EscrowToken_test.cpp:2587:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2588:            mptGw.authorize({.account = gw, .holder = alice});
+src/test/app/EscrowToken_test.cpp:2589:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2590:            mptGw.authorize({.account = gw, .holder = bob});
+src/test/app/EscrowToken_test.cpp:2604:            // unauthorize dest
+src/test/app/EscrowToken_test.cpp:2605:            mptGw.authorize(
+src/test/app/EscrowToken_test.cpp:2606:                {.account = gw, .holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:2612:                ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:2631:                    MPTIssue const mpt{
+src/test/app/EscrowToken_test.cpp:2632:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+src/test/app/EscrowToken_test.cpp:2649:        // tecLOCKED: issuer has locked the dest
+src/test/app/EscrowToken_test.cpp:2661:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/EscrowToken_test.cpp:2662:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2663:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2677:            // lock dest
+src/test/app/EscrowToken_test.cpp:2684:                ter(tecLOCKED));
+src/test/app/EscrowToken_test.cpp:2713:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2714:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2749:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2750:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2771:        // tecNO_PERMISSION: carol submits; finish MPT not created
+src/test/app/EscrowToken_test.cpp:2786:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2787:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2804:                ter(tecNO_PERMISSION));
+src/test/app/EscrowToken_test.cpp:2816:        // tecNO_AUTH: requireAuth set: account not authorized
+src/test/app/EscrowToken_test.cpp:2829:                     tfMPTCanEscrow | tfMPTCanTransfer | tfMPTRequireAuth});
+src/test/app/EscrowToken_test.cpp:2830:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2831:            mptGw.authorize({.account = gw, .holder = alice});
+src/test/app/EscrowToken_test.cpp:2832:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:2833:            mptGw.authorize({.account = gw, .holder = bob});
+src/test/app/EscrowToken_test.cpp:2847:            // unauthorize account
+src/test/app/EscrowToken_test.cpp:2848:            mptGw.authorize(
+src/test/app/EscrowToken_test.cpp:2849:                {.account = gw, .holder = alice, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:2851:            env(escrow::cancel(bob, alice, seq1), ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:2869:                    MPTIssue const mpt{
+src/test/app/EscrowToken_test.cpp:2870:                        MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+src/test/app/EscrowToken_test.cpp:2906:             .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:2907:        mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:2908:        mptGw.authorize({.account = carol});
+src/test/app/EscrowToken_test.cpp:3083:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3084:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3085:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3087:            env(pay(gw, alice, MPT(maxMPTokenAmount)));
+src/test/app/EscrowToken_test.cpp:3118:                              ->isFieldPresent(sfLockedAmount));
+src/test/app/EscrowToken_test.cpp:3124:                              ->isFieldPresent(sfLockedAmount));
+src/test/app/EscrowToken_test.cpp:3139:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3140:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3141:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3143:            env(pay(gw, alice, MPT(maxMPTokenAmount)));
+src/test/app/EscrowToken_test.cpp:3152:            env(escrow::create(alice, bob, MPT(maxMPTokenAmount - 10)),
+src/test/app/EscrowToken_test.cpp:3167:                env.balance(alice, MPT) == preAliceMPT - MPT(maxMPTokenAmount));
+src/test/app/EscrowToken_test.cpp:3168:            BEAST_EXPECT(mptEscrowed(env, alice, MPT) == maxMPTokenAmount);
+src/test/app/EscrowToken_test.cpp:3172:            BEAST_EXPECT(issuerMPTEscrowed(env, MPT) == maxMPTokenAmount);
+src/test/app/EscrowToken_test.cpp:3189:                env.balance(alice, MPT) == preAliceMPT - MPT(maxMPTokenAmount));
+src/test/app/EscrowToken_test.cpp:3192:                env.balance(bob, MPT) == preBobMPT + MPT(maxMPTokenAmount));
+src/test/app/EscrowToken_test.cpp:3217:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3218:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3219:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3309:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3310:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3311:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3312:            mptGw.authorize({.account = carol});
+src/test/app/EscrowToken_test.cpp:3424:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3425:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3476:        // test locked rate: finish
+src/test/app/EscrowToken_test.cpp:3489:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3490:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3491:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3534:        // test locked rate: cancel
+src/test/app/EscrowToken_test.cpp:3547:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3548:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3549:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3581:        // test locked rate: issuer is destination
+src/test/app/EscrowToken_test.cpp:3594:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3595:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3596:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3634:    testMPTRequireAuth(FeatureBitset features)
+src/test/app/EscrowToken_test.cpp:3650:             .flags = tfMPTCanEscrow | tfMPTCanTransfer | tfMPTRequireAuth});
+src/test/app/EscrowToken_test.cpp:3651:        mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3652:        mptGw.authorize({.account = gw, .holder = alice});
+src/test/app/EscrowToken_test.cpp:3653:        mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3654:        mptGw.authorize({.account = gw, .holder = bob});
+src/test/app/EscrowToken_test.cpp:3661:        // alice can create escrow - is authorized
+src/test/app/EscrowToken_test.cpp:3668:        // bob can finish escrow - is authorized
+src/test/app/EscrowToken_test.cpp:3693:             .flags = tfMPTCanEscrow | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/EscrowToken_test.cpp:3694:        mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3695:        mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3710:        // lock account & dest
+src/test/app/EscrowToken_test.cpp:3719:            ter(tecLOCKED));
+src/test/app/EscrowToken_test.cpp:3728:    testMPTCanTransfer(FeatureBitset features)
+src/test/app/EscrowToken_test.cpp:3742:            {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanEscrow});
+src/test/app/EscrowToken_test.cpp:3743:        mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3744:        mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3756:            ter(tecNO_AUTH));
+src/test/app/EscrowToken_test.cpp:3813:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3814:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3815:            mptGw.authorize({.account = bob});
+src/test/app/EscrowToken_test.cpp:3836:            mptGw.authorize({.account = bob, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:3867:                 .flags = tfMPTCanEscrow | tfMPTCanTransfer});
+src/test/app/EscrowToken_test.cpp:3868:            mptGw.authorize({.account = alice});
+src/test/app/EscrowToken_test.cpp:3886:            mptGw.authorize(
+src/test/app/EscrowToken_test.cpp:3888:                 .flags = tfMPTUnauthorize,
+src/test/app/EscrowToken_test.cpp:3900:            mptGw.authorize({.account = alice, .flags = tfMPTUnauthorize});
+src/test/app/EscrowToken_test.cpp:3921:        testIOURequireAuth(features);
+src/test/app/EscrowToken_test.cpp:3940:        testMPTRequireAuth(features);
+src/test/app/EscrowToken_test.cpp:3942:        testMPTCanTransfer(features);
+src/libxrpl/ledger/CredentialHelpers.cpp:31:checkExpired(SLE const& sleCredential, NetClock::time_point const& closed)
+src/libxrpl/ledger/CredentialHelpers.cpp:57:            auto const err = deleteSLE(view, sleCred, j);
+src/libxrpl/ledger/CredentialHelpers.cpp:68:deleteSLE(
+src/libxrpl/ledger/CredentialHelpers.cpp:90:        if (!view.dirRemove(
+src/libxrpl/ledger/CredentialHelpers.cpp:100:            adjustOwnerCount(view, sleAccount, -1, j);
+src/libxrpl/ledger/CredentialHelpers.cpp:233:    return foundExpired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/CredentialHelpers.cpp:237:authorizedDepositPreauth(
+src/libxrpl/ledger/CredentialHelpers.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/CredentialHelpers.cpp:254:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/CredentialHelpers.cpp:259:        return tecNO_PERMISSION;
+src/libxrpl/ledger/CredentialHelpers.cpp:361:    return *foundExpired ? tecEXPIRED : tecNO_PERMISSION;
+src/libxrpl/ledger/CredentialHelpers.cpp:376:    //  2. If src is deposit preauthorized by dst (either by account or by
+src/libxrpl/ledger/CredentialHelpers.cpp:397:                    ? tecNO_PERMISSION
+src/libxrpl/ledger/CredentialHelpers.cpp:398:                    : credentials::authorizedDepositPreauth(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:20:#include <xrpld/app/tx/detail/MPTokenAuthorize.h>
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:30:MPTokenAuthorize::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:32:    return tfMPTokenAuthorizeMask;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:36:MPTokenAuthorize::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:45:MPTokenAuthorize::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:51:    // 1. Unauthorize/delete MPToken
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:52:    // 2. Use/create MPToken
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:59:            keylet::mptoken(ctx.tx[sfMPTokenIssuanceID], accountID));
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:64:        // the MPT is being deleted with a zero balance. Check for unauthorize
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:67:        // if holder wants to delete/unauthorize a mpt
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:68:        if (ctx.tx.getFlags() & tfMPTUnauthorize)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:73:            if ((*sleMpt)[sfMPTAmount] != 0)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:76:                    keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:78:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:83:            if ((*sleMpt)[~sfLockedAmount].value_or(0) != 0)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:86:                    keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:88:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:94:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:99:        // Now test when the holder wants to hold/create/authorize a new MPT
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:101:            ctx.view.read(keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:107:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:121:        ctx.view.read(keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:129:    // 1. authorize an account
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:130:    // 2. unauthorize an account
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:135:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:138:    // lsfMPTRequireAuth set
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:139:    if (!(mptIssuanceFlags & lsfMPTRequireAuth))
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:140:        return tecNO_AUTH;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:142:    // The holder must create the MPT before the issuer can authorize it.
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:144:            keylet::mptoken(ctx.tx[sfMPTokenIssuanceID], *holderID)))
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:147:    // Can't unauthorize the pseudo-accounts because they are implicitly
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:148:    // always authorized. No need to amendment gate since Vault and LoanBroker
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:151:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:157:MPTokenAuthorize::createMPToken(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:165:    auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:169:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:173:    (*mptoken)[sfMPTokenIssuanceID] = mptIssuanceID;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:183:MPTokenAuthorize::doApply()
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:186:    return authorizeMPToken(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:189:        tx[sfMPTokenIssuanceID],
+src/xrpld/app/tx/detail/AMMClawback.cpp:117:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/AMMClawback.cpp:269:        // if lptoken balance less than what the issuer intended to clawback,
+src/xrpld/app/tx/detail/AMMClawback.cpp:270:        // clawback all the tokens. Because we are doing a two-asset withdrawal,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:21:#include <xrpld/app/tx/detail/MPTokenIssuanceSet.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:30:MPTokenIssuanceSet::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:32:    return !ctx.tx.isFieldPresent(sfDomainID) ||
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:38:MPTokenIssuanceSet::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:40:    return tfMPTokenIssuanceSetMask;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:43:// Maps set/clear mutable flags in an MPTokenIssuanceSet transaction to the
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:54:    {{tmfMPTSetCanLock, tmfMPTClearCanLock, lsmfMPTCanMutateCanLock},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:55:     {tmfMPTSetRequireAuth,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:56:      tmfMPTClearRequireAuth,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:57:      lsmfMPTCanMutateRequireAuth},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:58:     {tmfMPTSetCanEscrow, tmfMPTClearCanEscrow, lsmfMPTCanMutateCanEscrow},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:59:     {tmfMPTSetCanTrade, tmfMPTClearCanTrade, lsmfMPTCanMutateCanTrade},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:60:     {tmfMPTSetCanTransfer,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:61:      tmfMPTClearCanTransfer,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:62:      lsmfMPTCanMutateCanTransfer},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:63:     {tmfMPTSetCanClawback,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:64:      tmfMPTClearCanClawback,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:65:      lsmfMPTCanMutateCanClawback}}};
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:68:MPTokenIssuanceSet::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:71:    auto const metadata = ctx.tx[~sfMPTokenMetadata];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:72:    auto const transferFee = ctx.tx[~sfTransferFee];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:78:    if (ctx.tx.isFieldPresent(sfDomainID) && ctx.tx.isFieldPresent(sfHolder))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:84:    if ((txFlags & tfMPTLock) && (txFlags & tfMPTUnlock))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:96:        if (txFlags == 0 && !ctx.tx.isFieldPresent(sfDomainID) && !isMutate)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:102:        // Holder field is not allowed when mutating MPTokenIssuance
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:106:        // Can not set flags when mutating MPTokenIssuance
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:110:        if (transferFee && *transferFee > maxTransferFee)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:113:        if (metadata && metadata->length() > maxMPTokenMetadataLength)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:119:                (*mutableFlags & tmfMPTokenIssuanceSetMutableMask))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:132:            // Trying to set a non-zero TransferFee and clear MPTCanTransfer
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:135:                (*mutableFlags & tmfMPTClearCanTransfer))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:144:MPTokenIssuanceSet::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:161:    // this is added in case more flags will be added for MPTokenIssuanceSet
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:163:    if (txFlags & tfMPTokenIssuanceSetPermissionMask)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:170:        !granularPermissions.contains(MPTokenIssuanceLock))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:173:    if (txFlags & tfMPTUnlock &&
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:174:        !granularPermissions.contains(MPTokenIssuanceUnlock))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:181:MPTokenIssuanceSet::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:185:        ctx.view.read(keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:189:    if (!sleMptIssuance->isFlag(lsfMPTCanLock))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:194:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:195:        else if (ctx.tx.isFlag(tfMPTLock) || ctx.tx.isFlag(tfMPTUnlock))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:196:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:201:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:211:                keylet::mptoken(ctx.tx[sfMPTokenIssuanceID], *holderID)))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:215:    if (auto const domain = ctx.tx[~sfDomainID])
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:217:        if (not sleMptIssuance->isFlag(lsfMPTRequireAuth))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:218:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:247:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:251:        ctx.tx.isFieldPresent(sfMPTokenMetadata))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:252:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:254:    if (auto const fee = ctx.tx[~sfTransferFee])
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:256:        // A non-zero TransferFee is only valid if the lsfMPTCanTransfer flag
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:258:        // it by tmfMPTSetCanTransfer in the current transaction does not meet
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:260:        if (fee > 0u && !sleMptIssuance->isFlag(lsfMPTCanTransfer))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:261:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:263:        if (!isMutableFlag(lsmfMPTCanMutateTransferFee))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:264:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:271:MPTokenIssuanceSet::doApply()
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:273:    auto const mptIssuanceID = ctx_.tx[sfMPTokenIssuanceID];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:276:    auto const domainID = ctx_.tx[~sfDomainID];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:292:    else if (txFlags & tfMPTUnlock)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:305:        if (mutableFlags & tmfMPTClearCanTransfer)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:307:            // If the lsfMPTCanTransfer flag is being cleared, then also clear
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:308:            // the TransferFee field.
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:309:            sle->makeFieldAbsent(sfTransferFee);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:316:    if (auto const transferFee = ctx_.tx[~sfTransferFee])
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:318:        // TransferFee uses soeDEFAULT style:
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:321:        // Therefore, when TransferFee is 0, the field should be removed.
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:323:            sle->makeFieldAbsent(sfTransferFee);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:325:            sle->setFieldU16(sfTransferFee, *transferFee);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:328:    if (auto const metadata = ctx_.tx[~sfMPTokenMetadata])
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:331:            sle->makeFieldAbsent(sfMPTokenMetadata);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:333:            sle->setFieldVL(sfMPTokenMetadata, *metadata);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:341:            "MPTokenIssuanceSet::doApply : modifying MPTokenIssuance");
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:345:            sle->setFieldH256(sfDomainID, *domainID);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:349:            if (sle->isFieldPresent(sfDomainID))
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:350:                sle->makeFieldAbsent(sfDomainID);
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:20:#include <xrpld/app/tx/detail/MPTokenIssuanceCreate.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:29:MPTokenIssuanceCreate::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:31:    if (ctx.tx.isFieldPresent(sfDomainID) &&
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:44:MPTokenIssuanceCreate::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:47:    return tfMPTokenIssuanceCreateMask;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:51:MPTokenIssuanceCreate::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:56:        (!*mutableFlags || *mutableFlags & tmfMPTokenIssuanceCreateMutableMask))
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:59:    if (auto const fee = ctx.tx[~sfTransferFee])
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:61:        if (fee > maxTransferFee)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:64:        // If a non-zero TransferFee is set then the tfTransferable flag
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:66:        if (fee > 0u && !ctx.tx.isFlag(tfMPTCanTransfer))
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:70:    if (auto const domain = ctx.tx[~sfDomainID])
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:75:        // Domain present implies that MPTokenIssuance is not public
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:76:        if ((ctx.tx.getFlags() & tfMPTRequireAuth) == 0)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:80:    if (auto const metadata = ctx.tx[~sfMPTokenMetadata])
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:83:            metadata->length() > maxMPTokenMetadataLength)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:88:    if (auto const maxAmt = ctx.tx[~sfMaximumAmount])
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:93:        if (maxAmt > maxMPTokenAmount)
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:100:MPTokenIssuanceCreate::create(
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:117:    // create the MPTokenIssuance
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:119:        auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:125:            return Unexpected(tecDIR_FULL);  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:130:        (*mptIssuance)[sfOutstandingAmount] = 0;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:135:            (*mptIssuance)[sfMaximumAmount] = *args.maxAmount;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:138:            (*mptIssuance)[sfAssetScale] = *args.assetScale;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:141:            (*mptIssuance)[sfTransferFee] = *args.transferFee;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:144:            (*mptIssuance)[sfMPTokenMetadata] = *args.metadata;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:147:            (*mptIssuance)[sfDomainID] = *args.domainId;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:156:    adjustOwnerCount(view, acct, 1, journal);
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:162:MPTokenIssuanceCreate::doApply()
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:173:            .maxAmount = tx[~sfMaximumAmount],
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:174:            .assetScale = tx[~sfAssetScale],
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:175:            .transferFee = tx[~sfTransferFee],
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:176:            .metadata = tx[~sfMPTokenMetadata],
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:177:            .domainId = tx[~sfDomainID],
+src/libxrpl/protocol/MPTIssue.cpp:25:#include <xrpl/protocol/MPTIssue.h>
+src/libxrpl/protocol/MPTIssue.cpp:35:MPTIssue::MPTIssue(MPTID const& issuanceID) : mptID_(issuanceID)
+src/libxrpl/protocol/MPTIssue.cpp:40:MPTIssue::getIssuer() const
+src/libxrpl/protocol/MPTIssue.cpp:52:MPTIssue::getText() const
+src/libxrpl/protocol/MPTIssue.cpp:58:MPTIssue::setJson(Json::Value& jv) const
+src/libxrpl/protocol/MPTIssue.cpp:64:to_json(MPTIssue const& mptIssue)
+src/libxrpl/protocol/MPTIssue.cpp:72:to_string(MPTIssue const& mptIssue)
+src/libxrpl/protocol/MPTIssue.cpp:77:MPTIssue
+src/libxrpl/protocol/MPTIssue.cpp:90:            "mptIssueFromJson, MPTIssue should not have currency or issuer");
+src/libxrpl/protocol/MPTIssue.cpp:107:    return MPTIssue{id};
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:30:    auto const domain = ctx.tx.getFieldH256(sfDomainID);
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:40:    auto const domain = ctx.tx.getFieldH256(sfDomainID);
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:50:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:60:        ctx_.tx.isFieldPresent(sfDomainID),
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:64:        view().peek(keylet::permissionedDomain(ctx_.tx.at(sfDomainID)));
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:67:    if (!view().dirRemove(keylet::ownerDir(account_), page, slePd->key(), true))
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:80:    adjustOwnerCount(view(), ownerSle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/Credentials.cpp:120:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:140:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:157:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:165:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:168:        adjustOwnerCount(view(), sleIssuer, 1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:177:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:185:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:261:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:267:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Credentials.cpp:270:    return deleteSLE(view(), sleCred, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:345:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:358:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:364:        auto const err = credentials::deleteSLE(view(), sleCred, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:371:    adjustOwnerCount(view(), sleIssuer, -1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:372:    adjustOwnerCount(view(), sleSubject, 1, j_);
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:20:#include <xrpld/app/tx/detail/MPTokenIssuanceDestroy.h>
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:29:MPTokenIssuanceDestroy::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:31:    return tfMPTokenIssuanceDestroyMask;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:35:MPTokenIssuanceDestroy::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:41:MPTokenIssuanceDestroy::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:45:        ctx.view.read(keylet::mptIssuance(ctx.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:51:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:54:    if ((*sleMPT)[sfOutstandingAmount] != 0)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:57:    if ((*sleMPT)[~sfLockedAmount].value_or(0) != 0)
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:64:MPTokenIssuanceDestroy::doApply()
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:67:        view().peek(keylet::mptIssuance(ctx_.tx[sfMPTokenIssuanceID]));
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:71:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:77:    adjustOwnerCount(view(), view().peek(keylet::account(account_)), -1, j_);
+src/libxrpl/protocol/MPTAmount.cpp:20:#include <xrpl/protocol/MPTAmount.h>
+src/libxrpl/protocol/MPTAmount.cpp:24:MPTAmount&
+src/libxrpl/protocol/MPTAmount.cpp:25:MPTAmount::operator+=(MPTAmount const& other)
+src/libxrpl/protocol/MPTAmount.cpp:31:MPTAmount&
+src/libxrpl/protocol/MPTAmount.cpp:32:MPTAmount::operator-=(MPTAmount const& other)
+src/libxrpl/protocol/MPTAmount.cpp:38:MPTAmount
+src/libxrpl/protocol/MPTAmount.cpp:39:MPTAmount::operator-() const
+src/libxrpl/protocol/MPTAmount.cpp:41:    return MPTAmount{-value_};
+src/libxrpl/protocol/MPTAmount.cpp:45:MPTAmount::operator==(MPTAmount const& other) const
+src/libxrpl/protocol/MPTAmount.cpp:51:MPTAmount::operator==(value_type other) const
+src/libxrpl/protocol/MPTAmount.cpp:57:MPTAmount::operator<(MPTAmount const& other) const
+src/libxrpl/protocol/MPTAmount.cpp:62:MPTAmount
+src/libxrpl/protocol/MPTAmount.cpp:63:MPTAmount::minPositiveAmount()
+src/libxrpl/protocol/MPTAmount.cpp:65:    return MPTAmount{1};
+src/libxrpl/ledger/View.cpp:31:#include <xrpl/protocol/MPTIssue.h>
+src/libxrpl/ledger/View.cpp:176:    using d = NetClock::duration;
+src/libxrpl/ledger/View.cpp:177:    using tp = NetClock::time_point;
+src/libxrpl/ledger/View.cpp:193:isGlobalFrozen(ReadView const& view, MPTIssue const& mptIssue)
+src/libxrpl/ledger/View.cpp:237:    MPTIssue const& mptIssue)
+src/libxrpl/ledger/View.cpp:246:// the specified issuer or does the freeze flag prohibit it?
+src/libxrpl/ledger/View.cpp:274:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:286:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:311:    MPTIssue const& mptShare,
+src/libxrpl/ledger/View.cpp:323:        return false;  // zero MPToken won't block deletion of MPTokenIssuance
+src/libxrpl/ledger/View.cpp:330:        UNREACHABLE("ripple::isVaultPseudoAccountFrozen : null MPToken issuer");
+src/libxrpl/ledger/View.cpp:503:    // IOU: Return balance on trust line modulo freeze
+src/libxrpl/ledger/View.cpp:534:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:536:    AuthHandling zeroIfUnauthorized,
+src/libxrpl/ledger/View.cpp:555:            issuance->at(~sfMaximumAmount).value_or(maxMPTokenAmount) -
+src/libxrpl/ledger/View.cpp:556:                issuance->at(sfOutstandingAmount)};
+src/libxrpl/ledger/View.cpp:571:        amount = STAmount{mptIssue, sleMpt->getFieldU64(sfMPTAmount)};
+src/libxrpl/ledger/View.cpp:575:        if (zeroIfUnauthorized == ahZERO_IF_UNAUTHORIZED &&
+src/libxrpl/ledger/View.cpp:583:        else if (zeroIfUnauthorized == ahZERO_IF_UNAUTHORIZED)
+src/libxrpl/ledger/View.cpp:588:            // if auth is enabled on the issuance and mpt is not authorized,
+src/libxrpl/ledger/View.cpp:590:            if (sleIssuance && sleIssuance->isFlag(lsfMPTRequireAuth) &&
+src/libxrpl/ledger/View.cpp:605:    AuthHandling zeroIfUnauthorized,
+src/libxrpl/ledger/View.cpp:616:            else if constexpr (std::is_same_v<TIss, MPTIssue>)
+src/libxrpl/ledger/View.cpp:623:                    zeroIfUnauthorized,
+src/libxrpl/ledger/View.cpp:636:    FreezeHandling freezeHandling,
+src/libxrpl/ledger/View.cpp:647:        freezeHandling,
+src/libxrpl/ledger/View.cpp:857:        sle && sle->isFieldPresent(sfTransferFee))
+src/libxrpl/ledger/View.cpp:858:        return Rate{1'000'000'000u + 10'000 * sle->getFieldU16(sfTransferFee)};
+src/libxrpl/ledger/View.cpp:1024:            using tp = NetClock::time_point;
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1142:    auto const page = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1145:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1284:canAddHolding(ReadView const& view, MPTIssue const& mptIssue)
+src/libxrpl/ledger/View.cpp:1290:    if (!issuance->isFlag(lsfMPTCanTransfer))
+src/libxrpl/ledger/View.cpp:1291:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:1329: * because MPT MaximumAmount relates to token supply, and withdrawal does not
+src/libxrpl/ledger/View.cpp:1333: * transfer, the withdrawal cannot violate the MPT MaximumAmount/supply cap
+src/libxrpl/ledger/View.cpp:1383:            return tecNO_PERMISSION;
+src/libxrpl/ledger/View.cpp:1423:    // Create trust line or MPToken for the receiving account
+src/libxrpl/ledger/View.cpp:1451:        return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:1458:        view, sourceAcct, dstAcct, amount, j, WaiveTransferFee::Yes);
+src/libxrpl/ledger/View.cpp:1476:        return tecFROZEN;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1485:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1506:        /*freeze=*/false,
+src/libxrpl/ledger/View.cpp:1507:        /*deepFreeze*/ false,
+src/libxrpl/ledger/View.cpp:1520:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:1526:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1528:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1534:    return authorizeMPToken(view, priorBalance, mptID, accountID, journal);
+src/libxrpl/ledger/View.cpp:1538:authorizeMPToken(
+src/libxrpl/ledger/View.cpp:1556:        // When a holder wants to unauthorize/delete a MPT, the ledger must
+src/libxrpl/ledger/View.cpp:1558:        //      - delete the MPToken
+src/libxrpl/ledger/View.cpp:1559:        if (flags & tfMPTUnauthorize)
+src/libxrpl/ledger/View.cpp:1563:            if (!sleMpt || (*sleMpt)[sfMPTAmount] != 0 ||
+src/libxrpl/ledger/View.cpp:1565:                 (*sleMpt)[~sfLockedAmount].value_or(0) != 0))
+src/libxrpl/ledger/View.cpp:1568:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1581:        // A potential holder wants to authorize/hold a mpt, the ledger must:
+src/libxrpl/ledger/View.cpp:1583:        //      - create the MPToken object for the holder
+src/libxrpl/ledger/View.cpp:1585:        // The reserve that is required to create the MPToken. Note
+src/libxrpl/ledger/View.cpp:1587:        // an account owns, in the case of MPTokens we only
+src/libxrpl/ledger/View.cpp:1598:        // Defensive check before we attempt to create MPToken for the issuer
+src/libxrpl/ledger/View.cpp:1604:                "ripple::authorizeMPToken : invalid issuance or issuers token");
+src/libxrpl/ledger/View.cpp:1616:        (*mptoken)[sfMPTokenIssuanceID] = mptIssuanceID;
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1643:    // Issuer wants to unauthorize the holder, unset lsfMPTAuthorized on
+src/libxrpl/ledger/View.cpp:1644:    // their MPToken
+src/libxrpl/ledger/View.cpp:1645:    if (flags & tfMPTUnauthorize)
+src/libxrpl/ledger/View.cpp:1647:    // Issuer wants to authorize a holder, set lsfMPTAuthorized on their
+src/libxrpl/ledger/View.cpp:1648:    // MPToken
+src/libxrpl/ledger/View.cpp:1667:    bool const bAuth,           // --> authorize account.
+src/libxrpl/ledger/View.cpp:1697:    auto lowNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1703:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1705:    auto highNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1711:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1718:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1859:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:1874:    if (mptoken->at(sfMPTAmount) != 0 ||
+src/libxrpl/ledger/View.cpp:1876:         (*mptoken)[~sfLockedAmount].value_or(0) != 0))
+src/libxrpl/ledger/View.cpp:1879:    return authorizeMPToken(
+src/libxrpl/ledger/View.cpp:1885:        tfMPTUnauthorize  // flags
+src/libxrpl/ledger/View.cpp:1903:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1914:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1940:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1949:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1961:            sle->isFlag(lsfHybrid) && sle->isFieldPresent(sfDomainID),
+src/libxrpl/ledger/View.cpp:1971:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2119:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2152:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2178:    saActual = (waiveFee == WaiveTransferFee::Yes)
+src/libxrpl/ledger/View.cpp:2207:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2251:        STAmount actualSend = (waiveFee == WaiveTransferFee::Yes)
+src/libxrpl/ledger/View.cpp:2284:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2288:        if (saAmount < beast::zero || saAmount.holds<MPTIssue>())
+src/libxrpl/ledger/View.cpp:2297:            saAmount >= beast::zero && !saAmount.holds<MPTIssue>(),
+src/libxrpl/ledger/View.cpp:2408:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2548:    auto const mptID = keylet::mptIssuance(saAmount.get<MPTIssue>().getMptID());
+src/libxrpl/ledger/View.cpp:2555:        (*sleIssuance)[sfOutstandingAmount] += saAmount.mpt().value();
+src/libxrpl/ledger/View.cpp:2563:            auto const amt = sle->getFieldU64(sfMPTAmount);
+src/libxrpl/ledger/View.cpp:2567:            (*sle)[sfMPTAmount] = amt - pay;
+src/libxrpl/ledger/View.cpp:2571:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2576:        auto const outstanding = sleIssuance->getFieldU64(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:2580:            sleIssuance->setFieldU64(sfOutstandingAmount, outstanding - redeem);
+src/libxrpl/ledger/View.cpp:2591:            (*sle)[sfMPTAmount] += saAmount.mpt().value();
+src/libxrpl/ledger/View.cpp:2595:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2602:rippleSendMPT(
+src/libxrpl/ledger/View.cpp:2609:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2613:        "ripple::rippleSendMPT : sender is not receiver");
+src/libxrpl/ledger/View.cpp:2615:    // Safe to get MPT since rippleSendMPT is only called by accountSendMPT
+src/libxrpl/ledger/View.cpp:2619:        view.read(keylet::mptIssuance(saAmount.get<MPTIssue>().getMptID()));
+src/libxrpl/ledger/View.cpp:2625:        // if sender is issuer, check that the new OutstandingAmount will not
+src/libxrpl/ledger/View.cpp:2626:        // exceed MaximumAmount
+src/libxrpl/ledger/View.cpp:2631:                sle->at(~sfMaximumAmount).value_or(maxMPTokenAmount);
+src/libxrpl/ledger/View.cpp:2633:                sle->getFieldU64(sfOutstandingAmount) >
+src/libxrpl/ledger/View.cpp:2648:    saActual = (waiveFee == WaiveTransferFee::Yes)
+src/libxrpl/ledger/View.cpp:2652:              transferRate(view, saAmount.get<MPTIssue>().getMptID()));
+src/libxrpl/ledger/View.cpp:2654:    JLOG(j.debug()) << "rippleSendMPT> " << to_string(uSenderID) << " - > "
+src/libxrpl/ledger/View.cpp:2671:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:2675:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2684:    // against MaximumAmount. The read-only SLE (view.read) is not updated
+src/libxrpl/ledger/View.cpp:2686:    // Use uint64_t, not STAmount, to keep MaximumAmount comparisons in exact
+src/libxrpl/ledger/View.cpp:2689:    // maxMPTokenAmount (19 digits).
+src/libxrpl/ledger/View.cpp:2692:        sle->at(~sfMaximumAmount).value_or(maxMPTokenAmount);
+src/libxrpl/ledger/View.cpp:2694:        sle->getFieldU64(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:2726:                    // Post-fixCleanup3_1_3: aggregate MaximumAmount
+src/libxrpl/ledger/View.cpp:2730:                    bool const exceedsMaximumAmount =
+src/libxrpl/ledger/View.cpp:2739:                    if (exceedsMaximumAmount)
+src/libxrpl/ledger/View.cpp:2745:                    // Pre-fixCleanup3_1_3: per-iteration MaximumAmount
+src/libxrpl/ledger/View.cpp:2746:                    // check. Reads sfOutstandingAmount from a stale
+src/libxrpl/ledger/View.cpp:2767:        STAmount actualSend = (waiveFee == WaiveTransferFee::Yes)
+src/libxrpl/ledger/View.cpp:2771:                  transferRate(view, amount.get<MPTIssue>().getMptID()));
+src/libxrpl/ledger/View.cpp:2795:accountSendMPT(
+src/libxrpl/ledger/View.cpp:2801:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2804:        saAmount >= beast::zero && saAmount.holds<MPTIssue>(),
+src/libxrpl/ledger/View.cpp:2805:        "ripple::accountSendMPT : minimum amount and MPT");
+src/libxrpl/ledger/View.cpp:2815:    return rippleSendMPT(
+src/libxrpl/ledger/View.cpp:2823:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:2826:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2841:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2849:                return accountSendMPT(
+src/libxrpl/ledger/View.cpp:2862:    WaiveTransferFee waiveFee)
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:3011:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3104:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3125:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3172:        issuerAccount && (*issuerAccount)[sfFlags] & lsfRequireAuth)
+src/libxrpl/ledger/View.cpp:3178:                : TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3188:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:3200:    // issuer is always "authorized"
+src/libxrpl/ledger/View.cpp:3201:    if (mptIssuer == account)  // Issuer won't have MPToken
+src/libxrpl/ledger/View.cpp:3215:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3222:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3242:    // if account has no MPToken, fail
+src/libxrpl/ledger/View.cpp:3245:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3247:    // Note, this check is not amendment-gated because DomainID will be always
+src/libxrpl/ledger/View.cpp:3249:    auto const maybeDomainID = sleIssuance->at(~sfDomainID);
+src/libxrpl/ledger/View.cpp:3250:    if (maybeDomainID)
+src/libxrpl/ledger/View.cpp:3253:            sleIssuance->getFieldU32(sfFlags) & lsfMPTRequireAuth,
+src/libxrpl/ledger/View.cpp:3255:        // ter = tefINTERNAL | tecOBJECT_NOT_FOUND | tecNO_AUTH | tecEXPIRED
+src/libxrpl/ledger/View.cpp:3257:                credentials::validDomain(view, *maybeDomainID, account);
+src/libxrpl/ledger/View.cpp:3263:        // belong to someone who is explicitly authorized e.g. a vault owner.
+src/libxrpl/ledger/View.cpp:3268:        // Implicitly authorize Vault and LoanBroker pseudo-accounts
+src/libxrpl/ledger/View.cpp:3273:    // mptoken must be authorized if issuance enabled requireAuth
+src/libxrpl/ledger/View.cpp:3274:    if (sleIssuance->isFlag(lsfMPTRequireAuth) &&
+src/libxrpl/ledger/View.cpp:3276:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3282:enforceMPTokenAuthorization(
+src/libxrpl/ledger/View.cpp:3286:    XRPAmount const& priorBalance,  // for MPToken authorization
+src/libxrpl/ledger/View.cpp:3291:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3294:        sleIssuance->isFlag(lsfMPTRequireAuth),
+src/libxrpl/ledger/View.cpp:3295:        "ripple::enforceMPTokenAuthorization : authorization required");
+src/libxrpl/ledger/View.cpp:3298:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3302:    auto const maybeDomainID = sleIssuance->at(~sfDomainID);
+src/libxrpl/ledger/View.cpp:3304:    bool const authorizedByDomain = [&]() -> bool {
+src/libxrpl/ledger/View.cpp:3306:        if (!maybeDomainID.has_value())
+src/libxrpl/ledger/View.cpp:3309:        auto const ter = verifyValidDomain(view, account, *maybeDomainID, j);
+src/libxrpl/ledger/View.cpp:3317:    if (!authorizedByDomain && sleToken == nullptr)
+src/libxrpl/ledger/View.cpp:3319:        // Could not find MPToken and won't create one, could be either of:
+src/libxrpl/ledger/View.cpp:3321:        // 1. Field sfDomainID not set in MPTokenIssuance or
+src/libxrpl/ledger/View.cpp:3325:        // Either way, return tecNO_AUTH and there is nothing else to do
+src/libxrpl/ledger/View.cpp:3326:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3328:    else if (!authorizedByDomain && maybeDomainID.has_value())
+src/libxrpl/ledger/View.cpp:3330:        // Found an MPToken but the account is not authorized and we expect
+src/libxrpl/ledger/View.cpp:3331:        // it to have been authorized by the domain. This could be because the
+src/libxrpl/ledger/View.cpp:3332:        // credentials used to create the MPToken have expired or been deleted.
+src/libxrpl/ledger/View.cpp:3333:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3335:    else if (!authorizedByDomain)
+src/libxrpl/ledger/View.cpp:3337:        // We found an MPToken, but sfDomainID is not set, so this is a classic
+src/libxrpl/ledger/View.cpp:3338:        // MPToken which requires authorization by the token issuer.
+src/libxrpl/ledger/View.cpp:3340:            sleToken != nullptr && !maybeDomainID.has_value(),
+src/libxrpl/ledger/View.cpp:3341:            "ripple::enforceMPTokenAuthorization : found MPToken");
+src/libxrpl/ledger/View.cpp:3345:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3347:    else if (authorizedByDomain && sleToken != nullptr)
+src/libxrpl/ledger/View.cpp:3349:        // Found an MPToken, authorized by the domain. Ignore authorization flag
+src/libxrpl/ledger/View.cpp:3352:            maybeDomainID.has_value(),
+src/libxrpl/ledger/View.cpp:3353:            "ripple::enforceMPTokenAuthorization : found MPToken for domain");
+src/libxrpl/ledger/View.cpp:3356:    else if (authorizedByDomain)
+src/libxrpl/ledger/View.cpp:3358:        // Could not find MPToken but there should be one because we are
+src/libxrpl/ledger/View.cpp:3359:        // authorized by domain. Proceed to create it, then return tesSUCCESS
+src/libxrpl/ledger/View.cpp:3361:            maybeDomainID.has_value() && sleToken == nullptr,
+src/libxrpl/ledger/View.cpp:3362:            "ripple::enforceMPTokenAuthorization : new MPToken for domain");
+src/libxrpl/ledger/View.cpp:3363:        if (auto const err = authorizeMPToken(
+src/libxrpl/ledger/View.cpp:3377:        "ripple::enforceMPTokenAuthorization : condition list is incomplete");
+src/libxrpl/ledger/View.cpp:3378:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3383:canTransfer(
+src/libxrpl/ledger/View.cpp:3385:    MPTIssue const& mptIssue,
+src/libxrpl/ledger/View.cpp:3394:    if (!(sleIssuance->getFieldU32(sfFlags) & lsfMPTCanTransfer))
+src/libxrpl/ledger/View.cpp:3397:            return TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3403:canTransfer(
+src/libxrpl/ledger/View.cpp:3417:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);
+src/libxrpl/ledger/View.cpp:3621:    Number const shareTotal = issuance->at(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3650:    Number const shareTotal = issuance->at(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3676:    Number const shareTotal = issuance->at(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3704:    Number const shareTotal = issuance->at(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3716:    auto const mptIssue = amount.get<MPTIssue>();
+src/libxrpl/ledger/View.cpp:3729:            << "rippleLockEscrowMPT: sender is the issuer, cannot lock MPTs.";
+src/libxrpl/ledger/View.cpp:3733:    // 1. Decrease the MPT Holder MPTAmount
+src/libxrpl/ledger/View.cpp:3741:                << "rippleLockEscrowMPT: MPToken not found for " << sender;
+src/libxrpl/ledger/View.cpp:3745:        auto const amt = sle->getFieldU64(sfMPTAmount);
+src/libxrpl/ledger/View.cpp:3752:                << "rippleLockEscrowMPT: insufficient MPTAmount for "
+src/libxrpl/ledger/View.cpp:3757:        (*sle)[sfMPTAmount] = amt - pay;
+src/libxrpl/ledger/View.cpp:3760:        uint64_t const locked = (*sle)[~sfLockedAmount].value_or(0);
+src/libxrpl/ledger/View.cpp:3762:        if (!canAdd(STAmount(mptIssue, locked), STAmount(mptIssue, pay)))
+src/libxrpl/ledger/View.cpp:3765:                << "rippleLockEscrowMPT: overflow on locked amount for "
+src/libxrpl/ledger/View.cpp:3766:                << to_string(sender) << ": " << locked << " + " << pay;
+src/libxrpl/ledger/View.cpp:3770:        if (sle->isFieldPresent(sfLockedAmount))
+src/libxrpl/ledger/View.cpp:3771:            (*sle)[sfLockedAmount] += pay;
+src/libxrpl/ledger/View.cpp:3773:            sle->setFieldU64(sfLockedAmount, pay);
+src/libxrpl/ledger/View.cpp:3779:    // 2. DO NOT change the Issuance OutstandingAmount
+src/libxrpl/ledger/View.cpp:3782:            (*sleIssuance)[~sfLockedAmount].value_or(0);
+src/libxrpl/ledger/View.cpp:3790:                               "locked amount for "
+src/libxrpl/ledger/View.cpp:3796:        if (sleIssuance->isFieldPresent(sfLockedAmount))
+src/libxrpl/ledger/View.cpp:3797:            (*sleIssuance)[sfLockedAmount] += pay;
+src/libxrpl/ledger/View.cpp:3799:            sleIssuance->setFieldU64(sfLockedAmount, pay);
+src/libxrpl/ledger/View.cpp:3807:rippleUnlockEscrowMPT(
+src/libxrpl/ledger/View.cpp:3818:            "ripple::rippleUnlockEscrowMPT : netAmount == grossAmount");
+src/libxrpl/ledger/View.cpp:3821:    auto const& mptIssue = netAmount.get<MPTIssue>();
+src/libxrpl/ledger/View.cpp:3826:        JLOG(j.error()) << "rippleUnlockEscrowMPT: MPT issuance not found for "
+src/libxrpl/ledger/View.cpp:3833:        if (!sleIssuance->isFieldPresent(sfLockedAmount))
+src/libxrpl/ledger/View.cpp:3836:                << "rippleUnlockEscrowMPT: no locked amount in issuance for "
+src/libxrpl/ledger/View.cpp:3841:        auto const locked = sleIssuance->getFieldU64(sfLockedAmount);
+src/libxrpl/ledger/View.cpp:3846:                STAmount(mptIssue, locked), STAmount(mptIssue, redeem)))
+src/libxrpl/ledger/View.cpp:3849:                << "rippleUnlockEscrowMPT: insufficient locked amount for "
+src/libxrpl/ledger/View.cpp:3850:                << mptIssue.getMptID() << ": " << locked << " < " << redeem;
+src/libxrpl/ledger/View.cpp:3854:        auto const newLocked = locked - redeem;
+src/libxrpl/ledger/View.cpp:3856:            sleIssuance->makeFieldAbsent(sfLockedAmount);
+src/libxrpl/ledger/View.cpp:3858:            sleIssuance->setFieldU64(sfLockedAmount, newLocked);
+src/libxrpl/ledger/View.cpp:3864:        // Increase the MPT Holder MPTAmount
+src/libxrpl/ledger/View.cpp:3870:                << "rippleUnlockEscrowMPT: MPToken not found for " << receiver;
+src/libxrpl/ledger/View.cpp:3874:        auto current = sle->getFieldU64(sfMPTAmount);
+src/libxrpl/ledger/View.cpp:3881:                << "rippleUnlockEscrowMPT: overflow on MPTAmount for "
+src/libxrpl/ledger/View.cpp:3886:        (*sle)[sfMPTAmount] += delta;
+src/libxrpl/ledger/View.cpp:3891:        // Decrease the Issuance OutstandingAmount
+src/libxrpl/ledger/View.cpp:3892:        auto const outstanding = sleIssuance->getFieldU64(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3900:                << "rippleUnlockEscrowMPT: insufficient outstanding amount for "
+src/libxrpl/ledger/View.cpp:3906:        sleIssuance->setFieldU64(sfOutstandingAmount, outstanding - redeem);
+src/libxrpl/ledger/View.cpp:3912:        JLOG(j.error()) << "rippleUnlockEscrowMPT: sender is the issuer, "
+src/libxrpl/ledger/View.cpp:3913:                           "cannot unlock MPTs.";
+src/libxrpl/ledger/View.cpp:3924:                << "rippleUnlockEscrowMPT: MPToken not found for " << sender;
+src/libxrpl/ledger/View.cpp:3928:        if (!sle->isFieldPresent(sfLockedAmount))
+src/libxrpl/ledger/View.cpp:3931:                << "rippleUnlockEscrowMPT: no locked amount in MPToken for "
+src/libxrpl/ledger/View.cpp:3936:        auto const locked = sle->getFieldU64(sfLockedAmount);
+src/libxrpl/ledger/View.cpp:3940:        if (!canSubtract(STAmount(mptIssue, locked), STAmount(mptIssue, delta)))
+src/libxrpl/ledger/View.cpp:3943:                << "rippleUnlockEscrowMPT: insufficient locked amount for "
+src/libxrpl/ledger/View.cpp:3944:                << to_string(sender) << ": " << locked << " < " << delta;
+src/libxrpl/ledger/View.cpp:3948:        auto const newLocked = locked - delta;
+src/libxrpl/ledger/View.cpp:3950:            sle->makeFieldAbsent(sfLockedAmount);
+src/libxrpl/ledger/View.cpp:3952:            sle->setFieldU64(sfLockedAmount, newLocked);
+src/libxrpl/ledger/View.cpp:3956:    // Note: The gross amount is the amount that was locked, the net
+src/libxrpl/ledger/View.cpp:3957:    // amount is the amount that is being unlocked. The difference is the fee
+src/libxrpl/ledger/View.cpp:3963:        auto const outstanding = sleIssuance->getFieldU64(sfOutstandingAmount);
+src/libxrpl/ledger/View.cpp:3969:                << "rippleUnlockEscrowMPT: insufficient outstanding amount for "
+src/libxrpl/ledger/View.cpp:3974:        sleIssuance->setFieldU64(sfOutstandingAmount, outstanding - diff);
+src/libxrpl/ledger/View.cpp:3981:after(NetClock::time_point now, std::uint32_t mark)
+src/test/app/MPToken_test.cpp:36:class MPToken_test : public beast::unit_test::suite
+src/test/app/MPToken_test.cpp:45:        // test preflight of MPTokenIssuanceCreate
+src/test/app/MPToken_test.cpp:48:            // create MPTokenIssuances
+src/test/app/MPToken_test.cpp:49:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:55:        // test preflight of MPTokenIssuanceCreate
+src/test/app/MPToken_test.cpp:72:                // tries to set DomainID when SAV is disabled
+src/test/app/MPToken_test.cpp:77:                     .flags = tfMPTRequireAuth,
+src/test/app/MPToken_test.cpp:83:                // tries to set DomainID when PD is disabled
+src/test/app/MPToken_test.cpp:88:                     .flags = tfMPTRequireAuth,
+src/test/app/MPToken_test.cpp:94:                // tries to set DomainID when RequireAuth is not set
+src/test/app/MPToken_test.cpp:102:                // tries to set zero DomainID
+src/test/app/MPToken_test.cpp:107:                     .flags = tfMPTRequireAuth,
+src/test/app/MPToken_test.cpp:116:                 .transferFee = maxTransferFee + 1,
+src/test/app/MPToken_test.cpp:118:                 .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:125:                 .transferFee = maxTransferFee,
+src/test/app/MPToken_test.cpp:145:            // MaximumAmount larger than 63 bit returns error
+src/test/app/MPToken_test.cpp:153:                {.maxAmt = maxMPTokenAmount + 1,  // 9'223'372'036'854'775'808
+src/test/app/MPToken_test.cpp:171:            // MPTokenIssuances
+src/test/app/MPToken_test.cpp:175:                {.maxAmt = maxMPTokenAmount,  // 9'223'372'036'854'775'807
+src/test/app/MPToken_test.cpp:180:                 .flags = tfMPTCanLock | tfMPTRequireAuth | tfMPTCanEscrow |
+src/test/app/MPToken_test.cpp:181:                     tfMPTCanTrade | tfMPTCanTransfer | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:189:                result[sfMaximumAmount.getJsonName()] == "9223372036854775807");
+src/test/app/MPToken_test.cpp:213:                    .maxAmt = maxMPTokenAmount,  // 9'223'372'036'854'775'807
+src/test/app/MPToken_test.cpp:218:                    .flags = tfMPTCanLock | tfMPTRequireAuth | tfMPTCanEscrow |
+src/test/app/MPToken_test.cpp:219:                        tfMPTCanTrade | tfMPTCanTransfer | tfMPTCanClawback,
+src/test/app/MPToken_test.cpp:229:                    result[sfMaximumAmount.getJsonName()] ==
+src/test/app/MPToken_test.cpp:243:        // MPTokenIssuanceDestroy (preflight)
+src/test/app/MPToken_test.cpp:245:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:250:            env.enableFeature(featureMPTokensV1);
+src/test/app/MPToken_test.cpp:256:        // MPTokenIssuanceDestroy (preclaim)
+src/test/app/MPToken_test.cpp:269:            mptAlice.destroy({.issuer = bob, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:275:                mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:294:        // MPTokenIssuances
+src/test/app/MPToken_test.cpp:306:        testcase("Validate authorize transaction");
+src/test/app/MPToken_test.cpp:312:        // Validate amendment enable in MPTokenAuthorize (preflight)
+src/test/app/MPToken_test.cpp:314:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:317:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:323:        // Validate fields in MPTokenAuthorize (preflight)
+src/test/app/MPToken_test.cpp:330:            // The only valid MPTokenAuthorize flag is tfMPTUnauthorize, which
+src/test/app/MPToken_test.cpp:332:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:335:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:338:            mptAlice.authorize({.holder = alice, .err = temMALFORMED});
+src/test/app/MPToken_test.cpp:341:        // Try authorizing when MPTokenIssuance doesn't exist in
+src/test/app/MPToken_test.cpp:342:        // MPTokenAuthorize (preclaim)
+src/test/app/MPToken_test.cpp:348:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:351:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:355:        // Test bad scenarios without allowlisting in MPTokenAuthorize
+src/test/app/MPToken_test.cpp:364:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:365:                {.account = bob, .holder = alice, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:368:            mptAlice.authorize({.account = alice, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:371:            mptAlice.authorize({.holder = bob, .err = tecNO_AUTH});
+src/test/app/MPToken_test.cpp:374:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:377:            mptAlice.authorize({.account = bob, .err = tecDUPLICATE});
+src/test/app/MPToken_test.cpp:379:            // Check that bob cannot delete MPToken when his balance is
+src/test/app/MPToken_test.cpp:385:                // bob tries to delete his MPToken, but fails since he still
+src/test/app/MPToken_test.cpp:387:                mptAlice.authorize(
+src/test/app/MPToken_test.cpp:389:                     .flags = tfMPTUnauthorize,
+src/test/app/MPToken_test.cpp:396:            // bob deletes/unauthorizes his MPToken
+src/test/app/MPToken_test.cpp:397:            mptAlice.authorize({.account = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:399:            // bob receives error when he tries to delete his MPToken that has
+src/test/app/MPToken_test.cpp:401:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:404:                 .flags = tfMPTUnauthorize,
+src/test/app/MPToken_test.cpp:408:        // Test bad scenarios with allow-listing in MPTokenAuthorize (preclaim)
+src/test/app/MPToken_test.cpp:413:            mptAlice.create({.ownerCount = 1, .flags = tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:416:            mptAlice.authorize({.err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:418:            // alice submits a tx to authorize a holder that hasn't created
+src/test/app/MPToken_test.cpp:420:            mptAlice.authorize({.holder = bob, .err = tecOBJECT_NOT_FOUND});
+src/test/app/MPToken_test.cpp:423:            mptAlice.authorize({.holder = cindy, .err = tecNO_DST});
+src/test/app/MPToken_test.cpp:426:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:428:            // alice tries to unauthorize bob.
+src/test/app/MPToken_test.cpp:430:            // but nothing happens because bob hasn't been authorized yet
+src/test/app/MPToken_test.cpp:431:            mptAlice.authorize({.holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:433:            // alice authorizes bob
+src/test/app/MPToken_test.cpp:435:            mptAlice.authorize({.holder = bob});
+src/test/app/MPToken_test.cpp:437:            // alice tries authorizes bob again.
+src/test/app/MPToken_test.cpp:438:            // tx is successful, but bob is already authorized,
+src/test/app/MPToken_test.cpp:440:            mptAlice.authorize({.holder = bob});
+src/test/app/MPToken_test.cpp:443:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:444:                {.account = bob, .holderCount = 0, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:469:            mptAlice1.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:472:            mptAlice2.authorize({.account = bob, .holderCount = 2});
+src/test/app/MPToken_test.cpp:474:            mptAlice3.authorize(
+src/test/app/MPToken_test.cpp:481:            mptAlice3.authorize({.account = bob, .holderCount = 3});
+src/test/app/MPToken_test.cpp:503:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:505:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:509:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:510:                {.account = bob, .holderCount = 0, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:520:            mptAlice.create({.ownerCount = 1, .flags = tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:523:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:525:            // alice authorizes bob
+src/test/app/MPToken_test.cpp:526:            mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:528:            // Unauthorize bob's mptoken
+src/test/app/MPToken_test.cpp:529:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:533:                 .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:535:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:536:                {.account = bob, .holderCount = 0, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:539:        // Holder can have dangling MPToken even if issuance has been destroyed.
+src/test/app/MPToken_test.cpp:540:        // Make sure they can still delete/unauthorize the MPToken
+src/test/app/MPToken_test.cpp:548:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:555:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:556:                {.account = bob, .holderCount = 0, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:569:        // Validate fields in MPTokenIssuanceSet (preflight)
+src/test/app/MPToken_test.cpp:571:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:579:            env.enableFeature(featureMPTokensV1);
+src/test/app/MPToken_test.cpp:583:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:585:            // test invalid flag - only valid flags are tfMPTLock (1) and Unlock
+src/test/app/MPToken_test.cpp:599:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:605:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:607:                // cannot set DomainID since SAV is not enabled
+src/test/app/MPToken_test.cpp:630:                    // cannot set DomainID since PD is not enabled
+src/test/app/MPToken_test.cpp:638:                    // cannot set DomainID since Holder is set
+src/test/app/MPToken_test.cpp:647:            // set both lock and unlock flags at the same time will fail
+src/test/app/MPToken_test.cpp:650:                 .flags = tfMPTLock | tfMPTUnlock,
+src/test/app/MPToken_test.cpp:662:        // Validate fields in MPTokenIssuanceSet (preclaim)
+src/test/app/MPToken_test.cpp:663:        // test when a mptokenissuance has disabled locking
+src/test/app/MPToken_test.cpp:671:            // alice tries to lock a mptissuance that has disabled locking
+src/test/app/MPToken_test.cpp:675:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:677:            // alice tries to unlock mptissuance that has disabled locking
+src/test/app/MPToken_test.cpp:680:                 .flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:681:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:683:            // issuer tries to lock a bob's mptoken that has disabled
+src/test/app/MPToken_test.cpp:684:            // locking
+src/test/app/MPToken_test.cpp:689:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:691:            // issuer tries to unlock a bob's mptoken that has disabled
+src/test/app/MPToken_test.cpp:692:            // locking
+src/test/app/MPToken_test.cpp:696:                 .flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:697:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:700:        // Validate fields in MPTokenIssuanceSet (preclaim)
+src/test/app/MPToken_test.cpp:701:        // test when mptokenissuance has enabled locking
+src/test/app/MPToken_test.cpp:713:            // create a mptokenissuance with locking
+src/test/app/MPToken_test.cpp:714:            mptAlice.create({.ownerCount = 1, .flags = tfMPTCanLock});
+src/test/app/MPToken_test.cpp:718:                {.account = bob, .flags = tfMPTLock, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:747:                // Trying to set DomainID on a public MPTokenIssuance
+src/test/app/MPToken_test.cpp:749:                    {.domainID = uint256(42), .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:752:                    {.domainID = beast::zero, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:759:                mptAlice.create({.flags = tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:761:                // Trying to set non-existing DomainID
+src/test/app/MPToken_test.cpp:765:                // Trying to lock but locking is disabled
+src/test/app/MPToken_test.cpp:767:                    {.flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:769:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:772:                    {.flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:774:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:789:            // Test locking and unlocking
+src/test/app/MPToken_test.cpp:794:            // create a mptokenissuance with locking
+src/test/app/MPToken_test.cpp:796:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanLock});
+src/test/app/MPToken_test.cpp:798:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:800:            // locks bob's mptoken
+src/test/app/MPToken_test.cpp:803:            // trying to lock bob's mptoken again will still succeed
+src/test/app/MPToken_test.cpp:807:            // alice locks the mptissuance
+src/test/app/MPToken_test.cpp:810:            // alice tries to lock up both mptissuance and mptoken again
+src/test/app/MPToken_test.cpp:811:            // it will not change the flags and both will remain locked.
+src/test/app/MPToken_test.cpp:815:            // alice unlocks bob's mptoken
+src/test/app/MPToken_test.cpp:817:                {.account = alice, .holder = bob, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:819:            // locks up bob's mptoken again
+src/test/app/MPToken_test.cpp:823:                // Delete bobs' mptoken even though it is locked
+src/test/app/MPToken_test.cpp:824:                mptAlice.authorize({.account = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:829:                     .flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:835:            // Cannot delete locked MPToken
+src/test/app/MPToken_test.cpp:836:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:838:                 .flags = tfMPTUnauthorize,
+src/test/app/MPToken_test.cpp:839:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:841:            // alice unlocks mptissuance
+src/test/app/MPToken_test.cpp:842:            mptAlice.set({.account = alice, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:844:            // alice unlocks bob's mptoken
+src/test/app/MPToken_test.cpp:846:                {.account = alice, .holder = bob, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:848:            // alice unlocks mptissuance and bob's mptoken again despite that
+src/test/app/MPToken_test.cpp:849:            // they are already unlocked. Make sure this will not change the
+src/test/app/MPToken_test.cpp:852:                {.account = alice, .holder = bob, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:853:            mptAlice.set({.account = alice, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:896:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:897:            BEAST_EXPECT(mptAlice.checkDomainID(std::nullopt));
+src/test/app/MPToken_test.cpp:901:            BEAST_EXPECT(mptAlice.checkDomainID(std::nullopt));
+src/test/app/MPToken_test.cpp:905:            BEAST_EXPECT(mptAlice.checkDomainID(domainId1));
+src/test/app/MPToken_test.cpp:909:            BEAST_EXPECT(mptAlice.checkDomainID(domainId2));
+src/test/app/MPToken_test.cpp:913:            BEAST_EXPECT(mptAlice.checkDomainID(std::nullopt));
+src/test/app/MPToken_test.cpp:931:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:937:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+src/test/app/MPToken_test.cpp:944:            Env env{*this, features - featureMPTokensV1};
+src/test/app/MPToken_test.cpp:951:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+src/test/app/MPToken_test.cpp:970:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:988:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1034:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1057:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1058:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1077:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1092:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1102:        // If RequireAuth is enabled, Payment fails if the receiver is not
+src/test/app/MPToken_test.cpp:1103:        // authorized
+src/test/app/MPToken_test.cpp:1112:                 .flags = tfMPTRequireAuth | tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1114:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1116:            mptAlice.pay(alice, bob, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1119:        // If RequireAuth is enabled, Payment fails if the sender is not
+src/test/app/MPToken_test.cpp:1120:        // authorized
+src/test/app/MPToken_test.cpp:1129:                 .flags = tfMPTRequireAuth | tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1131:            // bob creates an empty MPToken
+src/test/app/MPToken_test.cpp:1132:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1134:            // alice authorizes bob to hold funds
+src/test/app/MPToken_test.cpp:1135:            mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:1141:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:1142:                {.account = alice, .holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:1145:            // authorize to move his funds!
+src/test/app/MPToken_test.cpp:1146:            mptAlice.pay(bob, alice, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1152:            // If RequireAuth is enabled and domain is a match, payment succeeds
+src/test/app/MPToken_test.cpp:1169:                // bob is authorized via domain
+src/test/app/MPToken_test.cpp:1180:                    .flags = tfMPTRequireAuth | tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:1184:                mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1187:                // bob is authorized via domain
+src/test/app/MPToken_test.cpp:1191:                // bob is no longer authorized
+src/test/app/MPToken_test.cpp:1192:                mptAlice.pay(alice, bob, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1211:                // bob is authorized via domain
+src/test/app/MPToken_test.cpp:1222:                    .flags = tfMPTRequireAuth | tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:1226:                // bob creates an empty MPToken
+src/test/app/MPToken_test.cpp:1227:                mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1229:                // alice authorizes bob to hold funds
+src/test/app/MPToken_test.cpp:1230:                mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:1236:                mptAlice.authorize(
+src/test/app/MPToken_test.cpp:1239:                     .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:1241:                // bob is still authorized, via domain
+src/test/app/MPToken_test.cpp:1247:                // authorize to move his funds!
+src/test/app/MPToken_test.cpp:1248:                mptAlice.pay(bob, alice, 10, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1284:                // bob is authorized via credIssuer1 which is recognized by both
+src/test/app/MPToken_test.cpp:1290:                // carol is authorized via credIssuer2, only recognized by
+src/test/app/MPToken_test.cpp:1302:                    .flags = tfMPTRequireAuth | tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:1306:                // bob and carol create an empty MPToken
+src/test/app/MPToken_test.cpp:1307:                mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1308:                mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1313:                mptAlice.pay(alice, carol, 50, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1318:                mptAlice.pay(bob, carol, 10, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1338:                mptAlice.pay(bob, carol, 10, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1339:                mptAlice.pay(bob, alice, 10, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1343:        // Non-issuer cannot send to each other if MPTCanTransfer isn't set
+src/test/app/MPToken_test.cpp:1352:            // alice creates issuance without MPTCanTransfer
+src/test/app/MPToken_test.cpp:1355:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:1356:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1358:            // cindy creates a MPToken
+src/test/app/MPToken_test.cpp:1359:            mptAlice.authorize({.account = cindy});
+src/test/app/MPToken_test.cpp:1364:            // bob tries to send cindy 10 tokens, but fails because canTransfer
+src/test/app/MPToken_test.cpp:1366:            mptAlice.pay(bob, cindy, 10, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1372:        // Holder is not authorized
+src/test/app/MPToken_test.cpp:1379:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1382:            mptAlice.pay(alice, bob, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1385:            mptAlice.pay(bob, alice, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1388:            mptAlice.pay(bob, carol, 50, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:1397:            mptAlice.create({.ownerCount = 1, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1399:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1400:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1411:        // MPT is locked
+src/test/app/MPToken_test.cpp:1418:                {.ownerCount = 1, .flags = tfMPTCanLock | tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1420:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1421:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1426:            // Global lock
+src/test/app/MPToken_test.cpp:1429:            mptAlice.pay(bob, carol, 1, tecLOCKED);
+src/test/app/MPToken_test.cpp:1430:            mptAlice.pay(carol, bob, 2, tecLOCKED);
+src/test/app/MPToken_test.cpp:1436:            // Global unlock
+src/test/app/MPToken_test.cpp:1437:            mptAlice.set({.account = alice, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:1438:            // Individual lock
+src/test/app/MPToken_test.cpp:1441:            mptAlice.pay(bob, carol, 5, tecLOCKED);
+src/test/app/MPToken_test.cpp:1442:            mptAlice.pay(carol, bob, 6, tecLOCKED);
+src/test/app/MPToken_test.cpp:1460:                 .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1462:            // Holders create MPToken
+src/test/app/MPToken_test.cpp:1463:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1464:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1471:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(bob, 1'000));
+src/test/app/MPToken_test.cpp:1492:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(bob, 780));
+src/test/app/MPToken_test.cpp:1493:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(carol, 200));
+src/test/app/MPToken_test.cpp:1501:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(bob, 690));
+src/test/app/MPToken_test.cpp:1502:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(carol, 282));
+src/test/app/MPToken_test.cpp:1512:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1514:            // Holders create MPToken
+src/test/app/MPToken_test.cpp:1515:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1516:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1530:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(carol, 100));
+src/test/app/MPToken_test.cpp:1535:            BEAST_EXPECT(mptAlice.checkMPTokenAmount(carol, 199));
+src/test/app/MPToken_test.cpp:1545:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1547:            // Holders create MPToken
+src/test/app/MPToken_test.cpp:1548:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1549:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1577:                 .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1579:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1597:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1600:            mptAlice.pay(alice, bob, maxMPTokenAmount);
+src/test/app/MPToken_test.cpp:1611:            STAmount mpt{MPTIssue{makeMptID(1, alice)}, UINT64_C(100)};
+src/test/app/MPToken_test.cpp:1616:                std::to_string(maxMPTokenAmount + 1);
+src/test/app/MPToken_test.cpp:1633:                 .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1636:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1637:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1652:                    [sfOutstandingAmount.fieldName] == "9990");
+src/test/app/MPToken_test.cpp:1656:                    [sfMPTAmount.fieldName] == "9990");
+src/test/app/MPToken_test.cpp:1660:                    [sfMPTAmount.fieldName] == "10000");
+src/test/app/MPToken_test.cpp:1663:                     .isMember(sfMPTAmount.fieldName));
+src/test/app/MPToken_test.cpp:1679:                {.maxAmt = maxMPTokenAmount,
+src/test/app/MPToken_test.cpp:1682:                 .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1685:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1686:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1689:            mptAlice.pay(alice, bob, maxMPTokenAmount);
+src/test/app/MPToken_test.cpp:1691:                mptAlice.checkMPTokenOutstandingAmount(maxMPTokenAmount));
+src/test/app/MPToken_test.cpp:1694:            mptAlice.pay(bob, carol, maxMPTokenAmount);
+src/test/app/MPToken_test.cpp:1696:                mptAlice.checkMPTokenOutstandingAmount(maxMPTokenAmount));
+src/test/app/MPToken_test.cpp:1698:            mptAlice.pay(carol, alice, maxMPTokenAmount);
+src/test/app/MPToken_test.cpp:1699:            BEAST_EXPECT(mptAlice.checkMPTokenOutstandingAmount(0));
+src/test/app/MPToken_test.cpp:1710:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1758:                {.maxAmt = 100, .ownerCount = 1, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1760:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1761:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1776:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1778:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1779:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:1817:                 .flags = tfMPTRequireAuth | tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1822:            // bob creates an empty MPToken
+src/test/app/MPToken_test.cpp:1823:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1824:            // alice authorizes bob to hold funds
+src/test/app/MPToken_test.cpp:1825:            mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:1831:            // alice try to send 100 MPT to bob, not authorized
+src/test/app/MPToken_test.cpp:1832:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:1835:            // Bob authorize alice
+src/test/app/MPToken_test.cpp:1860:            // alice try to send 100 MPT to bob, not authorized
+src/test/app/MPToken_test.cpp:1861:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:1864:            // alice sends 100 MPT to bob with credentials, not authorized
+src/test/app/MPToken_test.cpp:1865:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION, {{credIdx}});
+src/test/app/MPToken_test.cpp:1868:            // Bob authorize credentials
+src/test/app/MPToken_test.cpp:1872:            // alice try to send 100 MPT to bob, not authorized
+src/test/app/MPToken_test.cpp:1873:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:1896:                 .flags = tfMPTRequireAuth | tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:1901:            // bob creates an empty MPToken
+src/test/app/MPToken_test.cpp:1902:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:1903:            // alice authorizes bob to hold funds
+src/test/app/MPToken_test.cpp:1904:            mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:1910:            // alice try to send 100 MPT to bob, not authorized
+src/test/app/MPToken_test.cpp:1911:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:1919:            // Bob authorize alice
+src/test/app/MPToken_test.cpp:1936:            mptAlice.pay(alice, bob, 100, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:1977:        MPTIssue issue(makeMptID(1, alice));
+src/test/app/MPToken_test.cpp:1980:        for (auto const& feature : {features, features - featureMPTokensV1})
+src/test/app/MPToken_test.cpp:2020:                    jv[jss::Asset] = to_json(mpt.get<MPTIssue>());
+src/test/app/MPToken_test.cpp:2022:                    jv[jss::Asset2] = to_json(mpt.get<MPTIssue>());
+src/test/app/MPToken_test.cpp:2358:        testcase("MPT clawback validations");
+src/test/app/MPToken_test.cpp:2361:        // Make sure clawback cannot work when featureMPTokensV1 is disabled
+src/test/app/MPToken_test.cpp:2363:            Env env(*this, features - featureMPTokensV1);
+src/test/app/MPToken_test.cpp:2413:            // can't clawback negative amount
+src/test/app/MPToken_test.cpp:2418:        // Preclaim - clawback fails when MPTCanClawback is disabled on issuance
+src/test/app/MPToken_test.cpp:2431:            // Create issuance without enabling clawback
+src/test/app/MPToken_test.cpp:2434:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2438:            // alice cannot clawback before she didn't enable MPTCanClawback
+src/test/app/MPToken_test.cpp:2440:            mptAlice.claw(alice, bob, 1, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:2456:            // issuer tries to clawback MPT where issuance doesn't exist
+src/test/app/MPToken_test.cpp:2462:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2464:            // alice tries to clawback from someone who doesn't have MPToken
+src/test/app/MPToken_test.cpp:2467:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:2468:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2470:            // clawback fails because bob currently has a balance of zero
+src/test/app/MPToken_test.cpp:2476:            // carol fails tries to clawback from bob because he is not the
+src/test/app/MPToken_test.cpp:2478:            mptAlice.claw(carol, bob, 1, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:2481:        // clawback more than max amount
+src/test/app/MPToken_test.cpp:2496:            jv[jss::Amount][jss::value] = std::to_string(maxMPTokenAmount + 1);
+src/test/app/MPToken_test.cpp:2520:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2522:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:2523:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2532:            // clawback fails because bob currently has a balance of zero
+src/test/app/MPToken_test.cpp:2536:        // Test that globally locked funds can be clawed
+src/test/app/MPToken_test.cpp:2548:                 .flags = tfMPTCanLock | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2550:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:2551:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2561:        // Test that individually locked funds can be clawed
+src/test/app/MPToken_test.cpp:2573:                 .flags = tfMPTCanLock | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2575:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:2576:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2586:        // Test that unauthorized funds can be clawed back
+src/test/app/MPToken_test.cpp:2598:                 .flags = tfMPTCanClawback | tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:2600:            // bob creates a MPToken
+src/test/app/MPToken_test.cpp:2601:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:2603:            // alice authorizes bob
+src/test/app/MPToken_test.cpp:2604:            mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:2609:            // alice unauthorizes bob
+src/test/app/MPToken_test.cpp:2610:            mptAlice.authorize(
+src/test/app/MPToken_test.cpp:2611:                {.account = alice, .holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:2648:        // Assets holding MPTIssue
+src/test/app/MPToken_test.cpp:2655:        // Assets holding Issue and MPTIssue
+src/test/app/MPToken_test.cpp:2710:            testcase("Test MPTAmount arithmetics");
+src/test/app/MPToken_test.cpp:2711:            MPTAmount mptAmt1{100};
+src/test/app/MPToken_test.cpp:2712:            MPTAmount const mptAmt2{100};
+src/test/app/MPToken_test.cpp:2713:            BEAST_EXPECT((mptAmt1 += mptAmt2) == MPTAmount{200});
+src/test/app/MPToken_test.cpp:2718:            BEAST_EXPECT(MPTAmount::minPositiveAmount() == MPTAmount{1});
+src/test/app/MPToken_test.cpp:2722:            testcase("Test MPTIssue from/to Json");
+src/test/app/MPToken_test.cpp:2723:            MPTIssue const issue1{asset1.get<MPTIssue>()};
+src/test/app/MPToken_test.cpp:2726:                jv[jss::mpt_issuance_id] == to_string(asset1.get<MPTIssue>()));
+src/test/app/MPToken_test.cpp:2734:                jv[jss::mpt_issuance_id] == to_string(asset1.get<MPTIssue>()));
+src/test/app/MPToken_test.cpp:2746:        testcase("invalid MPTokenIssuanceCreate for DynamicMPT");
+src/test/app/MPToken_test.cpp:2766:            // Value 1 is reserved for MPT lock.
+src/test/app/MPToken_test.cpp:2785:        testcase("invalid MPTokenIssuanceSet for DynamicMPT");
+src/test/app/MPToken_test.cpp:2791:        // Can not provide MutableFlags, MPTokenMetadata or TransferFee when
+src/test/app/MPToken_test.cpp:2810:            // MPTokenMetadata is not allowed when DynamicMPT is not enabled
+src/test/app/MPToken_test.cpp:2822:            // TransferFee is not allowed when DynamicMPT is not enabled
+src/test/app/MPToken_test.cpp:2835:        // Can not provide holder when MutableFlags, MPTokenMetadata or
+src/test/app/MPToken_test.cpp:2836:        // TransferFee is present
+src/test/app/MPToken_test.cpp:2850:            // Holder is not allowed when MPTokenMetadata is present
+src/test/app/MPToken_test.cpp:2858:            // Holder is not allowed when TransferFee is present
+src/test/app/MPToken_test.cpp:2867:        // Can not set Flags when MutableFlags, MPTokenMetadata or
+src/test/app/MPToken_test.cpp:2868:        // TransferFee is present
+src/test/app/MPToken_test.cpp:2875:                     tmfMPTCanMutateCanLock | tmfMPTCanMutateTransferFee});
+src/test/app/MPToken_test.cpp:2880:                 .flags = tfMPTCanLock,
+src/test/app/MPToken_test.cpp:2884:            // Setting flags is not allowed when MPTokenMetadata is present
+src/test/app/MPToken_test.cpp:2887:                 .flags = tfMPTCanLock,
+src/test/app/MPToken_test.cpp:2891:            // setting flags is not allowed when TransferFee is present
+src/test/app/MPToken_test.cpp:2894:                 .flags = tfMPTCanLock,
+src/test/app/MPToken_test.cpp:2907:                 .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:2909:                     tmfMPTCanMutateTransferFee | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:2946:                tmfMPTSetCanLock | tmfMPTClearCanLock,
+src/test/app/MPToken_test.cpp:2947:                tmfMPTSetRequireAuth | tmfMPTClearRequireAuth,
+src/test/app/MPToken_test.cpp:2948:                tmfMPTSetCanEscrow | tmfMPTClearCanEscrow,
+src/test/app/MPToken_test.cpp:2949:                tmfMPTSetCanTrade | tmfMPTClearCanTrade,
+src/test/app/MPToken_test.cpp:2950:                tmfMPTSetCanTransfer | tmfMPTClearCanTransfer,
+src/test/app/MPToken_test.cpp:2951:                tmfMPTSetCanClawback | tmfMPTClearCanClawback,
+src/test/app/MPToken_test.cpp:2952:                tmfMPTSetCanLock | tmfMPTClearCanLock | tmfMPTClearCanTrade,
+src/test/app/MPToken_test.cpp:2953:                tmfMPTSetCanTransfer | tmfMPTClearCanTransfer |
+src/test/app/MPToken_test.cpp:2954:                    tmfMPTSetCanEscrow | tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:2974:                tmfMPTSetCanLock,
+src/test/app/MPToken_test.cpp:2975:                tmfMPTClearCanLock,
+src/test/app/MPToken_test.cpp:2976:                tmfMPTSetRequireAuth,
+src/test/app/MPToken_test.cpp:2977:                tmfMPTClearRequireAuth,
+src/test/app/MPToken_test.cpp:2978:                tmfMPTSetCanEscrow,
+src/test/app/MPToken_test.cpp:2979:                tmfMPTClearCanEscrow,
+src/test/app/MPToken_test.cpp:2980:                tmfMPTSetCanTrade,
+src/test/app/MPToken_test.cpp:2981:                tmfMPTClearCanTrade,
+src/test/app/MPToken_test.cpp:2982:                tmfMPTSetCanTransfer,
+src/test/app/MPToken_test.cpp:2983:                tmfMPTClearCanTransfer,
+src/test/app/MPToken_test.cpp:2984:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:2985:                tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:2992:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3004:            std::string metadata(maxMPTokenMetadataLength + 1, 'a');
+src/test/app/MPToken_test.cpp:3018:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3028:                {.ownerCount = 1, .mutableFlags = tmfMPTCanMutateTransferFee});
+src/test/app/MPToken_test.cpp:3033:                 .transferFee = maxTransferFee + 1,
+src/test/app/MPToken_test.cpp:3037:        // Test setting non-zero transfer fee and clearing MPTCanTransfer at the
+src/test/app/MPToken_test.cpp:3046:                 .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:3048:                     tmfMPTCanMutateTransferFee | tmfMPTCanMutateCanTransfer});
+src/test/app/MPToken_test.cpp:3050:            // Can not set non-zero transfer fee and clear MPTCanTransfer at the
+src/test/app/MPToken_test.cpp:3054:                 .mutableFlags = tmfMPTClearCanTransfer,
+src/test/app/MPToken_test.cpp:3058:            // Can set transfer fee to zero and clear MPTCanTransfer at the same
+src/test/app/MPToken_test.cpp:3059:            // time. tfMPTCanTransfer will be cleared and TransferFee field will
+src/test/app/MPToken_test.cpp:3063:                 .mutableFlags = tmfMPTClearCanTransfer,
+src/test/app/MPToken_test.cpp:3065:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3068:        // Can not set non-zero transfer fee when MPTCanTransfer is not set
+src/test/app/MPToken_test.cpp:3076:                     tmfMPTCanMutateTransferFee | tmfMPTCanMutateCanTransfer});
+src/test/app/MPToken_test.cpp:3081:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3083:            // Can not set transfer fee even when trying to set MPTCanTransfer
+src/test/app/MPToken_test.cpp:3084:            // at the same time. MPTCanTransfer must be set first, then transfer
+src/test/app/MPToken_test.cpp:3088:                 .mutableFlags = tmfMPTSetCanTransfer,
+src/test/app/MPToken_test.cpp:3090:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3101:                 .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:3106:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3109:                {.account = alice, .transferFee = 0, .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3119:                 .mutableFlags = tmfMPTCanMutateCanTrade |
+src/test/app/MPToken_test.cpp:3120:                     tmfMPTCanMutateCanTransfer | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:3126:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3129:                tmfMPTSetCanLock,
+src/test/app/MPToken_test.cpp:3130:                tmfMPTClearCanLock,
+src/test/app/MPToken_test.cpp:3131:                tmfMPTSetRequireAuth,
+src/test/app/MPToken_test.cpp:3132:                tmfMPTClearRequireAuth,
+src/test/app/MPToken_test.cpp:3133:                tmfMPTSetCanEscrow,
+src/test/app/MPToken_test.cpp:3134:                tmfMPTClearCanEscrow,
+src/test/app/MPToken_test.cpp:3135:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:3136:                tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:3144:                     .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3147:            // Can mutate MPTCanTrade
+src/test/app/MPToken_test.cpp:3148:            mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanTrade});
+src/test/app/MPToken_test.cpp:3150:                {.account = alice, .mutableFlags = tmfMPTClearCanTrade});
+src/test/app/MPToken_test.cpp:3152:            // Can mutate MPTCanTransfer
+src/test/app/MPToken_test.cpp:3154:                {.account = alice, .mutableFlags = tmfMPTSetCanTransfer});
+src/test/app/MPToken_test.cpp:3156:                {.account = alice, .mutableFlags = tmfMPTClearCanTransfer});
+src/test/app/MPToken_test.cpp:3208:                 .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:3209:                 .mutableFlags = tmfMPTCanMutateTransferFee});
+src/test/app/MPToken_test.cpp:3212:                     1, 10, 100, 200, 500, 1000, maxTransferFee})
+src/test/app/MPToken_test.cpp:3215:                BEAST_EXPECT(mptAlice.checkTransferFee(fee));
+src/test/app/MPToken_test.cpp:3218:            // Setting TransferFee to zero will remove the field
+src/test/app/MPToken_test.cpp:3220:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3224:            BEAST_EXPECT(mptAlice.checkTransferFee(10));
+src/test/app/MPToken_test.cpp:3253:                tmfMPTCanMutateCanLock, tfMPTCanLock, tmfMPTClearCanLock);
+src/test/app/MPToken_test.cpp:3255:                tmfMPTCanMutateRequireAuth,
+src/test/app/MPToken_test.cpp:3256:                tmfMPTSetRequireAuth,
+src/test/app/MPToken_test.cpp:3257:                tmfMPTClearRequireAuth);
+src/test/app/MPToken_test.cpp:3259:                tmfMPTCanMutateCanEscrow,
+src/test/app/MPToken_test.cpp:3260:                tmfMPTSetCanEscrow,
+src/test/app/MPToken_test.cpp:3261:                tmfMPTClearCanEscrow);
+src/test/app/MPToken_test.cpp:3263:                tmfMPTCanMutateCanTrade,
+src/test/app/MPToken_test.cpp:3264:                tmfMPTSetCanTrade,
+src/test/app/MPToken_test.cpp:3265:                tmfMPTClearCanTrade);
+src/test/app/MPToken_test.cpp:3267:                tmfMPTCanMutateCanTransfer,
+src/test/app/MPToken_test.cpp:3268:                tmfMPTSetCanTransfer,
+src/test/app/MPToken_test.cpp:3269:                tmfMPTClearCanTransfer);
+src/test/app/MPToken_test.cpp:3271:                tmfMPTCanMutateCanClawback,
+src/test/app/MPToken_test.cpp:3272:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:3273:                tmfMPTClearCanClawback);
+src/test/app/MPToken_test.cpp:3278:    testMutateCanLock(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3280:        testcase("Mutate MPTCanLock");
+src/test/app/MPToken_test.cpp:3286:        // Individual lock
+src/test/app/MPToken_test.cpp:3293:                 .flags = tfMPTCanLock | tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:3294:                 .mutableFlags = tmfMPTCanMutateCanLock |
+src/test/app/MPToken_test.cpp:3295:                     tmfMPTCanMutateCanTrade | tmfMPTCanMutateTransferFee});
+src/test/app/MPToken_test.cpp:3296:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:3303:                {.account = alice, .mutableFlags = tmfMPTClearCanLock});
+src/test/app/MPToken_test.cpp:3304:            mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanLock});
+src/test/app/MPToken_test.cpp:3306:                {.account = alice, .mutableFlags = tmfMPTClearCanLock});
+src/test/app/MPToken_test.cpp:3307:            mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanTrade});
+src/test/app/MPToken_test.cpp:3309:                {.account = alice, .mutableFlags = tmfMPTClearCanTrade});
+src/test/app/MPToken_test.cpp:3313:        // Global lock
+src/test/app/MPToken_test.cpp:3320:                 .flags = tfMPTCanLock,
+src/test/app/MPToken_test.cpp:3321:                 .mutableFlags = tmfMPTCanMutateCanLock |
+src/test/app/MPToken_test.cpp:3322:                     tmfMPTCanMutateCanClawback | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:3323:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:3330:                {.account = alice, .mutableFlags = tmfMPTClearCanLock});
+src/test/app/MPToken_test.cpp:3331:            mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanLock});
+src/test/app/MPToken_test.cpp:3333:                {.account = alice, .mutableFlags = tmfMPTClearCanLock});
+src/test/app/MPToken_test.cpp:3335:                {.account = alice, .mutableFlags = tmfMPTSetCanClawback});
+src/test/app/MPToken_test.cpp:3337:                {.account = alice, .mutableFlags = tmfMPTClearCanClawback});
+src/test/app/MPToken_test.cpp:3341:        // Test lock and unlock after mutating MPTCanLock
+src/test/app/MPToken_test.cpp:3348:                 .flags = tfMPTCanLock,
+src/test/app/MPToken_test.cpp:3349:                 .mutableFlags = tmfMPTCanMutateCanLock |
+src/test/app/MPToken_test.cpp:3350:                     tmfMPTCanMutateCanClawback | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:3351:            mptAlice.authorize({.account = bob, .holderCount = 1});
+src/test/app/MPToken_test.cpp:3353:            // Can lock and unlock
+src/test/app/MPToken_test.cpp:3356:            mptAlice.set({.account = alice, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:3358:                {.account = alice, .holder = bob, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:3360:            // Clear lsfMPTCanLock
+src/test/app/MPToken_test.cpp:3362:                {.account = alice, .mutableFlags = tmfMPTClearCanLock});
+src/test/app/MPToken_test.cpp:3364:            // Can not lock or unlock
+src/test/app/MPToken_test.cpp:3368:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3371:                 .flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:3372:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3377:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3381:                 .flags = tfMPTUnlock,
+src/test/app/MPToken_test.cpp:3382:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3384:            // Set MPTCanLock again
+src/test/app/MPToken_test.cpp:3385:            mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanLock});
+src/test/app/MPToken_test.cpp:3387:            // Can lock and unlock again
+src/test/app/MPToken_test.cpp:3390:            mptAlice.set({.account = alice, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:3392:                {.account = alice, .holder = bob, .flags = tfMPTUnlock});
+src/test/app/MPToken_test.cpp:3397:    testMutateRequireAuth(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3399:        testcase("Mutate MPTRequireAuth");
+src/test/app/MPToken_test.cpp:3409:             .flags = tfMPTRequireAuth,
+src/test/app/MPToken_test.cpp:3410:             .mutableFlags = tmfMPTCanMutateRequireAuth});
+src/test/app/MPToken_test.cpp:3412:        mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:3413:        mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:3418:        // Unauthorize bob
+src/test/app/MPToken_test.cpp:3419:        mptAlice.authorize(
+src/test/app/MPToken_test.cpp:3420:            {.account = alice, .holder = bob, .flags = tfMPTUnauthorize});
+src/test/app/MPToken_test.cpp:3423:        mptAlice.pay(bob, alice, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:3425:        // Clear RequireAuth
+src/test/app/MPToken_test.cpp:3427:            {.account = alice, .mutableFlags = tmfMPTClearRequireAuth});
+src/test/app/MPToken_test.cpp:3432:        // Set RequireAuth again
+src/test/app/MPToken_test.cpp:3433:        mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetRequireAuth});
+src/test/app/MPToken_test.cpp:3435:        // Can not pay to bob since he is not authorized
+src/test/app/MPToken_test.cpp:3436:        mptAlice.pay(bob, alice, 100, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:3439:        mptAlice.authorize({.account = alice, .holder = bob});
+src/test/app/MPToken_test.cpp:3446:    testMutateCanEscrow(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3448:        testcase("Mutate MPTCanEscrow");
+src/test/app/MPToken_test.cpp:3462:             .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:3463:             .mutableFlags = tmfMPTCanMutateCanEscrow});
+src/test/app/MPToken_test.cpp:3464:        mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:3465:        mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:3472:        // MPTCanEscrow is not enabled
+src/test/app/MPToken_test.cpp:3477:            ter(tecNO_PERMISSION));
+src/test/app/MPToken_test.cpp:3479:        // MPTCanEscrow is enabled now
+src/test/app/MPToken_test.cpp:3480:        mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanEscrow});
+src/test/app/MPToken_test.cpp:3486:        // Clear MPTCanEscrow
+src/test/app/MPToken_test.cpp:3487:        mptAlice.set({.account = alice, .mutableFlags = tmfMPTClearCanEscrow});
+src/test/app/MPToken_test.cpp:3492:            ter(tecNO_PERMISSION));
+src/test/app/MPToken_test.cpp:3496:    testMutateCanTransfer(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3498:        testcase("Mutate MPTCanTransfer");
+src/test/app/MPToken_test.cpp:3512:                     tmfMPTCanMutateCanTransfer | tmfMPTCanMutateTransferFee});
+src/test/app/MPToken_test.cpp:3514:            mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:3515:            mptAlice.authorize({.account = carol});
+src/test/app/MPToken_test.cpp:3520:            // Bob can not pay carol since MPTCanTransfer is not set
+src/test/app/MPToken_test.cpp:3521:            mptAlice.pay(bob, carol, 50, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:3523:            // Can not set non-zero transfer fee when MPTCanTransfer is not set
+src/test/app/MPToken_test.cpp:3527:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3530:            // MPTCanTransfer at the same time
+src/test/app/MPToken_test.cpp:3533:                 .mutableFlags = tmfMPTSetCanTransfer,
+src/test/app/MPToken_test.cpp:3535:                 .err = tecNO_PERMISSION});
+src/test/app/MPToken_test.cpp:3537:            // Alice sets MPTCanTransfer
+src/test/app/MPToken_test.cpp:3539:                {.account = alice, .mutableFlags = tmfMPTSetCanTransfer});
+src/test/app/MPToken_test.cpp:3542:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3544:            BEAST_EXPECT(mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3549:            // Alice clears MPTCanTransfer
+src/test/app/MPToken_test.cpp:3551:                {.account = alice, .mutableFlags = tmfMPTClearCanTransfer});
+src/test/app/MPToken_test.cpp:3553:            // TransferFee field is removed when MPTCanTransfer is cleared
+src/test/app/MPToken_test.cpp:3554:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3557:            mptAlice.pay(bob, carol, 50, tecNO_AUTH);
+src/test/app/MPToken_test.cpp:3560:        // Can set transfer fee to zero when MPTCanTransfer is not set, but
+src/test/app/MPToken_test.cpp:3561:        // tmfMPTCanMutateTransferFee is set.
+src/test/app/MPToken_test.cpp:3569:                 .flags = tfMPTCanTransfer,
+src/test/app/MPToken_test.cpp:3571:                     tmfMPTCanMutateTransferFee | tmfMPTCanMutateCanTransfer});
+src/test/app/MPToken_test.cpp:3573:            BEAST_EXPECT(mptAlice.checkTransferFee(100));
+src/test/app/MPToken_test.cpp:3575:            // Clear MPTCanTransfer and transfer fee is removed
+src/test/app/MPToken_test.cpp:3577:                {.account = alice, .mutableFlags = tmfMPTClearCanTransfer});
+src/test/app/MPToken_test.cpp:3578:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3583:            // TransferFee field is still not present
+src/test/app/MPToken_test.cpp:3584:            BEAST_EXPECT(!mptAlice.isTransferFeePresent());
+src/test/app/MPToken_test.cpp:3589:    testMutateCanClawback(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3591:        testcase("Mutate MPTCanClawback");
+src/test/app/MPToken_test.cpp:3603:             .mutableFlags = tmfMPTCanMutateCanClawback});
+src/test/app/MPToken_test.cpp:3605:        // Bob creates an MPToken
+src/test/app/MPToken_test.cpp:3606:        mptAlice.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:3611:        // MPTCanClawback is not enabled
+src/test/app/MPToken_test.cpp:3612:        mptAlice.claw(alice, bob, 1, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:3614:        // Enable MPTCanClawback
+src/test/app/MPToken_test.cpp:3615:        mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanClawback});
+src/test/app/MPToken_test.cpp:3617:        // Can clawback now
+src/test/app/MPToken_test.cpp:3620:        // Clear MPTCanClawback
+src/test/app/MPToken_test.cpp:3622:            {.account = alice, .mutableFlags = tmfMPTClearCanClawback});
+src/test/app/MPToken_test.cpp:3624:        // Can not clawback
+src/test/app/MPToken_test.cpp:3625:        mptAlice.claw(alice, bob, 1, tecNO_PERMISSION);
+src/test/app/MPToken_test.cpp:3629:    testMultiSendMaximumAmount(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3631:        // Verify that rippleSendMultiMPT correctly enforces MaximumAmount
+src/test/app/MPToken_test.cpp:3635:        testcase("Multi-send MaximumAmount enforcement");
+src/test/app/MPToken_test.cpp:3648:            {.maxAmt = maxAmt, .ownerCount = 1, .flags = tfMPTCanTransfer});
+src/test/app/MPToken_test.cpp:3649:        mptt.authorize({.account = alice});
+src/test/app/MPToken_test.cpp:3650:        mptt.authorize({.account = bob});
+src/test/app/MPToken_test.cpp:3652:        Asset const asset{MPTIssue{mptt.issuanceID()}};
+src/test/app/MPToken_test.cpp:3666:            // Only verify OutstandingAmount on success — on error the
+src/test/app/MPToken_test.cpp:3675:                    sle->getFieldU64(sfOutstandingAmount) ==
+src/test/app/MPToken_test.cpp:3747:        // exceeds MaximumAmount. Preserved for ledger replay.
+src/test/app/MPToken_test.cpp:3768:        testMultiSendMaximumAmount(all);
+src/test/app/MPToken_test.cpp:3769:        // MPTokenIssuanceCreate
+src/test/app/MPToken_test.cpp:3776:        // MPTokenIssuanceDestroy
+src/test/app/MPToken_test.cpp:3782:        // MPTokenAuthorize
+src/test/app/MPToken_test.cpp:3788:        // MPTokenIssuanceSet
+src/test/app/MPToken_test.cpp:3798:        // MPT clawback
+src/test/app/MPToken_test.cpp:3810:        // Test parsed MPTokenIssuanceID in API response metadata
+src/test/app/MPToken_test.cpp:3823:        testMutateCanLock(all);
+src/test/app/MPToken_test.cpp:3824:        testMutateRequireAuth(all);
+src/test/app/MPToken_test.cpp:3825:        testMutateCanEscrow(all);
+src/test/app/MPToken_test.cpp:3826:        testMutateCanTransfer(all);
+src/test/app/MPToken_test.cpp:3827:        testMutateCanClawback(all);
+src/test/app/MPToken_test.cpp:3831:BEAST_DEFINE_TESTSUITE_PRIO(MPToken, app, ripple, 2);

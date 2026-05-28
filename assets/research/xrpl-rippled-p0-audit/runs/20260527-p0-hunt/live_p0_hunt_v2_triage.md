@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-28T09:27:30Z`
+Checked: `2026-05-28T09:38:00Z`
 
 ## Live Scope
 
@@ -181,6 +181,13 @@ one of the WHIP gates:
   disabled, and `MPTokenAuthorize::preclaim` only blocks that path when SAV is
   enabled. That makes the no-SAV delete behavior a product rule, not a new
   Moby Dick P0.
+- `MPT-AUTH-LOCK-CLAWBACK-SWEEP-001` followed the legacy-core queue under the
+  broader live-feature pivot. Static/history review plus
+  `MPToken,Clawback,AMMClawback,EscrowToken,PermissionedDomains,Credentials`
+  passed with 258 cases and 31,582 tests. No new live MPT authorization, lock,
+  clawback, TokenEscrow, credential, owner-count, or invariant witness was
+  isolated beyond the already packeted MPT findings and already-demoted
+  product-semantics lanes.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
@@ -224,9 +231,8 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 
 The next high-yield live-only review should stay inside:
 
-1. MPT auth, lock, transfer-rate, and RequireAuth paths.
-2. AMM and AMMClawback authorization, freeze, and invariant paths.
-3. PermissionedDEX domain/credential quality and cancellation invariants.
-4. TokenEscrow result-code and owner-count/invariant paths.
-5. Credentials current-tag transaction paths that do not rely on disabled
+1. AMM and AMMClawback authorization, freeze, and invariant paths.
+2. PermissionedDEX domain/credential quality and cancellation invariants.
+3. TokenEscrow result-code and owner-count/invariant paths.
+4. Credentials current-tag transaction paths that do not rely on disabled
    cleanup-era behavior.

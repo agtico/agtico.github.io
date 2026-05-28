@@ -1857,6 +1857,34 @@ direct-send boundaries did not show account-object corruption, policy bypass,
 fee-burning bad-input, owner-count drift, or a normal-input invariant/internal
 failure.
 
+## Demoted: MPT authorization, lock, and clawback sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+After the legacy-core queue was source-killed, the first broader live-feature
+pass focused on MPT authorization, lock, RequireAuth, clawback, TokenEscrow,
+credential, and domain-bound paths. The sweep covered `MPTokenIssuanceCreate`,
+`MPTokenIssuanceSet`, `MPTokenIssuanceDestroy`, `MPTokenAuthorize`,
+`MPTAmount`, `MPTIssue`, `accountSendMPT`, `rippleSendMPT`, `Clawback`,
+`AMMClawback`, `EscrowToken`, `PermissionedDomains`, and `Credentials`.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+mpt_auth_lock_clawback_static_sweep_20260528.log sha256 f8ba2b4821d3c7e0ae06173b3ab2faaf70ed311cf96035ebd76b4cdd94a16a18
+mpt_auth_lock_clawback_history_sweep_20260528.log sha256 09dbed8b34b14cd3b993766b2b0ddfa2b21954f834ce5fa906cb43e55be35d59
+mpt_auth_lock_clawback_source_kill_20260528.log sha256 02ccb8bdd0653a034e6f3ede57a92167e81a493138f6ea592346437e76181018
+64.1s, 6 suites, 258 cases, 31582 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new live MPT P0. The checked paths
+reinforce existing packet and triage entries around MPT transfer-rate overflow,
+non-canonical amount handling, wire-format ordering, no-SAV lock-state product
+semantics, and domain-auth/SAV dependency boundaries, but did not produce a new
+authorization, lock, clawback, owner-count, credential, TokenEscrow, or
+invariant witness.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
