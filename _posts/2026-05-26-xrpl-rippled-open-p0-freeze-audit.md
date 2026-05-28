@@ -201,13 +201,15 @@ Three corroborating facts, each independently checkable in a single command (App
 
 3. **Invariant layer at 3.1.3 does not catch the resulting state.** `src/xrpld/app/tx/detail/InvariantCheck.h` defines twenty-five invariant classes. The only `sfOwnerCount` checks in `InvariantCheck.cpp` are `AccountRootsDeletedClean::finalize` (fires only when an account is being deleted, requires `OwnerCount == 0`) and `ValidLoanBroker::finalize` (LoanBroker-specific). There is no general invariant for "an account's `OwnerCount` equals the count of its owner-directory entries" or "a trustline's positive-balance side has its reserve flag set." A transaction that leaves either consistency property broken therefore commits without an invariant violation.
 
-We are deliberately not framing this as a fund-draining exploit. Per occurrence it costs the network roughly one trustline owner reserve that should have been charged but was not, plus a `RippleState` object that exists without reserve backing. It is an accounting-integrity defect at a foundational layer, not a balance-theft vector. What makes it the most consequential single item in this packet is the combination of the three facts above: deep in the stack, not amendment-gated, fix not yet landed, and not caught by the invariant pass.
+This is not a fund-draining exploit. Per occurrence it costs the network roughly one trustline owner reserve that should have been charged but was not, plus a `RippleState` object that exists without reserve backing. It is an accounting-integrity defect at a foundational layer, not a balance-theft vector. What makes it the most consequential single item in this packet is the combination of the three facts above: deep in the stack, not amendment-gated, fix not yet landed, and not caught by the invariant pass.
+
+A note on practical reachability. The PR author's own description in [#5867](https://github.com/XRPLF/rippled/pull/5867) emphasizes that the failure mode is easiest to construct via `Checks` and the `CheckCash` settlement path; the offer-crossing route is harder to drive against the same trustline-reserve preconditions. Several of this finding's twelve markers (`AMMWithdraw`, `AMMClawback`, `AMM` paired-asset returns) reach `rippleCreditIOU` along paths that primarily drive a holder's IOU balance *toward* zero — i.e. the sender-side branch that is already handled — and only secondarily exercise the unhandled positive-transition edge. The conservative reading of this finding is: one solidly reachable scenario (CashCheck + prior trustline-clearing), several adjacent scenarios that touch the same primitive but reach the buggy branch under narrower conditions, and a clear architectural defect at the helper level that the invariant layer doesn't catch.
 
 The introducing commit is datable. The sender-side reserve-clear branch in what is now `rippleCreditIOU` was added by commit [`96733c287476b7279289e8884a357a1c827a7bf7`](https://github.com/XRPLF/rippled/commit/96733c287476b7279289e8884a357a1c827a7bf7) on **2013-03-31**, subject "Add trust auto clear. Fixes #28", author Arthur Britto. That commit added the clear-on-balance-falling-to-zero half of trust auto-clear; the matching re-acquire-on-balance-rising-into-positive half on an existing line was never added in the same change and has not been added since. The asymmetry has been carried forward through every restructuring of the IOU credit primitive — present at the introducing commit, at `46b241a` (3.1.3), and at `upstream/develop` HEAD at the snapshot date, where `rippleCreditIOU` still contains a single `saBefore > beast::zero && saBalance <= beast::zero` sender-side branch and no symmetric receiver-side branch. Between 2013-03-31 and 2026-05-28 is approximately thirteen years and two months. The packet's binary repros on tags `1.5.0`, `2.0.0`, `2.5.0`, and `3.1.3` and the source-lineage report in `verify_trustline_positive_balance_lineage.py` (sampled refs `0.12.0` through `3.1.3`) corroborate that the same shape has been live across that span.
 
 ## Inventory
 
-Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact.
+Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact. The near-uniform 8.0 across the policy cluster is intentional — those findings are scored as facets of one architectural concern, not as eleven independently calibrated severities. Whether the underlying ledger flags are meant as hard invariants or soft preferences is a real spec question rather than self-evident, and that question is not settled by this report.
 
 | ID | Risk | Status | Surface | Exploit class | Repro |
 |---|---:|---|---|---|---|
@@ -661,7 +663,7 @@ Cleanup-era candidates are also excluded unless they reproduce with `fixCleanup3
 
 ## Appendix A: Independent Verification
 
-This appendix exists so that a reader without access to our build harness — including an LLM reviewer — can confirm the packet's claims from first principles using only public sources. Every claim below decomposes into four independent evidence chains, each verifiable on its own.
+This appendix exists so that a reader without access to our build harness can confirm the packet's claims from first principles using only public sources. Every claim below decomposes into four independent evidence chains, each verifiable on its own.
 
 ### A.1 Upstream codebase pin (GitHub)
 
@@ -821,7 +823,7 @@ Steps 2 through 5 are sufficient to establish: the packet is the file set the au
 
 ### A.8 Full harness verification (optional, slow)
 
-The recipe above does not rebuild rippled or rerun jtx. For a reviewer who wants to regenerate the proof log itself, `README.md` in the packet directory contains the full `conan install` / `cmake` / `--unittest OpenP0Repro` invocation. A successful run produces a log whose SHA-256 matches the value in `repro_manifest.json` (`dcbef70e...`), and whose footers match the canonical zero-failure lines listed in A.5. Any divergence would indicate non-deterministic test behavior, source drift from the pinned commit, or tampering — all of which are detectable from this appendix alone.
+The recipe above does not rebuild rippled or rerun jtx. To regenerate the proof log itself, `README.md` in the packet directory contains the full `conan install` / `cmake` / `--unittest OpenP0Repro` invocation. A successful run produces a log whose SHA-256 matches the value in `repro_manifest.json` (`3ad27637...`), and whose footers match the zero-failure lines listed in A.5.
 
 ### A.9 Verification trail for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`
 
