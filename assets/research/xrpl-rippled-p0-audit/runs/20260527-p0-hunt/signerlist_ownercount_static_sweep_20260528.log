@@ -1,0 +1,203 @@
+src/test/app/Invariants_test.cpp:244:        // An account was deleted, but not by an AccountDelete transaction.
+src/test/app/Invariants_test.cpp:260:        // Successful AccountDelete transaction that didn't delete an account.
+src/test/app/Invariants_test.cpp:274:        // Successful AccountDelete that deleted more than one account.
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2348:                {{"Loan Broker with zero OwnerCount has multiple directory "
+src/test/app/Invariants_test.cpp:2380:                {{"Loan Broker with zero OwnerCount has multiple indexes in "
+src/test/app/Invariants_test.cpp:2437:                {{"Loan Broker with zero OwnerCount has an unexpected entry in "
+src/test/app/Invariants_test.cpp:4594:BEAST_DEFINE_TESTSUITE(Invariants, app, ripple);
+src/test/app/Oracle_test.cpp:56:            env.fund(env.current()->fees().accountReserve(0), owner);
+src/test/app/Oracle_test.cpp:67:                env.current()->fees().accountReserve(1) +
+src/test/app/Oracle_test.cpp:684:                env.current()->fees().accountReserve(1) +
+src/test/app/Oracle_test.cpp:776:        int const signerListOwners{features[featureMultiSignReserve] ? 1 : 5};
+src/test/app/Oracle_test.cpp:884:              all - featureMultiSignReserve - featureExpandedSignerList,
+src/test/app/Oracle_test.cpp:885:              all - featureExpandedSignerList})
+src/test/app/Oracle_test.cpp:890:BEAST_DEFINE_TESTSUITE(Oracle, app, ripple);
+src/test/app/AccountDelete_test.cpp:28:class AccountDelete_test : public beast::unit_test::suite
+src/test/app/AccountDelete_test.cpp:501:                drops(env.current()->fees().accountReserve(0)) - XRP(1)),
+src/test/app/AccountDelete_test.cpp:605:        // directory entries an AccountDelete will remove.
+src/test/app/AccountDelete_test.cpp:750:        env.fund(env.current()->fees().accountReserve(0), noripple(alice));
+src/test/app/AccountDelete_test.cpp:1272:BEAST_DEFINE_TESTSUITE_PRIO(AccountDelete, app, ripple, 2);
+src/test/app/Delegate_test.cpp:225:            env(delegate::set(gw, alice, {"SignerListSet"}), res);
+src/test/app/Delegate_test.cpp:247:            env.fund(drops(env.current()->fees().accountReserve(0)), alice);
+src/test/app/Delegate_test.cpp:249:                drops(env.current()->fees().accountReserve(1)), bob, carol);
+src/test/app/Delegate_test.cpp:272:            env.fund(drops(env.current()->fees().accountReserve(1)), alice);
+src/test/app/Delegate_test.cpp:273:            env.fund(drops(env.current()->fees().accountReserve(2)), bob);
+src/test/app/Delegate_test.cpp:433:    testAccountDelete()
+src/test/app/Delegate_test.cpp:1833:        testAccountDelete();
+src/test/app/Delegate_test.cpp:1850:BEAST_DEFINE_TESTSUITE(Delegate, app, ripple);
+src/xrpld/app/tx/detail/Transactor.cpp:25:#include <xrpld/app/tx/detail/SignerEntries.h>
+src/xrpld/app/tx/detail/Transactor.cpp:593:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:602:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:613:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:628:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/Transactor.cpp:880:    // Get id's SignerList and Quorum.
+src/xrpld/app/tx/detail/Transactor.cpp:891:    // We have plans to support multiple SignerLists in the future.  The
+src/xrpld/app/tx/detail/Transactor.cpp:892:    // presence and defaulted value of the SignerListID field will enable that.
+src/xrpld/app/tx/detail/Transactor.cpp:894:        sleAccountSigners->isFieldPresent(sfSignerListID),
+src/xrpld/app/tx/detail/Transactor.cpp:897:        sleAccountSigners->getFieldU32(sfSignerListID) == 0,
+src/xrpld/app/tx/detail/Transactor.cpp:901:        SignerEntries::deserialize(*sleAccountSigners, j, "ledger");
+src/xrpld/app/tx/detail/Transactor.cpp:932:            // The SigningAccount is not in the SignerEntries.
+src/test/app/MultiSign_test.cpp:75:        // of featureMultiSignReserve.  Make the required adjustments.
+src/test/app/MultiSign_test.cpp:76:        bool const reserve1{features[featureMultiSignReserve]};
+src/test/app/MultiSign_test.cpp:79:        // meet the reserve for a SignerListSet.
+src/test/app/MultiSign_test.cpp:136:    testSignerListSet(FeatureBitset features)
+src/test/app/MultiSign_test.cpp:138:        testcase("SignerListSet");
+src/test/app/MultiSign_test.cpp:191:        // ExpandedSignerList)
+src/test/app/MultiSign_test.cpp:196:                features[featureExpandedSignerList]
+src/test/app/MultiSign_test.cpp:231:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:308:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 10));
+src/test/app/MultiSign_test.cpp:363:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:402:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:771:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 6));
+src/test/app/MultiSign_test.cpp:818:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 6));
+src/test/app/MultiSign_test.cpp:849:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 10));
+src/test/app/MultiSign_test.cpp:1025:        int const signerListOwners{features[featureMultiSignReserve] ? 1 : 4};
+src/test/app/MultiSign_test.cpp:1088:        env.require(owners(alice, features[featureMultiSignReserve] ? 2 : 6));
+src/test/app/MultiSign_test.cpp:1198:            // Multisign 9 (!ExpandedSignerList) | 33 (ExpandedSignerList) times
+src/test/app/MultiSign_test.cpp:1204:                features[featureExpandedSignerList] ? msig(
+src/test/app/MultiSign_test.cpp:1471:        // The OwnerCount associated with a SignerList changes once the
+src/test/app/MultiSign_test.cpp:1472:        // featureMultiSignReserve amendment goes live.  Create a couple
+src/test/app/MultiSign_test.cpp:1474:        // verify that the OwnerCount is managed properly for all of them.
+src/test/app/MultiSign_test.cpp:1481:        Env env{*this, testable_amendments() - featureMultiSignReserve};
+src/test/app/MultiSign_test.cpp:1504:        env.enableFeature(featureMultiSignReserve);
+src/test/app/MultiSign_test.cpp:1527:        // Delete becky's signer list; her OwnerCount should drop to zero.
+src/test/app/MultiSign_test.cpp:1528:        // Replace alice's signer list; her OwnerCount should drop to one.
+src/test/app/MultiSign_test.cpp:1548:        // Delete the three remaining signer lists.  Everybody's OwnerCount
+src/test/app/MultiSign_test.cpp:1605:        if (!features[featureExpandedSignerList])
+src/test/app/MultiSign_test.cpp:1629:        env.require(owners(alice, features[featureMultiSignReserve] ? 1 : 4));
+src/test/app/MultiSign_test.cpp:1683:    testSignerListSetFlags(FeatureBitset features)
+src/test/app/MultiSign_test.cpp:1695:            std::string("SignerListSet flag, fix ") +
+src/test/app/MultiSign_test.cpp:1706:    testSignerListObject(FeatureBitset features)
+src/test/app/MultiSign_test.cpp:1708:        testcase("SignerList Object");
+src/test/app/MultiSign_test.cpp:1710:        // Verify that the SignerList object is created correctly.
+src/test/app/MultiSign_test.cpp:1721:        // Verify that the SignerList object was created correctly.
+src/test/app/MultiSign_test.cpp:1724:        BEAST_EXPECT(sle->getFieldArray(sfSignerEntries).size() == 2);
+src/test/app/MultiSign_test.cpp:1739:        testSignerListSet(features);
+src/test/app/MultiSign_test.cpp:1765:        // featureMultiSignReserve.  Limits on the number of signers
+src/test/app/MultiSign_test.cpp:1766:        // changes based on featureExpandedSignerList.  Test both with and
+src/test/app/MultiSign_test.cpp:1768:        testAll(all - featureMultiSignReserve - featureExpandedSignerList);
+src/test/app/MultiSign_test.cpp:1769:        testAll(all - featureExpandedSignerList);
+src/test/app/MultiSign_test.cpp:1772:        testSignerListSetFlags(all - fixInvalidTxFlags);
+src/test/app/MultiSign_test.cpp:1773:        testSignerListSetFlags(all);
+src/test/app/MultiSign_test.cpp:1775:        testSignerListObject(all - fixIncludeKeyletFields);
+src/test/app/MultiSign_test.cpp:1776:        testSignerListObject(all);
+src/test/app/MultiSign_test.cpp:1782:BEAST_DEFINE_TESTSUITE(MultiSign, app, ripple);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:26:#include <xrpld/app/tx/detail/SetSignerList.h>
+src/xrpld/app/tx/detail/DeleteAccount.cpp:71:    // The fee required for AccountDelete is one owner reserve.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:107:    return SetSignerList::removeFromLedger(app, view, account, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:131:    return DepositPreauth::removeFromLedger(view, delIndex, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:144:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:344:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:378:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:390:    auto const ter = cleanupOnAccountDelete(
+src/xrpld/app/tx/detail/SignerEntries.h:38:// Support for SignerEntries that is needed by a few Transactors.
+src/xrpld/app/tx/detail/SignerEntries.h:40:// SignerEntries is represented as a std::vector<SignerEntries::SignerEntry>.
+src/xrpld/app/tx/detail/SignerEntries.h:41:// There is no direct constructor for SignerEntries.
+src/xrpld/app/tx/detail/SignerEntries.h:43://  o A std::vector<SignerEntries::SignerEntry> is a SignerEntries.
+src/xrpld/app/tx/detail/SignerEntries.h:44://  o More commonly, SignerEntries are extracted from an STObject by
+src/xrpld/app/tx/detail/SignerEntries.h:45://    calling SignerEntries::deserialize().
+src/xrpld/app/tx/detail/SignerEntries.h:46:class SignerEntries
+src/xrpld/app/tx/detail/SignerEntries.h:49:    explicit SignerEntries() = delete;
+src/xrpld/app/tx/detail/SignerEntries.h:79:    // Deserialize a SignerEntries array from the network or from the ledger.
+src/xrpld/app/tx/detail/SignerEntries.h:81:    // obj Contains a SignerEntries field that is an STArray.
+src/xrpld/app/tx/detail/SignerEntries.h:83:    // annotation Source of SignerEntries, like "ledger" or "transaction".
+src/xrpld/app/tx/detail/SignerEntries.cpp:20:#include <xrpld/app/tx/detail/SignerEntries.h>
+src/xrpld/app/tx/detail/SignerEntries.cpp:31:Expected<std::vector<SignerEntries::SignerEntry>, NotTEC>
+src/xrpld/app/tx/detail/SignerEntries.cpp:32:SignerEntries::deserialize(
+src/xrpld/app/tx/detail/SignerEntries.cpp:39:    if (!obj.isFieldPresent(sfSignerEntries))
+src/xrpld/app/tx/detail/SignerEntries.cpp:49:    STArray const& sEntries(obj.getFieldArray(sfSignerEntries));
+src/xrpld/app/tx/detail/SetSignerList.h:23:#include <xrpld/app/tx/detail/SignerEntries.h>
+src/xrpld/app/tx/detail/SetSignerList.h:35:See the README.md for an overview of the SetSignerList transaction that
+src/xrpld/app/tx/detail/SetSignerList.h:38:class SetSignerList : public Transactor
+src/xrpld/app/tx/detail/SetSignerList.h:45:    std::vector<SignerEntries::SignerEntry> signers_;
+src/xrpld/app/tx/detail/SetSignerList.h:50:    explicit SetSignerList(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/SetSignerList.h:67:    removeFromLedger(
+src/xrpld/app/tx/detail/SetSignerList.h:77:        std::vector<SignerEntries::SignerEntry>,
+src/xrpld/app/tx/detail/SetSignerList.h:82:    validateQuorumAndSignerEntries(
+src/xrpld/app/tx/detail/SetSignerList.h:84:        std::vector<SignerEntries::SignerEntry> const& signers,
+src/xrpld/app/tx/detail/SetSignerList.h:90:    replaceSignerList();
+src/xrpld/app/tx/detail/SetSignerList.h:92:    destroySignerList();
+src/xrpld/app/tx/detail/SetSignerList.h:99:using SignerListSet = SetSignerList;
+src/xrpld/app/tx/detail/SetSignerList.cpp:21:#include <xrpld/app/tx/detail/SetSignerList.h>
+src/xrpld/app/tx/detail/SetSignerList.cpp:39:// setting the sfSignerListID to zero in all cases.
+src/xrpld/app/tx/detail/SetSignerList.cpp:45:    std::vector<SignerEntries::SignerEntry>,
+src/xrpld/app/tx/detail/SetSignerList.cpp:46:    SetSignerList::Operation>
+src/xrpld/app/tx/detail/SetSignerList.cpp:47:SetSignerList::determineOperation(
+src/xrpld/app/tx/detail/SetSignerList.cpp:55:    std::vector<SignerEntries::SignerEntry> sign;
+src/xrpld/app/tx/detail/SetSignerList.cpp:58:    bool const hasSignerEntries(tx.isFieldPresent(sfSignerEntries));
+src/xrpld/app/tx/detail/SetSignerList.cpp:59:    if (quorum && hasSignerEntries)
+src/xrpld/app/tx/detail/SetSignerList.cpp:61:        auto signers = SignerEntries::deserialize(tx, j, "transaction");
+src/xrpld/app/tx/detail/SetSignerList.cpp:72:    else if ((quorum == 0) && !hasSignerEntries)
+src/xrpld/app/tx/detail/SetSignerList.cpp:81:SetSignerList::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetSignerList.cpp:88:SetSignerList::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetSignerList.cpp:107:        NotTEC const ter = validateQuorumAndSignerEntries(
+src/xrpld/app/tx/detail/SetSignerList.cpp:123:SetSignerList::doApply()
+src/xrpld/app/tx/detail/SetSignerList.cpp:129:            return replaceSignerList();
+src/xrpld/app/tx/detail/SetSignerList.cpp:132:            return destroySignerList();
+src/xrpld/app/tx/detail/SetSignerList.cpp:138:    UNREACHABLE("ripple::SetSignerList::doApply : invalid operation");
+src/xrpld/app/tx/detail/SetSignerList.cpp:144:SetSignerList::preCompute()
+src/xrpld/app/tx/detail/SetSignerList.cpp:150:        "ripple::SetSignerList::preCompute : result is tesSUCCESS");
+src/xrpld/app/tx/detail/SetSignerList.cpp:153:        "ripple::SetSignerList::preCompute : result is known operation");
+src/xrpld/app/tx/detail/SetSignerList.cpp:163:// of adjustOwnerCount() (which must be signed).
+src/xrpld/app/tx/detail/SetSignerList.cpp:165:// NOTE: This way of computing the OwnerCount associated with a SignerList
+src/xrpld/app/tx/detail/SetSignerList.cpp:166:// is valid until the featureMultiSignReserve amendment passes.  Once it
+src/xrpld/app/tx/detail/SetSignerList.cpp:167:// passes then just 1 OwnerCount is associated with a SignerList.
+src/xrpld/app/tx/detail/SetSignerList.cpp:169:signerCountBasedOwnerCountDelta(std::size_t entryCount, Rules const& rules)
+src/xrpld/app/tx/detail/SetSignerList.cpp:171:    // We always compute the full change in OwnerCount, taking into account:
+src/xrpld/app/tx/detail/SetSignerList.cpp:172:    //  o The fact that we're adding/removing a SignerList and
+src/xrpld/app/tx/detail/SetSignerList.cpp:178:    //  o Simply having a SignerList costs 2 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:179:    //  o And each signer in the list costs 1 more OwnerCount unit.
+src/xrpld/app/tx/detail/SetSignerList.cpp:180:    // So, at a minimum, adding a SignerList with 1 entry costs 3 OwnerCount
+src/xrpld/app/tx/detail/SetSignerList.cpp:181:    // units.  A SignerList with 8 entries would cost 10 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:184:    // be in the range from 1 to 8 (or 32 if ExpandedSignerList is enabled).
+src/xrpld/app/tx/detail/SetSignerList.cpp:188:        "ripple::signerCountBasedOwnerCountDelta : minimum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:191:        "ripple::signerCountBasedOwnerCountDelta : maximum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:204:    // We have to examine the current SignerList so we know how much to
+src/xrpld/app/tx/detail/SetSignerList.cpp:205:    // reduce the OwnerCount.
+src/xrpld/app/tx/detail/SetSignerList.cpp:212:    // There are two different ways that the OwnerCount could be managed.
+src/xrpld/app/tx/detail/SetSignerList.cpp:213:    // If the lsfOneOwnerCount bit is set then remove just one owner count.
+src/xrpld/app/tx/detail/SetSignerList.cpp:215:    int removeFromOwnerCount = -1;
+src/xrpld/app/tx/detail/SetSignerList.cpp:216:    if ((signers->getFlags() & lsfOneOwnerCount) == 0)
+src/xrpld/app/tx/detail/SetSignerList.cpp:218:        STArray const& actualList = signers->getFieldArray(sfSignerEntries);
+src/xrpld/app/tx/detail/SetSignerList.cpp:219:        removeFromOwnerCount =
+src/xrpld/app/tx/detail/SetSignerList.cpp:220:            signerCountBasedOwnerCountDelta(actualList.size(), view.rules()) *
+src/xrpld/app/tx/detail/SetSignerList.cpp:230:        JLOG(j.fatal()) << "Unable to delete SignerList from owner.";
+src/xrpld/app/tx/detail/SetSignerList.cpp:231:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/SetSignerList.cpp:235:    adjustOwnerCount(
+src/xrpld/app/tx/detail/SetSignerList.cpp:238:        removeFromOwnerCount,
+src/xrpld/app/tx/detail/SetSignerList.cpp:247:SetSignerList::removeFromLedger(
+src/xrpld/app/tx/detail/SetSignerList.cpp:262:SetSignerList::validateQuorumAndSignerEntries(
+src/xrpld/app/tx/detail/SetSignerList.cpp:264:    std::vector<SignerEntries::SignerEntry> const& signers,
+src/xrpld/app/tx/detail/SetSignerList.cpp:283:        "ripple::SetSignerList::validateQuorumAndSignerEntries : sorted "
+src/xrpld/app/tx/detail/SetSignerList.cpp:291:    // Is the ExpandedSignerList amendment active?
+src/xrpld/app/tx/detail/SetSignerList.cpp:292:    bool const expandedSignerList = rules.enabled(featureExpandedSignerList);
+src/xrpld/app/tx/detail/SetSignerList.cpp:314:        if (signer.tag && !expandedSignerList)
+src/xrpld/app/tx/detail/SetSignerList.cpp:318:                            << "but featureExpandedSignerList is not enabled.";
+src/xrpld/app/tx/detail/SetSignerList.cpp:334:SetSignerList::replaceSignerList()
+src/xrpld/app/tx/detail/SetSignerList.cpp:357:    std::uint32_t const oldOwnerCount{(*sle)[sfOwnerCount]};
+src/xrpld/app/tx/detail/SetSignerList.cpp:359:    // The required reserve changes based on featureMultiSignReserve...
+src/xrpld/app/tx/detail/SetSignerList.cpp:360:    int addedOwnerCount{1};
+src/xrpld/app/tx/detail/SetSignerList.cpp:361:    std::uint32_t flags{lsfOneOwnerCount};
+src/xrpld/app/tx/detail/SetSignerList.cpp:362:    if (!ctx_.view().rules().enabled(featureMultiSignReserve))
+src/xrpld/app/tx/detail/SetSignerList.cpp:364:        addedOwnerCount = signerCountBasedOwnerCountDelta(
+src/xrpld/app/tx/detail/SetSignerList.cpp:370:        view().fees().accountReserve(oldOwnerCount + addedOwnerCount)};
+src/xrpld/app/tx/detail/SetSignerList.cpp:392:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:398:    adjustOwnerCount(view(), sle, addedOwnerCount, viewJ);
+src/xrpld/app/tx/detail/SetSignerList.cpp:403:SetSignerList::destroySignerList()
+src/xrpld/app/tx/detail/SetSignerList.cpp:423:SetSignerList::writeSignersToSLE(
+src/xrpld/app/tx/detail/SetSignerList.cpp:427:    // Assign the quorum, default SignerListID, and flags.
+src/xrpld/app/tx/detail/SetSignerList.cpp:433:    ledgerEntry->setFieldU32(sfSignerListID, DEFAULT_SIGNER_LIST_ID);
+src/xrpld/app/tx/detail/SetSignerList.cpp:437:    bool const expandedSignerList =
+src/xrpld/app/tx/detail/SetSignerList.cpp:438:        ctx_.view().rules().enabled(featureExpandedSignerList);
+src/xrpld/app/tx/detail/SetSignerList.cpp:440:    // Create the SignerListArray one SignerEntry at a time.
+src/xrpld/app/tx/detail/SetSignerList.cpp:451:        // a tag into the ledger while featureExpandedSignerList is not enabled
+src/xrpld/app/tx/detail/SetSignerList.cpp:452:        if (expandedSignerList && entry.tag)
+src/xrpld/app/tx/detail/SetSignerList.cpp:456:    // Assign the SignerEntries.
+src/xrpld/app/tx/detail/SetSignerList.cpp:457:    ledgerEntry->setFieldArray(sfSignerEntries, toLedger);

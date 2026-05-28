@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:23:38Z
-amendment_checked_utc: 2026-05-28T06:23:36Z
+runtime_checked_utc: 2026-05-28T06:30:46Z
+amendment_checked_utc: 2026-05-28T06:30:43Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104531819, hash 3289A60169E953A65E2C2A0799BA1946737E133228501B7CD8A5440901B8D8FA
-s2.ripple.com: rippled 3.1.3, ledger 104531820, hash CC818803D9EED63E489CC1FF7F49EE2EAD1CD14F905E667DCD9BC5EA629E83CB
+s1.ripple.com: rippled 3.1.3, ledger 104531930, hash 637DAB64DF0685B8ABFBBFF476DE3C7B826DE42E669087A378FA76694F26443B
+s2.ripple.com: rippled 3.1.3, ledger 104531930, hash 637DAB64DF0685B8ABFBBFF476DE3C7B826DE42E669087A378FA76694F26443B
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -309,6 +309,32 @@ sha256 `bcf4b6972a5181954c73f77eb416430f662252e0333bc770c5b424f2c008fadc`.
 ```text
 ripple.app.AMM had 0 failures.
 90.5s, 1 suite, 90 cases, 77270 tests total, 0 failures
+```
+
+`SIGNERLIST-LEGACY-OWNERCOUNT-SWEEP-001` asked whether the old signer-list
+reserve model, the `featureMultiSignReserve` transition, signer-list
+replacement/deletion, or `AccountDelete` cleanup can leave owner-count,
+reserve, auth, or invariant drift. The source review covered
+`SetSignerList::signerCountBasedOwnerCountDelta`, `lsfOneOwnerCount`,
+`SignerEntries`, `SetSignerList::removeFromLedger`, multi-sign auth, and
+`DeleteAccount` cleanup. The key risk shape was old-style signer-list reserve
+accounting crossing into modern one-owner-count semantics. Existing upstream
+coverage passed across pre/post amendment signer-list objects, signer-list
+flags, amendment transition behavior, multi-sign auth failures, signer tags,
+delegated multi-sign, Oracle multi-sign, AccountDelete cleanup, and invariant
+owner-count checks. Static artifact
+`signerlist_ownercount_static_sweep_20260528.log` has sha256
+`30e4f26dcdf0ccf531d4bd54182eb40ad3c07922d2bfbdafe015ffe7451478f7`. Suite
+artifact `signerlist_ownercount_source_kill_20260528.log` has sha256
+`5837fdd6e0a82511719a4e38e13aaf28f634a085ae23e2f8400f447cea984ad0`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.Delegate had 0 failures.
+ripple.app.Invariants had 0 failures.
+ripple.app.MultiSign had 0 failures.
+ripple.app.Oracle had 0 failures.
+67.1s, 5 suites, 170 cases, 25224 tests total, 0 failures
 ```
 
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
