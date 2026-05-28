@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T07:13:49Z
-amendment_checked_utc: 2026-05-28T07:13:47Z
+runtime_checked_utc: 2026-05-28T07:28:01Z
+amendment_checked_utc: 2026-05-28T07:27:59Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532595, hash 7C5433867B88A099017EAC9EE0C65633B30E53739E350E9B3439CDDD1C0480A8
-s2.ripple.com: rippled 3.1.3, ledger 104532596, hash BC984543BE95ACB32D02A5FF0B597BED5162F433E49284D0317A768A499002F9
+s1.ripple.com: rippled 3.1.3, ledger 104532815, hash 5953ED7736DDBBB9AFA832797FAF557124161CA7D4998C52D83B9942A28C7098
+s2.ripple.com: rippled 3.1.3, ledger 104532816, hash F335D95E2EF650A68B298D1BFCBA1635ADBC4E73EC7FA27A0C79DEC653C23EC3
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -52,6 +52,7 @@ Completed and packet-bound work:
 - payment sandbox deferred-credit focused pathing sweep.
 - transaction-queue minimum-reserve potential-spend sweep.
 - NFT brokered auth/freeze receive-path sweep.
+- AMMDeposit LP-token reserve sibling scratch probe.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -313,6 +314,32 @@ sha256 `bcf4b6972a5181954c73f77eb416430f662252e0333bc770c5b424f2c008fadc`.
 ```text
 ripple.app.AMM had 0 failures.
 90.5s, 1 suite, 90 cases, 77270 tests total, 0 failures
+```
+
+`AMMDEPOSIT-LPTOKEN-RESERVE-SIBLING-001` asked whether an AMM depositor can
+receive newly minted LP-token balance without carrying the missing owner reserve
+for the LP-token trustline. This is the direct AMMDeposit sibling of the
+positive-balance/no-reserve trustline bug. The source review found a specific
+fail-closed guard in `AMMDeposit::preclaim`: when `ammLPHolds(...)` is zero,
+the transaction must have liquid XRP for one additional owner reserve via
+`xrpLiquid(ctx.view, accountID, 1)`, otherwise it returns
+`tecINSUF_RESERVE_LINE`. A rebuilt scratch transaction then funded Alice at the
+base reserve plus fees, left her with no LP-token line and `OwnerCount=0`, and
+attempted a one-sided XRP AMM deposit. The transaction returned
+`tecINSUF_RESERVE_LINE`, created no LP-token trustline, and left
+`OwnerCount=0`. Static artifact
+`ammdeposit_lptoken_reserve_static_sweep_20260528.log` has sha256
+`bc16b8ce452a4afcc9885f1e1203294e329d0571e4bf609de8bb81ae386ab5e1`.
+History artifact `ammdeposit_lptoken_reserve_history_sweep_20260528.log` has
+sha256 `e2968b5f04104baee12e24f54bd865e76f37c60c0723edf56af4a6b3fe3e1426`.
+Scratch source-kill artifact
+`ammdeposit_lptoken_reserve_source_kill_20260528.log` has sha256
+`97e3a0f0549c56d8bb47050417734d96e9a757e6fa9c97f20eed43eb1b0f289a`.
+
+```text
+ripple.tx.OpenP0Repro SCRATCH AMMDeposit LP token reserve sibling fails closed
+ripple.tx.OpenP0Repro had 0 failures.
+16.0s, 1 suite, 71 cases, 16795 tests total, 0 failures
 ```
 
 `SIGNERLIST-LEGACY-OWNERCOUNT-SWEEP-001` asked whether the old signer-list

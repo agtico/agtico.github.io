@@ -1514,6 +1514,22 @@ Interpretation: `AMMBid` remains relevant for the separate holder-`DepositAuth`
 refund bypass, but this path does not reproduce the legacy
 positive-balance/no-reserve trustline defect.
 
+## Demoted: AMMDeposit LP-token reserve sibling
+
+Status: scratch-tested on rebuilt upstream `3.1.3`; not a finding.
+
+The repro funded a depositor at base reserve plus fees, with no AMM LP-token
+trustline and `OwnerCount=0`, then attempted a one-sided AMM deposit. Current
+`AMMDeposit::preclaim` checks `ammLPHolds(...)` and requires liquid XRP for one
+additional owner reserve before LP-token creation. The transaction returned
+`tecINSUF_RESERVE_LINE`, created no LP-token trustline, and left
+`OwnerCount=0`.
+
+Interpretation: this is a clean source-kill for the AMMDeposit LP-token sibling
+of `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. AMMDeposit still matters for the
+separate empty-pool `DisallowIncomingTrustline` bypass, but the LP-token reserve
+boundary fails closed.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

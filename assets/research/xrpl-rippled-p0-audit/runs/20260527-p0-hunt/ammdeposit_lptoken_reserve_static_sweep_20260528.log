@@ -1,0 +1,115 @@
+src/test/jtx/impl/AMM.cpp:229:            ? ammLPHolds(*env_.current(), *amm, *account, env_.journal)
+src/test/jtx/impl/AMM.cpp:273:            ammLPHolds(*env_.current(), *amm, account, env_.journal);
+src/test/jtx/impl/AMM.cpp:408:    jv[jss::TransactionType] = jss::AMMDeposit;
+src/test/app/AMM_test.cpp:372:                env, alice, EUR(1'000), USD(1'000), ter(tecINSUF_RESERVE_LINE));
+src/test/app/AMM_test.cpp:658:                jv[jss::TransactionType] = jss::AMMDeposit;
+src/test/app/AMM_test.cpp:680:                jv[jss::TransactionType] = jss::AMMDeposit;
+src/test/app/AMM_test.cpp:903:                if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:950:                if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:1068:            if (features[featureAMMClawback])
+src/test/app/AMM_test.cpp:1069:                // if featureAMMClawback is enabled, bob can not deposit XRP
+src/test/app/AMM_test.cpp:1177:                ter(tecINSUF_RESERVE_LINE));
+src/test/app/AMM_test.cpp:1186:                ter(tecINSUF_RESERVE_LINE));
+src/test/app/AMM_test.cpp:1216:                ter(tecINSUF_RESERVE_LINE));
+src/test/app/AMM_test.cpp:3583:                env.app().config().features.erase(featureAMM);
+src/test/app/AMM_test.cpp:3592:                env.app().config().features.insert(featureAMM);
+src/test/app/AMM_test.cpp:4879:        FeatureBitset const noAMM{all - featureAMM};
+src/test/app/AMM_test.cpp:4882:            all - featureAMM - fixUniversalNumber};
+src/test/app/AMM_test.cpp:7335:        // If featureAMMClawback is not enabled, AMMCreate is not allowed for
+src/test/app/AMM_test.cpp:7337:        if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:7346:        // If featureAMMClawback is enabled, AMMCreate is allowed for
+src/test/app/AMM_test.cpp:7374:    testAMMDepositWithFrozenAssets(FeatureBitset features)
+src/test/app/AMM_test.cpp:7376:        testcase("test AMMDeposit with frozen assets");
+src/test/app/AMM_test.cpp:7382:        auto testAMMDeposit = [&](Env& env, std::function<void(AMM & amm)> cb) {
+src/test/app/AMM_test.cpp:7395:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7410:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7421:        if (features[featureAMMClawback])
+src/test/app/AMM_test.cpp:7427:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7443:            testAMMDeposit(env, [&](AMM& amm) {
+src/test/app/AMM_test.cpp:7927:        testInvalidDeposit(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7975:        testAMMClawback(all - featureAMMClawback - featureSingleAssetVault);
+src/test/app/AMM_test.cpp:7976:        testAMMClawback(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7977:        testAMMClawback(all - fixAMMv1_1 - fixAMMv1_3 - featureAMMClawback);
+src/test/app/AMM_test.cpp:7978:        testAMMDepositWithFrozenAssets(all);
+src/test/app/AMM_test.cpp:7979:        testAMMDepositWithFrozenAssets(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7980:        testAMMDepositWithFrozenAssets(all - fixAMMv1_1 - featureAMMClawback);
+src/test/app/AMM_test.cpp:7981:        testAMMDepositWithFrozenAssets(
+src/test/app/AMM_test.cpp:7982:            all - fixAMMv1_1 - fixAMMv1_3 - featureAMMClawback);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:22:#include <xrpld/app/tx/detail/AMMDeposit.h>
+src/xrpld/app/tx/detail/AMMDeposit.cpp:33:AMMDeposit::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:39:AMMDeposit::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:46:AMMDeposit::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:168:AMMDeposit::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:226:            // Adjust the reserve if LP doesn't have LPToken trustline
+src/xrpld/app/tx/detail/AMMDeposit.cpp:228:                keylet::line(accountID, lpIssue.account, lpIssue.currency));
+src/xrpld/app/tx/detail/AMMDeposit.cpp:229:            if (xrpLiquid(ctx.view, accountID, !sle, ctx.j) >= deposit)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:233:            return tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:246:    if (ctx.view.rules().enabled(featureAMMClawback))
+src/xrpld/app/tx/detail/AMMDeposit.cpp:248:        // Check if either of the assets is frozen, AMMDeposit is not allowed
+src/xrpld/app/tx/detail/AMMDeposit.cpp:353:    // Check the reserve for LPToken trustline if not LP.
+src/xrpld/app/tx/detail/AMMDeposit.cpp:355:    if (ammLPHolds(ctx.view, *ammSle, accountID, ctx.j) == beast::zero)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:357:        STAmount const xrpBalance = xrpLiquid(ctx.view, accountID, 1, ctx.j);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:362:            return tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:370:AMMDeposit::applyGuts(Sandbox& sb)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:470:            "ripple::AMMDeposit::applyGuts : valid new LP token balance");
+src/xrpld/app/tx/detail/AMMDeposit.cpp:485:AMMDeposit::doApply()
+src/xrpld/app/tx/detail/AMMDeposit.cpp:499:AMMDeposit::deposit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:520:            // Adjust the reserve if LP doesn't have LPToken trustline
+src/xrpld/app/tx/detail/AMMDeposit.cpp:522:                keylet::line(account_, lpIssue.account, lpIssue.currency));
+src/xrpld/app/tx/detail/AMMDeposit.cpp:523:            if (xrpLiquid(view, account_, !sle, j_) >= depositAmount)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:645:AMMDeposit::equalDepositTokens(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:685:        JLOG(j_.error()) << "AMMDeposit::equalDepositTokens exception "
+src/xrpld/app/tx/detail/AMMDeposit.cpp:721:AMMDeposit::equalDepositLimit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:798:AMMDeposit::singleDeposit(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:845:AMMDeposit::singleDepositTokens(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:903:AMMDeposit::singleDepositEPrice(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:1008:AMMDeposit::equalDepositInEmptyState(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:254:        ammLPHolds(ctx.view, *ammSle, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:308:        ammLPHolds(ctx_.view(), *ammSle, ctx_.tx[sfAccount], ctx_.journal);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:487:    auto const lpTokens = ammLPHolds(view, ammSle, account, journal);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:589:        if (!view.exists(keylet::line(account, issue)))
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/test/app/OpenP0Repro_test.cpp:392:            keylet::line(broker.id(), fixture.asset.raw().get<Issue>());
+src/test/app/OpenP0Repro_test.cpp:784:            auto const ter = accountSendMulti(
+src/test/app/OpenP0Repro_test.cpp:1644:            keylet::line(alice.id(), usd.raw().get<Issue>());
+src/test/app/OpenP0Repro_test.cpp:2490:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2543:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2600:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2672:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2723:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2775:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2831:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2904:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2966:        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3027:        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3070:        FeatureBitset const features = testable_amendments() | featureAMM;
+src/test/app/OpenP0Repro_test.cpp:3099:        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3135:            testable_amendments() | featureAMM | featureAMMClawback;
+src/test/app/OpenP0Repro_test.cpp:3158:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3205:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3253:        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3311:        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3356:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3409:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3443:            testable_amendments() | featureAMM | featureDisallowIncoming;
+src/test/app/OpenP0Repro_test.cpp:3455:        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3485:            testable_amendments() | featureAMM | featureDisallowIncoming;
+src/test/app/OpenP0Repro_test.cpp:3506:        auto const ammLine = keylet::line(amm.ammAccount(), gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3526:            testable_amendments() | featureAMM | featureDisallowIncoming;
+src/test/app/OpenP0Repro_test.cpp:3551:        auto const ammLine = keylet::line(amm.ammAccount(), gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3591:        FeatureBitset const features = testable_amendments() | featureAMM |
+src/test/app/OpenP0Repro_test.cpp:3592:            featureAMMClawback | featureDisallowIncoming;
+src/test/app/OpenP0Repro_test.cpp:3610:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3643:        FeatureBitset const features = testable_amendments() | featureAMM |
+src/test/app/OpenP0Repro_test.cpp:3644:            featureAMMClawback | featureDepositAuth;
+src/test/app/OpenP0Repro_test.cpp:3662:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3694:            testable_amendments() | featureAMM | featureDepositAuth;
+src/test/app/OpenP0Repro_test.cpp:3883:            auto const k1 = keylet::line(a1, a2, a1["AAA"].currency);
+src/test/app/OpenP0Repro_test.cpp:3884:            auto const k2 = keylet::line(a1, a3, a1["ZZZ"].currency);
+src/test/app/OpenP0Repro_test.cpp:3911:            auto const k1 = keylet::line(a1, a2, a1["USD"].currency);
+src/test/app/OpenP0Repro_test.cpp:3912:            auto const k2 = keylet::line(a1, a3, a1["EUR"].currency);
+src/test/app/OpenP0Repro_test.cpp:4052:            featureAMM - featureSingleAssetVault - featureDisallowIncoming};

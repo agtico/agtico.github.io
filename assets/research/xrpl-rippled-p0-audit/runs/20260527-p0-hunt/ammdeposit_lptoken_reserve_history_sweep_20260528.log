@@ -1,0 +1,181 @@
+19c60924a 2026-05-21 Merge remote-tracking branch 'XRPLF/ximinez/number-fix-maxrepcusp' into ximinez/number-maxint-range
+42fda85fb 2026-05-21 Fix more AMM tests, and to not exclude fixCleanup3_2_0
+3a4b92b05 2026-05-21 Change the priority of the amendments for large mantissas
+20ce845ed 2026-05-20 Fix allow up to 2 MPToken creations in AMMWithdraw/AMMClawback invariant
+a27596f98 2026-05-16 Refine AMM offer generation for integral MPT pairs
+21cfba66f 2026-05-15 Fix AMMClawback missing MPToken recreation for MPTs
+570845892 2026-05-15 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+e646df5b7 2026-05-06 chore: Update default values of base and owner reserve to 1/0.2 (#6382)
+560161595 2026-05-13 fix(telemetry): align Phase 9 dashboards and integration-test with xrpld_ metric prefix
+f48311849 2026-05-12 Merge remote-tracking branch 'mywork/ximinez/number-fix-maxrepcusp' into ximinez/number-maxint-range
+1b6047afe 2026-05-07 More clang-tidy changes: AMMExtended_test member and Number_test includes
+50244a863 2026-05-06 chore: Update default values of base and owner reserve to 1/0.2 (#6382)
+875911f15 2026-05-05 Merge branch 'develop' into pratik/Retire_fixUniversalNumber_amendment
+aa5b02cde 2026-05-04 test: Update Vault+AMM tests for develop renames
+a38d3fc72 2026-04-17 fix: Change AMMClawback return code to tecNO_PERMISSION (#6946)
+70b770f99 2026-04-08 refactor: Combine `AMMHelpers` and `AMMUtils` (#6733)
+17f26ba97 2026-04-02 fix: Decouple reserve from fee in delegate payment (#6568)
+53d0daf3b 2026-04-27 fix(telemetry): preserve deterministic trace_id in round spans
+615762410 2026-04-27 fix(telemetry): preserve deterministic trace_id in round spans
+fc620bf29 2026-04-29 test: Fix clang-tidy issues in new Vault+AMM tests
+b01ba1fce 2026-04-29 test: Add Vault+AMM integration coverage
+689e803cc 2026-04-27 fix(telemetry): preserve deterministic trace_id in round spans
+d3e22a125 2026-04-21 Add testAutoCreateReserve() unit-test to verify MPT/IOU consistent in not checking the reserves when creating MPToken or Trustline on partial offer crossing.
+c4ef1e699 2026-04-20 Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+62bdfc6bf 2026-04-18 Add MPT to ValidAMM invariant. Add ValidAMM invariant unit-tests.
+6c8e7a539 2026-04-17 Merge remote-tracking branch 'XRPLF/develop' into ximinez/vault-test
+9a870c36e 2026-04-17 Merge remote-tracking branch 'XRPLF/develop' into ximinez/acquireAsyncDispatch
+8bb87e9ca 2026-04-17 Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+5d807f0d6 2026-04-17 Merge remote-tracking branch 'XRPLF/develop' into ximinez/online-delete-gaps
+affe5835f 2026-04-17 fix: Change AMMClawback return code to tecNO_PERMISSION (#6946)
+e85f010ef 2026-04-14 Fix AMMClawback return code on AllowTrustLineClawback and NoFreeze check.
+d560d8be6 2026-04-14 Fix AMMClawback return code on AllowTrustLineClawback and NoFreeze check.
+f81500319 2026-04-09 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-shortages
+0a896b795 2026-04-07 Fix double adjustOwnerCount() in AMMWithdraw.
+7793b5f10 2026-04-08 refactor: Combine `AMMHelpers` and `AMMUtils` (#6733)
+75d0960e1 2026-04-07 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-sendmulti
+6d9ed125f 2026-04-02 fix: Decouple reserve from fee in delegate payment (#6568)
+92607805c 2026-03-31 feat(telemetry): add validationsChecked recording hook in recvValidation
+b0e0d5930 2026-03-31 fix(telemetry): fix metric labels and add missing parity gauge values
+23eee6192 2026-03-11 feat: Make VaultID conditional on LoanBrokerSet
+9dd2ca1e4 2026-03-19 fix: Address code review findings for TSAN/ASAN PR
+1a7d67c4d 2026-03-10 chore: Enable clang-tidy `bugprone-reserved-identifier` check (#6456)
+5865bd017 2026-03-06 refactor: Update transaction folder structure (#6483)
+bd7d9efa0 2026-03-05 Reorganize transactors into feature subdirectories
+62c9b6bbd 2026-02-17 Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+fef83c296 2026-01-19 Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+33f4c92b6 2026-01-13 Expand Number to support the full integer range (#6025)
+1ead5a7ac 2026-01-12 Expand Number to support full integer range (#6192)
+44d21b8f6 2026-01-05 test: add more tests for `ledger_entry` RPC (#5858)
+316cdcaa0 2026-01-05 Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+cc05e407c 2025-12-01 Force small mantissas in testAMM()
+3f87aeb6b 2025-11-28 Update several unit tests to work with the new number rules
+b195011ef 2025-11-14 fix: Apply object reserve for Vault pseudo-account (#5954)
+ae919ad5b 2025-11-26 Start fixing the AMMExtended tests
+283bc3ea3 2025-10-30 Remove directory size limit (#5935)
+546bfa89d 2025-11-16 For now, skip the larger mantissas in AMM transactions and tests
+362ecbd1c 2025-11-14 fix: Apply object reserve for Vault pseudo-account (#5954)
+2a2881ee5 2025-11-10 chore: Unify build & test, add ctest to coverage (#6013)
+8d2dff2e4 2025-11-10 chore: Unify build & test, add ctest to coverage (#6013)
+8e56af20e 2025-11-07 Add a distinction between a "valid" and a "representable" Number
+7925cc405 2025-11-03 fix: Check the borrower's balance in LoanSet for reserve
+4425f84c1 2025-10-30 Remove directory size limit (#5935)
+5ebc29c48 2025-10-21 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+9907fa07a 2025-10-15 refactor: Add `paychan` namespace and update related tests (#5840)
+2dd1d682a 2025-10-30 Remove directory size limit (#5935)
+83ee3788e 2025-10-21 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+519d1dbc3 2025-10-16 refactor: Replace fee().accountReserve(0) with fee().reserve (#5843)
+3509de9c5 2025-10-15 refactor: Add `paychan` namespace and update related tests (#5840)
+f85c09e5f 2025-10-08 Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+e919a25ec 2025-10-07 Merge develop into ripple/confidential-transfer (#5835)
+3cbdf818a 2025-09-18 Miscellaneous refactors and updates (#5590)
+f1eaa6a26 2025-09-09 enable fixAMMClawbackRounding (#5750)
+8ac514363 2025-08-29 get new fees and reserves working (#5714)
+b6ef337e4 2025-08-18 Merge remote-tracking branch 'XRPLF/ximinez/lending-refactoring-4' into ximinez/lending-XLS-66
+d952e9de1 2025-08-18 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-refactoring-1
+a14551b15 2025-08-14 fix: Change log to debug level for AMM offer retrieval and IOU payment check (#5686)
+5edaad41a 2025-07-22 Merge branch 'ximinez/lending-refactoring-3' into ximinez/lending-refactoring-4
+96ad348fb 2025-07-21 Merge branch 'ximinez/lending-refactoring-2' into ximinez/lending-refactoring-3
+72f33d8f3 2025-07-21 Merge branch 'ximinez/lending-refactoring-1' into ximinez/lending-refactoring-2
+43fe49e75 2025-07-21 Merge remote-tracking branch 'upstream/develop' into ximinez/lending-refactoring-1
+0a3c728a9 2025-07-11 Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-XLS-66
+8aa94ea09 2025-07-11 fixAMMClawbackRounding: adjust last holder's LPToken balance (#5513)
+621df422a 2025-06-02 fix: Add AMMv1_3 amendment (#5203)
+40ce8a883 2025-05-23 fix: Fix pseudo-account ID calculation (#5447)
+527e0c916 2025-05-16 Lending protocol implementation (XLS-0066)
+848311563 2025-01-31 Lending protocol implementation (XLS-0066)
+7ff2f58a9 2025-05-06 fixup! Update to match latest spec: compute interest, LoanBroker reserves
+bcece6d68 2025-05-06 Update to match latest spec: compute interest, LoanBroker reserves
+cc0fe0db0 2025-04-09 LoanBrokerSet will charge a reserve increment when creating
+124512eba 2025-03-28 Add terADDRESS_COLLISION to AMMCreate::preclaim
+b6a95f997 2025-03-20 PoC Smart Escrows (#5340)
+7fdfbc7b8 2025-02-05 Amendment `fixFrozenLPTokenTransfer` (#5227)
+fb3713bc2 2025-02-05 Amendment `fixFrozenLPTokenTransfer` (#5227)
+5883d756d 2024-12-20 Merge remote-tracking branch 'upstream/develop' into hooks-merge
+b54d85d86 2024-11-25 refactor(AMMClawback): move tfClawTwoAssets check (#5201)
+ec61f5e9d 2024-11-05 Add fixAMMv1_2 amendment (#5176)
+54a350be7 2024-11-04 Add AMMClawback Transaction (XLS-0073d) (#5142)
+9fec615dc 2024-06-27 fixInnerObjTemplate2 amendment (#5047)
+15390bedd 2024-05-05 Fix last Liquidity Provider withdrawal:
+7f6a079aa 2024-05-04 Fix offer crossing via single path AMM with transfer fee:
+2a25f58d4 2024-05-04 Fix adjustAmountsByLPTokens():
+270510959 2024-05-14 Add the fixAMMOfferRounding amendment: (#4983)
+3f7ce939c 2024-04-22 fix amendment: AMM swap should honor invariants: (#5002)
+df3aa8452 2024-04-18 test: verify the rounding behavior of equal-asset AMM deposits (#4982)
+24a275ba2 2024-04-18 test: Add tests to raise coverage of AMM (#4971)
+8b0d049b9 2024-04-19 test: Unit test for AMM offer overflow (#4986)
+659bd99a6 2024-04-18 fix amendment to add `PreviousTxnID`/`PreviousTxnLgrSequence` (#4751)
+a7c4a4772 2024-03-24 fix: improper handling of large synthetic AMM offers:
+0c32fc5f2 2024-03-19 test: Env unit test RPC errors return a unique result: (#4877)
+be12136b8 2024-02-07 `fixInnerObjTemplate`: set inner object template (#4906)
+828bb64eb 2024-02-02 `fixNFTokenReserve`: ensure NFT tx fails when reserve is not met (#4767)
+41cd33750 2023-10-18 Update the reserved hook error code name to `tecHOOK_REJECTED` (#4559)
+b014b79d8 2023-09-01 amm_info: fetch by amm account id; add AMM object entry (#4682)
+a61a88ea8 2023-09-01 AMMBid: use tecINTERNAL for 'impossible' errors (#4674)
+58f7aecb0 2023-07-17 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+3c9db4b69 2023-07-12 Introduce AMM support (XLS-30d): (#4294)
+4f95b9d7a 2023-04-12 Prevent replay attacks with NetworkID field: (#4370)
+f191c911d 2023-04-05 Add NFTokenPages to account_objects RPC: (#4352)
+66627b26c 2023-03-28 Refactor fee initialization and configuration: (#4319)
+0ee63b7c7 2022-04-13 AMM Add Number class and associated algorithms
+e4b17d1cf 2023-02-02 `XRPFees`: Fee setting and handling improvements (#4247)
+0362e935a 2022-12-13 Reduce default reserves to 10/2 (#4329)
+a07a729e3 2022-01-31 Reserve field codes for Hooks:
+bc91fd740 2021-10-04 Fix out-of-bounds reserve, and some minor optimizations
+433feade5 2021-04-11 Automatically determine the node size:
+a3a9dc26b 2018-11-01 Introduce support for deletable accounts:
+87e9ee5ce 2019-05-14 Add support for reserved peer slots:
+2432f1390 2018-11-28 Reserve correct vector size for fee calculations:
+e7a69cce6 2018-11-01 Account for minimum reserve in potential spend:
+6572fc8e9 2018-07-13 Implement MultiSignReserve amendment [RIPD-1647]:
+259394029 2017-08-25 Support for lsfDepositAuth (RIPD-1487):
+d0dac38ea 2017-12-02 Squashed 'src/rocksdb2/' changes from 1fdd726a8..aead40417
+855681a40 2017-12-02 Squashed 'src/soci/' changes from b2855dce5..79e222e3c
+ce9238b38 2017-01-06 Remove beast::Thread (RIPD-1189):
+a1a8ba7f5 2017-02-01 Squashed 'src/secp256k1/' changes from 0cbc860..9d560f9
+b92a7d415 2016-08-16 Use deferred credits in XRPEndpointStep:
+cf72d70ec 2016-07-12 Clarify owner reserve requirements for trust lines (DOC-456)
+2e2a7509c 2015-11-02 Multiple transactions per account in TxQ (RIPD-1048): * Tweak account XRP balance and sequence if needed before preclaim. * Limit total fees in flight to minimum reserve / account balance. * LastLedgerSequence must be at least 2 more than the current ledger to be queued. * Limit 10 transactions per account in the queue at a time. * Limit queuing multiple transactions after transactions that affect authentication. * Zero base fee transactions are treated as having a fixed fee level of 256000 instead of infinite. * Full queue: new txn can only kick out a tx if the fee is higher than that account's average fee. * Queued tx retry limit prevents indefinitely stuck txns. * Return escalation factors in server_info and _state when escalated. * Update documentation. * Update experimental config to only include the % increase. * Convert TxQ metric magic numbers to experimental config.
+78ce7a08c 2016-02-14 Return correct error code during unfunded offer cross (RIPD-1082):
+15adb73a1 2016-02-13 Unit tests for offer creation: * Test whether offers which either already below the reserve (or   would go below during processing) can execute if they cross. * Test the "Fill or Kill" and "Immediate or Cancel" flags.
+7728f6910 2015-12-04 Allow fractional fee multipliers (RIPD-626): * Auto-fill fee maximum is `base * fee_mult_max / fee_div_max`. * `fee_div_max` defaults to 1 to preserve backward compatibility.
+496fea599 2015-11-24 Secure gateway:
+f1c29ae20 2015-08-06 Allow an account to be exclusively multisigned (RIPD-182):
+f41fc87a3 2015-07-17 Put OfferCreate bug fix on a ledger switch:
+56ac83040 2015-04-07 Refund owner's ticket reserve when a ticket is canceled (RIPD-855)
+4cf29455e 2014-05-22 Freeze flags: (RIPD-394)  * Define all flags  * Set/clear bits in transactors  * Frozen line counts towards reserve, is non-default  * Report trust line state
+bee12fb89 2014-03-30 Autobridging future support: * Refactor and cleanup transactors * Introduce new direct and bridged transactors * Rename existing transactor to indicate legacy status * New direct transactor defaults to being turned off (preserve legacy behavior)
+9996e4a57 2013-12-04 The new recommended fee schedule is: * Transaction fee: 10 drops * Base reserve: 20 XRP * Incremental reserve: 5 XRP
+c211094d3 2013-11-05 Allow two trust lines to be created without reserve check.
+2c7a846c3 2013-09-26 Don't allow a transaction to spend into the greater of the fee or the reserve.
+37bfafe3b 2013-08-21 Add some 'reserve' operations.
+1303d488b 2013-04-23 All reserve votees in validations.
+23acc3efe 2013-04-23 All reserve votees in validations.
+3263693c9 2013-04-17 The next part of the reserve/fee change code.
+a8fa6c595 2013-04-17 The next part of the reserve/fee change code.
+c5429032e 2013-03-20 Process monitors itself, restarts if it faults, preserves logs and cores. Rate-limiting for safety.
+61c84eba2 2013-02-11 UT: Add test for OfferCreate respecting reserves and unfunded source.
+b05c5c389 2013-02-11 Fix calculation of XRP available after reserve.
+0bcf3db02 2013-01-28 UT: Remove reserve tests which were't.
+75466bc4b 2013-01-03 UT: Add reserve tests.
+22973c1e5 2012-12-27 Function to get reserve increment.
+359e8cce0 2012-12-25 Allow maximum send to use reserve for fees.
+f7ca067db 2012-12-23 Just charge fee when unable to meet reserve.
+fadf9aa44 2012-12-20 Prevent offers spending from XRP reserve.
+b51ac04af 2012-12-20 Error changes for offer reserves.
+530e05e52 2012-12-20 Improve OfferCreate reserve behavior.
+7d2cfdc06 2012-12-18 Fix OfferCreate handling of reserves.
+a30d065e8 2012-12-18 OfferCreate takes reserves into account.
+8297cc7fe 2012-12-18 Merge branch 'reserve'
+dc2b1d55a 2012-12-18 Have TrustSet require reserve to set.
+f72f6877b 2012-12-18 Merge branch 'master' into reserve
+b04aa198e 2012-12-17 Revise trust set transactor for reserves.
+1cc4b2a13 2012-12-17 Add new type specific flags for ripple state entry reserves.
+a25a9831f 2012-12-17 Fee tracking both that scales with load and that doesn't (for the reserve). Get fees as json. Locks for the fee manager.
+345d8013c 2012-12-13 Merge branch 'master' into reserve
+72d8811ad 2012-12-13 Add and use new owner_reserve.
+68327ab27 2012-12-12 UT: Fixes for reserves.
+6d3c82ab7 2012-12-12 Merge branch 'reserve'
+f1735c5cd 2012-12-12 Move from account create fee to reserve XRP.
+31592c145 2012-06-21 Fix one bogus and one questionable use of 'reserve'
+85424e99d 2012-06-10 Add some more vector-like functions. reserve/resize/capacity
