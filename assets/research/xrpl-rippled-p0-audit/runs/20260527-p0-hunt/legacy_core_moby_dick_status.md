@@ -176,6 +176,24 @@ ripple.app.Escrow had 0 failures.
 19.4s, 2 suites, 53 cases, 11568 tests total, 0 failures
 ```
 
+`RAW-SEQUENCE-SWEEP-001` asked whether another live core object-creation path
+still uses raw `sfSequence` rather than the ticket-aware sequence proxy. The
+focused scan found the historical `PermissionedDomainSet` pre-fix branch, but
+the checked old live create paths use `getSeqValue()` or non-create sequence
+semantics. Existing `Ticket`, `Escrow`, `PayChan`, `Check`, and `Offer` suites
+then passed. Static artifact `ticket_sequence_static_sweep_20260528.log` has
+sha256 `8e7ec705187f93ea45e48957296df5953828afa8728b9b761c80ed272fcee8bd`.
+Suite artifact `ticket_sequence_source_kill_20260528.log` has sha256
+`55022461bafc5c2865833de278b06140a608614dfc6adaf3b3463c07b8fc6413`.
+
+```text
+ripple.app.Check had 0 failures.
+ripple.app.Escrow had 0 failures.
+ripple.app.PayChan had 0 failures.
+ripple.app.Ticket had 0 failures.
+94.1s, 11 suites, 489 cases, 63983 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text

@@ -160,6 +160,41 @@ ripple.app.Escrow had 0 failures.
 19.4s, 2 suites, 53 cases, 11568 tests total, 0 failures
 ```
 
+## Current source kill: raw-sequence ticket-created object sweep
+
+Status: source-reviewed and tested through existing upstream suites; not
+promoted.
+
+Hypothesis: after the historical `PermissionedDomainSet` ticket-sequence
+collision, another live core transaction family might still create ledger keys
+from raw `sfSequence` instead of the ticket-aware sequence proxy.
+
+Static result: a focused scan of `src/xrpld/app/tx/detail` found the historical
+`PermissionedDomainSet` raw-sequence branch gated by `fixCleanup3_1_3`, but the
+old live create paths checked in this slice use `ctx_.tx.getSeqValue()` for
+offer, escrow, payment-channel, check, vault, loan-broker, and MPT issuance
+object identifiers, or use `sfSequence` only for non-create semantics.
+
+Source-kill artifacts:
+
+```text
+runs/20260527-p0-hunt/ticket_sequence_static_sweep_20260528.log
+sha256: 8e7ec705187f93ea45e48957296df5953828afa8728b9b761c80ed272fcee8bd
+
+runs/20260527-p0-hunt/ticket_sequence_source_kill_20260528.log
+sha256: 55022461bafc5c2865833de278b06140a608614dfc6adaf3b3463c07b8fc6413
+```
+
+Proof excerpt:
+
+```text
+ripple.app.Check had 0 failures.
+ripple.app.Escrow had 0 failures.
+ripple.app.PayChan had 0 failures.
+ripple.app.Ticket had 0 failures.
+94.1s, 11 suites, 489 cases, 63983 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

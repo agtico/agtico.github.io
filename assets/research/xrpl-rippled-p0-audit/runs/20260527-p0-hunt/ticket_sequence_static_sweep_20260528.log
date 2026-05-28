@@ -1,0 +1,24 @@
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:124:            fix313 ? ctx_.tx.getSeqValue() : ctx_.tx.getFieldU32(sfSequence);
+src/xrpld/app/tx/detail/CreateTicket.cpp:99:    std::uint32_t const firstTicketSeq = (*sleAccountRoot)[sfSequence];
+src/xrpld/app/tx/detail/CreateTicket.cpp:103:    if (std::uint32_t const txSeq = ctx_.tx[sfSequence];
+src/xrpld/app/tx/detail/CancelOffer.cpp:52:    if ((*sle)[sfSequence] <= offerSequence)
+src/xrpld/app/tx/detail/CreateOffer.cpp:167:    std::uint32_t const uAccountSequence = sleCreator->getFieldU32(sfSequence);
+src/xrpld/app/tx/detail/CreateOffer.cpp:602:    auto const offerSequence = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/PayChan.cpp:280:        keylet::payChan(account, dst, ctx_.tx.getSeqValue());
+src/xrpld/app/tx/detail/PayChan.cpp:296:        (*slep)[sfSequence] = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/Batch.cpp:351:            stx.getFieldU32(sfSequence) != 0)
+src/xrpld/app/tx/detail/Batch.cpp:363:            stx.getFieldU32(sfSequence) == 0)
+src/xrpld/app/tx/detail/Batch.cpp:375:            if (auto const seq = stx.getFieldU32(sfSequence); seq != 0)
+src/xrpld/app/tx/detail/VaultCreate.cpp:135:    auto const sequence = ctx.tx.getSeqValue();
+src/xrpld/app/tx/detail/VaultCreate.cpp:152:    auto const sequence = tx.getSeqValue();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1061:        accountSeq_ = (*after)[sfSequence];
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2772:        makeMptID(from.getFieldU32(sfSequence), from.getAccountID(sfIssuer)));
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:211:        auto const sequence = tx.getSeqValue();
+src/xrpld/app/tx/detail/DeleteAccount.cpp:294:    if ((*sleAccount)[sfSequence] + seqDelta > ctx.view.seq())
+src/xrpld/app/tx/detail/Change.cpp:70:    if (ctx.tx.getFieldU32(sfSequence) != 0 ||
+src/xrpld/app/tx/detail/CreateCheck.cpp:177:    std::uint32_t const seq = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/Escrow.cpp:531:    Keylet const escrowKeylet = keylet::escrow(account_, ctx_.tx.getSeqValue());
+src/xrpld/app/tx/detail/Escrow.cpp:544:        (*slep)[sfSequence] = ctx_.tx.getSeqValue();
+src/xrpld/app/tx/detail/Transactor.cpp:477:    SeqProxy const a_seq = SeqProxy::sequence((*sle)[sfSequence]);
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:132:        (*mptIssuance)[sfSequence] = args.sequence;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:171:            .sequence = tx.getSeqValue(),
