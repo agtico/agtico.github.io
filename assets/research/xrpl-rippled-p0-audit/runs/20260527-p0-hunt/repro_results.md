@@ -1724,6 +1724,32 @@ and pseudo-transaction paths did not show bad amendment majority/veto state,
 malformed fee-vote pseudo transaction, validator-list trust/quorum drift,
 negative-UNL state corruption, or unsigned pseudo-transaction acceptance.
 
+## Demoted: Check directory-full partial-write sweep
+
+Status: scratch-tested earlier, then source-reviewed and suite-tested on
+upstream `3.1.3`; not a finding.
+
+The candidate asked whether `CreateCheck` could insert the `Check` object and
+destination owner-directory entry, fail when inserting the source owner
+directory entry, and still leave a persistent object, owner-directory entry, or
+owner-count drift. The earlier scratch probe forced the source directory full;
+`CheckCreate` returned `tecDIR_FULL` and left no partial `Check`, no source or
+destination directory residue, and no owner-count change.
+
+The follow-up source/history sweep and upstream suites were packet-bound:
+
+```text
+check_legacy_dirfull_partial_static_sweep_20260528.log sha256 7d14fb34bd74bbaf3dbcd69abe53aacc6db9d1de5bee3484195e928f71615121
+check_legacy_dirfull_partial_history_sweep_20260528.log sha256 5beef5ceee9f14f3ca77e87dfb181ae1802d69c870700ca4fa134c4065811fe0
+check_legacy_dirfull_partial_source_kill_20260528.log sha256 95a44193bb61202532e82a8bddeaf1127c436e3ee6c73816459f4fd5ba4a5881
+44.5s, 3 suites, 121 cases, 22604 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. The checked
+`CreateCheck`, `CancelCheck`, `CashCheck`, account-delete, and invariant paths
+did not show a persistent partial object, directory entry, owner-count drift,
+or normal-input invariant failure from the Check directory-full boundary.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

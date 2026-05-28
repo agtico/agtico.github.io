@@ -1,0 +1,346 @@
+src/libxrpl/ledger/View.cpp:78:            page = view.peek(keylet::page(root, next));
+src/libxrpl/ledger/View.cpp:111:        page = view.peek(keylet::page(root));
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:799:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:800:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:802:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:815:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:825:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:826:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:828:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:831:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:1008:            amendments.insert(v.begin(), v.end());
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1142:    auto const page = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1143:        keylet::ownerDir(owner), object->key(), describeOwnerDir(owner));
+src/libxrpl/ledger/View.cpp:1145:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1263:    view.insert(account);
+src/libxrpl/ledger/View.cpp:1433:        auto dstSle = view.peek(keylet::account(dstAcct));
+src/libxrpl/ledger/View.cpp:1482:    auto const sleSrc = view.peek(keylet::account(srcId));
+src/libxrpl/ledger/View.cpp:1483:    auto const sleDst = view.peek(keylet::account(dstId));
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1524:    auto const mpt = view.peek(keylet::mptIssuance(mptID));
+src/libxrpl/ledger/View.cpp:1529:    if (view.peek(keylet::mptoken(mptID, accountID)))
+src/libxrpl/ledger/View.cpp:1547:    auto const sleAcct = view.peek(keylet::account(account));
+src/libxrpl/ledger/View.cpp:1562:            auto const sleMpt = view.peek(mptokenKey);
+src/libxrpl/ledger/View.cpp:1568:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1569:                    keylet::ownerDir(account),
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1577:            view.erase(sleMpt);
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1618:        view.insert(mptoken);
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1636:    auto const sleMpt = view.peek(keylet::mptoken(mptIssuanceID, *holderID));
+src/libxrpl/ledger/View.cpp:1695:    view.insert(sleRippleState);
+src/libxrpl/ledger/View.cpp:1697:    auto lowNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1698:        keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1703:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1705:    auto highNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1706:        keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1711:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1725:        view.peek(keylet::account(bSetHigh ? uLowAccountID : uHighAccountID));
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1810:    auto const line = view.peek(keylet::line(accountID, issue));
+src/libxrpl/ledger/View.cpp:1821:            view.peek(keylet::account(line->at(sfLowLimit)->getIssuer()));
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1836:            view.peek(keylet::account(line->at(sfHighLimit)->getIssuer()));
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1867:    auto const mptoken = view.peek(keylet::mptoken(mptID, accountID));
+src/libxrpl/ledger/View.cpp:1903:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1904:            keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1914:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1915:            keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1924:    view.erase(sleRippleState);
+src/libxrpl/ledger/View.cpp:1940:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1941:            keylet::ownerDir(owner),
+src/libxrpl/ledger/View.cpp:1949:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1971:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:1981:    view.erase(sle);
+src/libxrpl/ledger/View.cpp:2024:    if (auto const sleRippleState = view.peek(index))
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2073:                view, view.peek(keylet::account(uSenderID)), -1, j);
+src/libxrpl/ledger/View.cpp:2117:    auto const sleAccount = view.peek(keylet::account(uReceiverID));
+src/libxrpl/ledger/View.cpp:2328:        ? view.peek(keylet::account(uSenderID))
+src/libxrpl/ledger/View.cpp:2331:        ? view.peek(keylet::account(uReceiverID))
+src/libxrpl/ledger/View.cpp:2432:        ? view.peek(keylet::account(senderID))
+src/libxrpl/ledger/View.cpp:2465:            ? view.peek(keylet::account(receiverID))
+src/libxrpl/ledger/View.cpp:2550:    auto sleIssuance = view.peek(mptID);
+src/libxrpl/ledger/View.cpp:2561:        if (auto sle = view.peek(mptokenID))
+src/libxrpl/ledger/View.cpp:2589:        if (auto sle = view.peek(mptokenID))
+src/libxrpl/ledger/View.cpp:2894:    auto sle = view.peek(keylet::account(sender));
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:2959:    if (auto state = view.peek(index))
+src/libxrpl/ledger/View.cpp:3009:    auto const receiverAccount = view.peek(keylet::account(account));
+src/libxrpl/ledger/View.cpp:3058:            view.peek(keylet::line(account, issue.account, issue.currency)))
+src/libxrpl/ledger/View.cpp:3122:    SLE::pointer const sender = view.peek(keylet::account(from));
+src/libxrpl/ledger/View.cpp:3123:    SLE::pointer const receiver = view.peek(keylet::account(to));
+src/libxrpl/ledger/View.cpp:3441:    Keylet const& ownerDirKeylet,
+src/libxrpl/ledger/View.cpp:3452:    if (view.exists(ownerDirKeylet) &&
+src/libxrpl/ledger/View.cpp:3453:        dirFirst(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry))
+src/libxrpl/ledger/View.cpp:3461:            auto sleItem = view.peek(keylet::child(dirEntry));
+src/libxrpl/ledger/View.cpp:3514:            dirNext(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry));
+src/libxrpl/ledger/View.cpp:3533:    auto sleLow = view.peek(keylet::account(low));
+src/libxrpl/ledger/View.cpp:3534:    auto sleHigh = view.peek(keylet::account(high));
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);
+src/libxrpl/ledger/View.cpp:3718:    auto sleIssuance = view.peek(mptID);
+src/libxrpl/ledger/View.cpp:3737:        auto sle = view.peek(mptokenID);
+src/libxrpl/ledger/View.cpp:3823:    auto sleIssuance = view.peek(mptID);
+src/libxrpl/ledger/View.cpp:3866:        auto sle = view.peek(mptokenID);
+src/libxrpl/ledger/View.cpp:3920:        auto sle = view.peek(mptokenID);
+src/test/app/AccountDelete_test.cpp:156:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:164:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:200:            BEAST_EXPECT(env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:217:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:266:        Keylet const aliceRootKey{keylet::ownerDir(alice.id())};
+src/test/app/AccountDelete_test.cpp:323:        uint256 const checkId = keylet::check(alice, env.seq(alice)).key;
+src/test/app/AccountDelete_test.cpp:637:        Keylet const aliceOwnerDirKey{keylet::ownerDir(alice.id())};
+src/test/app/Invariants_test.cpp:191:        BEAST_EXPECT(precheck(A1, A2, ac));
+src/test/app/Invariants_test.cpp:228:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:249:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:256:                ac.view().erase(sle);
+src/test/app/Invariants_test.cpp:279:                auto sleA1 = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:280:                auto sleA2 = ac.view().peek(keylet::account(A2.id()));
+src/test/app/Invariants_test.cpp:288:                ac.view().erase(sleA1);
+src/test/app/Invariants_test.cpp:289:                ac.view().erase(sleA2);
+src/test/app/Invariants_test.cpp:307:                auto const sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:313:                ac.view().erase(sleA1);
+src/test/app/Invariants_test.cpp:325:                auto const sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:335:                ac.view().erase(sleA1);
+src/test/app/Invariants_test.cpp:362:                    auto sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:368:                    ac.view().insert(newSLE);
+src/test/app/Invariants_test.cpp:373:                    ac.view().erase(sleA1);
+src/test/app/Invariants_test.cpp:386:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:394:                ac.view().erase(sle);
+src/test/app/Invariants_test.cpp:417:                auto sle = ac.view().peek(keylet::account(ammAcctID));
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:429:                ac.view().erase(sle);
+src/test/app/Invariants_test.cpp:451:                auto sle = ac.view().peek(keylet::account(ammAcctID));
+src/test/app/Invariants_test.cpp:462:                    if (auto const line = ac.view().peek(trustKeylet); !line)
+src/test/app/Invariants_test.cpp:480:                auto const ammSle = ac.view().peek(keylet::amm(ammKey));
+src/test/app/Invariants_test.cpp:483:                auto const ownerDirKeylet = keylet::ownerDir(ammAcctID);
+src/test/app/Invariants_test.cpp:485:                BEAST_EXPECT(ac.view().dirRemove(
+src/test/app/Invariants_test.cpp:486:                    ownerDirKeylet, ammSle->at(sfOwnerNode), ammKey, false));
+src/test/app/Invariants_test.cpp:488:                    !ac.view().exists(ownerDirKeylet) ||
+src/test/app/Invariants_test.cpp:489:                    ac.view().emptyDirDelete(ownerDirKeylet));
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:496:                ac.view().erase(sle);
+src/test/app/Invariants_test.cpp:524:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:536:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:549:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:565:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:588:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:603:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:618:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:633:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:648:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:700:            auto const sleA1 = ac.view().peek(keylet::line(A1, G1["USD"]));
+src/test/app/Invariants_test.cpp:701:            auto const sleA2 = ac.view().peek(keylet::line(A2, G1["USD"]));
+src/test/app/Invariants_test.cpp:757:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:771:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:787:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:837:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:845:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:853:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:862:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:870:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:879:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:895:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:901:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:910:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:918:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:927:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:937:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:946:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:955:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:964:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:974:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:983:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:992:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1001:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1010:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1019:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1029:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1038:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1047:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1056:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1065:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1084:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1096:                    ac.view().insert(sleA3);
+src/test/app/Invariants_test.cpp:1102:                    ac.view().insert(sleA4);
+src/test/app/Invariants_test.cpp:1115:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1132:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1149:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1165:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1183:                ac.view().insert(sleNew);
+src/test/app/Invariants_test.cpp:1225:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1236:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1250:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1264:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1277:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1290:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1302:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1318:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1332:                ac.view().insert(nftPage);
+src/test/app/Invariants_test.cpp:1368:        ac.view().insert(sle);
+src/test/app/Invariants_test.cpp:1627:                    auto sle1 = ac.view().peek({ltPERMISSIONED_DOMAIN, pd1});
+src/test/app/Invariants_test.cpp:1628:                    auto sle2 = ac.view().peek({ltPERMISSIONED_DOMAIN, pd2});
+src/test/app/Invariants_test.cpp:1629:                    ac.view().erase(sle1);
+src/test/app/Invariants_test.cpp:1630:                    ac.view().erase(sle2);
+src/test/app/Invariants_test.cpp:1700:                    auto sle1 = ac.view().peek({ltPERMISSIONED_DOMAIN, pd1});
+src/test/app/Invariants_test.cpp:1701:                    ac.view().erase(sle1);
+src/test/app/Invariants_test.cpp:1805:                    auto sle = ac.view().peek(keylet::account(pseudoAccountID));
+src/test/app/Invariants_test.cpp:1826:                    auto sle = ac.view().peek(keylet::account(pseudoAccountID));
+src/test/app/Invariants_test.cpp:1850:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1903:                ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:1936:                ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:1974:                    ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:2011:                    ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:2045:                    ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:2079:                    ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:2116:                    ac.view().insert(sleOffer);
+src/test/app/Invariants_test.cpp:2206:                        auto sle = ac.view().peek(loanBrokerKeylet);
+src/test/app/Invariants_test.cpp:2236:                        auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:2309:                auto sleBroker = ac.view().peek(loanBrokerKeylet);
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2324:                auto slePseudo = ac.view().peek(pseudoAccountKeylet);
+src/test/app/Invariants_test.cpp:2328:                auto const dirKeylet = keylet::ownerDir(pseudoAccountID);
+src/test/app/Invariants_test.cpp:2329:                auto sleDir = ac.view().peek(dirKeylet);
+src/test/app/Invariants_test.cpp:2341:                    sleDir = ac.view().peek(dirKeylet);
+src/test/app/Invariants_test.cpp:2467:                    auto sleBroker = ac.view().peek(loanBrokerKeylet);
+src/test/app/Invariants_test.cpp:2506:                        auto sle = ac.view().peek(brokerKeylet);
+src/test/app/Invariants_test.cpp:2526:                    auto sle = ac.view().peek(loanBrokerKeylet);
+src/test/app/Invariants_test.cpp:2566:            auto sleVault = ac.peek(keylet);
+src/test/app/Invariants_test.cpp:2571:            auto sleShares = ac.peek(keylet::mptIssuance(mptIssuanceID));
+src/test/app/Invariants_test.cpp:2603:                    auto slePseudoAccount = ac.peek(keylet::account(pseudoId));
+src/test/app/Invariants_test.cpp:2613:                    auto sleMPToken = ac.peek(keylet::mptoken(mptId, pseudoId));
+src/test/app/Invariants_test.cpp:2629:                    auto sleAccount = ac.peek(keylet::account(pair.account));
+src/test/app/Invariants_test.cpp:2640:                        ac.peek(keylet::mptoken(mptID, pair.account));
+src/test/app/Invariants_test.cpp:2655:                    ac.peek(keylet::mptoken(mptIssuanceID, pair.account));
+src/test/app/Invariants_test.cpp:2704:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2724:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2727:                ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2744:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2766:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2767:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:2771:                ac.view().insert(sleVault);
+src/test/app/Invariants_test.cpp:2782:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2785:                ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2803:                    auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2806:                    ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2810:                    auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2813:                    ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2842:                    auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2843:                        keylet::ownerDir(A.id()),
+src/test/app/Invariants_test.cpp:2847:                    ac.view().insert(sleVault);
+src/test/app/Invariants_test.cpp:2861:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2864:                ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2883:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2886:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:2890:                ac.view().erase(sleVault);
+src/test/app/Invariants_test.cpp:2891:                ac.view().erase(sleShares);
+src/test/app/Invariants_test.cpp:2911:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:2914:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3009:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3015:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3019:                ac.view().erase(sleShares);
+src/test/app/Invariants_test.cpp:3037:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3067:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3071:                    ac.view().peek(keylet::account(*(*sleVault)[sfAccount]));
+src/test/app/Invariants_test.cpp:3079:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3104:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3121:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3137:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3231:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3235:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3253:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3256:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3279:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3282:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3305:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3332:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3360:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3385:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3388:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3415:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3440:                auto sleVault = ac.view().peek(keylet);
+src/test/app/Invariants_test.cpp:3443:                auto sleShares = ac.view().peek(
+src/test/app/Invariants_test.cpp:3473:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3474:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3495:                ac.view().insert(sleAccount);
+src/test/app/Invariants_test.cpp:3500:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3501:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3522:                ac.view().insert(sleVault);
+src/test/app/Invariants_test.cpp:3523:                ac.view().insert(sleShares);
+src/test/app/Invariants_test.cpp:3537:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3538:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3561:                ac.view().insert(sleAccount);
+src/test/app/Invariants_test.cpp:3566:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3567:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3590:                ac.view().insert(sleVault);
+src/test/app/Invariants_test.cpp:3591:                ac.view().insert(sleShares);
+src/test/app/Invariants_test.cpp:3605:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3606:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3614:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3615:                    keylet::ownerDir(A2.id()),
+src/test/app/Invariants_test.cpp:3637:                ac.view().insert(sleVault);
+src/test/app/Invariants_test.cpp:3638:                ac.view().insert(sleShares);
+src/test/app/Invariants_test.cpp:3694:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3727:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3755:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3841:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3913:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3949:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3980:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:4071:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:4334:                ac.view().insert(sleBad);
+src/test/app/Invariants_test.cpp:4340:                ac.view().insert(sleGood);
+src/test/app/Invariants_test.cpp:4381:                ac.view().insert(sleBad);
+src/test/app/Invariants_test.cpp:4389:                ac.view().insert(sleGood);
+src/test/app/Invariants_test.cpp:4409:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:4421:                ac.view().insert(sleNew);
+src/xrpld/app/tx/detail/CancelCheck.cpp:41:    auto const sleCheck = ctx.view.read(keylet::check(ctx.tx[sfCheckID]));
+src/xrpld/app/tx/detail/CancelCheck.cpp:76:    auto const sleCheck = view().peek(keylet::check(ctx_.tx[sfCheckID]));
+src/xrpld/app/tx/detail/CancelCheck.cpp:93:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:94:                keylet::ownerDir(dstId), page, sleCheck->key(), true))
+src/xrpld/app/tx/detail/CancelCheck.cpp:104:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:105:                keylet::ownerDir(srcId), page, sleCheck->key(), true))
+src/xrpld/app/tx/detail/CancelCheck.cpp:115:    auto const sleSrc = view().peek(keylet::account(srcId));
+src/xrpld/app/tx/detail/CancelCheck.cpp:116:    adjustOwnerCount(view(), sleSrc, -1, viewJ);
+src/xrpld/app/tx/detail/CancelCheck.cpp:119:    view().erase(sleCheck);
+src/test/app/Check_test.cpp:94:        return keylet::check(account, uSequence).key;
+src/xrpld/app/tx/detail/CashCheck.cpp:71:    auto const sleCheck = ctx.view.read(keylet::check(ctx.tx[sfCheckID]));
+src/xrpld/app/tx/detail/CashCheck.cpp:247:    auto sleCheck = psb.peek(keylet::check(ctx_.tx[sfCheckID]));
+src/xrpld/app/tx/detail/CashCheck.cpp:360:                auto const sleDst = psb.peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CashCheck.cpp:363:                if (std::uint32_t const ownerCount = {sleDst->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/CashCheck.cpp:410:            auto const sleTrustLine = psb.peek(trustLineKey);
+src/xrpld/app/tx/detail/CashCheck.cpp:420:                    if (auto const sleTrustLine = psb.peek(trustLineKey))
+src/xrpld/app/tx/detail/CashCheck.cpp:474:            sleCheck = psb.peek(keylet::check(ctx_.tx[sfCheckID]));
+src/xrpld/app/tx/detail/CashCheck.cpp:481:        !psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:482:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/CashCheck.cpp:494:    if (!psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:495:            keylet::ownerDir(srcId),
+src/xrpld/app/tx/detail/CashCheck.cpp:507:    adjustOwnerCount(psb, psb.peek(keylet::account(srcId)), -1, viewJ);
+src/xrpld/app/tx/detail/CashCheck.cpp:510:    psb.erase(sleCheck);
+src/xrpld/app/tx/detail/CreateCheck.cpp:20:#include <xrpld/app/tx/detail/CreateCheck.h>
+src/xrpld/app/tx/detail/CreateCheck.cpp:32:CreateCheck::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/CreateCheck.cpp:70:CreateCheck::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/CreateCheck.cpp:158:CreateCheck::doApply()
+src/xrpld/app/tx/detail/CreateCheck.cpp:160:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CreateCheck.cpp:169:            view().fees().accountReserve(sle->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/CreateCheck.cpp:178:    Keylet const checkKeylet = keylet::check(account_, seq);
+src/xrpld/app/tx/detail/CreateCheck.cpp:195:    view().insert(sleCheck);
+src/xrpld/app/tx/detail/CreateCheck.cpp:202:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:203:            keylet::ownerDir(dstAccountId),
+src/xrpld/app/tx/detail/CreateCheck.cpp:212:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:218:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:219:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/CreateCheck.cpp:228:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:233:    adjustOwnerCount(view(), sle, 1, viewJ);

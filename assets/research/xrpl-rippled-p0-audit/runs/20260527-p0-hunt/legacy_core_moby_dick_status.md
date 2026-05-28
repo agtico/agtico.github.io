@@ -18,13 +18,14 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:41:44Z
-amendment_checked_utc: 2026-05-28T08:41:46Z
+runtime_checked_utc: 2026-05-28T08:51:41Z
+amendment_checked_utc: 2026-05-28T08:51:43Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533957, hash 6B6DCAC514095FB8D7F788000EE31B26B540AF256DE42D40A6CEB7C8C2A35F73
-s2.ripple.com: rippled 3.1.3, ledger 104533957, hash 6B6DCAC514095FB8D7F788000EE31B26B540AF256DE42D40A6CEB7C8C2A35F73
-runtime receipt sha256: 6b14b039d5feaabd23efc18e5595e41c9bc0f2c4ee5180c6fa619441b284ce23
-amendment receipt sha256: 7cae807fc9e9a1fa7b63802da387e61001bac6fb7a72e2c66bf83bd764197221
+s1.ripple.com: rippled 3.1.3, ledger 104534111, hash A824DF757C28ED434D99CAC9EF250913C7DAC334EB1C35760782E903DE464945
+s2.ripple.com: rippled 3.1.3, ledger 104534112, hash 37BD71EF132D51E61B8A05BFAF062F1518C2EE8033A096E1B99F650E172BA3B9
+feature/amendment receipt ledger: 104534112, hash 37BD71EF132D51E61B8A05BFAF062F1518C2EE8033A096E1B99F650E172BA3B9
+runtime receipt sha256: 2b6964780b1e3fe2c712597db86a086c21f2d5f1e3bc0f13495a102a83287ae8
+amendment receipt sha256: 95a5969fc13a849349efd1d4c3b18e095d123239f57fd69ecbb89cfcc501ceb3
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -159,7 +160,16 @@ TokenEscrow, NFToken settlement, and AMM one-asset withdrawal rather than every
 object or owner-directory entry when the source owner directory fails after the
 destination-directory insertion point. A forced source-dir-full scratch probe
 returned `tecDIR_FULL`, left no Check object, left source and destination owner
-counts unchanged, and left no check entry in either owner directory.
+counts unchanged, and left no check entry in either owner directory. A later
+source/history/suite pass packet-bound this demotion with static artifact
+`check_legacy_dirfull_partial_static_sweep_20260528.log` sha256
+`7d14fb34bd74bbaf3dbcd69abe53aacc6db9d1de5bee3484195e928f71615121`,
+history artifact `check_legacy_dirfull_partial_history_sweep_20260528.log`
+sha256 `5beef5ceee9f14f3ca77e87dfb181ae1802d69c870700ca4fa134c4065811fe0`,
+and suite artifact `check_legacy_dirfull_partial_source_kill_20260528.log`
+sha256 `95a44193bb61202532e82a8bddeaf1127c436e3ee6c73816459f4fd5ba4a5881`.
+`Check,AccountDelete,Invariants` passed with 3 suites, 121 cases, and 22,604
+tests.
 
 `PAYCHAN-DIRFULL-PARTIAL-001` asked whether `PaymentChannelCreate` leaves a
 partial source-side channel object when the destination owner-directory insert
@@ -869,7 +879,15 @@ The scratch probe filled the source and destination owner directories before
 `CheckCreate`. With a genuinely full directory, `CheckCreate` returned
 `tecDIR_FULL` and left no partial `Check`, owner-directory entry, or owner-count
 residue. The temporary scratch test passed locally and was removed from the
-suite before this triage note was written.
+suite before this triage note was written. A later packet-bound source pass
+saved `check_legacy_dirfull_partial_static_sweep_20260528.log` sha256
+`7d14fb34bd74bbaf3dbcd69abe53aacc6db9d1de5bee3484195e928f71615121`,
+`check_legacy_dirfull_partial_history_sweep_20260528.log` sha256
+`5beef5ceee9f14f3ca77e87dfb181ae1802d69c870700ca4fa134c4065811fe0`, and
+`check_legacy_dirfull_partial_source_kill_20260528.log` sha256
+`95a44193bb61202532e82a8bddeaf1127c436e3ee6c73816459f4fd5ba4a5881`. The
+focused `Check,AccountDelete,Invariants` run passed with 3 suites, 121 cases,
+22,604 tests, and 0 failures.
 
 This is not a promoted finding.
 
