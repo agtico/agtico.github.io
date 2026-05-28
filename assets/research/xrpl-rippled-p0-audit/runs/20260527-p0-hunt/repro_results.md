@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,7 +136,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
@@ -163,7 +163,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side companion to the CheckCash
@@ -192,7 +192,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side reserve-boundary companion to the
@@ -220,7 +220,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this proves the same root cause at the reserve boundary. The
@@ -244,7 +244,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this is a third live settlement path for the same old
@@ -270,7 +270,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this shows NFT seller proceeds can hit the same old
@@ -294,7 +294,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this gives a second NFT-specific witness for the same shared
@@ -318,12 +318,38 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — AMMWithdraw creates positive balance without reserve
-15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+15.1s, 1 suite, 69 cases, 16688 tests total, 0 failures
 ```
 
 Interpretation: this is another current-live settlement family reaching the
 same missing receiver-side reserve transition. It expands path coverage without
 changing the root-cause count.
+
+## Current sibling: AMMClawback positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice creates a two-issuer AMM and deposits all of her gateway2 EUR into the
+   pool.
+2. Alice clears the gateway2 EUR limit after gateway2 clears default ripple,
+   leaving the EUR line present with no receiver reserve flag.
+3. Gateway1 performs AMMClawback against Alice's gateway1 USD in the pool.
+4. The paired gateway2 EUR return moves Alice positive while her owner count
+   and EUR receiver reserve flag remain unchanged.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — AMMClawback creates positive balance without reserve
+17.3s, 1 suite, 69 cases, 16688 tests total, 0 failures
+```
+
+Interpretation: this is the AMMClawback paired-asset companion to the
+AMMWithdraw witness. It is a path expansion for the same shared reserve
+transition, not a separate root cause.
 
 Additional dispositions:
 

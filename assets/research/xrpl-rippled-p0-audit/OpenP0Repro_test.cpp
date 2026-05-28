@@ -3063,6 +3063,63 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceAMMClawbackCurrent()
+    {
+        testcase("TrustLine current — AMMClawback creates positive balance without reserve");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const gw2{"gateway2"};
+        Account const alice{"alice"};
+        auto const USD = gw["USD"];
+        auto const EUR = gw2["EUR"];
+        bool const aliceHigh = alice.id() > gw2.id();
+
+        FeatureBitset const features =
+            testable_amendments() | featureAMM | featureAMMClawback;
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, gw2, alice);
+        env.close();
+
+        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(10'000)), THISLINE);
+        env(trust(alice, EUR(10'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(3'000)), THISLINE);
+        env(pay(gw2, alice, EUR(1'000)), THISLINE);
+        env.close();
+
+        AMM amm{env, alice, EUR(1'000), USD(2'000)};
+        env.close();
+
+        env(fclear(gw2, asfDefaultRipple), THISLINE);
+        env.close();
+        env(trust(alice, EUR(0)), THISLINE);
+        env.close();
+
+        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+        auto const cleared = env.le(aliceEurLine);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        auto const preOwnerCount = ownerCount(env, alice);
+        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+
+        env(amm::ammClawback(gw, alice, USD, EUR, USD(1'000)),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        auto const clawed = env.le(aliceEurLine);
+        if (!BEAST_EXPECT(clawed))
+            return;
+        BEAST_EXPECT(env.balance(alice, EUR).number() > beast::zero);
+        BEAST_EXPECT(ownerCount(env, alice) == preOwnerCount);
+        BEAST_EXPECT(!clawed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testDisallowIncomingTrustlineOfferCreateCurrent()
     {
         testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
@@ -3904,6 +3961,7 @@ public:
         testTrustlinePositiveBalanceNFTokenAcceptCurrent();
         testTrustlinePositiveBalanceNFTokenBrokerFeeCurrent();
         testTrustlinePositiveBalanceAMMWithdrawCurrent();
+        testTrustlinePositiveBalanceAMMClawbackCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();
