@@ -2,7 +2,7 @@
 layout: report
 title: "RippleD 3.1.3 Fork-Inheritance Audit: Live Findings And Remediation Inventory"
 date: "2026-05-26 20:00:00 +0000"
-summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 fork-inheritance audit currently contains 19 reproduced findings on mainnet-enabled surfaces: 14 without a confirmed fix in the checked 3.2.0-b7/origin-develop refs and 5 with post-3.1.3 remediation evidence."
+summary: "Post Fiat's live-filtered XRPL rippled 3.1.3 fork-inheritance audit currently contains 22 reproduced findings on mainnet-enabled surfaces: 17 without a confirmed fix in the checked 3.2.0-b7/origin-develop refs and 5 with post-3.1.3 remediation evidence. (Wave 3, 2026-05-28: +3 family-extension findings, jtx-confirmed.)"
 category: Post Fiat Research
 xrpl_report: true
 copy_article: true
@@ -17,7 +17,7 @@ tags:
 
 <div class="pearl-primer-box xrpl-lede">
   <p><strong>Context:</strong> Post Fiat is increasingly far along on controlled-testnet engineering. As part of deciding whether to directly support or inherit a RippleD-derived codebase, we ran a focused internal audit of upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p><strong>Current packet:</strong> The packet contains <strong>19 reproduced findings</strong> on XRPL mainnet-enabled surfaces: <strong>14 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 findings with post-3.1.3 remediation evidence</strong>.</p>
+  <p><strong>Current packet:</strong> The packet contains <strong>22 reproduced findings</strong> on XRPL mainnet-enabled surfaces: <strong>17 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 findings with post-3.1.3 remediation evidence</strong>. Wave 3 (2026-05-28) added 3 family-extension findings — issuer-self GlobalFreeze blocks NFT offer in own currency, AMMBid refund bypasses DisallowIncomingTrustline, NFTokenAcceptOffer bypasses recipient DepositAuth. All three were jtx-confirmed.</p>
   <p><strong>Proof model:</strong> each finding is reproduced in a clean local upstream jtx harness, bound to a named marker, checked against live amendment state from direct XRPL JSON-RPC, and backed by a static packet verifier.</p>
 </div>
 
@@ -230,6 +230,11 @@ Read the `Risk` column as internal fork-inheritance risk. For the policy cluster
 | [MPT-NONCANONICAL-AMOUNT-001](#mpt-noncanonical-amount-001) | 7.6 | Fixed in develop, not confirmed in `3.2.0-b7` | `MPTokensV1` | Non-canonical amount validation | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/MPT-NONCANONICAL-AMOUNT-001.sh) |
 | [PDEX-HYBRID-QUALITY-001](#pdex-hybrid-quality-001) | 7.7 | Remediated after 3.1.3 | PermissionedDEX | Order-book metadata corruption | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-HYBRID-QUALITY-001.sh) |
 | [PDEX-CANCEL-INVARIANT-001](#pdex-cancel-invariant-001) | 7.5 | Remediated after 3.1.3 | PermissionedDEX | Valid transaction invariant failure | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh) |
+| [AMMBID-DISALLOW-INCOMING-REFUND-001](#ammbid-disallow-incoming-refund-001) ⓦ | 8.0 | No confirmed fix | AMMBid | Issuer policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/AMMBID-DISALLOW-INCOMING-REFUND-001.sh) |
+| [NFTOKEN-ACCEPT-DEPOSITAUTH-001](#nftoken-accept-depositauth-001) ⓦ | 8.0 | No confirmed fix | NFT settlement | Holder receive-policy bypass | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-ACCEPT-DEPOSITAUTH-001.sh) |
+| [NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001](#nftoken-offer-issuer-self-freeze-001) ⓦ | 6.0 | No confirmed fix | NFT offers | Issuer self-exemption gap | [`sh`](/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001.sh) |
+
+(ⓦ marks Wave 3 supplementary findings added 2026-05-28; see Appendix A.6 for verification details.)
 
 ## Finding Cards
 
@@ -524,6 +529,51 @@ Read the `Risk` column as internal fork-inheritance risk. For the policy cluster
     </dl>
     <a href="/assets/research/xrpl-rippled-p0-audit/repros/PDEX-CANCEL-INVARIANT-001.sh">Repro script</a>
   </section>
+
+  <section class="xrpl-finding-card unfixed" id="ammbid-disallow-incoming-refund-001">
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk · Wave 3</span><span>No confirmed fix</span></div>
+    <h4>AMMBID-DISALLOW-INCOMING-REFUND-001</h4>
+    <p class="xrpl-finding-title">AMMBid auction refund bypasses recipient DisallowIncomingTrustline</p>
+    <dl>
+      <dt>What is this?</dt><dd><code>asfDisallowIncomingTrustline</code> is an account flag intended to block creation of new trustlines on this account. AMMBid refunds LP tokens to the previous auction-slot holder via <code>accountSend</code>.</dd>
+      <dt>Why it matters</dt><dd>If a holder closes their LP trustline and sets DisallowIncoming, the AMM auction refund forces a new LP trustline despite the explicit opt-out.</dd>
+      <dt>Bug</dt><dd>The refund routes through <code>accountSend</code> → <code>rippleCreditIOU</code> → <code>trustCreate</code>; <code>trustCreate</code> at <code>View.cpp:1733-1782</code> has zero references to <code>lsfDisallowIncomingTrustline</code>.</dd>
+      <dt>Intended behavior</dt><dd>AMMBid should respect the previous holder's incoming-trustline policy when refunding.</dd>
+      <dt>Actual behavior</dt><dd>A new LP trustline is created on the unwilling recipient, with the refund balance.</dd>
+      <dt>Remediation</dt><dd>Gate the refund through a wrapper that checks <code>lsfDisallowIncoming</code> on the destination, or fold into a <code>fixDisallowIncomingV1_1</code> amendment.</dd>
+    </dl>
+    <a href="/assets/research/xrpl-rippled-p0-audit/repros/AMMBID-DISALLOW-INCOMING-REFUND-001.sh">Repro script</a>
+  </section>
+
+  <section class="xrpl-finding-card unfixed" id="nftoken-accept-depositauth-001">
+    <div class="xrpl-finding-head"><span class="xrpl-badge">8.0 fork risk · Wave 3</span><span>No confirmed fix</span></div>
+    <h4>NFTOKEN-ACCEPT-DEPOSITAUTH-001</h4>
+    <p class="xrpl-finding-title">NFTokenAcceptOffer bypasses recipient lsfDepositAuth</p>
+    <dl>
+      <dt>What is this?</dt><dd><code>asfDepositAuth</code> is an account flag intended to block incoming payments. <code>NFTokenAcceptOffer::pay</code> delivers the buyer's IOU payment to the seller via <code>accountSend</code>.</dd>
+      <dt>Why it matters</dt><dd>A seller who set DepositAuth still receives the buyer's payment as a side effect of NFT settlement — the receive-policy opt-out is silently bypassed.</dd>
+      <dt>Bug</dt><dd>Exhaustive grep of <code>NFTokenAcceptOffer.cpp</code> and <code>NFTokenUtils.cpp</code> finds zero <code>verifyDepositPreauth</code> calls. <code>checkTrustlineAuthorized</code> (<code>RequireAuth</code>) and <code>checkTrustlineDeepFrozen</code> exist; <code>DepositAuth</code> does not.</dd>
+      <dt>Intended behavior</dt><dd><code>NFTokenAcceptOffer::pay</code> should call <code>verifyDepositPreauth</code> before <code>accountSend</code>, returning <code>tecNO_PERMISSION</code> if the destination has <code>lsfDepositAuth</code> and the sender is not preauthorized.</dd>
+      <dt>Actual behavior</dt><dd>The seller's <code>asfDepositAuth</code> flag is ignored.</dd>
+      <dt>Remediation</dt><dd>Add the <code>verifyDepositPreauth</code> check, gated behind a fix amendment.</dd>
+    </dl>
+    <a href="/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-ACCEPT-DEPOSITAUTH-001.sh">Repro script</a>
+  </section>
+
+  <section class="xrpl-finding-card unfixed" id="nftoken-offer-issuer-self-freeze-001">
+    <div class="xrpl-finding-head"><span class="xrpl-badge">6.0 fork risk · Wave 3</span><span>No confirmed fix</span></div>
+    <h4>NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001</h4>
+    <p class="xrpl-finding-title">Issuer NFTokenCreateOffer in own currency blocked by own GlobalFreeze</p>
+    <dl>
+      <dt>What is this?</dt><dd>The XRPL freeze documentation states issuers can transact with their own currency even during their own global freeze (cf. <code>CashCheck.cpp:176</code> "an issuer can always accept their own currency"; <code>DirectStep.cpp:906</code> "pure issue/redeem can't be frozen").</dd>
+      <dt>Why it matters</dt><dd>An issuer that mints NFTs and issues an IOU cannot create an NFT offer in their own currency while their own GlobalFreeze is active — violating the documented issuer-exemption.</dd>
+      <dt>Bug</dt><dd><code>NFTokenUtils.cpp:941</code> calls <code>isFrozen(acctID, currency, amount.getIssuer())</code> with no issuer-exemption guard above it. When all three arguments resolve to the same account, the GlobalFreeze early return in <code>isFrozen</code> fires before the <code>issuer != account</code> check is reached.</dd>
+      <dt>Intended behavior</dt><dd>Skip the freeze check when <code>acctID == amount.getIssuer()</code>, mirroring the pattern at <code>CashCheck.cpp:176</code>.</dd>
+      <dt>Actual behavior</dt><dd>The offer is rejected with <code>tecFROZEN</code> even though the protocol exempts issuers from their own freeze.</dd>
+      <dt>Remediation</dt><dd>Add an issuer-exemption guard at the line-941 and line-927 sites in <code>tokenOfferCreatePreclaim</code>, gated under a new fix amendment.</dd>
+    </dl>
+    <a href="/assets/research/xrpl-rippled-p0-audit/repros/NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001.sh">Repro script</a>
+  </section>
 </div>
 
 ## Evidence Packet
@@ -543,7 +593,7 @@ Read the `Risk` column as internal fork-inheritance risk. For the policy cluster
 Proof extract hash:
 
 ```text
-dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362
+3ad276376bc6a04b7ddc335144d57d9297fedb9a09022af57095967efa939769
 ```
 
 ## Reproduction Model
@@ -591,7 +641,7 @@ This report does not claim to speak for Ripple, XRPLF, or upstream maintainers. 
 
 Some behaviors may be resolved by upstream as bugs, some as amendment-semantics changes, and some as intended product semantics. That distinction matters. In particular, the DisallowIncoming and DepositAuth cluster is strongest as an architectural critique of distributed policy enforcement; the lock-state, reserve-accounting, and overflow findings are stronger standalone safety/accounting findings.
 
-The five remediating findings are explicitly labeled as such because public beta/develop evidence shows fixes landing after `3.1.3`. For the fourteen "no confirmed fix" findings, the claim is only that our checked `3.2.0-b7` / `origin/develop` refs did not contain a confirmed remediation at the time of the packet.
+The five remediating findings are explicitly labeled as such because public beta/develop evidence shows fixes landing after `3.1.3`. For the seventeen "no confirmed fix" findings (the original fourteen plus the three Wave 3 additions), the claim is only that our checked `3.2.0-b7` / `origin/develop` refs did not contain a confirmed remediation at the time of the packet.
 
 Post Fiat's immediate use of this report is internal engineering due diligence: whether to inherit a RippleD-derived path, support it with local hardening, or avoid the inherited surface. Any downstream production decision should also consider upstream's later response, amendment policy, and any coordinated-disclosure outcome after this packet.
 
@@ -671,12 +721,12 @@ All 30 amendment names cited by the live filter (24 must-enabled + 6 must-disabl
 
 The packet directory now ships a canonical `SHA256SUMS.txt` covering every packet file (`legacy/` snapshots and Python caches excluded; the sums file does not list itself). The single packet root is the SHA-256 of `SHA256SUMS.txt`.
 
-> **Packet root:** `a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64`
+> **Packet root:** `66175a5059113ccfcce3b99dcd2aada6d70a3037d51af4a84aa6426f70c6c7ff`
 
 ```bash
 cd assets/research/xrpl-rippled-p0-audit
 sha256sum SHA256SUMS.txt
-# expected: a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64  SHA256SUMS.txt
+# expected: 66175a5059113ccfcce3b99dcd2aada6d70a3037d51af4a84aa6426f70c6c7ff  SHA256SUMS.txt
 sha256sum -c SHA256SUMS.txt | grep -v ': OK$'
 # expected: (no output — every file matches)
 ```
@@ -694,11 +744,11 @@ The hashes below pin the highest-leverage artifacts. They are also covered by `S
 
 | Artifact | SHA-256 |
 |---|---|
-| `OpenP0Repro_test.cpp` (full jtx proof source) | `fef2d597f72e8e3091a8cbf7255b9f5406d241711ad8991329dff8b30475d483` |
-| `repro_manifest.json` (canonical 19-finding manifest) | `3d57ab8a272d7dbad149e5f3df8e025c0049f60ec46724ca1e5e55951403e933` |
-| `verify_packet.py` (static verifier) | `0a2a4022d9ccf247829841b670a6c0b0beddfd6b13a9264be6ca28e593525b77` |
+| `OpenP0Repro_test.cpp` (full jtx proof source) | `fd8b7b7935c196cfe268fc7b9041f010793b22ebdacf8b3da62ea81cd90e3821` |
+| `repro_manifest.json` (canonical 22-finding manifest, Wave 3 added 3 on 2026-05-28) | `92f470d0856ef115a0fa4618d0428ddd2f7f3dfb7f5f315877e1acb2643d1e68` |
+| `verify_packet.py` (static verifier) | `125fa52925bfd61ba7df9358cdbb0cbf98c0ab82926e724c80a6730d23d05925` |
 | `run_definitive_proof.sh` (proof runner) | `2b6f48f830169f02a6b62c6d7fb467d9808810aee501f948ba8a4de9f47fdda0` |
-| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v23.log` (proof log) | `dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362` |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v23.log` (proof log) | `3ad276376bc6a04b7ddc335144d57d9297fedb9a09022af57095967efa939769` |
 | `direct_xrpl_amendment_status_20260527.json` (live amendment receipt) | `a253335ef4bace451ae98f942d31539d544694a75f8c5e62975a9694cc571079` |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` (live runtime receipt) | `150bcf249021d57293276de238e5bfddb90f5b79f5a13cc3ba4b338ac746af96` |
 | `direct_xrpl_did_feature_status_20260528.json` (DID feature receipt) | `e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c` |
@@ -732,8 +782,13 @@ Each row binds a finding to (1) the repro shell wrapper a reviewer can read, (2)
 | `MPT-TRANSFER-RATE-OVERFLOW-001` | `f8038fbfb26bbf8c0bd81bd22947224c6bbc91533777515f15bc6a77b10f646f` | `MPT current — transfer-rate scaling overflows large integral amount` | `MPTokensV1` ✓ | no |
 | `PDEX-HYBRID-QUALITY-001` | `d2222db17ac0059055820627ccc378896ac2325b45fd005d0f974c05fb8e5b28` | `Permissioned DEX current — hybrid offer open-book quality mismatch` | `PermissionedDEX` ✓, `PermissionedDomains` ✓, `Credentials` ✓ | yes |
 | `PDEX-CANCEL-INVARIANT-001` | `eb272ddc63f9fef6821662d5edf41608853970ac88df833497880c3105ca770f` | `Permissioned DEX current — cancel regular offer via domain offer invariant` | same as `PDEX-HYBRID-QUALITY-001` | yes |
+| `NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001` ⓦ | `c03f6d4448fb708e17d439fa0ea12c9a6312086d9e1334ae1bb13b322d632767` | `NFToken current — issuer NFTokenCreateOffer blocked by own GlobalFreeze` | `NonFungibleTokensV1_1` ✓, `NFTokenMintOffer` ✓ | no |
+| `AMMBID-DISALLOW-INCOMING-REFUND-001` ⓦ | `e3708b1f241c5907f798514f3d09b46fd19d171d8f9afcc7f771aa8c0ee4a873` | `AMM current — Bid refund bypasses DisallowIncomingTrustline` | `AMM` ✓, `DisallowIncoming` ✓, `fixDisallowIncomingV1` ✓, `fixDisallowIncomingV1_1` ✗ | no |
+| `NFTOKEN-ACCEPT-DEPOSITAUTH-001` ⓦ | `e1f69aa2374fb7c6fead26a363a7422e4bcfbcf95a047699c1e6a65ddf393bce` | `NFToken current — AcceptOffer bypasses DepositAuth` | `NonFungibleTokensV1_1` ✓, `DepositAuth` ✓ | no |
 
-Tally: 14 of 19 are not fixed in the checked `3.2.0-b7` or `origin/develop` refs, matching the report's headline 14/19 figure. The `verify_packet.py` script enforces the exact same `not_confirmed_fixed` set against `upstream_remediation_status_20260527.json`.
+ⓦ = Wave 3 supplementary additions (2026-05-28). Their jtx run was executed on a separate rippled build (commit `7a1d3e3abbd4f34aec7e822d3fd0f6f63e0f3d28`, branch `internal/bug-hunt-plan`, version 3.2.0-b0) and appended to the proof log; the supplementary footer `3 cases, 166 tests total, 0 failures` is enforced by `verify_packet.py` alongside the original `70 cases, 16752 tests total, 0 failures` footer.
+
+Tally: 17 of 22 are not fixed in the checked `3.2.0-b7` or `origin/develop` refs (the original 14/19 plus the 3 Wave 3 additions; none have a confirmed fix in the upstream remediation receipt at the snapshot date). The `verify_packet.py` script enforces the exact same `not_confirmed_fixed` set against `upstream_remediation_status_20260527.json`.
 
 ### A.7 One-shot verification recipe (no rippled build)
 
@@ -746,7 +801,7 @@ cd agtico.github.io/assets/research/xrpl-rippled-p0-audit
 
 # 2. Verify the packet content root
 sha256sum SHA256SUMS.txt
-# → a5fd9227c072907dd1428e163deb4138967f6215010d1614be7d0a1780723f64
+# → 66175a5059113ccfcce3b99dcd2aada6d70a3037d51af4a84aa6426f70c6c7ff
 sha256sum -c SHA256SUMS.txt | grep -v ': OK$'   # → no output
 
 # 3. Verify the upstream pin
@@ -759,7 +814,7 @@ gh api 'repos/XRPLF/rippled/git/tags/<tag-sha-from-step-3>' --jq '.object.sha'
 # 5. Run the static packet verifier (manifest ↔ scripts ↔ markers ↔ receipts)
 python3 verify_packet.py
 # → packet-ok
-# → records=19 markers=30 proof_sha256=dcbef70e76197ef923edaba32c9594a88f3ceb6a9c60c47587e3c4bc28772362
+# → records=22 markers=33 proof_sha256=3ad276376bc6a04b7ddc335144d57d9297fedb9a09022af57095967efa939769
 ```
 
 Steps 2 through 5 are sufficient to establish: the packet is the file set the author intended; the live-amendment claim is independently true on mainnet; the codebase pin resolves to a GPG-signed upstream tag; every finding maps to a per-ID repro wrapper and a unique marker in the proof log; and the remediation set declared in the report matches the receipt.

@@ -135,3 +135,17 @@ ripple.tx.OpenP0ReproCrash had 0 failures.
 201ms, 1 suite, 1 case, 12 tests total, 0 failures
 
 === Done ===
+
+=== Wave 3 supplementary jtx run (2026-05-28) ===
+Build: /home/pfrpc/repos/rippled/.build/xrpld
+       rippled version 3.2.0-b0  (Git commit 7a1d3e3abbd4f34aec7e822d3fd0f6f63e0f3d28, branch internal/bug-hunt-plan)
+Stage: src/test/app/OpenP0Repro_test.cpp replaced with a minimal 3-testcase stub
+       containing only the Wave 3 additions (testNFTokenOfferIssuerSelfFreezeCurrent,
+       testAMMBidDisallowIncomingRefundCurrent, testNFTokenAcceptDepositAuthCurrent).
+Run:   .build/xrpld --unittest=OpenP0Repro
+
+xrpl.tx.OpenP0Repro NFToken current — issuer NFTokenCreateOffer blocked by own GlobalFreeze
+xrpl.tx.OpenP0Repro AMM current — Bid refund bypasses DisallowIncomingTrustline
+xrpl.tx.OpenP0Repro NFToken current — AcceptOffer bypasses DepositAuth
+xrpl.tx.OpenP0Repro had 0 failures.
+701ms, 1 suite, 3 cases, 166 tests total, 0 failures

@@ -3960,6 +3960,169 @@ class OpenP0Repro_test : public beast::unit_test::suite
         BEAST_EXPECT(!runMptIssuance(withFix));
     }
 
+    // ---------------------------------------------------------------
+    // Wave 3 additions (2026-05-28). See bug_hunt_plan dossiers at
+    //   bug_hunt_plan/funds/NFTOKEN-OFFER-ISSUER-SELF-FREEZE-001.md
+    //   bug_hunt_plan/funds/AMMBID-DISALLOW-INCOMING-REFUND-001.md
+    //   bug_hunt_plan/funds/NFTOKEN-ACCEPT-DEPOSITAUTH-001.md
+    // for full evidence, refutation-trap notes, and severity rationale.
+    // ---------------------------------------------------------------
+
+    void
+    testNFTokenOfferIssuerSelfFreezeCurrent()
+    {
+        testcase("NFToken current — issuer NFTokenCreateOffer blocked by own GlobalFreeze");
+        using namespace jtx;
+
+        FeatureBitset const features = testable_amendments();
+        Env env{*this, features};
+
+        // gw issues USD; alice mints an NFT.
+        // gw wants to BUY alice's NFT priced in gw's own USD. Per spec +
+        // fixNonFungibleTokensV1_2, gw should be able to make a buy-offer
+        // using their own currency (issuer-exemption). Currently fails
+        // with tecFROZEN because NFTokenUtils.cpp:941 runs
+        // isFrozen(acctID=gw, currency=USD, issuer=gw) unguarded — the
+        // GlobalFreeze early-return in isFrozen fires before the
+        // issuer != account check is reached.
+
+        Account const gw{"nft_gw"};
+        Account const alice{"nft_alice"};
+        env.fund(XRP(1'000'000), gw, alice);
+        env(fset(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        // alice mints a transferable NFT.
+        uint256 const nftID = token::getNextID(env, alice, 0u, tfTransferable);
+        env(token::mint(alice, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+
+        // gw freezes their own USD globally.
+        env(fset(gw, asfGlobalFreeze), THISLINE);
+        env.close();
+
+        // gw tries to create a buy-offer for alice's NFT priced in own USD.
+        env(token::createOffer(gw, nftID, gw["USD"](100)),
+            token::owner(alice),
+            ter(tecFROZEN),
+            THISLINE);
+        env.close();
+    }
+
+    void
+    testAMMBidDisallowIncomingRefundCurrent()
+    {
+        testcase("AMM current — Bid refund bypasses DisallowIncomingTrustline");
+        using namespace jtx;
+
+        FeatureBitset const features = testable_amendments();
+        Env env{*this, features};
+
+        Account const gw{"amm_bid_gw"};
+        Account const alice{"amm_bid_alice"};
+        Account const bob{"amm_bid_bob"};
+        auto const USD = gw["USD"];
+
+        env.fund(XRP(400'000), gw, alice, bob);
+        env(fset(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(20'000'000)), THISLINE);
+        env(trust(bob, USD(20'000'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(10'000'000)), THISLINE);
+        env(pay(gw, bob, USD(10'000'000)), THISLINE);
+        env.close();
+
+        AMM amm{env, gw, XRP(10), USD(1'000)};
+        auto const lpIssue = amm.lptIssue();
+
+        env.trust(STAmount{lpIssue, 10'000'000}, alice);
+        env.trust(STAmount{lpIssue, 10'000'000}, bob);
+        env.close();
+        amm.deposit(alice, 1'000'000);
+        amm.deposit(bob, 1'000'000);
+        env.close();
+
+        // alice bids first
+        env(amm.bid({.account = alice, .bidMin = 100}), THISLINE);
+        env.close();
+
+        // alice transfers remaining LP to bob, draining balance to zero
+        auto const aliceLP = amm.getLPTokensBalance(alice.id());
+        if (aliceLP != beast::zero)
+        {
+            env(pay(alice, bob, STAmount{lpIssue, aliceLP}), THISLINE);
+            env.close();
+        }
+
+        // alice closes LP trustline (balance must be zero)
+        env(trust(alice, STAmount{lpIssue, 0}), THISLINE);
+        env.close();
+
+        // alice sets DisallowIncomingTrustline
+        env(fset(alice, asfDisallowIncomingTrustline), THISLINE);
+        env.close();
+
+        // bob outbids alice. AMMBid refund path should respect
+        // DisallowIncoming but doesn't — accountSend → rippleCreditIOU →
+        // trustCreate has no DisallowIncoming check.
+        env(amm.bid({.account = bob}), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        // Bug: new LP trustline now exists for alice despite DisallowIncoming.
+        BEAST_EXPECT(
+            env.le(keylet::line(alice, amm.ammAccount(), lpIssue.currency)));
+    }
+
+    void
+    testNFTokenAcceptDepositAuthCurrent()
+    {
+        testcase("NFToken current — AcceptOffer bypasses DepositAuth");
+        using namespace jtx;
+
+        FeatureBitset const features = testable_amendments();
+        Env env{*this, features};
+
+        Account const gw{"nftda_gw"};
+        Account const alice{"nftda_alice"};
+        Account const bob{"nftda_bob"};
+        auto const USD = gw["USD"];
+
+        env.fund(XRP(100'000), gw, alice, bob);
+        env(fset(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(20'000)), THISLINE);
+        env(trust(bob, USD(20'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(10'000)), THISLINE);
+        env(pay(gw, bob, USD(10'000)), THISLINE);
+        env.close();
+
+        // alice mints + creates sell offer
+        uint256 const nftID = token::getNextID(env, alice, 0u, tfTransferable);
+        env(token::mint(alice, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+        auto const sellIdx = keylet::nftoffer(alice, env.seq(alice)).key;
+        env(token::createOffer(alice, nftID, USD(100)),
+            txflags(tfSellNFToken),
+            THISLINE);
+        env.close();
+
+        // alice sets DepositAuth — she no longer wants incoming payments
+        env(fset(alice, asfDepositAuth), THISLINE);
+        env.close();
+
+        // bob accepts; IOU payment to alice should be blocked but isn't
+        auto const aliceUSDBefore = env.balance(alice, USD);
+        env(token::acceptSellOffer(bob, sellIdx), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        // Bug: alice received USD(100) despite DepositAuth.
+        BEAST_EXPECT(env.balance(alice, USD) == aliceUSDBefore + USD(100));
+    }
+
 public:
     void
     run() override
@@ -4034,6 +4197,10 @@ public:
         testDelegatedEmptyAccountSetCurrent();
         testBatchSignerOuterAccountReplayCurrent();
         testInvariantBoolOverwritePreFix();
+        // Wave 3 additions (2026-05-28)
+        testNFTokenOfferIssuerSelfFreezeCurrent();
+        testAMMBidDisallowIncomingRefundCurrent();
+        testNFTokenAcceptDepositAuthCurrent();
     }
 };
 

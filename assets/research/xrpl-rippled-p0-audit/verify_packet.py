@@ -22,7 +22,7 @@ RUNTIME_STATUS = ROOT / "direct_xrpl_mainnet_runtime_status_20260527.json"
 REMEDIATION_STATUS = ROOT / "upstream_remediation_status_20260527.json"
 MOBY_DICK_LIVE_STATE = ROOT / "runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json"
 
-EXPECTED_RECORD_COUNT = 19
+EXPECTED_RECORD_COUNT = 22
 
 REQUIRED_ENABLED = {
     "AMM",
@@ -410,8 +410,9 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("70 cases, 16752 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("70 cases, 16752 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer (original 19-record run)")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
+    require("3 cases, 166 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer (Wave 3 supplementary run)")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)
     check_remediation(remediation_status)
