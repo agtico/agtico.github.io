@@ -410,7 +410,7 @@ def main() -> int:
         "unexpected target commit",
     )
     require(sha256(proof_log) == proof["sha256"], "proof log SHA-256 mismatch")
-    require("67 cases, 16563 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
+    require("68 cases, 16628 tests total, 0 failures" in proof_text, "proof log missing OpenP0Repro footer")
     require("ripple.tx.OpenP0ReproCrash had 0 failures." in proof_text, "proof log missing crash-control footer")
 
     check_direct_receipts(manifest, amendment_status, runtime_status)

@@ -18,8 +18,8 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T04:06:41Z
-amendment_checked_utc: 2026-05-28T04:06:39Z
+runtime_checked_utc: 2026-05-28T04:19:46Z
+amendment_checked_utc: 2026-05-28T04:19:48Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
 ```
 
@@ -41,6 +41,7 @@ TrustLine current - CheckCash succeeds below missing owner reserve
 TrustLine current - TokenEscrow creates positive balance without reserve
 TrustLine current - NFToken AcceptOffer creates positive balance without reserve
 TrustLine current - NFToken broker fee creates positive balance without reserve
+TrustLine current - AMMWithdraw creates positive balance without reserve
 ```
 
 The packet wrapper reproduced the marker:
@@ -52,18 +53,23 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: 3dadded9cc896d0d5bdb00aed7532f4945cf94698e1c30913497e109facdcda1
+local wrapper log sha256: d8d08e369715c005bf2da1c17a94840735a76665c72be1db66005a5298c60d46
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-15.3s, 1 suite, 67 cases, 16563 tests total, 0 failures
+16.4s, 1 suite, 68 cases, 16628 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=27 proof_sha256=9fa0aa153ce2dda833f3c463911e57ee0f4d9e5033c47f13ad9f743430a28838
+records=19 markers=28 proof_sha256=696128af48ed0a04295cd1f836938e5be8d5bae023d91c1a57022f1761522c3d
 ```
+
+The manifest-only wrapper loop also passed for all 19 included IDs after the
+shared runner footer was updated to the 68-case suite. A broader `repros/*.sh`
+loop was intentionally not used as evidence because the directory still
+contains non-manifest disabled-surface wrappers.
 
 ## Current source-killed siblings
 
@@ -74,7 +80,8 @@ or XRP-to-IOU path `Payment` can recreate the same positive-balance/no-reserve
 state after a holder clears its trustline. Both scratch probes returned
 `tecPATH_DRY` in the cleared-trustline setup and did not create the broken
 state. That narrows the current reserve finding to offer crossing, CheckCash,
-TokenEscrow, and NFToken settlement rather than every `Payment` path.
+TokenEscrow, NFToken settlement, and AMM one-asset withdrawal rather than every
+`Payment` path.
 
 `CHECK-LEGACY-DIRFULL-PARTIAL-001` asked whether `CreateCheck` leaves a partial
 object or owner-directory entry when the source owner directory fails after the
@@ -85,7 +92,7 @@ counts unchanged, and left no check entry in either owner directory.
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
-15.4s, 1 suite, 67 cases, 16563 tests total, 0 failures
+15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
 ```
 
 ## Current sibling: NFToken settlement positive-balance reserve drift
@@ -115,13 +122,40 @@ Proof excerpts:
 ```text
 ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
-15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
+15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
 ```
 
 Interpretation: these are fourth and fifth current-live settlement witnesses
 for the same old receiver-side reserve transition. They do not add root-cause
 count; they show NFT seller proceeds and broker fees hit the same shared IOU
 credit behavior.
+
+## Current sibling: AMMWithdraw positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice clears the gateway USD trustline back to zero balance, zero limit,
+   `OwnerCount=0`, and no receiver reserve flag.
+2. Alice makes an XRP-only AMM deposit into an XRP/USD pool and receives LP
+   tokens.
+3. Alice withdraws her LP position as a one-asset USD withdrawal.
+4. Alice receives gateway USD while the trustline receiver reserve flag remains
+   unset and `OwnerCount=0` after the LP token object is burned.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — AMMWithdraw creates positive balance without reserve
+15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
+```
+
+Interpretation: this is a sixth current-live settlement witness for the same
+old receiver-side reserve transition. It is useful because AMM is a separate
+ledger-effect family, but it still resolves to the same reserve-accounting
+root cause rather than a new finding count.
 
 ## Current sibling: TokenEscrow positive-balance reserve drift
 
@@ -141,7 +175,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
+15.1s, 1 suite, 68 cases, 16628 tests total, 0 failures
 ```
 
 Interpretation: this is a third current-live settlement path for the same

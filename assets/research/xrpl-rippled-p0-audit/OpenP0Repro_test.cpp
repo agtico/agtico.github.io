@@ -3006,6 +3006,63 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceAMMWithdrawCurrent()
+    {
+        testcase("TrustLine current — AMMWithdraw creates positive balance without reserve");
+        using namespace jtx;
+
+        FeatureBitset const features = testable_amendments() | featureAMM;
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+        bool const aliceHigh = alice.id() > gw.id();
+
+        Env env{*this, features};
+        env.fund(XRP(400'000), gw, alice, bob);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env(trust(bob, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env(pay(gw, bob, USD(1'000)), THISLINE);
+        env.close();
+
+        AMM amm{env, bob, XRP(1'000), USD(100)};
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(0)), THISLINE);
+        env.close();
+        env(pay(alice, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+        auto const cleared = env.le(aliceLine);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, alice) == 0);
+        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+
+        auto const aliceTokens = amm.deposit(alice, XRP(100));
+        env.close();
+        BEAST_EXPECT(amm.getLPTokensBalance(alice.id()) > IOUAmount{0});
+
+        amm.withdraw(alice, aliceTokens, USD(0), std::nullopt, ter(tesSUCCESS));
+        env.close();
+
+        auto const withdrawn = env.le(aliceLine);
+        if (!BEAST_EXPECT(withdrawn))
+            return;
+        BEAST_EXPECT(env.balance(alice, USD).number() > beast::zero);
+        BEAST_EXPECT(ownerCount(env, alice) == 0);
+        BEAST_EXPECT(!withdrawn->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testDisallowIncomingTrustlineOfferCreateCurrent()
     {
         testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
@@ -3846,6 +3903,7 @@ public:
         testTrustlinePositiveBalanceTokenEscrowCurrent();
         testTrustlinePositiveBalanceNFTokenAcceptCurrent();
         testTrustlinePositiveBalanceNFTokenBrokerFeeCurrent();
+        testTrustlinePositiveBalanceAMMWithdrawCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();
