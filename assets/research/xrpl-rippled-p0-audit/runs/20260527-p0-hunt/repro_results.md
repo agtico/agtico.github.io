@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,7 +136,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
@@ -163,7 +163,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side companion to the CheckCash
@@ -192,7 +192,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side reserve-boundary companion to the
@@ -220,7 +220,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this proves the same root cause at the reserve boundary. The
@@ -244,7 +244,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this is a third live settlement path for the same old
@@ -252,6 +252,53 @@ receiver-side reserve transition. TokenEscrow correctly checks reserve when it
 must create a missing destination line, but if the line already exists in the
 cleared/no-reserve state, finish can move it positive without charging the
 receiver owner reserve.
+
+## Current sibling: NFToken seller-proceeds reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. The seller clears a gateway USD trustline back to zero balance, zero limit,
+   `OwnerCount=0`, and no receiver reserve flag.
+2. The seller mints an NFT and lists it for gateway USD.
+3. The buyer accepts the sell offer and pays the seller 40 USD.
+4. The seller still has `OwnerCount=0` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
+```
+
+Interpretation: this shows NFT seller proceeds can hit the same old
+positive-balance trustline transition. The NFT page and offer are gone after
+settlement; the positive IOU line is still not charged as an owned object.
+
+## Current sibling: NFToken broker-fee reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. The broker clears a gateway USD trustline back to zero balance, zero limit,
+   `OwnerCount=0`, and no receiver reserve flag.
+2. A brokered NFT sale pays a 10 USD broker fee.
+3. The broker receives the fee while `OwnerCount=0` and the receiver reserve
+   flag remains unset.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
+```
+
+Interpretation: this gives a second NFT-specific witness for the same shared
+IOU credit behavior. It is not counted as a new root cause.
 
 Additional dispositions:
 

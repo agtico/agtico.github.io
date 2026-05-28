@@ -5,7 +5,7 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 
 2026-05-27 portability update: the public repro kit is self-locating and defaults to `/home/postfiat/repos/rippled` when a local upstream checkout exists. The Python model is portable. The jtx proof requires a local rippled test build with `OpenP0Repro_test.cpp` copied into `src/test/app/`.
 
-2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has seven current-live markers. The same cleared/default trustline reserve drift reproduced through offer crossing, `CheckCash`, and TokenEscrow finish; stronger controls show the drift persists when the receiver already owns two ticket objects, and reserve-boundary controls for offer crossing and `CheckCash` succeed while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 65 cases / 16418 tests / 0 failures.
+2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has nine current-live markers. The same cleared/default trustline reserve drift reproduced through offer crossing, `CheckCash`, TokenEscrow finish, NFToken seller proceeds, and NFToken broker fees; stronger controls show the drift persists when the receiver already owns two ticket objects, and reserve-boundary controls for offer crossing and `CheckCash` succeed while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 67 cases / 16563 tests / 0 failures.
 
 2026-05-27 P0-hunt update: the expanded suite also reproduces nine pre-`fixCleanup3_1_3` historical/replay-era root causes with fixed-path negative controls:
 
@@ -188,6 +188,8 @@ ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance w
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — OfferCreate bypasses DisallowIncomingTrustline
 ripple.tx.OpenP0Repro NFToken current — AcceptOffer bypasses DisallowIncomingTrustline
 ripple.tx.OpenP0Repro CheckCash current — bypasses DisallowIncomingTrustline
@@ -197,7 +199,7 @@ ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permi
 ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
 ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
 ripple.tx.OpenP0Repro had 0 failures.
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Test source: `src/test/app/OpenP0Repro_test.cpp`

@@ -2877,6 +2877,135 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceNFTokenAcceptCurrent()
+    {
+        testcase("TrustLine current — NFToken AcceptOffer creates positive balance without reserve");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const seller{"seller"};
+        Account const buyer{"buyer"};
+        auto const USD = gw["USD"];
+        bool const sellerHigh = seller.id() > gw.id();
+
+        Env env{*this};
+        env.fund(XRP(400'000), gw, seller, buyer);
+        env.close();
+
+        env(trust(seller, USD(1'000)), THISLINE);
+        env(trust(buyer, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, seller, USD(100)), THISLINE);
+        env(pay(gw, buyer, USD(100)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(seller, USD(0)), THISLINE);
+        env.close();
+        env(pay(seller, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+        auto const cleared = env.le(sellerLine);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, seller) == 0);
+        BEAST_EXPECT(!cleared->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+
+        auto const nftID = token::getNextID(env, seller, 0u, tfTransferable);
+        env(token::mint(seller, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+
+        auto const sellIdx = keylet::nftoffer(seller, env.seq(seller)).key;
+        env(token::createOffer(seller, nftID, USD(40)),
+            txflags(tfSellNFToken),
+            THISLINE);
+        env.close();
+
+        env(token::acceptSellOffer(buyer, sellIdx), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        auto const settled = env.le(sellerLine);
+        if (!BEAST_EXPECT(settled))
+            return;
+        env.require(balance(seller, USD(40)));
+        BEAST_EXPECT(ownerCount(env, seller) == 0);
+        BEAST_EXPECT(!settled->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
+    testTrustlinePositiveBalanceNFTokenBrokerFeeCurrent()
+    {
+        testcase("TrustLine current — NFToken broker fee creates positive balance without reserve");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const seller{"seller"};
+        Account const buyer{"buyer"};
+        Account const broker{"broker"};
+        auto const USD = gw["USD"];
+        bool const brokerHigh = broker.id() > gw.id();
+
+        Env env{*this};
+        env.fund(XRP(400'000), gw, seller, buyer, broker);
+        env.close();
+
+        env(trust(seller, USD(1'000)), THISLINE);
+        env(trust(buyer, USD(1'000)), THISLINE);
+        env(trust(broker, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, buyer, USD(100)), THISLINE);
+        env(pay(gw, broker, USD(100)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(broker, USD(0)), THISLINE);
+        env.close();
+        env(pay(broker, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+        auto const cleared = env.le(brokerLine);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, broker) == 0);
+        BEAST_EXPECT(!cleared->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+
+        auto const nftID = token::getNextID(env, seller, 0u, tfTransferable);
+        env(token::mint(seller, 0u), txflags(tfTransferable), THISLINE);
+        env.close();
+
+        auto const sellIdx = keylet::nftoffer(seller, env.seq(seller)).key;
+        env(token::createOffer(seller, nftID, USD(40)),
+            txflags(tfSellNFToken),
+            THISLINE);
+        env.close();
+
+        auto const buyIdx = keylet::nftoffer(buyer, env.seq(buyer)).key;
+        env(token::createOffer(buyer, nftID, USD(60)),
+            token::owner(seller),
+            THISLINE);
+        env.close();
+
+        env(token::brokerOffers(broker, buyIdx, sellIdx),
+            token::brokerFee(USD(10)),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        auto const paid = env.le(brokerLine);
+        if (!BEAST_EXPECT(paid))
+            return;
+        env.require(balance(broker, USD(10)));
+        BEAST_EXPECT(ownerCount(env, broker) == 0);
+        BEAST_EXPECT(!paid->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testDisallowIncomingTrustlineOfferCreateCurrent()
     {
         testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
@@ -3715,6 +3844,8 @@ public:
         testTrustlinePositiveBalanceCheckCashExistingOwnersCurrent();
         testTrustlinePositiveBalanceCheckCashReserveBoundaryCurrent();
         testTrustlinePositiveBalanceTokenEscrowCurrent();
+        testTrustlinePositiveBalanceNFTokenAcceptCurrent();
+        testTrustlinePositiveBalanceNFTokenBrokerFeeCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();

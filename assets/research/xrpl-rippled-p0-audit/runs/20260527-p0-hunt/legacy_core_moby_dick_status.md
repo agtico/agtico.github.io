@@ -31,6 +31,8 @@ TrustLine current - CheckCash creates positive balance without reserve
 TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
 TrustLine current - CheckCash succeeds below missing owner reserve
 TrustLine current - TokenEscrow creates positive balance without reserve
+TrustLine current - NFToken AcceptOffer creates positive balance without reserve
+TrustLine current - NFToken broker fee creates positive balance without reserve
 ```
 
 The packet wrapper reproduced the marker:
@@ -42,18 +44,53 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: 8a9500778976093094769df9d0a7d4106bf6fc789a4e9249626603a7a7df17f7
+local wrapper log sha256: 3dadded9cc896d0d5bdb00aed7532f4945cf94698e1c30913497e109facdcda1
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-16.4s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.3s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=25 proof_sha256=02b5a8dfb409ae43fc7387f700583da21a088fd662deee02664fbef366deffb1
+records=19 markers=27 proof_sha256=9fa0aa153ce2dda833f3c463911e57ee0f4d9e5033c47f13ad9f743430a28838
 ```
+
+## Current sibling: NFToken settlement positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal seller-proceeds behavior:
+
+1. The seller clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. The seller mints an NFT and creates a sell offer priced in gateway USD.
+3. The buyer accepts the sell offer.
+4. The seller receives 40 USD, the NFT/offer objects are gone, `OwnerCount`
+   is still `0`, and the receiver reserve flag remains unset.
+
+Minimal broker-fee behavior:
+
+1. The broker clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. A brokered NFT sale pays a 10 USD broker fee.
+3. The broker receives 10 USD, `OwnerCount` is still `0`, and the receiver
+   reserve flag remains unset.
+
+Proof excerpts:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — NFToken AcceptOffer creates positive balance without reserve
+ripple.tx.OpenP0Repro TrustLine current — NFToken broker fee creates positive balance without reserve
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
+```
+
+Interpretation: these are fourth and fifth current-live settlement witnesses
+for the same old receiver-side reserve transition. They do not add root-cause
+count; they show NFT seller proceeds and broker fees hit the same shared IOU
+credit behavior.
 
 ## Current sibling: TokenEscrow positive-balance reserve drift
 
@@ -73,7 +110,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
-15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+15.2s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 Interpretation: this is a third current-live settlement path for the same
