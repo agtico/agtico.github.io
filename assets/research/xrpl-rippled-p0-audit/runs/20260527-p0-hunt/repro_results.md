@@ -1943,9 +1943,38 @@ empty-AdditionalBooks exclusion, and credential/domain lifecycle handling, but
 did not produce a new domain, credential, hybrid-book, cancellation,
 book-directory, owner-count, or invariant witness.
 
+## Demoted: TokenEscrow result-code and invariant sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The next broader live-feature pass focused on TokenEscrow result-code,
+owner-count, directory, amount, authorization, freeze, clawback, MPT, and
+invariant paths. The sweep covered `EscrowCreate`, `EscrowFinish`,
+`EscrowCancel`, `escrowUnlockApplyHelper`, `DeleteAccount`, `InvariantCheck`,
+`MPTokenAuthorize`, `MPTokenIssuanceCreate/Set`, `Clawback`, `AMMClawback`,
+STAmount/MPTAmount/IOUAmount arithmetic, owner directories, `DepositAuth`,
+`RequireAuth`, freeze checks, and `fixTokenEscrowV1` boundaries.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+tokenescrow_resultcode_invariant_static_sweep_20260528.log sha256 a38b3fc2f7b5fbfd7eb1ed94338513e1c96cb48b880a1fc4f4c288e67c3515c6
+tokenescrow_resultcode_invariant_history_sweep_20260528.log sha256 031ddf73f8b1ea7acb68f4bc4c2ac346ae656d97539762130fa20bf3bd3bab9f
+tokenescrow_resultcode_invariant_source_kill_20260528.log sha256 11cf95bd00a8e169a62df4968d679556fbc1a925efe2d5e9fab5f7b873fb94a5
+122.4s, 13 suites, 447 cases, 169461 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new live TokenEscrow P0. The
+checked paths reinforce existing packet and triage entries around
+`TOKENESCROW-DISALLOW-INCOMING-FINISH-001`, TokenEscrow trustline-reserve
+markers, MPT lock/authorization boundaries, escrow account-delete obligations,
+and amount/invariant handling, but did not produce a new result-code,
+owner-count, directory, amount, authorization, freeze, clawback, MPT, or
+invariant witness.
+
 ## Open candidates
 
-The bridge, NFT, TokenEscrow, Credentials, authorization, and remaining
-vault/loan candidates are source-backed or model-triaged but not reproduced.
-They stay in `candidate_matrix.md` until a clean jtx or unit-level repro
-exists.
+The bridge, NFT, Credentials, authorization, and remaining vault/loan
+candidates are source-backed or model-triaged but not reproduced. They stay in
+`candidate_matrix.md` until a clean jtx or unit-level repro exists.

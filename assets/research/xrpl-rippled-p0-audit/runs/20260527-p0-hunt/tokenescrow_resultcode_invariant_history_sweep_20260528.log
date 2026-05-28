@@ -1,0 +1,134 @@
+4539bb074 chore: Consolidate fix amendments (#104)
+dc707b9f3 feat: Enable and rename fixSecurity3_1_3 amendment (#90)
+5aa3d5e23 refactor: Remove erroneous base_uint ctor from container (#46)
+2794a7503 fix: Prevents overwritting a bool value in an invariant (#6609) (#6961)
+5ad05918f fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716) (#6945)
+519d9057a fix: Improve invariant check for Permissioned Domains (#6134) (#6958)
+7e7dc3070 fix: Add rounding to Vault invariants (#6217) (#6957)
+e09949ccd fix: Fix touchy "funds are conserved" assertion in LoanPay (#6231)
+c979643d0 fix: Add assorted Lending Protocol fixes (#6678)
+11bab0661 fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+a92483e07 fix: Improve loan invariant message (#6668)
+e3644f265 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259)
+1ead5a7ac Expand Number to support full integer range (#6192)
+418ce6830 VaultClawback: Burn shares of an empty vault (#6120)
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+6b55db490 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+4425f84c1 Remove directory size limit (#5935)
+8951419db fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+224b05512 chore: remove unnecessary LCOV_EXCL_LINE (#5913)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+220ab2622 Add vault invariants (#5518)
+5b2ab905c chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+8e4fda160 Rename flags for DynamicMPT (#5820)
+d67dcfe3c refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+3cbdf818a Miscellaneous refactors and updates (#5590)
+dc8b37a52 refactor: Modularise ledger (#5493)
+510314d34 fix(amendment): Add missing fields for keylets to ledger objects (#5646)
+37b951859 Rename mutable flags (#5797)
+ccb9f1e42 Support DynamicMPT XLS-94d (#5705)
+37c377a1b Fix: EscrowTokenV1 (#5571)
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+b7ed99426 fix: Make test suite names match the directory name (#5597)
+b5a63b39d refactor: Decouple ledger from xrpld/app (#5492)
+e7a7bb83c VaultWithdraw destination account bugfix (#5572)
+80d82c5b2 Add support for `DomainID` in `MPTokenIssuance` transactions (#5509)
+c233df720 refactor: Makes HashRouter flags more type-safe (#5371)
+8bfaa7fe0 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+c9135a63c Retire Flow Cross amendment (#5562)
+8aa94ea09 fixAMMClawbackRounding: adjust last holder's LPToken balance (#5513)
+9874d47d7 Decouple CredentialHelpers from xrpld/app/tx (#5487)
+58c2c82a3 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+a5e953b19 fix: Add tecNO_DELEGATE_PERMISSION and fix flags (#5465)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+7e24adbdd fix: Address NFT interactions with trustlines (#5297)
+621df422a fix: Add AMMv1_3 amendment (#5203)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+3e152fec7 refactor: use east const convention (#5409)
+2db279180 Add PermissionDelegation feature (#5354)
+cba512068 refactor: Clean up test logging to make it easier to search (#5396)
+a574ec602 fix: `fixPayChanV1` (#4717)
+2bc5cb240 test: enable unit tests to work with variable reference fee (#5145)
+c17676a9b refactor: Improve ordering of headers with clang-format (#5343)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+33e1c4259 Add deep freeze feature (XLS-77d) (#5187)
+ccc088980 Permissioned Domains (XLS-80d) (#5161)
+5cd72f243 Add MPTIssue to STIssue (#5200)
+eabca8439 Antithesis instrumentation improvements (#5213)
+ea1fffeeb Enforce levelization in libxrpl with CMake (#5111)
+d7e949193 Add Antithesis intrumentation (#5042)
+b54d85d86 refactor(AMMClawback): move tfClawTwoAssets check (#5201)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+c5c0e70e2 Fix token comparison in Payment (#5172)
+ec61f5e9d Add fixAMMv1_2 amendment (#5176)
+d57cced17 Fix unity build (#5179)
+54a350be7 Add AMMClawback Transaction (XLS-0073d) (#5142)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+552377c76 Reformat code with clang-format-18
+9a6af9c43 chore: fix typos in comments (#5094)
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+20707fac4 chore: Rename two files from Directory* to Dir*: (#5058)
+a17ccca61 Invariant: prevent a deleted account from leaving (most) artifacts on the ledger. (#4663)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+659bd99a6 fix amendment to add `PreviousTxnID`/`PreviousTxnLgrSequence` (#4751)
+b421945e7 `DID`: Decentralized identifiers (DIDs) (XLS-40): (#4636)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+5ba1f984d Rename `allowClawback` flag to `allowTrustLineClawback` (#4617)
+3c9db4b69 Introduce AMM support (XLS-30d): (#4294)
+b7e902dcc XLS-39 Clawback: (#4553)
+e4b17d1cf `XRPFees`: Fee setting and handling improvements (#4247)
+0362e935a Reduce default reserves to 10/2 (#4329)
+8d59c7dd4 Redistribute unit test priorities based on current measurements
+10e4608ce Improve unit test coverage of AccountDelete transactor
+ff3d2e7c2 Use jtx::offer_cancel more places:
+85307b29d Add constexpr constructor for base_uint
+44fe0e1fc Add support for the 'TicketBatch' amendment:
+f07246940 Simplify & modernize code:
+17abca1ca Use macros to instantiate most SField instances:
+7724cca38 Implement enhanced Ticket support:
+74f9edef0 Prefer keylets instead of naked hashes:
+50760c693 Format first-party source according to .clang-format
+3d3b6d85c Remove conditionals for fix1523 enabled 14Nov2017
+323dbc796 Remove conditionals for featureSortedDirectories enabled 14Nov2017
+a6246b0ba Remove conditionals for fix1373 enabled 07Jul2017
+c8282795e Remove conditionals for featureEscrow enabled 31Mar2017
+81326a6d0 Remove old payment code
+761bb5744 Make XRPAmount constructor explicit:
+e3b5b808c Add units to all fee calculations:
+a3a9dc26b Introduce support for deletable accounts:
+b9e73b485 Fix shadowing variables
+f8365f500 Add JsonOptions enum class to contain options passed to getJSON methods
+b39b0fef3 Get names of transactions and ledger types from jss
+64b55c0f8 Rename JsonFields.h to jss.h:
+70d9d88cd Remove using namespace beast in base_uint.h
+b14bdb068 Standardize on default_prng() for non-crypto shuffling
+f658656b8 Mark some single-argument constructors explicit
+7c785d0d7 Add missing override keyword:
+cfdc64d7c Enable manual tests in CI:
+008ff67ac Add DepositPreauth ledger type and transaction (RIPD-1624):
+118c25c0f Compile time check preflight returns no tec (RIPD-1624):
+04f138886 Remove extra semicolons:
+deb9e4ce3 Remove BeastConfig.h (RIPD-1167)
+8d9dffcf8 Clarify Escrow semantics (RIPD-1571):
+da43775d1 Unit test that NoRipple and DepositAuth are orthogonal
+cc0ce7163 PayChan and Escrow should ignore DisallowXRP (RIPD-1462)
+259394029 Support for lsfDepositAuth (RIPD-1487):
+e8d02c133 Refactor FeatureBitset:
+3523cee63 Minimize use of jtx::with_only_features (RIPD-1515):
+feb7582ac Unit tests don't enable Tickets or SHAMapV2 by default:
+c7c1b3cc3 Track escrow in recipient's owner directory (RIPD-1523):
+3c0b35092 Remove unused lambda capture
+463b154e3 Improve directory insertion & deletion (RIPD-1353, RIPD-1488):
+56946e812 Change features default behavior in Env (RIPD-1460):
+369909df8 Use payment flow code for offer crossing (RIPD-1094):
+2680b78b5 Rename featureToStrandV2 to fix1373
+846723d77 New rules for payment paths:
+cfde591ac Add Escrow support:
+fb60cc9b5 Cleanup unit test support code (RIPD-1380):
+b6a01ea41 Move support test code to src/test/support (RIPD-1313)
+28ae522ea Migrate freeze-test to cpp (RIPD-1154):
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

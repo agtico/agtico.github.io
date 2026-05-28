@@ -1,0 +1,472 @@
+ripple.app.AccountDelete Basics
+ripple.app.AccountDelete Directories
+ripple.app.AccountDelete Owned types
+ripple.app.AccountDelete Resurrection
+ripple.app.AccountDelete Amendment enable
+ripple.app.AccountDelete Too many offers
+ripple.app.AccountDelete Implicitly created trust line
+ripple.app.AccountDelete Balance too small for fee
+ripple.app.AccountDelete With Tickets
+ripple.app.AccountDelete Destination Constraints
+ripple.app.AccountDelete Destination Constraints with DepositPreauth and Credentials
+ripple.app.AccountDelete Credentials that aren't required
+ripple.app.AccountDelete Expired credentials
+ripple.app.AccountDelete Credentials feature disabled
+ripple.app.AccountDelete Deleting Issuer deletes issued credentials
+ripple.app.AccountDelete Deleting Subject deletes issued credentials
+ripple.app.AccountDelete had 0 failures.
+ripple.app.MPToken Multi-send MaximumAmount enforcement
+ripple.app.MPToken Create Validate
+ripple.app.MPToken Create Validate
+ripple.app.MPToken Create Validate
+ripple.app.MPToken Create Enabled
+ripple.app.MPToken Create Enabled
+ripple.app.MPToken Destroy Validate
+ripple.app.MPToken Destroy Validate
+ripple.app.MPToken Destroy Enabled
+ripple.app.MPToken Destroy Enabled
+ripple.app.MPToken Validate authorize transaction
+ripple.app.MPToken Validate authorize transaction
+ripple.app.MPToken Authorize Enabled
+ripple.app.MPToken Authorize Enabled
+ripple.app.MPToken Validate set transaction
+ripple.app.MPToken Validate set transaction
+ripple.app.MPToken Validate set transaction
+ripple.app.MPToken Validate set transaction
+ripple.app.MPToken Validate set transaction
+ripple.app.MPToken Enabled set transaction
+ripple.app.MPToken Enabled set transaction
+ripple.app.MPToken MPT clawback validations
+ripple.app.MPToken MPT Clawback
+ripple.app.MPToken Payment
+ripple.app.MPToken DepositPreauth
+ripple.app.MPToken DepositPreauth disabled featureCredentials
+ripple.app.MPToken DepositPreauth disabled featureCredentials
+ripple.app.MPToken MPT Issue Invalid in Transaction
+ripple.app.MPToken Test synthetic fields from tx response
+ripple.app.MPToken Tokens Equality
+ripple.app.MPToken Test STAmount MPT arithmetics
+ripple.app.MPToken Test MPTAmount arithmetics
+ripple.app.MPToken Test MPTIssue from/to Json
+ripple.app.MPToken Test Asset from/to Json
+ripple.app.MPToken invalid MPTokenIssuanceCreate for DynamicMPT
+ripple.app.MPToken invalid MPTokenIssuanceSet for DynamicMPT
+ripple.app.MPToken Mutate MPT
+ripple.app.MPToken Mutate MPTCanLock
+ripple.app.MPToken Mutate MPTRequireAuth
+ripple.app.MPToken Mutate MPTCanEscrow
+ripple.app.MPToken Mutate MPTCanTransfer
+ripple.app.MPToken Mutate MPTCanClawback
+ripple.app.MPToken had 0 failures.
+ripple.ledger.Directory Directory Ordering (with 'SortedDirectories' amendment)
+ripple.ledger.Directory dirIsEmpty
+ripple.ledger.Directory RIPD-1353 Empty Offer Directories
+ripple.ledger.Directory Empty Chain on Delete
+ripple.ledger.Directory fixPreviousTxnID
+ripple.ledger.Directory directory full without fixDirectoryLimit
+ripple.ledger.Directory directory not full with fixDirectoryLimit
+ripple.ledger.Directory directory full with fixDirectoryLimit
+ripple.ledger.Directory had 0 failures.
+ripple.app.AMMClawback test invalid request
+ripple.app.AMMClawback test featureAMMClawback is not enabled.
+ripple.app.AMMClawback test AMMClawback specific amount
+ripple.app.AMMClawback test AMMClawback specific amount which exceeds the current balance
+ripple.app.AMMClawback test AMMClawback all the tokens in the AMM pool
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same issuer
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same currency, but from different issuer
+ripple.app.AMMClawback test AMMClawback when issuing token for each other
+ripple.app.AMMClawback test AMMClawback from account which does not own any lptoken in the pool
+ripple.app.AMMClawback test assets frozen
+ripple.app.AMMClawback test single depoit and clawback
+ripple.app.AMMClawback test last holder's lptoken balance not equal to AMM's lptoken balance before clawback
+ripple.app.AMMClawback test AMMClawback specific amount
+ripple.app.AMMClawback test AMMClawback specific amount which exceeds the current balance
+ripple.app.AMMClawback test AMMClawback all the tokens in the AMM pool
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same issuer
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same currency, but from different issuer
+ripple.app.AMMClawback test AMMClawback when issuing token for each other
+ripple.app.AMMClawback test AMMClawback from account which does not own any lptoken in the pool
+ripple.app.AMMClawback test assets frozen
+ripple.app.AMMClawback test single depoit and clawback
+ripple.app.AMMClawback test last holder's lptoken balance not equal to AMM's lptoken balance before clawback
+ripple.app.AMMClawback test AMMClawback specific amount
+ripple.app.AMMClawback test AMMClawback specific amount which exceeds the current balance
+ripple.app.AMMClawback test AMMClawback all the tokens in the AMM pool
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same issuer
+ripple.app.AMMClawback test AMMClawback from AMM pool with assets having the same currency, but from different issuer
+ripple.app.AMMClawback test AMMClawback when issuing token for each other
+ripple.app.AMMClawback test AMMClawback from account which does not own any lptoken in the pool
+ripple.app.AMMClawback test assets frozen
+ripple.app.AMMClawback test single depoit and clawback
+ripple.app.AMMClawback test last holder's lptoken balance not equal to AMM's lptoken balance before clawback
+ripple.app.AMMClawback had 0 failures.
+ripple.app.Clawback Enable AllowTrustLineClawback flag
+ripple.app.Clawback Validation
+ripple.app.Clawback Permission
+ripple.app.Clawback Enable clawback
+ripple.app.Clawback Multi line
+ripple.app.Clawback Bidirectional line
+ripple.app.Clawback Delete default trustline
+ripple.app.Clawback Frozen trustline
+ripple.app.Clawback Amount exceeds available
+ripple.app.Clawback Tickets
+ripple.app.Clawback Enable AllowTrustLineClawback flag
+ripple.app.Clawback Validation
+ripple.app.Clawback Permission
+ripple.app.Clawback Enable clawback
+ripple.app.Clawback Multi line
+ripple.app.Clawback Bidirectional line
+ripple.app.Clawback Delete default trustline
+ripple.app.Clawback Frozen trustline
+ripple.app.Clawback Amount exceeds available
+ripple.app.Clawback Tickets
+ripple.app.Clawback had 0 failures.
+ripple.app.DepositAuth Enable
+ripple.app.DepositAuth Pay IOU
+ripple.app.DepositAuth Pay XRP
+ripple.app.DepositAuth No Ripple
+ripple.app.DepositAuth had 0 failures.
+ripple.app.DepositPreauth Enable
+ripple.app.DepositPreauth Invalid
+ripple.app.DepositPreauth Payment
+ripple.app.DepositPreauth Payment
+ripple.app.DepositPreauth Payment
+ripple.app.DepositPreauth Payment
+ripple.app.DepositPreauth Payment failure with disabled credentials rule.
+ripple.app.DepositPreauth Payment with credentials.
+ripple.app.DepositPreauth Payment failure with invalid credentials.
+ripple.app.DepositPreauth Creating / deleting with credentials.
+ripple.app.DepositPreauth Payment failure with expired credentials.
+ripple.app.DepositPreauth Escrow failure with expired credentials.
+ripple.app.DepositPreauth Sorting credentials.
+ripple.app.DepositPreauth Check duplicate credentials.
+ripple.app.DepositPreauth had 0 failures.
+ripple.app.Escrow Enablement
+ripple.app.Escrow Timing: Finish Only
+ripple.app.Escrow Timing: Cancel Only
+ripple.app.Escrow Timing: Finish and Cancel -> Finish
+ripple.app.Escrow Timing: Finish and Cancel -> Cancel
+ripple.app.Escrow Tags
+ripple.app.Escrow Disallow XRP
+ripple.app.Escrow Implied Finish Time (without fix1571)
+ripple.app.Escrow Implied Finish Time (with fix1571)
+ripple.app.Escrow Failure Cases
+ripple.app.Escrow Lockup
+ripple.app.Escrow Escrow with CryptoConditions
+ripple.app.Escrow Metadata to self
+ripple.app.Escrow Metadata to other
+ripple.app.Escrow Consequences
+ripple.app.Escrow Escrow with tickets
+ripple.app.Escrow Test with credentials
+ripple.app.Escrow Escrow with credentials without depositPreauth
+ripple.app.Escrow Enablement
+ripple.app.Escrow Timing: Finish Only
+ripple.app.Escrow Timing: Cancel Only
+ripple.app.Escrow Timing: Finish and Cancel -> Finish
+ripple.app.Escrow Timing: Finish and Cancel -> Cancel
+ripple.app.Escrow Tags
+ripple.app.Escrow Disallow XRP
+ripple.app.Escrow Implied Finish Time (without fix1571)
+ripple.app.Escrow Implied Finish Time (with fix1571)
+ripple.app.Escrow Failure Cases
+ripple.app.Escrow Lockup
+ripple.app.Escrow Escrow with CryptoConditions
+ripple.app.Escrow Metadata to self
+ripple.app.Escrow Metadata to other
+ripple.app.Escrow Consequences
+ripple.app.Escrow Escrow with tickets
+ripple.app.Escrow Test with credentials
+ripple.app.Escrow Escrow with credentials without depositPreauth
+ripple.app.Escrow Tags
+ripple.app.Escrow had 0 failures.
+ripple.app.EscrowToken IOU Enablement
+ripple.app.EscrowToken IOU Allow Locking Flag
+ripple.app.EscrowToken IOU Create Preflight
+ripple.app.EscrowToken IOU Create Preclaim
+ripple.app.EscrowToken IOU Finish Preclaim
+ripple.app.EscrowToken IOU Finish Do Apply
+ripple.app.EscrowToken IOU Cancel Preclaim
+ripple.app.EscrowToken IOU Balances
+ripple.app.EscrowToken IOU Metadata to self
+ripple.app.EscrowToken IOU Metadata to other
+ripple.app.EscrowToken IOU Metadata to issuer
+ripple.app.EscrowToken IOU RippleState
+ripple.app.EscrowToken IOU Gateway
+ripple.app.EscrowToken IOU Locked Rate
+ripple.app.EscrowToken IOU Limit
+ripple.app.EscrowToken IOU Require Auth
+ripple.app.EscrowToken IOU Freeze
+ripple.app.EscrowToken IOU Insuficient Funds
+ripple.app.EscrowToken IOU Precision Loss
+ripple.app.EscrowToken MPT Enablement
+ripple.app.EscrowToken MPT Create Preflight
+ripple.app.EscrowToken MPT Create Preclaim
+ripple.app.EscrowToken MPT Finish Preclaim
+ripple.app.EscrowToken MPT Finish Do Apply
+ripple.app.EscrowToken MPT Cancel Preclaim
+ripple.app.EscrowToken MPT Balances
+ripple.app.EscrowToken MPT Metadata to self
+ripple.app.EscrowToken MPT Metadata to other
+ripple.app.EscrowToken MPT Gateway Balances
+ripple.app.EscrowToken MPT Locked Rate
+ripple.app.EscrowToken MPT Require Auth
+ripple.app.EscrowToken MPT Lock
+ripple.app.EscrowToken MPT Can Transfer
+ripple.app.EscrowToken MPT Destroy
+ripple.app.EscrowToken MPT Enablement
+ripple.app.EscrowToken MPT Create Preflight
+ripple.app.EscrowToken MPT Create Preclaim
+ripple.app.EscrowToken MPT Finish Preclaim
+ripple.app.EscrowToken MPT Finish Do Apply
+ripple.app.EscrowToken MPT Cancel Preclaim
+ripple.app.EscrowToken MPT Balances
+ripple.app.EscrowToken MPT Metadata to self
+ripple.app.EscrowToken MPT Metadata to other
+ripple.app.EscrowToken MPT Gateway Balances
+ripple.app.EscrowToken MPT Locked Rate
+ripple.app.EscrowToken MPT Require Auth
+ripple.app.EscrowToken MPT Lock
+ripple.app.EscrowToken MPT Can Transfer
+ripple.app.EscrowToken MPT Destroy
+ripple.app.EscrowToken IOU Enablement
+ripple.app.EscrowToken IOU Allow Locking Flag
+ripple.app.EscrowToken IOU Create Preflight
+ripple.app.EscrowToken IOU Create Preclaim
+ripple.app.EscrowToken IOU Finish Preclaim
+ripple.app.EscrowToken IOU Finish Do Apply
+ripple.app.EscrowToken IOU Cancel Preclaim
+ripple.app.EscrowToken IOU Balances
+ripple.app.EscrowToken IOU Metadata to self
+ripple.app.EscrowToken IOU Metadata to other
+ripple.app.EscrowToken IOU Metadata to issuer
+ripple.app.EscrowToken IOU RippleState
+ripple.app.EscrowToken IOU Gateway
+ripple.app.EscrowToken IOU Locked Rate
+ripple.app.EscrowToken IOU Limit
+ripple.app.EscrowToken IOU Require Auth
+ripple.app.EscrowToken IOU Freeze
+ripple.app.EscrowToken IOU Insuficient Funds
+ripple.app.EscrowToken IOU Precision Loss
+ripple.app.EscrowToken MPT Enablement
+ripple.app.EscrowToken MPT Create Preflight
+ripple.app.EscrowToken MPT Create Preclaim
+ripple.app.EscrowToken MPT Finish Preclaim
+ripple.app.EscrowToken MPT Finish Do Apply
+ripple.app.EscrowToken MPT Cancel Preclaim
+ripple.app.EscrowToken MPT Balances
+ripple.app.EscrowToken MPT Metadata to self
+ripple.app.EscrowToken MPT Metadata to other
+ripple.app.EscrowToken MPT Gateway Balances
+ripple.app.EscrowToken MPT Locked Rate
+ripple.app.EscrowToken MPT Require Auth
+ripple.app.EscrowToken MPT Lock
+ripple.app.EscrowToken MPT Can Transfer
+ripple.app.EscrowToken MPT Destroy
+ripple.app.EscrowToken MPT Enablement
+ripple.app.EscrowToken MPT Create Preflight
+ripple.app.EscrowToken MPT Create Preclaim
+ripple.app.EscrowToken MPT Finish Preclaim
+ripple.app.EscrowToken MPT Finish Do Apply
+ripple.app.EscrowToken MPT Cancel Preclaim
+ripple.app.EscrowToken MPT Balances
+ripple.app.EscrowToken MPT Metadata to self
+ripple.app.EscrowToken MPT Metadata to other
+ripple.app.EscrowToken MPT Gateway Balances
+ripple.app.EscrowToken MPT Locked Rate
+ripple.app.EscrowToken MPT Require Auth
+ripple.app.EscrowToken MPT Lock
+ripple.app.EscrowToken MPT Can Transfer
+ripple.app.EscrowToken MPT Destroy
+ripple.app.EscrowToken had 0 failures.
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze RippleState Freeze
+ripple.app.Freeze Deep Freeze
+ripple.app.Freeze Create Frozen Trustline
+ripple.app.Freeze Freeze Set and Clear
+ripple.app.Freeze Global Freeze
+ripple.app.Freeze No Freeze
+ripple.app.Freeze Offers for Frozen Trust Lines
+ripple.app.Freeze Offers on frozen trust lines
+ripple.app.Freeze Direct payments on frozen trust lines
+ripple.app.Freeze Checks on frozen trust lines
+ripple.app.Freeze AMM payments on frozen trust lines
+ripple.app.Freeze Longer paths payment on frozen trust lines
+ripple.app.Freeze NFT offers on frozen trust lines
+ripple.app.Freeze had 0 failures.
+ripple.app.Invariants XRP created
+ripple.app.Invariants account root removed
+ripple.app.Invariants account root deletion left artifact
+ripple.app.Invariants ledger entry types don't match
+ripple.app.Invariants trust lines with XRP not allowed
+ripple.app.Invariants trust lines with deep freeze flag without freeze not allowed
+ripple.app.Invariants transfers when frozen
+ripple.app.Invariants XRP balance checks
+ripple.app.Invariants Transaction fee checks
+ripple.app.Invariants no bad offers
+ripple.app.Invariants no zero escrow
+ripple.app.Invariants valid new account root
+ripple.app.Invariants NFTokenPage
+ripple.app.Invariants PermissionedDomain fix
+ripple.app.Invariants PermissionedDomain 2
+ripple.app.Invariants PermissionedDomain 3
+ripple.app.Invariants PermissionedDomain 4
+ripple.app.Invariants PermissionedDomain Set 1
+ripple.app.Invariants PermissionedDomain Set 2
+ripple.app.Invariants PermissionedDomain Set 3
+ripple.app.Invariants PermissionedDomain Set 4
+ripple.app.Invariants PermissionedDomain set 2 domains
+ripple.app.Invariants PermissionedDomain del 2 domains
+ripple.app.Invariants PermissionedDomain set 0 domains
+ripple.app.Invariants PermissionedDomain del 0 domains
+ripple.app.Invariants PermissionedDomain set, delete domain
+ripple.app.Invariants PermissionedDomain del, create domain
+ripple.app.Invariants PermissionedDomain invalid tx
+ripple.app.Invariants PermissionedDomain
+ripple.app.Invariants PermissionedDomain 2
+ripple.app.Invariants PermissionedDomain 3
+ripple.app.Invariants PermissionedDomain 4
+ripple.app.Invariants PermissionedDomain Set 1
+ripple.app.Invariants PermissionedDomain Set 2
+ripple.app.Invariants PermissionedDomain Set 3
+ripple.app.Invariants PermissionedDomain Set 4
+ripple.app.Invariants PermissionedDomain set 2 domains
+ripple.app.Invariants PermissionedDomain del 2 domains
+ripple.app.Invariants PermissionedDomain set 0 domains
+ripple.app.Invariants PermissionedDomain del 0 domains
+ripple.app.Invariants PermissionedDomain set, delete domain
+ripple.app.Invariants PermissionedDomain del, create domain
+ripple.app.Invariants PermissionedDomain invalid tx
+ripple.app.Invariants PermissionedDEX fix
+ripple.app.Invariants PermissionedDEX
+ripple.app.Invariants no modified unmodifiable fields
+ripple.app.Invariants valid pseudo accounts
+ripple.app.Invariants valid loan broker
+ripple.app.Invariants Vault general checks
+ripple.app.Invariants Vault create
+ripple.app.Invariants Vault deposit
+ripple.app.Invariants Vault withdrawal
+ripple.app.Invariants Vault clawback
+ripple.app.Invariants overwrite: NoXRPTrustLines fix
+ripple.app.Invariants overwrite: NoDeepFreeze fix
+ripple.app.Invariants overwrite: NoZeroEscrow MPT fix
+ripple.app.Invariants overwrite: NoXRPTrustLines
+ripple.app.Invariants overwrite: NoDeepFreeze
+ripple.app.Invariants overwrite: NoZeroEscrow MPT
+ripple.app.Invariants vault computeCoarsestScale: No values
+ripple.app.Invariants vault computeCoarsestScale: Mixed integer and Number values
+ripple.app.Invariants vault computeCoarsestScale: Mixed scales
+ripple.app.Invariants vault computeCoarsestScale: Equal scales
+ripple.app.Invariants vault computeCoarsestScale: Mixed mantissa sizes
+ripple.app.Invariants vault computeCoarsestScale: False equivalence
+ripple.app.Invariants had 0 failures.
+ripple.basics.IOUAmount zero
+ripple.basics.IOUAmount signum
+ripple.basics.IOUAmount beast::Zero Comparisons
+ripple.basics.IOUAmount IOU Comparisons
+ripple.basics.IOUAmount IOU strings
+ripple.basics.IOUAmount mulRatio
+ripple.basics.IOUAmount had 0 failures.
+ripple.protocol.STAmount set value (native)
+ripple.protocol.STAmount set value (iou)
+ripple.protocol.STAmount native currency
+ripple.protocol.STAmount custom currency
+ripple.protocol.STAmount arithmetic
+ripple.protocol.STAmount underflow
+ripple.protocol.STAmount STAmount to XRPAmount conversions
+ripple.protocol.STAmount STAmount to IOUAmount conversions
+ripple.protocol.STAmount can add xrp
+ripple.protocol.STAmount can add iou
+ripple.protocol.STAmount can add mpt
+ripple.protocol.STAmount can subtract xrp
+ripple.protocol.STAmount can subtract iou
+ripple.protocol.STAmount can subtract mpt
+ripple.protocol.STAmount had 0 failures.
+Longest suite times:
+   28.8s ripple.app.EscrowToken
+   23.4s ripple.app.Invariants
+   14.8s ripple.app.MPToken
+   13.9s ripple.app.Freeze
+   11.7s ripple.app.AccountDelete
+    9.0s ripple.app.AMMClawback
+    7.5s ripple.app.Escrow
+    3.9s ripple.ledger.Directory
+    3.7s ripple.app.Clawback
+    3.0s ripple.app.DepositAuth
+122.4s, 13 suites, 447 cases, 169461 tests total, 0 failures

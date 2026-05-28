@@ -6,7 +6,7 @@ This directory is the live-filtered evidence packet for the AGTI report:
 
 The packet includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-28T09:54:41Z`. Public XRPL servers checked in
+query checked at `2026-05-28T10:07:35Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
 

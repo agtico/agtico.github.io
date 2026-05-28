@@ -18,15 +18,15 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:54:42Z
-amendment_checked_utc: 2026-05-28T09:54:41Z
+runtime_checked_utc: 2026-05-28T10:07:37Z
+amendment_checked_utc: 2026-05-28T10:07:35Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
-s2.ripple.com: rippled 3.1.3, ledger 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
-runtime feature/amendment receipt ledger: 104535089, hash 157259449B6194C6F5D1CC6AC96DFB60E03E9AD0CD60D9C917BB9F0A54D2BB2E
-amendment feature/amendment receipt ledger: 104535088, hash 839D953012FDA59CBD407324C1A6A5831E19383970B2294E88AC916B77B3064A
-runtime receipt sha256: d0b2572b87ab5d3bb616a4c80d6ce2afce7b1c1393a60960e8154bf4cdd18e41
-amendment receipt sha256: ce2be7e9e3bae2d14ef70918788e869bf53b3066fa91362d2b86a14fd7b8e621
+s1.ripple.com: rippled 3.1.3, ledger 104535288, hash EF2AC48D8E65E5EF91B50F90417B95578C398AA75A0E600F81CE3E33E201FA8F
+s2.ripple.com: rippled 3.1.3, ledger 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
+runtime feature/amendment receipt ledger: 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
+amendment feature/amendment receipt ledger: 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
+runtime receipt sha256: 3d76c4ba5e7cca8e1ab7ea88a123257cfe6272af943ccd3714e580a26ed64c01
+amendment receipt sha256: bb8d90e251a7c18ad4d4ff218b5dea9c959dc3d935d3a5dc77bd924ab26c291b
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -117,6 +117,20 @@ pdex_domain_credential_invariant_static_sweep_20260528.log sha256 7ffa888179fdde
 pdex_domain_credential_invariant_history_sweep_20260528.log sha256 a4d5db210f6bb2c18278b64d0945baf2f096311ed58c672765a1dabc0eeed89e
 pdex_domain_credential_invariant_source_kill_20260528.log sha256 048f829278f8ab75d2f085eb3b3872d0575634341f673fa3bbe67f00a3ee4f8b
 125.7s, 13 suites, 513 cases, 89613 tests total, 0 failures
+```
+
+The following broader live-feature continuation checked TokenEscrow
+result-code, owner-count, directory, amount, authorization, freeze, clawback,
+MPT, and invariant paths. It did not promote a new finding. The pass
+source-killed adjacent TokenEscrow siblings beyond the packeted TokenEscrow
+DisallowIncoming and trustline-reserve markers and left the 19-record packet
+manifest unchanged.
+
+```text
+tokenescrow_resultcode_invariant_static_sweep_20260528.log sha256 a38b3fc2f7b5fbfd7eb1ed94338513e1c96cb48b880a1fc4f4c288e67c3515c6
+tokenescrow_resultcode_invariant_history_sweep_20260528.log sha256 031ddf73f8b1ea7acb68f4bc4c2ac346ae656d97539762130fa20bf3bd3bab9f
+tokenescrow_resultcode_invariant_source_kill_20260528.log sha256 11cf95bd00a8e169a62df4968d679556fbc1a925efe2d5e9fab5f7b873fb94a5
+122.4s, 13 suites, 447 cases, 169461 tests total, 0 failures
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new
