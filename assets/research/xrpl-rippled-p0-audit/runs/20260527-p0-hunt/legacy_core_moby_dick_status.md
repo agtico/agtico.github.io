@@ -15,6 +15,14 @@ s1.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B135102D21ED2FD043BE3B419A307FA1D623A1
 ```
 
+Direct live receipts were refreshed again during the current continuation:
+
+```text
+runtime_checked_utc: 2026-05-28T03:45:56Z
+amendment_checked_utc: 2026-05-28T03:45:54Z
+receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
+```
+
 ## Current Result
 
 The strongest legacy-core candidate is
@@ -55,6 +63,29 @@ The full packet verifier also passed:
 ```text
 packet-ok
 records=19 markers=27 proof_sha256=9fa0aa153ce2dda833f3c463911e57ee0f4d9e5033c47f13ad9f743430a28838
+```
+
+## Current source-killed siblings
+
+This continuation tested two legacy-core hypotheses without promotion.
+
+`PAYMENT-TRUSTLINE-RESERVE-SIBLING-001` asked whether direct issuer `Payment`
+or XRP-to-IOU path `Payment` can recreate the same positive-balance/no-reserve
+state after a holder clears its trustline. Both scratch probes returned
+`tecPATH_DRY` in the cleared-trustline setup and did not create the broken
+state. That narrows the current reserve finding to offer crossing, CheckCash,
+TokenEscrow, and NFToken settlement rather than every `Payment` path.
+
+`CHECK-LEGACY-DIRFULL-PARTIAL-001` asked whether `CreateCheck` leaves a partial
+object or owner-directory entry when the source owner directory fails after the
+destination-directory insertion point. A forced source-dir-full scratch probe
+returned `tecDIR_FULL`, left no Check object, left source and destination owner
+counts unchanged, and left no check entry in either owner directory.
+
+After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
+
+```text
+15.4s, 1 suite, 67 cases, 16563 tests total, 0 failures
 ```
 
 ## Current sibling: NFToken settlement positive-balance reserve drift

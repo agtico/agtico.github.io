@@ -22,7 +22,7 @@
       "affected": "rippled 3.1.3 MPT lock-state handling",
       "exploit_type": "Feature-gated lock-state deletion",
       "markers": [
-        "MPT current — locked holder can delete lock state without SAV"
+        "MPT current \u2014 locked holder can delete lock state without SAV"
       ],
       "broken": "A holder can tfMPTUnauthorize a locked zero-balance MPToken, deleting issuer lock state, then re-authorize without lsfMPTLocked.",
       "expected": "Locked-token deletion checks should preserve issuer lock state.",
@@ -49,15 +49,15 @@
       "affected": "rippled 3.1.3 IOU trustline reserve and owner-count accounting",
       "exploit_type": "Reserve and owner-count bypass",
       "markers": [
-        "TrustLine current — offer crossing creates positive balance without reserve",
-        "TrustLine current — offer crossing leaves positive balance unowned with existing owner objects",
-        "TrustLine current — offer crossing succeeds below missing owner reserve",
-        "TrustLine current — CheckCash creates positive balance without reserve",
-        "TrustLine current — CheckCash leaves positive balance unowned with existing owner objects",
-        "TrustLine current — CheckCash succeeds below missing owner reserve",
-        "TrustLine current — TokenEscrow creates positive balance without reserve",
-        "TrustLine current — NFToken AcceptOffer creates positive balance without reserve",
-        "TrustLine current — NFToken broker fee creates positive balance without reserve"
+        "TrustLine current \u2014 offer crossing creates positive balance without reserve",
+        "TrustLine current \u2014 offer crossing leaves positive balance unowned with existing owner objects",
+        "TrustLine current \u2014 offer crossing succeeds below missing owner reserve",
+        "TrustLine current \u2014 CheckCash creates positive balance without reserve",
+        "TrustLine current \u2014 CheckCash leaves positive balance unowned with existing owner objects",
+        "TrustLine current \u2014 CheckCash succeeds below missing owner reserve",
+        "TrustLine current \u2014 TokenEscrow creates positive balance without reserve",
+        "TrustLine current \u2014 NFToken AcceptOffer creates positive balance without reserve",
+        "TrustLine current \u2014 NFToken broker fee creates positive balance without reserve"
       ],
       "broken": "After a holder clears its trust limit and balance, old live settlement paths can move that holder back to a positive IOU balance while the trustline reserve flag remains unset. The packet reproduces this through offer crossing, CheckCash, TokenEscrow finish, NFToken seller proceeds, and NFToken broker fees, including controls where the holder already owns two ticket objects and OwnerCount remains 2 instead of increasing for the positive trustline. Reserve-boundary controls for offer crossing and CheckCash also leave the holder below the reserve required for a third owner object while still accepting the positive IOU balance.",
       "expected": "A receiver whose trustline balance moves from zero or negative to positive should either receive the reserve flag and OwnerCount increment, or the transaction should fail for insufficient reserve. The rule should be enforced consistently even when the receiver already has owner objects and across offer crossing, CheckCash, TokenEscrow finish, NFToken settlement, and any other live settlement path that uses the shared IOU credit helper.",
@@ -80,7 +80,7 @@
       "affected": "rippled 3.1.3 IOU OfferCreate trustline admission",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "TrustLine current — OfferCreate bypasses DisallowIncomingTrustline"
+        "TrustLine current \u2014 OfferCreate bypasses DisallowIncomingTrustline"
       ],
       "broken": "An issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but a taker without an existing trustline can still cross an offer and receive the issuer's IOU, creating the trustline through OfferCreate.",
       "expected": "OfferCreate should enforce the same incoming-trustline opt-out policy before allowing a taker without an existing trustline to receive the issuer's IOU.",
@@ -108,7 +108,7 @@
       "affected": "rippled 3.1.3 NFTokenAcceptOffer IOU settlement",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "NFToken current — AcceptOffer bypasses DisallowIncomingTrustline"
+        "NFToken current \u2014 AcceptOffer bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but NFTokenAcceptOffer can still settle a sell offer in that issuer's IOU to a seller with no existing trustline, creating the incoming trustline through NFT settlement.",
       "expected": "NFTokenAcceptOffer should enforce the same incoming-trustline opt-out policy before allowing a seller without an existing trustline to receive the issuer's IOU.",
@@ -138,7 +138,7 @@
       "affected": "rippled 3.1.3 NFTokenAcceptOffer brokered IOU settlement",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "NFToken current — broker fee bypasses DisallowIncomingTrustline"
+        "NFToken current \u2014 broker fee bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but a brokered NFTokenAcceptOffer can pay the broker fee in that issuer's IOU to a broker with no existing trustline, creating the incoming trustline through NFTokenAcceptOffer::pay/accountSend.",
       "expected": "NFTokenAcceptOffer should enforce the same incoming-trustline opt-out before allowing an IOU broker fee to create a broker trustline for the issuer's IOU.",
@@ -168,7 +168,7 @@
       "affected": "rippled 3.1.3 CheckCash IOU settlement and automatic trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "CheckCash current — bypasses DisallowIncomingTrustline"
+        "CheckCash current \u2014 bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but CheckCash can still cash an IOU check to a receiver with no existing trustline, creating the incoming trustline through the CheckCash auto-trustline path.",
       "expected": "CheckCash should enforce the same incoming-trustline opt-out policy before auto-creating a receiver trustline for the issuer's IOU.",
@@ -198,7 +198,7 @@
       "affected": "rippled 3.1.3 TokenEscrow IOU finish and automatic trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "TokenEscrow current — Finish bypasses DisallowIncomingTrustline"
+        "TokenEscrow current \u2014 Finish bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but EscrowFinish can still finish an IOU escrow to a destination with no existing trustline, creating the incoming trustline through the TokenEscrow finish path.",
       "expected": "EscrowFinish should enforce the same incoming-trustline opt-out policy before auto-creating a destination trustline for the issuer's IOU.",
@@ -228,7 +228,7 @@
       "affected": "rippled 3.1.3 AMMWithdraw IOU settlement and automatic trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "AMM current — Withdraw bypasses DisallowIncomingTrustline"
+        "AMM current \u2014 Withdraw bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but AMMWithdraw can still withdraw that issuer's IOU from a live AMM pool to a user with no existing issuer trustline, creating the incoming trustline through the AMM withdrawal accountSend path.",
       "expected": "AMMWithdraw should enforce the same incoming-trustline opt-out policy before allowing pool withdrawal to create a receiver trustline for the issuer's IOU.",
@@ -257,7 +257,7 @@
       "affected": "rippled 3.1.3 AMMCreate IOU pool creation and automatic AMM-account trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "AMM current — Create bypasses DisallowIncomingTrustline"
+        "AMM current \u2014 Create bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but AMMCreate can still create a new AMM pool containing that issuer's IOU, creating the AMM account trustline to the issuer through the AMM creation accountSend path.",
       "expected": "AMMCreate should enforce the same incoming-trustline opt-out policy before creating an AMM account trustline for the issuer's IOU.",
@@ -286,7 +286,7 @@
       "affected": "rippled 3.1.3 AMMDeposit tfTwoAssetIfEmpty IOU pool reinitialization and automatic AMM-account trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "AMM current — Empty deposit bypasses DisallowIncomingTrustline"
+        "AMM current \u2014 Empty deposit bypasses DisallowIncomingTrustline"
       ],
       "broken": "An IOU issuer with asfDisallowIncomingTrustline set blocks direct TrustSet-created incoming trustlines, but AMMDeposit with tfTwoAssetIfEmpty can reinitialize an empty AMM pool and recreate the AMM account trustline to that issuer through the AMM deposit accountSend path.",
       "expected": "AMMDeposit empty-pool reinitialization should enforce the same incoming-trustline opt-out policy before recreating an AMM account trustline for the issuer's IOU.",
@@ -315,7 +315,7 @@
       "affected": "rippled 3.1.3 AMMClawback paired IOU settlement and automatic trustline creation",
       "exploit_type": "Issuer policy bypass",
       "markers": [
-        "AMM current — Clawback returns paired asset through DisallowIncomingTrustline"
+        "AMM current \u2014 Clawback returns paired asset through DisallowIncomingTrustline"
       ],
       "broken": "Issuer B can set asfDisallowIncomingTrustline after a user has removed the issuer B trustline, but issuer A can still use AMMClawback against a two-issuer AMM and force-return issuer B's paired IOU to that user, recreating issuer B's incoming trustline through the AMMWithdraw/accountSend path.",
       "expected": "AMMClawback should enforce the paired-asset issuer's incoming-trustline opt-out before returning that issuer's IOU to a holder with no existing trustline, or fail/require the trustline to exist.",
@@ -346,7 +346,7 @@
       "affected": "rippled 3.1.3 AMMClawback paired IOU settlement and DepositAuth receive policy",
       "exploit_type": "Holder receive-policy bypass",
       "markers": [
-        "AMM current — Clawback bypasses DepositAuth paired asset"
+        "AMM current \u2014 Clawback bypasses DepositAuth paired asset"
       ],
       "broken": "A holder can set asfDepositAuth and direct issuer Payment to that holder is rejected with tecNO_PERMISSION, but AMMClawback against a two-issuer AMM can still force-return the paired IOU to that holder, recreating the paired-asset trustline through the AMMWithdraw/accountSend path.",
       "expected": "AMMClawback should enforce the holder's DepositAuth receive policy before returning paired IOU assets to a holder with no existing trustline, or fail/require an explicit authorization path.",
@@ -373,7 +373,7 @@
       "affected": "rippled 3.1.3 AMMBid LP-token auction refund and DepositAuth receive policy",
       "exploit_type": "Holder receive-policy bypass",
       "markers": [
-        "AMM current — Bid refund bypasses DepositAuth"
+        "AMM current \u2014 Bid refund bypasses DepositAuth"
       ],
       "broken": "A previous AMM auction-slot owner can set asfDepositAuth and direct LP-token Payment to that account is rejected with tecNO_PERMISSION, but a later AMMBid by another account can still refund LP tokens to the previous owner through AMMBid::applyBid/accountSend.",
       "expected": "AMMBid should enforce the previous owner's DepositAuth receive policy before refunding LP tokens to a non-signing account, or require an explicit authorization path.",
@@ -399,7 +399,7 @@
       "affected": "rippled 3.1.3 token escrow cancellation",
       "exploit_type": "Deterministic transaction exception",
       "markers": [
-        "EscrowCancel current — deleted IOU trustline returns tefEXCEPTION"
+        "EscrowCancel current \u2014 deleted IOU trustline returns tefEXCEPTION"
       ],
       "broken": "Canceling an IOU escrow after the sender trustline was deleted returns tefEXCEPTION / OwnerCount template-field error.",
       "expected": "Escrow cancellation accounting should not depend on a deleted sender trustline.",
@@ -424,7 +424,7 @@
       "affected": "rippled 3.1.3 AMM empty-pool reinitialization",
       "exploit_type": "Stale authorization state",
       "markers": [
-        "AMM current — stale AuthAccounts survive empty reinit"
+        "AMM current \u2014 stale AuthAccounts survive empty reinit"
       ],
       "broken": "Empty-pool reinitialization with tfTwoAssetIfEmpty leaves stale sfAuthAccounts from the prior auction slot.",
       "expected": "Reinitializing an empty AMM should clear stale auction authorization state.",
@@ -449,7 +449,7 @@
       "affected": "rippled 3.1.3 MPT amount validation",
       "exploit_type": "Malformed amount accepted into application path",
       "markers": [
-        "MPT current — non-canonical amount reaches ledger engine"
+        "MPT current \u2014 non-canonical amount reaches ledger engine"
       ],
       "broken": "A non-canonical MPT amount reaches transaction application and returns fee-burning tecPATH_PARTIAL instead of failing preflight as temBAD_AMOUNT.",
       "expected": "Non-canonical MPT amounts should fail before ledger application.",
@@ -474,7 +474,7 @@
       "affected": "rippled 3.1.3 MPT transfer-rate helper",
       "exploit_type": "Arithmetic overflow",
       "markers": [
-        "MPT current — transfer-rate scaling overflows large integral amount"
+        "MPT current \u2014 transfer-rate scaling overflows large integral amount"
       ],
       "broken": "Applying a 1.5 transfer rate to a large integral MPT amount throws overflow_error in the legacy scaled-mantissa path.",
       "expected": "Valid integral-token amounts should scale through bounded consensus arithmetic or fail cleanly before overflow.",
@@ -498,7 +498,7 @@
       "affected": "rippled 3.1.3 permissioned DEX hybrid offers",
       "exploit_type": "Order-book metadata corruption",
       "markers": [
-        "Permissioned DEX current — hybrid offer open-book quality mismatch"
+        "Permissioned DEX current \u2014 hybrid offer open-book quality mismatch"
       ],
       "broken": "A partially crossed hybrid offer leaves its open-book directory key at one quality while sfExchangeRate records another.",
       "expected": "Open-book directory key quality and sfExchangeRate metadata must match after partial crossing.",
@@ -524,7 +524,7 @@
       "affected": "rippled 3.1.3 permissioned DEX OfferCreate",
       "exploit_type": "Valid transaction invariant failure",
       "markers": [
-        "Permissioned DEX current — cancel regular offer via domain offer invariant"
+        "Permissioned DEX current \u2014 cancel regular offer via domain offer invariant"
       ],
       "broken": "A valid domain OfferCreate that cancels the user regular offer fails with tecINVARIANT_FAILED because the invariant treats the deleted regular offer as forbidden mutation.",
       "expected": "The invariant should ignore regular offers deleted as part of a valid domain offer cancellation.",
@@ -544,7 +544,7 @@
   ],
   "live_scope": {
     "source": "direct XRPL public JSON-RPC feature and ledger_entry methods",
-    "checked_utc": "2026-05-28T03:21:58Z",
+    "checked_utc": "2026-05-28T03:45:54Z",
     "receipt": "direct_xrpl_amendment_status_20260527.json",
     "inclusion_rule": "Packet includes only reproduced high/critical findings whose required XRPL mainnet amendment surfaces are enabled in the direct validated-ledger amendment receipt and whose disabled-surface dependencies are excluded.",
     "included_ids": [
