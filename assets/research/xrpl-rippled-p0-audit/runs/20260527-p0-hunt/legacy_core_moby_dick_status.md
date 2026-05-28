@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:47:02Z
-amendment_checked_utc: 2026-05-28T06:47:00Z
+runtime_checked_utc: 2026-05-28T06:56:57Z
+amendment_checked_utc: 2026-05-28T06:56:55Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532181, hash 189DAF2EB8EF888BC4DE4E1F68A84D3CEBE90CCBC35179739C3F5C1882BDC2BF
-s2.ripple.com: rippled 3.1.3, ledger 104532181, hash 189DAF2EB8EF888BC4DE4E1F68A84D3CEBE90CCBC35179739C3F5C1882BDC2BF
+s1.ripple.com: rippled 3.1.3, ledger 104532334, hash 4DDED2F4E229646C7F150CD408753433E196C012F37E3670ED02C0BF88D9C333
+s2.ripple.com: rippled 3.1.3, ledger 104532334, hash 4DDED2F4E229646C7F150CD408753433E196C012F37E3670ED02C0BF88D9C333
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -49,6 +49,7 @@ Completed and packet-bound work:
 - source-signal clustering around reserve, owner-count, trustline, directory,
   and result-code fixes.
 - regular-key/master-key authorization and signer cleanup sweep.
+- payment sandbox deferred-credit focused pathing sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -831,16 +832,32 @@ before returning to broader hunting. No new packet finding was promoted.
 
 `PAYMENT-SANDBOX-DEFERRED-CREDITS-001` was source-reviewed from upstream commit
 `7cfa5d461` / `b8792e242`, "fix: Make assorted Payments fixes (#6585)." The
-commit changes `PaymentSandbox` deferred-credit accounting names and removes a
+commit changes `PaymentSandbox` deferred-credit accounting names, removes a
 debug balance-delta helper, plus initializes `sfBalance` when `Payment` creates
 a destination account. The account-creation branch is already represented in
 the candidate matrix as `PAYMENT-BALANCE-001` and was scratch-tested/demoted:
-exact-reserve XRP account creation succeeds on the current `3.1.3` target. The
-remaining deferred-credit change is a useful payment-path review signal, but
-this slice did not produce a clean current-release transaction witness showing
-unauthorized movement, reserve drift, invariant failure, or consensus-visible
-state corruption. Keep it as a focused path-payment/MPT review target, not a
-packet finding.
+exact-reserve XRP account creation succeeds on the current `3.1.3` target. This
+continuation closed the remaining focused path-payment/MPT review target with
+static and history sweeps plus upstream `PaymentSandbox`, `Flow`, `PayStrand`,
+`Path`, `Offer`, `TrustAndBalance`, `SetTrust`, and `Invariants` coverage. No
+current-release transaction witness showed unauthorized movement, reserve
+drift, invariant failure, or consensus-visible state corruption. Static
+artifact `payment_sandbox_deferred_credit_static_sweep_20260528.log` has
+sha256 `2ae19ec357328ebb5a2f81b819cee65e9cf9c00b0c16f664de363c220d348b71`.
+History artifact `payment_sandbox_deferred_credit_history_sweep_20260528.log`
+has sha256 `7a5433dcd0ea726214ae837369845fdd8db85a6efeb22e11887fb459cd1bdbce`.
+Suite artifact `payment_sandbox_deferred_credit_source_kill_20260528.log` has
+sha256 `a3e702bbcad88f9584178a6fba48f7e7f0ea677fc5cbdeabc79d7e0c7c841d82`.
+
+```text
+ripple.app.Flow had 0 failures.
+ripple.app.Path had 0 failures.
+ripple.app.PayStrand had 0 failures.
+ripple.app.SetTrust had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+ripple.ledger.PaymentSandbox had 0 failures.
+116.9s, 14 suites, 570 cases, 75191 tests total, 0 failures
+```
 
 `TXQ-MIN-RESERVE-POTENTIAL-SPEND-001` was source-reviewed from historical
 commit `e7a69cce6`, "Account for minimum reserve in potential spend." That fix

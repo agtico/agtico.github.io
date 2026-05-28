@@ -1,0 +1,2109 @@
+src/xrpld/app/paths/TrustLine.cpp:34:    , mBalance(sle->getFieldAmount(sfBalance))
+src/test/app/TheoreticalQuality_test.cpp:30:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/app/TheoreticalQuality_test.cpp:247:        PaymentSandbox sb(closed.get(), tapNONE);
+src/test/app/TheoreticalQuality_test.cpp:273:        BEAST_EXPECT(sr.first == tesSUCCESS);
+src/test/app/TheoreticalQuality_test.cpp:275:        if (sr.first != tesSUCCESS)
+src/test/app/Offer_test.cpp:208:            ter(featPreauth ? TER{tecEXPIRED} : TER{tesSUCCESS}));
+src/test/app/Offer_test.cpp:428:                partialPayment ? TER{tesSUCCESS} : TER{tecPATH_PARTIAL};
+src/test/app/Offer_test.cpp:439:                if (expectedTer == tesSUCCESS)
+src/test/app/Offer_test.cpp:591:                partialPayment ? TER{tesSUCCESS} : TER{tecPATH_PARTIAL};
+src/test/app/Offer_test.cpp:602:                if (expectedTer == tesSUCCESS)
+src/test/app/Offer_test.cpp:676:                ter(tecPATH_DRY));
+src/test/app/Offer_test.cpp:743:            env(trust(alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:744:            env(pay(gw, alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:764:            env(offer(bob, usdOffer2, xrpOffer2), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:767:            env(trust(alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:768:            env(pay(gw, alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:769:            env(offer(alice, xrpOffer, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:796:            env(offer(bob, usdOffer2, xrpOffer2), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:797:            env(offer(carol, usdOffer, xrpOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:801:            env(trust(alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:802:            env(pay(gw, alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:803:            env(offer(alice, xrpOffer, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:865:                ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:872:            env(offer(bob, USD(500), XRP(500)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:876:            env(trust(alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:877:            env(pay(gw, alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:883:                                             : TER{tesSUCCESS}};
+src/test/app/Offer_test.cpp:901:                ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:924:            env(trust(alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:925:            env(pay(gw, alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:931:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/Offer_test.cpp:944:            env(offer(bob, USD(50), XRP(50)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:947:                ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:960:            env(offer(bob, USD(50), XRP(50)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:963:                ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1105:            env(trust(alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1106:            env(pay(gw, alice, USD(1000)), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1168:        env(trust(alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1169:        env(pay(gw, alice, usdOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1183:            ter(featPreauth ? TER{tecEXPIRED} : TER{tesSUCCESS}));
+src/test/app/Offer_test.cpp:1195:            ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1211:        env(offer(bob, usdOffer, xrpOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1271:        env(offer("dan", usdOffer, xrpOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1278:        env(offer("eve", usdOffer, xrpOffer), ter(tesSUCCESS));
+src/test/app/Offer_test.cpp:1448:                jrr[jss::node][sfBalance.fieldName][jss::value] == "50");
+src/test/app/Offer_test.cpp:1452:                jrr[jss::node][sfBalance.fieldName][jss::value] ==
+src/test/app/Offer_test.cpp:1466:                    jrr[jss::node][sfBalance.fieldName][jss::value] ==
+src/test/app/Offer_test.cpp:1487:                jrr[jss::node][sfBalance.fieldName][jss::value] == "50");
+src/test/app/Offer_test.cpp:1495:                jrr[jss::node][sfBalance.fieldName][jss::value] == "0");
+src/test/app/Offer_test.cpp:1540:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-1");
+src/test/app/Offer_test.cpp:1543:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1549:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-499");
+src/test/app/Offer_test.cpp:1552:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1583:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-1");
+src/test/app/Offer_test.cpp:1586:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1591:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-499");
+src/test/app/Offer_test.cpp:1594:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1687:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "0");
+src/test/app/Offer_test.cpp:1690:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1695:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-100");
+src/test/app/Offer_test.cpp:1771:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-160");
+src/test/app/Offer_test.cpp:1775:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1781:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-40");
+src/test/app/Offer_test.cpp:1805:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-100");
+src/test/app/Offer_test.cpp:1808:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1816:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-100");
+src/test/app/Offer_test.cpp:1848:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-25");
+src/test/app/Offer_test.cpp:1851:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-475");
+src/test/app/Offer_test.cpp:1890:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-475");
+src/test/app/Offer_test.cpp:1893:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-25");
+src/test/app/Offer_test.cpp:1897:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:1949:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "470");
+src/test/app/Offer_test.cpp:1952:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-30");
+src/test/app/Offer_test.cpp:1955:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-30");
+src/test/app/Offer_test.cpp:1958:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-370");
+src/test/app/Offer_test.cpp:2087:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "100");
+src/test/app/Offer_test.cpp:2090:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:2094:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-400");
+src/test/app/Offer_test.cpp:2136:                jrr[jss::node][sfBalance.fieldName][jss::value] ==
+src/test/app/Offer_test.cpp:2141:                jrr[jss::node][sfBalance.fieldName][jss::value];
+src/test/app/Offer_test.cpp:2186:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-100");
+src/test/app/Offer_test.cpp:2189:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:2193:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-400");
+src/test/app/Offer_test.cpp:2231:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-200");
+src/test/app/Offer_test.cpp:2234:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/Offer_test.cpp:2238:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-300");
+src/test/app/Offer_test.cpp:2292:        BEAST_EXPECT(jrr[jss::result][jss::engine_result] == "tesSUCCESS");
+src/test/app/Offer_test.cpp:2303:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-101");
+src/test/app/Offer_test.cpp:2305:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-99");
+src/test/app/Offer_test.cpp:2308:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-99");
+src/test/app/Offer_test.cpp:2310:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-101");
+src/test/app/Offer_test.cpp:2342:            STAmount actualBalance{sleTrust->getFieldAmount(sfBalance)};
+src/test/app/Offer_test.cpp:2393:            {"deb", drops(10) + reserve(env, 0) + 1 * f,    1,   noPreTrust, 1000,             tesSUCCESS, drops(10)   + f, USD(0.00001),    0, 1},  // Account has enough to buy a little USD then the offer runs dry.
+src/test/app/Offer_test.cpp:2394:            {"eve",             reserve(env, 1) + 0 * f,    0,   noPreTrust, 1000,             tesSUCCESS,               f, USD(      0),    1, 1},  // No offer to cross
+src/test/app/Offer_test.cpp:2395:            {"flo",             reserve(env, 1) + 0 * f,    1,   noPreTrust, 1000,             tesSUCCESS, XRP(   1)   + f, USD(      1),    0, 1},
+src/test/app/Offer_test.cpp:2396:            {"gay",             reserve(env, 1) + 1 * f, 1000,   noPreTrust, 1000,             tesSUCCESS, XRP(  50)   + f, USD(     50),    0, 1},
+src/test/app/Offer_test.cpp:2397:            {"hye", XRP(1000)                   + 1 * f, 1000,   noPreTrust, 1000,             tesSUCCESS, XRP( 800)   + f, USD(    800),    0, 1},
+src/test/app/Offer_test.cpp:2398:            {"ivy", XRP(   1) + reserve(env, 1) + 1 * f,    1,   noPreTrust, 1000,             tesSUCCESS, XRP(   1)   + f, USD(      1),    0, 1},
+src/test/app/Offer_test.cpp:2399:            {"joy", XRP(   1) + reserve(env, 2) + 1 * f,    1,   noPreTrust, 1000,             tesSUCCESS, XRP(   1)   + f, USD(      1),    1, 2},
+src/test/app/Offer_test.cpp:2400:            {"kim", XRP( 900) + reserve(env, 2) + 1 * f,  999,   noPreTrust, 1000,             tesSUCCESS, XRP( 999)   + f, USD(    999),    0, 1},
+src/test/app/Offer_test.cpp:2401:            {"liz", XRP( 998) + reserve(env, 0) + 1 * f,  999,   noPreTrust, 1000,             tesSUCCESS, XRP( 998)   + f, USD(    998),    0, 1},
+src/test/app/Offer_test.cpp:2402:            {"meg", XRP( 998) + reserve(env, 1) + 1 * f,  999,   noPreTrust, 1000,             tesSUCCESS, XRP( 999)   + f, USD(    999),    0, 1},
+src/test/app/Offer_test.cpp:2403:            {"nia", XRP( 998) + reserve(env, 2) + 1 * f,  999,   noPreTrust, 1000,             tesSUCCESS, XRP( 999)   + f, USD(    999),    1, 2},
+src/test/app/Offer_test.cpp:2404:            {"ova", XRP( 999) + reserve(env, 0) + 1 * f, 1000,   noPreTrust, 1000,             tesSUCCESS, XRP( 999)   + f, USD(    999),    0, 1},
+src/test/app/Offer_test.cpp:2405:            {"pam", XRP( 999) + reserve(env, 1) + 1 * f, 1000,   noPreTrust, 1000,             tesSUCCESS, XRP(1000)   + f, USD(   1000),    0, 1},
+src/test/app/Offer_test.cpp:2406:            {"rae", XRP( 999) + reserve(env, 2) + 1 * f, 1000,   noPreTrust, 1000,             tesSUCCESS, XRP(1000)   + f, USD(   1000),    0, 1},
+src/test/app/Offer_test.cpp:2407:            {"sue", XRP(1000) + reserve(env, 2) + 1 * f,    0,   noPreTrust, 1000,             tesSUCCESS,               f, USD(      0),    1, 1},
+src/test/app/Offer_test.cpp:2412:            {"dan", drops(10) + reserve(env, 0) + 1 * f,    1,   gwPreTrust, 1000,             tesSUCCESS, drops(10)   + f, USD(0.00001),    0, 0},
+src/test/app/Offer_test.cpp:2413:            {"eli", XRP(  20) + reserve(env, 0) + 1 * f, 1000,   gwPreTrust, 1000,             tesSUCCESS, XRP(20) + 1 * f, USD(     20),    0, 0},
+src/test/app/Offer_test.cpp:2414:            {"fyn",             reserve(env, 1) + 0 * f,    0,   gwPreTrust, 1000,             tesSUCCESS,               f, USD(      0),    1, 1},
+src/test/app/Offer_test.cpp:2415:            {"gar",             reserve(env, 1) + 0 * f,    1,   gwPreTrust, 1000,             tesSUCCESS, XRP( 1) +     f, USD(      1),    1, 1},
+src/test/app/Offer_test.cpp:2416:            {"hal",             reserve(env, 1) + 1 * f,    1,   gwPreTrust, 1000,             tesSUCCESS, XRP( 1) +     f, USD(      1),    1, 1},
+src/test/app/Offer_test.cpp:2423:            {"syd", drops(10) + reserve(env, 1) + 2 * f,    1, acctPreTrust, 1000,             tesSUCCESS, drops(10) + 2 * f, USD(0.00001),    0, 1},
+src/test/app/Offer_test.cpp:2424:            {"ted", XRP(  20) + reserve(env, 1) + 2 * f, 1000, acctPreTrust, 1000,             tesSUCCESS, XRP(20) + 2 * f, USD(     20),    0, 1},
+src/test/app/Offer_test.cpp:2426:            {"vic",             reserve(env, 2) + 0 * f,    1, acctPreTrust, 1000,             tesSUCCESS, XRP( 1) + 2 * f, USD(      1),    0, 1},
+src/test/app/Offer_test.cpp:2427:            {"wes",             reserve(env, 2) + 1 * f,    0, acctPreTrust, 1000,             tesSUCCESS,           2 * f, USD(      0),    1, 2},
+src/test/app/Offer_test.cpp:2428:            {"xan",             reserve(env, 2) + 1 * f,    1, acctPreTrust, 1000,             tesSUCCESS, XRP( 1) + 2 * f, USD(      1),    1, 2},
+src/test/app/Offer_test.cpp:2913:            {"bev", XRP(10) + reserve(env, 1) + 1 * f, USD( 0), XRP(10), USD( 5), USD(10), XRP(10),             tesSUCCESS, XRP(  0) + (1 * f), USD( 0),      1,      1,   XRP(10), USD(10)},
+src/test/app/Offer_test.cpp:2914:            {"cam", XRP(10) + reserve(env, 0) + 1 * f, USD( 0), XRP(10), USD(10), USD(10), XRP(10),             tesSUCCESS, XRP( 10) + (1 * f), USD(10),      0,      1},
+src/test/app/Offer_test.cpp:2915:            {"deb", XRP(10) + reserve(env, 0) + 1 * f, USD( 0), XRP(10), USD(20), USD(10), XRP(10),             tesSUCCESS, XRP( 10) + (1 * f), USD(20),      0,      1},
+src/test/app/Offer_test.cpp:2916:            {"eve", XRP(10) + reserve(env, 0) + 1 * f, USD( 0), XRP(10), USD(20), USD( 5), XRP( 5),             tesSUCCESS, XRP(  5) + (1 * f), USD(10),      0,      1},
+src/test/app/Offer_test.cpp:2917:            {"flo", XRP(10) + reserve(env, 0) + 1 * f, USD( 0), XRP(10), USD(20), USD(20), XRP(20),             tesSUCCESS, XRP( 10) + (1 * f), USD(20),      0,      1},
+src/test/app/Offer_test.cpp:2918:            {"gay", XRP(20) + reserve(env, 1) + 1 * f, USD( 0), XRP(10), USD(20), USD(20), XRP(20),             tesSUCCESS, XRP( 10) + (1 * f), USD(20),      0,      1},
+src/test/app/Offer_test.cpp:2919:            {"hye", XRP(20) + reserve(env, 2) + 1 * f, USD( 0), XRP(10), USD(20), USD(20), XRP(20),             tesSUCCESS, XRP( 10) + (1 * f), USD(20),      1,      2,   XRP(10), USD(10)},
+src/test/app/Offer_test.cpp:2922:            {"nia",           reserve(env, 2) + 2 * f, USD(10), USD(10), XRP( 5), XRP(10), USD(10),             tesSUCCESS, XRP(  0) + (2 * f), USD(10),      1,      2,   USD(10), XRP(10)},
+src/test/app/Offer_test.cpp:2923:            {"ova",           reserve(env, 1) + 2 * f, USD(10), USD(10), XRP(10), XRP(10), USD(10),             tesSUCCESS, XRP(-10) + (2 * f), USD( 0),      0,      1},
+src/test/app/Offer_test.cpp:2924:            {"pam",           reserve(env, 1) + 2 * f, USD(10), USD(10), XRP(20), XRP(10), USD(10),             tesSUCCESS, XRP(-20) + (2 * f), USD( 0),      0,      1},
+src/test/app/Offer_test.cpp:2925:            {"qui",           reserve(env, 1) + 2 * f, USD(10), USD(20), XRP(40), XRP(10), USD(10),             tesSUCCESS, XRP(-20) + (2 * f), USD( 0),      0,      1},
+src/test/app/Offer_test.cpp:2926:            {"rae",           reserve(env, 2) + 2 * f, USD(10), USD( 5), XRP( 5), XRP(10), USD(10),             tesSUCCESS, XRP( -5) + (2 * f), USD( 5),      1,      2,   USD( 5), XRP( 5)},
+src/test/app/Offer_test.cpp:2927:            {"sue",           reserve(env, 2) + 2 * f, USD(10), USD( 5), XRP(10), XRP(10), USD(10),             tesSUCCESS, XRP(-10) + (2 * f), USD( 5),      1,      2,   USD( 5), XRP( 5)},
+src/test/app/Offer_test.cpp:3012:            features[fix1578] ? TER{tecKILLED} : TER{tesSUCCESS}};
+src/test/app/Offer_test.cpp:3488:            {"ann", reserve(env, 3) + f * 4, USD(1000), EUR(1000),             tesSUCCESS,             tesSUCCESS},
+src/test/app/Offer_test.cpp:3489:            {"bev", reserve(env, 3) + f * 4, USD(   1), EUR(1000),             tesSUCCESS,             tesSUCCESS},
+src/test/app/Offer_test.cpp:3490:            {"cam", reserve(env, 3) + f * 4, USD(1000), EUR(   1),             tesSUCCESS,             tesSUCCESS},
+src/test/app/Offer_test.cpp:3491:            {"deb", reserve(env, 3) + f * 4, USD(   0), EUR(   1),             tesSUCCESS,      tecUNFUNDED_OFFER},
+src/test/app/Offer_test.cpp:3492:            {"eve", reserve(env, 3) + f * 4, USD(   1), EUR(   0),      tecUNFUNDED_OFFER,             tesSUCCESS},
+src/test/app/Offer_test.cpp:3517:            int offerCount = t.firstOfferTec == tesSUCCESS ? 1 : 0;
+src/test/app/Offer_test.cpp:3536:            offerCount = t.secondOfferTec == tesSUCCESS ? 1 : offerCount;
+src/test/app/Offer_test.cpp:4602:            ter(preauth ? TER{tesSUCCESS} : TER{tecNO_LINE}));
+src/test/app/Offer_test.cpp:5147:                features[fixFillOrKill] ? TER(tesSUCCESS) : tecKILLED;
+src/test/app/Offer_test.cpp:5159:            if (err == tesSUCCESS)
+src/test/app/Offer_test.cpp:5178:            if (err == tesSUCCESS)
+src/test/app/Offer_test.cpp:5197:            if (err == tesSUCCESS)
+src/libxrpl/ledger/Credit.cpp:77:        result = sleRippleState->getFieldAmount(sfBalance);
+src/xrpld/app/paths/Pathfinder.cpp:31:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/Pathfinder.cpp:362:    PaymentSandbox sandbox(&*mLedger, tapNONE);
+src/xrpld/app/paths/Pathfinder.cpp:381:        if (rc.result() != tesSUCCESS)
+src/xrpld/app/paths/Pathfinder.cpp:403:            if (rc.result() == tesSUCCESS)
+src/xrpld/app/paths/Pathfinder.cpp:407:        return tesSUCCESS;
+src/xrpld/app/paths/Pathfinder.cpp:413:        return tefEXCEPTION;
+src/xrpld/app/paths/Pathfinder.cpp:427:        PaymentSandbox sandbox(&*mLedger, tapNONE);
+src/xrpld/app/paths/Pathfinder.cpp:442:        if (rc.result() == tesSUCCESS)
+src/xrpld/app/paths/Pathfinder.cpp:531:            if (resultCode != tesSUCCESS)
+src/test/app/AccountDelete_test.cpp:520:            jv[sfBalance.jsonName] =
+src/test/app/PayChan_test.cpp:319:                ter(tesSUCCESS));
+src/test/app/PayChan_test.cpp:339:                ter(tesSUCCESS));
+src/test/app/PayChan_test.cpp:425:                    withFixPayChan ? ter(tecEXPIRED) : ter(tesSUCCESS);
+src/test/app/PayChan_test.cpp:450:                    ter(tesSUCCESS));
+src/test/app/PayChan_test.cpp:1941:                             TER expectedTer = tesSUCCESS) {
+src/test/app/PayChan_test.cpp:1987:                withOwnerDirFix ? TER(tecHAS_OBLIGATIONS) : TER(tesSUCCESS));
+src/xrpld/app/paths/Flow.cpp:36:    PaymentSandbox& sb,
+src/xrpld/app/paths/Flow.cpp:42:    if (f.ter == tesSUCCESS)
+src/xrpld/app/paths/Flow.cpp:56:    PaymentSandbox& sb,
+src/xrpld/app/paths/Flow.cpp:105:    if (toStrandsTer != tesSUCCESS)
+src/xrpld/app/paths/Flow.h:58:    PaymentSandbox& view,
+src/test/app/PayStrand_test.cpp:28:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/app/PayStrand_test.cpp:487:            auto const b = (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:508:            return (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:514:            return (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:694:                BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:712:                BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:723:            test(env, USD, std::nullopt, STPath(), tecPATH_DRY);
+src/test/app/PayStrand_test.cpp:734:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:745:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:756:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:768:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:779:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:794:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:805:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:948:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:950:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:956:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:962:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:970:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:1004:            BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:1032:            BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:1206:            PaymentSandbox sb{env.current().get(), tapNONE};
+src/test/app/SetAuth_test.cpp:68:            ter(tecPATH_DRY));  // Should be terNO_AUTH
+src/test/app/SetAuth_test.cpp:70:            ter(tecPATH_DRY));  // Should be terNO_AUTH
+src/xrpld/app/paths/PathRequest.cpp:591:            std::make_unique<PaymentSandbox>(&*cache->getLedger(), tapNONE);
+src/xrpld/app/paths/PathRequest.cpp:612:                std::make_unique<PaymentSandbox>(&*cache->getLedger(), tapNONE);
+src/xrpld/app/paths/PathRequest.cpp:624:            if (rc.result() != tesSUCCESS)
+src/xrpld/app/paths/PathRequest.cpp:638:        if (rc.result() == tesSUCCESS)
+src/test/app/Credentials_test.cpp:1098:                    enabled ? TER(temINVALID_FLAG) : TER(tesSUCCESS));
+src/xrpld/app/paths/RippleCalc.cpp:33:    PaymentSandbox& view,
+src/xrpld/app/paths/RippleCalc.cpp:62:    PaymentSandbox flowSB(&view);
+src/libxrpl/ledger/PaymentSandbox.cpp:21:#include <xrpl/ledger/PaymentSandbox.h>
+src/libxrpl/ledger/PaymentSandbox.cpp:30:DeferredCredits::makeKey(
+src/libxrpl/ledger/PaymentSandbox.cpp:42:DeferredCredits::credit(
+src/libxrpl/ledger/PaymentSandbox.cpp:50:        "ripple::detail::DeferredCredits::credit : sender is not receiver");
+src/libxrpl/ledger/PaymentSandbox.cpp:53:        "ripple::detail::DeferredCredits::credit : positive amount");
+src/libxrpl/ledger/PaymentSandbox.cpp:88:DeferredCredits::ownerCount(
+src/libxrpl/ledger/PaymentSandbox.cpp:103:DeferredCredits::ownerCount(AccountID const& id) const
+src/libxrpl/ledger/PaymentSandbox.cpp:113:DeferredCredits::adjustments(
+src/libxrpl/ledger/PaymentSandbox.cpp:142:DeferredCredits::apply(DeferredCredits& to)
+src/libxrpl/ledger/PaymentSandbox.cpp:172:PaymentSandbox::balanceHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:222:PaymentSandbox::ownerCountHook(AccountID const& account, std::uint32_t count)
+src/libxrpl/ledger/PaymentSandbox.cpp:235:PaymentSandbox::creditHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:245:PaymentSandbox::adjustOwnerCountHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:254:PaymentSandbox::apply(RawView& to)
+src/libxrpl/ledger/PaymentSandbox.cpp:256:    XRPL_ASSERT(!ps_, "ripple::PaymentSandbox::apply : non-null sandbox");
+src/libxrpl/ledger/PaymentSandbox.cpp:261:PaymentSandbox::apply(PaymentSandbox& to)
+src/libxrpl/ledger/PaymentSandbox.cpp:263:    XRPL_ASSERT(ps_ == &to, "ripple::PaymentSandbox::apply : matching sandbox");
+src/libxrpl/ledger/PaymentSandbox.cpp:269:PaymentSandbox::balanceChanges(ReadView const& view) const
+src/libxrpl/ledger/PaymentSandbox.cpp:302:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:308:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:327:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:333:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:349:                "ripple::PaymentSandbox::balanceChanges : after and before "
+src/libxrpl/ledger/PaymentSandbox.cpp:356:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:357:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:362:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:363:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:394:PaymentSandbox::xrpDestroyed() const
+src/test/ledger/PaymentSandbox_test.cpp:23:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/ledger/PaymentSandbox_test.cpp:31:class PaymentSandbox_test : public beast::unit_test::suite
+src/test/ledger/PaymentSandbox_test.cpp:127:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:130:                auto r = accountSend(av, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:131:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:134:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:138:                auto r = accountSend(av, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:139:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:142:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:152:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:155:            rippleCredit(av, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:157:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:161:            rippleCredit(av, alice, gw1, toDebit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:163:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:171:            PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:174:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:178:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:179:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:182:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:187:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:188:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:191:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:199:            PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:202:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:205:            rippleCredit(pv, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:207:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:213:            // redeemIOU, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:215:            PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:218:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:221:            BEAST_EXPECT(redeemIOU(pv, alice, toDebit, iss, j) == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:223:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:229:            // issueIOU, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:231:            PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:234:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:237:            BEAST_EXPECT(issueIOU(pv, alice, toCredit, iss, j) == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:239:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:247:            PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:250:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:254:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:255:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:258:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:263:                PaymentSandbox pv2(&pv);
+src/test/ledger/PaymentSandbox_test.cpp:265:                    accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:273:                    auto r = accountSend(pv2, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:274:                    BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:277:                    accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:287:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:288:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:291:                accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:329:        PaymentSandbox pv(&av);
+src/test/ledger/PaymentSandbox_test.cpp:330:        pv.creditHook(gw, alice, hugeAmt, -tinyAmt);
+src/test/ledger/PaymentSandbox_test.cpp:331:        BEAST_EXPECT(pv.balanceHook(alice, gw, hugeAmt) == tinyAmt);
+src/test/ledger/PaymentSandbox_test.cpp:343:            return toAmount<XRPAmount>(accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:344:                view, id, xrpCurrency(), xrpAccount(), fhZERO_IF_FROZEN, j));
+src/test/ledger/PaymentSandbox_test.cpp:358:        PaymentSandbox sb(&av);
+src/test/ledger/PaymentSandbox_test.cpp:366:                    accountSend(sb, xrpAccount(), alice, XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:367:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:371:                    accountSend(sb, alice, xrpAccount(), XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:372:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:382:        // Make sure the Issue::Account returned by PAymentSandbox::balanceHook
+src/test/ledger/PaymentSandbox_test.cpp:384:        testcase("balanceHook");
+src/test/ledger/PaymentSandbox_test.cpp:394:        PaymentSandbox sb(&av);
+src/test/ledger/PaymentSandbox_test.cpp:397:        // is typically passed to creditHook, since it comes from a trust line.
+src/test/ledger/PaymentSandbox_test.cpp:401:        sb.creditHook(gw.id(), alice.id(), {USD, 400}, {tlIssue, 600});
+src/test/ledger/PaymentSandbox_test.cpp:402:        sb.creditHook(gw.id(), alice.id(), {USD, 100}, {tlIssue, 600});
+src/test/ledger/PaymentSandbox_test.cpp:404:        // Expect that the STAmount issuer returned by balanceHook() is correct.
+src/test/ledger/PaymentSandbox_test.cpp:406:            sb.balanceHook(gw.id(), alice.id(), {USD, 600});
+src/test/ledger/PaymentSandbox_test.cpp:428:BEAST_DEFINE_TESTSUITE(PaymentSandbox, ledger, ripple);
+src/test/app/Flow_test.cpp:28:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/app/Flow_test.cpp:199:                ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:467:                PaymentSandbox sb(env.current().get(), tapNONE);
+src/test/app/Flow_test.cpp:549:                reducedOffersV2 ? TER(tecPATH_DRY) : TER(tesSUCCESS);
+src/test/app/Flow_test.cpp:646:        // tecPATH_DRY, but the entire path should not be marked as dry. This
+src/test/app/Flow_test.cpp:1066:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1079:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1122:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1218:                    withFix ? TER{temBAD_PATH_LOOP} : TER{tesSUCCESS};
+src/test/app/Discrepancy_test.cpp:133:                        prevFields[sfBalance.fieldName].asString());
+src/test/app/Discrepancy_test.cpp:136:                        finalFields[sfBalance.fieldName].asString());
+src/test/app/NetworkID_test.cpp:86:            runTx(env, jv, tesSUCCESS);
+src/test/app/NetworkID_test.cpp:109:            runTx(env, jv, tesSUCCESS);
+src/test/app/NetworkID_test.cpp:157:            runTx(env, jv, tesSUCCESS);
+src/test/app/OpenP0Repro_test.cpp:209:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:245:        env(loanBroker::del(broker, fixture.brokerID), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:272:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:306:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:336:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:367:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:411:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:549:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:593:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:712:        run(base - fixCleanup3_1_3, tecEXPIRED, tesSUCCESS);
+src/test/app/OpenP0Repro_test.cpp:748:                tesSUCCESS,
+src/test/app/OpenP0Repro_test.cpp:792:            if (ter == tesSUCCESS)
+src/test/app/OpenP0Repro_test.cpp:802:        run(testable_amendments() - fixCleanup3_1_3, tesSUCCESS);
+src/test/app/OpenP0Repro_test.cpp:803:        run(testable_amendments() | fixCleanup3_1_3, tecPATH_DRY);
+src/test/app/OpenP0Repro_test.cpp:863:            env(shareWithdraw, ter(withFix ? TER{tecNO_LINE} : TER{tesSUCCESS}));
+src/test/app/OpenP0Repro_test.cpp:922:                ter(tesSUCCESS));
+src/test/app/OpenP0Repro_test.cpp:936:                ter(tesSUCCESS));
+src/test/app/OpenP0Repro_test.cpp:989:            env(tx, ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:996:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1018:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1036:                ter(withFix ? TER{tesSUCCESS} : TER{tefINTERNAL}),
+src/test/app/OpenP0Repro_test.cpp:1107:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1132:                ter(withFix ? TER{tesSUCCESS} : TER{telINSUF_FEE_P}),
+src/test/app/OpenP0Repro_test.cpp:1198:        env(pay(alice, bob, shares(1)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1207:        env(pay(alice, bob, shares(1)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1245:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1272:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1297:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1335:                ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1550:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1562:        testcase("VaultDeposit current — opposite trustline limit causes tefINTERNAL");
+src/test/app/OpenP0Repro_test.cpp:1594:            ter(tefINTERNAL),
+src/test/app/OpenP0Repro_test.cpp:1602:        testcase("EscrowCancel current — deleted IOU trustline returns tefEXCEPTION");
+src/test/app/OpenP0Repro_test.cpp:1631:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1652:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:1748:        env(acctdelete(bob, carol), fee(deleteFee), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1799:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:1971:        env(delegate::set(owner, bob, {"VaultCreate"}), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1975:        env(tx, delegate::as(bob), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2203:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2206:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2213:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2227:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2230:        env(loan::manage(lender, loanKeylet.key, tfLoanImpair), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2248:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2295:        env(delegate::set(alice, bob, {"Payment"}), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2302:        env(signers(bob, 2, {{alice, 1}, {daria, 1}}), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2625:        env(offer(alice, USD(50), XRP(50)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2682:        env(offer(alice, USD(50), XRP(50)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2734:        env(check::cash(alice, chkId, USD(50)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2790:        env(check::cash(alice, chkId, USD(50)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2857:        env(check::cash(alice, chkId, USD(50)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2923:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:2983:        env(token::acceptSellOffer(buyer, sellIdx), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3052:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3110:        amm.withdraw(alice, aliceTokens, USD(0), std::nullopt, ter(tesSUCCESS));
+src/test/app/OpenP0Repro_test.cpp:3166:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3263:        env(token::acceptSellOffer(buyer, sellIdx), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3318:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3366:        env(check::cash(bob, checkID, USD(40)), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3424:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3467:        amm.withdraw(alice, USD(10), std::nullopt, std::nullopt, ter(tesSUCCESS));
+src/test/app/OpenP0Repro_test.cpp:3623:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3674:            ter(tesSUCCESS),
+src/test/app/OpenP0Repro_test.cpp:3728:        env(amm.bid({.account = bob}), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3790:        env(delegate::set(alice, bob, {"Payment"}), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3798:        env(noop(alice), delegate::as(bob), ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3834:        env(jt1, ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3854:        env(jt2.jv, ter(tesSUCCESS), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3870:                tesSUCCESS,
+src/xrpld/app/paths/RippleCalc.h:24:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/RippleCalc.h:90:        PaymentSandbox& view,
+src/xrpld/app/paths/RippleCalc.h:119:    PaymentSandbox& view;
+src/test/ledger/Directory_test.cpp:540:            auto const expected = full ? ter{tecDIR_FULL} : ter{tesSUCCESS};
+src/test/app/MultiSign_test.cpp:1448:            "tesSUCCESS");
+src/test/app/MultiSign_test.cpp:1463:                .asString() == "tesSUCCESS");
+src/test/app/MultiSign_test.cpp:1698:        ter const expected(enabled ? TER(temINVALID_FLAG) : TER(tesSUCCESS));
+src/test/app/SetRegularKey_test.cpp:232:        env(noop(alice), sig(alie), ter(tesSUCCESS));
+src/test/app/SetRegularKey_test.cpp:248:        env(noop(alice), sig(alice), ter(tesSUCCESS));
+src/xrpld/app/paths/Pathfinder.h:169:    // Compute the liquidity for a path.  Return tesSUCCESS if it has enough
+src/libxrpl/ledger/CredentialHelpers.cpp:102:        return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:123:    return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:130:        return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:153:    return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:164:        return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:193:    return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:217:        // tesSUCCESS, then proceed to call `verifyValidDomain` in doApply. This
+src/libxrpl/ledger/CredentialHelpers.cpp:227:                return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/CredentialHelpers.cpp:254:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/CredentialHelpers.cpp:261:    return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:318:    return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:358:            return tesSUCCESS;
+src/libxrpl/ledger/CredentialHelpers.cpp:403:    return tesSUCCESS;
+src/test/app/NFTokenDir_test.cpp:237:                // generates a non-tesSUCCESS error code.
+src/test/app/NFTokenDir_test.cpp:475:                // generates a non-tesSUCCESS error code.
+src/test/app/NFTokenDir_test.cpp:724:        // a non-tesSUCCESS error code.
+src/test/app/NFTokenDir_test.cpp:766:            ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFTokenDir_test.cpp:941:        // a non-tesSUCCESS error code.
+src/test/app/Delegate_test.cpp:728:                : static_cast<TER>(tesSUCCESS);
+src/test/app/Delegate_test.cpp:810:                        ter(tefEXCEPTION));
+src/test/app/Delegate_test.cpp:831:                        ter(tefEXCEPTION));
+src/test/app/AMMExtended_test.cpp:33:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/app/AMMExtended_test.cpp:152:                ter(tecPATH_DRY));
+src/test/app/AMMExtended_test.cpp:216:                                                 : TER{tesSUCCESS}};
+src/test/app/AMMExtended_test.cpp:232:                        ter(tesSUCCESS));
+src/test/app/AMMExtended_test.cpp:251:                        ter(tesSUCCESS));
+src/test/app/AMMExtended_test.cpp:363:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "-1");
+src/test/app/AMMExtended_test.cpp:366:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/AMMExtended_test.cpp:401:            jrr[jss::node][sfBalance.fieldName] ==
+src/test/app/AMMExtended_test.cpp:597:            jrr[jss::node][sfBalance.fieldName][jss::value] ==
+src/test/app/AMMExtended_test.cpp:601:            jrr[jss::node][sfBalance.fieldName] == XRP(350).value().getText());
+src/test/app/AMMExtended_test.cpp:632:            jrr[jss::node][sfBalance.fieldName][jss::value] == "-0.8995000001");
+src/test/app/AMMExtended_test.cpp:733:        BEAST_EXPECT(jrr[jss::result][jss::engine_result] == "tesSUCCESS");
+src/test/app/AMMExtended_test.cpp:875:            features[fix1578] ? TER{tecKILLED} : TER{tesSUCCESS}};
+src/test/app/AMMExtended_test.cpp:1925:        // tecPATH_DRY, but the entire path should not be marked as dry.
+src/test/app/AMMExtended_test.cpp:2136:                PaymentSandbox sb(env.current().get(), tapNONE);
+src/test/app/AMMExtended_test.cpp:2841:            // fails with tecPATH_DRY.
+src/test/app/AMMExtended_test.cpp:2855:                withFix ? TER{temBAD_PATH_LOOP} : TER{tesSUCCESS};
+src/test/app/AMMExtended_test.cpp:2866:            // with tecPATH_DRY.
+src/test/app/AMMExtended_test.cpp:2890:            // with tecPATH_DRY.
+src/test/app/AMMExtended_test.cpp:3119:            supportsPreauth ? TER{tesSUCCESS} : TER{tecNO_PERMISSION}};
+src/test/app/AMMExtended_test.cpp:3297:            env(pay(bob, alice, G1["USD"](1)), ter(tecPATH_DRY));
+src/test/app/AMMExtended_test.cpp:3490:            env(pay(A2, A1, G1["USD"](1)), ter(tecPATH_DRY));
+src/test/app/AMMExtended_test.cpp:3605:            ter(tesSUCCESS));
+src/test/app/MPToken_test.cpp:1853:            mptAlice.pay(alice, bob, 100, tesSUCCESS, {{credIdx}});
+src/test/app/MPToken_test.cpp:1877:            mptAlice.pay(alice, bob, 100, tesSUCCESS, {{credIdx}});
+src/test/app/MPToken_test.cpp:3686:            tecPATH_DRY,
+src/test/app/MPToken_test.cpp:3692:            tesSUCCESS,
+src/test/app/MPToken_test.cpp:3698:            tesSUCCESS,
+src/test/app/MPToken_test.cpp:3704:            tesSUCCESS,
+src/test/app/MPToken_test.cpp:3710:            tecPATH_DRY,
+src/test/app/MPToken_test.cpp:3723:            tesSUCCESS,
+src/test/app/MPToken_test.cpp:3729:            tecPATH_DRY,
+src/test/app/MPToken_test.cpp:3735:            tesSUCCESS,
+src/test/app/MPToken_test.cpp:3741:            tecPATH_DRY,
+src/test/app/MPToken_test.cpp:3754:                tesSUCCESS,
+src/test/app/Freeze_test.cpp:121:            BEAST_EXPECT(ff[sfBalance.fieldName] == amt);
+src/test/app/Freeze_test.cpp:133:            env(pay(bob, alice, G1["USD"](1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:533:            env(pay(A2, A1, G1["USD"](1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1314:        env(pay(A1, A2, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1332:            env(pay(A1, A2, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1335:            env(pay(A2, A1, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1365:        env(pay(A2, A1, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1385:            env(pay(A2, A1, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1387:            env(pay(A1, A2, USD(1)), ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1729:                ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1769:                ter(tecPATH_DRY));
+src/test/app/Freeze_test.cpp:1777:                ter(tecPATH_DRY));
+src/test/app/SetTrust_test.cpp:271:        env(pay(gw, alice, USD(200)), ter(tecPATH_DRY));
+src/test/app/SetTrust_test.cpp:398:        env(pay(alice, bob, alice["USD"](10)), ter(tecPATH_DRY));
+src/test/app/SetTrust_test.cpp:422:        env(pay(alice, bob, alice["USD"](20)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:427:        env(pay(bob, alice, bob["USD"](10)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:436:        env(pay(bob, alice, bob["USD"](10)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:541:                    withFix ? ter(tesSUCCESS) : ter(tecNO_PERMISSION);
+src/test/app/SetTrust_test.cpp:548:                    withFix ? ter(tesSUCCESS) : ter(tecPATH_DRY);
+src/test/ledger/View_test.cpp:27:#include <xrpl/ledger/PaymentSandbox.h>
+src/test/ledger/View_test.cpp:369:                PaymentSandbox v2(&v1);
+src/test/ledger/View_test.cpp:373:                PaymentSandbox v3(&v2);
+src/test/ledger/View_test.cpp:834:                accountHolds(
+src/test/ledger/View_test.cpp:839:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:859:                accountHolds(
+src/test/ledger/View_test.cpp:864:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:872:                accountHolds(
+src/test/ledger/View_test.cpp:877:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:881:            // accountHolds().
+src/test/ledger/View_test.cpp:888:                accountHolds(
+src/test/ledger/View_test.cpp:893:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:899:                accountHolds(
+src/test/ledger/View_test.cpp:904:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:908:            auto const carolsXRP = accountHolds(
+src/test/ledger/View_test.cpp:913:                fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:930:                accountHolds(
+src/test/ledger/View_test.cpp:935:                    fhZERO_IF_FROZEN,
+src/test/ledger/View_test.cpp:942:                *env.closed(), gw, USD(314159), fhZERO_IF_FROZEN, env.journal);
+src/test/ledger/View_test.cpp:947:                *env.closed(), carol, USD(0), fhZERO_IF_FROZEN, env.journal);
+src/test/ledger/View_test.cpp:954:                *env.closed(), carol, USD(0), fhZERO_IF_FROZEN, env.journal);
+src/test/app/NFTokenBurn_test.cpp:807:                    tesSUCCESS,
+src/test/app/NFTokenBurn_test.cpp:824:                TER terActual = tesSUCCESS;
+src/test/app/NFTokenBurn_test.cpp:851:                    tesSUCCESS,
+src/test/app/NFTokenBurn_test.cpp:870:                TER terActual = tesSUCCESS;
+src/xrpld/app/tx/detail/SetAccount.cpp:186:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetAccount.cpp:196:        return tesSUCCESS;
+src/xrpld/app/tx/detail/SetAccount.cpp:241:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetAccount.cpp:306:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetAccount.cpp:314:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetAccount.cpp:672:    return tesSUCCESS;
+src/test/app/NFTokenAuth_test.cpp:136:            sleA1->setFieldAmount(sfBalance, A1["USD"](-1000));
+src/test/app/NFTokenAuth_test.cpp:203:            sleA1->setFieldAmount(sfBalance, A1["USD"](-1000));
+src/test/app/NFTokenAuth_test.cpp:329:            sleA1->setFieldAmount(sfBalance, A1["USD"](-1000));
+src/test/app/NFTokenAuth_test.cpp:451:            sleA1->setFieldAmount(sfBalance, A1["USD"](-1000));
+src/test/app/Path_test.cpp:749:        env(pay("alice", "bob", Account("alice")["USD"](25)), ter(tecPATH_DRY));
+src/xrpld/app/tx/detail/SetSignerList.cpp:77:    return std::make_tuple(tesSUCCESS, quorum, sign, op);
+src/xrpld/app/tx/detail/SetSignerList.cpp:92:    if (std::get<0>(result) != tesSUCCESS)
+src/xrpld/app/tx/detail/SetSignerList.cpp:113:        if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/SetSignerList.cpp:119:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetSignerList.cpp:149:        std::get<0>(result) == tesSUCCESS,
+src/xrpld/app/tx/detail/SetSignerList.cpp:150:        "ripple::SetSignerList::preCompute : result is tesSUCCESS");
+src/xrpld/app/tx/detail/SetSignerList.cpp:210:        return tesSUCCESS;
+src/xrpld/app/tx/detail/SetSignerList.cpp:243:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetSignerList.cpp:330:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetSignerList.cpp:354:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetSignerList.cpp:399:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetSignerList.cpp:410:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/test/app/Invariants_test.cpp:182:            tesSUCCESS,
+src/test/app/Invariants_test.cpp:197:        TER terActual = tesSUCCESS;
+src/test/app/Invariants_test.cpp:231:                auto amt = sle->getFieldAmount(sfBalance);
+src/test/app/Invariants_test.cpp:232:                sle->setFieldAmount(sfBalance, amt + STAmount{500});
+src/test/app/Invariants_test.cpp:255:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:286:                sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:287:                sleA2->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:310:                if (!BEAST_EXPECT(*sleA1->at(sfBalance) != beast::zero))
+src/test/app/Invariants_test.cpp:331:                sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:372:                    sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:392:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:427:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:476:                                ac.journal) == tesSUCCESS);
+src/test/app/Invariants_test.cpp:494:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:703:            sleA1->setFieldAmount(sfBalance, G1["USD"](A1Balance));
+src/test/app/Invariants_test.cpp:704:            sleA2->setFieldAmount(sfBalance, G1["USD"](A2Balance));
+src/test/app/Invariants_test.cpp:761:                sle->setFieldAmount(sfBalance, nonNative);
+src/test/app/Invariants_test.cpp:776:                sle->setFieldAmount(sfBalance, INITIAL_XRP + drops(1));
+src/test/app/Invariants_test.cpp:777:                BEAST_EXPECT(!sle->getFieldAmount(sfBalance).negative());
+src/test/app/Invariants_test.cpp:790:                sle->setFieldAmount(sfBalance, STAmount{1, true});
+src/test/app/Invariants_test.cpp:791:                BEAST_EXPECT(sle->getFieldAmount(sfBalance).negative());
+src/test/app/Invariants_test.cpp:1577:        std::initializer_list<TER> goodTers = {tesSUCCESS, tesSUCCESS};
+src/test/app/Invariants_test.cpp:2606:                    (*slePseudoAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:2607:                        *(*slePseudoAccount)[sfBalance] + *args.vaultAssets;
+src/test/app/Invariants_test.cpp:2632:                    (*sleAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:2633:                        *(*sleAccount)[sfBalance] + pair.amount;
+src/test/app/Invariants_test.cpp:3074:                (*slePseudoAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:3075:                    *(*slePseudoAccount)[sfBalance] - 10;
+src/test/app/Invariants_test.cpp:3082:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3485:                sleAccount->setFieldAmount(sfBalance, STAmount{});
+src/test/app/Invariants_test.cpp:3549:                sleAccount->setFieldAmount(sfBalance, STAmount{});
+src/test/app/Invariants_test.cpp:3697:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3730:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3758:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 10;
+src/test/app/Invariants_test.cpp:3842:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 2000;
+src/test/app/Invariants_test.cpp:3916:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3952:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3983:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 5;
+src/test/app/Invariants_test.cpp:4072:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 2000;
+src/test/app/Invariants_test.cpp:4298:        std::initializer_list<TER> const passTers = {tesSUCCESS, tesSUCCESS};
+src/xrpld/app/tx/detail/VaultDelete.cpp:41:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:95:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:103:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:130:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDelete.cpp:175:    if (*vaultPseudoSLE->at(sfBalance))
+src/xrpld/app/tx/detail/VaultDelete.cpp:228:    return tesSUCCESS;
+src/test/app/LPTokenTransfer_test.cpp:78:            env(pay(carol, bob, STAmount{lpIssue, 5}), ter(tecPATH_DRY));
+src/test/app/LPTokenTransfer_test.cpp:131:                ter(tecPATH_DRY));
+src/test/app/CrossingLimits_test.cpp:499:            return tesSUCCESS;
+src/xrpld/app/paths/detail/PaySteps.cpp:326:                if (msr.first != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:347:                if (msr.first != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:372:                        if (msr.first != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:385:                    if (msr.first != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:405:        if (s.first == tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:421:                tefEXCEPTION, "Step should be either a direct or book step");
+src/xrpld/app/paths/detail/PaySteps.cpp:471:    return {tesSUCCESS, std::move(result)};
+src/xrpld/app/paths/detail/PaySteps.cpp:519:        if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:531:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/paths/detail/PaySteps.cpp:545:    TER lastFailTer = tesSUCCESS;
+src/xrpld/app/paths/detail/PaySteps.cpp:564:        if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/PaySteps.cpp:576:                tefEXCEPTION, "toStrand returned tes & empty strand");
+src/xrpld/app/paths/detail/PaySteps.cpp:587:    return {tesSUCCESS, std::move(result)};
+src/xrpld/app/tx/detail/AMMVote.cpp:52:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMVote.cpp:75:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMVote.cpp:229:    return {tesSUCCESS, true};
+src/test/app/DID_test.cpp:167:            fixEnabled ? ter(tecEMPTY_DID) : ter(tesSUCCESS));
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:28:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:80:    if (accountHolds(
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:84:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:90:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:114:    if (auto ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:129:    return tesSUCCESS;
+src/xrpld/app/paths/detail/DirectStep.cpp:25:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/detail/DirectStep.cpp:162:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/DirectStep.cpp:169:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/DirectStep.cpp:175:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/DirectStep.cpp:424:            (*sleLine)[sfBalance] == beast::zero)
+src/xrpld/app/paths/detail/DirectStep.cpp:454:                return tecPATH_DRY;
+src/xrpld/app/paths/detail/DirectStep.cpp:458:    return tesSUCCESS;
+src/xrpld/app/paths/detail/DirectStep.cpp:469:    return tesSUCCESS;
+src/xrpld/app/paths/detail/DirectStep.cpp:479:        accountHolds(sb, src_, currency_, dst_, fhIGNORE_FREEZE, j_));
+src/xrpld/app/paths/detail/DirectStep.cpp:499:        accountHolds(sb, src_, currency_, dst_, fhIGNORE_FREEZE, j_);
+src/xrpld/app/paths/detail/DirectStep.cpp:507:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/DirectStep.cpp:550:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:571:    rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:635:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/DirectStep.cpp:675:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:696:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:715:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/DirectStep.cpp:910:        if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:922:            if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:993:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/DirectStep.cpp:1009:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:1012:    return {tesSUCCESS, std::move(r)};
+src/test/app/TrustAndBalance_test.cpp:78:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "0");
+src/test/app/TrustAndBalance_test.cpp:96:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "0");
+src/test/app/TrustAndBalance_test.cpp:130:        BEAST_EXPECT(jrr[jss::node][sfBalance.fieldName][jss::value] == "0");
+src/test/app/TrustAndBalance_test.cpp:181:        env(pay(bob, alice, bob["USD"](1)), ter(tecPATH_DRY));
+src/test/app/TrustAndBalance_test.cpp:307:            ter(tecPATH_DRY));
+src/xrpld/app/paths/detail/Steps.h:37:class PaymentSandbox;
+src/xrpld/app/paths/detail/Steps.h:103:    rev(PaymentSandbox& sb,
+src/xrpld/app/paths/detail/Steps.h:121:    fwd(PaymentSandbox& sb,
+src/xrpld/app/paths/detail/Steps.h:269:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in) = 0;
+src/xrpld/app/paths/detail/Steps.h:460:    rev(PaymentSandbox& sb,
+src/xrpld/app/paths/detail/Steps.h:473:    fwd(PaymentSandbox& sb,
+src/test/app/Vault_test.cpp:251:                    asset.raw().native() ? ter(temMALFORMED) : ter(tesSUCCESS);
+src/test/app/Vault_test.cpp:269:                                                 : ter(tesSUCCESS);
+src/test/app/Vault_test.cpp:3892:            env(tx, ter{tecPATH_DRY});
+src/test/app/Vault_test.cpp:3913:                env(tx, ter{tecPATH_DRY});
+src/test/app/Vault_test.cpp:3935:                env(tx, ter{tecPATH_DRY});
+src/test/app/Vault_test.cpp:4233:                env(tx, ter{tecPATH_DRY});
+src/test/app/Vault_test.cpp:4452:                env(tx, ter{tecPATH_DRY});
+src/test/app/Vault_test.cpp:4691:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:4711:            env(tx, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:5219:                return sle->getFieldAmount(sfBalance).xrp().drops();
+src/test/app/Vault_test.cpp:5375:            env(tx, ter(tesSUCCESS), THISLINE);
+src/test/app/Vault_test.cpp:5387:                ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5423:                ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5441:                ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5512:                        ? ter(tesSUCCESS)
+src/test/app/Vault_test.cpp:5533:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5552:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5572:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5645:            env(tx, ter(tesSUCCESS), THISLINE);
+src/test/app/Vault_test.cpp:5655:                ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5803:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5820:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5836:                    ter(tesSUCCESS),
+src/test/app/Vault_test.cpp:5868:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:5886:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:5930:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:5947:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:5991:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6008:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6052:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6062:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6105:                    ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6217:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6231:            // the sanity check in doApply → tefINTERNAL.
+src/test/app/Vault_test.cpp:6237:                ter(tefINTERNAL));
+src/test/app/Vault_test.cpp:6296:            env(tx, ter(tefEXCEPTION), THISLINE);
+src/test/app/Vault_test.cpp:6300:            env(tx, ter(tefEXCEPTION), THISLINE);
+src/test/app/Vault_test.cpp:6308:            env(tx, ter(tefEXCEPTION), THISLINE);
+src/test/app/Vault_test.cpp:6363:            env(tx, ter(tefEXCEPTION), THISLINE);
+src/test/app/Vault_test.cpp:6489:            env(tx, ter(tefEXCEPTION), THISLINE);
+src/test/app/Vault_test.cpp:6520:        // accountSend/accountHolds which read sfMPTAmount, so escrowed
+src/test/app/Vault_test.cpp:6553:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6559:            env(tx, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6575:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6588:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6618:            env(tx, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6626:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6642:                env(jv, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6653:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6669:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6704:            env(tx, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6712:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6728:                env(jv, ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6739:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6749:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6843:            // Pre-fix: succeeds (tesSUCCESS) because the limit check was
+src/test/app/Vault_test.cpp:6852:                    ter{withFix ? TER{tecNO_LINE} : TER{tesSUCCESS}});
+src/test/app/Vault_test.cpp:6934:                ter(tesSUCCESS));
+src/test/app/Vault_test.cpp:6951:                ter(tesSUCCESS));
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:44:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:65:            return tesSUCCESS;
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:82:            return tesSUCCESS;
+src/test/app/EscrowToken_test.cpp:124:                withTokenEscrow ? ter(tesSUCCESS) : ter(temBAD_AMOUNT);
+src/test/app/EscrowToken_test.cpp:126:                withTokenEscrow ? ter(tesSUCCESS) : ter(tecNO_TARGET);
+src/test/app/EscrowToken_test.cpp:215:            ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:223:            ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:244:            ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:248:        env(escrow::cancel(bob, alice, seq2), ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:589:                ter(largeMantissa ? (TER)tesSUCCESS : (TER)tecPRECISION_LOSS));
+src/test/app/EscrowToken_test.cpp:628:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:670:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:718:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:752:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:786:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:801:        // tesSUCCESS: bob submits; IOU Limit < balance + amount
+src/test/app/EscrowToken_test.cpp:823:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:836:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:878:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:931:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:947:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:966:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:978:            env(escrow::cancel(bob, alice, seq2), ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1020:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1043:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1068:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1092:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1125:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1132:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:1245:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2004:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2109:                ter(largeMantissa ? (TER)tesSUCCESS : (TER)tecPRECISION_LOSS));
+src/test/app/EscrowToken_test.cpp:2159:                withTokenEscrow ? ter(tesSUCCESS) : ter(temBAD_AMOUNT);
+src/test/app/EscrowToken_test.cpp:2161:                withTokenEscrow ? ter(tesSUCCESS) : ter(tecNO_TARGET);
+src/test/app/EscrowToken_test.cpp:2601:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2674:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2724:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2735:        // tesSUCCESS: bob submits; finish MPT created
+src/test/app/EscrowToken_test.cpp:2760:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2767:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2797:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2844:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2925:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2942:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2963:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2976:            env(escrow::cancel(bob, alice, seq2), ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:2995:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3007:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3025:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3033:            env(escrow::cancel(alice, alice, seq), ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3051:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3058:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3112:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3178:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3185:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3232:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3255:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3273:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3292:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3325:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3332:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3846:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3878:                ter(tesSUCCESS));
+src/test/app/EscrowToken_test.cpp:3895:                ter(tesSUCCESS));
+src/xrpld/app/paths/detail/StepChecks.h:84:    return tesSUCCESS;
+src/xrpld/app/paths/detail/StepChecks.h:112:    return tesSUCCESS;
+src/test/app/Escrow_test.cpp:1193:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1210:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1228:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1247:                    static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1267:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1274:                static_cast<std::uint8_t>(tesSUCCESS));
+src/test/app/Escrow_test.cpp:1374:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/Escrow_test.cpp:1389:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/Escrow_test.cpp:1404:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/DepositAuth_test.cpp:318:            TER const result = (noRippleNext && noRipplePrev) ? TER{tecPATH_DRY}
+src/test/app/DepositAuth_test.cpp:319:                                                              : TER{tesSUCCESS};
+src/test/app/DepositAuth_test.cpp:340:            TER const result = (noRippleNext && noRipplePrev) ? TER{tecPATH_DRY}
+src/test/app/DepositAuth_test.cpp:341:                                                              : TER{tesSUCCESS};
+src/test/app/DepositAuth_test.cpp:657:                supportsPreauth ? TER{tesSUCCESS} : TER{tecNO_PERMISSION}};
+src/test/app/DepositAuth_test.cpp:675:                    supportsCredentials ? TER(tesSUCCESS) : TER(temDISABLED));
+src/test/app/DepositAuth_test.cpp:680:                                            : TER(tesSUCCESS)));
+src/test/app/DepositAuth_test.cpp:685:                                                : TER(tesSUCCESS)));
+src/libxrpl/ledger/View.cpp:403:    if (zeroIfFrozen == fhZERO_IF_FROZEN)
+src/libxrpl/ledger/View.cpp:454:        amount = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:477:    return view.balanceHook(account, issuer, amount);
+src/libxrpl/ledger/View.cpp:481:accountHolds(
+src/libxrpl/ledger/View.cpp:512:accountHolds(
+src/libxrpl/ledger/View.cpp:520:    return accountHolds(
+src/libxrpl/ledger/View.cpp:531:accountHolds(
+src/libxrpl/ledger/View.cpp:567:        zeroIfFrozen == fhZERO_IF_FROZEN && isFrozen(view, account, mptIssue))
+src/libxrpl/ledger/View.cpp:600:accountHolds(
+src/libxrpl/ledger/View.cpp:613:                return accountHolds(
+src/libxrpl/ledger/View.cpp:618:                return accountHolds(
+src/libxrpl/ledger/View.cpp:642:    return accountHolds(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:715:    auto const fullBalance = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:717:    auto const balance = view.balanceHook(id, xrpAccount(), fullBalance);
+src/libxrpl/ledger/View.cpp:722:    JLOG(j.trace()) << "accountHolds:"
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1147:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1244:    account->setFieldAmount(sfBalance, STAmount{});
+src/libxrpl/ledger/View.cpp:1272:        return tesSUCCESS;  // No special checks for XRP
+src/libxrpl/ledger/View.cpp:1280:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1293:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1317:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1345:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1360:            return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1378:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1440:    if (accountHolds(
+src/libxrpl/ledger/View.cpp:1451:        return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:1457:    return accountSend(
+src/libxrpl/ledger/View.cpp:1471:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1485:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1526:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1528:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1532:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1578:            return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1623:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1656:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1718:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1778:        sfBalance, bSetHigh ? -saBalance : saBalance);
+src/libxrpl/ledger/View.cpp:1780:    view.creditHook(
+src/libxrpl/ledger/View.cpp:1783:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1799:        auto const balance = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:1803:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1812:        return accountIsIssuer ? (TER)tesSUCCESS : (TER)tecOBJECT_NOT_FOUND;
+src/libxrpl/ledger/View.cpp:1813:    if (!accountIsIssuer && line->at(sfBalance)->iou() != beast::zero)
+src/libxrpl/ledger/View.cpp:1869:        return accountIsIssuer ? (TER)tesSUCCESS : (TER)tecOBJECT_NOT_FOUND;
+src/libxrpl/ledger/View.cpp:1926:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1933:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:1983:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2026:        STAmount saBalance = sleRippleState->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2031:        view.creditHook(uSenderID, uReceiverID, saAmount, saBalance);
+src/libxrpl/ledger/View.cpp:2090:        sleRippleState->setFieldAmount(sfBalance, saBalance);
+src/libxrpl/ledger/View.cpp:2104:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2119:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2168:        if (view.rules().enabled(featureDeletableAccounts) && ter != tesSUCCESS)
+src/libxrpl/ledger/View.cpp:2171:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2190:    if (tesSUCCESS == terResult)
+src/libxrpl/ledger/View.cpp:2274:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2306:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2325:    TER terResult(tesSUCCESS);
+src/libxrpl/ledger/View.cpp:2340:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2343:            receiver_bal = receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2352:        if (sender->getFieldAmount(sfBalance) < saAmount)
+src/libxrpl/ledger/View.cpp:2363:            auto const sndBal = sender->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2364:            view.creditHook(uSenderID, xrpAccount(), saAmount, sndBal);
+src/libxrpl/ledger/View.cpp:2367:            sender->setFieldAmount(sfBalance, sndBal - saAmount);
+src/libxrpl/ledger/View.cpp:2372:    if (tesSUCCESS == terResult && receiver)
+src/libxrpl/ledger/View.cpp:2375:        auto const rcvBal = receiver->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2376:        receiver->setFieldAmount(sfBalance, rcvBal + saAmount);
+src/libxrpl/ledger/View.cpp:2377:        view.creditHook(xrpAccount(), uReceiverID, saAmount, -rcvBal);
+src/libxrpl/ledger/View.cpp:2388:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2391:            receiver_bal = receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2440:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2474:                    receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2484:            auto const rcvBal = receiver->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2485:            receiver->setFieldAmount(sfBalance, rcvBal + amount);
+src/libxrpl/ledger/View.cpp:2486:            view.creditHook(xrpAccount(), receiverID, amount, -rcvBal);
+src/libxrpl/ledger/View.cpp:2500:                    receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2510:        if (sender->getFieldAmount(sfBalance) < takeFromSender)
+src/libxrpl/ledger/View.cpp:2516:            auto const sndBal = sender->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2517:            view.creditHook(senderID, xrpAccount(), takeFromSender, sndBal);
+src/libxrpl/ledger/View.cpp:2520:            sender->setFieldAmount(sfBalance, sndBal - takeFromSender);
+src/libxrpl/ledger/View.cpp:2531:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2536:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2598:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2635:                return tecPATH_DRY;
+src/libxrpl/ledger/View.cpp:2641:        if (ter != tesSUCCESS)
+src/libxrpl/ledger/View.cpp:2644:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2661:        terResult != tesSUCCESS)
+src/libxrpl/ledger/View.cpp:2740:                        return tecPATH_DRY;
+src/libxrpl/ledger/View.cpp:2751:                        return tecPATH_DRY;
+src/libxrpl/ledger/View.cpp:2791:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2811:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:2835:accountSend(
+src/libxrpl/ledger/View.cpp:2934:issueIOU(
+src/libxrpl/ledger/View.cpp:2943:        "ripple::issueIOU : neither account nor issuer is XRP");
+src/libxrpl/ledger/View.cpp:2946:    XRPL_ASSERT(issue == amount.issue(), "ripple::issueIOU : matching issue");
+src/libxrpl/ledger/View.cpp:2950:        issue.account != account, "ripple::issueIOU : not issuer account");
+src/libxrpl/ledger/View.cpp:2952:    JLOG(j.trace()) << "issueIOU: " << to_string(account) << ": "
+src/libxrpl/ledger/View.cpp:2961:        STAmount final_balance = state->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2979:        view.creditHook(issue.account, account, amount, start_balance);
+src/libxrpl/ledger/View.cpp:2987:        state->setFieldAmount(sfBalance, final_balance);
+src/libxrpl/ledger/View.cpp:2998:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3011:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3034:redeemIOU(
+src/libxrpl/ledger/View.cpp:3043:        "ripple::redeemIOU : neither account nor issuer is XRP");
+src/libxrpl/ledger/View.cpp:3046:    XRPL_ASSERT(issue == amount.issue(), "ripple::redeemIOU : matching issue");
+src/libxrpl/ledger/View.cpp:3050:        issue.account != account, "ripple::redeemIOU : not issuer account");
+src/libxrpl/ledger/View.cpp:3052:    JLOG(j.trace()) << "redeemIOU: " << to_string(account) << ": "
+src/libxrpl/ledger/View.cpp:3060:        STAmount final_balance = state->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:3072:        view.creditHook(account, issue.account, amount, start_balance);
+src/libxrpl/ledger/View.cpp:3080:        state->setFieldAmount(sfBalance, final_balance);
+src/libxrpl/ledger/View.cpp:3093:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3100:    JLOG(j.fatal()) << "redeemIOU: " << to_string(account)
+src/libxrpl/ledger/View.cpp:3104:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3125:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3130:    if (sender->getFieldAmount(sfBalance) < amount)
+src/libxrpl/ledger/View.cpp:3143:        sfBalance, sender->getFieldAmount(sfBalance) - amount);
+src/libxrpl/ledger/View.cpp:3147:        sfBalance, receiver->getFieldAmount(sfBalance) + amount);
+src/libxrpl/ledger/View.cpp:3150:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3161:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3177:                ? tesSUCCESS
+src/libxrpl/ledger/View.cpp:3182:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3202:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3215:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3222:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3255:        // ter = tefINTERNAL | tecOBJECT_NOT_FOUND | tecNO_AUTH | tecEXPIRED
+src/libxrpl/ledger/View.cpp:3270:            return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3278:    return tesSUCCESS;  // Note: sleToken might be null
+src/libxrpl/ledger/View.cpp:3291:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3298:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3343:            return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3350:        // lsfMPTAuthorized because it is meaningless. Return tesSUCCESS
+src/libxrpl/ledger/View.cpp:3354:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3359:        // authorized by domain. Proceed to create it, then return tesSUCCESS
+src/libxrpl/ledger/View.cpp:3372:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3378:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3399:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3410:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3414:        return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3417:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3435:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3480:            if (ter != tesSUCCESS)
+src/libxrpl/ledger/View.cpp:3517:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3554:        ter != tesSUCCESS)
+src/libxrpl/ledger/View.cpp:3567:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3571:rippleCredit(
+src/libxrpl/ledger/View.cpp:3803:    return tesSUCCESS;
+src/libxrpl/ledger/View.cpp:3977:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:164:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:218:    // Return tesSUCCESS if it does,  error otherwise.
+src/xrpld/app/tx/detail/AMMDeposit.cpp:230:                return TER(tesSUCCESS);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:236:                accountHolds(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:242:            ? TER(tesSUCCESS)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:267:            return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:325:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:366:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:386:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMDeposit.cpp:466:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:481:    return {result, result == tesSUCCESS};
+src/xrpld/app/tx/detail/AMMDeposit.cpp:524:                return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:528:            accountHolds(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:534:            return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:584:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:610:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:621:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMDeposit.cpp:627:    return {tesSUCCESS, lptAMMBalance + lpTokensDepositActual};
+src/test/app/AMMClawback_test.cpp:114:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:144:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:176:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:209:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:248:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:275:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:304:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:335:            AMM amm(env, alice, XRP(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:414:            AMM amm(env, alice, EUR(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:422:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:449:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:489:            AMM amm(env, alice, XRP(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:499:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:525:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:582:            AMM amm(env, alice, EUR(5000), USD(4000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:594:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:626:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:650:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:684:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:739:            AMM amm(env, gw, XRP(2000), USD(1000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:751:            AMM amm2(env, gw2, XRP(3000), EUR(1000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:781:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:827:            env(amm::ammClawback(gw, bob, USD, XRP, USD(10)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:874:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:920:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:969:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:989:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1022:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1105:            AMM amm(env, alice, EUR(5000), USD(4000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1157:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1205:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1229:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1261:            AMM amm(env, gw, XRP(2000), USD(10000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1289:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1309:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1367:        AMM amm(env, alice, EUR(2000), USD(8000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1381:        env(amm::ammClawback(gw, carol, USD, EUR, USD(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1407:            ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1431:            ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1490:        AMM amm(env, alice, gw["USD"](1000), gw2["USD"](1500), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1519:            ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1538:            ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1595:        AMM amm(env, gw, USD(1000), EUR(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1614:        env(amm::ammClawback(gw, gw2, USD, EUR, USD(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1639:        env(amm::ammClawback(gw2, gw, EUR, USD, EUR(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1681:        env(amm::ammClawback(gw2, alice, EUR, USD, EUR(4000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1745:        AMM amm(env, gw, USD(1000), XRP(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1789:            AMM amm(env, alice, EUR(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1801:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1816:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1857:            AMM amm(env, alice, EUR(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1870:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1910:            AMM amm(env, alice, EUR(1000), USD(2000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1922:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1967:            AMM amm(env, alice, EUR(2000), USD(8000), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1988:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:2014:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:2038:                ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:2088:        AMM amm(env, gw, XRP(100), USD(400), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:2101:        env(amm::ammClawback(gw, alice, USD, XRP, USD(400)), ter(tesSUCCESS));
+src/test/app/Ticket_test.cpp:63:                        "tesSUCCESS",
+src/test/app/Ticket_test.cpp:265:        // Verify that metadata indicates a tec or a tesSUCCESS.
+src/test/app/Ticket_test.cpp:301:                    transactionResult == "tesSUCCESS" ||
+src/test/app/Ticket_test.cpp:303:                    transactionResult + " neither tesSUCCESS nor tec"))
+src/test/app/AMM_test.cpp:870:                    !enabledv1_3 ? ter(temBAD_AMOUNT) : ter(tesSUCCESS);
+src/test/app/AMM_test.cpp:1065:            AMM amm(env, alice, XRP(10), gw["USD"](10), ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:1086:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:2037:                auto err = env.enabled(fixAMMv1_3) ? ter(tesSUCCESS)
+src/test/app/AMM_test.cpp:2062:                auto err = env.enabled(fixAMMv1_3) ? ter(tesSUCCESS)
+src/test/app/AMM_test.cpp:2857:                ter(tesSUCCESS))
+src/test/app/AMM_test.cpp:3606:                BEAST_EXPECT(pf != tesSUCCESS);
+src/test/app/AMM_test.cpp:3749:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:3754:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:3768:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:3773:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:3785:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:3894:                    ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:4444:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:4449:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:4454:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:4459:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:4755:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:4969:                ter(tecPATH_DRY));
+src/test/app/AMM_test.cpp:6364:        test(all, tesSUCCESS, tesSUCCESS, tesSUCCESS, tesSUCCESS, 0, true);
+src/test/app/AMM_test.cpp:6367:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6368:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6369:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6370:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6375:        test(all, tesSUCCESS, tesSUCCESS, tesSUCCESS, tesSUCCESS, 0, false);
+src/test/app/AMM_test.cpp:6382:            tefEXCEPTION,
+src/test/app/AMM_test.cpp:6383:            tefEXCEPTION,
+src/test/app/AMM_test.cpp:6384:            tefEXCEPTION,
+src/test/app/AMM_test.cpp:6385:            tefEXCEPTION,
+src/test/app/AMM_test.cpp:6391:        test(all, tesSUCCESS, tesSUCCESS, tesSUCCESS, tesSUCCESS, 10, true);
+src/test/app/AMM_test.cpp:6394:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6395:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6396:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6397:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6400:        test(all, tesSUCCESS, tesSUCCESS, tesSUCCESS, tesSUCCESS, 10, false);
+src/test/app/AMM_test.cpp:6403:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6404:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6405:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6406:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6411:        test(all, tesSUCCESS, tesSUCCESS, tesSUCCESS, tesSUCCESS, 9, false);
+src/test/app/AMM_test.cpp:6417:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6418:            tefEXCEPTION,
+src/test/app/AMM_test.cpp:6419:            tesSUCCESS,
+src/test/app/AMM_test.cpp:6420:            tesSUCCESS,
+src/test/app/AMM_test.cpp:7353:            AMM amm(env, gw, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:7386:            AMM amm(env, alice, XRP(100), USD(100), ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:7450:                    ter(tesSUCCESS));
+src/test/app/AMM_test.cpp:7462:                                              : ter(tesSUCCESS);
+src/test/app/AMM_test.cpp:7578:                auto const err = env.enabled(fixAMMv1_3) ? ter(tesSUCCESS)
+src/test/app/LoanBroker_test.cpp:36:            env(tx, ter(goodVault ? ter(tesSUCCESS) : ter(temDISABLED)));
+src/test/app/LoanBroker_test.cpp:186:                BEAST_EXPECT(pseudo->at(sfBalance) == beast::zero);
+src/test/app/LoanBroker_test.cpp:1132:            env(del(alice, brokerKeylet.key), ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1249:        doApply: tecPATH_DRY (can it happen, funds already checked?)
+src/test/app/LoanBroker_test.cpp:1327:            tesSUCCESS,
+src/test/app/LoanBroker_test.cpp:1345:            env.app(), ac.view(), tesSUCCESS, tx, tapNONE, jlog};
+src/test/app/LoanBroker_test.cpp:1412:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/LoanBroker_test.cpp:1422:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/LoanBroker_test.cpp:1449:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/LoanBroker_test.cpp:1456:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/LoanBroker_test.cpp:1540:        env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1543:        env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1546:        env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1566:            env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1573:            env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1577:        env(tx2, ter(tesSUCCESS), THISLINE);
+src/test/app/LoanBroker_test.cpp:1622:            return std::make_tuple(token, token(1'000), tesSUCCESS);
+src/test/app/LoanBroker_test.cpp:1631:                {2'000, 4'000, 1'000, tesSUCCESS},
+src/test/app/LoanBroker_test.cpp:1634:                {2'000, 2'500, 250, tesSUCCESS},
+src/test/app/LoanBroker_test.cpp:1637:                {maxMPTokenAmount - 500, std::nullopt, 250, tesSUCCESS},
+src/test/app/LoanBroker_test.cpp:1922:                MPTState == ReachedMAX ? TER(tesSUCCESS) : tecNO_AUTH;
+src/test/app/LoanBroker_test.cpp:1926:            if (err != tesSUCCESS)
+src/test/app/Transaction_ordering_test.cpp:56:                result["result"]["meta"]["TransactionResult"] == "tesSUCCESS");
+src/test/app/Transaction_ordering_test.cpp:62:                result["result"]["meta"]["TransactionResult"] == "tesSUCCESS");
+src/test/app/Transaction_ordering_test.cpp:99:                result["result"]["meta"]["TransactionResult"] == "tesSUCCESS");
+src/test/app/Transaction_ordering_test.cpp:105:                result["result"]["meta"]["TransactionResult"] == "tesSUCCESS");
+src/test/app/Transaction_ordering_test.cpp:150:                result["result"]["meta"]["TransactionResult"] == "tesSUCCESS");
+src/test/app/Batch_test.cpp:196:                    withBatch ? ter(tesSUCCESS) : ter(temDISABLED);
+src/test/app/Batch_test.cpp:783:        // tesSUCCESS: BatchSigners.Signers
+src/test/app/Batch_test.cpp:791:                ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:795:        // tesSUCCESS: Multisign + BatchSigners.Signers
+src/test/app/Batch_test.cpp:804:                ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:837:        // tesSUCCESS: Signed With Regular Key
+src/test/app/Batch_test.cpp:846:                ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:850:        // tesSUCCESS: Signed With Master Key
+src/test/app/Batch_test.cpp:858:                ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:990:        env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1005:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1014:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1047:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1056:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1089:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1098:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1131:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1140:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1173:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1182:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1221:            env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1244:            env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1271:            env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1300:            env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1331:            env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:1517:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1524:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1525:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:1526:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1548:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1556:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1577:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1585:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1606:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1614:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1655:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1666:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1690:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1699:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1701:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1722:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1731:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1732:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:1753:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1762:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1763:                {1, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1784:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1793:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1794:                {1, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1816:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1845:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1849:                {4, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:1887:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1897:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1919:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1928:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1929:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:1930:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1931:                {3, "Payment", "tesSUCCESS", txIDs[2], batchID},
+src/test/app/Batch_test.cpp:1932:                {4, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:1953:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1963:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1964:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:1965:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:1987:                tesSUCCESS,
+src/test/app/Batch_test.cpp:1997:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:1998:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:1999:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2020:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2030:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2031:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2032:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2053:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2068:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2069:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2070:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2108:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2119:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2120:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2123:                {4, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:2144:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2154:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2155:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2156:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2158:                {4, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:2179:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2189:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2190:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2191:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2192:                {3, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:2213:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2223:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2224:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2225:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2226:                {3, "Payment", "tesSUCCESS", txIDs[3], batchID},
+src/test/app/Batch_test.cpp:2247:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2261:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2262:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2263:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2491:            tesSUCCESS,
+src/test/app/Batch_test.cpp:2499:            {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2500:            {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2501:            {2, "AccountSet", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2541:            tesSUCCESS,
+src/test/app/Batch_test.cpp:2548:            {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2549:            {1, "AccountSet", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2550:            {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2596:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2605:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2606:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2607:                {2, "AccountDelete", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2640:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2649:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2650:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2652:                {3, "Payment", "tesSUCCESS", txIDs[2], batchID},
+src/test/app/Batch_test.cpp:2682:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2691:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2838:                    lendingBatchEnabled ? TER(tesSUCCESS)
+src/test/app/Batch_test.cpp:2871:                    lendingBatchEnabled ? TER(tesSUCCESS)
+src/test/app/Batch_test.cpp:2934:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2942:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:2943:                {1, "CheckCreate", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:2944:                {2, "CheckCash", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2980:                tesSUCCESS,
+src/test/app/Batch_test.cpp:2989:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3045:            tesSUCCESS,
+src/test/app/Batch_test.cpp:3054:            {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3055:            {1, "TicketCreate", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3056:            {2, "CheckCreate", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3057:            {3, "CheckCash", "tesSUCCESS", txIDs[2], batchID},
+src/test/app/Batch_test.cpp:3106:            tesSUCCESS,
+src/test/app/Batch_test.cpp:3114:            {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3115:            {1, "CheckCreate", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3116:            {2, "CheckCash", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3158:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3166:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3167:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3168:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3207:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3214:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3215:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3216:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3255:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3263:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3264:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3265:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3315:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3324:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3325:                    {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3326:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3335:                    {0, "AccountSet", "tesSUCCESS", noopTxnID, std::nullopt},
+src/test/app/Batch_test.cpp:3360:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3368:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3369:                    {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3370:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3396:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3403:            env(noopTxn, ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3408:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3409:                    {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3410:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3445:            env(noopTxn, ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3450:                    {0, "AccountSet", "tesSUCCESS", noopTxnID, std::nullopt},
+src/test/app/Batch_test.cpp:3451:                    {1, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3452:                    {2, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3453:                    {3, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3497:            env(noopTxn, ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3503:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3512:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3513:                    {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3514:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3546:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3560:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3561:                    {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3562:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3614:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3623:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3624:                    {1, "CheckCreate", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3625:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3626:                    {3, "CheckCash", "tesSUCCESS", objTxnID, std::nullopt},
+src/test/app/Batch_test.cpp:3656:            env(objTxn, ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3662:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3672:                    {0, "CheckCreate", "tesSUCCESS", objTxnID, std::nullopt},
+src/test/app/Batch_test.cpp:3673:                    {1, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3674:                    {2, "CheckCash", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3675:                    {3, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3703:                tesSUCCESS,
+src/test/app/Batch_test.cpp:3717:                    {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3718:                    {1, "CheckCreate", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3719:                    {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3720:                    {3, "CheckCash", "tesSUCCESS", objTxnID, std::nullopt},
+src/test/app/Batch_test.cpp:3783:        env(noop(bob), ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3794:        env(payTxn1, ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3800:            tesSUCCESS,
+src/test/app/Batch_test.cpp:3813:            {0, "Payment", "tesSUCCESS", payTxn1ID, std::nullopt},
+src/test/app/Batch_test.cpp:3814:            {1, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:3815:            {2, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:3816:            {3, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3824:                {0, "Payment", "tesSUCCESS", payTxn2ID, std::nullopt},
+src/test/app/Batch_test.cpp:3903:                    ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:3945:                    ter(tesSUCCESS));
+src/test/app/Batch_test.cpp:4046:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4053:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4054:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:4055:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:4094:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4102:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4103:                {1, "Payment", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:4104:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:4145:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4152:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4153:                {1, "AccountSet", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:4154:                {2, "Payment", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:4208:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4215:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4216:                {1, "MPTokenIssuanceSet", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:4217:                {2, "MPTokenIssuanceSet", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:4250:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4257:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4258:                {1, "TrustSet", "tesSUCCESS", txIDs[0], batchID},
+src/test/app/Batch_test.cpp:4259:                {2, "TrustSet", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:4290:                tesSUCCESS,
+src/test/app/Batch_test.cpp:4298:                {0, "Batch", "tesSUCCESS", batchID, std::nullopt},
+src/test/app/Batch_test.cpp:4299:                {1, "TrustSet", "tesSUCCESS", txIDs[0], batchID},
+src/xrpld/app/tx/detail/Batch.cpp:203: * @return NotTEC Returns tesSUCCESS if all checks pass, or an appropriate error
+src/xrpld/app/tx/detail/Batch.cpp:271:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Batch.cpp:340:            preflightResult.ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Batch.cpp:402:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Batch.cpp:496:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Batch.cpp:510: * If both checks succeed, the function returns tesSUCCESS.
+src/xrpld/app/tx/detail/Batch.cpp:513: * @return NotTEC Returns tesSUCCESS if all signature checks pass, or an error
+src/xrpld/app/tx/detail/Batch.cpp:525:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Batch.cpp:535: * @return TER Returns tesSUCCESS to indicate successful application of the
+src/xrpld/app/tx/detail/Batch.cpp:541:    return tesSUCCESS;
+src/test/app/Loan_test.cpp:1534:            canImpair ? ter(tesSUCCESS) : ter(tecLIMIT_EXCEEDED));
+src/test/app/Loan_test.cpp:1537:            canImpair ? ter(tesSUCCESS) : ter(tecNO_PERMISSION));
+src/test/app/Loan_test.cpp:1975:                    return std::make_tuple(empty, empty, empty, tesSUCCESS);
+src/test/app/Loan_test.cpp:2168:                        canImpair ? ter(tesSUCCESS) : ter(tecLIMIT_EXCEEDED));
+src/test/app/Loan_test.cpp:3451:                        broker.asset(abs(sleLine1->at(sfBalance).value()))));
+src/test/app/Loan_test.cpp:4199:                    "tesSUCCESS");
+src/test/app/Loan_test.cpp:4493:                        STAmount balance = sleLine->at(sfBalance);
+src/test/app/Loan_test.cpp:5015:        env(createJson, ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5041:        env(loanPayTx, ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5206:                        TER const expectedTer = tesSUCCESS) {
+src/test/app/Loan_test.cpp:5233:            feeCapped ? (TER)tesSUCCESS : (TER)telINSUF_FEE_P;
+src/test/app/Loan_test.cpp:5346:        env(createJson, ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5364:            env(loanPayTx, fee(payFee), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5379:            env(loanPayTx, fee(payFee), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5465:        env(createJson, ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5485:        env(loanPayTx, fee(payFee), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5671:                ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5705:                ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5712:                BEAST_EXPECT(meta->at(sfTransactionResult) == tesSUCCESS);
+src/test/app/Loan_test.cpp:5757:                ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5779:                env(loanPayTx, ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:5834:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/Loan_test.cpp:5846:            auto const err = !authorized ? ter(tecNO_AUTH) : ter(tesSUCCESS);
+src/test/app/Loan_test.cpp:6120:            BEAST_EXPECT(meta->at(sfTransactionResult) == tesSUCCESS);
+src/test/app/Loan_test.cpp:6869:        BEAST_EXPECT(env.ter() == tesSUCCESS);
+src/test/app/Loan_test.cpp:6891:        BEAST_EXPECT(env.ter() == tesSUCCESS);
+src/test/app/Loan_test.cpp:7334:        // We should get a tesSUCCESS instead of a tecNO_LINE.
+src/test/app/Loan_test.cpp:7337:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7420:        // We should get a tesSUCCESS instead of a tecNO_AUTH.
+src/test/app/Loan_test.cpp:7424:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7530:        // We should get a tesSUCCESS instead of a tecNO_AUTH.
+src/test/app/Loan_test.cpp:7534:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7708:        env(manage(lender, loanAKeylet.key, tfLoanDefault), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7731:        env(manage(lender, loanBKeylet.key, tfLoanDefault), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7937:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7943:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7959:            ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:7963:        env(manage(lender, loanKeylet.key, tfLoanImpair), ter(tesSUCCESS));
+src/test/app/Loan_test.cpp:8010:        attemptWithdrawShares(depositorA, sharesLpA, tesSUCCESS);
+src/test/app/Loan_test.cpp:8011:        attemptWithdrawShares(depositorB, sharesLpB, tesSUCCESS);
+src/test/app/Check_test.cpp:342:            if (expected == tesSUCCESS)
+src/test/app/Check_test.cpp:375:        writeTwoChecksDI(bob, alice, tesSUCCESS);
+src/test/app/Check_test.cpp:383:        writeTwoChecksDI(bob, alice, tesSUCCESS);
+src/test/app/Check_test.cpp:384:        writeTwoChecksDI(alice, bob, tesSUCCESS);
+src/test/app/Check_test.cpp:502:            env(pay(alice, bob, USD(1)), ter(tecPATH_DRY));
+src/test/app/Check_test.cpp:534:            env(pay(bob, alice, USD(1)), ter(tecPATH_DRY));
+src/test/app/Check_test.cpp:538:            env(pay(gw1, alice, USD(1)), ter(tecPATH_DRY));
+src/test/app/Check_test.cpp:739:                // this returns tesSUCCESS and the check is removed from the
+src/test/app/Check_test.cpp:751:                // limit then this returns tesSUCCESS and the check is
+src/test/app/Check_test.cpp:993:                // limit then this returns tesSUCCESS and the check is
+src/test/app/Check_test.cpp:1400:                // this returns tesSUCCESS and the check is removed from the
+src/test/app/Check_test.cpp:2172:                cmpReqAmount(sfBalance);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:140:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:148:        return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:156:    if (checkTxPermission(sle, tx) == tesSUCCESS)
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:157:        return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:177:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:267:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:356:    return tesSUCCESS;
+src/xrpld/app/paths/detail/FlowDebugInfo.h:25:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/detail/FlowDebugInfo.h:362:balanceDiffs(PaymentSandbox const& sb, ReadView const& rv)
+src/xrpld/app/paths/AMMOffer.h:125:        return accountSend(std::forward<Args>(args)..., WaiveTransferFee::Yes);
+src/test/app/PermissionedDEX_test.cpp:931:            ter(tecPATH_DRY));
+src/test/app/PermissionedDEX_test.cpp:1344:                ter(tecPATH_DRY));
+src/test/app/PermissionedDEX_test.cpp:1574:        // ttOFFER_CREATE — so the without-fix payment completes as tesSUCCESS.
+src/test/app/TxQ_test.cpp:1194:            env.le(alice)->getFieldAmount(sfBalance).xrp().drops() - (62);
+src/test/app/TxQ_test.cpp:1254:            env.le(bob)->getFieldAmount(sfBalance).xrp().drops() - (9 * 10 - 1);
+src/test/app/TxQ_test.cpp:1268:            env.le(bob)->getFieldAmount(sfBalance).xrp().drops() - (9 * 10);
+src/test/app/TxQ_test.cpp:2455:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/TxQ_test.cpp:2472:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/TxQ_test.cpp:2486:            BEAST_EXPECT(pf.ter == tesSUCCESS);
+src/test/app/TxQ_test.cpp:2604:            ter(tesSUCCESS));
+src/test/app/TxQ_test.cpp:4214:            BEAST_EXPECT(result.ter == tesSUCCESS && result.applied);
+src/test/app/TxQ_test.cpp:4286:            BEAST_EXPECT(result.ter == tesSUCCESS && result.applied);
+src/test/app/Regression_test.cpp:84:            BEAST_EXPECT(result.ter == tesSUCCESS);
+src/test/app/Regression_test.cpp:94:            auto balance = sle->getFieldAmount(sfBalance);
+src/test/app/Regression_test.cpp:116:            auto balance = sle->getFieldAmount(sfBalance);
+src/test/app/XChain_test.cpp:453:            ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:485:            .tx(create_bridge(mcuDoor, jvub), ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:505:        XEnv(*this).tx(create_bridge(mcDoor, jvb, XRP(1)), ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:509:            create_bridge(mcDoor, jvb, XRP(1), XRP(1)), ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:651:        env.tx(create_bridge(A, goodBridge2), ter(tesSUCCESS)).close();
+src/test/app/XChain_test.cpp:825:            {tesSUCCESS, tesSUCCESS},
+src/test/app/XChain_test.cpp:832:            {tecNO_ISSUER, tesSUCCESS},
+src/test/app/XChain_test.cpp:839:            {tesSUCCESS, tesSUCCESS},
+src/test/app/XChain_test.cpp:846:            {tecNO_ISSUER, tesSUCCESS},
+src/test/app/XChain_test.cpp:859:            {tesSUCCESS, tesSUCCESS}};
+src/test/app/XChain_test.cpp:885:            bool pass = mcTER == tesSUCCESS && scTER == tesSUCCESS;
+src/test/app/XChain_test.cpp:1259:         * -- tx has the flag and also modifies signature reward, tesSUCCESS
+src/test/app/XChain_test.cpp:2422:                    i < quorum ? tesSUCCESS : TER{tecXCHAIN_NO_CLAIM_ID};
+src/test/app/XChain_test.cpp:2673:                ? tesSUCCESS
+src/test/app/XChain_test.cpp:4121:                ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:4143:                ter(tesSUCCESS));
+src/test/app/XChain_test.cpp:4386:                if (env.ter() == tesSUCCESS)
+src/xrpld/app/paths/detail/StrandFlow.h:52:    std::optional<PaymentSandbox> sandbox;         ///< Resulting Sandbox state
+src/xrpld/app/paths/detail/StrandFlow.h:69:        PaymentSandbox&& sandbox_,
+src/xrpld/app/paths/detail/StrandFlow.h:106:    PaymentSandbox const& baseView,
+src/xrpld/app/paths/detail/StrandFlow.h:131:        std::optional<PaymentSandbox> sb(&baseView);
+src/xrpld/app/paths/detail/StrandFlow.h:135:        std::optional<PaymentSandbox> afView(&baseView);
+src/xrpld/app/paths/detail/StrandFlow.h:270:            PaymentSandbox checkSB(&baseView);
+src/xrpld/app/paths/detail/StrandFlow.h:271:            PaymentSandbox checkAfView(&baseView);
+src/xrpld/app/paths/detail/StrandFlow.h:313:    std::optional<PaymentSandbox> sandbox;
+src/xrpld/app/paths/detail/StrandFlow.h:322:        PaymentSandbox&& sandbox_,
+src/xrpld/app/paths/detail/StrandFlow.h:328:        , ter(tesSUCCESS)
+src/xrpld/app/paths/detail/StrandFlow.h:570:    PaymentSandbox const& baseView,
+src/xrpld/app/paths/detail/StrandFlow.h:587:        PaymentSandbox sb;
+src/xrpld/app/paths/detail/StrandFlow.h:594:            PaymentSandbox&& sb_,
+src/xrpld/app/paths/detail/StrandFlow.h:627:    PaymentSandbox sb(&baseView);
+src/xrpld/app/paths/detail/StrandFlow.h:859:            return {tefEXCEPTION, std::move(ofrsToRmOnFail)};
+src/xrpld/app/paths/detail/StrandFlow.h:880:            return {tecPATH_DRY, std::move(ofrsToRmOnFail)};
+src/xrpld/app/paths/detail/BookStep.cpp:30:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/detail/BookStep.cpp:162:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:169:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:175:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/BookStep.cpp:225:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:234:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:389:            Throw<FlowException>(tefINTERNAL, "Offer requires quality.");
+src/xrpld/app/paths/detail/BookStep.cpp:718:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:879:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:905:        if (dr != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:918:        if (cr != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:1015:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:1138:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:1311:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/BookStep.cpp:1404:    return tesSUCCESS;
+src/xrpld/app/paths/detail/BookStep.cpp:1458:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/BookStep.cpp:1474:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:1477:    return {tesSUCCESS, std::move(r)};
+src/xrpld/app/tx/detail/VaultCreate.cpp:102:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultCreate.cpp:141:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultCreate.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultCreate.cpp:255:    return tesSUCCESS;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:26:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:104:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:111:        PaymentSandbox& sb,
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:117:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:258:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:269:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:270:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:280:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:292:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:293:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:303:    PaymentSandbox& sb,
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:362:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:377:    return tesSUCCESS;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:401:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:416:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:419:    return {tesSUCCESS, std::move(r)};
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:32:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:74:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:132:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanPay.cpp:50:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanPay.cpp:238:    if (auto const balance = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:242:            fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanPay.cpp:254:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanPay.cpp:462:        Number const pseudoAccountBalanceBefore = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:579:    auto const accountBalanceBefore = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:589:        : accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:599:        : accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:623:                    brokerPayeeSle->at(sfBalance).value().xrp(),
+src/xrpld/app/tx/detail/LoanPay.cpp:648:        Number const pseudoAccountBalanceAfter = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:663:    auto const accountBalanceAfter = accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:673:        : accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:683:        : accountHolds(
+src/xrpld/app/tx/detail/LoanPay.cpp:840:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Offer.h:276:    return accountSend(std::forward<Args>(args)...);
+src/xrpld/app/tx/detail/CreateOffer.cpp:27:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/tx/detail/CreateOffer.cpp:145:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:178:    if (accountFunds(ctx.view, id, saTakerGets, fhZERO_IF_FROZEN, viewJ) <=
+src/xrpld/app/tx/detail/CreateOffer.cpp:205:            : TER{tesSUCCESS};
+src/xrpld/app/tx/detail/CreateOffer.cpp:217:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:230:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:262:        return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:296:        return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:304:        return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:317:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:322:    PaymentSandbox& psb,
+src/xrpld/app/tx/detail/CreateOffer.cpp:323:    PaymentSandbox& psbCancel,
+src/xrpld/app/tx/detail/CreateOffer.cpp:336:            accountFunds(psb, account_, takerAmount.in, fhZERO_IF_FROZEN, j_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:435:        auto afterCross = takerAmount;  // If !tesSUCCESS offer unchanged
+src/xrpld/app/tx/detail/CreateOffer.cpp:439:                psb, account_, takerAmount.in, fhZERO_IF_FROZEN, j_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:515:        return {tesSUCCESS, afterCross};
+src/xrpld/app/tx/detail/CreateOffer.cpp:578:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:611:    TER result = tesSUCCESS;
+src/xrpld/app/tx/detail/CreateOffer.cpp:640:                                                      : TER{tesSUCCESS}};
+src/xrpld/app/tx/detail/CreateOffer.cpp:647:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:712:        PaymentSandbox psbFlow{&sb};
+src/xrpld/app/tx/detail/CreateOffer.cpp:713:        PaymentSandbox psbCancelFlow{&sbCancel};
+src/xrpld/app/tx/detail/CreateOffer.cpp:723:            result == tesSUCCESS || isTecClaim(result),
+src/xrpld/app/tx/detail/CreateOffer.cpp:724:            "ripple::CreateOffer::applyGuts : result is tesSUCCESS or "
+src/xrpld/app/tx/detail/CreateOffer.cpp:737:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:760:            return {tefINTERNAL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:780:    if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:800:        return {tesSUCCESS, false};
+src/xrpld/app/tx/detail/CreateOffer.cpp:811:            // returns tecKILLED rather than tesSUCCESS.  Motivation for the
+src/xrpld/app/tx/detail/CreateOffer.cpp:814:        return {tesSUCCESS, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:819:        return {tefINTERNAL, false};
+src/xrpld/app/tx/detail/CreateOffer.cpp:833:            if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:927:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/CreateOffer.cpp:938:    return {tesSUCCESS, true};
+src/xrpld/app/tx/detail/NFTokenCreateOffer.cpp:55:    return tesSUCCESS;
+src/test/app/FeeVote_test.cpp:146:    return res.ter == tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:56:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:181:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:204:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:280:    if (accountHolds(
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:346:    return accountSend(
+src/xrpld/app/tx/detail/LoanDelete.cpp:21:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanDelete.cpp:59:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanDelete.cpp:136:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDelete.cpp:39:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDelete.cpp:57:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMDelete.cpp:69:    if (ter == tesSUCCESS || ter == tecINCOMPLETE)
+src/xrpld/app/tx/detail/AMMBid.cpp:92:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMBid.cpp:168:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMBid.cpp:258:            redeemIOU(sb, account_, saBurn, lpTokens.issue(), ctx_.journal);
+src/xrpld/app/tx/detail/AMMBid.cpp:259:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMBid.cpp:266:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMBid.cpp:269:    TER res = tesSUCCESS;
+src/xrpld/app/tx/detail/AMMBid.cpp:351:        res = accountSend(
+src/xrpld/app/tx/detail/AMMBid.cpp:357:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMBid.cpp:367:    return {res, res == tesSUCCESS};
+src/xrpld/app/tx/detail/Transactor.h:215:        // Required, even if it just returns tesSUCCESS.
+src/xrpld/app/tx/detail/Transactor.h:237:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.h:301:    // Base class always returns tesSUCCESS
+src/xrpld/app/tx/detail/SetTrust.cpp:127:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:135:        return tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:143:    if (checkTxPermission(sle, tx) == tesSUCCESS)
+src/xrpld/app/tx/detail/SetTrust.cpp:144:        return tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:190:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:362:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:368:    TER terResult = tesSUCCESS;
+src/xrpld/app/tx/detail/SetTrust.cpp:382:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetTrust.cpp:476:        saLowBalance = sleRippleState->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/LoanManage.cpp:41:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanManage.cpp:115:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanManage.cpp:294:    return accountSend(
+src/xrpld/app/tx/detail/LoanManage.cpp:344:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanManage.cpp:397:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanManage.cpp:432:        return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:64:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:159:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:271:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:155:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:158:        (*slep)[sfAmount] >= (*slep)[sfBalance],
+src/xrpld/app/tx/detail/PayChan.cpp:160:    (*sle)[sfBalance] =
+src/xrpld/app/tx/detail/PayChan.cpp:161:        (*sle)[sfBalance] + (*slep)[sfAmount] - (*slep)[sfBalance];
+src/xrpld/app/tx/detail/PayChan.cpp:167:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:197:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:210:        auto const balance = (*sle)[sfBalance];
+src/xrpld/app/tx/detail/PayChan.cpp:255:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:264:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:286:    (*slep)[sfBalance] = ctx_.tx[sfAmount].zeroed();
+src/xrpld/app/tx/detail/PayChan.cpp:323:    (*sle)[sfBalance] = (*sle)[sfBalance] - ctx_.tx[sfAmount];
+src/xrpld/app/tx/detail/PayChan.cpp:327:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:351:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:396:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PayChan.cpp:400:        auto const balance = (*sle)[sfBalance];
+src/xrpld/app/tx/detail/PayChan.cpp:421:    (*sle)[sfBalance] = (*sle)[sfBalance] - ctx_.tx[sfAmount];
+src/xrpld/app/tx/detail/PayChan.cpp:424:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:446:    auto const bal = ctx.tx[~sfBalance];
+src/xrpld/app/tx/detail/PayChan.cpp:494:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:508:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PayChan.cpp:537:    if (ctx_.tx[~sfBalance])
+src/xrpld/app/tx/detail/PayChan.cpp:539:        auto const chanBalance = slep->getFieldAmount(sfBalance).xrp();
+src/xrpld/app/tx/detail/PayChan.cpp:541:        auto const reqBalance = ctx_.tx[sfBalance].xrp();
+src/xrpld/app/tx/detail/PayChan.cpp:579:        (*slep)[sfBalance] = ctx_.tx[sfBalance];
+src/xrpld/app/tx/detail/PayChan.cpp:584:        (*sled)[sfBalance] = (*sled)[sfBalance] + reqDelta;
+src/xrpld/app/tx/detail/PayChan.cpp:600:        if (dst == txAccount || (*slep)[sfBalance] == (*slep)[sfAmount])
+src/xrpld/app/tx/detail/PayChan.cpp:615:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetOracle.cpp:58:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetOracle.cpp:168:    auto const& balance = sleSetter->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/SetOracle.cpp:173:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetOracle.cpp:274:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:324:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetOracle.cpp:329:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:31:#include <xrpl/ledger/PaymentSandbox.h>
+src/xrpld/app/tx/detail/XChainBridge.cpp:174:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:206:            tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:301:                j) != tesSUCCESS)
+src/xrpld/app/tx/detail/XChainBridge.cpp:396:    @return tesSUCCESS if payment succeeds, otherwise the error code for the
+src/xrpld/app/tx/detail/XChainBridge.cpp:402:    PaymentSandbox& psb,
+src/xrpld/app/tx/detail/XChainBridge.cpp:415:        return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:454:                STAmount const curBal = (*sleSrc)[sfBalance];
+src/xrpld/app/tx/detail/XChainBridge.cpp:496:        (*sleSrc)[sfBalance] = (*sleSrc)[sfBalance] - amt;
+src/xrpld/app/tx/detail/XChainBridge.cpp:497:        (*sleDst)[sfBalance] = (*sleDst)[sfBalance] + amt;
+src/xrpld/app/tx/detail/XChainBridge.cpp:501:        return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:551:        return mainFundsTer == tesSUCCESS && rewardTer == tesSUCCESS &&
+src/xrpld/app/tx/detail/XChainBridge.cpp:552:            (!rmSleTer || *rmSleTer == tesSUCCESS);
+src/xrpld/app/tx/detail/XChainBridge.cpp:558:        if ((!mainFundsTer || *mainFundsTer == tesSUCCESS) &&
+src/xrpld/app/tx/detail/XChainBridge.cpp:559:            (!rewardTer || *rewardTer == tesSUCCESS) &&
+src/xrpld/app/tx/detail/XChainBridge.cpp:560:            (!rmSleTer || *rmSleTer == tesSUCCESS))
+src/xrpld/app/tx/detail/XChainBridge.cpp:561:            return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:576:        if (mainFundsTer && mainFundsTer != tesSUCCESS)
+src/xrpld/app/tx/detail/XChainBridge.cpp:578:        if (rewardTer && rewardTer != tesSUCCESS)
+src/xrpld/app/tx/detail/XChainBridge.cpp:580:        if (rmSleTer && rmSleTer != tesSUCCESS)
+src/xrpld/app/tx/detail/XChainBridge.cpp:582:        return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:616:    PaymentSandbox& outerSb,
+src/xrpld/app/tx/detail/XChainBridge.cpp:643:        PaymentSandbox innerSb{&outerSb};
+src/xrpld/app/tx/detail/XChainBridge.cpp:675:                return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:719:            return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:810:    return {std::move(r), q, tesSUCCESS};
+src/xrpld/app/tx/detail/XChainBridge.cpp:866:        return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:868:    PaymentSandbox psb(&view);
+src/xrpld/app/tx/detail/XChainBridge.cpp:978:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:998:        return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1000:    PaymentSandbox psb(&view);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1067:            auto const balance = (*sleDoor)[sfBalance];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1190:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1237:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1445:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1488:        auto const balance = (*sleAcc)[sfBalance];
+src/xrpld/app/tx/detail/XChainBridge.cpp:1496:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1540:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1592:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1609:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1647:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1665:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1749:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1755:    PaymentSandbox psb(&ctx_.view());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1863:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1894:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1939:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1945:    PaymentSandbox psb(&ctx_.view());
+src/xrpld/app/tx/detail/XChainBridge.cpp:1981:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:1994:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2023:        auto const balance = (*sleAcc)[sfBalance];
+src/xrpld/app/tx/detail/XChainBridge.cpp:2031:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2093:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2153:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2212:    return tesSUCCESS;
+src/xrpld/app/tx/detail/XChainBridge.cpp:2218:    PaymentSandbox psb(&ctx_.view());
+src/xrpld/app/tx/detail/XChainBridge.cpp:2260:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:34:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:52:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:83:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultClawback.cpp:59:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultClawback.cpp:97:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:144:            Number const& sharesHeld = accountHolds(
+src/xrpld/app/tx/detail/VaultClawback.cpp:162:        return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultClawback.cpp:218:                        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:232:                return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultClawback.cpp:268:        auto const sharesDestroyed = accountHolds(
+src/xrpld/app/tx/detail/VaultClawback.cpp:290:            sharesDestroyed = accountHolds(
+src/xrpld/app/tx/detail/VaultClawback.cpp:361:        return Unexpected(tecPATH_DRY);
+src/xrpld/app/tx/detail/VaultClawback.cpp:373:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultClawback.cpp:381:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:404:        sharesDestroyed = accountHolds(
+src/xrpld/app/tx/detail/VaultClawback.cpp:436:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:477:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:488:        if (accountHolds(
+src/xrpld/app/tx/detail/VaultClawback.cpp:499:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultClawback.cpp:506:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:85:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:107:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:120:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:140:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:192:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:234:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:248:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:261:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:299:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:332:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Credentials.cpp:345:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:358:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Credentials.cpp:374:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:102:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:141:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:158:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:168:            return {tefINTERNAL};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:219:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:249:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:281:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:311:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:318:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CashCheck.cpp:65:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CashCheck.cpp:157:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/CashCheck.cpp:237:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CashCheck.cpp:243:    // Flow requires that we operate on a PaymentSandbox, rather than
+src/xrpld/app/tx/detail/CashCheck.cpp:245:    PaymentSandbox psb(&ctx_.view());
+src/xrpld/app/tx/detail/CashCheck.cpp:321:                ter != tesSUCCESS)
+src/xrpld/app/tx/detail/CashCheck.cpp:449:            if (result.result() != tesSUCCESS)
+src/xrpld/app/tx/detail/CashCheck.cpp:513:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenModify.cpp:46:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenModify.cpp:74:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:65:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:146:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:318:        return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:328:        return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:362:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:414:    if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:418:    (*dst)[sfBalance] = (*dst)[sfBalance] + mSourceBalance;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:419:    (*src)[sfBalance] = (*src)[sfBalance] - mSourceBalance;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:423:        (*src)[sfBalance] == XRPAmount(0),
+src/xrpld/app/tx/detail/DeleteAccount.cpp:442:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenMint.cpp:130:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenMint.cpp:219:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenMint.cpp:328:        ret != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenMint.cpp:362:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CancelOffer.cpp:37:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CancelOffer.cpp:59:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CancelOffer.cpp:71:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CancelOffer.cpp:80:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:94:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:112:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:134:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:154:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:221:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:242:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:258:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:290:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:298:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:369:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:394:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:403:    auto const balance = (*sle)[sfBalance].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:420:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:437:            sfBalance, delegatedSle->getFieldAmount(sfBalance) - feePaid);
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:450:        sle->setFieldAmount(sfBalance, mSourceBalance);
+src/xrpld/app/tx/detail/Transactor.cpp:455:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:527:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:557:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:572:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:637:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:666:        mPriorBalance = STAmount{(*sle)[sfBalance]}.xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:670:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:674:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:716:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:724:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:768:    NotTEC ret = tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:799:                return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:826:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:832:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:869:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:1041:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:1124:            tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:1156:    auto const balance = payerSle->getFieldAmount(sfBalance).xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:1175:    payerSle->setFieldAmount(sfBalance, balance - fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1178:        isTesSuccess(ter), "ripple::Transactor::reset : result is tesSUCCESS");
+src/xrpld/app/tx/detail/Transactor.cpp:1240:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/CancelCheck.cpp:35:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CancelCheck.cpp:70:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CancelCheck.cpp:120:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:21:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:96:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:139:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:158:    if (*brokerPseudoSLE->at(sfBalance))
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:192:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:96:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:180:    return result ? tesSUCCESS : result.error();
+src/xrpld/app/tx/detail/ApplyContext.cpp:155:        "ripple::ApplyContext::checkInvariants : is tesSUCCESS or tecCLAIM");
+src/xrpld/app/tx/detail/CreateOffer.h:29:class PaymentSandbox;
+src/xrpld/app/tx/detail/CreateOffer.h:80:        PaymentSandbox& psb,
+src/xrpld/app/tx/detail/CreateOffer.h:81:        PaymentSandbox& psbCancel,
+src/xrpld/app/tx/detail/NFTokenUtils.h:44:/** Returns tesSUCCESS if NFToken has few enough offers that it can be burned */
+src/xrpld/app/tx/detail/VaultDeposit.cpp:49:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:81:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:91:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:100:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:138:    if (accountHolds(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:142:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/VaultDeposit.cpp:148:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:156:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDeposit.cpp:167:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:253:        return tecPATH_DRY;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:270:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:281:    if (accountHolds(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:291:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultDeposit.cpp:296:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:308:    return tesSUCCESS;
+src/xrpld/app/tx/detail/applySteps.cpp:208:                            return tesSUCCESS;
+src/xrpld/app/tx/detail/applySteps.cpp:280:        "ripple::TxConsequences::TxConsequences : is not tesSUCCESS");
+src/xrpld/app/tx/detail/applySteps.cpp:351:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:372:        return {pfctx, {tefEXCEPTION, TxConsequences{tx}}};
+src/xrpld/app/tx/detail/applySteps.cpp:426:        if (ctx->preflightResult != tesSUCCESS)
+src/xrpld/app/tx/detail/applySteps.cpp:433:        return {*ctx, tefEXCEPTION};
+src/xrpld/app/tx/detail/applySteps.cpp:456:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/applySteps.cpp:476:        return {tefEXCEPTION, false};
+src/xrpld/app/tx/detail/SetRegularKey.cpp:61:    return tesSUCCESS;
+src/xrpld/app/tx/detail/SetRegularKey.cpp:69:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetRegularKey.cpp:90:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateCheck.cpp:66:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateCheck.cpp:154:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateCheck.cpp:162:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateCheck.cpp:234:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteOracle.cpp:32:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteOracle.cpp:56:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DeleteOracle.cpp:89:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanSet.cpp:112:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanSet.cpp:138:        return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanSet.cpp:353:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanSet.cpp:506:            : borrowerSle->at(sfBalance).value().xrp();
+src/xrpld/app/tx/detail/LoanSet.cpp:524:            borrowerSle->at(sfBalance).value().xrp(),
+src/xrpld/app/tx/detail/LoanSet.cpp:550:                brokerOwnerSle->at(sfBalance).value().xrp(),
+src/xrpld/app/tx/detail/LoanSet.cpp:652:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:54:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:86:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:103:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:112:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:132:            return tecPATH_DRY;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:159:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:167:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:175:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:222:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:234:        return tecPATH_DRY;
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:237:    if (accountHolds(
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:241:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:271:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:71:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMCreate.cpp:97:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:105:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:151:            accountHolds(
+src/xrpld/app/tx/detail/AMMCreate.cpp:155:                FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMCreate.cpp:191:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMCreate.cpp:197:            return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMCreate.cpp:203:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMCreate.cpp:206:    if (auto const ter = clawbackDisabled(amount.issue()); ter != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:272:    auto res = accountSend(sb, accountId, account_, lpTokens, ctx_.journal);
+src/xrpld/app/tx/detail/AMMCreate.cpp:273:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:280:        if (auto const res = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:302:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMCreate.cpp:307:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:315:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMCreate.cpp:335:    return {res, res == tesSUCCESS};
+src/xrpld/app/tx/detail/Change.cpp:84:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Change.cpp:138:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Change.cpp:141:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Change.cpp:351:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Change.cpp:391:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Change.cpp:518:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:51:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:75:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:93:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:127:    STAmount const balance = (*sleRippleState)[sfBalance];
+src/xrpld/app/tx/detail/Clawback.cpp:145:    // XLS-34). So we must use `accountHolds`.
+src/xrpld/app/tx/detail/Clawback.cpp:146:    if (accountHolds(
+src/xrpld/app/tx/detail/Clawback.cpp:155:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:182:    if (accountHolds(
+src/xrpld/app/tx/detail/Clawback.cpp:191:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Clawback.cpp:240:    // Get the spendable balance. Must use `accountHolds`.
+src/xrpld/app/tx/detail/Clawback.cpp:241:    STAmount const spendableAmount = accountHolds(
+src/xrpld/app/tx/detail/Clawback.cpp:249:    return rippleCredit(
+src/xrpld/app/tx/detail/Clawback.cpp:266:    // Get the spendable balance. Must use `accountHolds`.
+src/xrpld/app/tx/detail/Clawback.cpp:267:    STAmount const spendableAmount = accountHolds(
+src/xrpld/app/tx/detail/Clawback.cpp:275:    return rippleCredit(
+src/xrpld/app/tx/detail/VaultSet.cpp:79:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultSet.cpp:102:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:129:            return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:134:    return tesSUCCESS;
+src/xrpld/app/tx/detail/VaultSet.cpp:149:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultSet.cpp:159:        return tefINTERNAL;
+src/xrpld/app/tx/detail/VaultSet.cpp:199:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DID.cpp:68:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DID.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DID.cpp:83:        auto const balance = STAmount((*sleAccount)[sfBalance]).xrp();
+src/xrpld/app/tx/detail/DID.cpp:105:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DID.cpp:139:        return tesSUCCESS;
+src/xrpld/app/tx/detail/DID.cpp:168:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DID.cpp:207:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:51:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:60:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:80:    return tesSUCCESS;
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:89:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:108:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:116:        auto const balance = STAmount((*ownerSle)[sfBalance]).xrp();
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:142:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:41:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:78:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:88:                    return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:96:            return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:113:        return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:153:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:179:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:250:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:258:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:266:    if (checkTxPermission(sle, tx) == tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:267:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:284:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:288:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:302:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:306:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:408:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:504:            PaymentSandbox pv(&view());
+src/xrpld/app/tx/detail/Payment.cpp:525:        if (rc.result() == tesSUCCESS && rc.actualAmountOut != dstAmount)
+src/xrpld/app/tx/detail/Payment.cpp:540:            terResult = tecPATH_DRY;
+src/xrpld/app/tx/detail/Payment.cpp:549:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:553:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:558:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:609:        PaymentSandbox pv(&view());
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:612:        if (res == tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:623:        else if (res == tecINSUFFICIENT_FUNDS || res == tecPATH_DRY)
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Payment.cpp:696:            sleDst->getFieldAmount(sfBalance) > dstReserve)
+src/xrpld/app/tx/detail/Payment.cpp:711:    sleSrc->setFieldAmount(sfBalance, mSourceBalance - dstAmount);
+src/xrpld/app/tx/detail/Payment.cpp:713:        sfBalance, sleDst->getFieldAmount(sfBalance) + dstAmount);
+src/xrpld/app/tx/detail/Payment.cpp:719:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:57:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:94:            return {std::move(offerSLE), tesSUCCESS};
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:96:        return {nullptr, tesSUCCESS};
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:180:                if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:188:                if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:226:                    ctx.view, (*bo)[sfOwner], needed, fhZERO_IF_FROZEN, ctx.j) <
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:231:            accountHolds(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:236:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:249:            if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:259:                if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:267:                if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:300:            if (accountHolds(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:305:                    fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:327:                    fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:342:                if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:352:                    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:359:            if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:391:            if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:396:            if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:401:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:414:    auto const result = accountSend(view(), from, to, amount, j_);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:423:    if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:425:    if (accountFunds(view(), from, amount, fhZERO_IF_FROZEN, j_).signum() < 0)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:427:    if (accountFunds(view(), to, amount, fhZERO_IF_FROZEN, j_).signum() < 0)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:429:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:471:        auto const buyerBalance = sleBuyer->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:558:            return tesSUCCESS;
+src/test/app/NFToken_test.cpp:518:        env(token::mint(alice, 0u), ter(tesSUCCESS));
+src/test/app/NFToken_test.cpp:907:            ter(tesSUCCESS));
+src/test/app/NFToken_test.cpp:940:            ter(tesSUCCESS));
+src/test/app/NFToken_test.cpp:1716:                    xferFee ? TER(tecNO_LINE) : TER(tesSUCCESS);
+src/test/app/NFToken_test.cpp:1751:                        : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:2043:            env(token::burn(minter, nftMinterNoTransferID), ter(tesSUCCESS));
+src/test/app/NFToken_test.cpp:3021:                    : TER(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5179:                : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5238:                //  3. If neither are enabled, get tesSUCCESS.
+src/test/app/NFToken_test.cpp:5241:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5359:                ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5503:                                : ter(static_cast<TER>(tesSUCCESS)));
+src/test/app/NFToken_test.cpp:5519:                                : ter(static_cast<TER>(tesSUCCESS)));
+src/test/app/NFToken_test.cpp:5533:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5557:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5581:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5605:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5705:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5726:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5731:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5753:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5774:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5779:                    ? static_cast<TER>(tesSUCCESS)
+src/test/app/NFToken_test.cpp:5928:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:5964:                    : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:6204:            : TER(tesSUCCESS);
+src/test/app/NFToken_test.cpp:6210:        if (expectTer == tesSUCCESS)
+src/test/app/NFToken_test.cpp:6996:                : static_cast<TER>(tesSUCCESS);
+src/test/app/NFToken_test.cpp:7912:                modifyEnabled ? TER{tesSUCCESS} : TER{temINVALID_FLAG};
+src/xrpld/app/tx/detail/CreateTicket.cpp:43:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateTicket.cpp:71:    return tesSUCCESS;
+src/xrpld/app/tx/detail/CreateTicket.cpp:79:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:105:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateTicket.cpp:144:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:37:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:60:    return tesSUCCESS;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:79:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:154:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:244:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:291:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:329:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:402:    if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:421:    return {tesSUCCESS, true};
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:463:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:588:            return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:594:            auto const balance = (*sleAccount)[sfBalance].xrp();
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:605:        return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:619:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:632:            err != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:642:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:653:    res = redeemIOU(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:659:    if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:668:        tesSUCCESS,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:714:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:735:        if (ter != tesSUCCESS && ter != tecINCOMPLETE)
+src/xrpld/app/tx/detail/OfferStream.cpp:124:    return toAmount<IOUAmount>(accountHolds(
+src/xrpld/app/tx/detail/OfferStream.cpp:137:    return toAmount<XRPAmount>(accountHolds(
+src/xrpld/app/tx/detail/OfferStream.cpp:311:            fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/OfferStream.cpp:325:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/OfferStream.cpp:387:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:38:    return tesSUCCESS;
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:135:    if (accountHolds(
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:139:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:144:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:51:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:93:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenCancelOffer.cpp:112:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMClawback.cpp:89:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMClawback.cpp:119:    return tesSUCCESS;
+src/xrpld/app/tx/detail/AMMClawback.cpp:128:    if (ter == tesSUCCESS)
+src/xrpld/app/tx/detail/AMMClawback.cpp:219:    if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMClawback.cpp:232:    auto const ter = rippleCredit(sb, holder, issuer, amountWithdraw, true, j_);
+src/xrpld/app/tx/detail/AMMClawback.cpp:233:    if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/AMMClawback.cpp:245:        return rippleCredit(sb, holder, issuer, *amount2Withdraw, true, j_);
+src/xrpld/app/tx/detail/AMMClawback.cpp:247:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DelegateSet.cpp:54:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DelegateSet.cpp:86:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DelegateSet.cpp:94:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DelegateSet.cpp:109:        return tesSUCCESS;
+src/xrpld/app/tx/detail/DelegateSet.cpp:139:    return tesSUCCESS;
+src/xrpld/app/tx/detail/DelegateSet.cpp:169:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:275:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:318:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:467:        return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:507:            return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:556:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:678:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:893:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:954:                    view, acctID, amount, FreezeHandling::fhZERO_IF_FROZEN, j)
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:959:            accountHolds(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:964:                FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1012:        // accountHolds. This is due to a possibility of existence of
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1016:        if (res != tesSUCCESS)
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1019:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1093:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1125:            return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1149:    return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1181:            return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1189:            return tesSUCCESS;
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1203:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:103:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:118:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:193:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:230:    STAmount const balance = (*sleRippleState)[sfBalance];
+src/xrpld/app/tx/detail/Escrow.cpp:242:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:247:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:258:    STAmount const spendableAmount = accountHolds(
+src/xrpld/app/tx/detail/Escrow.cpp:279:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:320:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:327:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:340:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:343:    STAmount const spendableAmount = accountHolds(
+src/xrpld/app/tx/detail/Escrow.cpp:360:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:395:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:420:    auto const ter = rippleCredit(
+src/xrpld/app/tx/detail/Escrow.cpp:427:    if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:429:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:446:    if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:448:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:494:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Escrow.cpp:594:        (*sle)[sfBalance] = (*sle)[sfBalance] - amount;
+src/xrpld/app/tx/detail/Escrow.cpp:612:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:660:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:692:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:723:    // If the issuer is the same as the account, return tesSUCCESS
+src/xrpld/app/tx/detail/Escrow.cpp:725:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:729:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:736:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:747:    // If the issuer is the same as the dest, return tesSUCCESS
+src/xrpld/app/tx/detail/Escrow.cpp:749:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:763:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:770:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:805:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:846:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:930:        STAmount lineBalance = sleRippleState->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/Escrow.cpp:948:            rippleCredit(view, issuer, receiver, finalAmt, true, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:949:        if (ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:952:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1171:        (*sled)[sfBalance] = (*sled)[sfBalance] + amount;
+src/xrpld/app/tx/detail/Escrow.cpp:1223:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1238:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1262:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:1265:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1292:        ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Escrow.cpp:1295:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1323:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Escrow.cpp:1400:        (*sle)[sfBalance] = (*sle)[sfBalance] + amount;
+src/xrpld/app/tx/detail/Escrow.cpp:1446:    return tesSUCCESS;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:194:                drops_ -= (*before)[sfBalance].xrp().drops();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:198:                    ((*before)[sfAmount] - (*before)[sfBalance]).xrp().drops();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:214:                drops_ += (*after)[sfBalance].xrp().drops();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:218:                    drops_ += ((*after)[sfAmount] - (*after)[sfBalance])
+src/xrpld/app/tx/detail/InvariantCheck.cpp:287:        bad_ |= isBad((*before)[sfBalance]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:290:        bad_ |= isBad((*after)[sfBalance]);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:477:    if (hasPrivilege(tx, mustDeleteAcct) && result == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:494:    if (hasPrivilege(tx, mayDeleteAcct) && result == tesSUCCESS &&
+src/xrpld/app/tx/detail/InvariantCheck.cpp:566:        if (after->at(sfBalance) != beast::zero)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:894:            line ? line->at(sfBalance) : other->at(sfBalance).zeroed();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:935:    auto const currency = after->at(sfBalance).getCurrency();
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1086:    if (hasPrivilege(tx, createAcct | createPseudoAcct) && result == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1348:        if (result == tesSUCCESS && beforeMintedTotal >= afterMintedTotal)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1356:        if (result != tesSUCCESS && beforeMintedTotal != afterMintedTotal)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1374:        if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1385:        if (result != tesSUCCESS && beforeBurnedTotal != afterBurnedTotal)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1430:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1451:            STAmount const holderBalance = accountHolds(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1520:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1766:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1832:            result != tesSUCCESS || sleStatus_.empty())
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1980:        result != tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2176:        std::string const msg = (res == tesSUCCESS)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2177:            ? "AMM object is not deleted on tesSUCCESS"
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2300:    if (result != tesSUCCESS && result != tecINCOMPLETE)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2623:        auto const pseudoBalance = accountHolds(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2825:                balanceDelta.delta = before->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2832:                auto const amount = before->getFieldAmount(sfBalance);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2869:                balanceDelta.delta -= Number(after->getFieldAmount(sfBalance));
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2876:                auto const amount = after->getFieldAmount(sfBalance);

@@ -1,0 +1,609 @@
+commit 7cfa5d461072381434f95188f369f4a33c11a4ef
+Author: Mayukha Vadari <mvadari@ripple.com>
+Date:   Fri Apr 24 08:56:50 2026 -0400
+
+    fix: Make assorted Payments fixes (#6585)
+---
+ include/xrpl/ledger/PaymentSandbox.h           |  12 +-
+ src/libxrpl/ledger/PaymentSandbox.cpp          | 149 ++-----------------------
+ src/libxrpl/ledger/helpers/MPTokenHelpers.cpp  |  10 +-
+ src/libxrpl/tx/transactors/payment/Payment.cpp |   1 +
+ 4 files changed, 20 insertions(+), 152 deletions(-)
+
+diff --git a/include/xrpl/ledger/PaymentSandbox.h b/include/xrpl/ledger/PaymentSandbox.h
+index 223a3c0c5..0c4e4bcd4 100644
+--- a/include/xrpl/ledger/PaymentSandbox.h
++++ b/include/xrpl/ledger/PaymentSandbox.h
+@@ -21,9 +21,8 @@ private:
+     struct ValueIOU
+     {
+         explicit ValueIOU() = default;
+-
+-        STAmount lowAcctCredits;
+-        STAmount highAcctCredits;
++        STAmount lowAcctDebits;
++        STAmount highAcctDebits;
+         STAmount lowAcctOrigBalance;
+     };
+
+@@ -230,13 +229,6 @@ public:
+     apply(PaymentSandbox& to);
+     /** @} */
+
+-    // Return a map of balance changes on trust lines. The low account is the
+-    // first account in the key. If the two accounts are equal, the map contains
+-    // the total changes in currency regardless of issuer. This is useful to get
+-    // the total change in XRP balances.
+-    std::map<std::tuple<AccountID, AccountID, Currency>, STAmount>
+-    balanceChanges(ReadView const& view) const;
+-
+     XRPAmount
+     xrpDestroyed() const;
+
+diff --git a/src/libxrpl/ledger/PaymentSandbox.cpp b/src/libxrpl/ledger/PaymentSandbox.cpp
+index 6b38c4840..ef6e4be8a 100644
+--- a/src/libxrpl/ledger/PaymentSandbox.cpp
++++ b/src/libxrpl/ledger/PaymentSandbox.cpp
+@@ -4,20 +4,16 @@
+ #include <xrpl/beast/utility/Zero.h>
+ #include <xrpl/beast/utility/instrumentation.h>
+ #include <xrpl/ledger/RawView.h>
+-#include <xrpl/ledger/ReadView.h>
+ #include <xrpl/protocol/AccountID.h>
+ #include <xrpl/protocol/Issue.h>
+-#include <xrpl/protocol/LedgerFormats.h>
+ #include <xrpl/protocol/MPTIssue.h>
+ #include <xrpl/protocol/SField.h>
+-#include <xrpl/protocol/STLedgerEntry.h>
+ #include <xrpl/protocol/UintTypes.h>
+ #include <xrpl/protocol/XRPAmount.h>
+
+ #include <algorithm>
+ #include <cstdint>
+ #include <map>
+-#include <memory>
+ #include <optional>
+ #include <tuple>
+ #include <utility>
+@@ -58,14 +54,14 @@ DeferredCredits::creditIOU(
+
+         if (sender < receiver)
+         {
+-            v.highAcctCredits = amount;
+-            v.lowAcctCredits = amount.zeroed();
++            v.lowAcctDebits = amount;
++            v.highAcctDebits = amount.zeroed();
+             v.lowAcctOrigBalance = preCreditSenderBalance;
+         }
+         else
+         {
+-            v.highAcctCredits = amount.zeroed();
+-            v.lowAcctCredits = amount;
++            v.lowAcctDebits = amount.zeroed();
++            v.highAcctDebits = amount;
+             v.lowAcctOrigBalance = -preCreditSenderBalance;
+         }
+
+@@ -77,11 +73,11 @@ DeferredCredits::creditIOU(
+         auto& v = i->second;
+         if (sender < receiver)
+         {
+-            v.highAcctCredits += amount;
++            v.lowAcctDebits += amount;
+         }
+         else
+         {
+-            v.lowAcctCredits += amount;
++            v.highAcctDebits += amount;
+         }
+     }
+ }
+@@ -212,11 +208,11 @@ DeferredCredits::adjustmentsIOU(
+
+     if (main < other)
+     {
+-        result.emplace(v.highAcctCredits, v.lowAcctCredits, v.lowAcctOrigBalance);
++        result.emplace(v.lowAcctDebits, v.highAcctDebits, v.lowAcctOrigBalance);
+         return result;
+     }
+
+-    result.emplace(v.lowAcctCredits, v.highAcctCredits, -v.lowAcctOrigBalance);
++    result.emplace(v.highAcctDebits, v.lowAcctDebits, -v.lowAcctOrigBalance);
+     return result;
+ }
+
+@@ -239,8 +235,8 @@ DeferredCredits::apply(DeferredCredits& to)
+         {
+             auto& toVal = r.first->second;
+             auto const& fromVal = i.second;
+-            toVal.lowAcctCredits += fromVal.lowAcctCredits;
+-            toVal.highAcctCredits += fromVal.highAcctCredits;
++            toVal.lowAcctDebits += fromVal.lowAcctDebits;
++            toVal.highAcctDebits += fromVal.highAcctDebits;
+             // Do not update the orig balance, it's already correct
+         }
+     }
+@@ -467,131 +463,6 @@ PaymentSandbox::apply(PaymentSandbox& to)
+     tab_.apply(to.tab_);
+ }
+
+-std::map<std::tuple<AccountID, AccountID, Currency>, STAmount>
+-PaymentSandbox::balanceChanges(ReadView const& view) const
+-{
+-    using key_t = std::tuple<AccountID, AccountID, Currency>;
+-    // Map of delta trust lines. As a special case, when both ends of the trust
+-    // line are the same currency, then it's delta currency for that issuer. To
+-    // get the change in XRP balance, Account == root, issuer == root, currency
+-    // == XRP
+-    std::map<key_t, STAmount> result;
+-
+-    // populate a dictionary with low/high/currency/delta. This can be
+-    // compared with the other versions payment code.
+-    auto each = [&result](
+-                    uint256 const& key,
+-                    bool isDelete,
+-                    std::shared_ptr<SLE const> const& before,
+-                    std::shared_ptr<SLE const> const& after) {
+-        STAmount oldBalance;
+-        STAmount newBalance;
+-        AccountID lowID;
+-        AccountID highID;
+-
+-        // before is read from prev view
+-        if (isDelete)
+-        {
+-            if (!before)
+-                return;
+-
+-            auto const bt = before->getType();
+-            switch (bt)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*before)[sfAccount];
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = oldBalance.zeroed();
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*before)[sfLowLimit].getIssuer();
+-                    highID = (*before)[sfHighLimit].getIssuer();
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = oldBalance.zeroed();
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        else if (!before)
+-        {
+-            // insert
+-            auto const at = after->getType();
+-            switch (at)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*after)[sfAccount];
+-                    newBalance = (*after)[sfBalance];
+-                    oldBalance = newBalance.zeroed();
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*after)[sfLowLimit].getIssuer();
+-                    highID = (*after)[sfHighLimit].getIssuer();
+-                    newBalance = (*after)[sfBalance];
+-                    oldBalance = newBalance.zeroed();
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        else
+-        {
+-            // modify
+-            auto const at = after->getType();
+-            XRPL_ASSERT(
+-                at == before->getType(),
+-                "xrpl::PaymentSandbox::balanceChanges : after and before "
+-                "types matching");
+-            switch (at)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*after)[sfAccount];
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = (*after)[sfBalance];
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*after)[sfLowLimit].getIssuer();
+-                    highID = (*after)[sfHighLimit].getIssuer();
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = (*after)[sfBalance];
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        // The following are now set, put them in the map
+-        auto delta = newBalance - oldBalance;
+-        auto const cur = newBalance.get<Issue>().currency;
+-        result[std::make_tuple(lowID, highID, cur)] = delta;
+-        auto r = result.emplace(std::make_tuple(lowID, lowID, cur), delta);
+-        if (r.second)
+-        {
+-            r.first->second += delta;
+-        }
+-
+-        delta.negate();
+-        r = result.emplace(std::make_tuple(highID, highID, cur), delta);
+-        if (r.second)
+-        {
+-            r.first->second += delta;
+-        }
+-    };
+-    items_.visit(view, each);
+-    return result;
+-}
+-
+ XRPAmount
+ PaymentSandbox::xrpDestroyed() const
+ {
+diff --git a/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp b/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
+index d47b49e91..c3987ddb0 100644
+--- a/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
++++ b/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
+@@ -94,7 +94,11 @@ transferRate(ReadView const& view, MPTID const& issuanceID)
+     // which represents 50% of 1,000,000,000
+     if (auto const sle = view.read(keylet::mptIssuance(issuanceID));
+         sle && sle->isFieldPresent(sfTransferFee))
+-        return Rate{1'000'000'000u + (10'000 * sle->getFieldU16(sfTransferFee))};
++    {
++        auto const fee = sle->getFieldU16(sfTransferFee);
++        XRPL_ASSERT(fee <= maxTransferFee, "xrpl::transferRate : fee is too large");
++        return Rate{1'000'000'000u + (10'000 * fee)};
++    }
+
+     return parityRate;
+ }
+@@ -160,7 +164,7 @@ authorizeMPToken(
+         // When a holder wants to unauthorize/delete a MPT, the ledger must
+         //      - delete mptokenKey from owner directory
+         //      - delete the MPToken
+-        if ((flags & tfMPTUnauthorize) != 0)
++        if ((flags & tfMPTUnauthorize) != 0u)
+         {
+             auto const mptokenKey = keylet::mptoken(mptIssuanceID, account);
+             auto const sleMpt = view.peek(mptokenKey);
+@@ -242,7 +246,7 @@ authorizeMPToken(
+
+     // Issuer wants to unauthorize the holder, unset lsfMPTAuthorized on
+     // their MPToken
+-    if ((flags & tfMPTUnauthorize) != 0)
++    if ((flags & tfMPTUnauthorize) != 0u)
+     {
+         flagsOut &= ~lsfMPTAuthorized;
+     }
+diff --git a/src/libxrpl/tx/transactors/payment/Payment.cpp b/src/libxrpl/tx/transactors/payment/Payment.cpp
+index 644d5210c..8ea79e084 100644
+--- a/src/libxrpl/tx/transactors/payment/Payment.cpp
++++ b/src/libxrpl/tx/transactors/payment/Payment.cpp
+@@ -431,6 +431,7 @@ Payment::doApply()
+         sleDst = std::make_shared<SLE>(k);
+         sleDst->setAccountID(sfAccount, dstAccountID);
+         sleDst->setFieldU32(sfSequence, view().seq());
++        sleDst->setFieldAmount(sfBalance, XRPAmount(beast::zero));
+
+         view().insert(sleDst);
+     }
+
+commit b8792e24229a41861bb70d25f4a0b8eedc7fe10b
+Author: Mayukha Vadari <mvadari@ripple.com>
+Date:   Fri Apr 24 08:56:50 2026 -0400
+
+    fix: Make assorted Payments fixes (#6585)
+---
+ include/xrpl/ledger/PaymentSandbox.h           |  12 +-
+ src/libxrpl/ledger/PaymentSandbox.cpp          | 149 ++-----------------------
+ src/libxrpl/ledger/helpers/MPTokenHelpers.cpp  |  10 +-
+ src/libxrpl/tx/transactors/payment/Payment.cpp |   1 +
+ 4 files changed, 20 insertions(+), 152 deletions(-)
+
+diff --git a/include/xrpl/ledger/PaymentSandbox.h b/include/xrpl/ledger/PaymentSandbox.h
+index 223a3c0c5..0c4e4bcd4 100644
+--- a/include/xrpl/ledger/PaymentSandbox.h
++++ b/include/xrpl/ledger/PaymentSandbox.h
+@@ -21,9 +21,8 @@ private:
+     struct ValueIOU
+     {
+         explicit ValueIOU() = default;
+-
+-        STAmount lowAcctCredits;
+-        STAmount highAcctCredits;
++        STAmount lowAcctDebits;
++        STAmount highAcctDebits;
+         STAmount lowAcctOrigBalance;
+     };
+
+@@ -230,13 +229,6 @@ public:
+     apply(PaymentSandbox& to);
+     /** @} */
+
+-    // Return a map of balance changes on trust lines. The low account is the
+-    // first account in the key. If the two accounts are equal, the map contains
+-    // the total changes in currency regardless of issuer. This is useful to get
+-    // the total change in XRP balances.
+-    std::map<std::tuple<AccountID, AccountID, Currency>, STAmount>
+-    balanceChanges(ReadView const& view) const;
+-
+     XRPAmount
+     xrpDestroyed() const;
+
+diff --git a/src/libxrpl/ledger/PaymentSandbox.cpp b/src/libxrpl/ledger/PaymentSandbox.cpp
+index 6b38c4840..ef6e4be8a 100644
+--- a/src/libxrpl/ledger/PaymentSandbox.cpp
++++ b/src/libxrpl/ledger/PaymentSandbox.cpp
+@@ -4,20 +4,16 @@
+ #include <xrpl/beast/utility/Zero.h>
+ #include <xrpl/beast/utility/instrumentation.h>
+ #include <xrpl/ledger/RawView.h>
+-#include <xrpl/ledger/ReadView.h>
+ #include <xrpl/protocol/AccountID.h>
+ #include <xrpl/protocol/Issue.h>
+-#include <xrpl/protocol/LedgerFormats.h>
+ #include <xrpl/protocol/MPTIssue.h>
+ #include <xrpl/protocol/SField.h>
+-#include <xrpl/protocol/STLedgerEntry.h>
+ #include <xrpl/protocol/UintTypes.h>
+ #include <xrpl/protocol/XRPAmount.h>
+
+ #include <algorithm>
+ #include <cstdint>
+ #include <map>
+-#include <memory>
+ #include <optional>
+ #include <tuple>
+ #include <utility>
+@@ -58,14 +54,14 @@ DeferredCredits::creditIOU(
+
+         if (sender < receiver)
+         {
+-            v.highAcctCredits = amount;
+-            v.lowAcctCredits = amount.zeroed();
++            v.lowAcctDebits = amount;
++            v.highAcctDebits = amount.zeroed();
+             v.lowAcctOrigBalance = preCreditSenderBalance;
+         }
+         else
+         {
+-            v.highAcctCredits = amount.zeroed();
+-            v.lowAcctCredits = amount;
++            v.lowAcctDebits = amount.zeroed();
++            v.highAcctDebits = amount;
+             v.lowAcctOrigBalance = -preCreditSenderBalance;
+         }
+
+@@ -77,11 +73,11 @@ DeferredCredits::creditIOU(
+         auto& v = i->second;
+         if (sender < receiver)
+         {
+-            v.highAcctCredits += amount;
++            v.lowAcctDebits += amount;
+         }
+         else
+         {
+-            v.lowAcctCredits += amount;
++            v.highAcctDebits += amount;
+         }
+     }
+ }
+@@ -212,11 +208,11 @@ DeferredCredits::adjustmentsIOU(
+
+     if (main < other)
+     {
+-        result.emplace(v.highAcctCredits, v.lowAcctCredits, v.lowAcctOrigBalance);
++        result.emplace(v.lowAcctDebits, v.highAcctDebits, v.lowAcctOrigBalance);
+         return result;
+     }
+
+-    result.emplace(v.lowAcctCredits, v.highAcctCredits, -v.lowAcctOrigBalance);
++    result.emplace(v.highAcctDebits, v.lowAcctDebits, -v.lowAcctOrigBalance);
+     return result;
+ }
+
+@@ -239,8 +235,8 @@ DeferredCredits::apply(DeferredCredits& to)
+         {
+             auto& toVal = r.first->second;
+             auto const& fromVal = i.second;
+-            toVal.lowAcctCredits += fromVal.lowAcctCredits;
+-            toVal.highAcctCredits += fromVal.highAcctCredits;
++            toVal.lowAcctDebits += fromVal.lowAcctDebits;
++            toVal.highAcctDebits += fromVal.highAcctDebits;
+             // Do not update the orig balance, it's already correct
+         }
+     }
+@@ -467,131 +463,6 @@ PaymentSandbox::apply(PaymentSandbox& to)
+     tab_.apply(to.tab_);
+ }
+
+-std::map<std::tuple<AccountID, AccountID, Currency>, STAmount>
+-PaymentSandbox::balanceChanges(ReadView const& view) const
+-{
+-    using key_t = std::tuple<AccountID, AccountID, Currency>;
+-    // Map of delta trust lines. As a special case, when both ends of the trust
+-    // line are the same currency, then it's delta currency for that issuer. To
+-    // get the change in XRP balance, Account == root, issuer == root, currency
+-    // == XRP
+-    std::map<key_t, STAmount> result;
+-
+-    // populate a dictionary with low/high/currency/delta. This can be
+-    // compared with the other versions payment code.
+-    auto each = [&result](
+-                    uint256 const& key,
+-                    bool isDelete,
+-                    std::shared_ptr<SLE const> const& before,
+-                    std::shared_ptr<SLE const> const& after) {
+-        STAmount oldBalance;
+-        STAmount newBalance;
+-        AccountID lowID;
+-        AccountID highID;
+-
+-        // before is read from prev view
+-        if (isDelete)
+-        {
+-            if (!before)
+-                return;
+-
+-            auto const bt = before->getType();
+-            switch (bt)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*before)[sfAccount];
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = oldBalance.zeroed();
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*before)[sfLowLimit].getIssuer();
+-                    highID = (*before)[sfHighLimit].getIssuer();
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = oldBalance.zeroed();
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        else if (!before)
+-        {
+-            // insert
+-            auto const at = after->getType();
+-            switch (at)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*after)[sfAccount];
+-                    newBalance = (*after)[sfBalance];
+-                    oldBalance = newBalance.zeroed();
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*after)[sfLowLimit].getIssuer();
+-                    highID = (*after)[sfHighLimit].getIssuer();
+-                    newBalance = (*after)[sfBalance];
+-                    oldBalance = newBalance.zeroed();
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        else
+-        {
+-            // modify
+-            auto const at = after->getType();
+-            XRPL_ASSERT(
+-                at == before->getType(),
+-                "xrpl::PaymentSandbox::balanceChanges : after and before "
+-                "types matching");
+-            switch (at)
+-            {
+-                case ltACCOUNT_ROOT:
+-                    lowID = xrpAccount();
+-                    highID = (*after)[sfAccount];
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = (*after)[sfBalance];
+-                    break;
+-                case ltRIPPLE_STATE:
+-                    lowID = (*after)[sfLowLimit].getIssuer();
+-                    highID = (*after)[sfHighLimit].getIssuer();
+-                    oldBalance = (*before)[sfBalance];
+-                    newBalance = (*after)[sfBalance];
+-                    break;
+-                case ltOFFER:
+-                    // TBD
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-        // The following are now set, put them in the map
+-        auto delta = newBalance - oldBalance;
+-        auto const cur = newBalance.get<Issue>().currency;
+-        result[std::make_tuple(lowID, highID, cur)] = delta;
+-        auto r = result.emplace(std::make_tuple(lowID, lowID, cur), delta);
+-        if (r.second)
+-        {
+-            r.first->second += delta;
+-        }
+-
+-        delta.negate();
+-        r = result.emplace(std::make_tuple(highID, highID, cur), delta);
+-        if (r.second)
+-        {
+-            r.first->second += delta;
+-        }
+-    };
+-    items_.visit(view, each);
+-    return result;
+-}
+-
+ XRPAmount
+ PaymentSandbox::xrpDestroyed() const
+ {
+diff --git a/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp b/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
+index d47b49e91..c3987ddb0 100644
+--- a/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
++++ b/src/libxrpl/ledger/helpers/MPTokenHelpers.cpp
+@@ -94,7 +94,11 @@ transferRate(ReadView const& view, MPTID const& issuanceID)
+     // which represents 50% of 1,000,000,000
+     if (auto const sle = view.read(keylet::mptIssuance(issuanceID));
+         sle && sle->isFieldPresent(sfTransferFee))
+-        return Rate{1'000'000'000u + (10'000 * sle->getFieldU16(sfTransferFee))};
++    {
++        auto const fee = sle->getFieldU16(sfTransferFee);
++        XRPL_ASSERT(fee <= maxTransferFee, "xrpl::transferRate : fee is too large");
++        return Rate{1'000'000'000u + (10'000 * fee)};
++    }
+
+     return parityRate;
+ }
+@@ -160,7 +164,7 @@ authorizeMPToken(
+         // When a holder wants to unauthorize/delete a MPT, the ledger must
+         //      - delete mptokenKey from owner directory
+         //      - delete the MPToken
+-        if ((flags & tfMPTUnauthorize) != 0)
++        if ((flags & tfMPTUnauthorize) != 0u)
+         {
+             auto const mptokenKey = keylet::mptoken(mptIssuanceID, account);
+             auto const sleMpt = view.peek(mptokenKey);
+@@ -242,7 +246,7 @@ authorizeMPToken(
+
+     // Issuer wants to unauthorize the holder, unset lsfMPTAuthorized on
+     // their MPToken
+-    if ((flags & tfMPTUnauthorize) != 0)
++    if ((flags & tfMPTUnauthorize) != 0u)
+     {
+         flagsOut &= ~lsfMPTAuthorized;
+     }
+diff --git a/src/libxrpl/tx/transactors/payment/Payment.cpp b/src/libxrpl/tx/transactors/payment/Payment.cpp
+index 644d5210c..8ea79e084 100644
+--- a/src/libxrpl/tx/transactors/payment/Payment.cpp
++++ b/src/libxrpl/tx/transactors/payment/Payment.cpp
+@@ -431,6 +431,7 @@ Payment::doApply()
+         sleDst = std::make_shared<SLE>(k);
+         sleDst->setAccountID(sfAccount, dstAccountID);
+         sleDst->setFieldU32(sfSequence, view().seq());
++        sleDst->setFieldAmount(sfBalance, XRPAmount(beast::zero));
+
+         view().insert(sleDst);
+     }
