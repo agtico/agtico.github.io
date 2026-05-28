@@ -109,13 +109,40 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-15.9s, 1 suite, 60 cases, 16114 tests total, 0 failures
+14.3s, 1 suite, 61 cases, 16164 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
 reserve/owner-count root cause. It is not counted as a new finding; it expands
 the existing finding from an offer-crossing witness into a shared IOU-credit
 transition witness.
+
+## Current sibling: CheckCash existing-owner reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2` before receiving the
+   check funds.
+3. The gateway writes a USD check to Alice.
+4. Alice cashes the check and receives 50 USD.
+5. Alice still has `OwnerCount=2` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
+14.3s, 1 suite, 61 cases, 16164 tests total, 0 failures
+```
+
+Interpretation: this strengthens the same root cause because it rules out a
+narrow explanation based on the old `OwnerCount < 2` reserve carveout. The
+holder already has two owned objects; the missing transition is still the
+positive-trustline owner-count/reserve update.
 
 Additional dispositions:
 

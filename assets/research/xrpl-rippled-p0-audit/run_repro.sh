@@ -39,7 +39,7 @@ if [[ -x "$RIPPLED" ]]; then
   trap 'rm -f "$tmp_log"' EXIT
   "$RIPPLED" --unittest OpenP0Repro >"$tmp_log" 2>&1
   grep -F "ripple.tx.OpenP0Repro had 0 failures." "$tmp_log" >/dev/null
-  grep -F "60 cases, 16114 tests total, 0 failures" "$tmp_log" >/dev/null
+  grep -F "61 cases, 16164 tests total, 0 failures" "$tmp_log" >/dev/null
   if [[ ${#markers[@]} -gt 0 ]]; then
     for marker in "${markers[@]}"; do
       grep -F "$marker" "$tmp_log" >/dev/null
@@ -48,7 +48,7 @@ if [[ -x "$RIPPLED" ]]; then
     echo "targeted finding $FINDING_ID reproduced by marker assertion."
   fi
   grep -F "ripple.tx.OpenP0Repro had 0 failures." "$tmp_log"
-  grep -F "60 cases, 16114 tests total, 0 failures" "$tmp_log"
+  grep -F "61 cases, 16164 tests total, 0 failures" "$tmp_log"
 else
   echo ""
   echo "rippled not built at $RIPPLED — skipping jtx unittest."

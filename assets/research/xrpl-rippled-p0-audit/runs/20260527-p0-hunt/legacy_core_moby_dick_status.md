@@ -26,6 +26,7 @@ disabled feature surface. The current repro markers are:
 ```text
 TrustLine current - offer crossing creates positive balance without reserve
 TrustLine current - CheckCash creates positive balance without reserve
+TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
 ```
 
 The packet wrapper reproduced the marker:
@@ -37,17 +38,17 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: d3bd7e3ffe437fe30b97159538fe6ec0247a0608417011385e3192a01e7bd946
+local wrapper log sha256: dca92337ba1855f91e8428be24af945f495d245e43e0de71a66e7559221209a0
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-17.5s, 1 suite, 60 cases, 16114 tests total, 0 failures
+15.6s, 1 suite, 61 cases, 16164 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=20 proof_sha256=6f2e7abb04f556299b79d180c778df6fce1a9e131f306fedeb26051c639bf191
+records=19 markers=21 proof_sha256=deaff258ef93df21a994c836feb97fdc00e994d7baad4253b1ad356751288f54
 ```
 
 ## CheckCash Sibling Repro
@@ -77,12 +78,40 @@ auto-created trustlines. The sibling proves the issue is not only an
 existing default trustline crosses from non-positive receiver balance to
 positive receiver balance.
 
+## CheckCash Existing-Owner Control
+
+This slice added a third marker under the same finding. It is not a new finding
+count.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero and no receiver
+   reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2` before cashing the
+   check.
+3. The gateway writes a USD check to Alice.
+4. Alice cashes the check.
+5. Alice ends with a positive 50 USD balance while `OwnerCount` remains `2`
+   and the receiver reserve flag remains unset.
+
+The packet proof marker is:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
+```
+
+This matters because it rules out the narrow explanation that the behavior is
+only the historical `OwnerCount < 2` reserve carveout. The holder already has
+two owned objects before the trustline crosses positive; the missing transition
+is the receiver-side owner-count/reserve update for the positive trustline.
+
 ## Why This Is The Moby Dick Candidate
 
 The broken behavior is simple: after a holder clears its trust limit and
 balance, old live settlement paths can give that holder a positive IOU balance
-while `OwnerCount` remains zero and the trustline reserve flag remains unset.
-This is now reproduced through both offer crossing and CheckCash.
+while `OwnerCount` and the trustline reserve flag remain wrong. This is now
+reproduced through offer crossing, CheckCash with zero existing owned objects,
+and CheckCash with two existing owned objects.
 
 The expected behavior is also simple: if an account's trustline balance moves
 from non-positive to positive, the receiver should either be charged the owner
@@ -253,6 +282,15 @@ repro surfaced that turned a normal live-enabled payment into a new Moby Dick
 P0. Keep it as a lower-priority source-review target unless a sharper input
 shape appears.
 
+The continuation also scratch-tested three reserve-drift variants after Alice
+cleared the same gateway USD trustline back to zero: direct issuer `Payment`,
+holder-to-holder IOU `Payment`, and an order-book path `Payment` with XRP
+`SendMax`. Each returned `tecPATH_DRY` before creating positive balance, so
+those plain payment variants are source-killed. That makes the promoted
+witnesses sharper: offer crossing and `CheckCash` are the live paths that move
+the cleared trustline positive without the receiver-side owner-count/reserve
+transition.
+
 ## Legacy-Core Source-Kill Sweep
 
 The remaining old-core queue was reviewed against current source and current
@@ -284,7 +322,8 @@ remaining old/simple/current target is still
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`; the current slice moved it from
 source-lineage plus current repro to source-lineage plus current, `2.5.0`,
 `2.0.0`, and `1.5.0` binary repro, then added CheckCash as a second
-current-live settlement-path marker for the same root cause.
+current-live settlement-path marker and CheckCash-with-existing-owner-objects
+as a third marker for the same root cause.
 
 ## Next Step
 

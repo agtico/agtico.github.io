@@ -62,10 +62,12 @@ not satisfy the live-mainnet-only constraint.
 Five additional findings were promoted during the live-only continuation:
 
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU settlement can create
-  a positive balance for a receiver while leaving `OwnerCount=0` and the
-  receiver reserve flag unset after that receiver previously cleared the
-  trustline limit and balance. The current packet reproduces the same reserve
-  drift through both offer crossing and CheckCash.
+  a positive balance for a receiver while leaving the receiver reserve flag
+  unset after that receiver previously cleared the trustline limit and balance.
+  The current packet reproduces the same reserve drift through offer crossing,
+  CheckCash with `OwnerCount=0`, and CheckCash with two existing ticket objects,
+  where `OwnerCount` remains `2` instead of increasing for the positive
+  trustline.
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`: an issuer can set
   `asfDisallowIncomingTrustline`, but `OfferCreate` can still cross into that
   issuer's IOU for a taker with no existing trustline, creating the incoming
@@ -137,6 +139,12 @@ one of the WHIP gates:
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no
   recipient trustline, so the plain Payment path is source-killed and not packet
   eligible.
+- `PAYMENT-TRUSTLINE-RESERVE-DRIFT-001` was tested as direct issuer Payment,
+  holder-to-holder IOU Payment, and order-book path Payment variants of
+  `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. All three returned `tecPATH_DRY`
+  after the receiver cleared the trustline back to zero, so they are
+  source-killed. The current promoted reserve-drift witnesses remain offer
+  crossing and `CheckCash`.
 - `MPT-LOCK-UNAUTH-NOSAV-001` was also source-reviewed and treated as a
   source-kill in this pass. Current upstream `MPToken_test` intentionally
   allows locked-holder unauthorize/delete when `featureSingleAssetVault` is
