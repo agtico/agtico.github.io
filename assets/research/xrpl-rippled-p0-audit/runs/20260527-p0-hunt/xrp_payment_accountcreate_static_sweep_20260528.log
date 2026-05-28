@@ -1,0 +1,834 @@
+src/xrpld/app/tx/detail/SetAccount.cpp:46:             *uSetFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:51:             *uClearFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:98:    // RequireDestTag
+src/xrpld/app/tx/detail/SetAccount.cpp:101:        (uTxFlags & tfRequireDestTag) || (uSetFlag == asfRequireDest);
+src/xrpld/app/tx/detail/SetAccount.cpp:112:    // DisallowXRP
+src/xrpld/app/tx/detail/SetAccount.cpp:114:    bool bSetDisallowXRP =
+src/xrpld/app/tx/detail/SetAccount.cpp:115:        (uTxFlags & tfDisallowXRP) || (uSetFlag == asfDisallowXRP);
+src/xrpld/app/tx/detail/SetAccount.cpp:116:    bool bClearDisallowXRP =
+src/xrpld/app/tx/detail/SetAccount.cpp:117:        (uTxFlags & tfAllowXRP) || (uClearFlag == asfDisallowXRP);
+src/xrpld/app/tx/detail/SetAccount.cpp:119:    if (bSetDisallowXRP && bClearDisallowXRP)
+src/xrpld/app/tx/detail/SetAccount.cpp:198:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/SetAccount.cpp:247:    auto const id = ctx.tx[sfAccount];
+src/xrpld/app/tx/detail/SetAccount.cpp:285:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:301:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:314:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/SetAccount.cpp:326:        (uTxFlags & tfRequireDestTag) || (uSetFlag == asfRequireDest)};
+src/xrpld/app/tx/detail/SetAccount.cpp:333:    bool const bSetDisallowXRP{
+src/xrpld/app/tx/detail/SetAccount.cpp:334:        (uTxFlags & tfDisallowXRP) || (uSetFlag == asfDisallowXRP)};
+src/xrpld/app/tx/detail/SetAccount.cpp:335:    bool const bClearDisallowXRP{
+src/xrpld/app/tx/detail/SetAccount.cpp:336:        (uTxFlags & tfAllowXRP) || (uClearFlag == asfDisallowXRP)};
+src/xrpld/app/tx/detail/SetAccount.cpp:367:    // RequireDestTag
+src/xrpld/app/tx/detail/SetAccount.cpp:369:    if (bSetRequireDest && !(uFlagsIn & lsfRequireDestTag))
+src/xrpld/app/tx/detail/SetAccount.cpp:371:        JLOG(j_.trace()) << "Set lsfRequireDestTag.";
+src/xrpld/app/tx/detail/SetAccount.cpp:372:        uFlagsOut |= lsfRequireDestTag;
+src/xrpld/app/tx/detail/SetAccount.cpp:375:    if (bClearRequireDest && (uFlagsIn & lsfRequireDestTag))
+src/xrpld/app/tx/detail/SetAccount.cpp:377:        JLOG(j_.trace()) << "Clear lsfRequireDestTag.";
+src/xrpld/app/tx/detail/SetAccount.cpp:378:        uFlagsOut &= ~lsfRequireDestTag;
+src/xrpld/app/tx/detail/SetAccount.cpp:382:    // DisallowXRP
+src/xrpld/app/tx/detail/SetAccount.cpp:384:    if (bSetDisallowXRP && !(uFlagsIn & lsfDisallowXRP))
+src/xrpld/app/tx/detail/SetAccount.cpp:386:        JLOG(j_.trace()) << "Set lsfDisallowXRP.";
+src/xrpld/app/tx/detail/SetAccount.cpp:387:        uFlagsOut |= lsfDisallowXRP;
+src/xrpld/app/tx/detail/SetAccount.cpp:390:    if (bClearDisallowXRP && (uFlagsIn & lsfDisallowXRP))
+src/xrpld/app/tx/detail/SetAccount.cpp:392:        JLOG(j_.trace()) << "Clear lsfDisallowXRP.";
+src/xrpld/app/tx/detail/SetAccount.cpp:393:        uFlagsOut &= ~lsfDisallowXRP;
+src/xrpld/app/tx/detail/SetAccount.cpp:473:    if ((uSetFlag == asfAccountTxnID) && !sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:476:        sle->makeFieldPresent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:479:    if ((uClearFlag == asfAccountTxnID) && sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:482:        sle->makeFieldAbsent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:486:    // DepositAuth
+src/xrpld/app/tx/detail/SetAccount.cpp:488:    if (view().rules().enabled(featureDepositAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:490:        if (uSetFlag == asfDepositAuth)
+src/xrpld/app/tx/detail/SetAccount.cpp:492:            JLOG(j_.trace()) << "Set lsfDepositAuth.";
+src/xrpld/app/tx/detail/SetAccount.cpp:493:            uFlagsOut |= lsfDepositAuth;
+src/xrpld/app/tx/detail/SetAccount.cpp:495:        else if (uClearFlag == asfDepositAuth)
+src/xrpld/app/tx/detail/SetAccount.cpp:497:            JLOG(j_.trace()) << "Clear lsfDepositAuth.";
+src/xrpld/app/tx/detail/SetAccount.cpp:498:            uFlagsOut &= ~lsfDepositAuth;
+src/test/ledger/View_test.cpp:141:            create_genesis,
+src/test/ledger/View_test.cpp:386:        v.reserve(32);
+src/test/ledger/View_test.cpp:408:            create_genesis,
+src/test/ledger/View_test.cpp:677:            create_genesis,
+src/test/ledger/View_test.cpp:907:            // carol's XRP balance should be her holdings minus her reserve.
+src/test/ledger/View_test.cpp:916:            // base reserve:                      -200
+src/test/ledger/View_test.cpp:917:            // 1 trust line times its reserve: 1 * -50
+src/test/ledger/View_test.cpp:923:            // a fee by eating into her reserve.
+src/test/ledger/View_test.cpp:1067:                    create_genesis,
+src/test/ledger/PaymentSandbox_test.cpp:90:            txflags(tfNoRippleDirect | tfPartialPayment));
+src/test/ledger/PaymentSandbox_test.cpp:123:            // accountSend, no deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:130:                auto r = accountSend(av, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:138:                auto r = accountSend(av, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:169:            // accountSend, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:178:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:187:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:245:            // accountSend, w/ deferredCredits and stacked views
+src/test/ledger/PaymentSandbox_test.cpp:254:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:273:                    auto r = accountSend(pv2, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:287:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:347:        auto reserve = [](jtx::Env& env, std::uint32_t count) -> XRPAmount {
+src/test/ledger/PaymentSandbox_test.cpp:354:        env.fund(reserve(env, 1), alice);
+src/test/ledger/PaymentSandbox_test.cpp:361:            // her balance to drop below the reserve. Make sure her funds are
+src/test/ledger/PaymentSandbox_test.cpp:366:                    accountSend(sb, xrpAccount(), alice, XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:371:                    accountSend(sb, alice, xrpAccount(), XRP(100), env.journal);
+src/xrpld/app/tx/detail/Payment.cpp:40:            tx.isFieldPresent(sfSendMax) ? tx[sfSendMax] : tx[sfAmount];
+src/xrpld/app/tx/detail/Payment.cpp:42:        // If there's no sfSendMax in XRP, and the sfAmount isn't
+src/xrpld/app/tx/detail/Payment.cpp:86:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:98:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:109:    bool const partialPaymentAllowed = txFlags & tfPartialPayment;
+src/xrpld/app/tx/detail/Payment.cpp:117:    auto const account = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Payment.cpp:260:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/Payment.cpp:272:    auto const& dstAmount = tx.getFieldAmount(sfAmount);
+src/xrpld/app/tx/detail/Payment.cpp:283:            amountAsset.getIssuer() == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:301:        amountIssue.account == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:316:    bool const partialPaymentAllowed = txFlags & tfPartialPayment;
+src/xrpld/app/tx/detail/Payment.cpp:321:    STAmount const dstAmount(ctx.tx[sfAmount]);
+src/xrpld/app/tx/detail/Payment.cpp:334:            // Another transaction could create the account and then this
+src/xrpld/app/tx/detail/Payment.cpp:336:            return tecNO_DST;
+src/xrpld/app/tx/detail/Payment.cpp:343:                                   "allowed to create account.";
+src/xrpld/app/tx/detail/Payment.cpp:345:            // Another transaction could create the account and then this
+src/xrpld/app/tx/detail/Payment.cpp:355:                << "Insufficent payment to create account.";
+src/xrpld/app/tx/detail/Payment.cpp:358:            // Another transaction could create the account and then this
+src/xrpld/app/tx/detail/Payment.cpp:360:            return tecNO_DST_INSUF_XRP;
+src/xrpld/app/tx/detail/Payment.cpp:364:        (sleDst->getFlags() & lsfRequireDestTag) &&
+src/xrpld/app/tx/detail/Payment.cpp:365:        !ctx.tx.isFieldPresent(sfDestinationTag))
+src/xrpld/app/tx/detail/Payment.cpp:373:            << "Malformed transaction: DestinationTag required.";
+src/xrpld/app/tx/detail/Payment.cpp:375:        return tecDST_TAG_NEEDED;
+src/xrpld/app/tx/detail/Payment.cpp:393:            credentials::valid(ctx.tx, ctx.view, ctx.tx[sfAccount], ctx.j);
+src/xrpld/app/tx/detail/Payment.cpp:400:                ctx.view, ctx.tx[sfAccount], ctx.tx[sfDomainID]))
+src/xrpld/app/tx/detail/Payment.cpp:401:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:405:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:418:    bool const partialPaymentAllowed = txFlags & tfPartialPayment;
+src/xrpld/app/tx/detail/Payment.cpp:425:    STAmount const dstAmount(ctx_.tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:445:        sleDst->setAccountID(sfAccount, dstAccountID);
+src/xrpld/app/tx/detail/Payment.cpp:459:    bool const depositAuth = view().rules().enabled(featureDepositAuth);
+src/xrpld/app/tx/detail/Payment.cpp:460:    bool const reqDepositAuth =
+src/xrpld/app/tx/detail/Payment.cpp:461:        sleDst->getFlags() & lsfDepositAuth && depositAuth;
+src/xrpld/app/tx/detail/Payment.cpp:468:    // If the destination has lsfDepositAuth set, then only direct XRP
+src/xrpld/app/tx/detail/Payment.cpp:470:    if (!depositPreauth && ripple && reqDepositAuth)
+src/xrpld/app/tx/detail/Payment.cpp:471:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Payment.cpp:638:    // account that require a reserve.
+src/xrpld/app/tx/detail/Payment.cpp:639:    auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/Payment.cpp:641:    // This is the total reserve in drops.
+src/xrpld/app/tx/detail/Payment.cpp:642:    auto const reserve = view().fees().accountReserve(ownerCount);
+src/xrpld/app/tx/detail/Payment.cpp:645:    // fees were charged. We want to make sure we have enough reserve
+src/xrpld/app/tx/detail/Payment.cpp:646:    // to send. Allow final spend to use reserve for fee.
+src/xrpld/app/tx/detail/Payment.cpp:647:    auto const mmm = std::max(reserve, ctx_.tx.getFieldAmount(sfFee).xrp());
+src/xrpld/app/tx/detail/Payment.cpp:656:                         << to_string(reserve) << ")";
+src/xrpld/app/tx/detail/Payment.cpp:667:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:678:        //    a. less than or equal to the base reserve and
+src/xrpld/app/tx/detail/Payment.cpp:679:        //    b. the deposit amount is less than or equal to the base reserve,
+src/xrpld/app/tx/detail/Payment.cpp:683:        // in an unusable state if it sets the lsfDepositAuth flag and
+src/xrpld/app/tx/detail/Payment.cpp:685:        // account with lsfDepositAuth set spent all of its XRP, it
+src/xrpld/app/tx/detail/Payment.cpp:688:        // We choose the base reserve as our bound because it is
+src/xrpld/app/tx/detail/Payment.cpp:692:        // Get the base reserve.
+src/xrpld/app/tx/detail/Payment.cpp:696:            sleDst->getFieldAmount(sfBalance) > dstReserve)
+src/xrpld/app/tx/detail/Payment.cpp:711:    sleSrc->setFieldAmount(sfBalance, mSourceBalance - dstAmount);
+src/xrpld/app/tx/detail/Payment.cpp:713:        sfBalance, sleDst->getFieldAmount(sfBalance) + dstAmount);
+src/test/app/Invariants_test.cpp:57:    // this is common setup/method for running a failing invariant check. The
+src/test/app/Invariants_test.cpp:73:     * detected by an invariant. Simulates the actions of a transaction that
+src/test/app/Invariants_test.cpp:74:     * would violate an invariant.
+src/test/app/Invariants_test.cpp:76:     * @param expect_logs One or more messages related to the failing invariant
+src/test/app/Invariants_test.cpp:80:     * @tx A mock transaction that took the actions to trigger the invariant. In
+src/test/app/Invariants_test.cpp:82:     * @ters The TER results expected on the two passes of the invariant
+src/test/app/Invariants_test.cpp:86:     * @setTxAccount optionally set to add sfAccount to tx (either A1 or A2)
+src/test/app/Invariants_test.cpp:112:     * detected by an invariant. Simulates the actions of a transaction that
+src/test/app/Invariants_test.cpp:113:     * would violate an invariant.
+src/test/app/Invariants_test.cpp:116:     * @param expect_logs One or more messages related to the failing invariant
+src/test/app/Invariants_test.cpp:120:     * @tx A mock transaction that took the actions to trigger the invariant. In
+src/test/app/Invariants_test.cpp:122:     * @ters The TER results expected on the two passes of the invariant
+src/test/app/Invariants_test.cpp:126:     * @setTxAccount optionally set to add sfAccount to tx (either A1 or A2)
+src/test/app/Invariants_test.cpp:153:                sfAccount, setTxAccount == TxAccount::A1 ? A1.id() : A2.id());
+src/test/app/Invariants_test.cpp:223:        testcase << "XRP created";
+src/test/app/Invariants_test.cpp:231:                auto amt = sle->getFieldAmount(sfBalance);
+src/test/app/Invariants_test.cpp:232:                sle->setFieldAmount(sfBalance, amt + STAmount{500});
+src/test/app/Invariants_test.cpp:239:    testAccountRootsNotRemoved()
+src/test/app/Invariants_test.cpp:255:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:262:        // Note that this is a case where a second invocation of the invariant
+src/test/app/Invariants_test.cpp:286:                sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:287:                sleA2->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:297:    testAccountRootsDeletedClean()
+src/test/app/Invariants_test.cpp:310:                if (!BEAST_EXPECT(*sleA1->at(sfBalance) != beast::zero))
+src/test/app/Invariants_test.cpp:331:                sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:372:                    sleA1->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:392:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:427:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:437:                // Preclose callback to create the AMM which will be partially
+src/test/app/Invariants_test.cpp:494:                sle->at(sfBalance) = beast::zero;
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:504:                // Preclose callback to create the AMM which will be partially
+src/test/app/Invariants_test.cpp:541:                // unsupported value so that the valid type invariant check
+src/test/app/Invariants_test.cpp:560:            {{"an XRP trust line was created"}},
+src/test/app/Invariants_test.cpp:562:                // create simple trust SLE with xrp currency
+src/test/app/Invariants_test.cpp:578:              "created"}},
+src/test/app/Invariants_test.cpp:594:              "created"}},
+src/test/app/Invariants_test.cpp:609:              "created"}},
+src/test/app/Invariants_test.cpp:624:              "created"}},
+src/test/app/Invariants_test.cpp:639:              "created"}},
+src/test/app/Invariants_test.cpp:661:        auto const createTrustlines =
+src/test/app/Invariants_test.cpp:679:                createTrustlines(A1, A2, env);
+src/test/app/Invariants_test.cpp:703:            sleA1->setFieldAmount(sfBalance, G1["USD"](A1Balance));
+src/test/app/Invariants_test.cpp:704:            sleA2->setFieldAmount(sfBalance, G1["USD"](A2Balance));
+src/test/app/Invariants_test.cpp:761:                sle->setFieldAmount(sfBalance, nonNative);
+src/test/app/Invariants_test.cpp:776:                sle->setFieldAmount(sfBalance, INITIAL_XRP + drops(1));
+src/test/app/Invariants_test.cpp:777:                BEAST_EXPECT(!sle->getFieldAmount(sfBalance).negative());
+src/test/app/Invariants_test.cpp:790:                sle->setFieldAmount(sfBalance, STAmount{1, true});
+src/test/app/Invariants_test.cpp:791:                BEAST_EXPECT(sle->getFieldAmount(sfBalance).negative());
+src/test/app/Invariants_test.cpp:842:                sleNew->setAccountID(sfAccount, A1.id());
+src/test/app/Invariants_test.cpp:858:                sleNew->setAccountID(sfAccount, A1.id());
+src/test/app/Invariants_test.cpp:875:                sleNew->setAccountID(sfAccount, A1.id());
+src/test/app/Invariants_test.cpp:900:                sleNew->setFieldAmount(sfAmount, XRP(-1));
+src/test/app/Invariants_test.cpp:917:                sleNew->setFieldAmount(sfAmount, INITIAL_XRP + drops(1));
+src/test/app/Invariants_test.cpp:936:                sleNew->setFieldAmount(sfAmount, amt);
+src/test/app/Invariants_test.cpp:954:                sleNew->setFieldAmount(sfAmount, amt);
+src/test/app/Invariants_test.cpp:973:                sleNew->setFieldAmount(sfAmount, amt);
+src/test/app/Invariants_test.cpp:1071:    testValidNewAccountRoot()
+src/test/app/Invariants_test.cpp:1077:            {{"account root created illegally"}},
+src/test/app/Invariants_test.cpp:1079:                // Insert a new account root created by a non-payment into
+src/test/app/Invariants_test.cpp:1089:            {{"multiple accounts created in a single transaction"}},
+src/test/app/Invariants_test.cpp:1108:            {{"account created with wrong starting sequence number"}},
+src/test/app/Invariants_test.cpp:1122:            {{"pseudo-account created by a wrong transaction type"}},
+src/test/app/Invariants_test.cpp:1139:            {{"account created with wrong starting sequence number"}},
+src/test/app/Invariants_test.cpp:1148:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:1156:            {{"pseudo-account created with wrong flags"}},
+src/test/app/Invariants_test.cpp:1172:            {{"pseudo-account created with wrong flags"}},
+src/test/app/Invariants_test.cpp:1181:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth |
+src/test/app/Invariants_test.cpp:1182:                        lsfRequireDestTag);
+src/test/app/Invariants_test.cpp:1338:    createPermissionedDomain(
+src/test/app/Invariants_test.cpp:1390:                return createPermissionedDomain(ac, A1, A2, 0).get();
+src/test/app/Invariants_test.cpp:1404:                return !!createPermissionedDomain(ac, A1, A2, tooBig);
+src/test/app/Invariants_test.cpp:1415:                auto slePd = createPermissionedDomain(ac, A1, A2, 0);
+src/test/app/Invariants_test.cpp:1442:                auto slePd = createPermissionedDomain(ac, A1, A2, 0);
+src/test/app/Invariants_test.cpp:1465:                // create PD
+src/test/app/Invariants_test.cpp:1466:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1487:                // create PD
+src/test/app/Invariants_test.cpp:1488:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1520:                // create PD
+src/test/app/Invariants_test.cpp:1521:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1553:                // create PD
+src/test/app/Invariants_test.cpp:1554:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1596:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1597:                    createPermissionedDomain(ac, A1, A2, 2, 11);
+src/test/app/Invariants_test.cpp:1616:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1618:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1662:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1664:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1691:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1710:            testcase << "PermissionedDomain del, create domain ";
+src/test/app/Invariants_test.cpp:1715:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1729:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1746:        Preclose createPseudo =
+src/test/app/Invariants_test.cpp:1753:                    vault.create({.owner = a, .asset = xrpAsset});
+src/test/app/Invariants_test.cpp:1758:                    pseudoAccountID = vSle->at(sfAccount);
+src/test/app/Invariants_test.cpp:1815:                createPseudo);
+src/test/app/Invariants_test.cpp:1819:            // createPseudo creates a vault, so sfVaultID will be set, and
+src/test/app/Invariants_test.cpp:1840:                createPseudo);
+src/test/app/Invariants_test.cpp:1860:    createPermissionedDomainEnv(
+src/test/app/Invariants_test.cpp:1900:                sleOffer->setAccountID(sfAccount, A1);
+src/test/app/Invariants_test.cpp:1928:                sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:1953:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1964:                    sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:1992:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2003:                    sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:2029:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2040:                    sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:2062:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2064:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2075:                    sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:2102:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2113:                    sleOffer->setAccountID(sfAccount, A2);
+src/test/app/Invariants_test.cpp:2133:    createLoanBroker(
+src/test/app/Invariants_test.cpp:2143:        auto [tx, vKeylet] = vault.create({.owner = a, .asset = asset});
+src/test/app/Invariants_test.cpp:2167:        Preclose createLoanBroker =
+src/test/app/Invariants_test.cpp:2171:                loanBrokerKeylet = this->createLoanBroker(a, env, xrpAsset);
+src/test/app/Invariants_test.cpp:2183:                        sle->at(sfAccount) = sle->at(sfOwner);
+src/test/app/Invariants_test.cpp:2186:                        sle->at(sfOwner) = sle->at(sfAccount);
+src/test/app/Invariants_test.cpp:2216:                    createLoanBroker);
+src/test/app/Invariants_test.cpp:2276:                        mptt.create(
+src/test/app/Invariants_test.cpp:2292:            Preclose const createLoanBroker = [&, this](
+src/test/app/Invariants_test.cpp:2297:                loanBrokerKeylet = this->createLoanBroker(alice, env, asset);
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2315:                // modified entries for the invariant to find
+src/test/app/Invariants_test.cpp:2319:                auto const pseudoAccountID = sleBroker->at(sfAccount);
+src/test/app/Invariants_test.cpp:2335:                        ::ripple::directory::createRoot(
+src/test/app/Invariants_test.cpp:2348:                {{"Loan Broker with zero OwnerCount has multiple directory "
+src/test/app/Invariants_test.cpp:2359:                        describeOwnerDir(slePseudo->at(sfAccount));
+src/test/app/Invariants_test.cpp:2377:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2380:                {{"Loan Broker with zero OwnerCount has multiple indexes in "
+src/test/app/Invariants_test.cpp:2404:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2417:                        describeOwnerDir(slePseudo->at(sfAccount));
+src/test/app/Invariants_test.cpp:2434:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2437:                {{"Loan Broker with zero OwnerCount has an unexpected entry in "
+src/test/app/Invariants_test.cpp:2460:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2473:                    // modified entries for the invariant to find
+src/test/app/Invariants_test.cpp:2483:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2488:                Preclose const createBrokerWithCover =
+src/test/app/Invariants_test.cpp:2493:                            this->createLoanBroker(alice, env, asset);
+src/test/app/Invariants_test.cpp:2517:                    createBrokerWithCover);
+src/test/app/Invariants_test.cpp:2538:                createLoanBroker);
+src/test/app/Invariants_test.cpp:2598:            auto const pseudoId = *(*sleVault)[sfAccount];
+src/test/app/Invariants_test.cpp:2606:                    (*slePseudoAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:2607:                        *(*slePseudoAccount)[sfBalance] + *args.vaultAssets;
+src/test/app/Invariants_test.cpp:2632:                    (*sleAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:2633:                        *(*sleAccount)[sfBalance] + pair.amount;
+src/test/app/Invariants_test.cpp:2688:                vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2715:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2735:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2755:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2766:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2793:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2824:                        vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2829:                        vault.create({.owner = A2, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2842:                    auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2872:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2900:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2940:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2955:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2970:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:2985:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3000:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3027:                auto [tx, _] = vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3050:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3071:                    ac.view().peek(keylet::account(*(*sleVault)[sfAccount]));
+src/test/app/Invariants_test.cpp:3074:                (*slePseudoAccount)[sfBalance] =
+src/test/app/Invariants_test.cpp:3075:                    *(*slePseudoAccount)[sfBalance] - 10;
+src/test/app/Invariants_test.cpp:3082:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3124:                sleVault->setAccountID(sfAccount, A2.id());
+src/test/app/Invariants_test.cpp:3185:                    tx.setFieldAmount(sfAmount, XRPAmount(200));
+src/test/app/Invariants_test.cpp:3296:        testcase << "Vault create";
+src/test/app/Invariants_test.cpp:3299:                "created vault must be empty",
+src/test/app/Invariants_test.cpp:3301:                "create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3318:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3325:                "created vault must be empty",
+src/test/app/Invariants_test.cpp:3328:                "create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3345:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3352:                "created vault must be empty",
+src/test/app/Invariants_test.cpp:3356:                "create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3373:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3380:                "created vault must be empty",
+src/test/app/Invariants_test.cpp:3381:                "create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3403:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3411:                "create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3428:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3434:            {"create operation must not have updated a vault",
+src/test/app/Invariants_test.cpp:3458:                    vault.create({.owner = A1, .asset = xrpIssue()});
+src/test/app/Invariants_test.cpp:3464:            {"vault created by a wrong transaction type",
+src/test/app/Invariants_test.cpp:3465:             "account root created illegally"},
+src/test/app/Invariants_test.cpp:3467:                // The code below will create a valid vault with (almost) all
+src/test/app/Invariants_test.cpp:3468:                // the invariants holding. Except one: it is created by the
+src/test/app/Invariants_test.cpp:3473:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3484:                sleAccount->setAccountID(sfAccount, pseudoId);
+src/test/app/Invariants_test.cpp:3485:                sleAccount->setFieldAmount(sfBalance, STAmount{});
+src/test/app/Invariants_test.cpp:3493:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3500:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3511:                sleVault->at(sfAccount) = pseudoId;
+src/test/app/Invariants_test.cpp:3537:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3548:                sleAccount->setAccountID(sfAccount, pseudoId);
+src/test/app/Invariants_test.cpp:3549:                sleAccount->setFieldAmount(sfBalance, STAmount{});
+src/test/app/Invariants_test.cpp:3557:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3566:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3577:                // sleVault->at(sfAccount) = pseudoId;
+src/test/app/Invariants_test.cpp:3579:                sleVault->at(sfAccount) = A2.id();
+src/test/app/Invariants_test.cpp:3605:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3614:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3626:                sleVault->at(sfAccount) = A2.id();
+src/test/app/Invariants_test.cpp:3677:                    tx.setFieldAmount(sfAmount, XRPAmount(200));
+src/test/app/Invariants_test.cpp:3697:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3712:                    tx[sfAccount] = A3.id();
+src/test/app/Invariants_test.cpp:3730:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3744:                [](STObject& tx) { tx[sfAmount] = XRPAmount(10); }},
+src/test/app/Invariants_test.cpp:3758:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 10;
+src/test/app/Invariants_test.cpp:3771:                [](STObject& tx) { tx[sfAmount] = XRPAmount(10); }},
+src/test/app/Invariants_test.cpp:3790:                [](STObject& tx) { tx[sfAmount] = XRPAmount(10); }},
+src/test/app/Invariants_test.cpp:3810:                [](STObject& tx) { tx[sfAmount] = XRPAmount(10); }},
+src/test/app/Invariants_test.cpp:3833:                [](STObject& tx) { tx[sfAmount] = XRPAmount(5); }},
+src/test/app/Invariants_test.cpp:3842:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 2000;
+src/test/app/Invariants_test.cpp:3857:                    tx[sfAmount] = XRPAmount(10);
+src/test/app/Invariants_test.cpp:3881:                [](STObject& tx) { tx[sfAmount] = XRPAmount(10); }},
+src/test/app/Invariants_test.cpp:3916:                (*sleA4)[sfBalance] = *(*sleA4)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3931:                    tx[sfAccount] = A3.id();
+src/test/app/Invariants_test.cpp:3932:                    // This commented out line causes the invariant violation.
+src/test/app/Invariants_test.cpp:3952:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 10;
+src/test/app/Invariants_test.cpp:3983:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] + 5;
+src/test/app/Invariants_test.cpp:4072:                (*sleA3)[sfBalance] = *(*sleA3)[sfBalance] - 2000;
+src/test/app/Invariants_test.cpp:4087:                    tx[sfAmount] = XRPAmount(10);
+src/test/app/Invariants_test.cpp:4102:                jv[sfAccount] = A3.human();
+src/test/app/Invariants_test.cpp:4114:                jv[sfAccount] = A1.human();
+src/test/app/Invariants_test.cpp:4118:                jv[sfAccount] = A2.human();
+src/test/app/Invariants_test.cpp:4120:                jv[sfAccount] = A4.human();
+src/test/app/Invariants_test.cpp:4134:            auto [tx, keylet] = vault.create({.owner = A1, .asset = asset});
+src/test/app/Invariants_test.cpp:4161:                [&](STObject& tx) { tx[sfAccount] = A3.id(); }},
+src/test/app/Invariants_test.cpp:4181:                [&](STObject& tx) { tx[sfAccount] = A3.id(); }},
+src/test/app/Invariants_test.cpp:4213:                [&](STObject& tx) { tx[sfAccount] = A4.id(); }},
+src/test/app/Invariants_test.cpp:4234:                    tx[sfAccount] = A3.id();
+src/test/app/Invariants_test.cpp:4255:                    tx[sfAccount] = A3.id();
+src/test/app/Invariants_test.cpp:4280:                    tx[sfAccount] = A3.id();
+src/test/app/Invariants_test.cpp:4287:    // Test the invariant overwrite fix for both pre- and post-amendment
+src/test/app/Invariants_test.cpp:4301:        // With the fix, the invariant catches the violation.
+src/test/app/Invariants_test.cpp:4304:        // ordering (the invariant checks sfLowLimit/sfHighLimit issue,
+src/test/app/Invariants_test.cpp:4311:                ? std::vector<std::string>{{"an XRP trust line was created"}}
+src/test/app/Invariants_test.cpp:4354:                                                   "normal freeze was created"}}
+src/test/app/Invariants_test.cpp:4400:        // still fires ("a MPT issuance was created").
+src/test/app/Invariants_test.cpp:4407:                : std::vector<std::string>{{"a MPT issuance was created"}},
+src/test/app/Invariants_test.cpp:4568:        testAccountRootsNotRemoved();
+src/test/app/Invariants_test.cpp:4569:        testAccountRootsDeletedClean();
+src/test/app/Invariants_test.cpp:4578:        testValidNewAccountRoot();
+src/test/app/Flow_test.cpp:104:                txflags(tfPartialPayment));
+src/test/app/Flow_test.cpp:198:                txflags(tfLimitQuality | tfPartialPayment),
+src/test/app/Flow_test.cpp:204:                txflags(tfPartialPayment));
+src/test/app/Flow_test.cpp:553:                txflags(tfNoRippleDirect | tfPartialPayment),
+src/test/app/Flow_test.cpp:633:        env.fund(reserve(env, 5), bob);
+src/test/app/Flow_test.cpp:654:            txflags(tfNoRippleDirect | tfPartialPayment));
+src/test/app/Flow_test.cpp:690:                txflags(tfNoRippleDirect | tfPartialPayment | tfLimitQuality));
+src/test/app/Flow_test.cpp:696:    // Helper function that returns the reserve on an account based on
+src/test/app/Flow_test.cpp:699:    reserve(jtx::Env& env, std::uint32_t count)
+src/test/app/Flow_test.cpp:745:        env.fund(reserve(env, 3) + f * 4, alice);
+src/test/app/Flow_test.cpp:775:            txflags(tfPartialPayment));
+src/test/app/Flow_test.cpp:816:        env.fund(reserve(env, 3) + f * 4, alice);
+src/test/app/Flow_test.cpp:846:            txflags(tfPartialPayment));
+src/test/app/Flow_test.cpp:892:            txflags(tfPartialPayment | tfNoRippleDirect));
+src/test/app/Flow_test.cpp:1032:            txflags(tfPartialPayment | tfNoRippleDirect));
+src/test/app/Flow_test.cpp:1143:        env.fund(reserve(env, 2) + drops(9999640) + fee, ann);
+src/test/app/Flow_test.cpp:1144:        env.fund(reserve(env, 2) + fee * 4, gw);
+src/test/app/Flow_test.cpp:1160:            txflags(tfPartialPayment));
+src/test/app/Flow_test.cpp:1292:        // alice creates a ticket for the payment.
+src/test/app/Flow_test.cpp:1294:        env(ticket::create(alice, 1));
+src/test/app/DepositAuth_test.cpp:29:// Helper function that returns the reserve on an account based on
+src/test/app/DepositAuth_test.cpp:32:reserve(jtx::Env& env, std::uint32_t count)
+src/test/app/DepositAuth_test.cpp:39:hasDepositAuth(jtx::Env const& env, jtx::Account const& acct)
+src/test/app/DepositAuth_test.cpp:41:    return ((*env.le(acct))[sfFlags] & lsfDepositAuth) == lsfDepositAuth;
+src/test/app/DepositAuth_test.cpp:44:struct DepositAuth_test : public beast::unit_test::suite
+src/test/app/DepositAuth_test.cpp:55:            // featureDepositAuth is disabled.
+src/test/app/DepositAuth_test.cpp:56:            Env env(*this, testable_amendments() - featureDepositAuth);
+src/test/app/DepositAuth_test.cpp:60:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:62:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:64:            env(fclear(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:66:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:69:            // featureDepositAuth is enabled.
+src/test/app/DepositAuth_test.cpp:73:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:75:            BEAST_EXPECT(hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:77:            env(fclear(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:79:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:87:        // that has the lsfDepositAuth flag set.
+src/test/app/DepositAuth_test.cpp:112:        // bob sets the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:113:        env(fset(bob, asfDepositAuth), require(flags(bob, asfDepositAuth)));
+src/test/app/DepositAuth_test.cpp:118:            env.require(flags(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:124:            env(pay(alice, bob, USD(50)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:131:                ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:138:        //  Test when bob has an XRP balance > base reserve.
+src/test/app/DepositAuth_test.cpp:141:        // Set bob's XRP balance == base reserve.  Also demonstrate that
+src/test/app/DepositAuth_test.cpp:142:        // bob can make payments while his lsfDepositAuth flag is set.
+src/test/app/DepositAuth_test.cpp:147:            STAmount const bobPaysXRP{env.balance(bob, XRP) - reserve(env, 1)};
+src/test/app/DepositAuth_test.cpp:148:            XRPAmount const bobPaysFee{reserve(env, 1) - reserve(env, 0)};
+src/test/app/DepositAuth_test.cpp:153:        // Test when bob's XRP balance == base reserve.
+src/test/app/DepositAuth_test.cpp:154:        BEAST_EXPECT(env.balance(bob, XRP) == reserve(env, 0));
+src/test/app/DepositAuth_test.cpp:159:        env(noop(bob), fee(reserve(env, 0)));
+src/test/app/DepositAuth_test.cpp:165:        // Give bob enough XRP for the fee to clear the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:168:        // bob clears the lsfDepositAuth and the next payment succeeds.
+src/test/app/DepositAuth_test.cpp:169:        env(fclear(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:183:        // lsfDepositAuth flag set.
+src/test/app/DepositAuth_test.cpp:196:        // bob sets the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:197:        env(fset(bob, asfDepositAuth), fee(drops(baseFee)));
+src/test/app/DepositAuth_test.cpp:201:        // bob has more XRP than the base reserve.  Any XRP payment should fail.
+src/test/app/DepositAuth_test.cpp:202:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:206:        // Change bob's XRP balance to exactly the base reserve.
+src/test/app/DepositAuth_test.cpp:208:            STAmount const bobPaysXRP{env.balance(bob, XRP) - reserve(env, 1)};
+src/test/app/DepositAuth_test.cpp:209:            XRPAmount const bobPaysFee{reserve(env, 1) - reserve(env, 0)};
+src/test/app/DepositAuth_test.cpp:214:        // bob has exactly the base reserve.  A small enough direct XRP
+src/test/app/DepositAuth_test.cpp:216:        BEAST_EXPECT(env.balance(bob, XRP) == reserve(env, 0));
+src/test/app/DepositAuth_test.cpp:220:        // bob has exactly the base reserve + 1.  No payment should succeed.
+src/test/app/DepositAuth_test.cpp:221:        BEAST_EXPECT(env.balance(bob, XRP) == reserve(env, 0) + drops(1));
+src/test/app/DepositAuth_test.cpp:222:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:226:        env(noop(bob), fee(reserve(env, 0) + drops(1)));
+src/test/app/DepositAuth_test.cpp:230:        // We should not be able to pay bob more than the base reserve.
+src/test/app/DepositAuth_test.cpp:231:        env(pay(alice, bob, reserve(env, 0) + drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:234:        // However a payment of exactly the base reserve should succeed.
+src/test/app/DepositAuth_test.cpp:235:        env(pay(alice, bob, reserve(env, 0) + drops(0)));
+src/test/app/DepositAuth_test.cpp:237:        BEAST_EXPECT(env.balance(bob, XRP) == reserve(env, 0));
+src/test/app/DepositAuth_test.cpp:239:        // We should be able to pay bob the base reserve one more time.
+src/test/app/DepositAuth_test.cpp:240:        env(pay(alice, bob, reserve(env, 0) + drops(0)));
+src/test/app/DepositAuth_test.cpp:243:            env.balance(bob, XRP) == (reserve(env, 0) + reserve(env, 0)));
+src/test/app/DepositAuth_test.cpp:246:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:249:            env.balance(bob, XRP) == (reserve(env, 0) + reserve(env, 0)));
+src/test/app/DepositAuth_test.cpp:256:        // bob should not be able to clear lsfDepositAuth.
+src/test/app/DepositAuth_test.cpp:257:        env(fclear(bob, asfDepositAuth), ter(terINSUF_FEE_B));
+src/test/app/DepositAuth_test.cpp:265:        // Pay bob enough so he can afford the fee to clear lsfDepositAuth.
+src/test/app/DepositAuth_test.cpp:270:        // request to clear lsfDepositAuth.  So the balance should be zero
+src/test/app/DepositAuth_test.cpp:271:        // and lsfDepositAuth should be cleared.
+src/test/app/DepositAuth_test.cpp:273:        env.require(nflags(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:275:        // Since bob no longer has lsfDepositAuth set we should be able to
+src/test/app/DepositAuth_test.cpp:276:        // pay him more than the base reserve.
+src/test/app/DepositAuth_test.cpp:277:        env(pay(alice, bob, reserve(env, 0) + drops(1)));
+src/test/app/DepositAuth_test.cpp:279:        BEAST_EXPECT(env.balance(bob, XRP) == reserve(env, 0) + drops(1));
+src/test/app/DepositAuth_test.cpp:285:        // It its current incarnation the DepositAuth flag does not change
+src/test/app/DepositAuth_test.cpp:302:                              bool withDepositAuth) {
+src/test/app/DepositAuth_test.cpp:303:            assert(!withDepositAuth || features[featureDepositAuth]);
+src/test/app/DepositAuth_test.cpp:315:            if (withDepositAuth)
+src/test/app/DepositAuth_test.cpp:316:                env(fset(gw1, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:326:                                 bool withDepositAuth) {
+src/test/app/DepositAuth_test.cpp:327:            assert(!withDepositAuth || features[featureDepositAuth]);
+src/test/app/DepositAuth_test.cpp:337:            if (withDepositAuth)
+src/test/app/DepositAuth_test.cpp:338:                env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:348:        // Test every combo of noRipplePrev, noRippleNext, and withDepositAuth
+src/test/app/DepositAuth_test.cpp:353:            auto const withDepositAuth = i & 0x4;
+src/test/app/DepositAuth_test.cpp:355:                testable_amendments() | featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:358:                withDepositAuth);
+src/test/app/DepositAuth_test.cpp:360:            if (!withDepositAuth)
+src/test/app/DepositAuth_test.cpp:362:                    testable_amendments() - featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:365:                    withDepositAuth);
+src/test/app/DepositAuth_test.cpp:368:                testable_amendments() | featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:371:                withDepositAuth);
+src/test/app/DepositAuth_test.cpp:373:            if (!withDepositAuth)
+src/test/app/DepositAuth_test.cpp:375:                    testable_amendments() - featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:378:                    withDepositAuth);
+src/test/app/DepositAuth_test.cpp:443:            //  o That entry should cost one reserve.
+src/test/app/DepositAuth_test.cpp:444:            //  o The reserve should be returned when the entry is removed.
+src/test/app/DepositAuth_test.cpp:468:            env(ticket::create(alice, 2));
+src/test/app/DepositAuth_test.cpp:564:        // alice attempts to create a duplicate authorization.
+src/test/app/DepositAuth_test.cpp:570:        // carol attempts to preauthorize but doesn't have enough reserve.
+src/test/app/DepositAuth_test.cpp:579:        // carol gets enough XRP to (barely) meet the reserve.
+src/test/app/DepositAuth_test.cpp:587:        // But carol can't meet the reserve for another preauthorization.
+src/test/app/DepositAuth_test.cpp:627:            // The initial implementation of DepositAuth had a bug where an
+src/test/app/DepositAuth_test.cpp:628:            // account with the DepositAuth flag set could not make a payment
+src/test/app/DepositAuth_test.cpp:651:            env(fset(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:657:                supportsPreauth ? TER{tesSUCCESS} : TER{tecNO_PERMISSION}};
+src/test/app/DepositAuth_test.cpp:679:                        : (!supportsPreauth ? TER(tecNO_PERMISSION)
+src/test/app/DepositAuth_test.cpp:692:                env(credentials::create(gw, carol, credType),
+src/test/app/DepositAuth_test.cpp:717:                    env(escrow::create(alice, becky, XRP(100)),
+src/test/app/DepositAuth_test.cpp:724:                        ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:754:            env(fset(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:758:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:759:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:768:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:769:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:782:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:787:            env(pay(becky, alice, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:788:            env(pay(becky, alice, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:803:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:804:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:809:            env(fclear(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:839:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:847:            // But can create old DepositPreauth
+src/test/app/DepositAuth_test.cpp:870:            // Issuer create credentials, but Alice didn't accept them yet
+src/test/app/DepositAuth_test.cpp:871:            env(credentials::create(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:880:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:926:            env(fset(john, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:940:            // Issuer create credentials, but Alice didn't accept them yet
+src/test/app/DepositAuth_test.cpp:941:            env(credentials::create(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:958:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:965:                    ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:995:                // create another valid credential
+src/test/app/DepositAuth_test.cpp:997:                env(credentials::create(alice, issuer, credType2));
+src/test/app/DepositAuth_test.cpp:1009:                    ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:1124:                // Can't create with non-existing issuer
+src/test/app/DepositAuth_test.cpp:1132:                // not enough reserve
+src/test/app/DepositAuth_test.cpp:1176:                // can't create duplicate
+src/test/app/DepositAuth_test.cpp:1217:            auto jv = credentials::create(alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1234:            jv = credentials::create(alice, issuer, credType2);
+src/test/app/DepositAuth_test.cpp:1256:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:1311:                auto jv = credentials::create(gw, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1364:            auto jv = credentials::create(zelda, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1383:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:1390:            env(escrow::create(alice, bob, XRP(1000)),
+src/test/app/DepositAuth_test.cpp:1531:            // create batch of credentials and save their hashes
+src/test/app/DepositAuth_test.cpp:1535:                env(credentials::create(alice, c.issuer, c.credType));
+src/test/app/DepositAuth_test.cpp:1578:BEAST_DEFINE_TESTSUITE(DepositAuth, app, ripple);
+src/test/app/AccountDelete_test.cpp:59:    // Helper function to create a payment channel.
+src/test/app/AccountDelete_test.cpp:98:        env(acctdelete(alice, alice), ter(temDST_IS_SRC));
+src/test/app/AccountDelete_test.cpp:118:        // alice's account is created too recently to be deleted.
+src/test/app/AccountDelete_test.cpp:131:        env(ticket::create(carol, 1));
+src/test/app/AccountDelete_test.cpp:142:        // alice's account is still created too recently to be deleted.
+src/test/app/AccountDelete_test.cpp:254:        // Alice creates enough offers to require two owner directories.
+src/test/app/AccountDelete_test.cpp:324:        env(check::create(alice, becky, XRP(1)));
+src/test/app/AccountDelete_test.cpp:340:        env(escrow::create(alice, becky, XRP(333)),
+src/test/app/AccountDelete_test.cpp:351:        // Now cancel the escrow, but create a payment channel between
+src/test/app/AccountDelete_test.cpp:370:            env(escrow::create(carol, becky, USD(1)),
+src/test/app/AccountDelete_test.cpp:428:        // gw creates a PayChannel with alice as the destination.  With the
+src/test/app/AccountDelete_test.cpp:502:            ter(tecNO_DST_INSUF_XRP));
+src/test/app/AccountDelete_test.cpp:520:            jv[sfBalance.jsonName] =
+src/test/app/AccountDelete_test.cpp:596:        // Fund alice well so she can afford the reserve on the offers.
+src/test/app/AccountDelete_test.cpp:604:        // Alice creates 1001 offers.  This is one greater than the number of
+src/test/app/AccountDelete_test.cpp:693:        // Show that a trust line that is implicitly created by offer crossing
+src/test/app/AccountDelete_test.cpp:697:        testcase("Implicitly created trust line");
+src/test/app/AccountDelete_test.cpp:707:        // alice creates an offer that, if crossed, will implicitly create
+src/test/app/AccountDelete_test.cpp:721:        // created trust line.
+src/test/app/AccountDelete_test.cpp:739:        // incremental reserve tries to delete itself.
+src/test/app/AccountDelete_test.cpp:749:        // reserve of 200 XRP.
+src/test/app/AccountDelete_test.cpp:804:        env(ticket::create(bob, 250));
+src/test/app/AccountDelete_test.cpp:855:        // alice sets the lsfDepositAuth flag on her account.  This should
+src/test/app/AccountDelete_test.cpp:858:        env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:870:        env(acctdelete(becky, daria), fee(acctDelFee), ter(tecNO_DST));
+src/test/app/AccountDelete_test.cpp:875:        env(acctdelete(becky, carol), fee(acctDelFee), ter(tecDST_TAG_NEEDED));
+src/test/app/AccountDelete_test.cpp:880:        env(acctdelete(becky, alice), fee(acctDelFee), ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:895:    testDestinationDepositAuthCredentials()
+src/test/app/AccountDelete_test.cpp:915:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:936:                // alice sets the lsfDepositAuth flag on her account.  This
+src/test/app/AccountDelete_test.cpp:939:                env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:964:                ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:967:            // alice create DepositPreauth Object
+src/test/app/AccountDelete_test.cpp:975:                ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:1010:                env(credentials::create(daria, carol, credType));
+src/test/app/AccountDelete_test.cpp:1043:                env(credentials::create(eaton, carol, credType));
+src/test/app/AccountDelete_test.cpp:1053:                env(fset(fred, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:1086:                auto jv = credentials::create(john, carol, credType);
+src/test/app/AccountDelete_test.cpp:1135:            // alice sets the lsfDepositAuth flag on her account.  This should
+src/test/app/AccountDelete_test.cpp:1138:            env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:1181:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1225:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1267:        testDestinationDepositAuthCredentials();
+src/libxrpl/ledger/PaymentSandbox.cpp:245:PaymentSandbox::adjustOwnerCountHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:301:                    highID = (*before)[sfAccount];
+src/libxrpl/ledger/PaymentSandbox.cpp:302:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:308:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:326:                    highID = (*after)[sfAccount];
+src/libxrpl/ledger/PaymentSandbox.cpp:327:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:333:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:355:                    highID = (*after)[sfAccount];
+src/libxrpl/ledger/PaymentSandbox.cpp:356:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:357:                    newBalance = (*after)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:362:                    oldBalance = (*before)[sfBalance];
+src/libxrpl/ledger/PaymentSandbox.cpp:363:                    newBalance = (*after)[sfBalance];
+src/test/app/PayStrand_test.cpp:387:        accounts.reserve(numAct);
+src/test/app/PayStrand_test.cpp:389:        currencies.reserve(numCur);
+src/test/app/PayStrand_test.cpp:391:        currencyNames.reserve(numCur);
+src/test/app/PayStrand_test.cpp:443:        ious.reserve(numAct * numCur);
+src/test/app/PayStrand_test.cpp:448:        // create offers from every currency to every other currency
+src/test/app/PayStrand_test.cpp:467:        // create offers to/from xrp to every other ious
+src/test/app/PayStrand_test.cpp:487:            auto const b = (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:508:            return (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:514:            return (*sle)[sfBalance];
+src/test/app/PayStrand_test.cpp:583:        outerResult.reserve(resultSize);
+src/test/app/PayStrand_test.cpp:584:        result.reserve(resultSize);
+src/test/app/PayStrand_test.cpp:1082:                txflags(tfNoRippleDirect | tfPartialPayment),
+src/xrpld/app/tx/detail/DeleteAccount.cpp:57:    if (ctx.tx[sfAccount] == ctx.tx[sfDestination])
+src/xrpld/app/tx/detail/DeleteAccount.cpp:59:        return temDST_IS_SRC;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:71:    // The fee required for AccountDelete is one owner reserve.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:233:    AccountID const account{ctx.tx[sfAccount]};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:239:        return tecNO_DST;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:241:    if ((*sleDst)[sfFlags] & lsfRequireDestTag && !ctx.tx[~sfDestinationTag])
+src/xrpld/app/tx/detail/DeleteAccount.cpp:242:        return tecDST_TAG_NEEDED;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:254:        if (ctx.view.rules().enabled(featureDepositAuth) &&
+src/xrpld/app/tx/detail/DeleteAccount.cpp:255:            (sleDst->getFlags() & lsfDepositAuth))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:258:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:304:    // the issuer's sequence does not change. So when the issuer re-creates
+src/xrpld/app/tx/detail/DeleteAccount.cpp:380:    if (ctx_.view().rules().enabled(featureDepositAuth) &&
+src/xrpld/app/tx/detail/DeleteAccount.cpp:418:    (*dst)[sfBalance] = (*dst)[sfBalance] + mSourceBalance;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:419:    (*src)[sfBalance] = (*src)[sfBalance] - mSourceBalance;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:423:        (*src)[sfBalance] == XRPAmount(0),
+src/xrpld/app/tx/detail/Transactor.cpp:178:        if (ctx.tx[sfDelegate] == ctx.tx[sfAccount])
+src/xrpld/app/tx/detail/Transactor.cpp:185:    auto const id = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:210:        ctx.tx.isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:267:    , account_(ctx.tx.getAccountID(sfAccount))
+src/xrpld/app/tx/detail/Transactor.cpp:300:    auto const delegateKey = keylet::delegate(tx[sfAccount], *delegate);
+src/xrpld/app/tx/detail/Transactor.cpp:331:    // Assumption: One reserve increment is typically much greater than one base
+src/xrpld/app/tx/detail/Transactor.cpp:334:    // developers if that assumption is not correct. If the owner reserve is not
+src/xrpld/app/tx/detail/Transactor.cpp:336:    // need to rethink charging an owner reserve as a transaction fee.
+src/xrpld/app/tx/detail/Transactor.cpp:343:        "ripple::Transactor::calculateOwnerReserveFee : Owner reserve is "
+src/xrpld/app/tx/detail/Transactor.cpp:398:        : ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:403:    auto const balance = (*sle)[sfBalance].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:437:            sfBalance, delegatedSle->getFieldAmount(sfBalance) - feePaid);
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:450:        sle->setFieldAmount(sfBalance, mSourceBalance);
+src/xrpld/app/tx/detail/Transactor.cpp:464:    auto const id = tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:510:            // transaction to create the Ticket has not hit the ledger
+src/xrpld/app/tx/detail/Transactor.cpp:521:                << "applyTransaction: ticket already used or never created "
+src/xrpld/app/tx/detail/Transactor.cpp:533:    auto const id = ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:545:    if (ctx.tx.isFieldPresent(sfAccountTxnID) &&
+src/xrpld/app/tx/detail/Transactor.cpp:546:        (sle->getFieldH256(sfAccountTxnID) !=
+src/xrpld/app/tx/detail/Transactor.cpp:547:         ctx.tx.getFieldH256(sfAccountTxnID)))
+src/xrpld/app/tx/detail/Transactor.cpp:632:    // Update the Ticket owner's reserve.
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/Transactor.cpp:666:        mPriorBalance = STAmount{(*sle)[sfBalance]}.xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:677:        if (sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:678:            sle->setFieldH256(sfAccountTxnID, ctx_.tx.getTransactionID());
+src/xrpld/app/tx/detail/Transactor.cpp:760:        : ctx.tx.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:772:        auto const idAccount = signer.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:792:            // A batch can include transactions from an un-created account ONLY
+src/xrpld/app/tx/detail/Transactor.cpp:918:        AccountID const txSignerAcctID = txSigner.getAccountID(sfAccount);
+src/xrpld/app/tx/detail/Transactor.cpp:1143:        view().peek(keylet::account(ctx_.tx.getAccountID(sfAccount)));
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:1156:    auto const balance = payerSle->getFieldAmount(sfBalance).xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:1175:    payerSle->setFieldAmount(sfBalance, balance - fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1364:        // Check invariants: if `tecINVARIANT_FAILED` is not returned, we can
+src/xrpld/app/tx/detail/Transactor.cpp:1370:            // if invariants checking failed again, reset the context and
+src/xrpld/app/tx/detail/Transactor.cpp:1378:            // Check invariants again to ensure the fee claiming doesn't
+src/xrpld/app/tx/detail/Transactor.cpp:1379:            // violate invariants.
+src/xrpld/app/tx/detail/Transactor.cpp:1384:        // We ran through the invariant checker, which can, in some cases,
+src/xrpld/app/tx/detail/Transactor.cpp:1396:        // The transactor and invariant checkers guarantee that this will
+src/libxrpl/ledger/View.cpp:454:        amount = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:493:        return {xrpLiquid(view, account, 0, j)};
+src/libxrpl/ledger/View.cpp:658:confineOwnerCount(
+src/libxrpl/ledger/View.cpp:689:            XRPL_ASSERT(!id, "ripple::confineOwnerCount : id is not set");
+src/libxrpl/ledger/View.cpp:696:xrpLiquid(
+src/libxrpl/ledger/View.cpp:706:    // Return balance minus reserve
+src/libxrpl/ledger/View.cpp:707:    std::uint32_t const ownerCount = confineOwnerCount(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:710:    // Pseudo-accounts have no reserve requirement
+src/libxrpl/ledger/View.cpp:711:    auto const reserve = isPseudoAccount(sle)
+src/libxrpl/ledger/View.cpp:715:    auto const fullBalance = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:720:        (balance < reserve) ? STAmount{0} : balance - reserve;
+src/libxrpl/ledger/View.cpp:727:                    << " reserve=" << reserve << " ownerCount=" << ownerCount
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1120:    AccountID const id = (*sle)[sfAccount];
+src/libxrpl/ledger/View.cpp:1121:    std::uint32_t const adjusted = confineOwnerCount(current, amount, id, j);
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1142:    auto const page = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1221:createPseudoAccount(
+src/libxrpl/ledger/View.cpp:1235:        "ripple::createPseudoAccount : valid owner field");
+src/libxrpl/ledger/View.cpp:1243:    account->setAccountID(sfAccount, accountId);
+src/libxrpl/ledger/View.cpp:1244:    account->setFieldAmount(sfBalance, STAmount{});
+src/libxrpl/ledger/View.cpp:1255:    // Ignore reserves requirement, disable the master key, allow default
+src/libxrpl/ledger/View.cpp:1259:        sfFlags, lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/libxrpl/ledger/View.cpp:1291:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:1307:checkDestinationAndTag(SLE::const_ref toSle, bool hasDestinationTag)
+src/libxrpl/ledger/View.cpp:1310:        return tecNO_DST;
+src/libxrpl/ledger/View.cpp:1314:    if (toSle->isFlag(lsfRequireDestTag) && !hasDestinationTag)
+src/libxrpl/ledger/View.cpp:1315:        return tecDST_TAG_NEEDED;  // Cannot send without a tag
+src/libxrpl/ledger/View.cpp:1372:    bool hasDestinationTag)
+src/libxrpl/ledger/View.cpp:1374:    if (auto const ret = checkDestinationAndTag(toSle, hasDestinationTag))
+src/libxrpl/ledger/View.cpp:1380:    if (toSle->isFlag(lsfDepositAuth))
+src/libxrpl/ledger/View.cpp:1383:            return tecNO_PERMISSION;
+src/libxrpl/ledger/View.cpp:1395:    bool hasDestinationTag)
+src/libxrpl/ledger/View.cpp:1399:    return canWithdraw(view, from, to, toSle, amount, hasDestinationTag);
+src/libxrpl/ledger/View.cpp:1405:    auto const from = tx[sfAccount];
+src/libxrpl/ledger/View.cpp:1409:        view, from, to, tx[sfAmount], tx.isFieldPresent(sfDestinationTag));
+src/libxrpl/ledger/View.cpp:1451:        return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:1457:    return accountSend(
+src/libxrpl/ledger/View.cpp:1485:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1488:    // If the line already exists, don't create it again.
+src/libxrpl/ledger/View.cpp:1492:    // Can the account cover the trust line reserve ?
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1526:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1528:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1583:        //      - create the MPToken object for the holder
+src/libxrpl/ledger/View.cpp:1585:        // The reserve that is required to create the MPToken. Note
+src/libxrpl/ledger/View.cpp:1586:        // that although the reserve increases with every item
+src/libxrpl/ledger/View.cpp:1588:        // *enforce* a reserve if the user owns more than two
+src/libxrpl/ledger/View.cpp:1589:        // items. This is similar to the reserve requirements of trust lines.
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1591:        XRPAmount const reserveCreate(
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1595:        if (priorBalance < reserveCreate)
+src/libxrpl/ledger/View.cpp:1598:        // Defensive check before we attempt to create MPToken for the issuer
+src/libxrpl/ledger/View.cpp:1615:        (*mptoken)[sfAccount] = account;
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1697:    auto lowNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1705:    auto highNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1718:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1721:        sleAccount->getAccountID(sfAccount) ==
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1778:        sfBalance, bSetHigh ? -saBalance : saBalance);
+src/libxrpl/ledger/View.cpp:1799:        auto const balance = sle->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:1813:    if (!accountIsIssuer && line->at(sfBalance)->iou() != beast::zero)
+src/libxrpl/ledger/View.cpp:1819:        // Clear reserve for low account.
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1826:        // It's not really necessary to clear the reserve flag, since the line
+src/libxrpl/ledger/View.cpp:1834:        // Clear reserve for high account.
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1841:        // It's not really necessary to clear the reserve flag, since the line
+src/libxrpl/ledger/View.cpp:1863:    // have the legacy ability to create such a situation, but check anyway. If
+src/libxrpl/ledger/View.cpp:1935:    auto owner = sle->getAccountID(sfAccount);
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:2026:        STAmount saBalance = sleRippleState->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2053:            // Sender reserve is set.
+src/libxrpl/ledger/View.cpp:2071:            // Clear the reserve of the sender, possibly delete the line!
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2075:            // Clear reserve flag.
+src/libxrpl/ledger/View.cpp:2080:            // Balance is zero, receiver reserve is clear.
+src/libxrpl/ledger/View.cpp:2083:            // Receiver reserve is clear.
+src/libxrpl/ledger/View.cpp:2090:        sleRippleState->setFieldAmount(sfBalance, saBalance);
+src/libxrpl/ledger/View.cpp:2113:                       "create line: "
+src/libxrpl/ledger/View.cpp:2119:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2278:accountSendIOU(
+src/libxrpl/ledger/View.cpp:2298:            "ripple::accountSendIOU : minimum amount and not MPT");
+src/libxrpl/ledger/View.cpp:2312:        JLOG(j.trace()) << "accountSendIOU: " << to_string(uSenderID) << " -> "
+src/libxrpl/ledger/View.cpp:2320:    /* XRP send which does not check reserve and can do pure adjustment.
+src/libxrpl/ledger/View.cpp:2340:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2343:            receiver_bal = receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2345:        stream << "accountSendIOU> " << to_string(uSenderID) << " ("
+src/libxrpl/ledger/View.cpp:2352:        if (sender->getFieldAmount(sfBalance) < saAmount)
+src/libxrpl/ledger/View.cpp:2363:            auto const sndBal = sender->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2367:            sender->setFieldAmount(sfBalance, sndBal - saAmount);
+src/libxrpl/ledger/View.cpp:2375:        auto const rcvBal = receiver->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2376:        receiver->setFieldAmount(sfBalance, rcvBal + saAmount);
+src/libxrpl/ledger/View.cpp:2388:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2391:            receiver_bal = receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2393:        stream << "accountSendIOU< " << to_string(uSenderID) << " ("
+src/libxrpl/ledger/View.cpp:2402:accountSendMultiIOU(
+src/libxrpl/ledger/View.cpp:2412:        "ripple::accountSendMultiIOU",
+src/libxrpl/ledger/View.cpp:2418:        JLOG(j.trace()) << "accountSendMultiIOU: " << to_string(senderID)
+src/libxrpl/ledger/View.cpp:2425:    /* XRP send which does not check reserve and can do pure adjustment.
+src/libxrpl/ledger/View.cpp:2440:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2442:        stream << "accountSendMultiIOU> " << to_string(senderID) << " ("
+src/libxrpl/ledger/View.cpp:2474:                    receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2476:            stream << "accountSendMultiIOU> " << to_string(senderID) << " -> "
+src/libxrpl/ledger/View.cpp:2484:            auto const rcvBal = receiver->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2485:            receiver->setFieldAmount(sfBalance, rcvBal + amount);
+src/libxrpl/ledger/View.cpp:2500:                    receiver->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2502:            stream << "accountSendMultiIOU< " << to_string(senderID) << " -> "
+src/libxrpl/ledger/View.cpp:2510:        if (sender->getFieldAmount(sfBalance) < takeFromSender)
+src/libxrpl/ledger/View.cpp:2516:            auto const sndBal = sender->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2520:            sender->setFieldAmount(sfBalance, sndBal - takeFromSender);
+src/libxrpl/ledger/View.cpp:2531:            sender_bal = sender->getFieldAmount(sfBalance).getFullText();
+src/libxrpl/ledger/View.cpp:2533:        stream << "accountSendMultiIOU< " << to_string(senderID) << " ("
+src/libxrpl/ledger/View.cpp:2571:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2595:            return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:2615:    // Safe to get MPT since rippleSendMPT is only called by accountSendMPT
+src/libxrpl/ledger/View.cpp:2795:accountSendMPT(
+src/libxrpl/ledger/View.cpp:2805:        "ripple::accountSendMPT : minimum amount and MPT");
+src/libxrpl/ledger/View.cpp:2820:accountSendMultiMPT(
+src/libxrpl/ledger/View.cpp:2835:accountSend(
+src/libxrpl/ledger/View.cpp:2846:                return accountSendIOU(
+src/libxrpl/ledger/View.cpp:2849:                return accountSendMPT(
+src/libxrpl/ledger/View.cpp:2856:accountSendMulti(
+src/libxrpl/ledger/View.cpp:2866:        "ripple::accountSendMulti",
+src/libxrpl/ledger/View.cpp:2871:                return accountSendMultiIOU(
+src/libxrpl/ledger/View.cpp:2874:                return accountSendMultiMPT(
+src/libxrpl/ledger/View.cpp:2904:        // Sender reserve is set.
+src/libxrpl/ledger/View.cpp:2918:        // Clear the reserve of the sender, possibly delete the line!
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:2921:        // Clear reserve flag.
+src/libxrpl/ledger/View.cpp:2925:        // Balance is zero, receiver reserve is clear.
+src/libxrpl/ledger/View.cpp:2961:        STAmount final_balance = state->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:2987:        state->setFieldAmount(sfBalance, final_balance);
+src/libxrpl/ledger/View.cpp:3011:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3060:        STAmount final_balance = state->getFieldAmount(sfBalance);
+src/libxrpl/ledger/View.cpp:3080:        state->setFieldAmount(sfBalance, final_balance);
+src/libxrpl/ledger/View.cpp:3104:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3125:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3130:    if (sender->getFieldAmount(sfBalance) < amount)
+src/libxrpl/ledger/View.cpp:3143:        sfBalance, sender->getFieldAmount(sfBalance) - amount);
+src/libxrpl/ledger/View.cpp:3147:        sfBalance, receiver->getFieldAmount(sfBalance) + amount);
+src/libxrpl/ledger/View.cpp:3178:                : TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3215:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3222:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3245:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3255:        // ter = tefINTERNAL | tecOBJECT_NOT_FOUND | tecNO_AUTH | tecEXPIRED
+src/libxrpl/ledger/View.cpp:3276:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3291:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3298:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3319:        // Could not find MPToken and won't create one, could be either of:
+src/libxrpl/ledger/View.cpp:3325:        // Either way, return tecNO_AUTH and there is nothing else to do
+src/libxrpl/ledger/View.cpp:3326:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3332:        // credentials used to create the MPToken have expired or been deleted.
+src/libxrpl/ledger/View.cpp:3333:        return expired ? tecEXPIRED : tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3345:        return tecNO_AUTH;
+src/libxrpl/ledger/View.cpp:3359:        // authorized by domain. Proceed to create it, then return tesSUCCESS
+src/libxrpl/ledger/View.cpp:3378:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3397:            return TER{tecNO_AUTH};
+src/libxrpl/ledger/View.cpp:3417:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3420:        // Line might not exist, but some transfers can create it. If this
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);

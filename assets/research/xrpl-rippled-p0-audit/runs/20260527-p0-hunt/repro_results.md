@@ -1830,6 +1830,33 @@ normal-input internal result-code, fee-burning malformed-input, amount/issue
 mismatch, or payment-path witness beyond the existing trustline positive-balance
 reserve finding and already-demoted plain-payment reserve siblings.
 
+## Demoted: native XRP payment account-create and tag sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The candidate asked whether native XRP `Payment` account creation,
+destination-tag enforcement, `DisallowXRP`, `DepositAuth`, direct `accountSend`,
+or account-delete destination handling could expose a separate old-core
+transaction witness. The sweep covered destination `AccountRoot` creation,
+`tecNO_DST`, `tecNO_DST_INSUF_XRP`, `tecDST_TAG_NEEDED`, direct XRP policy
+checks, owner counts, and invariant boundaries.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+xrp_payment_accountcreate_static_sweep_20260528.log sha256 8033c2dd46c73bfdf8b558443ea388d865e52baa54013c4a5525119b1e3455e3
+xrp_payment_accountcreate_history_sweep_20260528.log sha256 a3302a7641dc965cbf24a862afa8fbf567ea1d6656bcb22223bd59280f182bae
+xrp_payment_accountcreate_source_kill_20260528.log sha256 1f58085a0366563ee445160d5c18496fb3ba8ad1cc664fcb97d892b31293f463
+68.9s, 10 suites, 234 cases, 39070 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new Moby Dick P0. The checked
+native XRP account-create, destination-tag, `DisallowXRP`, `DepositAuth`, and
+direct-send boundaries did not show account-object corruption, policy bypass,
+fee-burning bad-input, owner-count drift, or a normal-input invariant/internal
+failure.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

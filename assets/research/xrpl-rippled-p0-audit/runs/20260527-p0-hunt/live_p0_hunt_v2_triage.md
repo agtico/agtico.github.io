@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-27T20:06:02Z`
+Checked: `2026-05-28T09:27:30Z`
 
 ## Live Scope
 
@@ -157,6 +157,13 @@ one of the WHIP gates:
   STNumber,Number,IOUAmount,Issue` passed with 265 cases and 122,354 tests. No
   normal-input `tefEXCEPTION`, `tefINTERNAL`, fee-burning bad-input, amount
   issue mismatch, or separate payment/path Moby Dick witness was isolated.
+- `XRP-PAYMENT-ACCOUNTCREATE-TAG-SWEEP-001` source-killed the native XRP
+  payment account-create, destination-tag, `DisallowXRP`, `DepositAuth`, and
+  direct result-code lane. Static/history review plus
+  `PaymentSandbox,Flow,PayStrand,Path,DepositAuth,AccountDelete,
+  TrustAndBalance,Invariants,SetRegularKey,TxQPosNegFlows` passed with 234
+  cases and 39,070 tests. No separate account-create, tag, XRP-policy,
+  owner-count, fee-burning bad-input, or invariant witness was isolated.
 - `PAYMENT-DISALLOW-INCOMING-TRUSTLINE-001` was tested as a direct
   holder-to-recipient IOU `Payment` variant of the live
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no

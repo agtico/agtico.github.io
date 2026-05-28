@@ -18,14 +18,14 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:18:37Z
-amendment_checked_utc: 2026-05-28T09:18:39Z
+runtime_checked_utc: 2026-05-28T09:27:32Z
+amendment_checked_utc: 2026-05-28T09:27:30Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534528, hash AEAA7E407BF771F57D399FDD2C9A437FB699B38AFF0BEB66DE4BEA515BB774F5
-s2.ripple.com: rippled 3.1.3, ledger 104534529, hash EE744119155AEFF5A965D8A0E8EE738C7A1DE501281B0A7185044CEB863E5E20
-feature/amendment receipt ledger: 104534529, hash EE744119155AEFF5A965D8A0E8EE738C7A1DE501281B0A7185044CEB863E5E20
-runtime receipt sha256: c1ec868e3589c90105d034bf4aafe17775884ab1c2630f4214cee8b339392dce
-amendment receipt sha256: f63df5577ccaffa58ce278f6179fcfd1c02719e81db4444166a385400859dc7d
+s1.ripple.com: rippled 3.1.3, ledger 104534666, hash 67F7D6C16A68135C1AAB74EC951D6886B4D4DB0296B9586A32F0377ADAF064AD
+s2.ripple.com: rippled 3.1.3, ledger 104534667, hash 5AABC91A63A3C2B476AC75AD57328E04CE2945CDF2523B643BF89BDC51357B93
+feature/amendment receipt ledger: 104534666, hash 67F7D6C16A68135C1AAB74EC951D6886B4D4DB0296B9586A32F0377ADAF064AD
+runtime receipt sha256: 02a88db9fc5e13e5f8c042983bb55588966496fb4b026a0b5749f9d3c0871845
+amendment receipt sha256: 4302390deece017d5a20277a7cbfab8c57bdf2ddbb0a3ac25750539b6ecb128a
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -70,6 +70,8 @@ Completed and packet-bound work:
 - DID/Credentials object lifecycle and directory-full source and suite sweep.
 - legacy offer-book directory, quality, cancellation, and invariant sweep.
 - legacy payment/path result-code, amount/issue, and fee-boundary sweep.
+- native XRP payment account-create, destination-tag, DisallowXRP,
+  DepositAuth, and result-code boundary sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1091,6 +1093,21 @@ those plain payment variants are source-killed. That makes the promoted
 witnesses sharper: offer crossing and `CheckCash` are the live paths that move
 the cleared trustline positive without the receiver-side owner-count/reserve
 transition.
+
+`XRP-PAYMENT-ACCOUNTCREATE-TAG-SWEEP-001` then focused the native XRP side of
+the same old payment code: destination `AccountRoot` creation, exact/no-
+destination result codes, required destination tags, `DisallowXRP`,
+`DepositAuth`, direct `accountSend`, account-delete destination behavior,
+owner counts, and invariants. Static/history review plus upstream
+payment/account-policy coverage did not isolate a clean account-creation, tag,
+XRP-policy, fee-burning bad-input, owner-count, or invariant witness.
+
+```text
+xrp_payment_accountcreate_static_sweep_20260528.log sha256 8033c2dd46c73bfdf8b558443ea388d865e52baa54013c4a5525119b1e3455e3
+xrp_payment_accountcreate_history_sweep_20260528.log sha256 a3302a7641dc965cbf24a862afa8fbf567ea1d6656bcb22223bd59280f182bae
+xrp_payment_accountcreate_source_kill_20260528.log sha256 1f58085a0366563ee445160d5c18496fb3ba8ad1cc664fcb97d892b31293f463
+68.9s, 10 suites, 234 cases, 39070 tests total, 0 failures
+```
 
 The next reserve sibling tested the AMM auction refund path because `AMMBid`
 already has a promoted holder-`DepositAuth` refund bypass. The scratch case
