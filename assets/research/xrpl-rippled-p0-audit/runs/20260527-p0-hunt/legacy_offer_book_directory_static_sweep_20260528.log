@@ -1,0 +1,723 @@
+src/xrpld/app/tx/detail/CancelOffer.cpp:71:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CancelOffer.cpp:76:        return offerDelete(view(), sleOffer, ctx_.app.journal("View"));
+src/xrpld/app/tx/detail/CreateOffer.cpp:39:        auto const& amount{tx[sfTakerGets]};
+src/xrpld/app/tx/detail/CreateOffer.cpp:79:    bool const bImmediateOrCancel(uTxFlags & tfImmediateOrCancel);
+src/xrpld/app/tx/detail/CreateOffer.cpp:80:    bool const bFillOrKill(uTxFlags & tfFillOrKill);
+src/xrpld/app/tx/detail/CreateOffer.cpp:103:    STAmount saTakerPays = tx[sfTakerPays];
+src/xrpld/app/tx/detail/CreateOffer.cpp:104:    STAmount saTakerGets = tx[sfTakerGets];
+src/xrpld/app/tx/detail/CreateOffer.cpp:106:    if (!isLegalNet(saTakerPays) || !isLegalNet(saTakerGets))
+src/xrpld/app/tx/detail/CreateOffer.cpp:109:    if (saTakerPays.native() && saTakerGets.native())
+src/xrpld/app/tx/detail/CreateOffer.cpp:114:    if (saTakerPays <= beast::zero || saTakerGets <= beast::zero)
+src/xrpld/app/tx/detail/CreateOffer.cpp:120:    auto const& uPaysIssuerID = saTakerPays.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:121:    auto const& uPaysCurrency = saTakerPays.getCurrency();
+src/xrpld/app/tx/detail/CreateOffer.cpp:123:    auto const& uGetsIssuerID = saTakerGets.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:124:    auto const& uGetsCurrency = saTakerGets.getCurrency();
+src/xrpld/app/tx/detail/CreateOffer.cpp:138:    if (saTakerPays.native() != !uPaysIssuerID ||
+src/xrpld/app/tx/detail/CreateOffer.cpp:139:        saTakerGets.native() != !uGetsIssuerID)
+src/xrpld/app/tx/detail/CreateOffer.cpp:153:    auto saTakerPays = ctx.tx[sfTakerPays];
+src/xrpld/app/tx/detail/CreateOffer.cpp:154:    auto saTakerGets = ctx.tx[sfTakerGets];
+src/xrpld/app/tx/detail/CreateOffer.cpp:156:    auto const& uPaysIssuerID = saTakerPays.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:157:    auto const& uPaysCurrency = saTakerPays.getCurrency();
+src/xrpld/app/tx/detail/CreateOffer.cpp:159:    auto const& uGetsIssuerID = saTakerGets.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:178:    if (accountFunds(ctx.view, id, saTakerGets, fhZERO_IF_FROZEN, viewJ) <=
+src/xrpld/app/tx/detail/CreateOffer.cpp:209:    if (!saTakerPays.native())
+src/xrpld/app/tx/detail/CreateOffer.cpp:264:    if ((*issuerAccount)[sfFlags] & lsfRequireAuth)
+src/xrpld/app/tx/detail/CreateOffer.cpp:310:        (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/CreateOffer.cpp:321:CreateOffer::flowCross(
+src/xrpld/app/tx/detail/CreateOffer.cpp:362:        // Payment flow code compares quality after the transfer rate is
+src/xrpld/app/tx/detail/CreateOffer.cpp:364:        Quality threshold{takerAmount.out, sendMax};
+src/xrpld/app/tx/detail/CreateOffer.cpp:367:        // cross offers that have a better quality than this one.
+src/xrpld/app/tx/detail/CreateOffer.cpp:376:        // Always invoke flow() with the default path.  However if neither
+src/xrpld/app/tx/detail/CreateOffer.cpp:387:        // Special handling for the tfSell flag.
+src/xrpld/app/tx/detail/CreateOffer.cpp:390:        if (txFlags & tfSell)
+src/xrpld/app/tx/detail/CreateOffer.cpp:409:        // Call the payment engine's flow() to do the actual work.
+src/xrpld/app/tx/detail/CreateOffer.cpp:410:        auto const result = flow(
+src/xrpld/app/tx/detail/CreateOffer.cpp:417:            !(txFlags & tfFillOrKill),  // partial payment
+src/xrpld/app/tx/detail/CreateOffer.cpp:429:                offerDelete(psb, otr, j_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:431:                offerDelete(psbCancel, otr, j_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:451:                    Quality{takerAmount.out, takerAmount.in}.rate()};
+src/xrpld/app/tx/detail/CreateOffer.cpp:453:                if (txFlags & tfSell)
+src/xrpld/app/tx/detail/CreateOffer.cpp:457:                    // Quality,
+src/xrpld/app/tx/detail/CreateOffer.cpp:484:                        // the fixReducedOffersV1 amendment changes the
+src/xrpld/app/tx/detail/CreateOffer.cpp:486:                        if (psb.rules().enabled(fixReducedOffersV1))
+src/xrpld/app/tx/detail/CreateOffer.cpp:501:                    // Quality.
+src/xrpld/app/tx/detail/CreateOffer.cpp:505:                        "ripple::CreateOffer::flowCross : minimum offer");
+src/xrpld/app/tx/detail/CreateOffer.cpp:538:    STAmount const& saTakerPays,
+src/xrpld/app/tx/detail/CreateOffer.cpp:539:    STAmount const& saTakerGets,
+src/xrpld/app/tx/detail/CreateOffer.cpp:549:    Book const book{saTakerPays.issue(), saTakerGets.issue(), std::nullopt};
+src/xrpld/app/tx/detail/CreateOffer.cpp:552:        keylet::quality(keylet::book(book), getRate(saTakerGets, saTakerPays));
+src/xrpld/app/tx/detail/CreateOffer.cpp:565:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/CreateOffer.cpp:589:    bool const bImmediateOrCancel(uTxFlags & tfImmediateOrCancel);
+src/xrpld/app/tx/detail/CreateOffer.cpp:590:    bool const bFillOrKill(uTxFlags & tfFillOrKill);
+src/xrpld/app/tx/detail/CreateOffer.cpp:591:    bool const bSell(uTxFlags & tfSell);
+src/xrpld/app/tx/detail/CreateOffer.cpp:594:    auto saTakerPays = ctx_.tx[sfTakerPays];
+src/xrpld/app/tx/detail/CreateOffer.cpp:595:    auto saTakerGets = ctx_.tx[sfTakerGets];
+src/xrpld/app/tx/detail/CreateOffer.cpp:607:    auto uRate = getRate(saTakerGets, saTakerPays);
+src/xrpld/app/tx/detail/CreateOffer.cpp:625:            result = offerDelete(sb, sleCancel, viewJ);
+src/xrpld/app/tx/detail/CreateOffer.cpp:650:        auto const& uPaysIssuerID = saTakerPays.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:651:        auto const& uGetsIssuerID = saTakerGets.getIssuer();
+src/xrpld/app/tx/detail/CreateOffer.cpp:653:        std::uint8_t uTickSize = Quality::maxTickSize;
+src/xrpld/app/tx/detail/CreateOffer.cpp:666:        if (uTickSize < Quality::maxTickSize)
+src/xrpld/app/tx/detail/CreateOffer.cpp:669:                Quality{saTakerGets, saTakerPays}.round(uTickSize).rate();
+src/xrpld/app/tx/detail/CreateOffer.cpp:677:                saTakerPays = multiply(saTakerGets, rate, saTakerPays.issue());
+src/xrpld/app/tx/detail/CreateOffer.cpp:682:                saTakerGets = divide(saTakerPays, rate, saTakerGets.issue());
+src/xrpld/app/tx/detail/CreateOffer.cpp:684:            if (!saTakerGets || !saTakerPays)
+src/xrpld/app/tx/detail/CreateOffer.cpp:690:            uRate = getRate(saTakerGets, saTakerPays);
+src/xrpld/app/tx/detail/CreateOffer.cpp:694:        Amounts const takerAmount(saTakerGets, saTakerPays);
+src/xrpld/app/tx/detail/CreateOffer.cpp:716:            flowCross(psbFlow, psbCancelFlow, takerAmount, domainID);
+src/xrpld/app/tx/detail/CreateOffer.cpp:744:            saTakerGets.issue() == place_offer.in.issue(),
+src/xrpld/app/tx/detail/CreateOffer.cpp:747:            saTakerPays.issue() == place_offer.out.issue(),
+src/xrpld/app/tx/detail/CreateOffer.cpp:760:            return {tefINTERNAL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:772:        saTakerPays = place_offer.out;
+src/xrpld/app/tx/detail/CreateOffer.cpp:773:        saTakerGets = place_offer.in;
+src/xrpld/app/tx/detail/CreateOffer.cpp:777:        saTakerPays > zero && saTakerGets > zero,
+src/xrpld/app/tx/detail/CreateOffer.cpp:789:        stream << "    Pays: " << saTakerPays.getFullText();
+src/xrpld/app/tx/detail/CreateOffer.cpp:790:        stream << "    Gets: " << saTakerGets.getFullText();
+src/xrpld/app/tx/detail/CreateOffer.cpp:819:        return {tefINTERNAL, false};
+src/xrpld/app/tx/detail/CreateOffer.cpp:823:            sb.fees().accountReserve(sleCreator->getFieldU32(sfOwnerCount) + 1);
+src/xrpld/app/tx/detail/CreateOffer.cpp:846:    auto const ownerNode = sb.dirInsert(
+src/xrpld/app/tx/detail/CreateOffer.cpp:847:        keylet::ownerDir(account_), offer_index, describeOwnerDir(account_));
+src/xrpld/app/tx/detail/CreateOffer.cpp:854:        return {tecDIR_FULL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:859:    adjustOwnerCount(sb, sleCreator, 1, viewJ);
+src/xrpld/app/tx/detail/CreateOffer.cpp:861:    JLOG(j_.trace()) << "adding to book: " << to_string(saTakerPays.issue())
+src/xrpld/app/tx/detail/CreateOffer.cpp:862:                     << " : " << to_string(saTakerGets.issue())
+src/xrpld/app/tx/detail/CreateOffer.cpp:865:    Book const book{saTakerPays.issue(), saTakerGets.issue(), domainID};
+src/xrpld/app/tx/detail/CreateOffer.cpp:878:    auto dir = keylet::quality(keylet::book(book), uRate);
+src/xrpld/app/tx/detail/CreateOffer.cpp:883:        sle->setFieldH160(sfTakerPaysCurrency, saTakerPays.issue().currency);
+src/xrpld/app/tx/detail/CreateOffer.cpp:884:        sle->setFieldH160(sfTakerPaysIssuer, saTakerPays.issue().account);
+src/xrpld/app/tx/detail/CreateOffer.cpp:885:        sle->setFieldH160(sfTakerGetsCurrency, saTakerGets.issue().currency);
+src/xrpld/app/tx/detail/CreateOffer.cpp:886:        sle->setFieldH160(sfTakerGetsIssuer, saTakerGets.issue().account);
+src/xrpld/app/tx/detail/CreateOffer.cpp:887:        sle->setFieldU64(sfExchangeRate, uRate);
+src/xrpld/app/tx/detail/CreateOffer.cpp:901:        return {tecDIR_FULL, true};
+src/xrpld/app/tx/detail/CreateOffer.cpp:909:    sleOffer->setFieldAmount(sfTakerPays, saTakerPays);
+src/xrpld/app/tx/detail/CreateOffer.cpp:910:    sleOffer->setFieldAmount(sfTakerGets, saTakerGets);
+src/xrpld/app/tx/detail/CreateOffer.cpp:918:        sleOffer->setFlag(lsfSell);
+src/xrpld/app/tx/detail/CreateOffer.cpp:926:            sb, sleOffer, offer_index, saTakerPays, saTakerGets, setBookDir);
+src/test/ledger/BookDirs_test.cpp:20:#include <xrpl/ledger/BookDirs.h>
+src/test/ledger/BookDirs_test.cpp:26:struct BookDirs_test : public beast::unit_test::suite
+src/test/ledger/BookDirs_test.cpp:41:                auto d = BookDirs(*env.current(), book);
+src/test/ledger/BookDirs_test.cpp:46:                auto d = BookDirs(*env.current(), reversed(book));
+src/test/ledger/BookDirs_test.cpp:53:            auto d = BookDirs(
+src/test/ledger/BookDirs_test.cpp:62:            auto d = BookDirs(
+src/test/ledger/BookDirs_test.cpp:72:            auto d = BookDirs(
+src/test/ledger/BookDirs_test.cpp:84:            auto d = BookDirs(
+src/test/ledger/BookDirs_test.cpp:90:                BEAST_EXPECT(e->getFieldAmount(sfTakerPays) == AUD(i));
+src/test/ledger/BookDirs_test.cpp:91:                BEAST_EXPECT(e->getFieldAmount(sfTakerGets) == XRP(j));
+src/test/ledger/BookDirs_test.cpp:111:BEAST_DEFINE_TESTSUITE(BookDirs, ledger, ripple);
+src/test/app/Invariants_test.cpp:57:    // this is common setup/method for running a failing invariant check. The
+src/test/app/Invariants_test.cpp:73:     * detected by an invariant. Simulates the actions of a transaction that
+src/test/app/Invariants_test.cpp:74:     * would violate an invariant.
+src/test/app/Invariants_test.cpp:76:     * @param expect_logs One or more messages related to the failing invariant
+src/test/app/Invariants_test.cpp:80:     * @tx A mock transaction that took the actions to trigger the invariant. In
+src/test/app/Invariants_test.cpp:82:     * @ters The TER results expected on the two passes of the invariant
+src/test/app/Invariants_test.cpp:112:     * detected by an invariant. Simulates the actions of a transaction that
+src/test/app/Invariants_test.cpp:113:     * would violate an invariant.
+src/test/app/Invariants_test.cpp:116:     * @param expect_logs One or more messages related to the failing invariant
+src/test/app/Invariants_test.cpp:120:     * @tx A mock transaction that took the actions to trigger the invariant. In
+src/test/app/Invariants_test.cpp:122:     * @ters The TER results expected on the two passes of the invariant
+src/test/app/Invariants_test.cpp:262:        // Note that this is a case where a second invocation of the invariant
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:483:                auto const ownerDirKeylet = keylet::ownerDir(ammAcctID);
+src/test/app/Invariants_test.cpp:485:                BEAST_EXPECT(ac.view().dirRemove(
+src/test/app/Invariants_test.cpp:486:                    ownerDirKeylet, ammSle->at(sfOwnerNode), ammKey, false));
+src/test/app/Invariants_test.cpp:488:                    !ac.view().exists(ownerDirKeylet) ||
+src/test/app/Invariants_test.cpp:489:                    ac.view().emptyDirDelete(ownerDirKeylet));
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:541:                // unsupported value so that the valid type invariant check
+src/test/app/Invariants_test.cpp:571:    testNoDeepFreezeTrustLinesWithoutFreeze()
+src/test/app/Invariants_test.cpp:586:                uFlags |= lsfLowDeepFreeze;
+src/test/app/Invariants_test.cpp:601:                uFlags |= lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:616:                uFlags |= lsfLowDeepFreeze | lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:631:                uFlags |= lsfLowDeepFreeze | lsfHighFreeze;
+src/test/app/Invariants_test.cpp:646:                uFlags |= lsfLowFreeze | lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:680:                env(trust(G1, A1["USD"](10000), tfSetFreeze));
+src/test/app/Invariants_test.cpp:689:                env(trust(G1, A1["USD"](10000), tfSetDeepFreeze));
+src/test/app/Invariants_test.cpp:844:                sleNew->setFieldAmount(sfTakerPays, XRP(-1));
+src/test/app/Invariants_test.cpp:860:                sleNew->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:861:                sleNew->setFieldAmount(sfTakerGets, XRP(-1));
+src/test/app/Invariants_test.cpp:877:                sleNew->setFieldAmount(sfTakerPays, XRP(10));
+src/test/app/Invariants_test.cpp:878:                sleNew->setFieldAmount(sfTakerGets, XRP(11));
+src/test/app/Invariants_test.cpp:1790:                [](SLE::pointer& sle) { sle->at(sfFlags) = lsfNoFreeze; },
+src/test/app/Invariants_test.cpp:1901:                sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:1902:                sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:1916:                    tx.setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:1917:                    tx.setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:1929:                sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:1930:                sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:1965:                    sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:1966:                    sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2004:                    sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2005:                    sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2041:                    sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2042:                    sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2076:                    sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2077:                    sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2087:                        tx.setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2088:                        tx.setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2114:                    sleOffer->setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2115:                    sleOffer->setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2125:                        tx.setFieldAmount(sfTakerPays, A1["USD"](10));
+src/test/app/Invariants_test.cpp:2126:                        tx.setFieldAmount(sfTakerGets, XRP(1));
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2315:                // modified entries for the invariant to find
+src/test/app/Invariants_test.cpp:2328:                auto const dirKeylet = keylet::ownerDir(pseudoAccountID);
+src/test/app/Invariants_test.cpp:2348:                {{"Loan Broker with zero OwnerCount has multiple directory "
+src/test/app/Invariants_test.cpp:2380:                {{"Loan Broker with zero OwnerCount has multiple indexes in "
+src/test/app/Invariants_test.cpp:2437:                {{"Loan Broker with zero OwnerCount has an unexpected entry in "
+src/test/app/Invariants_test.cpp:2473:                    // modified entries for the invariant to find
+src/test/app/Invariants_test.cpp:2766:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2767:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:2842:                    auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2843:                        keylet::ownerDir(A.id()),
+src/test/app/Invariants_test.cpp:3468:                // the invariants holding. Except one: it is created by the
+src/test/app/Invariants_test.cpp:3473:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3474:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3500:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3501:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3537:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3538:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3566:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3567:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3605:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3606:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3614:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3615:                    keylet::ownerDir(A2.id()),
+src/test/app/Invariants_test.cpp:3932:                    // This commented out line causes the invariant violation.
+src/test/app/Invariants_test.cpp:4287:    // Test the invariant overwrite fix for both pre- and post-amendment
+src/test/app/Invariants_test.cpp:4301:        // With the fix, the invariant catches the violation.
+src/test/app/Invariants_test.cpp:4304:        // ordering (the invariant checks sfLowLimit/sfHighLimit issue,
+src/test/app/Invariants_test.cpp:4348:        testcase << "overwrite: NoDeepFreeze" +
+src/test/app/Invariants_test.cpp:4380:                sleBad->setFieldU32(sfFlags, lsfLowDeepFreeze);
+src/test/app/Invariants_test.cpp:4572:        testNoDeepFreezeTrustLinesWithoutFreeze();
+src/test/ledger/Directory_test.cpp:21:#include <xrpl/ledger/BookDirs.h>
+src/test/ledger/Directory_test.cpp:110:                    view->read(keylet::page(keylet::ownerDir(alice), page));
+src/test/ledger/Directory_test.cpp:136:        auto book = BookDirs(
+src/test/ledger/Directory_test.cpp:143:            BEAST_EXPECT(offer->getFieldAmount(sfTakerPays) == USD(count));
+src/test/ledger/Directory_test.cpp:144:            BEAST_EXPECT(offer->getFieldAmount(sfTakerGets) == XRP(count));
+src/test/ledger/Directory_test.cpp:165:        BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:170:        BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:174:        BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:198:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:208:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:216:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:228:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:240:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:252:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:300:            BEAST_EXPECT(!sb.succ(bookBase, getQualityNext(bookBase)));
+src/test/ledger/Directory_test.cpp:310:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:353:            BEAST_EXPECT(sb.dirRemove(
+src/test/ledger/Directory_test.cpp:387:            BEAST_EXPECT(sb.dirRemove(
+src/test/ledger/Directory_test.cpp:521:                keylet::ownerDir(alice.id()),
+src/test/ledger/Directory_test.cpp:540:            auto const expected = full ? ter{tecDIR_FULL} : ter{tesSUCCESS};
+src/test/ledger/Directory_test.cpp:552:            auto const sle = env.le(keylet::ownerDir(alice.id()));
+src/libxrpl/ledger/BookDirs.cpp:21:#include <xrpl/ledger/BookDirs.h>
+src/libxrpl/ledger/BookDirs.cpp:27:BookDirs::BookDirs(ReadView const& view, Book const& book)
+src/libxrpl/ledger/BookDirs.cpp:30:    , next_quality_(getQualityNext(root_))
+src/libxrpl/ledger/BookDirs.cpp:31:    , key_(view_->succ(root_, next_quality_).value_or(beast::zero))
+src/libxrpl/ledger/BookDirs.cpp:34:        root_ != beast::zero, "ripple::BookDirs::BookDirs : nonzero root");
+src/libxrpl/ledger/BookDirs.cpp:37:        if (!cdirFirst(*view_, key_, sle_, entry_, index_))
+src/libxrpl/ledger/BookDirs.cpp:40:            UNREACHABLE("ripple::BookDirs::BookDirs : directory is empty");
+src/libxrpl/ledger/BookDirs.cpp:47:BookDirs::begin() const -> BookDirs::const_iterator
+src/libxrpl/ledger/BookDirs.cpp:49:    auto it = BookDirs::const_iterator(*view_, root_, key_);
+src/libxrpl/ledger/BookDirs.cpp:52:        it.next_quality_ = next_quality_;
+src/libxrpl/ledger/BookDirs.cpp:61:BookDirs::end() const -> BookDirs::const_iterator
+src/libxrpl/ledger/BookDirs.cpp:63:    return BookDirs::const_iterator(*view_, root_, key_);
+src/libxrpl/ledger/BookDirs.cpp:66:beast::Journal BookDirs::const_iterator::j_ =
+src/libxrpl/ledger/BookDirs.cpp:70:BookDirs::const_iterator::operator==(
+src/libxrpl/ledger/BookDirs.cpp:71:    BookDirs::const_iterator const& other) const
+src/libxrpl/ledger/BookDirs.cpp:78:        "ripple::BookDirs::const_iterator::operator== : views and roots are "
+src/libxrpl/ledger/BookDirs.cpp:84:BookDirs::const_iterator::reference
+src/libxrpl/ledger/BookDirs.cpp:85:BookDirs::const_iterator::operator*() const
+src/libxrpl/ledger/BookDirs.cpp:89:        "ripple::BookDirs::const_iterator::operator* : nonzero index");
+src/libxrpl/ledger/BookDirs.cpp:95:BookDirs::const_iterator&
+src/libxrpl/ledger/BookDirs.cpp:96:BookDirs::const_iterator::operator++()
+src/libxrpl/ledger/BookDirs.cpp:102:        "ripple::BookDirs::const_iterator::operator++ : nonzero index");
+src/libxrpl/ledger/BookDirs.cpp:103:    if (!cdirNext(*view_, cur_key_, sle_, entry_, index_))
+src/libxrpl/ledger/BookDirs.cpp:107:                 view_->succ(++cur_key_, next_quality_).value_or(zero)) == zero)
+src/libxrpl/ledger/BookDirs.cpp:113:        else if (!cdirFirst(*view_, cur_key_, sle_, entry_, index_))
+src/libxrpl/ledger/BookDirs.cpp:117:                "ripple::BookDirs::const_iterator::operator++ : directory is "
+src/libxrpl/ledger/BookDirs.cpp:127:BookDirs::const_iterator
+src/libxrpl/ledger/BookDirs.cpp:128:BookDirs::const_iterator::operator++(int)
+src/libxrpl/ledger/BookDirs.cpp:132:        "ripple::BookDirs::const_iterator::operator++(int) : nonzero index");
+src/xrpld/app/tx/detail/BookTip.cpp:20:#include <xrpld/app/tx/detail/BookTip.h>
+src/xrpld/app/tx/detail/BookTip.cpp:24:BookTip::BookTip(ApplyView& view, Book const& book)
+src/xrpld/app/tx/detail/BookTip.cpp:28:    , m_end(getQualityNext(m_book))
+src/xrpld/app/tx/detail/BookTip.cpp:33:BookTip::step(beast::Journal j)
+src/xrpld/app/tx/detail/BookTip.cpp:39:            offerDelete(view_, m_entry, j);
+src/xrpld/app/tx/detail/BookTip.cpp:46:        // See if there's an entry at or worse than current quality. Notice
+src/xrpld/app/tx/detail/BookTip.cpp:47:        // that the quality is encoded only in the index of the first page
+src/xrpld/app/tx/detail/BookTip.cpp:61:            m_quality = Quality(getQuality(*first_page));
+src/xrpld/app/tx/detail/BookTip.cpp:67:            // The quality immediately before the next quality
+src/xrpld/app/tx/detail/OfferStream.cpp:68:    // NIKB NOTE This should be using ApplyView::dirRemove, which would
+src/xrpld/app/tx/detail/OfferStream.cpp:105:    FreezeHandling freezeHandling,
+src/xrpld/app/tx/detail/OfferStream.cpp:117:    FreezeHandling freezeHandling,
+src/xrpld/app/tx/detail/OfferStream.cpp:134:    FreezeHandling freezeHandling,
+src/xrpld/app/tx/detail/OfferStream.cpp:142:template <class TTakerPays, class TTakerGets>
+src/xrpld/app/tx/detail/OfferStream.cpp:147:        std::is_same_v<TTakerPays, IOUAmount> ||
+src/xrpld/app/tx/detail/OfferStream.cpp:148:            std::is_same_v<TTakerPays, XRPAmount>,
+src/xrpld/app/tx/detail/OfferStream.cpp:152:        std::is_same_v<TTakerGets, IOUAmount> ||
+src/xrpld/app/tx/detail/OfferStream.cpp:153:            std::is_same_v<TTakerGets, XRPAmount>,
+src/xrpld/app/tx/detail/OfferStream.cpp:157:        !std::is_same_v<TTakerPays, XRPAmount> ||
+src/xrpld/app/tx/detail/OfferStream.cpp:158:            !std::is_same_v<TTakerGets, XRPAmount>,
+src/xrpld/app/tx/detail/OfferStream.cpp:165:    //  o `TakerPays` is XRP (because of XRP drops granularity) or
+src/xrpld/app/tx/detail/OfferStream.cpp:166:    //  o `TakerPays` and `TakerGets` are both IOU and `TakerPays`<`TakerGets`
+src/xrpld/app/tx/detail/OfferStream.cpp:167:    constexpr bool const inIsXRP = std::is_same_v<TTakerPays, XRPAmount>;
+src/xrpld/app/tx/detail/OfferStream.cpp:168:    constexpr bool const outIsXRP = std::is_same_v<TTakerGets, XRPAmount>;
+src/xrpld/app/tx/detail/OfferStream.cpp:172:        // If `TakerGets` is XRP, the worst this offer's quality can change is
+src/xrpld/app/tx/detail/OfferStream.cpp:173:        // to about 10^-81 `TakerPays` and 1 drop `TakerGets`. This will be
+src/xrpld/app/tx/detail/OfferStream.cpp:174:        // remarkably good quality for any realistic asset, so these offers
+src/xrpld/app/tx/detail/OfferStream.cpp:179:    TAmounts<TTakerPays, TTakerGets> const ofrAmts{
+src/xrpld/app/tx/detail/OfferStream.cpp:180:        toAmount<TTakerPays>(offer_.amount().in),
+src/xrpld/app/tx/detail/OfferStream.cpp:181:        toAmount<TTakerGets>(offer_.amount().out)};
+src/xrpld/app/tx/detail/OfferStream.cpp:189:    TTakerGets const ownerFunds = toAmount<TTakerGets>(*ownerFunds_);
+src/xrpld/app/tx/detail/OfferStream.cpp:190:    bool const fixReduced = view_.rules().enabled(fixReducedOffersV1);
+src/xrpld/app/tx/detail/OfferStream.cpp:202:                return offer_.quality().ceil_out_strict(
+src/xrpld/app/tx/detail/OfferStream.cpp:205:            return offer_.quality().ceil_out(ofrAmts, ownerFunds);
+src/xrpld/app/tx/detail/OfferStream.cpp:211:    // This can happen with fixReducedOffersV1 since it rounds down.
+src/xrpld/app/tx/detail/OfferStream.cpp:217:    if (effectiveAmounts.in > TTakerPays::minPositiveAmount())
+src/xrpld/app/tx/detail/OfferStream.cpp:220:    Quality const effectiveQuality{effectiveAmounts};
+src/xrpld/app/tx/detail/OfferStream.cpp:221:    return effectiveQuality < offer_.quality();
+src/xrpld/app/tx/detail/OfferStream.cpp:237:        // BookTip::step deletes the current offer from the view before
+src/xrpld/app/tx/detail/OfferStream.cpp:267:        offer_ = TOffer<TIn, TOut>(entry, tip_.quality());
+src/xrpld/app/tx/detail/OfferStream.cpp:394:                    << "Removing tiny offer due to reduced quality "
+src/xrpld/app/tx/detail/OfferStream.cpp:400:                                    "to reduced quality "
+src/xrpld/app/tx/detail/OfferStream.cpp:417:    offerDelete(cancelView_, cancelView_.peek(keylet::offer(offerIndex)), j_);
+src/libxrpl/ledger/View.cpp:33:#include <xrpl/protocol/Quality.h>
+src/libxrpl/ledger/View.cpp:146:cdirFirst(
+src/libxrpl/ledger/View.cpp:157:cdirNext(
+src/libxrpl/ledger/View.cpp:188:        return sle->isFlag(lsfGlobalFreeze);
+src/libxrpl/ledger/View.cpp:227:            sle->isFlag((issuer > account) ? lsfHighFreeze : lsfLowFreeze))
+src/libxrpl/ledger/View.cpp:257:    if (sle && sle->isFlag(lsfGlobalFreeze))
+src/libxrpl/ledger/View.cpp:264:            sle->isFlag((issuer > account) ? lsfHighFreeze : lsfLowFreeze))
+src/libxrpl/ledger/View.cpp:373:    return sle->isFlag(lsfHighDeepFreeze) || sle->isFlag(lsfLowDeepFreeze);
+src/libxrpl/ledger/View.cpp:393:    FreezeHandling zeroIfFrozen,
+src/libxrpl/ledger/View.cpp:486:    FreezeHandling zeroIfFrozen,
+src/libxrpl/ledger/View.cpp:516:    FreezeHandling zeroIfFrozen,
+src/libxrpl/ledger/View.cpp:535:    FreezeHandling zeroIfFrozen,
+src/libxrpl/ledger/View.cpp:590:            if (sleIssuance && sleIssuance->isFlag(lsfMPTRequireAuth) &&
+src/libxrpl/ledger/View.cpp:604:    FreezeHandling zeroIfFrozen,
+src/libxrpl/ledger/View.cpp:636:    FreezeHandling freezeHandling,
+src/libxrpl/ledger/View.cpp:658:confineOwnerCount(
+src/libxrpl/ledger/View.cpp:667:        // Overflow is well defined on unsigned
+src/libxrpl/ledger/View.cpp:680:        // Underflow is well defined on unsigned
+src/libxrpl/ledger/View.cpp:689:            XRPL_ASSERT(!id, "ripple::confineOwnerCount : id is not set");
+src/libxrpl/ledger/View.cpp:707:    std::uint32_t const ownerCount = confineOwnerCount(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:799:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:800:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:802:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:815:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:825:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:826:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:828:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:831:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1121:    std::uint32_t const adjusted = confineOwnerCount(current, amount, id, j);
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1142:    auto const page = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1143:        keylet::ownerDir(owner), object->key(), describeOwnerDir(owner));
+src/libxrpl/ledger/View.cpp:1145:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1444:            FreezeHandling::fhIGNORE_FREEZE,
+src/libxrpl/ledger/View.cpp:1451:        return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:1485:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1507:        /*deepFreeze*/ false,
+src/libxrpl/ledger/View.cpp:1510:        /*qualityIn=*/0,
+src/libxrpl/ledger/View.cpp:1511:        /*qualityOut=*/0,
+src/libxrpl/ledger/View.cpp:1526:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1528:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1568:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1569:                    keylet::ownerDir(account),
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1669:    bool const bFreeze,         // --> funds cannot leave
+src/libxrpl/ledger/View.cpp:1670:    bool bDeepFreeze,           // --> can neither receive nor send funds
+src/libxrpl/ledger/View.cpp:1675:    std::uint32_t uQualityIn,
+src/libxrpl/ledger/View.cpp:1676:    std::uint32_t uQualityOut,
+src/libxrpl/ledger/View.cpp:1697:    auto lowNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1698:        keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1703:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1705:    auto highNode = view.dirInsert(
+src/libxrpl/ledger/View.cpp:1706:        keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1711:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1718:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1740:    if (uQualityIn)
+src/libxrpl/ledger/View.cpp:1742:            bSetHigh ? sfHighQualityIn : sfLowQualityIn, uQualityIn);
+src/libxrpl/ledger/View.cpp:1744:    if (uQualityOut)
+src/libxrpl/ledger/View.cpp:1746:            bSetHigh ? sfHighQualityOut : sfLowQualityOut, uQualityOut);
+src/libxrpl/ledger/View.cpp:1758:    if (bFreeze)
+src/libxrpl/ledger/View.cpp:1760:        uFlags |= (bSetHigh ? lsfHighFreeze : lsfLowFreeze);
+src/libxrpl/ledger/View.cpp:1762:    if (bDeepFreeze)
+src/libxrpl/ledger/View.cpp:1764:        uFlags |= (bSetHigh ? lsfHighDeepFreeze : lsfLowDeepFreeze);
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1903:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1904:            keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1914:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1915:            keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1930:offerDelete(ApplyView& view, std::shared_ptr<SLE> const& sle, beast::Journal j)
+src/libxrpl/ledger/View.cpp:1940:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1941:            keylet::ownerDir(owner),
+src/libxrpl/ledger/View.cpp:1949:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1962:            "ripple::offerDelete : should be a hybrid domain offer");
+src/libxrpl/ledger/View.cpp:1964:        auto const& additionalBookDirs = sle->getFieldArray(sfAdditionalBooks);
+src/libxrpl/ledger/View.cpp:1966:        for (auto const& bookDir : additionalBookDirs)
+src/libxrpl/ledger/View.cpp:1971:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:2060:            !(uFlags & (!bSenderHigh ? lsfLowFreeze : lsfHighFreeze)) &&
+src/libxrpl/ledger/View.cpp:2065:                   !bSenderHigh ? sfLowQualityIn : sfHighQualityIn)
+src/libxrpl/ledger/View.cpp:2066:            // Sender quality in is 0.
+src/libxrpl/ledger/View.cpp:2068:                   !bSenderHigh ? sfLowQualityOut : sfHighQualityOut))
+src/libxrpl/ledger/View.cpp:2069:        // Sender quality out is 0.
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2119:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:2729:                    // next against unsigned underflow. Do not reorder.
+src/libxrpl/ledger/View.cpp:2908:        !(flags & (!bSenderHigh ? lsfLowFreeze : lsfHighFreeze)) &&
+src/libxrpl/ledger/View.cpp:2911:        && !state->getFieldU32(!bSenderHigh ? sfLowQualityIn : sfHighQualityIn)
+src/libxrpl/ledger/View.cpp:2912:        // Sender quality in is 0.
+src/libxrpl/ledger/View.cpp:2914:        !state->getFieldU32(!bSenderHigh ? sfLowQualityOut : sfHighQualityOut))
+src/libxrpl/ledger/View.cpp:2915:    // Sender quality out is 0.
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:3011:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3104:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3125:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3172:        issuerAccount && (*issuerAccount)[sfFlags] & lsfRequireAuth)
+src/libxrpl/ledger/View.cpp:3215:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3222:                return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3253:            sleIssuance->getFieldU32(sfFlags) & lsfMPTRequireAuth,
+src/libxrpl/ledger/View.cpp:3255:        // ter = tefINTERNAL | tecOBJECT_NOT_FOUND | tecNO_AUTH | tecEXPIRED
+src/libxrpl/ledger/View.cpp:3274:    if (sleIssuance->isFlag(lsfMPTRequireAuth) &&
+src/libxrpl/ledger/View.cpp:3291:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3294:        sleIssuance->isFlag(lsfMPTRequireAuth),
+src/libxrpl/ledger/View.cpp:3298:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3378:    return tefINTERNAL;
+src/libxrpl/ledger/View.cpp:3417:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:3441:    Keylet const& ownerDirKeylet,
+src/libxrpl/ledger/View.cpp:3452:    if (view.exists(ownerDirKeylet) &&
+src/libxrpl/ledger/View.cpp:3453:        dirFirst(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry))
+src/libxrpl/ledger/View.cpp:3514:            dirNext(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry));
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);
+src/libxrpl/ledger/View.cpp:3748:        // Underflow check for subtraction
+src/libxrpl/ledger/View.cpp:3759:        // Overflow check for addition
+src/libxrpl/ledger/View.cpp:3765:                << "rippleLockEscrowMPT: overflow on locked amount for "
+src/libxrpl/ledger/View.cpp:3785:        // Overflow check for addition
+src/libxrpl/ledger/View.cpp:3789:            JLOG(j.error()) << "rippleLockEscrowMPT: overflow on issuance "
+src/libxrpl/ledger/View.cpp:3844:        // Underflow check for subtraction
+src/libxrpl/ledger/View.cpp:3877:        // Overflow check for addition
+src/libxrpl/ledger/View.cpp:3881:                << "rippleUnlockEscrowMPT: overflow on MPTAmount for "
+src/libxrpl/ledger/View.cpp:3895:        // Underflow check for subtraction
+src/libxrpl/ledger/View.cpp:3939:        // Underflow check for subtraction
+src/libxrpl/ledger/View.cpp:3964:        // Underflow check for subtraction
+src/xrpld/app/tx/detail/Offer.h:26:#include <xrpl/protocol/Quality.h>
+src/xrpld/app/tx/detail/Offer.h:55:    Quality m_quality;
+src/xrpld/app/tx/detail/Offer.h:65:    TOffer(SLE::pointer const& entry, Quality quality);
+src/xrpld/app/tx/detail/Offer.h:67:    /** Returns the quality of the offer.
+src/xrpld/app/tx/detail/Offer.h:68:        Conceptually, the quality is the ratio of output to input currency.
+src/xrpld/app/tx/detail/Offer.h:70:        currency (so it sorts ascending). The quality is computed at the time
+src/xrpld/app/tx/detail/Offer.h:74:        original quality.
+src/xrpld/app/tx/detail/Offer.h:76:    Quality
+src/xrpld/app/tx/detail/Offer.h:77:    quality() const noexcept
+src/xrpld/app/tx/detail/Offer.h:79:        return m_quality;
+src/xrpld/app/tx/detail/Offer.h:98:    /** Returns `true` if no more funds can flow through this offer. */
+src/xrpld/app/tx/detail/Offer.h:169:    /** Check any required invariant. Limit order book offer
+src/xrpld/app/tx/detail/Offer.h:198:TOffer<TIn, TOut>::TOffer(SLE::pointer const& entry, Quality quality)
+src/xrpld/app/tx/detail/Offer.h:200:    , m_quality(quality)
+src/xrpld/app/tx/detail/Offer.h:203:    auto const tp = m_entry->getFieldAmount(sfTakerPays);
+src/xrpld/app/tx/detail/Offer.h:204:    auto const tg = m_entry->getFieldAmount(sfTakerGets);
+src/xrpld/app/tx/detail/Offer.h:214:    Quality quality)
+src/xrpld/app/tx/detail/Offer.h:216:    , m_quality(quality)
+src/xrpld/app/tx/detail/Offer.h:219:          m_entry->getFieldAmount(sfTakerPays),
+src/xrpld/app/tx/detail/Offer.h:220:          m_entry->getFieldAmount(sfTakerGets))
+src/xrpld/app/tx/detail/Offer.h:245:        rules && rules->enabled(fixReducedOffersV1))
+src/xrpld/app/tx/detail/Offer.h:250:        return quality().ceil_out_strict(offrAmt, limit, roundUp);
+src/xrpld/app/tx/detail/Offer.h:251:    return m_quality.ceil_out(offrAmt, limit);
+src/xrpld/app/tx/detail/Offer.h:262:        rules && rules->enabled(fixReducedOffersV2))
+src/xrpld/app/tx/detail/Offer.h:267:        return quality().ceil_in_strict(offrAmt, limit, roundUp);
+src/xrpld/app/tx/detail/Offer.h:268:    return m_quality.ceil_in(offrAmt, limit);
+src/xrpld/app/tx/detail/Offer.h:283:    m_entry->setFieldAmount(sfTakerPays, m_amounts.in);
+src/xrpld/app/tx/detail/Offer.h:284:    m_entry->setFieldAmount(sfTakerGets, m_amounts.out);
+src/xrpld/app/tx/detail/Offer.h:291:    m_entry->setFieldAmount(sfTakerPays, toSTAmount(m_amounts.in, issIn_));
+src/xrpld/app/tx/detail/Offer.h:292:    m_entry->setFieldAmount(sfTakerGets, toSTAmount(m_amounts.out, issOut_));
+src/xrpld/app/tx/detail/Offer.h:299:    m_entry->setFieldAmount(sfTakerPays, toSTAmount(m_amounts.in, issIn_));
+src/xrpld/app/tx/detail/Offer.h:300:    m_entry->setFieldAmount(sfTakerGets, toSTAmount(m_amounts.out));
+src/xrpld/app/tx/detail/Offer.h:307:    m_entry->setFieldAmount(sfTakerPays, toSTAmount(m_amounts.in));
+src/xrpld/app/tx/detail/Offer.h:308:    m_entry->setFieldAmount(sfTakerGets, toSTAmount(m_amounts.out, issOut_));
+src/test/app/ReducedOffer_test.cpp:23:#include <xrpl/protocol/Quality.h>
+src/test/app/ReducedOffer_test.cpp:83:        // Make one test run without fixReducedOffersV1 and one with.
+src/test/app/ReducedOffer_test.cpp:85:             {testable_amendments() - fixReducedOffersV1,
+src/test/app/ReducedOffer_test.cpp:86:              testable_amendments() | fixReducedOffersV1})
+src/test/app/ReducedOffer_test.cpp:116:                STAmount const initialRate = Quality(newOffer).rate();
+src/test/app/ReducedOffer_test.cpp:120:                env(offer(bob, newOffer.in, newOffer.out, tfSell),
+src/test/app/ReducedOffer_test.cpp:138:                    STAmount const reducedTakerGets = amountFromJson(
+src/test/app/ReducedOffer_test.cpp:139:                        sfTakerGets, bobOffer[jss::node][sfTakerGets.jsonName]);
+src/test/app/ReducedOffer_test.cpp:140:                    STAmount const reducedTakerPays = amountFromJson(
+src/test/app/ReducedOffer_test.cpp:141:                        sfTakerPays, bobOffer[jss::node][sfTakerPays.jsonName]);
+src/test/app/ReducedOffer_test.cpp:144:                    BEAST_EXPECT(reducedTakerPays < newOffer.in);
+src/test/app/ReducedOffer_test.cpp:145:                    BEAST_EXPECT(reducedTakerGets < newOffer.out);
+src/test/app/ReducedOffer_test.cpp:147:                        Quality(Amounts{reducedTakerPays, reducedTakerGets})
+src/test/app/ReducedOffer_test.cpp:155:                    // this to verify that the largest allowable TakerPays
+src/test/app/ReducedOffer_test.cpp:159:                        STAmount const tweakedTakerPays =
+src/test/app/ReducedOffer_test.cpp:160:                            reducedTakerPays + drops(1);
+src/test/app/ReducedOffer_test.cpp:162:                            Quality(Amounts{tweakedTakerPays, reducedTakerGets})
+src/test/app/ReducedOffer_test.cpp:169:                              << "; TakerPays: " << reducedTakerPays
+src/test/app/ReducedOffer_test.cpp:170:                              << "; TakerGets: " << reducedTakerGets
+src/test/app/ReducedOffer_test.cpp:175:                    std::cout << "| `" << reducedTakerGets << "` | `"
+src/test/app/ReducedOffer_test.cpp:176:                              << reducedTakerPays << "` | `" << initialRate
+src/test/app/ReducedOffer_test.cpp:193:            // alice's offer has a slightly smaller TakerPays with each
+src/test/app/ReducedOffer_test.cpp:211:            // If fixReducedOffersV1 is enabled, then none of the test cases
+src/test/app/ReducedOffer_test.cpp:214:            // Also verify that if fixReducedOffersV1 is not enabled then
+src/test/app/ReducedOffer_test.cpp:216:            if (features[fixReducedOffersV1])
+src/test/app/ReducedOffer_test.cpp:239:        // Make one test run without fixReducedOffersV1 and one with.
+src/test/app/ReducedOffer_test.cpp:241:             {testable_amendments() - fixReducedOffersV1,
+src/test/app/ReducedOffer_test.cpp:242:              testable_amendments() | fixReducedOffersV1})
+src/test/app/ReducedOffer_test.cpp:266:                STAmount const initialRate = Quality(inLedger).rate();
+src/test/app/ReducedOffer_test.cpp:294:                    STAmount const reducedTakerGets = amountFromJson(
+src/test/app/ReducedOffer_test.cpp:295:                        sfTakerGets,
+src/test/app/ReducedOffer_test.cpp:296:                        aliceOffer[jss::node][sfTakerGets.jsonName]);
+src/test/app/ReducedOffer_test.cpp:297:                    STAmount const reducedTakerPays = amountFromJson(
+src/test/app/ReducedOffer_test.cpp:298:                        sfTakerPays,
+src/test/app/ReducedOffer_test.cpp:299:                        aliceOffer[jss::node][sfTakerPays.jsonName]);
+src/test/app/ReducedOffer_test.cpp:302:                    BEAST_EXPECT(reducedTakerPays < inLedger.in);
+src/test/app/ReducedOffer_test.cpp:303:                    BEAST_EXPECT(reducedTakerGets < inLedger.out);
+src/test/app/ReducedOffer_test.cpp:305:                        Quality(Amounts{reducedTakerPays, reducedTakerGets})
+src/test/app/ReducedOffer_test.cpp:312:                    // this to verify that the largest allowable TakerPays
+src/test/app/ReducedOffer_test.cpp:316:                        STAmount const tweakedTakerPays =
+src/test/app/ReducedOffer_test.cpp:317:                            reducedTakerPays + drops(1);
+src/test/app/ReducedOffer_test.cpp:319:                            Quality(Amounts{tweakedTakerPays, reducedTakerGets})
+src/test/app/ReducedOffer_test.cpp:326:                              << "; TakerPays: " << reducedTakerPays
+src/test/app/ReducedOffer_test.cpp:327:                              << "; TakerGets: " << reducedTakerGets
+src/test/app/ReducedOffer_test.cpp:332:                    std::cout << "| `" << reducedTakerGets << "` | `"
+src/test/app/ReducedOffer_test.cpp:333:                              << reducedTakerPays << "` | `" << initialRate
+src/test/app/ReducedOffer_test.cpp:351:            // bob's offer has a slightly smaller TakerPays with each iteration.
+src/test/app/ReducedOffer_test.cpp:370:            // If fixReducedOffersV1 is enabled, then none of the test cases
+src/test/app/ReducedOffer_test.cpp:373:            // Also verify that if fixReducedOffersV1 is not enabled then
+src/test/app/ReducedOffer_test.cpp:375:            if (features[fixReducedOffersV1])
+src/test/app/ReducedOffer_test.cpp:394:        // after applying the fixReducedOffersV1 amendment.
+src/test/app/ReducedOffer_test.cpp:402:        // Make one test run without fixReducedOffersV1 and one with.
+src/test/app/ReducedOffer_test.cpp:404:             {testable_amendments() - fixReducedOffersV1,
+src/test/app/ReducedOffer_test.cpp:405:              testable_amendments() | fixReducedOffersV1})
+src/test/app/ReducedOffer_test.cpp:473:            // If fixReducedOffersV1 is enabled, then none of the test cases
+src/test/app/ReducedOffer_test.cpp:476:            // Also verify that if fixReducedOffersV1 is not enabled then
+src/test/app/ReducedOffer_test.cpp:478:            if (features[fixReducedOffersV1])
+src/test/app/ReducedOffer_test.cpp:497:        // after applying the fixReducedOffersV1 amendment.
+src/test/app/ReducedOffer_test.cpp:510:        // Make one test run without fixReducedOffersV1 and one with.
+src/test/app/ReducedOffer_test.cpp:512:             {testable_amendments() - fixReducedOffersV1,
+src/test/app/ReducedOffer_test.cpp:513:              testable_amendments() | fixReducedOffersV1})
+src/test/app/ReducedOffer_test.cpp:597:            // If fixReducedOffersV1 is enabled, then none of the test cases
+src/test/app/ReducedOffer_test.cpp:600:            // Also verify that if fixReducedOffersV1 is not enabled then
+src/test/app/ReducedOffer_test.cpp:602:            if (features[fixReducedOffersV1])
+src/test/app/ReducedOffer_test.cpp:617:            amountFromJson(sfTakerPays, json[sfTakerPays.jsonName]);
+src/test/app/ReducedOffer_test.cpp:619:            amountFromJson(sfTakerGets, json[sfTakerGets.jsonName]);
+src/test/app/ReducedOffer_test.cpp:630:        testcase("exercise tfSell partial cross old XRP/IOU offer Q change");
+src/test/app/ReducedOffer_test.cpp:640:        // Make one test run without fixReducedOffersV2 and one with.
+src/test/app/ReducedOffer_test.cpp:642:             {testable_amendments() - fixReducedOffersV2,
+src/test/app/ReducedOffer_test.cpp:643:              testable_amendments() | fixReducedOffersV2})
+src/test/app/ReducedOffer_test.cpp:673:                    Quality(jsonOfferToAmounts(ledgerEntryOffer(
+src/test/app/ReducedOffer_test.cpp:683:                // alice's.  The tfSell flag is important.
+src/test/app/ReducedOffer_test.cpp:686:                    txflags(tfSell));
+src/test/app/ReducedOffer_test.cpp:717:                        Quality(aliceReducedOffer).rate();
+src/test/app/ReducedOffer_test.cpp:721:                    // incrementing the mantissa of the reduced TakerGets
+src/test/app/ReducedOffer_test.cpp:723:                    // this to verify that the largest allowable TakerGets
+src/test/app/ReducedOffer_test.cpp:727:                        STAmount const tweakedTakerGets(
+src/test/app/ReducedOffer_test.cpp:733:                            Quality(
+src/test/app/ReducedOffer_test.cpp:734:                                Amounts{aliceReducedOffer.in, tweakedTakerGets})
+src/test/app/ReducedOffer_test.cpp:741:                              << "; TakerPays: " << aliceReducedOffer.in
+src/test/app/ReducedOffer_test.cpp:742:                              << "; TakerGets: " << aliceReducedOffer.out
+src/test/app/ReducedOffer_test.cpp:776:            // If fixReducedOffersV2 is enabled, then none of the test cases
+src/test/app/ReducedOffer_test.cpp:779:            // Also verify that if fixReducedOffersV2 is not enabled then
+src/test/app/ReducedOffer_test.cpp:781:            if (features[fixReducedOffersV2])
+src/test/app/Offer_test.cpp:25:#include <xrpl/protocol/Quality.h>
+src/test/app/Offer_test.cpp:79:        // We need at least two paths. One at good quality and one at bad
+src/test/app/Offer_test.cpp:80:        // quality.  The bad quality path needs two offer books in a row.
+src/test/app/Offer_test.cpp:81:        // Each offer book should have two offers at the same quality, the
+src/test/app/Offer_test.cpp:108:        // Must be two offers at the same quality
+src/test/app/Offer_test.cpp:114:        // Offers for the poor quality path
+src/test/app/Offer_test.cpp:115:        // Must be two offers at the same quality
+src/test/app/Offer_test.cpp:119:        // Offers for the good quality path
+src/test/app/Offer_test.cpp:267:        // 2) There is another offer in the same book with a quality
+src/test/app/Offer_test.cpp:295:        // (at a good quality) is considered. (when the now removed
+src/test/app/Offer_test.cpp:298:        // Offer at a quality poor enough so when the input xrp is
+src/test/app/Offer_test.cpp:329:        // funding is taken into account, the offer's quality drops below its
+src/test/app/Offer_test.cpp:330:        // initial quality and has an input amount of 1 drop. This is removed as
+src/test/app/Offer_test.cpp:358:            // offer at a lower quality
+src/test/app/Offer_test.cpp:365:            auto aliceTakerGets = crossBothOffers ? drops(2) : drops(1);
+src/test/app/Offer_test.cpp:366:            env(offer(alice, USD(1), aliceTakerGets));
+src/test/app/Offer_test.cpp:477:        // funding is taken into account, the offer's quality drops below its
+src/test/app/Offer_test.cpp:478:        // initial quality and has an input amount of 1 drop. This is removed as
+src/test/app/Offer_test.cpp:517:            // offer at a lower quality
+src/test/app/Offer_test.cpp:525:            auto aliceTakerGets = crossBothOffers ? EUR(0.2) : EUR(0.1);
+src/test/app/Offer_test.cpp:526:            env(offer(alice, USD(1), aliceTakerGets));
+src/test/app/Offer_test.cpp:885:                    txflags(tfFillOrKill),
+src/test/app/Offer_test.cpp:900:                txflags(tfFillOrKill),
+src/test/app/Offer_test.cpp:933:                    txflags(tfImmediateOrCancel),
+src/test/app/Offer_test.cpp:946:                txflags(tfImmediateOrCancel),
+src/test/app/Offer_test.cpp:962:                txflags(tfImmediateOrCancel),
+src/test/app/Offer_test.cpp:997:                BEAST_EXPECT(offer[sfTakerGets] == XRP(2000));
+src/test/app/Offer_test.cpp:998:                BEAST_EXPECT(offer[sfTakerPays] == USD(1000));
+src/test/app/Offer_test.cpp:1012:                BEAST_EXPECT(offer[sfTakerGets] == USD(1000));
+src/test/app/Offer_test.cpp:1013:                BEAST_EXPECT(offer[sfTakerPays] == XRP(2000));
+src/test/app/Offer_test.cpp:1029:        // tfPassive -- cross only offers of better quality.
+src/test/app/Offer_test.cpp:1050:            // of alice's (the one with better quality) and leave alice's
+src/test/app/Offer_test.cpp:1061:                BEAST_EXPECT(offer[sfTakerGets] == USD(499.5));
+src/test/app/Offer_test.cpp:1062:                BEAST_EXPECT(offer[sfTakerPays] == XRP(999));
+src/test/app/Offer_test.cpp:1086:            txflags(tfImmediateOrCancel + 1),
+src/test/app/Offer_test.cpp:1093:            txflags(tfImmediateOrCancel | tfFillOrKill),
+src/test/app/Offer_test.cpp:1354:                BEAST_EXPECT(offer[sfTakerGets] == USD(0));
+src/test/app/Offer_test.cpp:1355:                BEAST_EXPECT(offer[sfTakerPays] == XRP(0));
+src/test/app/Offer_test.cpp:1402:        // This is one of the few tests where fixReducedOffersV2 changes the
+src/test/app/Offer_test.cpp:1403:        // results.  So test both with and without fixReducedOffersV2.
+src/test/app/Offer_test.cpp:1405:             {features - fixReducedOffersV2, features | fixReducedOffersV2})
+src/test/app/Offer_test.cpp:1459:            if (localFeatures[fixReducedOffersV2])
+src/test/app/Offer_test.cpp:1461:                // With the rounding introduced by fixReducedOffersV2, bob's
+src/test/app/Offer_test.cpp:1471:                BEAST_EXPECT(bobOffer[sfTakerGets.jsonName][jss::value] == "1");
+src/test/app/Offer_test.cpp:1472:                BEAST_EXPECT(bobOffer[sfTakerPays.jsonName] == "2000000000");
+src/test/app/Offer_test.cpp:1679:            jro[jss::node][jss::TakerGets] == XRP(500).value().getText());
+src/test/app/Offer_test.cpp:1681:            jro[jss::node][jss::TakerPays] ==
+src/test/app/Offer_test.cpp:1763:            jro[jss::node][jss::TakerGets] == XRP(300).value().getText());
+src/test/app/Offer_test.cpp:1765:            jro[jss::node][jss::TakerPays] ==
+src/test/app/Offer_test.cpp:1855:            jro[jss::node][jss::TakerGets] ==
+src/test/app/Offer_test.cpp:1858:            jro[jss::node][jss::TakerPays] == XRP(250).value().getText());
+src/test/app/Offer_test.cpp:1903:            jro[jss::node][jss::TakerGets] == XRP(250).value().getText());
+src/test/app/Offer_test.cpp:1905:            jro[jss::node][jss::TakerPays] ==
+src/test/app/Offer_test.cpp:1962:            jro[jss::node][jss::TakerGets] == XRP(200).value().getText());
+src/test/app/Offer_test.cpp:1964:            jro[jss::node][jss::TakerPays] ==
+src/test/app/Offer_test.cpp:1969:            jro[jss::node][jss::TakerGets] ==
+src/test/app/Offer_test.cpp:1972:            jro[jss::node][jss::TakerPays] == XRP(200).value().getText());
+src/test/app/Offer_test.cpp:1978:        // At least with Taker bridging, a sensitivity was identified if the
+src/test/app/Offer_test.cpp:2156:        testcase("Offer tfSell: Basic Sell");
+src/test/app/Offer_test.cpp:2179:        env(offer(bob, XRP(200), USD(200)), json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:2183:        env(offer(alice, USD(200), XRP(200)), json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:2199:        testcase("Offer tfSell: 2x Sell Exceed Limit");
+src/test/app/Offer_test.cpp:2225:        // Taker pays 100 USD for 100 XRP.
+src/test/app/Offer_test.cpp:2228:        env(offer(alice, USD(100), XRP(100)), json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:2481:                BEAST_EXPECT(acctOffer[sfTakerGets] == XRP(leftover));
+src/test/app/Offer_test.cpp:2482:                BEAST_EXPECT(acctOffer[sfTakerPays] == USD(leftover));
+src/test/app/Offer_test.cpp:2581:            BEAST_EXPECT(bobsOffer[sfTakerGets] == USD(1));
+src/test/app/Offer_test.cpp:2582:            BEAST_EXPECT(bobsOffer[sfTakerPays] == XRP(1));
+src/test/app/Offer_test.cpp:2667:                BEAST_EXPECT(bobsOffer[sfTakerGets] == USD(1));
+src/test/app/Offer_test.cpp:2668:                BEAST_EXPECT(bobsOffer[sfTakerPays] == EUR(1));
+src/test/app/Offer_test.cpp:2762:            BEAST_EXPECT(alicesOffer[sfTakerGets] == USD(600));
+src/test/app/Offer_test.cpp:2763:            BEAST_EXPECT(alicesOffer[sfTakerPays] == XRP(600));
+src/test/app/Offer_test.cpp:2771:            BEAST_EXPECT(bobsOffer[sfTakerGets] == XRP(600));
+src/test/app/Offer_test.cpp:2772:            BEAST_EXPECT(bobsOffer[sfTakerPays] == EUR(600));
+src/test/app/Offer_test.cpp:2789:        // In pre-flow code alice's offer is left empty in the ledger.
+src/test/app/Offer_test.cpp:2797:            BEAST_EXPECT(alicesOffer[sfTakerGets] == USD(0));
+src/test/app/Offer_test.cpp:2798:            BEAST_EXPECT(alicesOffer[sfTakerPays] == XRP(0));
+src/test/app/Offer_test.cpp:2806:        // when the tfSell flag is set.  The test is table driven so it
+src/test/app/Offer_test.cpp:2957:            // Acct creates a tfSell offer.  This is the heart of the test.
+src/test/app/Offer_test.cpp:2958:            env(offer(acct, t.acctGets, t.acctPays, tfSell), ter(t.tec));
+src/test/app/Offer_test.cpp:2978:                    BEAST_EXPECT(acctOffer[sfTakerGets] == t.takerGets);
+src/test/app/Offer_test.cpp:2979:                    BEAST_EXPECT(acctOffer[sfTakerPays] == t.takerPays);
+src/test/app/Offer_test.cpp:2995:        // when both the tfSell flag and tfFillOrKill flags are set.
+src/test/app/Offer_test.cpp:2996:        testcase("Combine tfSell with tfFillOrKill");
+src/test/app/Offer_test.cpp:3022:            // alice submits a tfSell | tfFillOrKill offer that does not cross.
+src/test/app/Offer_test.cpp:3023:            env(offer(alice, USD(21), XRP(2100), tfSell | tfFillOrKill),
+src/test/app/Offer_test.cpp:3031:            // alice submits a tfSell | tfFillOrKill offer that crosses.
+src/test/app/Offer_test.cpp:3032:            // Even though tfSell is present it doesn't matter this time.
+src/test/app/Offer_test.cpp:3033:            env(offer(alice, USD(20), XRP(2000), tfSell | tfFillOrKill));
+src/test/app/Offer_test.cpp:3040:            // alice submits a tfSell | tfFillOrKill offer that crosses and
+src/test/app/Offer_test.cpp:3041:            // returns more than was asked for (because of the tfSell flag).
+src/test/app/Offer_test.cpp:3044:            env(offer(alice, USD(10), XRP(1500), tfSell | tfFillOrKill));
+src/test/app/Offer_test.cpp:3051:            // alice submits a tfSell | tfFillOrKill offer that doesn't cross.
+src/test/app/Offer_test.cpp:3052:            // This would have succeeded with a regular tfSell, but the
+src/test/app/Offer_test.cpp:3057:            env(offer(alice, USD(1), XRP(501), tfSell | tfFillOrKill),
+src/test/app/Offer_test.cpp:3065:            // Alice submits a tfSell | tfFillOrKill offer that finishes
+src/test/app/Offer_test.cpp:3069:            env(offer(alice, USD(1), XRP(500), tfSell | tfFillOrKill));
+src/test/app/Offer_test.cpp:3191:                BEAST_EXPECT(evesOffer[sfTakerGets] == XRP(2000));
+src/test/app/Offer_test.cpp:3192:                BEAST_EXPECT(evesOffer[sfTakerPays] == USD(5));
+src/test/app/Offer_test.cpp:3244:            // A trust line's QualityIn should not affect offer crossing.
+src/test/app/Offer_test.cpp:3250:            env(trust(ivy, USD(400)), qualityInPercent(90));
+src/test/app/Offer_test.cpp:3251:            env(trust(ivy, EUR(400)), qualityInPercent(80));
+src/test/app/Offer_test.cpp:3252:            env(trust(joe, USD(400)), qualityInPercent(70));
+src/test/app/Offer_test.cpp:3253:            env(trust(joe, EUR(400)), qualityInPercent(60));
+src/test/app/Offer_test.cpp:3279:            // A trust line's QualityOut should not affect offer crossing.
+src/test/app/Offer_test.cpp:3287:            // Verify trust line QualityOut affects payments.
+src/test/app/Offer_test.cpp:3292:            env(trust(lex, N_BUX(200)), qualityOutPercent(120));
+src/test/app/Offer_test.cpp:3311:            // Now verify that offer crossing is unaffected by QualityOut.
+src/test/app/Offer_test.cpp:3361:            // In pre-flow code ova's offer is left empty in the ledger.
+src/test/app/Offer_test.cpp:3369:                BEAST_EXPECT(ovasOffer[sfTakerGets] == USD(0));
+src/test/app/Offer_test.cpp:3370:                BEAST_EXPECT(ovasOffer[sfTakerPays] == XRP(0));
+src/test/app/Offer_test.cpp:3397:        // BookOfferCrossingStep::limitSelfCrossQuality().
+src/test/app/Offer_test.cpp:3432:            BEAST_EXPECT(offer[sfTakerGets] == XRP(600));
+src/test/app/Offer_test.cpp:3433:            BEAST_EXPECT(offer[sfTakerPays] == USD(60));
+src/test/app/Offer_test.cpp:3450:            BEAST_EXPECT(offer[sfTakerGets] == USD(100));
+src/test/app/Offer_test.cpp:3451:            BEAST_EXPECT(offer[sfTakerPays] == XRP(1000));
+src/test/app/Offer_test.cpp:3528:                BEAST_EXPECT(offer[sfTakerGets] == EUR(600));
+src/test/app/Offer_test.cpp:3529:                BEAST_EXPECT(offer[sfTakerPays] == USD(500));
+src/test/app/Offer_test.cpp:3549:                    BEAST_EXPECT(offer[sfTakerGets] == EUR(600));
+src/test/app/Offer_test.cpp:3550:                    BEAST_EXPECT(offer[sfTakerPays] == USD(500));
+src/test/app/Offer_test.cpp:3554:                    BEAST_EXPECT(offer[sfTakerGets] == USD(500));
+src/test/app/Offer_test.cpp:3555:                    BEAST_EXPECT(offer[sfTakerPays] == EUR(600));
+src/test/app/Offer_test.cpp:3615:            BEAST_EXPECT(offer[sfTakerGets] == USD(25));
+src/test/app/Offer_test.cpp:3616:            BEAST_EXPECT(offer[sfTakerPays] == XRP(250));
+src/test/app/Offer_test.cpp:3635:            // A trust line's QualityOut should not affect offer crossing.
+src/test/app/Offer_test.cpp:3643:            // Verify trust line QualityOut affects payments.
+src/test/app/Offer_test.cpp:3648:            env(trust(bob, D_BUX(200)), qualityOutPercent(120));
+src/test/app/Offer_test.cpp:3745:    testSelfCrossLowQualityOffer(FeatureBitset features)
+src/test/app/Offer_test.cpp:3750:        testcase("Self crossing low quality offer");
+src/test/app/Offer_test.cpp:3822:            BEAST_EXPECT(offer[sfTakerGets] == drops(333599446582));
+src/test/app/Offer_test.cpp:3823:            BEAST_EXPECT(offer[sfTakerPays] == CNY(13345.9461));
+src/test/app/Offer_test.cpp:3873:                offer[sfTakerGets] ==
+src/test/app/Offer_test.cpp:3875:            BEAST_EXPECT(offer[sfTakerPays] == BTC(0.035378));
+src/test/app/Offer_test.cpp:3883:        // working right was if the Taker had fewer funds than the Offer
+src/test/app/Offer_test.cpp:3938:                offer[sfTakerGets] ==
+src/test/app/Offer_test.cpp:3941:                offer[sfTakerPays] ==
+src/test/app/Offer_test.cpp:4121:                // Sometimes Taker crossing gets lazy about deleting offers.
+src/test/app/Offer_test.cpp:4130:                            return (*offer)[sfTakerGets].signum() == 0;
+src/test/app/Offer_test.cpp:4153:        // The Taker offer crossing code recognized when Alice was paying
+src/test/app/Offer_test.cpp:4182:        // Taker offer crossing and Flow offer crossing.
+src/test/app/Offer_test.cpp:4270:                // Sometimes Taker offer crossing gets lazy about deleting
+src/test/app/Offer_test.cpp:4279:                            return (*offer)[sfTakerGets].signum() == 0;
+src/test/app/Offer_test.cpp:4299:    testRequireAuth(FeatureBitset features)
+src/test/app/Offer_test.cpp:4301:        testcase("lsfRequireAuth");
+src/test/app/Offer_test.cpp:4318:        env(fset(gw, asfRequireAuth));
+src/test/app/Offer_test.cpp:4355:        //    gw adds lsfRequireAuth.  Then, later, alice's offer is crossed.
+src/test/app/Offer_test.cpp:4360:        //    lsfRequireAuth set.  This time the offer create fails because
+src/test/app/Offer_test.cpp:4390:        env(fset(gw, asfRequireAuth));
+src/test/app/Offer_test.cpp:4473:        testcase("RippleConnect Smoketest payment flow");
+src/test/app/Offer_test.cpp:4478:        // This test mimics the payment flow used in the Ripple Connect
+src/test/app/Offer_test.cpp:4501:            env(fset(cold, asfRequireAuth));
+src/test/app/Offer_test.cpp:4531:            json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:4535:            json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:4582:        // Since gw has an offer out, gw should not be able to set RequireAuth.
+src/test/app/Offer_test.cpp:4583:        env(fset(gw, asfRequireAuth), ter(tecOWNERS));
+src/test/app/Offer_test.cpp:4586:        // Cancel gw's offer so we can set RequireAuth.
+src/test/app/Offer_test.cpp:4592:        env(fset(gw, asfRequireAuth));
+src/test/app/Offer_test.cpp:4598:        // Before DepositPreauth an account with lsfRequireAuth set could not
+src/test/app/Offer_test.cpp:4753:            txn[sfTickSize.fieldName] = Quality::minTickSize - 1;
+src/test/app/Offer_test.cpp:4756:            txn[sfTickSize.fieldName] = Quality::minTickSize;
+src/test/app/Offer_test.cpp:4758:            BEAST_EXPECT((*env.le(gw))[sfTickSize] == Quality::minTickSize);
+src/test/app/Offer_test.cpp:4761:            txn[sfTickSize.fieldName] = Quality::maxTickSize;
+src/test/app/Offer_test.cpp:4766:            txn[sfTickSize.fieldName] = Quality::maxTickSize - 1;
+src/test/app/Offer_test.cpp:4768:            BEAST_EXPECT((*env.le(gw))[sfTickSize] == Quality::maxTickSize - 1);
+src/test/app/Offer_test.cpp:4771:            txn[sfTickSize.fieldName] = Quality::maxTickSize + 1;
+src/test/app/Offer_test.cpp:4804:        env(offer(alice, XTS(10), XXX(30)), json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:4805:        env(offer(alice, XTS(30), XXX(10)), json(jss::Flags, tfSell));
+src/test/app/Offer_test.cpp:4814:                            (*sle)[sfTakerPays], (*sle)[sfTakerGets]));
+src/test/app/Offer_test.cpp:4837:        // exact TakerPays is XTS(1/.033333)
+src/test/app/Offer_test.cpp:4891:        // Create four offers from the same account with identical quality
+src/test/app/Offer_test.cpp:5144:        // tfFillOrKill, TakerPays must be filled
+src/test/app/Offer_test.cpp:5153:                txflags(tfFillOrKill),
+src/test/app/Offer_test.cpp:5172:                txflags(tfFillOrKill),
+src/test/app/Offer_test.cpp:5191:                txflags(tfFillOrKill),
+src/test/app/Offer_test.cpp:5207:        // tfFillOrKill + tfSell, TakerGets must be filled
+src/test/app/Offer_test.cpp:5213:                txflags(tfFillOrKill | tfSell));
+src/test/app/Offer_test.cpp:5226:                txflags(tfFillOrKill | tfSell));
+src/test/app/Offer_test.cpp:5239:                txflags(tfFillOrKill | tfSell));
+src/test/app/Offer_test.cpp:5252:        for (auto const flags : {tfFillOrKill, tfFillOrKill + tfSell})
+src/test/app/Offer_test.cpp:5344:        testSelfCrossLowQualityOffer(features);
+src/test/app/Offer_test.cpp:5351:        testRequireAuth(features);
+src/test/app/Offer_test.cpp:5369:        static FeatureBitset const takerDryOffer{fixTakerDryOfferRemoval};
+src/test/app/Offer_test.cpp:5401:class OfferWTakerDryOffer_test : public OfferBaseUtil_test
+src/test/app/Offer_test.cpp:5455:        FeatureBitset const takerDryOffer{fixTakerDryOfferRemoval};
+src/test/app/Offer_test.cpp:5470:BEAST_DEFINE_TESTSUITE_PRIO(OfferWTakerDryOffer, app, ripple, 2);

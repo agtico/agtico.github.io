@@ -1,0 +1,119 @@
+4539bb074 chore: Consolidate fix amendments (#104)
+dc707b9f3 feat: Enable and rename fixSecurity3_1_3 amendment (#90)
+5aa3d5e23 refactor: Remove erroneous base_uint ctor from container (#46)
+2794a7503 fix: Prevents overwritting a bool value in an invariant (#6609) (#6961)
+5ad05918f fix: Check for empty `sfAdditionalBooks` array in hybrid offer invariant (#6716) (#6945)
+519d9057a fix: Improve invariant check for Permissioned Domains (#6134) (#6958)
+7e7dc3070 fix: Add rounding to Vault invariants (#6217) (#6957)
+c979643d0 fix: Add assorted Lending Protocol fixes (#6678)
+06afbd558 fix: Prevent deletion of MPTokens with active escrow (#6635)
+26d416123 fix: Assorted Vault fixes (#6607)
+11bab0661 fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+0e3600a18 refactor: Improve exception handling
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+4135d56aa fix: floating point representation errors in vault (#5997)
+4425f84c1 Remove directory size limit (#5935)
+8951419db fix: invariant error in fee-sized `VaultWithdraw` (#5876)
+5ebc29c48 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+220ab2622 Add vault invariants (#5518)
+7bc2d5cba chore: Fix release build error (#5864)
+5b2ab905c chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+5d79bfc53 Remove bogus coverage warning (#5838)
+d67dcfe3c refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+3cbdf818a Miscellaneous refactors and updates (#5590)
+dc8b37a52 refactor: Modularise ledger (#5493)
+b7ed99426 fix: Make test suite names match the directory name (#5597)
+433eeabfa chore: Remove unused code after flow cross retirement (#5575)
+8bfaa7fe0 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+c9135a63c Retire Flow Cross amendment (#5562)
+e9d46f0bf Remove OwnerPaysFee as it's never fully supported (#5435)
+621df422a fix: Add AMMv1_3 amendment (#5203)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+3e152fec7 refactor: use east const convention (#5409)
+2bc5cb240 test: enable unit tests to work with variable reference fee (#5145)
+c17676a9b refactor: Improve ordering of headers with clang-format (#5343)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+33e1c4259 Add deep freeze feature (XLS-77d) (#5187)
+eabca8439 Antithesis instrumentation improvements (#5213)
+d7e949193 Add Antithesis intrumentation (#5042)
+552377c76 Reformat code with clang-format-18
+9a6af9c43 chore: fix typos in comments (#5094)
+20707fac4 chore: Rename two files from Directory* to Dir*: (#5058)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+223e6c759 Add the fixEnforceNFTokenTrustline amendment: (#4946)
+ae7ea33b7 fixReducedOffersV2: prevent offers from blocking order books: (#5032)
+659bd99a6 fix amendment to add `PreviousTxnID`/`PreviousTxnLgrSequence` (#4751)
+efe6722bf docs: update help message about unit test-suite pattern matching (#4846)
+3b624d8bf `fixFillOrKill`: fix offer crossing with tfFillOrKill (#4694)
+542732126 Match unit tests on start of test name (#4634)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+3c9db4b69 Introduce AMM support (XLS-30d): (#4294)
+724a30159 `fixReducedOffersV1`: prevent offers from blocking order books: (#4512)
+66627b26c Refactor fee initialization and configuration: (#4319)
+6fcd654be Remove undefined behavior * Taking the negative of a signed negative is UB, but   taking the negative of an unsigned is not.
+a82ad5ba7 Use Number for IOUAmount and STAmount arithmetic
+649ab872f Add featureImmediateOfferKilled for tfImmediateOrCancel offers:
+ff3d2e7c2 Use jtx::offer_cancel more places:
+2a7c573de Fix clang warnings about copies vs references:
+22cc9a254 Maintenance of Offer and PayStrand unit tests
+c10c0be11 Merge master (1.7.2) into develop (1.8.0-b2)
+1bb99e5d3 Rm some offers where the quality is reduced:
+85307b29d Add constexpr constructor for base_uint
+44fe0e1fc Add support for the 'TicketBatch' amendment:
+f07246940 Simplify & modernize code:
+7724cca38 Implement enhanced Ticket support:
+74f9edef0 Prefer keylets instead of naked hashes:
+50760c693 Format first-party source according to .clang-format
+323dbc796 Remove conditionals for featureSortedDirectories enabled 14Nov2017
+a6246b0ba Remove conditionals for fix1373 enabled 07Jul2017
+78d771af3 Remove conditionals for featureTickSize enabled 21Feb2017
+78ea75b11 Remove incorrect STAmount assert:
+81326a6d0 Remove old payment code
+ae707b814 Always enable fix1449 dated March 30, 2017 20:00:00 UTC
+70c21f90b Always enable fix1298 dated December 21, 2016 18:00:00 UTC
+fc0a08270 Remove STAmountSO::soTime and soTime2:
+e3b5b808c Add units to all fee calculations:
+a3a9dc26b Introduce support for deletable accounts:
+b9e73b485 Fix shadowing variables
+f8365f500 Add JsonOptions enum class to contain options passed to getJSON methods
+b39b0fef3 Get names of transactions and ledger types from jss
+80e535a13 Arguments passed to jtx Env::operator() must be invocable:
+64b55c0f8 Rename JsonFields.h to jss.h:
+58f786cbb Make the FeeEscalation amendment permanent (RIPD-1654):
+7b48dc36f Add fixTakerDryOfferRemoval amendment
+410477806 Improve transaction error condition handling (RIPD-1578, RIPD-1593):
+b14bdb068 Standardize on default_prng() for non-crypto shuffling
+7c785d0d7 Add missing override keyword:
+cfdc64d7c Enable manual tests in CI:
+95eb5e186 Fix manual offer test
+008ff67ac Add DepositPreauth ledger type and transaction (RIPD-1624):
+118c25c0f Compile time check preflight returns no tec (RIPD-1624):
+04f138886 Remove extra semicolons:
+deb9e4ce3 Remove BeastConfig.h (RIPD-1167)
+c6a307fcd Unit test pre-expired offer that also cancels an offer
+2d5ddbf1b Checks (RIPD-1487):
+e8d02c133 Refactor FeatureBitset:
+3523cee63 Minimize use of jtx::with_only_features (RIPD-1515):
+feb7582ac Unit tests don't enable Tickets or SHAMapV2 by default:
+1853c0d67 Add STAmount switchover support to tx queue:
+3c0b35092 Remove unused lambda capture
+a02a469b2 Fix unit test compiler warnings
+463b154e3 Improve directory insertion & deletion (RIPD-1353, RIPD-1488):
+5ad49454f Remove unused lambda captures
+afc791835 RequireAuth account can create offers to buy their currency
+b24d47c09 Correct handling of unauthorized offers (RIPD-1481)
+56946e812 Change features default behavior in Env (RIPD-1460):
+d5dc715d9 Unit test offer crossing with lsfRequireAuth (RIPD-1346)
+369909df8 Use payment flow code for offer crossing (RIPD-1094):
+2680b78b5 Rename featureToStrandV2 to fix1373
+846723d77 New rules for payment paths:
+fb60cc9b5 Cleanup unit test support code (RIPD-1380):
+b6a01ea41 Move support test code to src/test/support (RIPD-1313)
+22a375a5f Add support for tick sizes (RIPD-1363):
+2fd0540ed Recognize ripplerpc 2.0 requests and respond in kind:
+cfcd618aa Add Offer tests (RIPD-938):
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

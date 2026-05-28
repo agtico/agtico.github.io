@@ -18,14 +18,14 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:00:41Z
-amendment_checked_utc: 2026-05-28T09:00:43Z
+runtime_checked_utc: 2026-05-28T09:10:18Z
+amendment_checked_utc: 2026-05-28T09:10:20Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534251, hash 6B384FBD1BA06292FC0792F9CD2A1DF6160DA0CB7CC2F3C5D37DDF15380DCBF9
-s2.ripple.com: rippled 3.1.3, ledger 104534251, hash 6B384FBD1BA06292FC0792F9CD2A1DF6160DA0CB7CC2F3C5D37DDF15380DCBF9
-feature/amendment receipt ledger: 104534252, hash A4050E5E98CFA3E6CEC5EB1CF2DBAC742AE9DE38659D5AF249D342DABF6728B4
-runtime receipt sha256: a304f0a6477dd841782c0973a1c50948ec0195eebd3f598729d64bfa716ba981
-amendment receipt sha256: 30e5b8893f6b958cfd409fd95c798e60ab56be3e21b51f55b0cc6628082f78a2
+s1.ripple.com: rippled 3.1.3, ledger 104534399, hash E48438374CB635D3C35A190397F5ACA50FB3CFA53E0DBE0A8744262FDCC905EE
+s2.ripple.com: rippled 3.1.3, ledger 104534399, hash E48438374CB635D3C35A190397F5ACA50FB3CFA53E0DBE0A8744262FDCC905EE
+feature/amendment receipt ledger: 104534400, hash EB0059D511680D846D900AC1BA17667537DB8782808611F9DC810FC3F4CD27B5
+runtime receipt sha256: 34d15339d1c4415e742a12e9b4387e3d9823c641b6662e999fb20cbb794eed70
+amendment receipt sha256: c2024f204248ec9a1c7b7af82f4a713c5371875ca7ab581d95b5f54dd57dc82b
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -68,6 +68,7 @@ Completed and packet-bound work:
 - legacy account-root owner-directory cleanup source and suite sweep.
 - legacy governance, validator-list, and pseudo-transaction source and suite sweep.
 - DID/Credentials object lifecycle and directory-full source and suite sweep.
+- legacy offer-book directory, quality, cancellation, and invariant sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -232,6 +233,23 @@ did_credentials_dirfull_static_sweep_20260528.log sha256 49c050eacb4e91dcedaed28
 did_credentials_dirfull_history_sweep_20260528.log sha256 0558122317a5c1bfce589f880e3c99180330745802465b77fadbc7a80722a409
 did_credentials_dirfull_source_kill_20260528.log sha256 aeab9d9c3b27a75513941f81144136cf62ba49d4c4f7ab9c4447b28762de98f1
 41.1s, 4 suites, 147 cases, 16656 tests total, 0 failures
+```
+
+`LEGACY-OFFER-BOOK-DIRECTORY-SWEEP-001` asked whether old `OfferCreate`,
+`OfferCancel`, offer-stream, reduced-offer, book-directory, or invariant paths
+can leave stale offer objects, wrong book-directory quality, owner-count drift,
+or transaction-visible internal failures outside the already-promoted
+trustline reserve root. The sweep covered offer object keys, `BookTip`,
+`BookDirs`, directory insert/remove paths, taker quality, `sfExchangeRate`,
+reduced-offer fixes, dry-offer removal, Fill-or-Kill/Immediate-or-Cancel,
+owner directories, deletion, and book invariants. It did not isolate a clean
+legacy offer-book witness.
+
+```text
+legacy_offer_book_directory_static_sweep_20260528.log sha256 da406b598c0010a35f6c94f17bffa44dc399d30495a981df5973dc22bbf89253
+legacy_offer_book_directory_history_sweep_20260528.log sha256 cd255407625b9623033375c75e9a3b121697a7c80c5e841977cb0c64611aacc8
+legacy_offer_book_directory_source_kill_20260528.log sha256 42209d165bd4eb8dd5ff75362f437142c027a5da09470ee803fd296f6d665b90
+112.6s, 11 suites, 435 cases, 83311 tests total, 0 failures
 ```
 
 `ESCROW-LEGACY-XRP-DELETE-EDGE-001` asked whether legacy XRP Escrow finish,

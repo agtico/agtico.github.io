@@ -145,6 +145,12 @@ one of the WHIP gates:
   `AccountDelete`, and `Invariants` passed with 147 cases and 16,656 tests; no
   partial object, directory entry, owner-count drift, or invariant witness was
   isolated.
+- `LEGACY-OFFER-BOOK-DIRECTORY-SWEEP-001` source-killed the remaining old-core
+  offer-book directory/quality/cancel lane. Static/history review plus
+  `Offer,ReducedOffer,OfferStream,BookDirs,Directory,Invariants` coverage
+  passed with 435 cases and 83,311 tests. No stale offer object, wrong
+  book-directory quality, owner-count drift, or normal-input invariant/internal
+  failure was isolated outside the already-promoted trustline reserve root.
 - `PAYMENT-DISALLOW-INCOMING-TRUSTLINE-001` was tested as a direct
   holder-to-recipient IOU `Payment` variant of the live
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no

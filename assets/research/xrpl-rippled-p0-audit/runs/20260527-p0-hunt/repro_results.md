@@ -1775,6 +1775,34 @@ Credential, account-delete, and invariant paths did not show a persistent
 partial object, directory entry, owner-count drift, or normal-input invariant
 failure from the DID/Credentials lifecycle boundary.
 
+## Demoted: legacy offer-book directory, quality, and cancel sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The candidate asked whether old `OfferCreate`, `OfferCancel`, offer-stream,
+reduced-offer, book-directory, or invariant paths could leave stale offer
+objects, wrong book-directory quality, owner-count drift, or normal-input
+internal/invariant failures outside the already-promoted trustline reserve
+root. The sweep covered `BookTip`, `BookDirs`, directory insert/remove paths,
+taker quality, `sfExchangeRate`, dry-offer removal, reduced-offer fixes,
+Fill-or-Kill/Immediate-or-Cancel, owner directories, deletion, and book
+invariants.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+legacy_offer_book_directory_static_sweep_20260528.log sha256 da406b598c0010a35f6c94f17bffa44dc399d30495a981df5973dc22bbf89253
+legacy_offer_book_directory_history_sweep_20260528.log sha256 cd255407625b9623033375c75e9a3b121697a7c80c5e841977cb0c64611aacc8
+legacy_offer_book_directory_source_kill_20260528.log sha256 42209d165bd4eb8dd5ff75362f437142c027a5da09470ee803fd296f6d665b90
+112.6s, 11 suites, 435 cases, 83311 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new Moby Dick P0. The checked
+offer-book and directory paths did not show stale offer objects, wrong
+book-directory quality, owner-count drift, or normal-input invariant/internal
+failure beyond the existing trustline positive-balance reserve finding.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
