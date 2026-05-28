@@ -6,7 +6,7 @@ This directory is the live-filtered evidence packet for the AGTI report:
 
 The packet includes only reproduced high/critical findings whose required
 XRPL mainnet amendment surfaces were enabled in a direct XRPL validated-ledger
-query checked at `2026-05-28T08:51:43Z`. Public XRPL servers checked in
+query checked at `2026-05-28T09:00:43Z`. Public XRPL servers checked in
 `direct_xrpl_mainnet_runtime_status_20260527.json` reported
 `rippled_version=3.1.3`.
 
@@ -40,6 +40,7 @@ Included findings must satisfy both conditions:
 | `repro_manifest.json` | Canonical live manifest: 19 live-mainnet eligible high/critical findings, markers, risk labels, and proof bindings. |
 | `direct_xrpl_amendment_status_20260527.json` | Direct XRPL `feature` and `ledger_entry` receipt used for the live filter. |
 | `direct_xrpl_mainnet_runtime_status_20260527.json` | Direct XRPL server/runtime receipt showing public server versions and live amendment state. |
+| `direct_xrpl_did_feature_status_20260528.json` | Direct XRPL feature receipt binding `DID` and `fixEmptyDID` live status for a demoted source-kill sweep; it is not a packet finding. |
 | `upstream_remediation_status_20260527.json` | Git-ancestry remediation receipt for `3.2.0-b7` and `origin/develop`. |
 | `runs/20260527-p0-hunt/live_state_snapshot_20260528_moby_dick.json` | Direct `s1.ripple.com` / `s2.ripple.com` runtime and amendment snapshot for the legacy-core continuation slice. |
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |

@@ -1750,6 +1750,31 @@ Interpretation: this did not isolate a new Moby Dick P0. The checked
 did not show a persistent partial object, directory entry, owner-count drift,
 or normal-input invariant failure from the Check directory-full boundary.
 
+## Demoted: DID and Credentials directory-full/object-lifecycle sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether DID or Credential object creation/deletion could
+leave a partial ledger object, owner-directory entry, owner-count drift, or
+invariant residue when a directory write or cleanup path fails. Direct feature
+receipts bound `DID`, `fixEmptyDID`, and `Credentials` as enabled on validated
+mainnet data for this slice.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+direct_xrpl_did_feature_status_20260528.json sha256 e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
+did_credentials_dirfull_static_sweep_20260528.log sha256 49c050eacb4e91dcedaed288ff4e25717fdbc28c4408145633c87fe8e624a943
+did_credentials_dirfull_history_sweep_20260528.log sha256 0558122317a5c1bfce589f880e3c99180330745802465b77fadbc7a80722a409
+did_credentials_dirfull_source_kill_20260528.log sha256 aeab9d9c3b27a75513941f81144136cf62ba49d4c4f7ab9c4447b28762de98f1
+41.1s, 4 suites, 147 cases, 16656 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. The checked DID,
+Credential, account-delete, and invariant paths did not show a persistent
+partial object, directory entry, owner-count drift, or normal-input invariant
+failure from the DID/Credentials lifecycle boundary.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

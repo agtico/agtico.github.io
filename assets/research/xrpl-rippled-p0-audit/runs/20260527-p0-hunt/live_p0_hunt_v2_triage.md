@@ -138,6 +138,13 @@ one of the WHIP gates:
   status refresh. The scratch proof forced the subject owner directory full and
   returned `tecDIR_FULL` without leaving a `Credential` object or issuer/subject
   owner-count drift, so it is source-killed and not packet eligible.
+- `DID-CREDENTIAL-DIRFULL-SWEEP-001` followed with a direct DID/fixEmptyDID
+  feature receipt and a bounded source/history/suite sweep across DID,
+  Credentials, credential helper cleanup, AccountDelete, owner directories,
+  `deleteSLE`, owner counts, and invariants. `DID`, `Credentials`,
+  `AccountDelete`, and `Invariants` passed with 147 cases and 16,656 tests; no
+  partial object, directory entry, owner-count drift, or invariant witness was
+  isolated.
 - `PAYMENT-DISALLOW-INCOMING-TRUSTLINE-001` was tested as a direct
   holder-to-recipient IOU `Payment` variant of the live
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no

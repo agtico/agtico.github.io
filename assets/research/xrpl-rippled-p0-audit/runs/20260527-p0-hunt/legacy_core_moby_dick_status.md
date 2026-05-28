@@ -18,14 +18,17 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:51:41Z
-amendment_checked_utc: 2026-05-28T08:51:43Z
+runtime_checked_utc: 2026-05-28T09:00:41Z
+amendment_checked_utc: 2026-05-28T09:00:43Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534111, hash A824DF757C28ED434D99CAC9EF250913C7DAC334EB1C35760782E903DE464945
-s2.ripple.com: rippled 3.1.3, ledger 104534112, hash 37BD71EF132D51E61B8A05BFAF062F1518C2EE8033A096E1B99F650E172BA3B9
-feature/amendment receipt ledger: 104534112, hash 37BD71EF132D51E61B8A05BFAF062F1518C2EE8033A096E1B99F650E172BA3B9
-runtime receipt sha256: 2b6964780b1e3fe2c712597db86a086c21f2d5f1e3bc0f13495a102a83287ae8
-amendment receipt sha256: 95a5969fc13a849349efd1d4c3b18e095d123239f57fd69ecbb89cfcc501ceb3
+s1.ripple.com: rippled 3.1.3, ledger 104534251, hash 6B384FBD1BA06292FC0792F9CD2A1DF6160DA0CB7CC2F3C5D37DDF15380DCBF9
+s2.ripple.com: rippled 3.1.3, ledger 104534251, hash 6B384FBD1BA06292FC0792F9CD2A1DF6160DA0CB7CC2F3C5D37DDF15380DCBF9
+feature/amendment receipt ledger: 104534252, hash A4050E5E98CFA3E6CEC5EB1CF2DBAC742AE9DE38659D5AF249D342DABF6728B4
+runtime receipt sha256: a304f0a6477dd841782c0973a1c50948ec0195eebd3f598729d64bfa716ba981
+amendment receipt sha256: 30e5b8893f6b958cfd409fd95c798e60ab56be3e21b51f55b0cc6628082f78a2
+DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
+DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
+DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -64,6 +67,7 @@ Completed and packet-bound work:
 - legacy IOU zero-cross settlement source and suite sweep.
 - legacy account-root owner-directory cleanup source and suite sweep.
 - legacy governance, validator-list, and pseudo-transaction source and suite sweep.
+- DID/Credentials object lifecycle and directory-full source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -210,6 +214,24 @@ under-reserved remainder is not placed. Source-kill artifact
 ```text
 ripple.tx.OpenP0Repro SCRATCH OfferCreate partial cross under reserve cancels remainder
 16.0s, 1 suite, 71 cases, 16828 tests total, 0 failures
+```
+
+`DID-CREDENTIAL-DIRFULL-SWEEP-001` asked whether DID or Credential object
+creation/deletion can leave a partial ledger object, owner-directory entry,
+owner-count drift, or invariant residue when one of the directory writes or
+cleanup paths fails. Direct feature receipts show `DID`, `fixEmptyDID`, and
+`Credentials` enabled on validated mainnet data for this slice. The bounded
+source/history pass covered `DIDSet`, `DIDDelete`, `CredentialCreate`,
+`CredentialAccept`, `CredentialDelete`, `CredentialHelpers`, account deletion,
+directory inserts/removals, `deleteSLE`, owner counts, and invariants. It did
+not isolate a clean object-lifecycle or directory-full witness.
+
+```text
+direct_xrpl_did_feature_status_20260528.json sha256 e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
+did_credentials_dirfull_static_sweep_20260528.log sha256 49c050eacb4e91dcedaed288ff4e25717fdbc28c4408145633c87fe8e624a943
+did_credentials_dirfull_history_sweep_20260528.log sha256 0558122317a5c1bfce589f880e3c99180330745802465b77fadbc7a80722a409
+did_credentials_dirfull_source_kill_20260528.log sha256 aeab9d9c3b27a75513941f81144136cf62ba49d4c4f7ab9c4447b28762de98f1
+41.1s, 4 suites, 147 cases, 16656 tests total, 0 failures
 ```
 
 `ESCROW-LEGACY-XRP-DELETE-EDGE-001` asked whether legacy XRP Escrow finish,
