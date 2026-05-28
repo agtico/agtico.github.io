@@ -1670,6 +1670,32 @@ Interpretation: this pass reinforced the already-promoted
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` root and its packet-bound markers, but
 did not isolate a separate Moby Dick P0 outside that root.
 
+## Demoted: legacy account-root owner-directory cleanup sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether old account-root deletion, owner-directory,
+owner-count, or obligation cleanup could permit account deletion with live
+state, stranded owner objects, missing `tecHAS_OBLIGATIONS`, or owner-directory
+drift. The sweep covered `AccountDelete`, `DeleteAccount`, owner-directory
+helpers, `OwnerCount`, `adjustOwnerCount`, `dirInsert`, `dirRemove`,
+`deleteSLE`, `AccountRootsNotDeleted`, and account-root lookup patterns across
+core transaction and invariant code.
+
+The focused source/history sweep and upstream account-cleanup suites were
+packet-bound:
+
+```text
+legacy_accountroot_ownerdir_static_sweep_20260528.log sha256 8022db74ebbbf03fe0bd4028f14cdba95ae6edea05c61cb11422b20c8ae8511e
+legacy_accountroot_ownerdir_history_sweep_20260528.log sha256 878c00d1557f3a96c7e2585348fea0bf49201b545fa7f74e21b0e0b5c7b7bbf0
+legacy_accountroot_ownerdir_source_kill_20260528.log sha256 77fa2c011c5601d083e776af4c302c17a2667bc50eb23202813c00f3168b0fb0
+75.2s, 10 suites, 302 cases, 37723 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. The checked core
+cleanup paths did not show account deletion with live obligations, stranded
+core owner objects, owner-count drift, or missing cleanup.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

@@ -1,0 +1,707 @@
+legacy account-root owner-directory cleanup static sweep
+repo: XRPLF/rippled
+target: 46b241ace8b30d9c9775d60ffba7d24b21903896
+tag: 3.1.3
+
+-- account root / owner dir / obligation symbols --
+src/test/app/AMM_test.cpp:2376:            BEAST_EXPECT(!env.le(keylet::ownerDir(ammAlice.ammAccount())));
+src/test/app/AMM_test.cpp:5740:            BEAST_EXPECT(!env.le(keylet::ownerDir(amm.ammAccount())));
+src/test/app/AMM_test.cpp:5770:            BEAST_EXPECT(!env.le(keylet::ownerDir(amm.ammAccount())));
+src/test/app/AccountDelete_test.cpp:28:class AccountDelete_test : public beast::unit_test::suite
+src/test/app/AccountDelete_test.cpp:156:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:164:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:173:        env(acctdelete(becky, carol), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:200:            BEAST_EXPECT(env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:217:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:266:        Keylet const aliceRootKey{keylet::ownerDir(alice.id())};
+src/test/app/AccountDelete_test.cpp:328:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:329:        env(acctdelete(becky, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:347:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:348:        env(acctdelete(becky, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:379:                ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:400:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:437:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:605:        // directory entries an AccountDelete will remove.
+src/test/app/AccountDelete_test.cpp:637:        Keylet const aliceOwnerDirKey{keylet::ownerDir(alice.id())};
+src/test/app/AccountDelete_test.cpp:723:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:726:        env(acctdelete(gw, alice), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:1272:BEAST_DEFINE_TESTSUITE_PRIO(AccountDelete, app, ripple, 2);
+src/test/app/Batch_test.cpp:2568:    testAccountDelete(FeatureBitset features)
+src/test/app/Batch_test.cpp:2607:                {2, "AccountDelete", "tesSUCCESS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:2643:                // tecHAS_OBLIGATIONS: alice has obligations
+src/test/app/Batch_test.cpp:2651:                {2, "AccountDelete", "tecHAS_OBLIGATIONS", txIDs[1], batchID},
+src/test/app/Batch_test.cpp:3174:            BEAST_EXPECT(sle->getFieldU32(sfOwnerCount) == 9);
+src/test/app/Batch_test.cpp:3222:            BEAST_EXPECT(sle->getFieldU32(sfOwnerCount) == 8);
+src/test/app/Batch_test.cpp:3271:            BEAST_EXPECT(sle->getFieldU32(sfOwnerCount) == 8);
+src/test/app/Batch_test.cpp:4493:        testAccountDelete(features);
+src/test/app/Check_test.cpp:216:            std::uint32_t const fromOwnerCount{ownerCount(env, from)};
+src/test/app/Check_test.cpp:217:            std::uint32_t const toOwnerCount{ownerCount(env, to)};
+src/test/app/Check_test.cpp:231:            env.require(owners(from, fromOwnerCount + 2));
+src/test/app/Check_test.cpp:233:                owners(to, to == from ? fromOwnerCount + 2 : toOwnerCount));
+src/test/app/Check_test.cpp:330:            std::uint32_t const fromOwnerCount{ownerCount(env, from)};
+src/test/app/Check_test.cpp:331:            std::uint32_t const toOwnerCount{ownerCount(env, to)};
+src/test/app/Check_test.cpp:348:                env.require(owners(from, fromOwnerCount + 2));
+src/test/app/Check_test.cpp:350:                    owners(to, to == from ? fromOwnerCount + 2 : toOwnerCount));
+src/test/app/Check_test.cpp:357:            env.require(owners(from, fromOwnerCount));
+src/test/app/Check_test.cpp:358:            env.require(owners(to, to == from ? fromOwnerCount : toOwnerCount));
+src/test/app/Credentials_test.cpp:572:                    keylet::ownerDir(issuer.id()),
+src/test/app/Credentials_test.cpp:586:                    keylet::ownerDir(subject.id()),
+src/test/app/Credentials_test.cpp:945:                testcase("deleteSLE fail, bad SLE.");
+src/test/app/Credentials_test.cpp:949:                    ripple::credentials::deleteSLE(*view, {}, env.journal);
+src/test/app/Credentials_test.cpp:1117:            "removeExpired ignores deleteSLE failure " +
+src/test/app/Credentials_test.cpp:1192:        auto sleIssuer = av.peek(keylet::account(issuer.id()));
+src/test/app/Delegate_test.cpp:433:    testAccountDelete()
+src/test/app/Delegate_test.cpp:461:        BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/Delegate_test.cpp:1833:        testAccountDelete();
+src/test/app/EscrowToken_test.cpp:1025:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1032:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1049:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1056:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1070:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1075:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1080:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1094:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1099:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1142:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1147:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1154:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:1159:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1173:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1178:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1185:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:1188:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1202:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1207:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:1214:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:1217:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1257:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1262:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:1265:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:1276:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:1281:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:1284:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:3237:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:3244:                ripple::Dir iod(*env.current(), keylet::ownerDir(gw.id()));
+src/test/app/EscrowToken_test.cpp:3261:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3275:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:3280:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3294:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3342:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:3347:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3354:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:3366:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:3371:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3378:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:3388:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/EscrowToken_test.cpp:3393:                ripple::Dir bod(*env.current(), keylet::ownerDir(bob.id()));
+src/test/app/EscrowToken_test.cpp:3400:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/EscrowToken_test.cpp:3801:        // tecHAS_OBLIGATIONS: issuer cannot destroy issuance
+src/test/app/EscrowToken_test.cpp:3840:                 .err = tecHAS_OBLIGATIONS});
+src/test/app/EscrowToken_test.cpp:3853:        // tecHAS_OBLIGATIONS: holder cannot destroy mptoken
+src/test/app/EscrowToken_test.cpp:3889:                 .err = tecHAS_OBLIGATIONS});
+src/test/app/Escrow_test.cpp:786:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 0);
+src/test/app/Escrow_test.cpp:790:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:794:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:799:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:807:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:813:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:819:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:828:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:834:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:840:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:850:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 0);
+src/test/app/Escrow_test.cpp:853:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 0);
+src/test/app/Escrow_test.cpp:861:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 0);
+src/test/app/Escrow_test.cpp:882:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:885:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:893:            BEAST_EXPECT((*env.le("alice"))[sfOwnerCount] == 1);
+src/test/app/Escrow_test.cpp:1199:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/Escrow_test.cpp:1216:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1230:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/Escrow_test.cpp:1235:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1249:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1284:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/Escrow_test.cpp:1289:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1296:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/Escrow_test.cpp:1308:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/Escrow_test.cpp:1313:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1320:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/Escrow_test.cpp:1330:                ripple::Dir aod(*env.current(), keylet::ownerDir(alice.id()));
+src/test/app/Escrow_test.cpp:1335:                ripple::Dir bod(*env.current(), keylet::ownerDir(bruce.id()));
+src/test/app/Escrow_test.cpp:1342:                ripple::Dir cod(*env.current(), keylet::ownerDir(carol.id()));
+src/test/app/Invariants_test.cpp:228:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:244:        // An account was deleted, but not by an AccountDelete transaction.
+src/test/app/Invariants_test.cpp:249:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:260:        // Successful AccountDelete transaction that didn't delete an account.
+src/test/app/Invariants_test.cpp:274:        // Successful AccountDelete that deleted more than one account.
+src/test/app/Invariants_test.cpp:279:                auto sleA1 = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:280:                auto sleA2 = ac.view().peek(keylet::account(A2.id()));
+src/test/app/Invariants_test.cpp:307:                auto const sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:325:                auto const sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:362:                    auto sleA1 = ac.view().peek(keylet::account(a1));
+src/test/app/Invariants_test.cpp:386:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:417:                auto sle = ac.view().peek(keylet::account(ammAcctID));
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:451:                auto sle = ac.view().peek(keylet::account(ammAcctID));
+src/test/app/Invariants_test.cpp:483:                auto const ownerDirKeylet = keylet::ownerDir(ammAcctID);
+src/test/app/Invariants_test.cpp:485:                BEAST_EXPECT(ac.view().dirRemove(
+src/test/app/Invariants_test.cpp:486:                    ownerDirKeylet, ammSle->at(sfOwnerNode), ammKey, false));
+src/test/app/Invariants_test.cpp:488:                    !ac.view().exists(ownerDirKeylet) ||
+src/test/app/Invariants_test.cpp:489:                    ac.view().emptyDirDelete(ownerDirKeylet));
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:524:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:536:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:757:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:771:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:787:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:837:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:853:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:870:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:895:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:910:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:927:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:946:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:964:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:983:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1001:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1019:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1038:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1056:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:1805:                    auto sle = ac.view().peek(keylet::account(pseudoAccountID));
+src/test/app/Invariants_test.cpp:1826:                    auto sle = ac.view().peek(keylet::account(pseudoAccountID));
+src/test/app/Invariants_test.cpp:1850:                auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:2236:                        auto sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2328:                auto const dirKeylet = keylet::ownerDir(pseudoAccountID);
+src/test/app/Invariants_test.cpp:2348:                {{"Loan Broker with zero OwnerCount has multiple directory "
+src/test/app/Invariants_test.cpp:2380:                {{"Loan Broker with zero OwnerCount has multiple indexes in "
+src/test/app/Invariants_test.cpp:2437:                {{"Loan Broker with zero OwnerCount has an unexpected entry in "
+src/test/app/Invariants_test.cpp:2603:                    auto slePseudoAccount = ac.peek(keylet::account(pseudoId));
+src/test/app/Invariants_test.cpp:2629:                    auto sleAccount = ac.peek(keylet::account(pair.account));
+src/test/app/Invariants_test.cpp:2766:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2767:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:2842:                    auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:2843:                        keylet::ownerDir(A.id()),
+src/test/app/Invariants_test.cpp:3071:                    ac.view().peek(keylet::account(*(*sleVault)[sfAccount]));
+src/test/app/Invariants_test.cpp:3079:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3473:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3474:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3500:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3501:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3537:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3538:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3566:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3567:                    keylet::ownerDir(pseudoId),
+src/test/app/Invariants_test.cpp:3605:                auto const vaultPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3606:                    keylet::ownerDir(A1.id()),
+src/test/app/Invariants_test.cpp:3614:                auto const sharesPage = ac.view().dirInsert(
+src/test/app/Invariants_test.cpp:3615:                    keylet::ownerDir(A2.id()),
+src/test/app/Invariants_test.cpp:3694:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3727:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3755:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3841:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3913:                auto sleA4 = ac.view().peek(keylet::account(A4.id()));
+src/test/app/Invariants_test.cpp:3949:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:3980:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:4071:                auto sleA3 = ac.view().peek(keylet::account(A3.id()));
+src/test/app/Invariants_test.cpp:4409:                auto const sle = ac.view().peek(keylet::account(A1.id()));
+src/test/app/LoanBroker_test.cpp:160:            BEAST_EXPECT(broker->at(sfOwnerCount) == 0);
+src/test/app/LoanBroker_test.cpp:188:                    pseudo->at(sfOwnerCount) ==
+src/test/app/LoanBroker_test.cpp:1112:            // preclaim: tecHAS_OBLIGATIONS
+src/test/app/LoanBroker_test.cpp:1114:                ter(tecHAS_OBLIGATIONS),
+src/test/app/LoanBroker_test.cpp:1260:        preclaim: tecHAS_OBLIGATIONS
+src/test/app/LoanBroker_test.cpp:1263:            all tecHAS_OBLIGATIONS (can any of these happen?)
+src/test/app/Loan_test.cpp:302:                    brokerSle->at(sfOwnerCount) == ownerCount);
+src/test/app/Loan_test.cpp:788:            BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 0);
+src/test/app/Loan_test.cpp:1318:            BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 0);
+src/test/app/Loan_test.cpp:1362:        auto const borrowerOwnerCount = env.ownerCount(borrower);
+src/test/app/Loan_test.cpp:1410:            BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 1);
+src/test/app/Loan_test.cpp:1555:        env(del(lender, keylet.key), ter(tecHAS_OBLIGATIONS));
+src/test/app/Loan_test.cpp:1571:        env(loanBroker::del(lender, broker.brokerID), ter(tecHAS_OBLIGATIONS));
+src/test/app/Loan_test.cpp:1605:        BEAST_EXPECT(env.ownerCount(borrower) == borrowerOwnerCount);
+src/test/app/Loan_test.cpp:1610:            BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 0);
+src/test/app/Loan_test.cpp:3776:                BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 0);
+src/test/app/Loan_test.cpp:6506:            BEAST_EXPECT(brokerSle->at(sfOwnerCount) == 0);
+src/test/app/MPToken_test.cpp:280:                mptAlice.destroy({.err = tecHAS_OBLIGATIONS});
+src/test/app/MPToken_test.cpp:390:                     .err = tecHAS_OBLIGATIONS});
+src/test/app/MultiSign_test.cpp:1471:        // The OwnerCount associated with a SignerList changes once the
+src/test/app/MultiSign_test.cpp:1474:        // verify that the OwnerCount is managed properly for all of them.
+src/test/app/MultiSign_test.cpp:1527:        // Delete becky's signer list; her OwnerCount should drop to zero.
+src/test/app/MultiSign_test.cpp:1528:        // Replace alice's signer list; her OwnerCount should drop to one.
+src/test/app/MultiSign_test.cpp:1548:        // Delete the three remaining signer lists.  Everybody's OwnerCount
+src/test/app/NFTokenBurn_test.cpp:1319:            ter(tecHAS_OBLIGATIONS));
+src/test/app/NFToken_test.cpp:4087:            auto checkOwnerCountIsOne =
+src/test/app/NFToken_test.cpp:4125:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4172:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4228:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4275:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4354:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4443:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4533:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4575:                checkOwnerCountIsOne({issuer, minter, buyer, broker}, __LINE__);
+src/test/app/NFToken_test.cpp:4805:    testNFTokenDeleteAccount(FeatureBitset features)
+src/test/app/NFToken_test.cpp:4843:        env(acctdelete(issuer, daria), fee(XRP(50)), ter(tecHAS_OBLIGATIONS));
+src/test/app/NFToken_test.cpp:4844:        env(acctdelete(minter, daria), fee(XRP(50)), ter(tecHAS_OBLIGATIONS));
+src/test/app/NFToken_test.cpp:4878:        env(acctdelete(issuer, daria), fee(XRP(50)), ter(tecHAS_OBLIGATIONS));
+src/test/app/NFToken_test.cpp:4879:        env(acctdelete(carla, daria), fee(XRP(50)), ter(tecHAS_OBLIGATIONS));
+src/test/app/NFToken_test.cpp:8204:        testNFTokenDeleteAccount(features);
+src/test/app/PayChan_test.cpp:1833:            ripple::Dir const ownerDir(view, keylet::ownerDir(acc.id()));
+src/test/app/PayChan_test.cpp:1834:            return std::find(ownerDir.begin(), ownerDir.end(), chan) !=
+src/test/app/PayChan_test.cpp:1835:                ownerDir.end();
+src/test/app/PayChan_test.cpp:1838:        auto ownerDirCount = [](ReadView const& view,
+src/test/app/PayChan_test.cpp:1840:            ripple::Dir const ownerDir(view, keylet::ownerDir(acc.id()));
+src/test/app/PayChan_test.cpp:1841:            return std::distance(ownerDir.begin(), ownerDir.end());
+src/test/app/PayChan_test.cpp:1854:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 1);
+src/test/app/PayChan_test.cpp:1856:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1869:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 0);
+src/test/app/PayChan_test.cpp:1871:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1883:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 1);
+src/test/app/PayChan_test.cpp:1885:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 1);
+src/test/app/PayChan_test.cpp:1890:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 0);
+src/test/app/PayChan_test.cpp:1892:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1906:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 1);
+src/test/app/PayChan_test.cpp:1908:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1919:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1925:            BEAST_EXPECT(ownerDirCount(*env.current(), alice) == 0);
+src/test/app/PayChan_test.cpp:1927:            BEAST_EXPECT(ownerDirCount(*env.current(), bob) == 0);
+src/test/app/PayChan_test.cpp:1932:    testAccountDelete(FeatureBitset features)
+src/test/app/PayChan_test.cpp:1981:            rmAccount(env, alice, carol, tecHAS_OBLIGATIONS);
+src/test/app/PayChan_test.cpp:1987:                withOwnerDirFix ? TER(tecHAS_OBLIGATIONS) : TER(tesSUCCESS));
+src/test/app/PayChan_test.cpp:2348:        testAccountDelete(features);
+src/test/app/PermissionedDomains_test.cpp:450:                ter(tecHAS_OBLIGATIONS));
+src/test/app/Ticket_test.cpp:121:                    // Verify the OwnerCount did the right thing
+src/test/app/Ticket_test.cpp:125:                        // the previous OwnerCount should not be reported.
+src/test/app/Ticket_test.cpp:127:                            !previousFields.isMember(sfOwnerCount.jsonName));
+src/test/app/Ticket_test.cpp:131:                        // Verify the OwnerCount did the right thing.
+src/test/app/Ticket_test.cpp:133:                            previousFields[sfOwnerCount.jsonName].asUInt()};
+src/test/app/Ticket_test.cpp:136:                            finalFields[sfOwnerCount.jsonName].asUInt()};
+src/test/app/Vault_test.cpp:155:                env(tx, ter(tecHAS_OBLIGATIONS));
+src/test/app/XChain_test.cpp:4181:                ter(tecHAS_OBLIGATIONS));
+src/test/app/XChain_test.cpp:4202:                ter(tecHAS_OBLIGATIONS));
+src/test/ledger/Directory_test.cpp:110:                    view->read(keylet::page(keylet::ownerDir(alice), page));
+src/test/ledger/Directory_test.cpp:165:        BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:170:        BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:174:        BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:198:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:208:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:216:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:228:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:240:            BEAST_EXPECT(!dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:252:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:310:            BEAST_EXPECT(dirIsEmpty(*env.closed(), keylet::ownerDir(alice)));
+src/test/ledger/Directory_test.cpp:353:            BEAST_EXPECT(sb.dirRemove(
+src/test/ledger/Directory_test.cpp:387:            BEAST_EXPECT(sb.dirRemove(
+src/test/ledger/Directory_test.cpp:521:                keylet::ownerDir(alice.id()),
+src/test/ledger/Directory_test.cpp:552:            auto const sle = env.le(keylet::ownerDir(alice.id()));
+src/xrpld/app/misc/NetworkOPs.cpp:1759:    auto root = keylet::ownerDir(account);
+src/xrpld/app/misc/detail/AMMUtils.cpp:243:    return cleanupOnAccountDelete(
+src/xrpld/app/misc/detail/AMMUtils.cpp:245:        keylet::ownerDir(ammAccountID),
+src/xrpld/app/misc/detail/AMMUtils.cpp:300:    auto sleAMMRoot = sb.peek(keylet::account(ammAccountID));
+src/xrpld/app/misc/detail/AMMUtils.cpp:315:    auto const ownerDirKeylet = keylet::ownerDir(ammAccountID);
+src/xrpld/app/misc/detail/AMMUtils.cpp:316:    if (!sb.dirRemove(
+src/xrpld/app/misc/detail/AMMUtils.cpp:317:            ownerDirKeylet, (*ammSle)[sfOwnerNode], ammSle->key(), false))
+src/xrpld/app/misc/detail/AMMUtils.cpp:324:    if (sb.exists(ownerDirKeylet) && !sb.emptyDirDelete(ownerDirKeylet))
+src/xrpld/app/misc/detail/AMMUtils.cpp:406:    auto const root = keylet::ownerDir(ammIssue.account);
+src/xrpld/app/misc/detail/AMMUtils.cpp:412:        auto const ownerDir = view.read(currentIndex);
+src/xrpld/app/misc/detail/AMMUtils.cpp:413:        if (!ownerDir)
+src/xrpld/app/misc/detail/AMMUtils.cpp:415:        for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/xrpld/app/misc/detail/AMMUtils.cpp:455:        auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:595:            std::uint32_t const ownerCount = sleAccount->at(sfOwnerCount);
+src/xrpld/app/tx/detail/CancelCheck.cpp:93:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:94:                keylet::ownerDir(dstId), page, sleCheck->key(), true))
+src/xrpld/app/tx/detail/CancelCheck.cpp:104:        if (!view().dirRemove(
+src/xrpld/app/tx/detail/CancelCheck.cpp:105:                keylet::ownerDir(srcId), page, sleCheck->key(), true))
+src/xrpld/app/tx/detail/CancelCheck.cpp:115:    auto const sleSrc = view().peek(keylet::account(srcId));
+src/xrpld/app/tx/detail/CancelCheck.cpp:116:    adjustOwnerCount(view(), sleSrc, -1, viewJ);
+src/xrpld/app/tx/detail/CashCheck.cpp:360:                auto const sleDst = psb.peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CashCheck.cpp:363:                if (std::uint32_t const ownerCount = {sleDst->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/CashCheck.cpp:481:        !psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:482:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/CashCheck.cpp:494:    if (!psb.dirRemove(
+src/xrpld/app/tx/detail/CashCheck.cpp:495:            keylet::ownerDir(srcId),
+src/xrpld/app/tx/detail/CashCheck.cpp:507:    adjustOwnerCount(psb, psb.peek(keylet::account(srcId)), -1, viewJ);
+src/xrpld/app/tx/detail/Change.cpp:203:        if (auto const page = tl->getFieldU64(sfLowNode); !sb.dirRemove(
+src/xrpld/app/tx/detail/Change.cpp:204:                keylet::ownerDir(lo.getIssuer()), page, tl->key(), false))
+src/xrpld/app/tx/detail/Change.cpp:212:        if (auto const page = tl->getFieldU64(sfHighNode); !sb.dirRemove(
+src/xrpld/app/tx/detail/Change.cpp:213:                keylet::ownerDir(hi.getIssuer()), page, tl->key(), false))
+src/xrpld/app/tx/detail/Change.cpp:222:            adjustOwnerCount(
+src/xrpld/app/tx/detail/Change.cpp:223:                sb, sb.peek(keylet::account(lo.getIssuer())), -1, j_);
+src/xrpld/app/tx/detail/Change.cpp:226:            adjustOwnerCount(
+src/xrpld/app/tx/detail/Change.cpp:227:                sb, sb.peek(keylet::account(hi.getIssuer())), -1, j_);
+src/xrpld/app/tx/detail/CreateCheck.cpp:160:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CreateCheck.cpp:169:            view().fees().accountReserve(sle->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/CreateCheck.cpp:202:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:203:            keylet::ownerDir(dstAccountId),
+src/xrpld/app/tx/detail/CreateCheck.cpp:218:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateCheck.cpp:219:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/CreateCheck.cpp:233:    adjustOwnerCount(view(), sle, 1, viewJ);
+src/xrpld/app/tx/detail/CreateOffer.cpp:817:    auto const sleCreator = sb.peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CreateOffer.cpp:823:            sb.fees().accountReserve(sleCreator->getFieldU32(sfOwnerCount) + 1);
+src/xrpld/app/tx/detail/CreateOffer.cpp:846:    auto const ownerNode = sb.dirInsert(
+src/xrpld/app/tx/detail/CreateOffer.cpp:847:        keylet::ownerDir(account_), offer_index, describeOwnerDir(account_));
+src/xrpld/app/tx/detail/CreateOffer.cpp:859:    adjustOwnerCount(sb, sleCreator, 1, viewJ);
+src/xrpld/app/tx/detail/CreateTicket.cpp:77:    SLE::pointer const sleAccountRoot = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/CreateTicket.cpp:87:            sleAccountRoot->getFieldU32(sfOwnerCount) + ticketCount);
+src/xrpld/app/tx/detail/CreateTicket.cpp:117:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/CreateTicket.cpp:118:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/CreateTicket.cpp:138:    adjustOwnerCount(view(), sleAccountRoot, ticketCount, viewJ);
+src/xrpld/app/tx/detail/Credentials.cpp:138:    auto const sleIssuer = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Credentials.cpp:144:            sleIssuer->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:157:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:158:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/Credentials.cpp:168:        adjustOwnerCount(view(), sleIssuer, 1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:177:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/Credentials.cpp:178:            keylet::ownerDir(subject),
+src/xrpld/app/tx/detail/Credentials.cpp:187:        view().update(view().peek(keylet::account(subject)));
+src/xrpld/app/tx/detail/Credentials.cpp:270:    return deleteSLE(view(), sleCred, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:341:    auto const sleSubject = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Credentials.cpp:342:    auto const sleIssuer = view().peek(keylet::account(issuer));
+src/xrpld/app/tx/detail/Credentials.cpp:349:            sleSubject->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:364:        auto const err = credentials::deleteSLE(view(), sleCred, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:371:    adjustOwnerCount(view(), sleIssuer, -1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:372:    adjustOwnerCount(view(), sleSubject, 1, j_);
+src/xrpld/app/tx/detail/DID.cpp:77:    auto const sleAccount = ctx.view().peek(keylet::account(owner));
+src/xrpld/app/tx/detail/DID.cpp:85:            ctx.view().fees().accountReserve((*sleAccount)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/DID.cpp:96:        auto page = ctx.view().dirInsert(
+src/xrpld/app/tx/detail/DID.cpp:97:            keylet::ownerDir(owner), sle->key(), describeOwnerDir(owner));
+src/xrpld/app/tx/detail/DID.cpp:102:    adjustOwnerCount(ctx.view(), sleAccount, 1, ctx.journal);
+src/xrpld/app/tx/detail/DID.cpp:172:DIDDelete::deleteSLE(ApplyContext& ctx, Keylet sleKeylet, AccountID const owner)
+src/xrpld/app/tx/detail/DID.cpp:178:    return DIDDelete::deleteSLE(ctx.view(), sle, owner, ctx.journal);
+src/xrpld/app/tx/detail/DID.cpp:182:DIDDelete::deleteSLE(
+src/xrpld/app/tx/detail/DID.cpp:189:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DID.cpp:190:            keylet::ownerDir(owner), (*sle)[sfOwnerNode], sle->key(), true))
+src/xrpld/app/tx/detail/DID.cpp:198:    auto const sleOwner = view.peek(keylet::account(owner));
+src/xrpld/app/tx/detail/DID.cpp:202:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DID.cpp:213:    return deleteSLE(ctx_, keylet::did(account_), account_);
+src/xrpld/app/tx/detail/DID.h:58:    deleteSLE(ApplyContext& ctx, Keylet sleKeylet, AccountID const owner);
+src/xrpld/app/tx/detail/DID.h:61:    deleteSLE(
+src/xrpld/app/tx/detail/DelegateSet.cpp:92:    auto const sleOwner = ctx_.view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/DelegateSet.cpp:113:        sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DelegateSet.cpp:126:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/DelegateSet.cpp:127:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/DelegateSet.cpp:136:        adjustOwnerCount(ctx_.view(), sleOwner, 1, ctx_.journal);
+src/xrpld/app/tx/detail/DelegateSet.cpp:152:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DelegateSet.cpp:153:            keylet::ownerDir(account), (*sle)[sfOwnerNode], sle->key(), false))
+src/xrpld/app/tx/detail/DelegateSet.cpp:161:    auto const sleOwner = view.peek(keylet::account(account));
+src/xrpld/app/tx/detail/DelegateSet.cpp:165:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DelegateSet.h:45:    // Interface used by DeleteAccount
+src/xrpld/app/tx/detail/DeleteAccount.cpp:22:#include <xrpld/app/tx/detail/DeleteAccount.h>
+src/xrpld/app/tx/detail/DeleteAccount.cpp:42:DeleteAccount::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:55:DeleteAccount::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:69:DeleteAccount::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:71:    // The fee required for AccountDelete is one owner reserve.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:158:    return DIDDelete::deleteSLE(view, sleDel, account, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:182:    return credentials::deleteSLE(view, sleDel, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:231:DeleteAccount::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:264:        sleAccount, "ripple::DeleteAccount::preclaim : non-null account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:274:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:284:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:316:    Keylet const ownerDirKeylet{keylet::ownerDir(account)};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:317:    if (dirIsEmpty(ctx.view, ownerDirKeylet))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:327:            ctx.view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:341:                << "DeleteAccount: directory node in ledger " << ctx.view.seq()
+src/xrpld/app/tx/detail/DeleteAccount.cpp:352:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:360:        ctx.view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry));
+src/xrpld/app/tx/detail/DeleteAccount.cpp:366:DeleteAccount::doApply()
+src/xrpld/app/tx/detail/DeleteAccount.cpp:368:    auto src = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/DeleteAccount.cpp:370:        src, "ripple::DeleteAccount::doApply : non-null source account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:373:    auto dst = view().peek(keylet::account(dstID));
+src/xrpld/app/tx/detail/DeleteAccount.cpp:375:        dst, "ripple::DeleteAccount::doApply : non-null destination account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:389:    Keylet const ownerDirKeylet{keylet::ownerDir(account_)};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:390:    auto const ter = cleanupOnAccountDelete(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:392:        ownerDirKeylet,
+src/xrpld/app/tx/detail/DeleteAccount.cpp:406:                "ripple::DeleteAccount::doApply : undeletable item not found "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:408:            JLOG(j_.error()) << "DeleteAccount undeletable item not "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:410:            return {tecHAS_OBLIGATIONS, SkipEntry::No};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:424:        "ripple::DeleteAccount::doApply : source balance is zero");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:428:    if (view().exists(ownerDirKeylet) && !view().emptyDirDelete(ownerDirKeylet))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:430:        JLOG(j_.error()) << "DeleteAccount cannot delete root dir node of "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:432:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.h:27:class DeleteAccount : public Transactor
+src/xrpld/app/tx/detail/DeleteAccount.h:32:    explicit DeleteAccount(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/DeleteAccount.h:52:using AccountDelete = DeleteAccount;
+src/xrpld/app/tx/detail/DeleteOracle.cpp:69:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/DeleteOracle.cpp:70:            keylet::ownerDir(account), (*sle)[sfOwnerNode], sle->key(), true))
+src/xrpld/app/tx/detail/DeleteOracle.cpp:78:    auto const sleOwner = view.peek(keylet::account(account));
+src/xrpld/app/tx/detail/DeleteOracle.cpp:85:    adjustOwnerCount(view, sleOwner, count, j);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:166:        auto const sleOwner = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:175:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:191:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:192:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/DepositPreauth.cpp:206:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:217:        auto const sleOwner = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:226:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:257:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:258:            keylet::ownerDir(account_), preauthKey, describeOwnerDir(account_));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:270:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:290:    // Existence already checked in preclaim and DeleteAccount
+src/xrpld/app/tx/detail/DepositPreauth.cpp:300:    if (!view.dirRemove(keylet::ownerDir(account), page, preauthIndex, false))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:309:    auto const sleOwner = view.peek(keylet::account(account));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:313:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DepositPreauth.h:48:    // Interface used by DeleteAccount
+src/xrpld/app/tx/detail/Escrow.cpp:492:    auto const sle = ctx_.view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Escrow.cpp:500:        ctx_.view().fees().accountReserve((*sle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/Escrow.cpp:558:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:559:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/Escrow.cpp:571:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:572:            keylet::ownerDir(dest), escrowKeylet, describeOwnerDir(dest));
+src/xrpld/app/tx/detail/Escrow.cpp:585:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/Escrow.cpp:586:            keylet::ownerDir(issuer), escrowKeylet, describeOwnerDir(issuer));
+src/xrpld/app/tx/detail/Escrow.cpp:610:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:851:        if (std::uint32_t const ownerCount = {sleDest->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/Escrow.cpp:977:        if (std::uint32_t const ownerCount = {sleDest->at(sfOwnerCount)};
+src/xrpld/app/tx/detail/Escrow.cpp:991:        adjustOwnerCount(view, sleDest, 1, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1128:    auto const sled = ctx_.view().peek(keylet::account(destID));
+src/xrpld/app/tx/detail/Escrow.cpp:1145:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1146:                keylet::ownerDir(account), page, k.key, true))
+src/xrpld/app/tx/detail/Escrow.cpp:1158:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1159:                keylet::ownerDir(destID), *optPage, k.key, true))
+src/xrpld/app/tx/detail/Escrow.cpp:1203:            if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1204:                    keylet::ownerDir(issuer), *optPage, k.key, true))
+src/xrpld/app/tx/detail/Escrow.cpp:1217:    auto const sle = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/Escrow.cpp:1218:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1369:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1370:                keylet::ownerDir(account), page, k.key, true))
+src/xrpld/app/tx/detail/Escrow.cpp:1382:        if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1383:                keylet::ownerDir((*slep)[sfDestination]),
+src/xrpld/app/tx/detail/Escrow.cpp:1395:    auto const sle = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/Escrow.cpp:1429:            if (!ctx_.view().dirRemove(
+src/xrpld/app/tx/detail/Escrow.cpp:1430:                    keylet::ownerDir(issuer), *optPage, k.key, true))
+src/xrpld/app/tx/detail/Escrow.cpp:1440:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:456:AccountRootsNotDeleted::visitEntry(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:466:AccountRootsNotDeleted::finalize(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:475:    // A successful AccountDelete or AMMDelete MUST delete exactly
+src/xrpld/app/tx/detail/InvariantCheck.cpp:578:        if (after->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2493:                           "OwnerCount has multiple directory pages";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2501:               "OwnerCount has multiple indexes in the Directory root";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2518:                   "OwnerCount has an unexpected entry in the directory";
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2583:        // If `LoanBroker.OwnerCount = 0` the `DirectoryNode` will have at most
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2586:        if (after->at(sfOwnerCount) == 0)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2588:            auto const dir = view.read(keylet::ownerDir(after->at(sfAccount)));
+src/xrpld/app/tx/detail/InvariantCheck.h:149: * AccountDelete transaction.
+src/xrpld/app/tx/detail/InvariantCheck.h:151:class AccountRootsNotDeleted
+src/xrpld/app/tx/detail/InvariantCheck.h:178: * AccountRootsNotDeleted. This invariant will handle multiple deleted account
+src/xrpld/app/tx/detail/InvariantCheck.h:786: * 1. If `LoanBroker.OwnerCount = 0` the `DirectoryNode` will have at most one
+src/xrpld/app/tx/detail/InvariantCheck.h:955:    AccountRootsNotDeleted,
+src/xrpld/app/tx/detail/LedgerStateFix.cpp:51:    // the fee for AccountDelete.
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:46:    if (auto const ownerCount = sleBroker->at(sfOwnerCount); ownerCount != 0)
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:49:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:78:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:119:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:120:            keylet::ownerDir(account_),
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:127:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:128:            keylet::ownerDir(vaultPseudoID),
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:152:    auto brokerPseudoSLE = view().peek(keylet::account(brokerPseudoID));
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:161:        return tecHAS_OBLIGATIONS;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:163:    if (brokerPseudoSLE->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:167:        return tecHAS_OBLIGATIONS;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:169:    if (auto const directory = keylet::ownerDir(brokerPseudoID);
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:173:        return tecHAS_OBLIGATIONS;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:181:        auto owner = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:187:        adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:213:        auto owner = view.peek(keylet::account(account_));
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:232:        adjustOwnerCount(view, owner, 2, j_);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:233:        auto const ownerCount = owner->at(sfOwnerCount);
+src/xrpld/app/tx/detail/LoanDelete.cpp:41:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/LoanDelete.cpp:73:    auto const borrowerSle = view.peek(keylet::account(borrower));
+src/xrpld/app/tx/detail/LoanDelete.cpp:89:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/LoanDelete.cpp:90:            keylet::ownerDir(brokerPseudoAccount),
+src/xrpld/app/tx/detail/LoanDelete.cpp:96:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/LoanDelete.cpp:97:            keylet::ownerDir(borrower),
+src/xrpld/app/tx/detail/LoanDelete.cpp:109:    adjustOwnerCount(view, brokerSle, -1, j_);
+src/xrpld/app/tx/detail/LoanDelete.cpp:112:    if (brokerSle->at(sfOwnerCount) == 0)
+src/xrpld/app/tx/detail/LoanDelete.cpp:129:    adjustOwnerCount(view, borrowerSle, -1, j_);
+src/xrpld/app/tx/detail/LoanPay.cpp:313:    auto const brokerPayeeSle = view.peek(keylet::account(brokerPayee));
+src/xrpld/app/tx/detail/LoanSet.cpp:368:    auto const brokerOwnerSle = view.peek(keylet::account(brokerOwner));
+src/xrpld/app/tx/detail/LoanSet.cpp:380:    auto const borrowerSle = view.peek(keylet::account(borrower));
+src/xrpld/app/tx/detail/LoanSet.cpp:387:    auto const brokerPseudoSle = view.peek(keylet::account(brokerPseudo));
+src/xrpld/app/tx/detail/LoanSet.cpp:501:    adjustOwnerCount(view, borrowerSle, 1, j_);
+src/xrpld/app/tx/detail/LoanSet.cpp:503:        auto const ownerCount = borrowerSle->at(sfOwnerCount);
+src/xrpld/app/tx/detail/LoanSet.cpp:633:    adjustOwnerCount(view, brokerSle, 1, j_);
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:80:                return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:90:                return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:165:    auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:166:        keylet::ownerDir(account), mptokenKey, describeOwnerDir(account));
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:105:    auto const acct = view.peek(keylet::account(args.account));
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:111:            view.fees().accountReserve((*acct)[sfOwnerCount] + 1))
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:119:        auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:120:            keylet::ownerDir(args.account),
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:156:    adjustOwnerCount(view, acct, 1, journal);
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:55:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:58:        return tecHAS_OBLIGATIONS;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:71:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:72:            keylet::ownerDir(account_), (*mpt)[sfOwnerNode], mpt->key(), false))
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:77:    adjustOwnerCount(view(), view().peek(keylet::account(account_)), -1, j_);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:452:    std::uint32_t const buyerOwnerCountBefore =
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:453:        sleBuyer->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:459:    // reserve to own a new object, if their OwnerCount changed.
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:473:        auto const buyerOwnerCountAfter = sleBuyer->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:474:        if (buyerOwnerCountAfter > buyerOwnerCountBefore)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:477:                    view().fees().accountReserve(buyerOwnerCountAfter);
+src/xrpld/app/tx/detail/NFTokenBurn.cpp:92:            view().peek(keylet::account(nft::getIssuer(ctx_.tx[sfNFTokenID]))))
+src/xrpld/app/tx/detail/NFTokenMint.cpp:228:        auto const root = view().peek(keylet::account(issuer));
+src/xrpld/app/tx/detail/NFTokenMint.cpp:301:        view().read(keylet::account(account_))->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenMint.cpp:355:            view().read(keylet::account(account_))->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:294:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:296:                view.peek(keylet::account(owner)),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:461:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:463:                view.peek(keylet::account(owner)),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:499:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:501:                view.peek(keylet::account(owner)),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:550:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:552:        view.peek(keylet::account(owner)),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:689:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:690:            keylet::ownerDir(owner),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:698:    if (!view.dirRemove(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:706:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:708:        view.peek(keylet::account(owner)),
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1037:        priorBalance < view.fees().accountReserve((*acct)[sfOwnerCount] + 1))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1045:        auto const ownerNode = view.dirInsert(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1046:            keylet::ownerDir(acctID), offerID, describeOwnerDir(acctID));
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1055:        auto const offerNode = view.dirInsert(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1091:    adjustOwnerCount(view, view.peek(acctKeylet), 1, j);
+src/xrpld/app/tx/detail/OfferStream.cpp:68:    // NIKB NOTE This should be using ApplyView::dirRemove, which would
+src/xrpld/app/tx/detail/PayChan.cpp:127:        if (!view.dirRemove(keylet::ownerDir(src), page, key, true))
+src/xrpld/app/tx/detail/PayChan.cpp:142:        if (!view.dirRemove(keylet::ownerDir(dst), *page, key, true))
+src/xrpld/app/tx/detail/PayChan.cpp:153:    auto const sle = view.peek(keylet::account(src));
+src/xrpld/app/tx/detail/PayChan.cpp:162:    adjustOwnerCount(view, sle, -1, j);
+src/xrpld/app/tx/detail/PayChan.cpp:212:            ctx.view.fees().accountReserve((*sle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/PayChan.cpp:262:    auto const sle = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/PayChan.cpp:303:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/PayChan.cpp:304:            keylet::ownerDir(account),
+src/xrpld/app/tx/detail/PayChan.cpp:315:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/PayChan.cpp:316:            keylet::ownerDir(dst), payChanKeylet, describeOwnerDir(dst));
+src/xrpld/app/tx/detail/PayChan.cpp:324:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/PayChan.cpp:394:    auto const sle = ctx_.view().peek(keylet::account(txAccount));
+src/xrpld/app/tx/detail/PayChan.cpp:402:            ctx_.view().fees().accountReserve((*sle)[sfOwnerCount]);
+src/xrpld/app/tx/detail/PayChan.cpp:560:        auto const sled = ctx_.view().peek(keylet::account(dst));
+src/xrpld/app/tx/detail/Payment.cpp:633:    auto const sleSrc = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Payment.cpp:639:    auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:67:    if (!view().dirRemove(keylet::ownerDir(account_), page, slePd->key(), true))
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:76:    auto const ownerSle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:78:        ownerSle && ownerSle->getFieldU32(sfOwnerCount) > 0,
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:80:    adjustOwnerCount(view(), ownerSle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:87:    auto const ownerSle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:118:            ctx_.view().fees().accountReserve((*ownerSle)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:131:        auto const page = view().dirInsert(
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:132:            keylet::ownerDir(account_), pdKeylet, describeOwnerDir(account_));
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:138:        adjustOwnerCount(view(), ownerSle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/SetAccount.cpp:268:        if (!dirIsEmpty(ctx.view, keylet::ownerDir(id)))
+src/xrpld/app/tx/detail/SetAccount.cpp:288:            if (!dirIsEmpty(ctx.view, keylet::ownerDir(id)))
+src/xrpld/app/tx/detail/SetAccount.cpp:312:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/SetOracle.cpp:167:        sleSetter->getFieldU32(sfOwnerCount) + adjustReserve);
+src/xrpld/app/tx/detail/SetOracle.cpp:177:adjustOwnerCount(ApplyContext& ctx, int count)
+src/xrpld/app/tx/detail/SetOracle.cpp:180:            ctx.view().peek(keylet::account(ctx.tx[sfAccount])))
+src/xrpld/app/tx/detail/SetOracle.cpp:182:        adjustOwnerCount(ctx.view(), sleAccount, count, ctx.journal);
+src/xrpld/app/tx/detail/SetOracle.cpp:273:        if (adjust != 0 && !adjustOwnerCount(ctx_, adjust))
+src/xrpld/app/tx/detail/SetOracle.cpp:315:        auto page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/SetOracle.cpp:316:            keylet::ownerDir(account_), sle->key(), describeOwnerDir(account_));
+src/xrpld/app/tx/detail/SetOracle.cpp:323:        if (!adjustOwnerCount(ctx_, count))
+src/xrpld/app/tx/detail/SetRegularKey.cpp:67:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/SetSignerList.cpp:163:// of adjustOwnerCount() (which must be signed).
+src/xrpld/app/tx/detail/SetSignerList.cpp:165:// NOTE: This way of computing the OwnerCount associated with a SignerList
+src/xrpld/app/tx/detail/SetSignerList.cpp:167:// passes then just 1 OwnerCount is associated with a SignerList.
+src/xrpld/app/tx/detail/SetSignerList.cpp:169:signerCountBasedOwnerCountDelta(std::size_t entryCount, Rules const& rules)
+src/xrpld/app/tx/detail/SetSignerList.cpp:171:    // We always compute the full change in OwnerCount, taking into account:
+src/xrpld/app/tx/detail/SetSignerList.cpp:178:    //  o Simply having a SignerList costs 2 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:179:    //  o And each signer in the list costs 1 more OwnerCount unit.
+src/xrpld/app/tx/detail/SetSignerList.cpp:180:    // So, at a minimum, adding a SignerList with 1 entry costs 3 OwnerCount
+src/xrpld/app/tx/detail/SetSignerList.cpp:181:    // units.  A SignerList with 8 entries would cost 10 OwnerCount units.
+src/xrpld/app/tx/detail/SetSignerList.cpp:188:        "ripple::signerCountBasedOwnerCountDelta : minimum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:191:        "ripple::signerCountBasedOwnerCountDelta : maximum signers");
+src/xrpld/app/tx/detail/SetSignerList.cpp:200:    Keylet const& ownerDirKeylet,
+src/xrpld/app/tx/detail/SetSignerList.cpp:205:    // reduce the OwnerCount.
+src/xrpld/app/tx/detail/SetSignerList.cpp:212:    // There are two different ways that the OwnerCount could be managed.
+src/xrpld/app/tx/detail/SetSignerList.cpp:213:    // If the lsfOneOwnerCount bit is set then remove just one owner count.
+src/xrpld/app/tx/detail/SetSignerList.cpp:215:    int removeFromOwnerCount = -1;
+src/xrpld/app/tx/detail/SetSignerList.cpp:216:    if ((signers->getFlags() & lsfOneOwnerCount) == 0)
+src/xrpld/app/tx/detail/SetSignerList.cpp:219:        removeFromOwnerCount =
+src/xrpld/app/tx/detail/SetSignerList.cpp:220:            signerCountBasedOwnerCountDelta(actualList.size(), view.rules()) *
+src/xrpld/app/tx/detail/SetSignerList.cpp:227:    if (!view.dirRemove(ownerDirKeylet, hint, signerListKeylet.key, false))
+src/xrpld/app/tx/detail/SetSignerList.cpp:235:    adjustOwnerCount(
+src/xrpld/app/tx/detail/SetSignerList.cpp:238:        removeFromOwnerCount,
+src/xrpld/app/tx/detail/SetSignerList.cpp:254:    auto const ownerDirKeylet = keylet::ownerDir(account);
+src/xrpld/app/tx/detail/SetSignerList.cpp:258:        app, view, accountKeylet, ownerDirKeylet, signerListKeylet, j);
+src/xrpld/app/tx/detail/SetSignerList.cpp:337:    auto const ownerDirKeylet = keylet::ownerDir(account_);
+src/xrpld/app/tx/detail/SetSignerList.cpp:347:            ownerDirKeylet,
+src/xrpld/app/tx/detail/SetSignerList.cpp:357:    std::uint32_t const oldOwnerCount{(*sle)[sfOwnerCount]};
+src/xrpld/app/tx/detail/SetSignerList.cpp:360:    int addedOwnerCount{1};
+src/xrpld/app/tx/detail/SetSignerList.cpp:361:    std::uint32_t flags{lsfOneOwnerCount};
+src/xrpld/app/tx/detail/SetSignerList.cpp:364:        addedOwnerCount = signerCountBasedOwnerCountDelta(
+src/xrpld/app/tx/detail/SetSignerList.cpp:370:        view().fees().accountReserve(oldOwnerCount + addedOwnerCount)};
+src/xrpld/app/tx/detail/SetSignerList.cpp:385:    auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/SetSignerList.cpp:386:        ownerDirKeylet, signerListKeylet, describeOwnerDir(account_));
+src/xrpld/app/tx/detail/SetSignerList.cpp:398:    adjustOwnerCount(view(), sle, addedOwnerCount, viewJ);
+src/xrpld/app/tx/detail/SetSignerList.cpp:416:    auto const ownerDirKeylet = keylet::ownerDir(account_);
+src/xrpld/app/tx/detail/SetSignerList.cpp:419:        ctx_.app, view(), accountKeylet, ownerDirKeylet, signerListKeylet, j_);
+src/xrpld/app/tx/detail/SetSignerList.h:65:    // Interface used by DeleteAccount
+src/xrpld/app/tx/detail/SetTrust.cpp:380:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/SetTrust.cpp:384:    std::uint32_t const uOwnerCount = sle->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/SetTrust.cpp:405:        (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/xrpld/app/tx/detail/SetTrust.cpp:406:                          : view().fees().accountReserve(uOwnerCount + 1));
+src/xrpld/app/tx/detail/SetTrust.cpp:442:    SLE::pointer sleDst = view().peek(keylet::account(uDstAccountID));
+src/xrpld/app/tx/detail/SetTrust.cpp:638:            adjustOwnerCount(view(), sleLowAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:648:            adjustOwnerCount(view(), sleLowAccount, -1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:655:            adjustOwnerCount(view(), sleHighAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:665:            adjustOwnerCount(view(), sleHighAccount, -1, viewJ);
+src/xrpld/app/tx/detail/Transactor.cpp:432:        auto const delegatedSle = view().peek(keylet::account(delegate));
+src/xrpld/app/tx/detail/Transactor.cpp:442:        auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Transactor.cpp:598:    if (!view.dirRemove(keylet::ownerDir(account), page, ticketIndex, true))
+src/xrpld/app/tx/detail/Transactor.cpp:608:    auto sleAccount = view.peek(keylet::account(account));
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/Transactor.cpp:656:    auto const sle = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/Transactor.cpp:1095:            if (auto const ter = credentials::deleteSLE(view, sle, viewJ);
+src/xrpld/app/tx/detail/Transactor.cpp:1143:        view().peek(keylet::account(ctx_.tx.getAccountID(sfAccount)));
+src/xrpld/app/tx/detail/Transactor.cpp:1151:        ? view().peek(keylet::account(ctx_.tx.getAccountID(sfDelegate)))
+src/xrpld/app/tx/detail/Transactor.h:244:    // Interface used by DeleteAccount
+src/xrpld/app/tx/detail/VaultClawback.cpp:460:        else if (ter != tecHAS_OBLIGATIONS)
+src/xrpld/app/tx/detail/VaultCreate.cpp:153:    auto const owner = view().peek(keylet::account(account_));
+src/xrpld/app/tx/detail/VaultCreate.cpp:161:    // We will create Vault and PseudoAccount, hence increase OwnerCount by 2
+src/xrpld/app/tx/detail/VaultCreate.cpp:162:    adjustOwnerCount(view(), owner, 2, j_);
+src/xrpld/app/tx/detail/VaultCreate.cpp:163:    auto const ownerCount = owner->at(sfOwnerCount);
+src/xrpld/app/tx/detail/VaultDelete.cpp:60:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:66:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:92:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:113:    auto const pseudoAcct = view().peek(keylet::account(pseudoID));
+src/xrpld/app/tx/detail/VaultDelete.cpp:152:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/VaultDelete.cpp:153:            keylet::ownerDir(pseudoID), (*mpt)[sfOwnerNode], mpt->key(), false))
+src/xrpld/app/tx/detail/VaultDelete.cpp:160:    adjustOwnerCount(view(), pseudoAcct, -1, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:165:    if (view().peek(keylet::ownerDir(pseudoID)))
+src/xrpld/app/tx/detail/VaultDelete.cpp:166:        return tecHAS_OBLIGATIONS;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/VaultDelete.cpp:169:    auto vaultPseudoSLE = view().peek(keylet::account(pseudoID));
+src/xrpld/app/tx/detail/VaultDelete.cpp:179:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:182:    if (vaultPseudoSLE->at(sfOwnerCount) != 0)
+src/xrpld/app/tx/detail/VaultDelete.cpp:186:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:189:    if (view().exists(keylet::ownerDir(pseudoID)))
+src/xrpld/app/tx/detail/VaultDelete.cpp:193:        return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/VaultDelete.cpp:201:    if (!view().dirRemove(
+src/xrpld/app/tx/detail/VaultDelete.cpp:202:            keylet::ownerDir(ownerID),
+src/xrpld/app/tx/detail/VaultDelete.cpp:213:    auto const owner = view().peek(keylet::account(ownerID));
+src/xrpld/app/tx/detail/VaultDelete.cpp:223:    adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:295:        else if (ter != tecHAS_OBLIGATIONS)
+src/xrpld/app/tx/detail/XChainBridge.cpp:444:        auto const sleSrc = psb.peek(keylet::account(src));
+src/xrpld/app/tx/detail/XChainBridge.cpp:450:            auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/XChainBridge.cpp:744:            auto const sleOwner = outerSb.peek(keylet::account(cidOwner));
+src/xrpld/app/tx/detail/XChainBridge.cpp:746:            if (!outerSb.dirRemove(
+src/xrpld/app/tx/detail/XChainBridge.cpp:747:                    keylet::ownerDir(cidOwner), page, sleClaimID->key(), true))
+src/xrpld/app/tx/detail/XChainBridge.cpp:758:            adjustOwnerCount(outerSb, sleOwner, -1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1069:                psb.fees().accountReserve((*sleDoor)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1170:        auto const page = psb.dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1171:            keylet::ownerDir(doorAccount),
+src/xrpld/app/tx/detail/XChainBridge.cpp:1183:        adjustOwnerCount(psb, sleDoor, 1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1490:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1507:    auto const sleAcct = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1528:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:1529:            keylet::ownerDir(account), bridgeKeylet, describeOwnerDir(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1535:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1622:    auto const sleAcct = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:1779:        auto const sleAcct = psb.peek(keylet::account(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:2025:            ctx.view.fees().accountReserve((*sleAcc)[sfOwnerCount] + 1);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2042:    auto const sleAcct = ctx_.view().peek(keylet::account(account));
+src/xrpld/app/tx/detail/XChainBridge.cpp:2078:        auto const page = ctx_.view().dirInsert(
+src/xrpld/app/tx/detail/XChainBridge.cpp:2079:            keylet::ownerDir(account),
+src/xrpld/app/tx/detail/XChainBridge.cpp:2087:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2225:    auto const sle = psb.peek(keylet::account(account));

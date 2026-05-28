@@ -1,0 +1,216 @@
+legacy account-root owner-directory cleanup history sweep
+repo: XRPLF/rippled
+target: 46b241ace8b30d9c9775d60ffba7d24b21903896
+tag: 3.1.3
+
+-- grep history: account delete / owner dir / obligations --
+0a896b795 Fix double adjustOwnerCount() in AMMWithdraw.
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+828bb64eb `fixNFTokenReserve`: ensure NFT tx fails when reserve is not met (#4767)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+305c9a8d6 `fixNFTokenRemint`: prevent NFT re-mint: (#4406)
+10e4608ce Improve unit test coverage of AccountDelete transactor
+a3a9dc26b Introduce support for deletable accounts:
+e33ac1d45 Add PayChan to recipient's owner directory
+e7a69cce6 Account for minimum reserve in potential spend:
+6572fc8e9 Implement MultiSignReserve amendment [RIPD-1647]:
+c7c1b3cc3 Track escrow in recipient's owner directory (RIPD-1523):
+
+-- pickaxe history: account root / owner dir symbols --
+3547a9335 fix: Add assorted MPT/DEX fixes (#7040)
+28cc20c81 fix: Fix wrong hybrid offer orderbook placement and update `LedgerStateFix` to amend `ExchangeRate` meta (#7087)
+9cb049276 feat: Propagate underlying MPT flags to vault shares (#7077)
+fcbc2f0a6 feat: Propagate underlying MPT flags to vault shares (#7077)
+570845892 (origin/copilot/add-ctid-to-ledger-response) Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+5b6e8b6f9 refactor: Rename static constants (#7120)
+cf550ee62 fix: Stop tx processing if failed to delete expired credentials (#6715) (#6962)
+af89854a4 fix: Stop tx processing if failed to delete expired credentials (#6715) (#6962)
+ffaf51043 fix clang-tidy issues
+3d0626383 refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+4da46d31a fix: Store `Delegate` object in delegating and authorized account directories for proper deletion (#6681)
+27c28be57 feat: Add MPT support to DEX (#5285)
+8995564ed refactor: Enable clang-tidy `readability-identifier-naming` check (#6571)
+dbd646bd5 fix: Store `Delegate` object in delegating and authorized account directories for proper deletion (#6681)
+08d8e440c Stop tx processing if failed to delete expired credentials (#6715)
+807e763bb (origin/gregtatcam/mpt/dex-unit-tests-disabled-mptv2) Extend DEX unit-tests with featureMPTokensV2 disabled
+2570c7df0 Sponsored Fees and Reserves for Attackathon (#6842)
+24241a6f9 fix: MPT/DEX assorted fixes (#6840)
+6eaf0bf18 fix: Bidirection Object Storage for delegation for Attackathon (#6830)
+0a896b795 Fix double adjustOwnerCount() in AMMWithdraw.
+dfa1da47f Confidential Transfer for Attackathon (#6828)
+1a0323429 Merge develop: integrate MPT support for checkAcceptAsset with DisallowIncomingTrustline fix
+dfcad6915 feat: Add MPT support to DEX (#5285)
+bd9166888 Merge branch 'develop' into dangell7/batch-v1
+42cbecb9e feature
+e9287812e move Journal to constructor
+819d3fcdf Merge branch 'develop' into mvadari/rearch/account
+89a6bb495 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+a911c1059 Merge branch 'develop' to resolve conflicts and update branch
+2dc705bd9 chore: Enable clang-tidy misc checks (#6655)
+2502befb4 chore: Enable clang-tidy misc checks (#6655)
+43caa7d47 fix remaining build issues
+344bfaca0 Address PR comments
+ea1146d41 fix remaining build issues
+e4dbaf5ef test: Remove testline JTX helper class (#6539)
+d61509884 refactor: improve readability and clean up code from review comments (#6544)
+84cc8599a chore: Apply clang-format width 100 (#6516)
+dde450784 Add Formats and Flags to `server_definitions` (#6321)
+5d0bf7851 Clang-format to 100 line length
+44e099e45 fix merge errors
+8b5ff313b Update formatting
+6266899ac Update formatting
+7eee8ca80 Update formatting
+2c1fad102 chore: Apply clang-format width 100 (#6387)
+0976b2b68 refactor: Modularize app/tx (#6228)
+36240116a refactor: Decouple app/tx from `Application` and `Config` (#6227)
+4a06a0d58 uncommented tests
+4eec8bce0 More tests
+281dbd287 Add unit tests
+93e98ac71 Allow Lending transactions in Batch
+86af28d91 Apply clang-format due to new column size (#6311)
+5f638f555 chore: Set ColumnLimit to 120 in clang-format (#6288)
+f2a428750 (origin/vlntb/number-perf-experiments-2) disable tests
+bead67c1a removes old test
+c7b43c962 final unit tests
+5f20f1f86 refactors the bulk of vault invariant tests
+8bbab6b8c adds refactored vault invariant tests
+3cf6a21a2 [wip] refactored new tests
+1bb39b9b4 [wip] added test for edge case balance
+ed4e9de73 (origin/a1q123456/modularise-transactors) Move app/tx to libxrpl
+29d530804 (origin/a1q123456/modularise-jtx) Move app/tx to libxrpl
+6da92d892 (origin/dangell/smart-contracts) feature
+1eb0fdac6 refactor: Rename `ripple` namespace to `xrpl` (#5982)
+309b8f1fb Wasm fixtures sources
+fe75c5d44 Wasm SmartEscrow
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+b772f6281 Revert "Implement Lending Protocol (unsupported) (#5270)"
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+b195011ef fix: Apply object reserve for Vault pseudo-account (#5954)
+40cd57355 Review feedback from @shawnxie999: MPT Clawback
+dba187f8c fix build issues
+973a10595 Review feedback: test coverage, round debt total
+283bc3ea3 Remove directory size limit (#5935)
+362ecbd1c fix: Apply object reserve for Vault pseudo-account (#5954)
+508937f3d refactor: Retire MultiSignReserve and ExpandedSignerList amendments (#5981)
+3fdd3cb49 Refactor loan test helpers into reusable functions
+a38e09e32 Add testDustManipulation test, which is expected to fail
+9b332d88c refactor: Retire PayChanRecipientOwnerDir amendment (#5946)
+2cb0ca5ad Refactor loan test helpers into reusable functions
+07ec253f2 Add testDustManipulation test, which is expected to fail
+673fb06c7 refactor: Retire fixTrustLinesToSelf amendment (#5989)
+aed8e2b16 Fill in payment computation shortages (#5941)
+7925cc405 fix: Check the borrower's balance in LoanSet for reserve
+63a08560c refactor: retire/remove NFT amendments (#5971)
+4425f84c1 Remove directory size limit (#5935)
+220ab2622 Add vault invariants (#5518)
+2dd1d682a Remove directory size limit (#5935)
+ddb518ad0 MergeInbox tests (#5949)
+f60e29862 Extend LoanBroaker and Loan unit-tests. (#5863)
+63edf035a Start converting Loans to use fixed payments and track value
+8fdc63920 ConfidentialConvert (#5901)
+5117ef831 Merge branch 'develop' into ximinez/lending-XLS-66
+b4a45f1f0 fixed positive balance trustline not incrementing owners count in some cases
+5ecde3cf3 Add vault invariants (#5518)
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+d67dcfe3c refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+267b537a1 Review feedback from @Bronek
+3cbdf818a Miscellaneous refactors and updates (#5590)
+dc8b37a52 refactor: Modularise ledger (#5493)
+bfc048e3f add tests
+dc8a689a2 (origin/dangell7/subscriptions) feature-subscriptions
+a46d77214 fix build and tests (#5768)
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+8ac514363 get new fees and reserves working (#5714)
+dd30d811e feat: last set of host functions (#5674)
+293d8e4dd test: store Rust source code in rippled, instead of just opaque hex strings (#5653)
+b5a63b39d refactor: Decouple ledger from xrpld/app (#5492)
+284707570 fix: ensure `GasUsed` shows up in the metadata even on `tecWASM_REJECTED` (#5633)
+66776b6a8 test: codecov for WasmHostFuncWrapper.cpp (#5601)
+c76e485d0 Rename Transactor preflight functions
+24b7a0322 feat: add more keylet host functions (#5522)
+37745cb5b Rename Transactor preflight functions
+58c2c82a3 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+527e0c916 Lending protocol implementation (XLS-0066)
+4fe3ec8a0 Refactor 3: Transactors
+4e5008761 Refactoring 1
+e514de76e Add single asset vault (XLS-65d) (#5224)
+848311563 Lending protocol implementation (XLS-0066)
+28f50cb7c fix: enable LedgerStateFix for delegation (#5427)
+2db279180 Add PermissionDelegation feature (#5354)
+27fb4c1b0 refactor: Define getFlagsMask in the base Transactor class
+bcece6d68 Update to match latest spec: compute interest, LoanBroker reserves
+9a8660241 Implement LoanDelete, and fix a bunch of math errors in LoanManage
+196b08fc7 Add unit tests to create a Loan successfully
+ceeb11aee Ensure that an account is not deleted with a non-zero owner count
+70155a5ac Add more LoanSet unit tests, added LoanBroker LoanSequence field
+7823c8b18 Start writing Loan tests
+89f0b3b9e [WIP] Continue implementing LoanSet Transactor
+5bed1d94e [WIP] Start implementing LoanSet transactor
+327d576d7 Move inclusion of Transactor headers to transactions.macro
+4326b5941 Finish up the Loan Broker tests
+79a1a8a9c Finish(?) unit tests for Loan Broker Cover amounts. Untested.
+27fbf2db8 Start writing Loan Broker invariants and tests
+7d6155cc9 Clean ups
+da10ba6fd Start adding tests for LoanBrokerDelete
+853c42fb9 Initial implementation of LoanBrokerDelete
+ed2737743 Add a validity range for sfDebtMaximum
+b7152496c Add LoanBroker update tests
+24374c548 [WIP] Define remaining transactions, start implementing LoanBrokerSet
+009ae8183 refactor: Generalize Transactor preflight:
+afeb6287f Cleanup in MPTokenAuthorize
+6a25ac948 Decouple VaultDestroy from MPTokenIssuanceDestroy
+270355f77 Keep existing order of checks
+ad6e048ab Bring back addEmptyHolding and removeEmptyHolding to View
+93bd26547 Move addEmptyHolding to VaultCreate and removeEmptyHolding to VaultDelete
+b6d7ef6c0 Add check for AssetTotal in VaultDelete
+177cdaf55 Connect votable gas limit into VM (#5360)
+b6a95f997 PoC Smart Escrows (#5340)
+1b043fcc7 Switch from assert to XRPL_ASSERT (#5245)
+9069e430a Permissioned Domains (XLS-80d) (#5161)
+8d78701c9 Antithesis instrumentation improvements (#5213)
+670419494 Add Antithesis intrumentation (#5042)
+a98e59a29 Revert "WIP trying to fix MSVC compilation error"
+06a8a61b2 WIP trying to fix MSVC compilation error
+3868c04e9 Switch from assert to XRPL_ASSERT (#5245)
+c08f86d47 Remove temSTRING_TOO_LARGE, fix authorizedDomain, refactor Vault_test
+ccc088980 Permissioned Domains (XLS-80d) (#5161)
+ea6c040f1 wip
+6046fa239 progress
+ff8c6491d Start vault implementation
+eabca8439 Antithesis instrumentation improvements (#5213)
+d7e949193 Add Antithesis intrumentation (#5042)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+ec61f5e9d Add fixAMMv1_2 amendment (#5176)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+63209c264 Consolidate definitions of fields, objects, transactions, and features (#5122)
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+a17ccca61 Invariant: prevent a deleted account from leaving (most) artifacts on the ledger. (#4663)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+e718378bd  Price Oracle (XLS-47d): (#4789) (#4789)
+b421945e7 `DID`: Decentralized identifiers (DIDs) (XLS-40): (#4636)
+649c11a78 `XChainBridge`: Introduce sidechain support (XLS-38): (#4292)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+3c9db4b69 Introduce AMM support (XLS-30d): (#4294)
+b7e902dcc XLS-39 Clawback: (#4553)
+89aa8b21e Fix 3 issues around NFToken offer acceptance (#4380)
+d8a84e953 `featureDisallowIncoming`: Opt-out of incoming Checks, PayChans, NFTokenOffers and Trustlines (#4336)
+70779f685 Introduce NFT support (XLS020)
+8d59c7dd4 Redistribute unit test priorities based on current measurements
+7724cca38 Implement enhanced Ticket support:
+50760c693 Format first-party source according to .clang-format
+3d3b6d85c Remove conditionals for fix1523 enabled 14Nov2017
+323dbc796 Remove conditionals for featureSortedDirectories enabled 14Nov2017
+a3a9dc26b Introduce support for deletable accounts:
+e33ac1d45 Add PayChan to recipient's owner directory
+6572fc8e9 Implement MultiSignReserve amendment [RIPD-1647]:
+2d5ddbf1b Checks (RIPD-1487):
+c7c1b3cc3 Track escrow in recipient's owner directory (RIPD-1523):
+463b154e3 Improve directory insertion & deletion (RIPD-1353, RIPD-1488):
+7536c53a4 Eliminate ledger data setup in test (RIPD-1372):
+c0cf7bd3c Port discrepancy-test.coffee to c++ (RIPD-1352):
+d69b16895 Conditional Suspended Payments (RIPD-1140):
+7e39d645b Add Ticket Tests (RIPD-1328):
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:25:40Z
-amendment_checked_utc: 2026-05-28T08:25:42Z
+runtime_checked_utc: 2026-05-28T08:34:44Z
+amendment_checked_utc: 2026-05-28T08:34:46Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533710, hash 89E0D12AD48B9A5D976891706D3AF18FF0CAA87B2B4B5581E41AF8B28D6CBFB4
-s2.ripple.com: rippled 3.1.3, ledger 104533710, hash 89E0D12AD48B9A5D976891706D3AF18FF0CAA87B2B4B5581E41AF8B28D6CBFB4
-runtime receipt sha256: a0afde08c4e1e27984c178dfab5b9ff88c61e7b5394d0b9d6e0012be7efa0a19
-amendment receipt sha256: c65b7f42d464fa6f003e118d0650f36eebaec74ce245f1254b869525c63d7241
+s1.ripple.com: rippled 3.1.3, ledger 104533849, hash BD2BA4E8000A4A94AF54E9F73A9B5BFC503EF8777E43EB53DC4A36B0F8C69759
+s2.ripple.com: rippled 3.1.3, ledger 104533849, hash BD2BA4E8000A4A94AF54E9F73A9B5BFC503EF8777E43EB53DC4A36B0F8C69759
+runtime receipt sha256: e9f3a9dd4d7daaf3690983a696b6135b3e7e67042df0d97f80fca26bde378618
+amendment receipt sha256: cb1f8ed30e16ed75c7d4120dd89ce8d4988c686b8f725c7da6936c8bc8ce27c0
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -61,6 +61,7 @@ Completed and packet-bound work:
 - AccountSet legacy flag and policy-setting sweep.
 - legacy transaction envelope/signing/sequence source and suite sweep.
 - legacy IOU zero-cross settlement source and suite sweep.
+- legacy account-root owner-directory cleanup source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1133,6 +1134,27 @@ tests, and the following candidates were source-killed rather than promoted:
   `SetTrust`, `TrustAndBalance`, and `Check`. The sweep reinforced the
   existing `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` root and its packet-bound
   markers, but did not isolate a separate old-core P0 outside that root.
+- `LEGACY-ACCOUNTROOT-OWNERDIR-SWEEP-001`: old account-root deletion,
+  owner-directory, owner-count, and obligation-cleanup paths were reviewed as a
+  possible source of account deletion with live state, stranded owner objects,
+  missing `tecHAS_OBLIGATIONS`, or owner-directory drift. The sweep covered
+  `AccountDelete`, `DeleteAccount`, `ownerDir`, `OwnerCount`,
+  `adjustOwnerCount`, `dirInsert`, `dirRemove`, `deleteSLE`,
+  `AccountRootsNotDeleted`, and account-root lookup patterns across core
+  transaction and invariant code. Static artifact
+  `legacy_accountroot_ownerdir_static_sweep_20260528.log` has sha256
+  `8022db74ebbbf03fe0bd4028f14cdba95ae6edea05c61cb11422b20c8ae8511e`.
+  History artifact `legacy_accountroot_ownerdir_history_sweep_20260528.log`
+  has sha256
+  `878c00d1557f3a96c7e2585348fea0bf49201b545fa7f74e21b0e0b5c7b7bbf0`.
+  Suite artifact `legacy_accountroot_ownerdir_source_kill_20260528.log` has
+  sha256 `77fa2c011c5601d083e776af4c302c17a2667bc50eb23202813c00f3168b0fb0`.
+  The cleanup suites passed with 10 suites, 302 cases, and 37,723 tests across
+  `AccountDelete`, `Invariants`, `SetRegularKey`, `MultiSign`, `Ticket`,
+  `Check`, `Escrow`, `PayChan`, `DepositAuth`, and `DepositPreauth`. No clean
+  legacy-core witness showed account deletion with live obligations, stranded
+  core owner objects, owner-count drift, or missing cleanup on the checked
+  paths.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.
