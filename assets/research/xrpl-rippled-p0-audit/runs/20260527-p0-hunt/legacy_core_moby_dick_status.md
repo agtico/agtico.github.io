@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T07:06:01Z
-amendment_checked_utc: 2026-05-28T07:05:59Z
+runtime_checked_utc: 2026-05-28T07:13:49Z
+amendment_checked_utc: 2026-05-28T07:13:47Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532474, hash 160A123711A959B61A66C6A214356F8C3054225F95D39A9EB1D5533586E635A1
-s2.ripple.com: rippled 3.1.3, ledger 104532475, hash 62EC1A6863C8B74D3187CBD8C11361A96AE1C599F1DE5E7913E7E3ACF781319D
+s1.ripple.com: rippled 3.1.3, ledger 104532595, hash 7C5433867B88A099017EAC9EE0C65633B30E53739E350E9B3439CDDD1C0480A8
+s2.ripple.com: rippled 3.1.3, ledger 104532596, hash BC984543BE95ACB32D02A5FF0B597BED5162F433E49284D0317A768A499002F9
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -51,6 +51,7 @@ Completed and packet-bound work:
 - regular-key/master-key authorization and signer cleanup sweep.
 - payment sandbox deferred-credit focused pathing sweep.
 - transaction-queue minimum-reserve potential-spend sweep.
+- NFT brokered auth/freeze receive-path sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -882,6 +883,32 @@ ripple.app.Escrow had 0 failures.
 ripple.app.PayChan had 0 failures.
 ripple.app.Ticket had 0 failures.
 101.9s, 13 suites, 502 cases, 71678 tests total, 0 failures
+```
+
+`NFT-BROKER-AUTH-001` asked whether `NFTokenAcceptOffer` brokered mode still
+has a current buyer/seller/broker auth or freeze bypass under the live
+`fixEnforceNFTokenTrustlineV2` path. This continuation source-killed the
+candidate. Current source checks broker fee receipt with
+`checkTrustlineAuthorized` and `checkTrustlineDeepFrozen`, checks buyer/seller
+authorization on brokered and direct paths, and upstream tests cover
+unauthorized broker, buyer, seller, minter, NFT-offer freeze, and deep-freeze
+cases across feature sets. No clean current auth/freeze bypass was isolated.
+Static artifact `nft_broker_auth_static_sweep_20260528.log` has sha256
+`3355a8182950795ee840414293b904168ce86413d6f897ff5f9bded5240d1846`.
+History artifact `nft_broker_auth_history_sweep_20260528.log` has sha256
+`bba37fb0115e5e5e2313ebfbd0ad48ca337f372e088dca45b351ddb87ced245b`.
+Auth/NFT suite artifact `nft_broker_auth_source_kill_20260528.log` has sha256
+`61c019274a704d1caefc4fc8d1aff0a7250353f5045da47e2a93259ec4789535`.
+Freeze suite artifact `nft_broker_auth_freeze_source_kill_20260528.log` has
+sha256 `feeed2fc096c72facb1e4313dbc824d03a37a61e08a31cc4ea6e2e908caeadbe`.
+
+```text
+ripple.app.NFTokenAuth had 0 failures.
+ripple.app.NFTokenDir had 0 failures.
+289.7s, 15 suites, 343 cases, 365695 tests total, 0 failures
+
+ripple.app.Freeze had 0 failures.
+14.4s, 1 suite, 91 cases, 10632 tests total, 0 failures
 ```
 
 `PAYMENT-HOLDER-TO-HOLDER-RESERVE-SIBLING-001` was scratch-tested as the next

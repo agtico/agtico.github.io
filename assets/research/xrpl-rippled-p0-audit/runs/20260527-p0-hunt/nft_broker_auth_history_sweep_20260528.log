@@ -1,0 +1,99 @@
+6270c9c85 2026-05-26 Merge remote-tracking branch 'XRPLF/develop' into ximinez/emptydirectoryinvariant
+5bbc553ac 2026-05-26 Merge remote-tracking branch 'XRPLF/develop' into ximinez/fix-getledger
+179e73594 2026-05-22 fix: Check if the MPT first loss cover can be sent to the broker before deleting the broker (#7125)
+ef9d42d1c 2026-05-19 fix: Check if the MPT first loss cover can be sent to the broker before deleting the broker (#7125)
+9294479a8 2026-05-14 Merge remote-tracking branch 'origin/develop' into dangell7/docs
+875911f15 2026-05-05 Merge branch 'develop' into pratik/Retire_fixUniversalNumber_amendment
+366899d5a 2026-04-20 fix: Disallow MPTClearRequireAuth if is set (#6712)
+5a1db481d 2026-04-13 refactor: Remove unused notTooManyOffers function from NFTokenUtils (#6737)
+1e41d0d40 2026-04-30 keylet::loanbroker -> keylet::loanBroker
+5fff81a72 2026-04-24 Merge remote-tracking branch 'origin/develop' into tapanito/transactor-invariant-pt2
+fb19338b9 2026-03-18 fix: Make assorted NFT fixes (#6566)
+24874f7e0 2026-02-03 fix: Deletes expired NFToken offers from ledger (#5707)
+c4ef1e699 2026-04-20 Merge remote-tracking branch 'XRPLF/develop' into ximinez/number-maxint-range
+4b198cd5b 2026-04-20 fix: Disallow MPTClearRequireAuth if is set (#6712)
+05644b52e 2026-04-13 Merge remote-tracking branch 'XRPLF/ximinez/online-delete-gaps' into ximinez/online-delete-lastrotated
+61fbde3a7 2026-04-13 refactor: Remove unused notTooManyOffers function from NFTokenUtils (#6737)
+370656550 2025-08-20 Fix missing nftoken_id in ledger RPC response
+23eee6192 2026-03-11 feat: Make VaultID conditional on LoanBrokerSet
+810ffde48 2026-03-17 fix: Prevent early loan impairment and due-date manipulation
+b92a9a305 2026-03-18 fix: Make assorted NFT fixes (#6566)
+5865bd017 2026-03-06 refactor: Update transaction folder structure (#6483)
+bd7d9efa0 2026-03-05 Reorganize transactors into feature subdirectories
+b4e4f2a50 2026-02-26 Merge commit '2c1fad1023' into copilot/fix-f350b804-905b-4a06-ab84-d0f12e5b0dd1
+bfc0acc73 2026-02-04 Merge remote-tracking branch 'upstream/develop' into ximinez/assetsmaximum-wip
+154bb65c3 2026-02-04 Merge remote-tracking branch 'upstream/develop' into ximinez/number-maxint-range
+e762b0ce6 2026-02-04 Merge remote-tracking branch 'XRPLF/pratik/Fix_asan_lsan_flagged_issues' into ximinez/number_asan
+5bbe9f5ad 2026-02-04 Merge remote-tracking branch 'XRPLF/ximinez/online-delete-gaps' into ximinez/online-delete-lastrotated
+5095cf073 2026-01-30 Optimize trustline reading in checkAcceptAsset and improve test documentation
+781368309 2026-02-03 fix: Deletes expired NFToken offers from ledger (#5707)
+2601442e1 2026-01-13 Improve and fix bugs in Lending Protocol (#6102)
+91d239f10 2026-01-12 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+c91b9a022 2025-12-19 fix: Enable LP Deposits when the broker is the asset issuer (#6119)
+24586ef39 2025-11-25 Add deep freeze check to LoanBrokerDelete (#6053)
+7e6647e76 2025-11-24 Review feedback from @shawnxie999: broker owner count
+a3b2ce91d 2025-11-22 Review feedback from @gregtatcam: frozen broker pseudo-account
+fb941ed1a 2025-11-10 Fix service fee accounting when a borrower is the broker (#6016)
+54d738b93 2025-11-07 Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+2a9eec6c4 2025-11-06 Fix empty/zero broker ID in LoanBrokerSet and LoanSet (#5977)
+1c99243ec 2025-11-10 Fix service fee accounting when a borrower is the broker (#6016)
+ebfca636f 2025-11-07 Implicitly authorize Vault and LoanBroker pseudo-accounts (#5976)
+c56387d12 2025-11-06 Fix empty/zero broker ID in LoanBrokerSet and LoanSet (#5977)
+63a08560c 2025-11-03 refactor: retire/remove NFT amendments (#5971)
+e8dddcbb7 2025-10-30 Fix LoanBrokerDelete with empty or zero broker ID (RIPD-3858) (#5967)
+875702231 2025-10-21 test: Add unit-test to verify correct behavior on broker deep freeze (#5904)
+1efc532b2 2025-10-09 Implement Vito's new loan payment part rounding algorithm, and more
+2dd239c59 2025-10-07 Update payment component computation and rounding, and more tests
+9f7e9e419 2025-08-21 [Claude] Make existing NFToken tests amendment-aware for fixExpiredNFTokenOfferRemoval
+55b3bc233 2025-08-21 [Claude] Fix NFToken expired offer test timing logic
+0fd1dc12a 2025-08-21 Fix test logic: use fresh expiration times for buy offer and brokered scenarios
+76a1831c6 2025-08-20 Improve test coverage for brokered expired offers
+98e9fce6c 2025-08-20 Add fixExpiredNFTokenOfferRemoval amendment and implementation
+57c78c56b 2025-07-24 fixup! fixup! Fix divide by 0 error on 0-interest loans; allow broker to self-lend
+1adb410e8 2025-07-24 fixup! Fix divide by 0 error on 0-interest loans; allow broker to self-lend
+1e7462606 2025-07-23 Fix divide by 0 error on 0-interest loans; allow broker to self-lend
+80d82c5b2 2025-07-23 Add support for `DomainID` in `MPTokenIssuance` transactions (#5509)
+6e8a5f0f4 2025-06-05 fix: make host function traces easier to use, fix `get_NFT` bug (#5466)
+7e24adbdd 2025-06-02 fix: Address NFT interactions with trustlines (#5297)
+527e0c916 2025-05-16 Lending protocol implementation (XLS-0066)
+e514de76e 2025-05-20 Add single asset vault (XLS-65d) (#5224)
+848311563 2025-01-31 Lending protocol implementation (XLS-0066)
+b5c1301f7 2025-05-05 Allow existing trust lines to loan brokers to be managed (by issuer)
+f03b5883b 2025-04-29 More host functions (#5411)
+ffc88d703 2025-01-31 Add deep freeze feature (XLS-77d) (#5187)
+090393930 2025-01-17 Fix the flag processing of NFTokenModify (#5246)
+1bb3c9db5 2025-01-10 XLS-46: DynamicNFT (#5048)
+33e1c4259 2025-01-31 Add deep freeze feature (XLS-77d) (#5187)
+9e4a7d587 2025-01-17 Fix the flag processing of NFTokenModify (#5246)
+58af62f38 2025-01-10 XLS-46: DynamicNFT (#5048)
+c19a88fee 2024-08-07 Address rare corruption of NFTokenPage linked list (#4945)
+223e6c759 2024-06-17 Add the fixEnforceNFTokenTrustline amendment: (#4946)
+9f7c619e4 2024-06-15 XLS-52d: NFTokenMintOffer (#4845)
+828bb64eb 2024-02-02 `fixNFTokenReserve`: ensure NFT tx fails when reserve is not met (#4767)
+6ba9450c8 2023-10-06 `fixDisallowIncomingV1`: allow issuers to authorize trust lines (#4721)
+542732126 2023-09-14 Match unit tests on start of test name (#4634)
+c6f637501 2023-09-08 APIv2(ledger_entry): return invalidParams for bad parameters (#4630)
+91e965821 2023-07-18 Fix the package recipe for consumers of libxrpl (#4631)
+5644c8704 2023-06-08 Trivial: add comments for NFToken-related invariants (#4558)
+3620ac287 2023-05-18 Add nftoken_id, nftoken_ids, offer_id fields for NFTokens (#4447)
+c3acbce82 2023-03-31 Optimize `SHAMapItem` and leverage new slab allocator: (#4218)
+f191c911d 2023-04-05 Add NFTokenPages to account_objects RPC: (#4352)
+7aad6e512 2023-03-23 feat: mark 4 amendments as obsolete: (#4291)
+305c9a8d6 2023-03-20 `fixNFTokenRemint`: prevent NFT re-mint: (#4406)
+9b2d563de 2023-03-20 fix: support RPC markers for any ledger object: (#4361)
+ecd49e153 2023-03-02 Rename 'NFT' to 'NFToken' in DisallowIncoming flags (#4442)
+b72a87c7d 2023-02-13 Only account specified as destination can settle through brokerage: (#4399)
+39c32561b 2023-02-09 Prevent brokered sale of NFToken to owner: (#4403)
+89aa8b21e 2023-02-09 Fix 3 issues around NFToken offer acceptance (#4380)
+a828e24cf 2023-02-02 Allow NFT to be burned when number of offers is greater than 500 (#4346)
+f7a8d2de8 2023-01-18 Add fixUnburnableNFToken feature (#4391)
+d8a84e953 2022-12-20 `featureDisallowIncoming`: Opt-out of incoming Checks, PayChans, NFTokenOffers and Trustlines (#4336)
+e40e38e8d 2022-09-13 Introduce fixRemoveNFTokenAutoTrustLine amendment:
+59326bbbc 2022-07-06 Introduce the `NonFungibleTokensV1_1` amendment:
+8266d9d59 2022-06-22 Correct a technical flaw with NFT offers:
+80bda7cc4 2022-04-18 Introduce fixNFTokenDirV1 amendment:
+70779f685 2021-08-13 Introduce NFT support (XLS020)
+afc791835 2017-06-20 RequireAuth account can create offers to buy their currency
+d5dc715d9 2017-04-05 Unit test offer crossing with lsfRequireAuth (RIPD-1346)
+22af79606 2014-05-13 Fix lexicographical compare during tfRequireAuth processing
+dda1b6c8a 2013-05-13 Fix RequireDestTag and RequireAuth.
