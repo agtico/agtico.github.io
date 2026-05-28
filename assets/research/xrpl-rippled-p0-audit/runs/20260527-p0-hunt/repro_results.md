@@ -195,6 +195,43 @@ ripple.app.Ticket had 0 failures.
 94.1s, 11 suites, 489 cases, 63983 tests total, 0 failures
 ```
 
+## Current source kill: legacy authorization/freeze receive-path siblings
+
+Status: source-reviewed and tested through existing upstream suites; not
+promoted.
+
+Hypothesis: after the DisallowIncomingTrustline and AMM DepositAuth findings, a
+stronger old live receive-path sibling might exist where direct IOU transfer or
+trustline controls reject `RequireAuth`, local freeze, global freeze, deep
+freeze, or DepositAuth, but an old indirect path succeeds and creates durable
+value/state movement.
+
+Static result: the sweep covered `checkAcceptAsset`, `requireAuth`,
+freeze/deep-freeze helpers, `trustCreate`, `trustDelete`, `rippleCredit`,
+`accountSend`, `issueIOU`, and `verifyDepositPreauth` call sites across the
+transaction, path, and misc layers. It did not isolate a new old-core receive
+policy witness beyond the already-promoted DisallowIncomingTrustline,
+AMM DepositAuth, and lending regular-freeze surfaces.
+
+Source-kill artifacts:
+
+```text
+runs/20260527-p0-hunt/auth_freeze_receive_static_sweep_20260528.log
+sha256: 3ce4e848635f707855f468ee7a94bd87f24295a0be2088ed4793c3961aaf30fc
+
+runs/20260527-p0-hunt/auth_freeze_receive_source_kill_20260528.log
+sha256: 79c5255082209f8b2ae90d13738bf3b21368dd0a4c8e0c7e400e802804f4d584
+```
+
+Proof excerpt:
+
+```text
+ripple.app.Freeze had 0 failures.
+ripple.app.SetTrust had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+144.1s, 15 suites, 716 cases, 96462 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

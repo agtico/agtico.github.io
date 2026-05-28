@@ -1,0 +1,215 @@
+src/xrpld/app/paths/Pathfinder.cpp:744:    bool const bAuthRequired = (aFlags & lsfRequireAuth) != 0;
+src/xrpld/app/paths/Pathfinder.cpp:993:                bool const bRequireAuth(
+src/xrpld/app/paths/Pathfinder.cpp:994:                    sleEnd->getFieldU32(sfFlags) & lsfRequireAuth);
+src/xrpld/app/paths/Pathfinder.cpp:1038:                                 (bRequireAuth && !rs.getAuth())))
+src/xrpld/app/tx/detail/VaultSet.cpp:124:        if ((sleIssuance->getFlags() & lsfMPTRequireAuth) == 0)
+src/xrpld/app/paths/TrustLine.h:94:        return mFlags & (mViewLowest ? lsfLowAuth : lsfHighAuth);
+src/xrpld/app/paths/TrustLine.h:100:        return mFlags & (!mViewLowest ? lsfLowAuth : lsfHighAuth);
+src/xrpld/app/paths/TrustLine.h:133:        return mFlags & (mViewLowest ? lsfLowFreeze : lsfHighFreeze);
+src/xrpld/app/paths/TrustLine.h:140:        return mFlags & (mViewLowest ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/paths/TrustLine.h:147:        return mFlags & (!mViewLowest ? lsfLowFreeze : lsfHighFreeze);
+src/xrpld/app/paths/TrustLine.h:154:        return mFlags & (!mViewLowest ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/AMMBid.cpp:351:        res = accountSend(
+src/xrpld/app/tx/detail/SetAccount.cpp:41:            uTxFlags & (tfRequireAuth | tfOptionalAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:45:            (*uSetFlag == asfRequireAuth || *uSetFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:50:            (*uClearFlag == asfRequireAuth || *uClearFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:84:    // RequireAuth
+src/xrpld/app/tx/detail/SetAccount.cpp:86:    bool bSetRequireAuth =
+src/xrpld/app/tx/detail/SetAccount.cpp:87:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:88:    bool bClearRequireAuth =
+src/xrpld/app/tx/detail/SetAccount.cpp:89:        (uTxFlags & tfOptionalAuth) || (uClearFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:91:    if (bSetRequireAuth && bClearRequireAuth)
+src/xrpld/app/tx/detail/SetAccount.cpp:260:    bool bSetRequireAuth =
+src/xrpld/app/tx/detail/SetAccount.cpp:261:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:264:    // RequireAuth
+src/xrpld/app/tx/detail/SetAccount.cpp:266:    if (bSetRequireAuth && !(uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:329:    bool const bSetRequireAuth{
+src/xrpld/app/tx/detail/SetAccount.cpp:330:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth)};
+src/xrpld/app/tx/detail/SetAccount.cpp:331:    bool const bClearRequireAuth{
+src/xrpld/app/tx/detail/SetAccount.cpp:332:        (uTxFlags & tfOptionalAuth) || (uClearFlag == asfRequireAuth)};
+src/xrpld/app/tx/detail/SetAccount.cpp:352:    // RequireAuth
+src/xrpld/app/tx/detail/SetAccount.cpp:354:    if (bSetRequireAuth && !(uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:356:        JLOG(j_.trace()) << "Set RequireAuth.";
+src/xrpld/app/tx/detail/SetAccount.cpp:357:        uFlagsOut |= lsfRequireAuth;
+src/xrpld/app/tx/detail/SetAccount.cpp:360:    if (bClearRequireAuth && (uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:362:        JLOG(j_.trace()) << "Clear RequireAuth.";
+src/xrpld/app/tx/detail/SetAccount.cpp:363:        uFlagsOut &= ~lsfRequireAuth;
+src/xrpld/app/tx/detail/PayChan.cpp:573:            if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/VaultClawback.cpp:436:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:477:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:485:            if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Payment.cpp:548:        if (auto const ter = requireAuth(view(), mptIssue, account_);
+src/xrpld/app/tx/detail/Payment.cpp:552:        if (auto const ter = requireAuth(view(), mptIssue, dstAccountID);
+src/xrpld/app/tx/detail/Payment.cpp:561:        if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:698:            if (auto err = verifyDepositPreauth(
+src/xrpld/app/misc/NetworkOPs.cpp:4486:    bool const bGlobalFreeze = isGlobalFrozen(view, book.out.account) ||
+src/xrpld/app/misc/NetworkOPs.cpp:4487:        isGlobalFrozen(view, book.in.account);
+src/xrpld/app/misc/NetworkOPs.cpp:4576:                            fhZERO_IF_FROZEN,
+src/xrpld/app/misc/NetworkOPs.cpp:4684:    bool const bGlobalFreeze = lesActive.isGlobalFrozen(book.out.account) ||
+src/xrpld/app/misc/NetworkOPs.cpp:4685:        lesActive.isGlobalFrozen(book.in.account);
+src/xrpld/app/misc/NetworkOPs.cpp:4727:                        fhZERO_IF_FROZEN);
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:146:    if (auto const ter = requireAuth(ctx.view, vaultAsset, dstAcct, authType);
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:241:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:271:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/AMMCreate.cpp:96:    if (auto const ter = requireAuth(ctx.view, amount.issue(), accountID);
+src/xrpld/app/tx/detail/AMMCreate.cpp:104:    if (auto const ter = requireAuth(ctx.view, amount2.issue(), accountID);
+src/xrpld/app/tx/detail/AMMCreate.cpp:113:    if (isFrozen(ctx.view, accountID, amount.issue()) ||
+src/xrpld/app/tx/detail/AMMCreate.cpp:114:        isFrozen(ctx.view, accountID, amount2.issue()))
+src/xrpld/app/tx/detail/AMMCreate.cpp:155:                FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMCreate.cpp:272:    auto res = accountSend(sb, accountId, account_, lpTokens, ctx_.journal);
+src/xrpld/app/tx/detail/AMMCreate.cpp:280:        if (auto const res = accountSend(
+src/xrpld/app/tx/detail/VaultCreate.cpp:124:    if (isFrozen(ctx.view, account, vaultAsset))
+src/xrpld/app/tx/detail/VaultCreate.cpp:187:        mptFlags |= lsfMPTRequireAuth;
+src/xrpld/app/tx/detail/CreateOffer.h:70:    checkAcceptAsset(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:105:    if (isFrozen(ctx.view, account, vaultAsset))
+src/xrpld/app/tx/detail/VaultDeposit.cpp:109:    if (isFrozen(ctx.view, account, vaultShare))
+src/xrpld/app/tx/detail/VaultDeposit.cpp:134:    if (auto const ter = requireAuth(ctx.view, vaultAsset, account);
+src/xrpld/app/tx/detail/VaultDeposit.cpp:142:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/VaultDeposit.cpp:270:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:296:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:77:            requireAuth(ctx.view, vaultAsset, account, AuthType::StrongAuth))
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:84:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:114:    if (auto ter = accountSend(
+src/xrpld/app/tx/detail/LoanPay.cpp:229:    if (auto const ret = requireAuth(ctx.view, asset, account))
+src/xrpld/app/tx/detail/LoanPay.cpp:242:            fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/LoanPay.cpp:307:            !isDeepFrozen(view, brokerOwner, asset) &&
+src/xrpld/app/tx/detail/LoanPay.cpp:308:            !requireAuth(view, asset, brokerOwner, AuthType::StrongAuth);
+src/xrpld/app/tx/detail/LoanPay.cpp:610:        if (auto const ter = requireAuth(
+src/xrpld/app/tx/detail/LoanPay.cpp:632:                requireAuth(view, asset, brokerPayee, AuthType::StrongAuth))
+src/xrpld/app/tx/detail/LoanPay.cpp:636:    if (auto const ter = accountSendMulti(
+src/xrpld/app/tx/detail/LoanManage.cpp:294:    return accountSend(
+src/xrpld/app/paths/AMMOffer.h:125:        return accountSend(std::forward<Args>(args)..., WaiveTransferFee::Yes);
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:220:                    requireAuth(ctx.view, amount->issue(), accountID))
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:228:            if (isFrozen(ctx.view, ammAccountID, amount->issue()))
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:329:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:463:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:714:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/Escrow.cpp:240:    // If the issuer has requireAuth set, check if the account is authorized
+src/xrpld/app/tx/detail/Escrow.cpp:241:    if (auto const ter = requireAuth(ctx.view, amount.issue(), account);
+src/xrpld/app/tx/detail/Escrow.cpp:245:    // If the issuer has requireAuth set, check if the destination is authorized
+src/xrpld/app/tx/detail/Escrow.cpp:246:    if (auto const ter = requireAuth(ctx.view, amount.issue(), dest);
+src/xrpld/app/tx/detail/Escrow.cpp:251:    if (isFrozen(ctx.view, account, amount.issue()))
+src/xrpld/app/tx/detail/Escrow.cpp:255:    if (isFrozen(ctx.view, dest, amount.issue()))
+src/xrpld/app/tx/detail/Escrow.cpp:315:    // If the issuer has requireAuth set, check if the account is
+src/xrpld/app/tx/detail/Escrow.cpp:319:            requireAuth(ctx.view, mptIssue, account, AuthType::WeakAuth);
+src/xrpld/app/tx/detail/Escrow.cpp:323:    // If the issuer has requireAuth set, check if the destination is
+src/xrpld/app/tx/detail/Escrow.cpp:326:            requireAuth(ctx.view, mptIssue, dest, AuthType::WeakAuth);
+src/xrpld/app/tx/detail/Escrow.cpp:331:    if (isFrozen(ctx.view, account, mptIssue))
+src/xrpld/app/tx/detail/Escrow.cpp:335:    if (isFrozen(ctx.view, dest, mptIssue))
+src/xrpld/app/tx/detail/Escrow.cpp:420:    auto const ter = rippleCredit(
+src/xrpld/app/tx/detail/Escrow.cpp:727:    // If the issuer has requireAuth set, check if the destination is authorized
+src/xrpld/app/tx/detail/Escrow.cpp:728:    if (auto const ter = requireAuth(ctx.view, amount.issue(), dest);
+src/xrpld/app/tx/detail/Escrow.cpp:733:    if (isDeepFrozen(ctx.view, dest, amount.getCurrency(), amount.getIssuer()))
+src/xrpld/app/tx/detail/Escrow.cpp:758:    // If the issuer has requireAuth set, check if the destination is
+src/xrpld/app/tx/detail/Escrow.cpp:762:            requireAuth(ctx.view, mptIssue, dest, AuthType::WeakAuth);
+src/xrpld/app/tx/detail/Escrow.cpp:767:    if (isFrozen(ctx.view, dest, mptIssue))
+src/xrpld/app/tx/detail/Escrow.cpp:865:        if (TER const ter = trustCreate(
+src/xrpld/app/tx/detail/Escrow.cpp:948:            rippleCredit(view, issuer, receiver, finalAmt, true, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1134:        if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Escrow.cpp:1260:    // If the issuer has requireAuth set, check if the account is authorized
+src/xrpld/app/tx/detail/Escrow.cpp:1261:    if (auto const ter = requireAuth(ctx.view, amount.issue(), account);
+src/xrpld/app/tx/detail/Escrow.cpp:1287:    // If the issuer has requireAuth set, check if the account is
+src/xrpld/app/tx/detail/Escrow.cpp:1291:            requireAuth(ctx.view, mptIssue, account, AuthType::WeakAuth);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:251:            if (auto const ter = requireAuth(ctx.view, asset, accountID))
+src/xrpld/app/tx/detail/AMMDeposit.cpp:258:            if (isFrozen(ctx.view, accountID, asset))
+src/xrpld/app/tx/detail/AMMDeposit.cpp:289:                    requireAuth(ctx.view, amount->issue(), accountID))
+src/xrpld/app/tx/detail/AMMDeposit.cpp:299:            if (isFrozen(ctx.view, ammAccountID, amount->issue()))
+src/xrpld/app/tx/detail/AMMDeposit.cpp:386:        FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/CreateCheck.cpp:108:            if (isGlobalFrozen(ctx.view, issuerId))
+src/xrpld/app/tx/detail/CreateCheck.cpp:126:                        (issuerId > srcId) ? lsfHighFreeze : lsfLowFreeze))
+src/xrpld/app/tx/detail/CreateCheck.cpp:140:                        (dstId > issuerId) ? lsfHighFreeze : lsfLowFreeze))
+src/xrpld/app/tx/detail/OfferStream.cpp:280:        bool const deepFrozen = isDeepFrozen(
+src/xrpld/app/tx/detail/OfferStream.cpp:311:            fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/OfferStream.cpp:325:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/OfferStream.cpp:387:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/InvariantCheck.cpp:738:        bool const lowFreeze = uFlags & lsfLowFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:739:        bool const lowDeepFreeze = uFlags & lsfLowDeepFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:741:        bool const highFreeze = uFlags & lsfHighFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:742:        bool const highDeepFreeze = uFlags & lsfHighDeepFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1012:        change.line->isFlag(high ? lsfLowFreeze : lsfHighFreeze);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1014:        change.line->isFlag(high ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:927:        if (isFrozen(view, nftIssuer, amount.getCurrency(), amount.getIssuer()))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:941:    if (isFrozen(view, acctID, amount.getCurrency(), amount.getIssuer()))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:954:                    view, acctID, amount, FreezeHandling::fhZERO_IF_FROZEN, j)
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:964:                FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1128:        if (issuerAccount->isFlag(lsfRequireAuth))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1142:                    id > issue.account ? lsfLowAuth : lsfHighAuth))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1195:            (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:55:     {tmfMPTSetRequireAuth,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:56:      tmfMPTClearRequireAuth,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:57:      lsmfMPTCanMutateRequireAuth},
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:217:        if (not sleMptIssuance->isFlag(lsfMPTRequireAuth))
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:76:        if ((ctx.tx.getFlags() & tfMPTRequireAuth) == 0)
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:138:    // lsfMPTRequireAuth set
+src/xrpld/app/tx/detail/MPTokenAuthorize.cpp:139:    if (!(mptIssuanceFlags & lsfMPTRequireAuth))
+src/xrpld/app/tx/detail/Clawback.cpp:249:    return rippleCredit(
+src/xrpld/app/tx/detail/Clawback.cpp:275:    return rippleCredit(
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:102:    if (auto const ter = requireAuth(ctx.view, vaultAsset, dstAcct, authType))
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:139:            FreezeHandling::fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/AMMClawback.cpp:232:    auto const ter = rippleCredit(sb, holder, issuer, amountWithdraw, true, j_);
+src/xrpld/app/tx/detail/AMMClawback.cpp:245:        return rippleCredit(sb, holder, issuer, *amount2Withdraw, true, j_);
+src/xrpld/app/tx/detail/Offer.h:276:    return accountSend(std::forward<Args>(args)...);
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:139:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:226:                    ctx.view, (*bo)[sfOwner], needed, fhZERO_IF_FROZEN, ctx.j) <
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:236:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:305:                    fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:327:                    fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:414:    auto const result = accountSend(view(), from, to, amount, j_);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:425:    if (accountFunds(view(), from, amount, fhZERO_IF_FROZEN, j_).signum() < 0)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:427:    if (accountFunds(view(), to, amount, fhZERO_IF_FROZEN, j_).signum() < 0)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:346:    return accountSend(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:383:        if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/LoanSet.cpp:533:            requireAuth(view, vaultAsset, borrower, AuthType::StrongAuth))
+src/xrpld/app/tx/detail/LoanSet.cpp:560:            requireAuth(view, vaultAsset, brokerOwner, AuthType::StrongAuth))
+src/xrpld/app/tx/detail/LoanSet.cpp:563:    if (auto const ter = accountSendMulti(
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:269:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:292:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/StepChecks.h:52:        if (sle->isFlag((dst > src) ? lsfHighFreeze : lsfLowFreeze))
+src/xrpld/app/paths/detail/StepChecks.h:58:        if (sle->isFlag(lsfHighDeepFreeze) || sle->isFlag(lsfLowDeepFreeze))
+src/xrpld/app/paths/detail/BookStep.cpp:767:            if (issuer && ((*issuer)[sfFlags] & lsfRequireAuth))
+src/xrpld/app/paths/detail/BookStep.cpp:772:                    issuerID > ownerID ? lsfHighAuth : lsfLowAuth;
+src/xrpld/app/paths/detail/DirectStep.cpp:420:        auto const authField = (src_ > dst_) ? lsfHighAuth : lsfLowAuth;
+src/xrpld/app/paths/detail/DirectStep.cpp:422:        if (((*sleSrc)[sfFlags] & lsfRequireAuth) &&
+src/xrpld/app/paths/detail/DirectStep.cpp:550:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:571:    rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:675:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:696:        rippleCredit(
+src/xrpld/app/tx/detail/CreateOffer.cpp:171:    if (isGlobalFrozen(ctx.view, uPaysIssuerID) ||
+src/xrpld/app/tx/detail/CreateOffer.cpp:172:        isGlobalFrozen(ctx.view, uGetsIssuerID))
+src/xrpld/app/tx/detail/CreateOffer.cpp:178:    if (accountFunds(ctx.view, id, saTakerGets, fhZERO_IF_FROZEN, viewJ) <=
+src/xrpld/app/tx/detail/CreateOffer.cpp:198:        // us a call to checkAcceptAsset and possible false negative.
+src/xrpld/app/tx/detail/CreateOffer.cpp:211:        auto result = checkAcceptAsset(
+src/xrpld/app/tx/detail/CreateOffer.cpp:234:CreateOffer::checkAcceptAsset(
+src/xrpld/app/tx/detail/CreateOffer.cpp:244:        "ripple::CreateOffer::checkAcceptAsset : input is not XRP");
+src/xrpld/app/tx/detail/CreateOffer.cpp:264:    if ((*issuerAccount)[sfFlags] & lsfRequireAuth)
+src/xrpld/app/tx/detail/CreateOffer.cpp:280:            (*trustLine)[sfFlags] & (canonical_gt ? lsfLowAuth : lsfHighAuth));
+src/xrpld/app/tx/detail/CreateOffer.cpp:310:        (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/CreateOffer.cpp:336:            accountFunds(psb, account_, takerAmount.in, fhZERO_IF_FROZEN, j_);
+src/xrpld/app/tx/detail/CreateOffer.cpp:439:                psb, account_, takerAmount.in, fhZERO_IF_FROZEN, j_);
+src/xrpld/app/tx/detail/SetTrust.cpp:46:        uFlags |= (bHigh ? ripple::lsfHighFreeze : ripple::lsfLowFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:50:        uFlags &= ~(bHigh ? ripple::lsfHighFreeze : ripple::lsfLowFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:55:            (bHigh ? ripple::lsfHighDeepFreeze : ripple::lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:60:            ~(bHigh ? ripple::lsfHighDeepFreeze : ripple::lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:206:    if (bSetAuth && !(sle->getFieldU32(sfFlags) & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetTrust.cpp:349:        auto const frozen = uFlags & (bHigh ? lsfHighFreeze : lsfLowFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:351:            uFlags & (bHigh ? lsfHighDeepFreeze : lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:434:        return trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:613:            (uFlagsOut & lsfLowFreeze) || saLowLimit ||
+src/xrpld/app/tx/detail/SetTrust.cpp:619:            (uFlagsOut & lsfHighFreeze) || saHighLimit ||
+src/xrpld/app/tx/detail/SetTrust.cpp:632:            uFlagsOut |= (bHigh ? lsfHighAuth : lsfLowAuth);
+src/xrpld/app/tx/detail/SetTrust.cpp:676:            terResult = trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:730:        terResult = trustCreate(
+src/xrpld/app/tx/detail/CashCheck.cpp:157:                fhZERO_IF_FROZEN,
+src/xrpld/app/tx/detail/CashCheck.cpp:198:            if (sleIssuer->at(sfFlags) & lsfRequireAuth)
+src/xrpld/app/tx/detail/CashCheck.cpp:203:                    // have lsfRequireAuth set.
+src/xrpld/app/tx/detail/CashCheck.cpp:214:                    (canonical_gt ? lsfLowAuth : lsfHighAuth));
+src/xrpld/app/tx/detail/CashCheck.cpp:230:            if (isFrozen(ctx.view, dstId, currency, issuerId))
+src/xrpld/app/tx/detail/CashCheck.cpp:377:                if (TER const ter = trustCreate(
+src/xrpld/app/misc/detail/AMMUtils.cpp:137:    else if (isFrozen(view, lpAccount, currency, ammAccount))
+src/xrpld/app/misc/detail/AMMUtils.cpp:224:             !isFrozen(view, ammAccountID, issue.currency, issue.account))

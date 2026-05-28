@@ -194,6 +194,27 @@ ripple.app.Ticket had 0 failures.
 94.1s, 11 suites, 489 cases, 63983 tests total, 0 failures
 ```
 
+`AUTH-FREEZE-RECEIVE-SWEEP-001` asked whether old live IOU receive paths hide a
+stronger `RequireAuth`, local-freeze, global-freeze, deep-freeze, or DepositAuth
+sibling beyond the already-promoted DisallowIncomingTrustline, AMM DepositAuth,
+and lending regular-freeze surfaces. The static sweep covered
+`checkAcceptAsset`, `requireAuth`, freeze/deep-freeze helpers, `trustCreate`,
+`trustDelete`, `rippleCredit`, `accountSend`, `issueIOU`, and
+`verifyDepositPreauth`. No new old-core receive-policy witness was isolated.
+Existing `Freeze`, `SetTrust`, `Flow`, `Offer`, `Check`, `Escrow`,
+`EscrowToken`, `TrustAndBalance`, and `PayStrand` suites then passed. Static
+artifact `auth_freeze_receive_static_sweep_20260528.log` has sha256
+`3ce4e848635f707855f468ee7a94bd87f24295a0be2088ed4793c3961aaf30fc`. Suite
+artifact `auth_freeze_receive_source_kill_20260528.log` has sha256
+`79c5255082209f8b2ae90d13738bf3b21368dd0a4c8e0c7e400e802804f4d584`.
+
+```text
+ripple.app.Freeze had 0 failures.
+ripple.app.SetTrust had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+144.1s, 15 suites, 716 cases, 96462 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
