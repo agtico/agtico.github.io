@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T07:28:01Z
-amendment_checked_utc: 2026-05-28T07:27:59Z
+runtime_checked_utc: 2026-05-28T07:41:35Z
+amendment_checked_utc: 2026-05-28T07:41:37Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104532815, hash 5953ED7736DDBBB9AFA832797FAF557124161CA7D4998C52D83B9942A28C7098
-s2.ripple.com: rippled 3.1.3, ledger 104532816, hash F335D95E2EF650A68B298D1BFCBA1635ADBC4E73EC7FA27A0C79DEC653C23EC3
+s1.ripple.com: rippled 3.1.3, ledger 104533026, hash D6C7C8396E5C1AA0E03B5201AB4CFDF487255FA7B7EE0518A770B07BE3365E7F
+s2.ripple.com: rippled 3.1.3, ledger 104533026, hash D6C7C8396E5C1AA0E03B5201AB4CFDF487255FA7B7EE0518A770B07BE3365E7F
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -53,6 +53,7 @@ Completed and packet-bound work:
 - transaction-queue minimum-reserve potential-spend sweep.
 - NFT brokered auth/freeze receive-path sweep.
 - AMMDeposit LP-token reserve sibling scratch probe.
+- AccountDelete positive-unowned-trustline lifecycle scratch probe.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -999,6 +1000,31 @@ Alice's LP-token trustline, but the ledger charged the owner reserve: Alice's
 `AMMBID-TRUSTLINE-RESERVE-SIBLING-001` as a positive-balance/no-reserve
 witness while leaving the separate `AMMBID-DEPOSITAUTH-REFUND-001` finding
 unchanged.
+
+`ACCOUNTDELETE-POSITIVE-UNOWNED-TRUSTLINE-001` asked whether the current
+reserve bug can be extended into account deletion: after offer crossing creates
+a positive gateway USD balance while Alice's `OwnerCount` remains `0`, can
+Alice delete her account and leave a stranded positive trustline behind? The
+scratch repro advanced enough ledgers for AccountDelete, paid the owner-reserve
+delete fee, and attempted to delete Alice into a funded destination. The
+transaction returned `tecHAS_OBLIGATIONS`, Alice's account root remained, and
+the positive trustline remained. This source-kills the account-deletion
+extension even though the trustline is not counted in `OwnerCount`. Static
+artifact `accountdelete_positive_unowned_trustline_static_sweep_20260528.log`
+has sha256
+`2c3233a85651099a33e21ff05ba41ed9c519432f1df5aaf100b3bdadcf4c83df`.
+History artifact
+`accountdelete_positive_unowned_trustline_history_sweep_20260528.log` has
+sha256 `69141a8961bce1bf01016aead3e732a81021bbf6a5908f34e523cf84dafc4a2c`.
+Scratch source-kill artifact
+`accountdelete_positive_unowned_trustline_source_kill_20260528.log` has sha256
+`6c4ddb4a2f230dc817ded3b02c1d7005796fd706cfca560e4982a14300d60871`.
+
+```text
+ripple.tx.OpenP0Repro SCRATCH AccountDelete with positive unowned trustline
+ripple.tx.OpenP0Repro had 0 failures.
+17.0s, 1 suite, 71 cases, 16830 tests total, 0 failures
+```
 
 ## Legacy-Core Source-Kill Sweep
 

@@ -1530,6 +1530,22 @@ of `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. AMMDeposit still matters for the
 separate empty-pool `DisallowIncomingTrustline` bypass, but the LP-token reserve
 boundary fails closed.
 
+## Demoted: AccountDelete with positive unowned trustline
+
+Status: scratch-tested on rebuilt upstream `3.1.3`; not a finding.
+
+The repro first created the current trustline reserve drift: Alice held a
+positive gateway USD balance after offer crossing while her `OwnerCount`
+remained `0` and the receiver reserve flag stayed unset. It then advanced the
+ledger enough for `AccountDelete` and attempted to delete Alice into a funded
+destination. The transaction returned `tecHAS_OBLIGATIONS`; Alice's account
+root and the positive trustline both remained.
+
+Interpretation: the reserve bug does not currently extend into account deletion
+or a stranded positive trustline after account removal. The positive trustline
+still blocks `AccountDelete` even though it is not reflected in Alice's owner
+count.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

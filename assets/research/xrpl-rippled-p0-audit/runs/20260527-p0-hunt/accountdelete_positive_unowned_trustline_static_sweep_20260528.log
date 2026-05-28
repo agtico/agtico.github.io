@@ -1,0 +1,205 @@
+src/test/app/OpenP0Repro_test.cpp:392:            keylet::line(broker.id(), fixture.asset.raw().get<Issue>());
+src/test/app/OpenP0Repro_test.cpp:502:            keylet::ownerDir(alice.id()),
+src/test/app/OpenP0Repro_test.cpp:1644:            keylet::line(alice.id(), usd.raw().get<Issue>());
+src/test/app/OpenP0Repro_test.cpp:1721:    testDelegateeAccountDeleteLeavesStaleDelegateCurrent()
+src/test/app/OpenP0Repro_test.cpp:2461:        testcase("TrustLine current — offer crossing creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:2490:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2495:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2508:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2512:    testAccountDeletePositiveUnownedTrustlineScratch()
+src/test/app/OpenP0Repro_test.cpp:2514:        testcase("SCRATCH AccountDelete with positive unowned trustline");
+src/test/app/OpenP0Repro_test.cpp:2544:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2549:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2562:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2568:            ter(tecHAS_OBLIGATIONS),
+src/test/app/OpenP0Repro_test.cpp:2582:        testcase("TrustLine current — offer crossing leaves positive balance unowned with existing owner objects");
+src/test/app/OpenP0Repro_test.cpp:2611:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2616:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2633:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2668:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2673:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2702:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2708:        testcase("TrustLine current — offer crossing with transfer rate creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:2740:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2745:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2758:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2764:        testcase("TrustLine current — CheckCash creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:2791:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2796:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2810:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2816:        testcase("TrustLine current — CheckCash leaves positive balance unowned with existing owner objects");
+src/test/app/OpenP0Repro_test.cpp:2843:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2848:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2866:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2899:        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2904:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2934:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2940:        testcase("TrustLine current — TokenEscrow creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:2972:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:2977:        BEAST_EXPECT(!cleared->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3000:        BEAST_EXPECT(!finished->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3006:        testcase("TrustLine current — NFToken AcceptOffer creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3034:        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3039:        BEAST_EXPECT(!cleared->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3059:        BEAST_EXPECT(!settled->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3065:        testcase("TrustLine current — NFToken broker fee creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3095:        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3100:        BEAST_EXPECT(!cleared->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3129:        BEAST_EXPECT(!paid->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3135:        testcase("TrustLine current — AMMWithdraw creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3167:        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3172:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3186:        BEAST_EXPECT(!withdrawn->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3192:        testcase("TrustLine current — AMMClawback creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3226:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3231:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3243:        BEAST_EXPECT(!clawed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3273:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3321:        auto const sellerLine = keylet::line(seller, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3379:        auto const brokerLine = keylet::line(broker, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3424:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3477:        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3523:        auto const aliceLine = keylet::line(alice, gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3574:        auto const ammLine = keylet::line(amm.ammAccount(), gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3619:        auto const ammLine = keylet::line(amm.ammAccount(), gw, to_currency("USD"));
+src/test/app/OpenP0Repro_test.cpp:3678:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3730:        auto const aliceEurLine = keylet::line(alice, gw2, to_currency("EUR"));
+src/test/app/OpenP0Repro_test.cpp:3951:            auto const k1 = keylet::line(a1, a2, a1["AAA"].currency);
+src/test/app/OpenP0Repro_test.cpp:3952:            auto const k2 = keylet::line(a1, a3, a1["ZZZ"].currency);
+src/test/app/OpenP0Repro_test.cpp:3979:            auto const k1 = keylet::line(a1, a2, a1["USD"].currency);
+src/test/app/OpenP0Repro_test.cpp:3980:            auto const k2 = keylet::line(a1, a3, a1["EUR"].currency);
+src/test/app/OpenP0Repro_test.cpp:4061:        testDelegateeAccountDeleteLeavesStaleDelegateCurrent();
+src/test/app/OpenP0Repro_test.cpp:4079:        testAccountDeletePositiveUnownedTrustlineScratch();
+src/xrpld/app/tx/detail/SetTrust.cpp:158:    auto const sleRippleState = view.read(keylet::line(
+src/xrpld/app/tx/detail/SetTrust.cpp:230:                ctx.view.read(keylet::line(id, uDstAccountID, currency));
+src/xrpld/app/tx/detail/SetTrust.cpp:261:                ctx.view.exists(keylet::line(id, uDstAccountID, currency)))
+src/xrpld/app/tx/detail/SetTrust.cpp:280:            if (ctx.view.exists(keylet::line(id, uDstAccountID, currency)))
+src/xrpld/app/tx/detail/SetTrust.cpp:302:            if (!ctx.view.exists(keylet::line(id, uDstAccountID, currency)))
+src/xrpld/app/tx/detail/SetTrust.cpp:336:            ctx.view.read(keylet::line(id, uDstAccountID, currency));
+src/xrpld/app/tx/detail/SetTrust.cpp:384:    std::uint32_t const uOwnerCount = sle->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/SetTrust.cpp:434:        return trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:436:            view().peek(keylet::line(account_, uDstAccountID, currency)),
+src/xrpld/app/tx/detail/SetTrust.cpp:455:        view().peek(keylet::line(account_, uDstAccountID, currency));
+src/xrpld/app/tx/detail/SetTrust.cpp:625:        bool const bLowReserved = (uFlagsIn & lsfLowReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:626:        bool const bHighReserved = (uFlagsIn & lsfHighReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:639:            uFlagsOut |= lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:649:            uFlagsOut &= ~lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:656:            uFlagsOut |= lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:666:            uFlagsOut &= ~lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:676:            terResult = trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:724:        auto const k = keylet::line(account_, uDstAccountID, currency);
+src/libxrpl/ledger/View.cpp:225:        auto const sle = view.read(keylet::line(account, issuer, currency));
+src/libxrpl/ledger/View.cpp:262:        sle = view.read(keylet::line(account, issuer, currency));
+src/libxrpl/ledger/View.cpp:367:    auto const sle = view.read(keylet::line(account, issuer, currency));
+src/libxrpl/ledger/View.cpp:396:    auto const sle = view.read(keylet::line(account, issuer, currency));
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:799:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:800:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:802:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:815:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:825:            auto const ownerDir = view.read(currentIndex);
+src/libxrpl/ledger/View.cpp:826:            if (!ownerDir)
+src/libxrpl/ledger/View.cpp:828:            for (auto const& key : ownerDir->getFieldV256(sfIndexes))
+src/libxrpl/ledger/View.cpp:831:            auto const uNodeNext = ownerDir->getFieldU64(sfIndexNext);
+src/libxrpl/ledger/View.cpp:985:dirIsEmpty(ReadView const& view, Keylet const& k)
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1143:        keylet::ownerDir(owner), object->key(), describeOwnerDir(owner));
+src/libxrpl/ledger/View.cpp:1481:    auto const index = keylet::line(srcId, dstId, currency);
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1569:                    keylet::ownerDir(account),
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1694:    auto const sleRippleState = std::make_shared<SLE>(ltRIPPLE_STATE, uIndex);
+src/libxrpl/ledger/View.cpp:1698:        keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1706:        keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1748:    std::uint32_t uFlags = bSetHigh ? lsfHighReserve : lsfLowReserve;
+src/libxrpl/ledger/View.cpp:1801:            return tecHAS_OBLIGATIONS;
+src/libxrpl/ledger/View.cpp:1810:    auto const line = view.peek(keylet::line(accountID, issue));
+src/libxrpl/ledger/View.cpp:1814:        return tecHAS_OBLIGATIONS;
+src/libxrpl/ledger/View.cpp:1817:    if (line->isFlag(lsfLowReserve))
+src/libxrpl/ledger/View.cpp:1829:        line->clearFlag(lsfLowReserve);
+src/libxrpl/ledger/View.cpp:1832:    if (line->isFlag(lsfHighReserve))
+src/libxrpl/ledger/View.cpp:1844:        line->clearFlag(lsfHighReserve);
+src/libxrpl/ledger/View.cpp:1847:    return trustDelete(
+src/libxrpl/ledger/View.cpp:1877:        return tecHAS_OBLIGATIONS;
+src/libxrpl/ledger/View.cpp:1890:trustDelete(
+src/libxrpl/ledger/View.cpp:1901:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: low";
+src/libxrpl/ledger/View.cpp:1904:            keylet::ownerDir(uLowAccountID),
+src/libxrpl/ledger/View.cpp:1912:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: high";
+src/libxrpl/ledger/View.cpp:1915:            keylet::ownerDir(uHighAccountID),
+src/libxrpl/ledger/View.cpp:1923:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: state";
+src/libxrpl/ledger/View.cpp:1941:            keylet::ownerDir(owner),
+src/libxrpl/ledger/View.cpp:2014:    auto const index = keylet::line(uSenderID, uReceiverID, currency);
+src/libxrpl/ledger/View.cpp:2052:            && (uFlags & (!bSenderHigh ? lsfLowReserve : lsfHighReserve))
+src/libxrpl/ledger/View.cpp:2078:                uFlags & (!bSenderHigh ? ~lsfLowReserve : ~lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2082:                && !(uFlags & (bSenderHigh ? lsfLowReserve : lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2095:            return trustDelete(
+src/libxrpl/ledger/View.cpp:2903:        && (flags & (!bSenderHigh ? lsfLowReserve : lsfHighReserve))
+src/libxrpl/ledger/View.cpp:2923:            sfFlags, flags & (!bSenderHigh ? ~lsfLowReserve : ~lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2927:            && !(flags & (bSenderHigh ? lsfLowReserve : lsfHighReserve)))
+src/libxrpl/ledger/View.cpp:2957:    auto const index = keylet::line(issue.account, account, issue.currency);
+src/libxrpl/ledger/View.cpp:2989:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3058:            view.peek(keylet::line(account, issue.account, issue.currency)))
+src/libxrpl/ledger/View.cpp:3084:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3164:        view.read(keylet::line(account, issue.account, issue.currency));
+src/libxrpl/ledger/View.cpp:3422:        auto const line = view.read(keylet::line(account, issue));
+src/libxrpl/ledger/View.cpp:3439:cleanupOnAccountDelete(
+src/libxrpl/ledger/View.cpp:3441:    Keylet const& ownerDirKeylet,
+src/libxrpl/ledger/View.cpp:3452:    if (view.exists(ownerDirKeylet) &&
+src/libxrpl/ledger/View.cpp:3453:        dirFirst(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry))
+src/libxrpl/ledger/View.cpp:3467:                    << "DeleteAccount: Directory node in ledger " << view.seq()
+src/libxrpl/ledger/View.cpp:3501:                "ripple::cleanupOnAccountDelete : minimum dir entries");
+src/libxrpl/ledger/View.cpp:3506:                    << "DeleteAccount iterator re-validation failed.";
+src/libxrpl/ledger/View.cpp:3514:            dirNext(view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry));
+src/libxrpl/ledger/View.cpp:3527:    if (!sleState || sleState->getType() != ltRIPPLE_STATE)
+src/libxrpl/ledger/View.cpp:3553:    if (auto const ter = trustDelete(view, sleState, low, high, j);
+src/libxrpl/ledger/View.cpp:3561:    auto const uFlags = !ammLow ? lsfLowReserve : lsfHighReserve;
+src/test/app/AccountDelete_test.cpp:28:class AccountDelete_test : public beast::unit_test::suite
+src/test/app/AccountDelete_test.cpp:156:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:164:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(alice.id())));
+src/test/app/AccountDelete_test.cpp:173:        env(acctdelete(becky, carol), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:200:            BEAST_EXPECT(env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:217:            BEAST_EXPECT(!env.closed()->exists(keylet::ownerDir(carol.id())));
+src/test/app/AccountDelete_test.cpp:266:        Keylet const aliceRootKey{keylet::ownerDir(alice.id())};
+src/test/app/AccountDelete_test.cpp:328:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:329:        env(acctdelete(becky, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:347:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:348:        env(acctdelete(becky, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:379:                ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:400:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:437:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:605:        // directory entries an AccountDelete will remove.
+src/test/app/AccountDelete_test.cpp:637:        Keylet const aliceOwnerDirKey{keylet::ownerDir(alice.id())};
+src/test/app/AccountDelete_test.cpp:659:        // Cancel one of alice's offers.  Then the account delete can succeed.
+src/test/app/AccountDelete_test.cpp:723:        env(acctdelete(alice, gw), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:726:        env(acctdelete(gw, alice), fee(acctDelFee), ter(tecHAS_OBLIGATIONS));
+src/test/app/AccountDelete_test.cpp:1272:BEAST_DEFINE_TESTSUITE_PRIO(AccountDelete, app, ripple, 2);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:22:#include <xrpld/app/tx/detail/DeleteAccount.h>
+src/xrpld/app/tx/detail/DeleteAccount.cpp:42:DeleteAccount::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:55:DeleteAccount::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:69:DeleteAccount::calculateBaseFee(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:71:    // The fee required for AccountDelete is one owner reserve.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:231:DeleteAccount::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/DeleteAccount.cpp:264:        sleAccount, "ripple::DeleteAccount::preclaim : non-null account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:274:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:284:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:316:    Keylet const ownerDirKeylet{keylet::ownerDir(account)};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:317:    if (dirIsEmpty(ctx.view, ownerDirKeylet))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:325:    // by the dirIsEmpty() check earlier, but it's okay to catch it here.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:327:            ctx.view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:341:                << "DeleteAccount: directory node in ledger " << ctx.view.seq()
+src/xrpld/app/tx/detail/DeleteAccount.cpp:352:            return tecHAS_OBLIGATIONS;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:360:        ctx.view, ownerDirKeylet.key, sleDirNode, uDirEntry, dirEntry));
+src/xrpld/app/tx/detail/DeleteAccount.cpp:366:DeleteAccount::doApply()
+src/xrpld/app/tx/detail/DeleteAccount.cpp:370:        src, "ripple::DeleteAccount::doApply : non-null source account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:375:        dst, "ripple::DeleteAccount::doApply : non-null destination account");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:389:    Keylet const ownerDirKeylet{keylet::ownerDir(account_)};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:390:    auto const ter = cleanupOnAccountDelete(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:392:        ownerDirKeylet,
+src/xrpld/app/tx/detail/DeleteAccount.cpp:406:                "ripple::DeleteAccount::doApply : undeletable item not found "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:408:            JLOG(j_.error()) << "DeleteAccount undeletable item not "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:410:            return {tecHAS_OBLIGATIONS, SkipEntry::No};
+src/xrpld/app/tx/detail/DeleteAccount.cpp:424:        "ripple::DeleteAccount::doApply : source balance is zero");
+src/xrpld/app/tx/detail/DeleteAccount.cpp:428:    if (view().exists(ownerDirKeylet) && !view().emptyDirDelete(ownerDirKeylet))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:430:        JLOG(j_.error()) << "DeleteAccount cannot delete root dir node of "
+src/xrpld/app/tx/detail/DeleteAccount.cpp:432:        return tecHAS_OBLIGATIONS;
