@@ -28,6 +28,7 @@ TrustLine current - offer crossing creates positive balance without reserve
 TrustLine current - offer crossing leaves positive balance unowned with existing owner objects
 TrustLine current - CheckCash creates positive balance without reserve
 TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
+TrustLine current - CheckCash succeeds below missing owner reserve
 ```
 
 The packet wrapper reproduced the marker:
@@ -39,22 +40,50 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: 0ec999dc91f0e89b40c21700e49763d72c3654e7d6253a0f90cbabdeadc16087
+local wrapper log sha256: d11fc8c546a0f58651828424d32d36c077be740f4074c154ba67017fe25cd556
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-16.0s, 1 suite, 62 cases, 16229 tests total, 0 failures
+14.8s, 1 suite, 63 cases, 16284 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=22 proof_sha256=24ae56f1ece19028b24abb38bd9e5d8714e29a85340e393cfe919d5db220ad38
+records=19 markers=23 proof_sha256=e32bcb69d878514c37c1c6e485577730ddafd7f63239be5608c0ba6e4ebef5b2
 ```
+
+## CheckCash Missing-Owner-Reserve Boundary
+
+This slice added a fifth marker under the same finding. It is not a new finding
+count.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2`.
+3. The gateway writes a USD check to Alice.
+4. Alice is drained to exactly the two-owner reserve plus the CheckCash fee,
+   leaving no reserve capacity for a third owner object.
+5. Alice cashes the check and receives 50 USD.
+6. Alice remains below the three-owner reserve, `OwnerCount` remains `2`, and
+   the receiver reserve flag remains unset.
+
+The packet proof marker is:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
+```
+
+This converts the same root cause from an accounting-only witness into a
+reserve-boundary witness: the settlement path accepts a positive IOU balance
+even when the receiver lacks the XRP reserve that the missing owner-count
+transition would require.
 
 ## Offer Existing-Owner Control
 
-This slice added a fourth marker under the same finding. It is not a new
+The prior slice added a fourth marker under the same finding. It is not a new
 finding count.
 
 Minimal behavior:
@@ -354,7 +383,9 @@ source-lineage plus current repro to source-lineage plus current, `2.5.0`,
 `2.0.0`, and `1.5.0` binary repro, then added CheckCash as a second
 current-live settlement-path marker, CheckCash-with-existing-owner-objects as a
 third marker, and offer-crossing-with-existing-owner-objects as a fourth marker
-for the same root cause.
+for the same root cause. The latest slice adds a fifth marker proving CheckCash
+still succeeds when the receiver lacks reserve capacity for the missing third
+owner object.
 
 ## Next Step
 

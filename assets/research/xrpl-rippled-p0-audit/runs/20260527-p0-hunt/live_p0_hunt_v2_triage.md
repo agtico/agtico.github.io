@@ -67,7 +67,10 @@ Five additional findings were promoted during the live-only continuation:
   The current packet reproduces the same reserve drift through offer crossing
   and CheckCash with `OwnerCount=0`, and through both paths with two existing
   ticket objects, where `OwnerCount` remains `2` instead of increasing for the
-  positive trustline.
+  positive trustline. A further CheckCash boundary control succeeds after the
+  receiver is drained below the three-owner reserve threshold, proving the path
+  does not merely forget an accounting flag; it accepts the settlement without
+  the reserve capacity the missing owner object would require.
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`: an issuer can set
   `asfDisallowIncomingTrustline`, but `OfferCreate` can still cross into that
   issuer's IOU for a taker with no existing trustline, creating the incoming

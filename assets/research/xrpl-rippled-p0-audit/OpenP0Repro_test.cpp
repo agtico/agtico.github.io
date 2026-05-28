@@ -2674,6 +2674,74 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceCheckCashReserveBoundaryCurrent()
+    {
+        testcase("TrustLine current — CheckCash succeeds below missing owner reserve");
+        using namespace jtx;
+
+        FeatureBitset const features =
+            testable_amendments() | featureChecks | featureCheckCashMakesTrustLine;
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        auto const USD = gw["USD"];
+        bool const aliceHigh = alice.id() > gw.id();
+
+        Env env{*this, features};
+        env.fund(XRP(100'000), gw, alice);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(0)), THISLINE);
+        env.close();
+        env(pay(alice, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+        auto const cleared = env.le(lineKey);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, alice) == 0);
+        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+
+        env(ticket::create(alice, 2), THISLINE);
+        env.close();
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+
+        uint256 const chkId{keylet::check(gw.id(), env.seq(gw)).key};
+        env(check::create(gw, alice, USD(50)), THISLINE);
+        env.close();
+
+        // Leave alice with exactly enough XRP to pay the CheckCash fee while
+        // remaining below the reserve that would be required if the trustline
+        // owner count were correctly raised from 2 to 3.
+        auto const feeAmount = drops(env.current()->fees().base);
+        auto const targetBeforeCash =
+            env.current()->fees().accountReserve(2) + feeAmount;
+        auto const drain = env.balance(alice) - targetBeforeCash - feeAmount;
+        env(pay(alice, env.master, drain), THISLINE);
+        env.close();
+        BEAST_EXPECT(env.balance(alice) == targetBeforeCash);
+
+        env(check::cash(alice, chkId, USD(50)), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        auto const cashed = env.le(lineKey);
+        if (!BEAST_EXPECT(cashed))
+            return;
+        BEAST_EXPECT(env.balance(alice, USD) == USD(50));
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testDisallowIncomingTrustlineOfferCreateCurrent()
     {
         testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
@@ -3509,6 +3577,7 @@ public:
         testTrustlinePositiveBalanceOfferExistingOwnersCurrent();
         testTrustlinePositiveBalanceCheckCashCurrent();
         testTrustlinePositiveBalanceCheckCashExistingOwnersCurrent();
+        testTrustlinePositiveBalanceCheckCashReserveBoundaryCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();
