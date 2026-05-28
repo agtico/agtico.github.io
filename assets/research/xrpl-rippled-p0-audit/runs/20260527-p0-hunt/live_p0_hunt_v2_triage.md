@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-28T09:38:00Z`
+Checked: `2026-05-28T09:44:45Z`
 
 ## Live Scope
 
@@ -188,6 +188,12 @@ one of the WHIP gates:
   clawback, TokenEscrow, credential, owner-count, or invariant witness was
   isolated beyond the already packeted MPT findings and already-demoted
   product-semantics lanes.
+- `AMM-AUTH-FREEZE-INVARIANT-SWEEP-001` source-killed the next live-feature
+  lane after the MPT pass. Static/history review plus
+  `AMM,AMMClawback,Clawback,Freeze,DepositAuth,Invariants,Offer,SetTrust`
+  passed with 688 cases and 154,192 tests. No new AMM authorization, freeze,
+  clawback, auction-slot, LP-token, pool-state, owner-count, offer-crossing, or
+  invariant witness was isolated beyond the already packeted AMM findings.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
@@ -231,8 +237,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 
 The next high-yield live-only review should stay inside:
 
-1. AMM and AMMClawback authorization, freeze, and invariant paths.
-2. PermissionedDEX domain/credential quality and cancellation invariants.
-3. TokenEscrow result-code and owner-count/invariant paths.
-4. Credentials current-tag transaction paths that do not rely on disabled
+1. PermissionedDEX domain/credential quality and cancellation invariants.
+2. TokenEscrow result-code and owner-count/invariant paths.
+3. Credentials current-tag transaction paths that do not rely on disabled
    cleanup-era behavior.

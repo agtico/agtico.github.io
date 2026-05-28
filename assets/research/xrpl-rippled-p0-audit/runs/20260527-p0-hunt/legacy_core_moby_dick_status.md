@@ -18,14 +18,14 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:38:02Z
-amendment_checked_utc: 2026-05-28T09:38:00Z
+runtime_checked_utc: 2026-05-28T09:44:47Z
+amendment_checked_utc: 2026-05-28T09:44:45Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534829, hash 0E54A39622275BB4FB84C5252DD40861F6186A32C1E0FFDB8693F04BF29AA7BA
-s2.ripple.com: rippled 3.1.3, ledger 104534829, hash 0E54A39622275BB4FB84C5252DD40861F6186A32C1E0FFDB8693F04BF29AA7BA
-feature/amendment receipt ledger: 104534829, hash 0E54A39622275BB4FB84C5252DD40861F6186A32C1E0FFDB8693F04BF29AA7BA
-runtime receipt sha256: 5f1e9780478c2331d37c12efa0e4a643d92f5a8e2c39a632f58e6e9540164fdf
-amendment receipt sha256: 127632422b9f63c4412eb01deb313c49d011bea784e9531d18c1ff943d33ab54
+s1.ripple.com: rippled 3.1.3, ledger 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
+s2.ripple.com: rippled 3.1.3, ledger 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
+feature/amendment receipt ledger: 104534934, hash D59D2EF1B727A09591E8837142CCB113B325DB5DB95142F236F10928185B4D79
+runtime receipt sha256: 16223a513e18434d6fae04dee572296d0a3636bc0b8aacba18f569ed5edf2d52
+amendment receipt sha256: 8dd95c788fe7772c20ae1fb9759795f9659ffbadf201102a5cea480bdf26dc64
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -90,6 +90,19 @@ mpt_auth_lock_clawback_static_sweep_20260528.log sha256 f8ba2b4821d3c7e0ae06173b
 mpt_auth_lock_clawback_history_sweep_20260528.log sha256 09dbed8b34b14cd3b993766b2b0ddfa2b21954f834ce5fa906cb43e55be35d59
 mpt_auth_lock_clawback_source_kill_20260528.log sha256 02ccb8bdd0653a034e6f3ede57a92167e81a493138f6ea592346437e76181018
 64.1s, 6 suites, 258 cases, 31582 tests total, 0 failures
+```
+
+The next broader live-feature continuation checked AMM and AMMClawback
+authorization, freeze, clawback, auction-slot, offer-crossing, pool-state, and
+invariant paths. It did not promote a new finding. The pass source-killed
+adjacent AMM policy/invariant siblings beyond the AMM findings already in the
+packet and left the 19-record packet manifest unchanged.
+
+```text
+amm_auth_freeze_invariant_static_sweep_20260528.log sha256 2f82bff1fb0a81f2dff834a1d0a66dcbac9cc7cbda7e0ff5704e3c954b1fffed
+amm_auth_freeze_invariant_history_sweep_20260528.log sha256 131fb56e5f428e29e098976978305c27c27ad91aedf8921835e11ec890a69459
+amm_auth_freeze_invariant_source_kill_20260528.log sha256 7ec02a6f30a672bdcf992ae663800a5506b3a5af44cdf8e6b83d05b9ae2d91e6
+212.0s, 14 suites, 688 cases, 154192 tests total, 0 failures
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new

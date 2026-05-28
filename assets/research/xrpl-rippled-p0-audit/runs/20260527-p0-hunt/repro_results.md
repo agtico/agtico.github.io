@@ -1885,6 +1885,38 @@ semantics, and domain-auth/SAV dependency boundaries, but did not produce a new
 authorization, lock, clawback, owner-count, credential, TokenEscrow, or
 invariant witness.
 
+## Demoted: AMM authorization, freeze, and invariant sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The next broader live-feature pass focused on AMM and AMMClawback
+authorization, freeze, clawback, auction-slot, LP-token, offer-crossing,
+pool-state, and invariant paths. The sweep covered `AMMCreate`, `AMMDeposit`,
+`AMMWithdraw`, `AMMBid`, `AMMVote`, `AMMDelete`, `AMMClawback`, `Clawback`,
+offer crossing, `SetTrust`, `Freeze`, `DepositAuth`, AMM helper code, AMM core
+math, owner-count paths, `sfAuthAccounts`, LP-token paths, and invariant
+checks.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+amm_auth_freeze_invariant_static_sweep_20260528.log sha256 2f82bff1fb0a81f2dff834a1d0a66dcbac9cc7cbda7e0ff5704e3c954b1fffed
+amm_auth_freeze_invariant_history_sweep_20260528.log sha256 131fb56e5f428e29e098976978305c27c27ad91aedf8921835e11ec890a69459
+amm_auth_freeze_invariant_source_kill_20260528.log sha256 7ec02a6f30a672bdcf992ae663800a5506b3a5af44cdf8e6b83d05b9ae2d91e6
+212.0s, 14 suites, 688 cases, 154192 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new live AMM P0. The checked paths
+reinforce existing packet and triage entries around AMM `DisallowIncoming`,
+AMMClawback paired-asset returns, AMM DepositAuth bypasses, AMMBid refunds,
+stale `AuthAccounts`, and trustline reserve drift, but did not produce a new
+authorization, freeze, clawback, pool-state, owner-count, offer-crossing, or
+invariant witness.
+
 ## Open candidates
 
-The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
+The bridge, NFT, PermissionedDEX, TokenEscrow, Credentials, authorization, and
+remaining vault/loan candidates are source-backed or model-triaged but not
+reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level
+repro exists.
