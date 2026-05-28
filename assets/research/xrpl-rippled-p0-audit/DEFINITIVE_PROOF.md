@@ -5,7 +5,7 @@ Original binary: `/home/pfrpc/repos/rippled/.build/xrpld` (branch `internal/bug-
 
 2026-05-27 portability update: the public repro kit is self-locating and defaults to `/home/postfiat/repos/rippled` when a local upstream checkout exists. The Python model is portable. The jtx proof requires a local rippled test build with `OpenP0Repro_test.cpp` copied into `src/test/app/`.
 
-2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has five current-live markers. The same cleared/default trustline reserve drift reproduced through both offer crossing and `CheckCash`; stronger controls show the drift persists when the receiver already owns two ticket objects, and a reserve-boundary CheckCash control succeeds while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 63 cases / 16284 tests / 0 failures.
+2026-05-28 legacy-core update: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` now has six current-live markers. The same cleared/default trustline reserve drift reproduced through both offer crossing and `CheckCash`; stronger controls show the drift persists when the receiver already owns two ticket objects, and reserve-boundary controls for both paths succeed while the receiver remains below the reserve needed for the missing third owner object. The full `OpenP0Repro` suite now reports 64 cases / 16354 tests / 0 failures.
 
 2026-05-27 P0-hunt update: the expanded suite also reproduces nine pre-`fixCleanup3_1_3` historical/replay-era root causes with fixed-path negative controls:
 
@@ -183,6 +183,7 @@ ripple.tx.OpenP0Repro MPT current — STIssue sequence bytes are legacy-swapped
 ripple.tx.OpenP0Repro MPT current — locked holder can delete lock state without SAV
 ripple.tx.OpenP0Repro TrustLine current — offer crossing creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
+ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
@@ -195,7 +196,7 @@ ripple.tx.OpenP0Repro Delegate current — empty AccountSet with unrelated permi
 ripple.tx.OpenP0Repro Batch current — batch signer signatures replay across outer account
 ripple.tx.OpenP0Repro Invariant pre-fix — later good entries hide earlier bad entries
 ripple.tx.OpenP0Repro had 0 failures.
-14.9s, 1 suite, 63 cases, 16284 tests total, 0 failures
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
 ```
 
 Test source: `src/test/app/OpenP0Repro_test.cpp`

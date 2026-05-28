@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-14.9s, 1 suite, 63 cases, 16284 tests total, 0 failures
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,7 +136,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-14.9s, 1 suite, 63 cases, 16284 tests total, 0 failures
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
@@ -163,13 +163,42 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
-14.9s, 1 suite, 63 cases, 16284 tests total, 0 failures
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side companion to the CheckCash
 existing-owner control. Both live settlement paths skip the receiver-side
 owner-count/reserve update even after the holder is beyond the historical
 two-object reserve carveout.
+
+## Current sibling: offer crossing missing-owner-reserve boundary
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2`.
+3. A market account posts an offer selling gateway USD for XRP.
+4. Alice is drained to exactly the two-owner reserve plus the offer-crossing
+   XRP spend and fee.
+5. Alice crosses the offer and receives 50 USD.
+6. Alice remains below the three-owner reserve while `OwnerCount` remains `2`
+   and the receiver reserve flag remains unset.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+```
+
+Interpretation: this is the offer-side reserve-boundary companion to the
+CheckCash boundary control. The path succeeds even when the receiver lacks
+reserve capacity for the owner-count increment that should accompany a positive
+trustline balance.
 
 ## Current sibling: CheckCash missing-owner-reserve boundary
 
@@ -191,7 +220,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
-14.8s, 1 suite, 63 cases, 16284 tests total, 0 failures
+16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
 ```
 
 Interpretation: this proves the same root cause at the reserve boundary. The

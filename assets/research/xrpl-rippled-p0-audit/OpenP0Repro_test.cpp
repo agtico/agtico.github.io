@@ -2566,6 +2566,75 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceOfferReserveBoundaryCurrent()
+    {
+        testcase("TrustLine current — offer crossing succeeds below missing owner reserve");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const market{"market"};
+        auto const USD = gw["USD"];
+        bool const aliceHigh = alice.id() > gw.id();
+
+        Env env{*this};
+        env.fund(XRP(100'000), gw, alice, market);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env(trust(market, USD(1'000)), THISLINE);
+        env.close();
+
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env(pay(gw, market, USD(1'000)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(0)), THISLINE);
+        env.close();
+        env(pay(alice, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+        auto const cleared = env.le(lineKey);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, alice) == 0);
+        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+
+        env(ticket::create(alice, 2), THISLINE);
+        env.close();
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+
+        env(offer(market, XRP(100), USD(100)), THISLINE);
+        env.close();
+
+        // Leave alice with enough XRP for the crossing payment plus fee while
+        // remaining below the reserve that would be required if the trustline
+        // owner count were correctly raised from 2 to 3.
+        auto const feeAmount = drops(env.current()->fees().base);
+        auto const targetBeforeCross =
+            env.current()->fees().accountReserve(2) + XRP(50) + feeAmount;
+        auto const drain = env.balance(alice) - targetBeforeCross - feeAmount;
+        env(pay(alice, env.master, drain), THISLINE);
+        env.close();
+        BEAST_EXPECT(env.balance(alice) == targetBeforeCross);
+
+        env(offer(alice, USD(50), XRP(50)), ter(tesSUCCESS), THISLINE);
+        env.close();
+
+        auto const crossed = env.le(lineKey);
+        if (!BEAST_EXPECT(crossed))
+            return;
+        BEAST_EXPECT(env.balance(alice, USD) == USD(50));
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testTrustlinePositiveBalanceCheckCashCurrent()
     {
         testcase("TrustLine current — CheckCash creates positive balance without reserve");
@@ -3575,6 +3644,7 @@ public:
         testMPTLockedHolderUnauthorizeWithoutSavCurrent();
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
         testTrustlinePositiveBalanceOfferExistingOwnersCurrent();
+        testTrustlinePositiveBalanceOfferReserveBoundaryCurrent();
         testTrustlinePositiveBalanceCheckCashCurrent();
         testTrustlinePositiveBalanceCheckCashExistingOwnersCurrent();
         testTrustlinePositiveBalanceCheckCashReserveBoundaryCurrent();
