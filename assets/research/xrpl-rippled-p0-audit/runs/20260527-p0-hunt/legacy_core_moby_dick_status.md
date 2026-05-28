@@ -18,11 +18,11 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T06:30:46Z
-amendment_checked_utc: 2026-05-28T06:30:43Z
+runtime_checked_utc: 2026-05-28T06:38:59Z
+amendment_checked_utc: 2026-05-28T06:38:57Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104531930, hash 637DAB64DF0685B8ABFBBFF476DE3C7B826DE42E669087A378FA76694F26443B
-s2.ripple.com: rippled 3.1.3, ledger 104531930, hash 637DAB64DF0685B8ABFBBFF476DE3C7B826DE42E669087A378FA76694F26443B
+s1.ripple.com: rippled 3.1.3, ledger 104532056, hash 38E5352E78AB3D5CD8A6A6EB342DB219B2545CA3717AD8AB991C5297A2B1EA6B
+s2.ripple.com: rippled 3.1.3, ledger 104532056, hash 38E5352E78AB3D5CD8A6A6EB342DB219B2545CA3717AD8AB991C5297A2B1EA6B
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -335,6 +335,31 @@ ripple.app.Invariants had 0 failures.
 ripple.app.MultiSign had 0 failures.
 ripple.app.Oracle had 0 failures.
 67.1s, 5 suites, 170 cases, 25224 tests total, 0 failures
+```
+
+`DEPOSITPREAUTH-OWNERDIR-SWEEP-001` asked whether legacy DepositPreauth,
+DepositAuth, credential-bound preauthorization, or related `AccountDelete`
+cleanup can leave owner-count, reserve, directory, or receive-policy drift.
+The source review covered `DepositPreauth`, `Credentials`, credential helper
+cleanup, `verifyDepositPreauth`, `lsfDepositAuth`, owner-directory insertion
+and deletion, reserve checks, and account deletion. Existing upstream coverage
+passed across direct DepositAuth receive policy, IOU/XRP payment behavior,
+credential-bound preauthorization, expired and invalid credentials,
+preauthorization creation/deletion, directory-full and reserve failures,
+AccountDelete constraints, credential deletion during issuer/subject deletion,
+and invariant owner-count checks. Static artifact
+`depositpreauth_ownerdir_static_sweep_20260528.log` has sha256
+`4ccad122a5ff55264604863d077f9b59cfb12c2496437f72eb40be3fbd25ed5f`. Suite
+artifact `depositpreauth_ownerdir_source_kill_20260528.log` has sha256
+`42294a55728c813a9dff9cef2e73e6e283f47726271082d334ff66d63d27b950`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.Credentials had 0 failures.
+ripple.app.DepositAuth had 0 failures.
+ripple.app.DepositPreauth had 0 failures.
+ripple.app.Invariants had 0 failures.
+46.2s, 5 suites, 155 cases, 19207 tests total, 0 failures
 ```
 
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:

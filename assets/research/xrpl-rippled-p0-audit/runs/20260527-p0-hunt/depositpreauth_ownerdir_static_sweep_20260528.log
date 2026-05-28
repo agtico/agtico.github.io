@@ -1,0 +1,904 @@
+src/test/app/Invariants_test.cpp:244:        // An account was deleted, but not by an AccountDelete transaction.
+src/test/app/Invariants_test.cpp:260:        // Successful AccountDelete transaction that didn't delete an account.
+src/test/app/Invariants_test.cpp:274:        // Successful AccountDelete that deleted more than one account.
+src/test/app/Invariants_test.cpp:332:                BEAST_EXPECT(sleA1->at(sfOwnerCount) == 0);
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:393:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:428:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:485:                BEAST_EXPECT(ac.view().dirRemove(
+src/test/app/Invariants_test.cpp:486:                    ownerDirKeylet, ammSle->at(sfOwnerNode), ammKey, false));
+src/test/app/Invariants_test.cpp:495:                sle->at(sfOwnerCount) = 0;
+src/test/app/Invariants_test.cpp:1148:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:1181:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth |
+src/test/app/Invariants_test.cpp:1348:        sle->setAccountID(sfOwner, A1);
+src/test/app/Invariants_test.cpp:1354:            // this behavior, don't forget to use credentials::makeSorted
+src/test/app/Invariants_test.cpp:1355:            STArray credentials(sfAcceptedCredentials, numCreds);
+src/test/app/Invariants_test.cpp:1359:                cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1363:                credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1365:            sle->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1398:        auto constexpr tooBig = maxPermissionedDomainCredentialsArraySize + 1;
+src/test/app/Invariants_test.cpp:1401:            {{"permissioned domain bad credentials size " +
+src/test/app/Invariants_test.cpp:1413:            {{"permissioned domain credentials aren't sorted"}},
+src/test/app/Invariants_test.cpp:1417:                STArray credentials(sfAcceptedCredentials, 2);
+src/test/app/Invariants_test.cpp:1421:                    cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1427:                    credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1429:                slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1440:            {{"permissioned domain credentials aren't unique"}},
+src/test/app/Invariants_test.cpp:1444:                STArray credentials(sfAcceptedCredentials, 2);
+src/test/app/Invariants_test.cpp:1448:                    cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1450:                    credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1452:                slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1470:                    STArray credentials(sfAcceptedCredentials, 2);
+src/test/app/Invariants_test.cpp:1471:                    slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1484:            {{"permissioned domain bad credentials size " +
+src/test/app/Invariants_test.cpp:1492:                    STArray credentials(sfAcceptedCredentials, tooBig);
+src/test/app/Invariants_test.cpp:1497:                        cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1502:                        credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1505:                    slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1518:            {{"permissioned domain credentials aren't sorted"}},
+src/test/app/Invariants_test.cpp:1525:                    STArray credentials(sfAcceptedCredentials, 2);
+src/test/app/Invariants_test.cpp:1529:                        cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1535:                        credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1538:                    slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1551:            {{"permissioned domain credentials aren't unique"}},
+src/test/app/Invariants_test.cpp:1558:                    STArray credentials(sfAcceptedCredentials, 2);
+src/test/app/Invariants_test.cpp:1562:                        cred.setAccountID(sfIssuer, A2);
+src/test/app/Invariants_test.cpp:1565:                        credentials.push_back(std::move(cred));
+src/test/app/Invariants_test.cpp:1567:                    slePd->setFieldArray(sfAcceptedCredentials, credentials);
+src/test/app/Invariants_test.cpp:1868:        pdomain::Credentials credentials;
+src/test/app/Invariants_test.cpp:1873:            credentials.push_back({A2, credType});
+src/test/app/Invariants_test.cpp:1877:        env(pdomain::setTx(A1, credentials));
+src/test/app/Invariants_test.cpp:2179:                    [](SLE::pointer& sle) { sle->at(sfOwnerNode) += 1; },
+src/test/app/Invariants_test.cpp:2183:                        sle->at(sfAccount) = sle->at(sfOwner);
+src/test/app/Invariants_test.cpp:2186:                        sle->at(sfOwner) = sle->at(sfAccount);
+src/test/app/Invariants_test.cpp:2312:                if (!BEAST_EXPECT(sleBroker->at(sfOwnerCount) == 0))
+src/test/app/Invariants_test.cpp:2348:                {{"Loan Broker with zero OwnerCount has multiple directory "
+src/test/app/Invariants_test.cpp:2380:                {{"Loan Broker with zero OwnerCount has multiple indexes in "
+src/test/app/Invariants_test.cpp:2437:                {{"Loan Broker with zero OwnerCount has an unexpected entry in "
+src/test/app/Invariants_test.cpp:2770:                sleVault->setFieldU64(sfOwnerNode, *vaultPage);
+src/test/app/Invariants_test.cpp:2846:                    sleVault->setFieldU64(sfOwnerNode, *vaultPage);
+src/test/app/Invariants_test.cpp:3448:                (*sleShares)[sfIssuer] = A1.id();
+src/test/app/Invariants_test.cpp:3477:                sleVault->setFieldU64(sfOwnerNode, *vaultPage);
+src/test/app/Invariants_test.cpp:3493:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3504:                sleShares->setFieldU64(sfOwnerNode, *sharesPage);
+src/test/app/Invariants_test.cpp:3507:                sleShares->at(sfIssuer) = pseudoId;
+src/test/app/Invariants_test.cpp:3514:                sleVault->at(sfOwner) = A1.id();
+src/test/app/Invariants_test.cpp:3541:                sleVault->setFieldU64(sfOwnerNode, *vaultPage);
+src/test/app/Invariants_test.cpp:3557:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3570:                sleShares->setFieldU64(sfOwnerNode, *sharesPage);
+src/test/app/Invariants_test.cpp:3573:                sleShares->at(sfIssuer) = pseudoId;
+src/test/app/Invariants_test.cpp:3582:                sleVault->at(sfOwner) = A1.id();
+src/test/app/Invariants_test.cpp:3609:                sleVault->setFieldU64(sfOwnerNode, *vaultPage);
+src/test/app/Invariants_test.cpp:3618:                sleShares->setFieldU64(sfOwnerNode, *sharesPage);
+src/test/app/Invariants_test.cpp:3622:                sleShares->at(sfIssuer) = AccountID(42);
+src/test/app/Invariants_test.cpp:3629:                sleVault->at(sfOwner) = A1.id();
+src/test/app/Credentials_test.cpp:36:struct Credentials_test : public beast::unit_test::suite
+src/test/app/Credentials_test.cpp:55:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:60:            // Test Create credentials
+src/test/app/Credentials_test.cpp:61:            env(credentials::create(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:62:                credentials::uri(uri));
+src/test/app/Credentials_test.cpp:70:                BEAST_EXPECT(sleCred->getAccountID(sfSubject) == subject.id());
+src/test/app/Credentials_test.cpp:71:                BEAST_EXPECT(sleCred->getAccountID(sfIssuer) == issuer.id());
+src/test/app/Credentials_test.cpp:78:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:94:            env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:97:                // check switching owner of the credentials from issuer to
+src/test/app/Credentials_test.cpp:104:                BEAST_EXPECT(sleCred->getAccountID(sfSubject) == subject.id());
+src/test/app/Credentials_test.cpp:105:                BEAST_EXPECT(sleCred->getAccountID(sfIssuer) == issuer.id());
+src/test/app/Credentials_test.cpp:113:            env(credentials::deleteCred(subject, subject, issuer, credType));
+src/test/app/Credentials_test.cpp:120:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:122:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:133:            auto const credKey = credentials::keylet(issuer, issuer, credType);
+src/test/app/Credentials_test.cpp:135:            env(credentials::create(issuer, issuer, credType),
+src/test/app/Credentials_test.cpp:136:                credentials::uri(uri));
+src/test/app/Credentials_test.cpp:144:                BEAST_EXPECT(sleCred->getAccountID(sfSubject) == issuer.id());
+src/test/app/Credentials_test.cpp:145:                BEAST_EXPECT(sleCred->getAccountID(sfIssuer) == issuer.id());
+src/test/app/Credentials_test.cpp:148:                    sleCred->getFieldU64(sfIssuerNode) ==
+src/test/app/Credentials_test.cpp:149:                    sleCred->getFieldU64(sfSubjectNode));
+src/test/app/Credentials_test.cpp:154:                    credentials::ledgerEntry(env, issuer, issuer, credType);
+src/test/app/Credentials_test.cpp:170:            env(credentials::deleteCred(issuer, issuer, issuer, credType));
+src/test/app/Credentials_test.cpp:176:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:178:                    credentials::ledgerEntry(env, issuer, issuer, credType);
+src/test/app/Credentials_test.cpp:188:    testCredentialsDelete(FeatureBitset features)
+src/test/app/Credentials_test.cpp:207:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:208:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:221:            // check credentials deleted too
+src/test/app/Credentials_test.cpp:226:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:228:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:243:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:244:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:246:            env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:259:            // check credentials deleted too
+src/test/app/Credentials_test.cpp:264:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:266:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:281:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:282:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:295:            // check credentials deleted too
+src/test/app/Credentials_test.cpp:300:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:302:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:317:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:318:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:320:            env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:333:            // check credentials deleted too
+src/test/app/Credentials_test.cpp:338:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:340:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:355:            auto const credKey = credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:356:            auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:369:            // Other account delete credentials
+src/test/app/Credentials_test.cpp:370:            env(credentials::deleteCred(other, subject, issuer, credType));
+src/test/app/Credentials_test.cpp:373:            // check credentials object
+src/test/app/Credentials_test.cpp:379:                // check no credential exists anymore
+src/test/app/Credentials_test.cpp:381:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:392:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:396:            env(credentials::deleteCred(subject, subject, issuer, credType));
+src/test/app/Credentials_test.cpp:400:                    credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:405:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:415:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:418:            env(credentials::deleteCred(issuer, subject, issuer, credType));
+src/test/app/Credentials_test.cpp:422:                    credentials::keylet(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:427:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:454:                testcase("Credentials fail, no subject param.");
+src/test/app/Credentials_test.cpp:455:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:461:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:467:                testcase("Credentials fail, no credentialType param.");
+src/test/app/Credentials_test.cpp:468:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:474:                testcase("Credentials fail, empty credentialType param.");
+src/test/app/Credentials_test.cpp:475:                auto jv = credentials::create(subject, issuer, "");
+src/test/app/Credentials_test.cpp:481:                    "Credentials fail, credentialType length > "
+src/test/app/Credentials_test.cpp:487:                auto jv = credentials::create(subject, issuer, longCredType);
+src/test/app/Credentials_test.cpp:492:                testcase("Credentials fail, URI length > 256.");
+src/test/app/Credentials_test.cpp:503:                env(credentials::create(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:504:                    credentials::uri(longURI),
+src/test/app/Credentials_test.cpp:509:                testcase("Credentials fail, URI empty.");
+src/test/app/Credentials_test.cpp:510:                env(credentials::create(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:511:                    credentials::uri(""),
+src/test/app/Credentials_test.cpp:516:                testcase("Credentials fail, expiration in the past.");
+src/test/app/Credentials_test.cpp:517:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:529:                testcase("Credentials fail, invalid fee.");
+src/test/app/Credentials_test.cpp:531:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:537:                testcase("Credentials fail, duplicate.");
+src/test/app/Credentials_test.cpp:538:                auto const jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:544:                // check credential still present
+src/test/app/Credentials_test.cpp:546:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:563:                testcase("Credentials fail, directory full");
+src/test/app/Credentials_test.cpp:576:                auto const jv = credentials::create(issuer, subject, credType);
+src/test/app/Credentials_test.cpp:577:                env(jv, ter(tecDIR_FULL));
+src/test/app/Credentials_test.cpp:589:                env(jv, ter(tecDIR_FULL));
+src/test/app/Credentials_test.cpp:604:                testcase("Credentials fail, subject doesn't exist.");
+src/test/app/Credentials_test.cpp:605:                auto const jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:614:            auto const reserve = drops(env.current()->fees().accountReserve(0));
+src/test/app/Credentials_test.cpp:618:            testcase("Credentials fail, not enough reserve.");
+src/test/app/Credentials_test.cpp:620:                auto const jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:643:                testcase("CredentialsAccept fail, Credential doesn't exist.");
+src/test/app/Credentials_test.cpp:644:                env(credentials::accept(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:650:                testcase("CredentialsAccept fail, invalid Issuer account.");
+src/test/app/Credentials_test.cpp:651:                auto jv = credentials::accept(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:659:                    "CredentialsAccept fail, invalid credentialType param.");
+src/test/app/Credentials_test.cpp:660:                auto jv = credentials::accept(subject, issuer, "");
+src/test/app/Credentials_test.cpp:668:            env.fund(drops(env.current()->fees().accountReserve(1)), issuer);
+src/test/app/Credentials_test.cpp:669:            env.fund(drops(env.current()->fees().accountReserve(0)), subject);
+src/test/app/Credentials_test.cpp:673:                testcase("CredentialsAccept fail, not enough reserve.");
+src/test/app/Credentials_test.cpp:674:                env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:677:                env(credentials::accept(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:681:                // check credential still present
+src/test/app/Credentials_test.cpp:683:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:708:                env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:711:                testcase("CredentialsAccept fail, invalid fee.");
+src/test/app/Credentials_test.cpp:712:                auto jv = credentials::accept(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:716:                testcase("CredentialsAccept fail, lsfAccepted already set.");
+src/test/app/Credentials_test.cpp:717:                env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:719:                env(credentials::accept(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:723:                // check credential still present
+src/test/app/Credentials_test.cpp:725:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:744:                testcase("CredentialsAccept fail, expired credentials.");
+src/test/app/Credentials_test.cpp:745:                auto jv = credentials::create(subject, issuer, credType2);
+src/test/app/Credentials_test.cpp:754:                // credentials are expired now
+src/test/app/Credentials_test.cpp:755:                env(credentials::accept(subject, issuer, credType2),
+src/test/app/Credentials_test.cpp:759:                // check that expired credentials were deleted
+src/test/app/Credentials_test.cpp:761:                    credentials::ledgerEntry(env, subject, issuer, credType2);
+src/test/app/Credentials_test.cpp:780:                testcase("CredentialsAccept fail, issuer doesn't exist.");
+src/test/app/Credentials_test.cpp:781:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:793:                jv = credentials::accept(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:797:                // check that expired credentials were deleted
+src/test/app/Credentials_test.cpp:799:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:826:                testcase("CredentialsDelete fail, no Credentials.");
+src/test/app/Credentials_test.cpp:827:                env(credentials::deleteCred(subject, subject, issuer, credType),
+src/test/app/Credentials_test.cpp:833:                testcase("CredentialsDelete fail, invalid Subject account.");
+src/test/app/Credentials_test.cpp:835:                    credentials::deleteCred(subject, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:842:                testcase("CredentialsDelete fail, invalid Issuer account.");
+src/test/app/Credentials_test.cpp:844:                    credentials::deleteCred(subject, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:852:                    "CredentialsDelete fail, invalid credentialType param.");
+src/test/app/Credentials_test.cpp:853:                auto jv = credentials::deleteCred(subject, subject, issuer, "");
+src/test/app/Credentials_test.cpp:860:                env(credentials::create(subject, issuer, credType2));
+src/test/app/Credentials_test.cpp:863:                // Other account can't delete credentials without expiration
+src/test/app/Credentials_test.cpp:864:                env(credentials::deleteCred(other, subject, issuer, credType2),
+src/test/app/Credentials_test.cpp:865:                    ter(tecNO_PERMISSION));
+src/test/app/Credentials_test.cpp:868:                // check credential still present
+src/test/app/Credentials_test.cpp:870:                    credentials::ledgerEntry(env, subject, issuer, credType2);
+src/test/app/Credentials_test.cpp:887:                testcase("CredentialsDelete fail, time not expired yet.");
+src/test/app/Credentials_test.cpp:889:                auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:900:                // Other account can't delete credentials that not expired
+src/test/app/Credentials_test.cpp:901:                env(credentials::deleteCred(other, subject, issuer, credType),
+src/test/app/Credentials_test.cpp:902:                    ter(tecNO_PERMISSION));
+src/test/app/Credentials_test.cpp:905:                // check credential still present
+src/test/app/Credentials_test.cpp:907:                    credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:924:                testcase("CredentialsDelete fail, no Issuer and Subject.");
+src/test/app/Credentials_test.cpp:927:                    credentials::deleteCred(subject, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:935:                testcase("CredentialsDelete fail, invalid fee.");
+src/test/app/Credentials_test.cpp:938:                    credentials::deleteCred(subject, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:949:                    ripple::credentials::deleteSLE(*view, {}, env.journal);
+src/test/app/Credentials_test.cpp:972:                testcase("Credentials fail, Feature is not enabled.");
+src/test/app/Credentials_test.cpp:973:                env(credentials::create(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:975:                env(credentials::accept(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:977:                env(credentials::deleteCred(subject, subject, issuer, credType),
+src/test/app/Credentials_test.cpp:999:            env(credentials::create(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:1002:            env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:1099:                env(credentials::create(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:1102:                env(credentials::accept(subject, issuer, credType),
+src/test/app/Credentials_test.cpp:1105:                env(credentials::deleteCred(subject, subject, issuer, credType),
+src/test/app/Credentials_test.cpp:1132:        // Create credential with short expiration
+src/test/app/Credentials_test.cpp:1133:        auto jv = credentials::create(subject, issuer, credType);
+src/test/app/Credentials_test.cpp:1142:            credentials::ledgerEntry(env, subject, issuer, credType);
+src/test/app/Credentials_test.cpp:1145:        // Subject accepts the credential
+src/test/app/Credentials_test.cpp:1146:        env(credentials::accept(subject, issuer, credType));
+src/test/app/Credentials_test.cpp:1149:        // Build the credential keylet
+src/test/app/Credentials_test.cpp:1150:        auto const credKeylet = keylet::credential(
+src/test/app/Credentials_test.cpp:1153:        // Verify credential exists and is accepted
+src/test/app/Credentials_test.cpp:1159:        // Create DepositPreauth
+src/test/app/Credentials_test.cpp:1160:        env(deposit::authCredentials(becky, {{subject, credType}}));
+src/test/app/Credentials_test.cpp:1164:            env.jt(pay(subject, becky, XRP(100)), credentials::ids({credIdx}));
+src/test/app/Credentials_test.cpp:1182:                ripple::credentials::checkExpired(
+src/test/app/Credentials_test.cpp:1207:            ripple::verifyDepositPreauth(*stx, av, subject, becky, {}, j);
+src/test/app/Credentials_test.cpp:1237:        testCredentialsDelete(all);
+src/test/app/Credentials_test.cpp:1242:        testFeatureFailed(all - featureCredentials);
+src/test/app/Credentials_test.cpp:1252:BEAST_DEFINE_TESTSUITE(Credentials, app, ripple);
+src/libxrpl/ledger/View.cpp:325:    auto const issuer = mptIssuance->getAccountID(sfIssuer);
+src/libxrpl/ledger/View.cpp:658:confineOwnerCount(
+src/libxrpl/ledger/View.cpp:689:            XRPL_ASSERT(!id, "ripple::confineOwnerCount : id is not set");
+src/libxrpl/ledger/View.cpp:707:    std::uint32_t const ownerCount = confineOwnerCount(
+src/libxrpl/ledger/View.cpp:708:        view.ownerCountHook(id, sle->getFieldU32(sfOwnerCount)), ownerCountAdj);
+src/libxrpl/ledger/View.cpp:713:        : view.fees().accountReserve(ownerCount);
+src/libxrpl/ledger/View.cpp:1110:adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:1118:    XRPL_ASSERT(amount, "ripple::adjustOwnerCount : nonzero amount input");
+src/libxrpl/ledger/View.cpp:1119:    std::uint32_t const current{sle->getFieldU32(sfOwnerCount)};
+src/libxrpl/ledger/View.cpp:1121:    std::uint32_t const adjusted = confineOwnerCount(current, amount, id, j);
+src/libxrpl/ledger/View.cpp:1122:    view.adjustOwnerCountHook(id, current, adjusted);
+src/libxrpl/ledger/View.cpp:1123:    sle->at(sfOwnerCount) = adjusted;
+src/libxrpl/ledger/View.cpp:1131:        (*sle)[sfOwner] = account;
+src/libxrpl/ledger/View.cpp:1136:dirLink(
+src/libxrpl/ledger/View.cpp:1145:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1259:        sfFlags, lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/libxrpl/ledger/View.cpp:1380:    if (toSle->isFlag(lsfDepositAuth))
+src/libxrpl/ledger/View.cpp:1383:            return tecNO_PERMISSION;
+src/libxrpl/ledger/View.cpp:1435:                verifyDepositPreauth(tx, view, senderAcct, dstAcct, dstSle, j))
+src/libxrpl/ledger/View.cpp:1493:    std::uint32_t const ownerCount = sleDst->at(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1494:    if (priorBalance < view.fees().accountReserve(ownerCount + 1))
+src/libxrpl/ledger/View.cpp:1568:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1570:                    (*sleMpt)[sfOwnerNode],
+src/libxrpl/ledger/View.cpp:1575:            adjustOwnerCount(view, sleAcct, -1, journal);
+src/libxrpl/ledger/View.cpp:1590:        std::uint32_t const uOwnerCount = sleAcct->getFieldU32(sfOwnerCount);
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1600:        if (!mpt || mpt->getAccountID(sfIssuer) == account)
+src/libxrpl/ledger/View.cpp:1612:        if (auto ter = dirLink(view, account, mptoken))
+src/libxrpl/ledger/View.cpp:1621:        adjustOwnerCount(view, sleAcct, 1, journal);
+src/libxrpl/ledger/View.cpp:1633:    if (account != (*sleMptIssuance)[sfIssuer])
+src/libxrpl/ledger/View.cpp:1703:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1711:        return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1774:    adjustOwnerCount(view, sleAccount, 1, j);
+src/libxrpl/ledger/View.cpp:1825:        adjustOwnerCount(view, sleLowAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1840:        adjustOwnerCount(view, sleHighAccount, -1, journal);
+src/libxrpl/ledger/View.cpp:1903:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1909:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1914:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1920:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1940:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1942:            sle->getFieldU64(sfOwnerNode),
+src/libxrpl/ledger/View.cpp:1946:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1949:    if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1955:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1971:            if (!view.dirRemove(
+src/libxrpl/ledger/View.cpp:1974:                return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/libxrpl/ledger/View.cpp:1979:    adjustOwnerCount(view, view.peek(keylet::account(owner)), -1, j);
+src/libxrpl/ledger/View.cpp:2072:            adjustOwnerCount(
+src/libxrpl/ledger/View.cpp:2919:        adjustOwnerCount(view, sle, -1, j);
+src/libxrpl/ledger/View.cpp:3198:    auto const mptIssuer = sleIssuance->getAccountID(sfIssuer);
+src/libxrpl/ledger/View.cpp:3257:                credentials::validDomain(view, *maybeDomainID, account);
+src/libxrpl/ledger/View.cpp:3297:    if (account == sleIssuance->at(sfIssuer))
+src/libxrpl/ledger/View.cpp:3322:        // 2. Account has no matching and accepted credentials or
+src/libxrpl/ledger/View.cpp:3323:        // 3. Account has all expired credentials (deleted in verifyValidDomain)
+src/libxrpl/ledger/View.cpp:3332:        // credentials used to create the MPToken have expired or been deleted.
+src/libxrpl/ledger/View.cpp:3396:        if (from != (*sleIssuance)[sfIssuer] && to != (*sleIssuance)[sfIssuer])
+src/libxrpl/ledger/View.cpp:3439:cleanupOnAccountDelete(
+src/libxrpl/ledger/View.cpp:3470:                return tefBAD_LEDGER;
+src/libxrpl/ledger/View.cpp:3501:                "ripple::cleanupOnAccountDelete : minimum dir entries");
+src/libxrpl/ledger/View.cpp:3507:                return tefBAD_LEDGER;
+src/libxrpl/ledger/View.cpp:3565:    adjustOwnerCount(view, !ammLow ? sleLow : sleHigh, -1, j);
+src/test/app/AccountDelete_test.cpp:28:class AccountDelete_test : public beast::unit_test::suite
+src/test/app/AccountDelete_test.cpp:501:                drops(env.current()->fees().accountReserve(0)) - XRP(1)),
+src/test/app/AccountDelete_test.cpp:605:        // directory entries an AccountDelete will remove.
+src/test/app/AccountDelete_test.cpp:750:        env.fund(env.current()->fees().accountReserve(0), noripple(alice));
+src/test/app/AccountDelete_test.cpp:855:        // alice sets the lsfDepositAuth flag on her account.  This should
+src/test/app/AccountDelete_test.cpp:858:        env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:880:        env(acctdelete(becky, alice), fee(acctDelFee), ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:895:    testDestinationDepositAuthCredentials()
+src/test/app/AccountDelete_test.cpp:899:                "Destination Constraints with DepositPreauth and Credentials");
+src/test/app/AccountDelete_test.cpp:914:            // carol issue credentials for becky
+src/test/app/AccountDelete_test.cpp:915:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:918:            // get credentials index
+src/test/app/AccountDelete_test.cpp:920:                credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:928:            // becky use credentials but they aren't accepted
+src/test/app/AccountDelete_test.cpp:930:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:936:                // alice sets the lsfDepositAuth flag on her account.  This
+src/test/app/AccountDelete_test.cpp:939:                env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:943:            // Fail, credentials still not accepted
+src/test/app/AccountDelete_test.cpp:945:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:950:            // becky accept the credentials
+src/test/app/AccountDelete_test.cpp:951:            env(credentials::accept(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:954:            // Fail, credentials doesn’t belong to carol
+src/test/app/AccountDelete_test.cpp:956:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:960:            // Fail, no depositPreauth for provided credentials
+src/test/app/AccountDelete_test.cpp:962:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:964:                ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:967:            // alice create DepositPreauth Object
+src/test/app/AccountDelete_test.cpp:968:            env(deposit::authCredentials(alice, {{carol, credType}}));
+src/test/app/AccountDelete_test.cpp:975:                ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:977:            // becky use empty credentials and can't delete account
+src/test/app/AccountDelete_test.cpp:980:                credentials::ids({}),
+src/test/app/AccountDelete_test.cpp:983:            // becky use bad credentials and can't delete account
+src/test/app/AccountDelete_test.cpp:985:                credentials::ids(
+src/test/app/AccountDelete_test.cpp:992:            // becky use credentials and can delete account
+src/test/app/AccountDelete_test.cpp:994:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:999:                // check that credential object deleted too
+src/test/app/AccountDelete_test.cpp:1001:                    credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:1008:            testcase("Credentials that aren't required");
+src/test/app/AccountDelete_test.cpp:1009:            {  // carol issue credentials for daria
+src/test/app/AccountDelete_test.cpp:1010:                env(credentials::create(daria, carol, credType));
+src/test/app/AccountDelete_test.cpp:1012:                env(credentials::accept(daria, carol, credType));
+src/test/app/AccountDelete_test.cpp:1015:                    credentials::ledgerEntry(
+src/test/app/AccountDelete_test.cpp:1019:                // daria use valid credentials, which aren't required and can
+src/test/app/AccountDelete_test.cpp:1022:                    credentials::ids({credDaria}),
+src/test/app/AccountDelete_test.cpp:1026:                // check that credential object deleted too
+src/test/app/AccountDelete_test.cpp:1028:                    credentials::ledgerEntry(env, daria, carol, credType);
+src/test/app/AccountDelete_test.cpp:1042:                // carol issue credentials for eaton
+src/test/app/AccountDelete_test.cpp:1043:                env(credentials::create(eaton, carol, credType));
+src/test/app/AccountDelete_test.cpp:1045:                env(credentials::accept(eaton, carol, credType));
+src/test/app/AccountDelete_test.cpp:1048:                    credentials::ledgerEntry(
+src/test/app/AccountDelete_test.cpp:1053:                env(fset(fred, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:1062:                // eaton use valid credentials, but he already authorized
+src/test/app/AccountDelete_test.cpp:1065:                    credentials::ids({credEaton}),
+src/test/app/AccountDelete_test.cpp:1069:                // check that credential object deleted too
+src/test/app/AccountDelete_test.cpp:1071:                    credentials::ledgerEntry(env, eaton, carol, credType);
+src/test/app/AccountDelete_test.cpp:1079:            testcase("Expired credentials");
+src/test/app/AccountDelete_test.cpp:1086:                auto jv = credentials::create(john, carol, credType);
+src/test/app/AccountDelete_test.cpp:1095:                env(credentials::accept(john, carol, credType));
+src/test/app/AccountDelete_test.cpp:1097:                jv = credentials::ledgerEntry(env, john, carol, credType);
+src/test/app/AccountDelete_test.cpp:1103:                // credentials are expired
+src/test/app/AccountDelete_test.cpp:1104:                // john use credentials but can't delete account
+src/test/app/AccountDelete_test.cpp:1106:                    credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:1112:                    // check that expired credential object deleted
+src/test/app/AccountDelete_test.cpp:1114:                        credentials::ledgerEntry(env, john, carol, credType);
+src/test/app/AccountDelete_test.cpp:1124:            testcase("Credentials feature disabled");
+src/test/app/AccountDelete_test.cpp:1131:            Env env{*this, testable_amendments() - featureCredentials};
+src/test/app/AccountDelete_test.cpp:1135:            // alice sets the lsfDepositAuth flag on her account.  This should
+src/test/app/AccountDelete_test.cpp:1138:            env(fset(alice, asfDepositAuth));
+src/test/app/AccountDelete_test.cpp:1150:            // and can't delete even with old DepositPreauth
+src/test/app/AccountDelete_test.cpp:1155:                credentials::ids({credIdx}),
+src/test/app/AccountDelete_test.cpp:1163:    testDeleteCredentialsOwner()
+src/test/app/AccountDelete_test.cpp:1166:            testcase("Deleting Issuer deletes issued credentials");
+src/test/app/AccountDelete_test.cpp:1180:            // carol issue credentials for becky
+src/test/app/AccountDelete_test.cpp:1181:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1183:            env(credentials::accept(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1186:            // get credentials index
+src/test/app/AccountDelete_test.cpp:1188:                credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:1198:            {  // check that credential object deleted too
+src/test/app/AccountDelete_test.cpp:1201:                    credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:1210:            testcase("Deleting Subject deletes issued credentials");
+src/test/app/AccountDelete_test.cpp:1224:            // carol issue credentials for becky
+src/test/app/AccountDelete_test.cpp:1225:            env(credentials::create(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1227:            env(credentials::accept(becky, carol, credType));
+src/test/app/AccountDelete_test.cpp:1230:            // get credentials index
+src/test/app/AccountDelete_test.cpp:1232:                credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:1242:            {  // check that credential object deleted too
+src/test/app/AccountDelete_test.cpp:1245:                    credentials::ledgerEntry(env, becky, carol, credType);
+src/test/app/AccountDelete_test.cpp:1267:        testDestinationDepositAuthCredentials();
+src/test/app/AccountDelete_test.cpp:1268:        testDeleteCredentialsOwner();
+src/test/app/AccountDelete_test.cpp:1272:BEAST_DEFINE_TESTSUITE_PRIO(AccountDelete, app, ripple, 2);
+src/libxrpl/ledger/CredentialHelpers.cpp:28:namespace credentials {
+src/libxrpl/ledger/CredentialHelpers.cpp:48:        // Credentials already checked in preclaim. Look only for expired here.
+src/libxrpl/ledger/CredentialHelpers.cpp:49:        auto const k = keylet::credential(h);
+src/libxrpl/ledger/CredentialHelpers.cpp:55:                << "Credentials are expired. Cred: " << sleCred->getText();
+src/libxrpl/ledger/CredentialHelpers.cpp:56:            // delete expired credentials even if the transaction failed
+src/libxrpl/ledger/CredentialHelpers.cpp:90:        if (!view.dirRemove(
+src/libxrpl/ledger/CredentialHelpers.cpp:95:            return tefBAD_LEDGER;
+src/libxrpl/ledger/CredentialHelpers.cpp:100:            adjustOwnerCount(view, sleAccount, -1, j);
+src/libxrpl/ledger/CredentialHelpers.cpp:105:    auto const issuer = sleCredential->getAccountID(sfIssuer);
+src/libxrpl/ledger/CredentialHelpers.cpp:106:    auto const subject = sleCredential->getAccountID(sfSubject);
+src/libxrpl/ledger/CredentialHelpers.cpp:109:    auto err = delSLE(issuer, sfIssuerNode, !accepted || (subject == issuer));
+src/libxrpl/ledger/CredentialHelpers.cpp:115:        err = delSLE(subject, sfSubjectNode, accepted);
+src/libxrpl/ledger/CredentialHelpers.cpp:132:    auto const& credentials = tx.getFieldV256(sfCredentialIDs);
+src/libxrpl/ledger/CredentialHelpers.cpp:133:    if (credentials.empty() || (credentials.size() > maxCredentialsArraySize))
+src/libxrpl/ledger/CredentialHelpers.cpp:136:            << "Malformed transaction: Credentials array size is invalid: "
+src/libxrpl/ledger/CredentialHelpers.cpp:137:            << credentials.size();
+src/libxrpl/ledger/CredentialHelpers.cpp:142:    for (auto const& cred : credentials)
+src/libxrpl/ledger/CredentialHelpers.cpp:148:                << "Malformed transaction: duplicates in credentials.";
+src/libxrpl/ledger/CredentialHelpers.cpp:169:        auto const sleCred = view.read(keylet::credential(h));
+src/libxrpl/ledger/CredentialHelpers.cpp:176:        if (sleCred->getAccountID(sfSubject) != src)
+src/libxrpl/ledger/CredentialHelpers.cpp:206:    for (auto const& h : slePD->getFieldArray(sfAcceptedCredentials))
+src/libxrpl/ledger/CredentialHelpers.cpp:208:        auto const issuer = h.getAccountID(sfIssuer);
+src/libxrpl/ledger/CredentialHelpers.cpp:211:            keylet::credential(subject, issuer, makeSlice(type));
+src/libxrpl/ledger/CredentialHelpers.cpp:214:        // We cannot delete expired credentials, that would require ApplyView&
+src/libxrpl/ledger/CredentialHelpers.cpp:215:        // However we can check if credentials are expired. Expected transaction
+src/libxrpl/ledger/CredentialHelpers.cpp:218:        // allows expired credentials to be deleted by any transaction.
+src/libxrpl/ledger/CredentialHelpers.cpp:237:authorizedDepositPreauth(
+src/libxrpl/ledger/CredentialHelpers.cpp:247:        auto sleCred = view.read(keylet::credential(h));
+src/libxrpl/ledger/CredentialHelpers.cpp:252:            sorted.emplace((*sleCred)[sfIssuer], (*sleCred)[sfCredentialType]);
+src/libxrpl/ledger/CredentialHelpers.cpp:259:        return tecNO_PERMISSION;
+src/libxrpl/ledger/CredentialHelpers.cpp:265:makeSorted(STArray const& credentials)
+src/libxrpl/ledger/CredentialHelpers.cpp:268:    for (auto const& cred : credentials)
+src/libxrpl/ledger/CredentialHelpers.cpp:270:        auto [it, ins] = out.emplace(cred[sfIssuer], cred[sfCredentialType]);
+src/libxrpl/ledger/CredentialHelpers.cpp:278:checkArray(STArray const& credentials, unsigned maxSize, beast::Journal j)
+src/libxrpl/ledger/CredentialHelpers.cpp:280:    if (credentials.empty() || (credentials.size() > maxSize))
+src/libxrpl/ledger/CredentialHelpers.cpp:283:                           "Invalid credentials size: "
+src/libxrpl/ledger/CredentialHelpers.cpp:284:                        << credentials.size();
+src/libxrpl/ledger/CredentialHelpers.cpp:285:        return credentials.empty() ? temARRAY_EMPTY : temARRAY_TOO_LARGE;
+src/libxrpl/ledger/CredentialHelpers.cpp:289:    for (auto const& credential : credentials)
+src/libxrpl/ledger/CredentialHelpers.cpp:291:        auto const& issuer = credential[sfIssuer];
+src/libxrpl/ledger/CredentialHelpers.cpp:300:        auto const ct = credential[sfCredentialType];
+src/libxrpl/ledger/CredentialHelpers.cpp:304:                               "Invalid credentialType size: "
+src/libxrpl/ledger/CredentialHelpers.cpp:321:}  // namespace credentials
+src/libxrpl/ledger/CredentialHelpers.cpp:334:    // Collect all matching credentials on a side, so we can remove expired ones
+src/libxrpl/ledger/CredentialHelpers.cpp:336:    STVector256 credentials;
+src/libxrpl/ledger/CredentialHelpers.cpp:337:    for (auto const& h : slePD->getFieldArray(sfAcceptedCredentials))
+src/libxrpl/ledger/CredentialHelpers.cpp:339:        auto const issuer = h.getAccountID(sfIssuer);
+src/libxrpl/ledger/CredentialHelpers.cpp:342:            keylet::credential(account, issuer, makeSlice(type));
+src/libxrpl/ledger/CredentialHelpers.cpp:344:            credentials.push_back(keyletCredential.key);
+src/libxrpl/ledger/CredentialHelpers.cpp:347:    auto const foundExpired = credentials::removeExpired(view, credentials, j);
+src/libxrpl/ledger/CredentialHelpers.cpp:351:    for (auto const& h : credentials)
+src/libxrpl/ledger/CredentialHelpers.cpp:353:        auto sleCredential = view.read(keylet::credential(h));
+src/libxrpl/ledger/CredentialHelpers.cpp:355:            continue;  // expired, i.e. deleted in credentials::removeExpired
+src/libxrpl/ledger/CredentialHelpers.cpp:361:    return *foundExpired ? tecEXPIRED : tecNO_PERMISSION;
+src/libxrpl/ledger/CredentialHelpers.cpp:365:verifyDepositPreauth(
+src/libxrpl/ledger/CredentialHelpers.cpp:377:    //  credentials).
+src/libxrpl/ledger/CredentialHelpers.cpp:379:    bool const credentialsPresent = tx.isFieldPresent(sfCredentialIDs);
+src/libxrpl/ledger/CredentialHelpers.cpp:381:    if (credentialsPresent)
+src/libxrpl/ledger/CredentialHelpers.cpp:383:        auto const foundExpired = credentials::removeExpired(
+src/libxrpl/ledger/CredentialHelpers.cpp:391:    if (sleDst && (sleDst->getFlags() & lsfDepositAuth))
+src/libxrpl/ledger/CredentialHelpers.cpp:396:                return !credentialsPresent
+src/libxrpl/ledger/CredentialHelpers.cpp:397:                    ? tecNO_PERMISSION
+src/libxrpl/ledger/CredentialHelpers.cpp:398:                    : credentials::authorizedDepositPreauth(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:24:#include <xrpld/app/tx/detail/DepositPreauth.h>
+src/xrpld/app/tx/detail/DeleteAccount.cpp:48:        !ctx.rules.enabled(featureCredentials))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:61:    if (auto const err = credentials::checkFields(ctx.tx, ctx.j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:71:    // The fee required for AccountDelete is one owner reserve.
+src/xrpld/app/tx/detail/DeleteAccount.cpp:107:    return SetSignerList::removeFromLedger(app, view, account, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:123:removeDepositPreauthFromLedger(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:131:    return DepositPreauth::removeFromLedger(view, delIndex, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:144:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:182:    return credentials::deleteSLE(view, sleDel, j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:212:            return removeDepositPreauthFromLedger;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:244:    // If credentials are provided - check them anyway
+src/xrpld/app/tx/detail/DeleteAccount.cpp:245:    if (auto const err = credentials::valid(ctx.tx, ctx.view, account, ctx.j);
+src/xrpld/app/tx/detail/DeleteAccount.cpp:249:    // if credentials then postpone auth check to doApply, to check for expired
+src/xrpld/app/tx/detail/DeleteAccount.cpp:250:    // credentials
+src/xrpld/app/tx/detail/DeleteAccount.cpp:254:        if (ctx.view.rules().enabled(featureDepositAuth) &&
+src/xrpld/app/tx/detail/DeleteAccount.cpp:255:            (sleDst->getFlags() & lsfDepositAuth))
+src/xrpld/app/tx/detail/DeleteAccount.cpp:258:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:344:            return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DeleteAccount.cpp:378:        return tefBAD_LEDGER;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DeleteAccount.cpp:380:    if (ctx_.view().rules().enabled(featureDepositAuth) &&
+src/xrpld/app/tx/detail/DeleteAccount.cpp:383:        if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/DeleteAccount.cpp:390:    auto const ter = cleanupOnAccountDelete(
+src/test/app/DepositAuth_test.cpp:34:    return env.current()->fees().accountReserve(count);
+src/test/app/DepositAuth_test.cpp:39:hasDepositAuth(jtx::Env const& env, jtx::Account const& acct)
+src/test/app/DepositAuth_test.cpp:41:    return ((*env.le(acct))[sfFlags] & lsfDepositAuth) == lsfDepositAuth;
+src/test/app/DepositAuth_test.cpp:44:struct DepositAuth_test : public beast::unit_test::suite
+src/test/app/DepositAuth_test.cpp:55:            // featureDepositAuth is disabled.
+src/test/app/DepositAuth_test.cpp:56:            Env env(*this, testable_amendments() - featureDepositAuth);
+src/test/app/DepositAuth_test.cpp:60:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:62:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:64:            env(fclear(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:66:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:69:            // featureDepositAuth is enabled.
+src/test/app/DepositAuth_test.cpp:73:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:75:            BEAST_EXPECT(hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:77:            env(fclear(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:79:            BEAST_EXPECT(!hasDepositAuth(env, alice));
+src/test/app/DepositAuth_test.cpp:87:        // that has the lsfDepositAuth flag set.
+src/test/app/DepositAuth_test.cpp:112:        // bob sets the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:113:        env(fset(bob, asfDepositAuth), require(flags(bob, asfDepositAuth)));
+src/test/app/DepositAuth_test.cpp:118:            env.require(flags(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:124:            env(pay(alice, bob, USD(50)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:131:                ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:142:        // bob can make payments while his lsfDepositAuth flag is set.
+src/test/app/DepositAuth_test.cpp:165:        // Give bob enough XRP for the fee to clear the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:168:        // bob clears the lsfDepositAuth and the next payment succeeds.
+src/test/app/DepositAuth_test.cpp:169:        env(fclear(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:183:        // lsfDepositAuth flag set.
+src/test/app/DepositAuth_test.cpp:196:        // bob sets the lsfDepositAuth flag.
+src/test/app/DepositAuth_test.cpp:197:        env(fset(bob, asfDepositAuth), fee(drops(baseFee)));
+src/test/app/DepositAuth_test.cpp:202:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:222:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:231:        env(pay(alice, bob, reserve(env, 0) + drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:246:        env(pay(alice, bob, drops(1)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:256:        // bob should not be able to clear lsfDepositAuth.
+src/test/app/DepositAuth_test.cpp:257:        env(fclear(bob, asfDepositAuth), ter(terINSUF_FEE_B));
+src/test/app/DepositAuth_test.cpp:265:        // Pay bob enough so he can afford the fee to clear lsfDepositAuth.
+src/test/app/DepositAuth_test.cpp:270:        // request to clear lsfDepositAuth.  So the balance should be zero
+src/test/app/DepositAuth_test.cpp:271:        // and lsfDepositAuth should be cleared.
+src/test/app/DepositAuth_test.cpp:273:        env.require(nflags(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:275:        // Since bob no longer has lsfDepositAuth set we should be able to
+src/test/app/DepositAuth_test.cpp:285:        // It its current incarnation the DepositAuth flag does not change
+src/test/app/DepositAuth_test.cpp:302:                              bool withDepositAuth) {
+src/test/app/DepositAuth_test.cpp:303:            assert(!withDepositAuth || features[featureDepositAuth]);
+src/test/app/DepositAuth_test.cpp:315:            if (withDepositAuth)
+src/test/app/DepositAuth_test.cpp:316:                env(fset(gw1, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:326:                                 bool withDepositAuth) {
+src/test/app/DepositAuth_test.cpp:327:            assert(!withDepositAuth || features[featureDepositAuth]);
+src/test/app/DepositAuth_test.cpp:337:            if (withDepositAuth)
+src/test/app/DepositAuth_test.cpp:338:                env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:348:        // Test every combo of noRipplePrev, noRippleNext, and withDepositAuth
+src/test/app/DepositAuth_test.cpp:353:            auto const withDepositAuth = i & 0x4;
+src/test/app/DepositAuth_test.cpp:355:                testable_amendments() | featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:358:                withDepositAuth);
+src/test/app/DepositAuth_test.cpp:360:            if (!withDepositAuth)
+src/test/app/DepositAuth_test.cpp:362:                    testable_amendments() - featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:365:                    withDepositAuth);
+src/test/app/DepositAuth_test.cpp:368:                testable_amendments() | featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:371:                withDepositAuth);
+src/test/app/DepositAuth_test.cpp:373:            if (!withDepositAuth)
+src/test/app/DepositAuth_test.cpp:375:                    testable_amendments() - featureDepositAuth,
+src/test/app/DepositAuth_test.cpp:378:                    withDepositAuth);
+src/test/app/DepositAuth_test.cpp:393:ledgerEntryDepositPreauth(
+src/test/app/DepositAuth_test.cpp:396:    std::vector<jtx::deposit::AuthorizeCredentials> const& auth)
+src/test/app/DepositAuth_test.cpp:401:    jvParams[jss::deposit_preauth][jss::authorized_credentials] =
+src/test/app/DepositAuth_test.cpp:403:    auto& arr(jvParams[jss::deposit_preauth][jss::authorized_credentials]);
+src/test/app/DepositAuth_test.cpp:411:struct DepositPreauth_test : public beast::unit_test::suite
+src/test/app/DepositAuth_test.cpp:422:            // featureDepositPreauth is disabled.
+src/test/app/DepositAuth_test.cpp:423:            Env env(*this, testable_amendments() - featureDepositPreauth);
+src/test/app/DepositAuth_test.cpp:427:            // Should not be able to add a DepositPreauth to alice.
+src/test/app/DepositAuth_test.cpp:433:            // Should not be able to remove a DepositPreauth from alice.
+src/test/app/DepositAuth_test.cpp:440:            // featureDepositPreauth is enabled.  The valid case is really
+src/test/app/DepositAuth_test.cpp:449:            // Add a DepositPreauth to alice.
+src/test/app/DepositAuth_test.cpp:455:            // Remove a DepositPreauth from alice.
+src/test/app/DepositAuth_test.cpp:476:            // Add a DepositPreauth to alice.
+src/test/app/DepositAuth_test.cpp:485:            // Remove a DepositPreauth from alice.
+src/test/app/DepositAuth_test.cpp:512:        // Add DepositPreauth to an unfunded account.
+src/test/app/DepositAuth_test.cpp:529:            tx.removeMember(sfAuthorize.jsonName);
+src/test/app/DepositAuth_test.cpp:536:            tx[sfUnauthorize.jsonName] = becky.human();
+src/test/app/DepositAuth_test.cpp:543:            tx[sfAuthorize.jsonName] = to_string(xrpAccount());
+src/test/app/DepositAuth_test.cpp:624:        bool const supportsPreauth = {features[featureDepositPreauth]};
+src/test/app/DepositAuth_test.cpp:627:            // The initial implementation of DepositAuth had a bug where an
+src/test/app/DepositAuth_test.cpp:628:            // account with the DepositAuth flag set could not make a payment
+src/test/app/DepositAuth_test.cpp:629:            // to itself.  That bug was fixed in the DepositPreauth amendment.
+src/test/app/DepositAuth_test.cpp:651:            env(fset(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:655:            // whether featureDepositPreauth is enabled.
+src/test/app/DepositAuth_test.cpp:657:                supportsPreauth ? TER{tesSUCCESS} : TER{tecNO_PERMISSION}};
+src/test/app/DepositAuth_test.cpp:666:                // becky setup depositpreauth with credentials
+src/test/app/DepositAuth_test.cpp:672:                bool const supportsCredentials = features[featureCredentials];
+src/test/app/DepositAuth_test.cpp:674:                TER const expectCredentials(
+src/test/app/DepositAuth_test.cpp:675:                    supportsCredentials ? TER(tesSUCCESS) : TER(temDISABLED));
+src/test/app/DepositAuth_test.cpp:677:                    !supportsCredentials
+src/test/app/DepositAuth_test.cpp:679:                        : (!supportsPreauth ? TER(tecNO_PERMISSION)
+src/test/app/DepositAuth_test.cpp:684:                        : (!supportsCredentials ? TER(temDISABLED)
+src/test/app/DepositAuth_test.cpp:687:                env(deposit::authCredentials(becky, {{carol, credType}}),
+src/test/app/DepositAuth_test.cpp:691:                // gw accept credentials
+src/test/app/DepositAuth_test.cpp:692:                env(credentials::create(gw, carol, credType),
+src/test/app/DepositAuth_test.cpp:693:                    ter(expectCredentials));
+src/test/app/DepositAuth_test.cpp:695:                env(credentials::accept(gw, carol, credType),
+src/test/app/DepositAuth_test.cpp:696:                    ter(expectCredentials));
+src/test/app/DepositAuth_test.cpp:699:                auto jv = credentials::ledgerEntry(env, gw, carol, credType);
+src/test/app/DepositAuth_test.cpp:700:                std::string const credIdx = supportsCredentials
+src/test/app/DepositAuth_test.cpp:706:                    credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:724:                        ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:732:            // Make sure DepositPreauthorization works for payments.
+src/test/app/DepositAuth_test.cpp:754:            env(fset(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:758:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:759:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:768:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:769:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:782:            env(fset(alice, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:787:            env(pay(becky, alice, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:788:            env(pay(becky, alice, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:803:            env(pay(alice, becky, XRP(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:804:            env(pay(alice, becky, USD(100)), ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:809:            env(fclear(becky, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:819:    testCredentialsPayment()
+src/test/app/DepositAuth_test.cpp:831:            testcase("Payment failure with disabled credentials rule.");
+src/test/app/DepositAuth_test.cpp:833:            Env env(*this, testable_amendments() - featureCredentials);
+src/test/app/DepositAuth_test.cpp:839:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:842:            // Setup DepositPreauth object failed - amendent is not supported
+src/test/app/DepositAuth_test.cpp:843:            env(deposit::authCredentials(bob, {{issuer, credType}}),
+src/test/app/DepositAuth_test.cpp:847:            // But can create old DepositPreauth
+src/test/app/DepositAuth_test.cpp:851:            // And alice can't pay with any credentials, amendement is not
+src/test/app/DepositAuth_test.cpp:857:                credentials::ids({invalidIdx}),
+src/test/app/DepositAuth_test.cpp:863:            testcase("Payment with credentials.");
+src/test/app/DepositAuth_test.cpp:870:            // Issuer create credentials, but Alice didn't accept them yet
+src/test/app/DepositAuth_test.cpp:871:            env(credentials::create(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:874:            // Get the index of the credentials
+src/test/app/DepositAuth_test.cpp:876:                credentials::ledgerEntry(env, alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:880:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:883:            // Bob will accept payements from accounts with credentials signed
+src/test/app/DepositAuth_test.cpp:885:            env(deposit::authCredentials(bob, {{issuer, credType}}));
+src/test/app/DepositAuth_test.cpp:889:                ledgerEntryDepositPreauth(env, bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:896:                    jss::DepositPreauth);
+src/test/app/DepositAuth_test.cpp:898:            // Alice can't pay - empty credentials array
+src/test/app/DepositAuth_test.cpp:906:            // Alice can't pay - not accepted credentials
+src/test/app/DepositAuth_test.cpp:908:                credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:912:            // Alice accept the credentials
+src/test/app/DepositAuth_test.cpp:913:            env(credentials::accept(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:917:            env(pay(alice, bob, XRP(100)), credentials::ids({credIdx}));
+src/test/app/DepositAuth_test.cpp:921:            env(pay(alice, maria, XRP(250)), credentials::ids({credIdx}));
+src/test/app/DepositAuth_test.cpp:925:            // credentials
+src/test/app/DepositAuth_test.cpp:926:            env(fset(john, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:928:            env(pay(alice, john, XRP(100)), credentials::ids({credIdx}));
+src/test/app/DepositAuth_test.cpp:933:            testcase("Payment failure with invalid credentials.");
+src/test/app/DepositAuth_test.cpp:940:            // Issuer create credentials, but Alice didn't accept them yet
+src/test/app/DepositAuth_test.cpp:941:            env(credentials::create(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:943:            // Alice accept the credentials
+src/test/app/DepositAuth_test.cpp:944:            env(credentials::accept(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:946:            // Get the index of the credentials
+src/test/app/DepositAuth_test.cpp:948:                credentials::ledgerEntry(env, alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:953:                // valid credentials will not fail
+src/test/app/DepositAuth_test.cpp:954:                env(pay(alice, bob, XRP(100)), credentials::ids({credIdx}));
+src/test/app/DepositAuth_test.cpp:958:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:962:                // Fail as destination didn't setup DepositPreauth object
+src/test/app/DepositAuth_test.cpp:964:                    credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:965:                    ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:968:            // Bob setup DepositPreauth object, duplicates is not allowed
+src/test/app/DepositAuth_test.cpp:969:            env(deposit::authCredentials(
+src/test/app/DepositAuth_test.cpp:973:            // Bob setup DepositPreauth object
+src/test/app/DepositAuth_test.cpp:974:            env(deposit::authCredentials(bob, {{issuer, credType}}));
+src/test/app/DepositAuth_test.cpp:981:                // Alice can't pay with non-existing credentials
+src/test/app/DepositAuth_test.cpp:983:                    credentials::ids({invalidIdx}),
+src/test/app/DepositAuth_test.cpp:987:            {  // maria can't pay using valid credentials but issued for
+src/test/app/DepositAuth_test.cpp:990:                    credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:995:                // create another valid credential
+src/test/app/DepositAuth_test.cpp:997:                env(credentials::create(alice, issuer, credType2));
+src/test/app/DepositAuth_test.cpp:999:                env(credentials::accept(alice, issuer, credType2));
+src/test/app/DepositAuth_test.cpp:1002:                    credentials::ledgerEntry(env, alice, issuer, credType2);
+src/test/app/DepositAuth_test.cpp:1006:                // Alice can't pay with invalid set of valid credentials
+src/test/app/DepositAuth_test.cpp:1008:                    credentials::ids({credIdx, credIdx2}),
+src/test/app/DepositAuth_test.cpp:1009:                    ter(tecNO_PERMISSION));
+src/test/app/DepositAuth_test.cpp:1012:            // Error, duplicate credentials
+src/test/app/DepositAuth_test.cpp:1014:                credentials::ids({credIdx, credIdx}),
+src/test/app/DepositAuth_test.cpp:1018:            env(pay(alice, bob, XRP(100)), credentials::ids({credIdx}));
+src/test/app/DepositAuth_test.cpp:1024:    testCredentialsCreation()
+src/test/app/DepositAuth_test.cpp:1035:            testcase("Creating / deleting with credentials.");
+src/test/app/DepositAuth_test.cpp:1043:                // both included [AuthorizeCredentials UnauthorizeCredentials]
+src/test/app/DepositAuth_test.cpp:1044:                auto jv = deposit::authCredentials(bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1045:                jv[sfUnauthorizeCredentials.jsonName] = Json::arrayValue;
+src/test/app/DepositAuth_test.cpp:1050:                // both included [Unauthorize, AuthorizeCredentials]
+src/test/app/DepositAuth_test.cpp:1051:                auto jv = deposit::authCredentials(bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1052:                jv[sfUnauthorize.jsonName] = issuer.human();
+src/test/app/DepositAuth_test.cpp:1057:                // both included [Authorize, AuthorizeCredentials]
+src/test/app/DepositAuth_test.cpp:1058:                auto jv = deposit::authCredentials(bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1059:                jv[sfAuthorize.jsonName] = issuer.human();
+src/test/app/DepositAuth_test.cpp:1064:                // both included [Unauthorize, UnauthorizeCredentials]
+src/test/app/DepositAuth_test.cpp:1065:                auto jv = deposit::unauthCredentials(bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1066:                jv[sfUnauthorize.jsonName] = issuer.human();
+src/test/app/DepositAuth_test.cpp:1071:                // both included [Authorize, UnauthorizeCredentials]
+src/test/app/DepositAuth_test.cpp:1072:                auto jv = deposit::unauthCredentials(bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1073:                jv[sfAuthorize.jsonName] = issuer.human();
+src/test/app/DepositAuth_test.cpp:1078:                // AuthorizeCredentials is empty
+src/test/app/DepositAuth_test.cpp:1079:                auto jv = deposit::authCredentials(bob, {});
+src/test/app/DepositAuth_test.cpp:1085:                auto jv = deposit::authCredentials(bob, {});
+src/test/app/DepositAuth_test.cpp:1086:                auto& arr(jv[sfAuthorizeCredentials.jsonName]);
+src/test/app/DepositAuth_test.cpp:1099:                // empty credential type
+src/test/app/DepositAuth_test.cpp:1100:                auto jv = deposit::authCredentials(bob, {{issuer, {}}});
+src/test/app/DepositAuth_test.cpp:1105:                // AuthorizeCredentials is larger than 8 elements
+src/test/app/DepositAuth_test.cpp:1109:                auto jv = deposit::authCredentials(
+src/test/app/DepositAuth_test.cpp:1126:                auto jv = deposit::authCredentials(bob, {{rick, credType}});
+src/test/app/DepositAuth_test.cpp:1134:                env.fund(env.current()->fees().accountReserve(0), john);
+src/test/app/DepositAuth_test.cpp:1136:                auto jv = deposit::authCredentials(john, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1142:                env(deposit::unauthCredentials(bob, {{issuer, credType}}),
+src/test/app/DepositAuth_test.cpp:1146:            // Create DepositPreauth object
+src/test/app/DepositAuth_test.cpp:1148:                env(deposit::authCredentials(bob, {{issuer, credType}}));
+src/test/app/DepositAuth_test.cpp:1152:                    ledgerEntryDepositPreauth(env, bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1159:                        jss::DepositPreauth);
+src/test/app/DepositAuth_test.cpp:1164:                auto const& credentials(
+src/test/app/DepositAuth_test.cpp:1165:                    jDP[jss::result][jss::node]["AuthorizeCredentials"]);
+src/test/app/DepositAuth_test.cpp:1166:                BEAST_EXPECT(credentials.isArray() && credentials.size() == 1);
+src/test/app/DepositAuth_test.cpp:1167:                for (auto const& o : credentials)
+src/test/app/DepositAuth_test.cpp:1177:                env(deposit::authCredentials(bob, {{issuer, credType}}),
+src/test/app/DepositAuth_test.cpp:1181:            // Delete DepositPreauth object
+src/test/app/DepositAuth_test.cpp:1183:                env(deposit::unauthCredentials(bob, {{issuer, credType}}));
+src/test/app/DepositAuth_test.cpp:1186:                    ledgerEntryDepositPreauth(env, bob, {{issuer, credType}});
+src/test/app/DepositAuth_test.cpp:1209:            testcase("Payment failure with expired credentials.");
+src/test/app/DepositAuth_test.cpp:1216:            // Create credentials
+src/test/app/DepositAuth_test.cpp:1217:            auto jv = credentials::create(alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1229:            // Alice accept the credentials
+src/test/app/DepositAuth_test.cpp:1230:            env(credentials::accept(alice, issuer, credType));
+src/test/app/DepositAuth_test.cpp:1233:            // Create credential which not expired
+src/test/app/DepositAuth_test.cpp:1234:            jv = credentials::create(alice, issuer, credType2);
+src/test/app/DepositAuth_test.cpp:1243:            env(credentials::accept(alice, issuer, credType2));
+src/test/app/DepositAuth_test.cpp:1249:            // Get the index of the credentials
+src/test/app/DepositAuth_test.cpp:1250:            jv = credentials::ledgerEntry(env, alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1252:            jv = credentials::ledgerEntry(env, alice, issuer, credType2);
+src/test/app/DepositAuth_test.cpp:1256:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:1258:            // Bob setup DepositPreauth object
+src/test/app/DepositAuth_test.cpp:1259:            env(deposit::authCredentials(
+src/test/app/DepositAuth_test.cpp:1266:                    credentials::ids({credIdx, credIdx2}));
+src/test/app/DepositAuth_test.cpp:1272:                    credentials::ids({credIdx, credIdx2}),
+src/test/app/DepositAuth_test.cpp:1277:                    // check that expired credentials were deleted
+src/test/app/DepositAuth_test.cpp:1279:                        credentials::ledgerEntry(env, alice, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1287:                    // check that non-expired credential still present
+src/test/app/DepositAuth_test.cpp:1289:                        credentials::ledgerEntry(env, alice, issuer, credType2);
+src/test/app/DepositAuth_test.cpp:1311:                auto jv = credentials::create(gw, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1320:                env(credentials::accept(gw, issuer, credType));
+src/test/app/DepositAuth_test.cpp:1323:                jv = credentials::ledgerEntry(env, gw, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1334:                // credentials are expired
+src/test/app/DepositAuth_test.cpp:1336:                    credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:1340:                // check that expired credentials were deleted
+src/test/app/DepositAuth_test.cpp:1342:                    credentials::ledgerEntry(env, gw, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1356:            testcase("Escrow failure with expired credentials.");
+src/test/app/DepositAuth_test.cpp:1363:            // Create credentials
+src/test/app/DepositAuth_test.cpp:1364:            auto jv = credentials::create(zelda, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1374:            // Zelda accept the credentials
+src/test/app/DepositAuth_test.cpp:1375:            env(credentials::accept(zelda, issuer, credType));
+src/test/app/DepositAuth_test.cpp:1378:            // Get the index of the credentials
+src/test/app/DepositAuth_test.cpp:1379:            jv = credentials::ledgerEntry(env, zelda, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1383:            env(fset(bob, asfDepositAuth));
+src/test/app/DepositAuth_test.cpp:1385:            // Bob setup DepositPreauth object
+src/test/app/DepositAuth_test.cpp:1386:            env(deposit::authCredentials(bob, {{issuer, credType}}));
+src/test/app/DepositAuth_test.cpp:1394:            // zelda can't finish escrow with invalid credentials
+src/test/app/DepositAuth_test.cpp:1397:                    credentials::ids({}),
+src/test/app/DepositAuth_test.cpp:1403:                // zelda can't finish escrow with invalid credentials
+src/test/app/DepositAuth_test.cpp:1409:                    credentials::ids({invalidIdx}),
+src/test/app/DepositAuth_test.cpp:1416:                    credentials::ids({credIdx}),
+src/test/app/DepositAuth_test.cpp:1422:            // check that expired credentials were deleted
+src/test/app/DepositAuth_test.cpp:1424:                credentials::ledgerEntry(env, zelda, issuer, credType);
+src/test/app/DepositAuth_test.cpp:1433:    testSortingCredentials()
+src/test/app/DepositAuth_test.cpp:1443:        testcase("Sorting credentials.");
+src/test/app/DepositAuth_test.cpp:1447:        std::vector<deposit::AuthorizeCredentials> credentials = {
+src/test/app/DepositAuth_test.cpp:1457:        for (auto const& c : credentials)
+src/test/app/DepositAuth_test.cpp:1466:            for (auto const& c : credentials)
+src/test/app/DepositAuth_test.cpp:1472:                std::ranges::shuffle(credentials, gen);
+src/test/app/DepositAuth_test.cpp:1473:                env(deposit::authCredentials(stock, credentials));
+src/test/app/DepositAuth_test.cpp:1477:                    ledgerEntryDepositPreauth(env, stock, credentials);
+src/test/app/DepositAuth_test.cpp:1479:                    dp[jss::result][jss::node]["AuthorizeCredentials"]);
+src/test/app/DepositAuth_test.cpp:1482:                    authCred.size() == credentials.size());
+src/test/app/DepositAuth_test.cpp:1497:                env(deposit::unauthCredentials(stock, credentials));
+src/test/app/DepositAuth_test.cpp:1503:            std::ranges::shuffle(credentials, gen);
+src/test/app/DepositAuth_test.cpp:1504:            env(deposit::authCredentials(stock, credentials));
+src/test/app/DepositAuth_test.cpp:1510:                std::ranges::shuffle(credentials, gen);
+src/test/app/DepositAuth_test.cpp:1511:                env(deposit::authCredentials(stock, credentials),
+src/test/app/DepositAuth_test.cpp:1516:        testcase("Check duplicate credentials.");
+src/test/app/DepositAuth_test.cpp:1519:            std::vector<deposit::AuthorizeCredentials> copyCredentials(
+src/test/app/DepositAuth_test.cpp:1520:                credentials.begin(), credentials.end() - 1);
+src/test/app/DepositAuth_test.cpp:1522:            std::ranges::shuffle(copyCredentials, gen);
+src/test/app/DepositAuth_test.cpp:1523:            for (auto const& c : copyCredentials)
+src/test/app/DepositAuth_test.cpp:1525:                auto credentials2 = copyCredentials;
+src/test/app/DepositAuth_test.cpp:1526:                credentials2.push_back(c);
+src/test/app/DepositAuth_test.cpp:1527:                env(deposit::authCredentials(stock, credentials2),
+src/test/app/DepositAuth_test.cpp:1531:            // create batch of credentials and save their hashes
+src/test/app/DepositAuth_test.cpp:1532:            std::vector<std::string> credentialIDs;
+src/test/app/DepositAuth_test.cpp:1533:            for (auto const& c : credentials)
+src/test/app/DepositAuth_test.cpp:1535:                env(credentials::create(alice, c.issuer, c.credType));
+src/test/app/DepositAuth_test.cpp:1537:                env(credentials::accept(alice, c.issuer, c.credType));
+src/test/app/DepositAuth_test.cpp:1540:                credentialIDs.push_back(credentials::ledgerEntry(
+src/test/app/DepositAuth_test.cpp:1549:            for (auto const& h : credentialIDs)
+src/test/app/DepositAuth_test.cpp:1551:                auto credentialIDs2 = credentialIDs;
+src/test/app/DepositAuth_test.cpp:1552:                credentialIDs2.push_back(h);
+src/test/app/DepositAuth_test.cpp:1555:                    credentials::ids(credentialIDs2),
+src/test/app/DepositAuth_test.cpp:1567:        testPayment(supported - featureDepositPreauth - featureCredentials);
+src/test/app/DepositAuth_test.cpp:1568:        testPayment(supported - featureDepositPreauth);
+src/test/app/DepositAuth_test.cpp:1569:        testPayment(supported - featureCredentials);
+src/test/app/DepositAuth_test.cpp:1571:        testCredentialsPayment();
+src/test/app/DepositAuth_test.cpp:1572:        testCredentialsCreation();
+src/test/app/DepositAuth_test.cpp:1574:        testSortingCredentials();
+src/test/app/DepositAuth_test.cpp:1578:BEAST_DEFINE_TESTSUITE(DepositAuth, app, ripple);
+src/test/app/DepositAuth_test.cpp:1579:BEAST_DEFINE_TESTSUITE(DepositPreauth, app, ripple);
+src/xrpld/app/tx/detail/Credentials.cpp:20:#include <xrpld/app/tx/detail/Credentials.h>
+src/xrpld/app/tx/detail/Credentials.cpp:35:    Credentials
+src/xrpld/app/tx/detail/Credentials.cpp:38:   A verifiable credentials (VC
+src/xrpld/app/tx/detail/Credentials.cpp:39:   https://en.wikipedia.org/wiki/Verifiable_credentials), as defined by the W3C
+src/xrpld/app/tx/detail/Credentials.cpp:42:   as an individual, organization, or even an IoT device. These credentials are
+src/xrpld/app/tx/detail/Credentials.cpp:47:using namespace credentials;
+src/xrpld/app/tx/detail/Credentials.cpp:64:    if (!tx[sfSubject])
+src/xrpld/app/tx/detail/Credentials.cpp:92:    auto const subject = ctx.tx[sfSubject];
+src/xrpld/app/tx/detail/Credentials.cpp:101:            keylet::credential(subject, ctx.tx[sfAccount], credType)))
+src/xrpld/app/tx/detail/Credentials.cpp:113:    auto const subject = ctx_.tx[sfSubject];
+src/xrpld/app/tx/detail/Credentials.cpp:115:    Keylet const credentialKey =
+src/xrpld/app/tx/detail/Credentials.cpp:116:        keylet::credential(subject, account_, credType);
+src/xrpld/app/tx/detail/Credentials.cpp:118:    auto const sleCred = std::make_shared<SLE>(credentialKey);
+src/xrpld/app/tx/detail/Credentials.cpp:143:        STAmount const reserve{view().fees().accountReserve(
+src/xrpld/app/tx/detail/Credentials.cpp:144:            sleIssuer->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:149:    sleCred->setAccountID(sfSubject, subject);
+src/xrpld/app/tx/detail/Credentials.cpp:150:    sleCred->setAccountID(sfIssuer, account_);
+src/xrpld/app/tx/detail/Credentials.cpp:159:            credentialKey,
+src/xrpld/app/tx/detail/Credentials.cpp:162:                         << to_string(credentialKey.key) << ": "
+src/xrpld/app/tx/detail/Credentials.cpp:165:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:166:        sleCred->setFieldU64(sfIssuerNode, *page);
+src/xrpld/app/tx/detail/Credentials.cpp:168:        adjustOwnerCount(view(), sleIssuer, 1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:179:            credentialKey,
+src/xrpld/app/tx/detail/Credentials.cpp:182:                         << to_string(credentialKey.key) << ": "
+src/xrpld/app/tx/detail/Credentials.cpp:185:            return tecDIR_FULL;
+src/xrpld/app/tx/detail/Credentials.cpp:186:        sleCred->setFieldU64(sfSubjectNode, *page);
+src/xrpld/app/tx/detail/Credentials.cpp:207:    auto const subject = ctx.tx[~sfSubject];
+src/xrpld/app/tx/detail/Credentials.cpp:208:    auto const issuer = ctx.tx[~sfIssuer];
+src/xrpld/app/tx/detail/Credentials.cpp:241:    auto const subject = ctx.tx[~sfSubject].value_or(account);
+src/xrpld/app/tx/detail/Credentials.cpp:242:    auto const issuer = ctx.tx[~sfIssuer].value_or(account);
+src/xrpld/app/tx/detail/Credentials.cpp:245:    if (!ctx.view.exists(keylet::credential(subject, issuer, credType)))
+src/xrpld/app/tx/detail/Credentials.cpp:254:    auto const subject = ctx_.tx[~sfSubject].value_or(account_);
+src/xrpld/app/tx/detail/Credentials.cpp:255:    auto const issuer = ctx_.tx[~sfIssuer].value_or(account_);
+src/xrpld/app/tx/detail/Credentials.cpp:259:        view().peek(keylet::credential(subject, issuer, credType));
+src/xrpld/app/tx/detail/Credentials.cpp:266:        JLOG(j_.trace()) << "Can't delete non-expired credential.";
+src/xrpld/app/tx/detail/Credentials.cpp:267:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Credentials.cpp:285:    if (!ctx.tx[sfIssuer])
+src/xrpld/app/tx/detail/Credentials.cpp:306:    AccountID const issuer = ctx.tx[sfIssuer];
+src/xrpld/app/tx/detail/Credentials.cpp:316:        ctx.view.read(keylet::credential(subject, issuer, credType));
+src/xrpld/app/tx/detail/Credentials.cpp:319:        JLOG(ctx.j.warn()) << "No credential: " << to_string(subject) << ", "
+src/xrpld/app/tx/detail/Credentials.cpp:338:    AccountID const issuer{ctx_.tx[sfIssuer]};
+src/xrpld/app/tx/detail/Credentials.cpp:340:    // Both exist as credential object exist itself (checked in preclaim)
+src/xrpld/app/tx/detail/Credentials.cpp:348:        STAmount const reserve{view().fees().accountReserve(
+src/xrpld/app/tx/detail/Credentials.cpp:349:            sleSubject->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/Credentials.cpp:355:    Keylet const credentialKey = keylet::credential(account_, issuer, credType);
+src/xrpld/app/tx/detail/Credentials.cpp:356:    auto const sleCred = view().peek(credentialKey);  // Checked in preclaim()
+src/xrpld/app/tx/detail/Credentials.cpp:363:        // delete expired credentials even if the transaction failed
+src/xrpld/app/tx/detail/Credentials.cpp:364:        auto const err = credentials::deleteSLE(view(), sleCred, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:371:    adjustOwnerCount(view(), sleIssuer, -1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:372:    adjustOwnerCount(view(), sleSubject, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:20:#include <xrpld/app/tx/detail/DepositPreauth.h>
+src/xrpld/app/tx/detail/DepositPreauth.cpp:34:DepositPreauth::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DepositPreauth.cpp:36:    bool const authArrPresent = ctx.tx.isFieldPresent(sfAuthorizeCredentials);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:38:        ctx.tx.isFieldPresent(sfUnauthorizeCredentials);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:41:    if (authCredPresent && !ctx.rules.enabled(featureCredentials))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:48:DepositPreauth::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/DepositPreauth.cpp:50:    bool const authArrPresent = ctx.tx.isFieldPresent(sfAuthorizeCredentials);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:52:        ctx.tx.isFieldPresent(sfUnauthorizeCredentials);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:56:    auto const optAuth = ctx.tx[~sfAuthorize];
+src/xrpld/app/tx/detail/DepositPreauth.cpp:57:    auto const optUnauth = ctx.tx[~sfUnauthorize];
+src/xrpld/app/tx/detail/DepositPreauth.cpp:86:                << "Malformed transaction: Attempting to DepositPreauth self.";
+src/xrpld/app/tx/detail/DepositPreauth.cpp:92:        if (auto err = credentials::checkArray(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:94:                    authArrPresent ? sfAuthorizeCredentials
+src/xrpld/app/tx/detail/DepositPreauth.cpp:95:                                   : sfUnauthorizeCredentials),
+src/xrpld/app/tx/detail/DepositPreauth.cpp:96:                maxCredentialsArraySize,
+src/xrpld/app/tx/detail/DepositPreauth.cpp:106:DepositPreauth::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/DepositPreauth.cpp:111:    if (ctx.tx.isFieldPresent(sfAuthorize))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:114:        AccountID const auth{ctx.tx[sfAuthorize]};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:123:    else if (ctx.tx.isFieldPresent(sfUnauthorize))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:127:                keylet::depositPreauth(account, ctx.tx[sfUnauthorize])))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:130:    else if (ctx.tx.isFieldPresent(sfAuthorizeCredentials))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:132:        STArray const& authCred(ctx.tx.getFieldArray(sfAuthorizeCredentials));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:136:            auto const& issuer = o[sfIssuer];
+src/xrpld/app/tx/detail/DepositPreauth.cpp:149:    else if (ctx.tx.isFieldPresent(sfUnauthorizeCredentials))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:154:                credentials::makeSorted(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:155:                    ctx.tx.getFieldArray(sfUnauthorizeCredentials)))))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:162:DepositPreauth::doApply()
+src/xrpld/app/tx/detail/DepositPreauth.cpp:164:    if (ctx_.tx.isFieldPresent(sfAuthorize))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:174:            STAmount const reserve{view().fees().accountReserve(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:175:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:183:        AccountID const auth{ctx_.tx[sfAuthorize]};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:188:        slePreauth->setAccountID(sfAuthorize, auth);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:196:        JLOG(j_.trace()) << "Adding DepositPreauth to owner directory "
+src/xrpld/app/tx/detail/DepositPreauth.cpp:201:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:203:        slePreauth->setFieldU64(sfOwnerNode, *page);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:206:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:208:    else if (ctx_.tx.isFieldPresent(sfUnauthorize))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:211:            keylet::depositPreauth(account_, ctx_.tx[sfUnauthorize]);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:213:        return DepositPreauth::removeFromLedger(view(), preauth.key, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:215:    else if (ctx_.tx.isFieldPresent(sfAuthorizeCredentials))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:225:            STAmount const reserve{view().fees().accountReserve(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:226:                sleOwner->getFieldU32(sfOwnerCount) + 1)};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:235:        auto const sortedTX = credentials::makeSorted(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:236:            ctx_.tx.getFieldArray(sfAuthorizeCredentials));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:237:        STArray sortedLE(sfAuthorizeCredentials, sortedTX.size());
+src/xrpld/app/tx/detail/DepositPreauth.cpp:241:            cred.setAccountID(sfIssuer, p.first);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:252:        slePreauth->peekFieldArray(sfAuthorizeCredentials) =
+src/xrpld/app/tx/detail/DepositPreauth.cpp:260:        JLOG(j_.trace()) << "Adding DepositPreauth to owner directory "
+src/xrpld/app/tx/detail/DepositPreauth.cpp:265:            return tecDIR_FULL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/DepositPreauth.cpp:267:        slePreauth->setFieldU64(sfOwnerNode, *page);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:270:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:272:    else if (ctx_.tx.isFieldPresent(sfUnauthorizeCredentials))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:276:            credentials::makeSorted(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:277:                ctx_.tx.getFieldArray(sfUnauthorizeCredentials)));
+src/xrpld/app/tx/detail/DepositPreauth.cpp:278:        return DepositPreauth::removeFromLedger(view(), preauthKey.key, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:285:DepositPreauth::removeFromLedger(
+src/xrpld/app/tx/detail/DepositPreauth.cpp:294:        JLOG(j.warn()) << "Selected DepositPreauth does not exist.";
+src/xrpld/app/tx/detail/DepositPreauth.cpp:299:    std::uint64_t const page{(*slePreauth)[sfOwnerNode]};
+src/xrpld/app/tx/detail/DepositPreauth.cpp:300:    if (!view.dirRemove(keylet::ownerDir(account), page, preauthIndex, false))
+src/xrpld/app/tx/detail/DepositPreauth.cpp:303:        JLOG(j.fatal()) << "Unable to delete DepositPreauth from owner.";
+src/xrpld/app/tx/detail/DepositPreauth.cpp:304:        return tefBAD_LEDGER;
+src/xrpld/app/tx/detail/DepositPreauth.cpp:308:    // If we succeeded, update the DepositPreauth owner's reserve.
+src/xrpld/app/tx/detail/DepositPreauth.cpp:313:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:315:    // Remove DepositPreauth from ledger.
