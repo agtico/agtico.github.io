@@ -1190,6 +1190,19 @@ Several later MPT/DEX commits looked high-value: `210b6e08b` removes overflowing
 
 Interpretation: these are future-branch quality signals, not current `3.1.3` public-article P0s.
 
+## Demoted: AMMBid LP-token refund reserve sibling
+
+Status: scratch-tested on upstream `3.1.3`; not a finding.
+
+The repro gave Alice an AMM auction slot, burned her LP-token balance to zero,
+cleared her LP-token trustline, and then let Bob outbid her. The AMMBid refund
+did recreate Alice's LP-token trustline, but it also increased Alice's
+`OwnerCount` and set the correct reserve flag.
+
+Interpretation: `AMMBid` remains relevant for the separate holder-`DepositAuth`
+refund bypass, but this path does not reproduce the legacy
+positive-balance/no-reserve trustline defect.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

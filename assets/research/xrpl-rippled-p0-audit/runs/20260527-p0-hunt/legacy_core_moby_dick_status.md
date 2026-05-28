@@ -593,6 +593,16 @@ witnesses sharper: offer crossing and `CheckCash` are the live paths that move
 the cleared trustline positive without the receiver-side owner-count/reserve
 transition.
 
+The next reserve sibling tested the AMM auction refund path because `AMMBid`
+already has a promoted holder-`DepositAuth` refund bypass. The scratch case
+gave Alice an AMM auction slot, burned her LP-token balance to zero, cleared
+her LP-token trustline, and let Bob outbid her. The refund did recreate
+Alice's LP-token trustline, but the ledger charged the owner reserve: Alice's
+`OwnerCount` increased and the correct reserve flag was set. That kills
+`AMMBID-TRUSTLINE-RESERVE-SIBLING-001` as a positive-balance/no-reserve
+witness while leaving the separate `AMMBID-DEPOSITAUTH-REFUND-001` finding
+unchanged.
+
 ## Legacy-Core Source-Kill Sweep
 
 The remaining old-core queue was reviewed against current source and current
