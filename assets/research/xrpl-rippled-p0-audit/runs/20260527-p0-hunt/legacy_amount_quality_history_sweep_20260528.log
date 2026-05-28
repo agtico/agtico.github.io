@@ -1,0 +1,132 @@
+2f1816755 2026-05-26 Merge branch 'develop' into pratik/Retire_fixUniversalNumber_amendment
+775b6bcbd 2026-05-26 Merge branch 'develop' into gregtatcam/mpt/audit-attackathon-fixes
+dcd2ff0b5 2026-05-23 fix: Fix non-canonical MPT amount (#7117)
+7fdaa0a5e 2026-05-21 fix: Fix IOU precision issues in LoanBrokerCover transactions (#7274)
+25ec394d5 2026-05-20 Merge branch 'develop' into mvadari/fix-naming
+242ce3e9e 2026-05-20 refactor: Fix `sfGeneric` and `sfInvalid` field names (#7300)
+a5d238e7d 2026-05-21 docs: Fix some comments to improve readability (#7122)
+05c435724 2026-05-20 Fix merge conflicts
+5cd0df92d 2026-05-20 Merge branch 'develop' into gregtatcam/mpt/audit-attackathon-fixes
+b5d73b126 2026-05-19 fix: Fix IOU precision issues in LoanBrokerCover transactions (#7274)
+4d349abb1 2026-05-18 Merge branch 'develop' of https://github.com/XRPLF/rippled into mvadari/fix-naming
+22fbf4d06 2026-05-18 Fix MPT transfer-rate rounding overflow in STAmount
+6499b7c12 2026-05-15 chore: Fix clang-tidy fallout from SLE alias refactor
+c327fc1ee 2026-05-14 fix: Reject sub-ULP cover amounts with tecPRECISION_LOSS (fixCleanup3_2_0)
+b62987bda 2026-05-06 Revert "fix: revert all unrelated upstream develop changes from phase-7 PR"
+d258fdc7b 2026-05-05 refactor: Retire fixUniversalNumber amendment
+f4555c80f 2026-04-30 fix: revert all unrelated upstream develop changes from phase-7 PR
+e09949ccd 2026-04-14 fix: Fix touchy "funds are conserved" assertion in LoanPay (#6231)
+1a0323429 2026-04-08 Merge develop: integrate MPT support for checkAcceptAsset with DisallowIncomingTrustline fix
+89a3a6c37 2026-03-21 more fixes
+f3a6d17b5 2026-03-21 fix long tail issues
+5fa9bb53a 2026-03-16 fix more build issues
+afc660a1b 2026-03-02 refactor: Fix clang-tidy `bugprone-empty-catch` check (#6419)
+d9f54113b 2026-02-20 Merge branch 'develop' into pratik/Fix_asan_lsan_flagged_issues
+7a7a86461 2026-02-18 Merge branch 'develop' into pratik/Fix_asan_lsan_flagged_issues
+62c9b6bbd 2026-02-17 Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+a8ee7ef31 2026-02-16 Merge branch 'develop' into pratik/Fix_asan_lsan_flagged_issues
+f8fcccd68 2026-02-13 Merge remote-tracking branch 'origin/develop' into pratik/Fix_asan_lsan_flagged_issues
+011f0a632 2026-02-10 Merge branch 'develop' into pratik/Fix_asan_lsan_flagged_issues
+bf4674f42 2026-02-06 refactor: Fix spelling issues in tests (#6199)
+4600c381b 2026-02-05 stack-buffer-overflow in coroutines.
+97bf84a4d 2026-01-30 Fix test: create trustlines before DisallowIncomingTrustline flag is set
+7f00e3594 2026-01-30 fix pre-commit
+ad840518f 2026-01-30 Rename amendment from fixDisallowIncomingV2 to fixDisallowIncomingV1_1
+06d1b696c 2026-01-30 Create new amendment fixDisallowIncomingV2 for OfferCreate blocker
+fa0cc0abc 2026-01-30 Add asfDisallowIncomingTrustline check to OfferCreate and comprehensive tests
+a2f197357 2026-01-26 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259) (#6273)
+e3644f265 2026-01-22 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259)
+fef83c296 2026-01-19 Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+2601442e1 2026-01-13 Improve and fix bugs in Lending Protocol (#6102)
+91d239f10 2026-01-12 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+092216916 2026-01-09 Make PahRequest and PathRequests interfaces
+07ff532d3 2026-01-07 refactor: Fix spelling issues in all variables/functions (#6184)
+2c37ef776 2026-01-07 refactor: Fix spelling issues in private/local variables and functions (#6182)
+3c9f5b625 2026-01-07 refactor: Fix typos in comments, configure cspell (#6164)
+316cdcaa0 2026-01-05 Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+cf748702a 2025-12-13 chore: Fix some typos in comments (#6082)
+ef6a0b805 2025-12-10 Refactor to use integral() instead of XRP|MPT and fix some cases where only XRP is used.
+daf031660 2025-12-03 Small fixes for Loan merge
+6b55db490 2025-11-10 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+ae919ad5b 2025-11-26 Start fixing the AMMExtended tests
+a7af773dd 2025-11-24 Add a LoanBroker invariant to compare CoverAvailable to balance
+fa2dea84c 2025-11-22 Review feedback from @gregtatcam: STAmount
+3b810c305 2025-11-10 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+8ac8a47c9 2025-11-03 refactor: Retire ImmediateOfferKilled amendment (#5973)
+ab45a8a73 2025-10-31 refactor: Retire fixReducedOffersV1 amendment (#5972)
+b39d7a651 2025-10-30 refactor: Retire fixQualityUpperBound amendment (#5960)
+44e027e51 2025-10-30 refactor: Retire fixTakerDryOfferRemoval amendment (#5958)
+f8b4f692f 2025-10-29 refactor: Retire fixSTAmountCanonicalize code (#5956)
+80a3ae638 2025-10-29 refactor: Retire fixRmSmallIncreasedQOffers amendment (#5955)
+efa917d9f 2025-10-29 refactor: Retire fix1578 amendment (#5927)
+a8e4da0b1 2025-10-29 Retire fix1781 amendment (#5931)
+2bf77cc8f 2025-10-23 refactor: Retire fix1515 amendment (#5920)
+7c39c810e 2025-10-22 Moved fix1513 to retire state (#5919)
+63edf035a 2025-10-01 Start converting Loans to use fixed payments and track value
+f85c09e5f 2025-10-08 Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+b4a45f1f0 2025-10-08 fixed positive balance trustline not incrementing owners count in some cases
+17c10de2e 2025-09-26 Fix formatting
+fd60e2d8d 2025-09-26 Fix formatting
+a14551b15 2025-08-14 fix: Change log to debug level for AMM offer retrieval and IOU payment check (#5686)
+b7ed99426 2025-08-11 fix: Make test suite names match the directory name (#5597)
+4b5ed9c21 2025-08-04 Fix formatting
+ae95aff7a 2025-08-04 Demonstrate how strongly typed ledger objects work
+e9d2dfe32 2025-07-11 fixup! Make a few tweaks to the changes in merge cc83ea8
+58c2c82a3 2025-06-05 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+70371a434 2025-05-21 Fix initializer list initialization for GCC-15 (#5443)
+dc7033805 2025-05-15 Fix or work around loan payment rounding problems
+bf504912a 2025-03-18 fix: trust line RPC no ripple flag (#5345)
+7fdfbc7b8 2025-02-05 Amendment `fixFrozenLPTokenTransfer` (#5227)
+6bc78370b 2025-01-16 fix: Use consistent CMake settings for all modules (#5228)
+fb3713bc2 2025-02-05 Amendment `fixFrozenLPTokenTransfer` (#5227)
+c325b6c7f 2025-01-17 Fix Vault unit tests
+839d17e7b 2025-01-16 fix: Use consistent CMake settings for all modules (#5228)
+1a032f04e 2024-11-07 Integrate STNumber with STParsedJSON
+ec61f5e9d 2024-11-05 Add fixAMMv1_2 amendment (#5176)
+223e6c759 2024-06-17 Add the fixEnforceNFTokenTrustline amendment: (#4946)
+ae7ea33b7 2024-06-13 fixReducedOffersV2: prevent offers from blocking order books: (#5032)
+3b624d8bf 2023-10-30 `fixFillOrKill`: fix offer crossing with tfFillOrKill (#4694)
+58f7aecb0 2023-07-17 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+724a30159 2023-06-23 `fixReducedOffersV1`: prevent offers from blocking order books: (#4512)
+a82ad5ba7 2022-06-01 Use Number for IOUAmount and STAmount arithmetic
+649ab872f 2022-04-01 Add featureImmediateOfferKilled for tfImmediateOrCancel offers:
+ff3d2e7c2 2021-04-13 Use jtx::offer_cancel more places:
+2a7c573de 2021-05-20 Fix clang warnings about copies vs references:
+22cc9a254 2021-03-25 Maintenance of Offer and PayStrand unit tests
+1bb99e5d3 2021-04-19 Rm some offers where the quality is reduced:
+fe129e8e4 2020-06-25  Optimize payment path exploration in flow:
+a6246b0ba 2020-02-28 Remove conditionals for fix1373 enabled 07Jul2017
+e93a44fe9 2020-02-27 Remove conditionals for fix1368 enabled 31Mar2017
+d097819c5 2020-01-06 Check XRP endpoints for circular paths (RIPD-1781):
+78ea75b11 2020-03-23 Remove incorrect STAmount assert:
+81326a6d0 2020-01-07 Remove old payment code
+ae707b814 2019-12-17 Always enable fix1449 dated March 30, 2017 20:00:00 UTC
+9c580b20a 2019-12-13 Always enable fix1443 dated March 12, 2017 01:00:00 UTC
+70c21f90b 2019-12-13 Always enable fix1298 dated December 21, 2016 18:00:00 UTC
+0964379a6 2019-12-11 Always enable fix1274 dated September 30, 2016 17:00:00 UTC
+a176f58a9 2019-12-09 Always enable fix1141 dated July 1, 2016 17:00:00 UTC
+fc0a08270 2019-12-09 Remove STAmountSO::soTime and soTime2:
+b9e73b485 2019-08-13 Fix shadowing variables
+79a0cb096 2019-05-09 Payment paths with a zero output step are dry (RIPD-1749):
+7b48dc36f 2018-09-26 Add fixTakerDryOfferRemoval amendment
+95eb5e186 2018-05-01 Fix manual offer test
+118c25c0f 2018-04-16 Compile time check preflight returns no tec (RIPD-1624):
+c6a307fcd 2018-01-25 Unit test pre-expired offer that also cancels an offer
+1853c0d67 2017-04-13 Add STAmount switchover support to tx queue:
+a02a469b2 2017-08-14 Fix unit test compiler warnings
+afc791835 2017-06-20 RequireAuth account can create offers to buy their currency
+b24d47c09 2017-06-21 Correct handling of unauthorized offers (RIPD-1481)
+7dc2fe9ce 2017-05-09 Handle strand creation for erroneous self-payment
+d5dc715d9 2017-04-05 Unit test offer crossing with lsfRequireAuth (RIPD-1346)
+369909df8 2016-03-15 Use payment flow code for offer crossing (RIPD-1094):
+2680b78b5 2017-04-14 Rename featureToStrandV2 to fix1373
+068889e5b 2017-03-31 Cleanup fix1449
+3bd9772c0 2017-03-30 Rename timebase switches from 'amendment' to 'fix'
+1bb92d40a 2017-03-14 Fix tx re-ordering bug in test:
+846723d77 2017-02-08 New rules for payment paths:
+ffa79ac6a 2017-03-11 Enforce rippling constraints during payments
+fb31380ab 2017-03-11 Enforce rippling constraints during payments
+f423181b9 2017-03-07 Rename amendment featureRIPD1368 -> fix1368
+2c6b0f319 2016-12-19 Fix limiting step re-execute bug (RIPD-1368):
+cfcd618aa 2016-09-21 Add Offer tests (RIPD-938):
+bb0b97f46 2016-09-16 Fix unfunded offer not removed (RIPD-1298):

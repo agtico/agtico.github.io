@@ -1,0 +1,600 @@
+src/test/app/OpenP0Repro_test.cpp:593:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:784:            auto const ter = accountSendMulti(
+src/test/app/OpenP0Repro_test.cpp:803:        run(testable_amendments() | fixCleanup3_1_3, tecPATH_DRY);
+src/test/app/OpenP0Repro_test.cpp:861:                 .amount = STAmount(share, 10'000'000)});
+src/test/app/OpenP0Repro_test.cpp:918:            env(escrow::create(depositor, bob, STAmount{shareIssue, 500}),
+src/test/app/OpenP0Repro_test.cpp:1128:                STAmount{fixture.asset, payAmount}));
+src/test/app/OpenP0Repro_test.cpp:1443:                amount(STAmount{rawAsset, clawbackAmount}),
+src/test/app/OpenP0Repro_test.cpp:1462:                STAmount{rawAsset, roundPeriodicPayment(rawAsset, periodicPayment, loanScale) +
+src/test/app/OpenP0Repro_test.cpp:1602:        testcase("EscrowCancel current — deleted IOU trustline returns tefEXCEPTION");
+src/test/app/OpenP0Repro_test.cpp:1652:            ter(tefEXCEPTION),
+src/test/app/OpenP0Repro_test.cpp:1687:            env(trust(holder, STAmount{amm.lptIssue(), 10'000}));
+src/test/app/OpenP0Repro_test.cpp:1884:    testMPTTransferRateLargeAmountOverflowCurrent()
+src/test/app/OpenP0Repro_test.cpp:1886:        testcase("MPT current — transfer-rate scaling overflows large integral amount");
+src/test/app/OpenP0Repro_test.cpp:1889:        Rate const transferRate{1'500'000'000};
+src/test/app/OpenP0Repro_test.cpp:1890:        STAmount const largeAmount{
+src/test/app/OpenP0Repro_test.cpp:1896:            (void)multiplyRound(largeAmount, transferRate, true);
+src/test/app/OpenP0Repro_test.cpp:1898:        catch (std::overflow_error const&)
+src/test/app/OpenP0Repro_test.cpp:1903:        // Current 3.1.3 reaches the legacy scaled-mantissa path and overflows
+src/test/app/OpenP0Repro_test.cpp:1904:        // on valid 63-bit MPT amounts with an issuer transfer rate. Upstream
+src/test/app/OpenP0Repro_test.cpp:1941:            ter(tecUNFUNDED_PAYMENT),
+src/test/app/OpenP0Repro_test.cpp:1988:        testcase("Permissioned DEX current — hybrid offer open-book quality mismatch");
+src/test/app/OpenP0Repro_test.cpp:2025:        // hybrid offer at the post-crossing quality, while sfExchangeRate
+src/test/app/OpenP0Repro_test.cpp:2026:        // still records the pre-crossing quality. Later upstream fix
+src/test/app/OpenP0Repro_test.cpp:2052:        env(tx, domain(setup.domainID), ter(tecINVARIANT_FAILED), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2102:        STAmount const fundAndDeposit{usd.raw(), Number{1, 16}};
+src/test/app/OpenP0Repro_test.cpp:2104:        env(trust(alice, STAmount{usd.raw(), 2, 16}), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2124:            ter(tecINVARIANT_FAILED),
+src/test/app/OpenP0Repro_test.cpp:2144:        STAmount const trustLimit{usd.raw(), 2, 16};
+src/test/app/OpenP0Repro_test.cpp:2145:        STAmount const ownerFund{usd.raw(), Number{9'999'999'999'999'999LL}};
+src/test/app/OpenP0Repro_test.cpp:2166:            ter(tecINVARIANT_FAILED),
+src/test/app/OpenP0Repro_test.cpp:2242:        STAmount const bobShares{MPTIssue{shareID}, Number(tokenBob->getFieldU64(sfMPTAmount))};
+src/test/app/OpenP0Repro_test.cpp:2260:        STAmount const requestAssets{asset.raw(), availableBefore};
+src/test/app/OpenP0Repro_test.cpp:2266:            ter(tecINVARIANT_FAILED),
+src/test/app/OpenP0Repro_test.cpp:2350:            (env.balance(alice, issue).value() == STAmount{MPTAmount{10'000}, issue}));
+src/test/app/OpenP0Repro_test.cpp:2352:            (env.balance(issuer, issue).value() == STAmount{MPTAmount{-20'000}, issue}));
+src/test/app/OpenP0Repro_test.cpp:2354:        auto const badAmount = STAmount{
+src/test/app/OpenP0Repro_test.cpp:2359:            STAmount::unchecked{}};
+src/test/app/OpenP0Repro_test.cpp:2361:        auto jt = env.jt(pay(issuer, alice, STAmount{issue, std::uint64_t{1}}));
+src/test/app/OpenP0Repro_test.cpp:2375:            (env.balance(alice, issue).value() == STAmount{MPTAmount{10'000}, issue}));
+src/test/app/OpenP0Repro_test.cpp:2377:            (env.balance(issuer, issue).value() == STAmount{MPTAmount{-20'000}, issue}));
+src/test/app/OpenP0Repro_test.cpp:2640:        testcase("TrustLine current — offer crossing with transfer rate creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3543:            env(trust(holder, STAmount{amm.lptIssue(), 10'000}));
+src/test/app/OpenP0Repro_test.cpp:3708:        env.trust(STAmount{lpIssue, 10'000'000}, alice);
+src/test/app/OpenP0Repro_test.cpp:3709:        env.trust(STAmount{lpIssue, 10'000'000}, bob);
+src/test/app/OpenP0Repro_test.cpp:3722:        env(pay(bob, alice, STAmount{lpIssue, 1}),
+src/test/app/OpenP0Repro_test.cpp:3891:            bad->setFieldAmount(sfLowLimit, STAmount{xrpIssue(), 0});
+src/test/app/OpenP0Repro_test.cpp:3919:                sfLowLimit, STAmount(Issue(a1["USD"].currency, a1.id()), 0));
+src/test/app/OpenP0Repro_test.cpp:3921:                sfHighLimit, STAmount(Issue(a1["USD"].currency, a1.id()), 0));
+src/test/app/OpenP0Repro_test.cpp:3926:                sfLowLimit, STAmount(Issue(a1["EUR"].currency, a1.id()), 0));
+src/test/app/OpenP0Repro_test.cpp:3928:                sfHighLimit, STAmount(Issue(a1["EUR"].currency, a1.id()), 0));
+src/test/app/OpenP0Repro_test.cpp:3997:        testMPTTransferRateLargeAmountOverflowCurrent();
+src/test/app/Flow_test.cpp:163:            // test best quality path is taken
+src/test/app/Flow_test.cpp:188:            // Limit quality
+src/test/app/Flow_test.cpp:199:                ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:231:                env(trust(bob, USDD(100)), qualityInPercent(bobDanQIn));
+src/test/app/Flow_test.cpp:232:                env(trust(bob, USDA(100)), qualityOutPercent(bobAliceQOut));
+src/test/app/Flow_test.cpp:259:            env(trust(carol, USDA(10)), qualityInPercent(carolAliceQIn));
+src/test/app/Flow_test.cpp:275:            env(trust(bob, USDA(10)), qualityOutPercent(bobAliceQOut));
+src/test/app/Flow_test.cpp:436:            // unfunded offer. When the payment fails `flow` should return the
+src/test/app/Flow_test.cpp:463:            auto flowJournal = env.app().logs().journal("Flow");
+src/test/app/Flow_test.cpp:464:            auto const flowResult = [&] {
+src/test/app/Flow_test.cpp:465:                STAmount deliver(USD(51));
+src/test/app/Flow_test.cpp:466:                STAmount smax(BTC(61));
+src/test/app/Flow_test.cpp:485:                return flow(
+src/test/app/Flow_test.cpp:498:                    flowJournal);
+src/test/app/Flow_test.cpp:501:            BEAST_EXPECT(flowResult.removableOffers.size() == 1);
+src/test/app/Flow_test.cpp:504:                    if (flowResult.removableOffers.empty())
+src/test/app/Flow_test.cpp:507:                    for (auto const& o : flowResult.removableOffers)
+src/test/app/Flow_test.cpp:509:                            offerDelete(sb, ok, flowJournal);
+src/test/app/Flow_test.cpp:549:                reducedOffersV2 ? TER(tecPATH_DRY) : TER(tesSUCCESS);
+src/test/app/Flow_test.cpp:568:                        // book page.  That's where the quality is stored.
+src/test/app/Flow_test.cpp:646:        // tecPATH_DRY, but the entire path should not be marked as dry. This
+src/test/app/Flow_test.cpp:647:        // is the second error case to test (when flowV1 is used).
+src/test/app/Flow_test.cpp:663:        // Single path with two offers and limit quality. The quality limit is
+src/test/app/Flow_test.cpp:724:        // In this test case the new flow code mis-computes the amount
+src/test/app/Flow_test.cpp:914:            STAmount tinyAmt1{
+src/test/app/Flow_test.cpp:919:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:920:            STAmount tinyAmt3{
+src/test/app/Flow_test.cpp:925:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:948:            STAmount tinyAmt1{
+src/test/app/Flow_test.cpp:953:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:954:            STAmount tinyAmt3{
+src/test/app/Flow_test.cpp:959:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:998:            STAmount{
+src/test/app/Flow_test.cpp:1004:            STAmount{
+src/test/app/Flow_test.cpp:1011:            STAmount{
+src/test/app/Flow_test.cpp:1018:            STAmount{
+src/test/app/Flow_test.cpp:1025:            STAmount{
+src/test/app/Flow_test.cpp:1066:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1079:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1122:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1132:        testcase("Self crossing low quality offer");
+src/test/app/TrustAndBalance_test.cpp:181:        env(pay(bob, alice, bob["USD"](1)), ter(tecPATH_DRY));
+src/test/app/TrustAndBalance_test.cpp:221:            // set a transfer rate
+src/test/app/TrustAndBalance_test.cpp:278:        // set a transfer rate
+src/test/app/TrustAndBalance_test.cpp:307:            ter(tecPATH_DRY));
+src/test/app/TrustAndBalance_test.cpp:400:                STAmount(
+src/test/app/TrustAndBalance_test.cpp:405:                    STAmount::unchecked{})));
+src/test/app/PayStrand_test.cpp:502:        std::vector<std::tuple<STAmount, STAmount, AccountID, AccountID>> diffs;
+src/test/app/PayStrand_test.cpp:507:                return STAmount{};
+src/test/app/PayStrand_test.cpp:513:                return STAmount{};
+src/test/app/PayStrand_test.cpp:563:        STAmount const& sendMax,
+src/test/app/PayStrand_test.cpp:564:        STAmount const& deliver,
+src/test/app/PayStrand_test.cpp:723:            test(env, USD, std::nullopt, STPath(), tecPATH_DRY);
+src/test/app/PayStrand_test.cpp:816:                auto flowJournal = env.app().logs().journal("Flow");
+src/test/app/PayStrand_test.cpp:831:                        flowJournal);
+src/test/app/PayStrand_test.cpp:848:                        flowJournal);
+src/test/app/PayStrand_test.cpp:865:                        flowJournal);
+src/test/app/PayStrand_test.cpp:1196:        STAmount sendMax{USD.issue(), 100, 1};
+src/test/app/PayStrand_test.cpp:1197:        STAmount noAccountAmount{Issue{USD.currency, noAccount()}, 100, 1};
+src/test/app/PayStrand_test.cpp:1198:        STAmount deliver;
+src/test/app/Offer_test.cpp:79:        // We need at least two paths. One at good quality and one at bad
+src/test/app/Offer_test.cpp:80:        // quality.  The bad quality path needs two offer books in a row.
+src/test/app/Offer_test.cpp:81:        // Each offer book should have two offers at the same quality, the
+src/test/app/Offer_test.cpp:108:        // Must be two offers at the same quality
+src/test/app/Offer_test.cpp:114:        // Offers for the poor quality path
+src/test/app/Offer_test.cpp:115:        // Must be two offers at the same quality
+src/test/app/Offer_test.cpp:119:        // Offers for the good quality path
+src/test/app/Offer_test.cpp:267:        // 2) There is another offer in the same book with a quality
+src/test/app/Offer_test.cpp:294:        // STAmount to incorrectly round to zero when the next offer
+src/test/app/Offer_test.cpp:295:        // (at a good quality) is considered. (when the now removed
+src/test/app/Offer_test.cpp:298:        // Offer at a quality poor enough so when the input xrp is
+src/test/app/Offer_test.cpp:329:        // funding is taken into account, the offer's quality drops below its
+src/test/app/Offer_test.cpp:330:        // initial quality and has an input amount of 1 drop. This is removed as
+src/test/app/Offer_test.cpp:358:            // offer at a lower quality
+src/test/app/Offer_test.cpp:477:        // funding is taken into account, the offer's quality drops below its
+src/test/app/Offer_test.cpp:478:        // initial quality and has an input amount of 1 drop. This is removed as
+src/test/app/Offer_test.cpp:492:            STAmount amt(
+src/test/app/Offer_test.cpp:517:            // offer at a lower quality
+src/test/app/Offer_test.cpp:676:                ter(tecPATH_DRY));
+src/test/app/Offer_test.cpp:745:            env(offer(alice, xrpOffer, usdOffer), ter(tecINSUF_RESERVE_OFFER));
+src/test/app/Offer_test.cpp:1029:        // tfPassive -- cross only offers of better quality.
+src/test/app/Offer_test.cpp:1050:            // of alice's (the one with better quality) and leave alice's
+src/test/app/Offer_test.cpp:1248:        env(offer("alice", usdOffer, xrpOffer), ter(tecUNFUNDED_OFFER));
+src/test/app/Offer_test.cpp:1255:        env(offer("bob", usdOffer, xrpOffer), ter(tecUNFUNDED_OFFER));
+src/test/app/Offer_test.cpp:1263:        env(offer("carol", usdOffer, xrpOffer), ter(tecINSUF_RESERVE_OFFER));
+src/test/app/Offer_test.cpp:1421:                STAmount{bob["USD"].issue(), UINT64_C(2710505431213761), -33};
+src/test/app/Offer_test.cpp:1725:            ter(tecUNFUNDED_OFFER));
+src/test/app/Offer_test.cpp:2091:            STAmount(env.current()->fees().accountReserve(3)).getText());
+src/test/app/Offer_test.cpp:2190:            STAmount(env.current()->fees().accountReserve(1)).getText());
+src/test/app/Offer_test.cpp:2235:            STAmount(env.current()->fees().accountReserve(1)).getText());
+src/test/app/Offer_test.cpp:2333:            STAmount low{issue};
+src/test/app/Offer_test.cpp:2334:            STAmount high{issue};
+src/test/app/Offer_test.cpp:2342:            STAmount actualBalance{sleTrust->getFieldAmount(sfBalance)};
+src/test/app/Offer_test.cpp:2376:            STAmount fundXrp;         // Account funded with
+src/test/app/Offer_test.cpp:2381:            STAmount spentXrp;        // Amount removed from fundXrp
+src/test/app/Offer_test.cpp:2390:            {"ann",             reserve(env, 0) + 0 * f,    1,   noPreTrust, 1000,      tecUNFUNDED_OFFER,               f, USD(      0),    0, 0},  // Account is at the reserve, and will dip below once fees are subtracted.
+src/test/app/Offer_test.cpp:2391:            {"bev",             reserve(env, 0) + 1 * f,    1,   noPreTrust, 1000,      tecUNFUNDED_OFFER,               f, USD(      0),    0, 0},  // Account has just enough for the reserve and the fee.
+src/test/app/Offer_test.cpp:2392:            {"cam",             reserve(env, 0) + 2 * f,    0,   noPreTrust, 1000, tecINSUF_RESERVE_OFFER,               f, USD(      0),    0, 0},  // Account has enough for the reserve, the fee and the offer, and a bit more, but not enough for the reserve after the offer is placed.
+src/test/app/Offer_test.cpp:2409:            {"abe",             reserve(env, 0) + 0 * f,    1,   gwPreTrust, 1000,      tecUNFUNDED_OFFER,               f, USD(      0),    0, 0},
+src/test/app/Offer_test.cpp:2410:            {"bud",             reserve(env, 0) + 1 * f,    1,   gwPreTrust, 1000,      tecUNFUNDED_OFFER,               f, USD(      0),    0, 0},
+src/test/app/Offer_test.cpp:2411:            {"che",             reserve(env, 0) + 2 * f,    0,   gwPreTrust, 1000, tecINSUF_RESERVE_OFFER,               f, USD(      0),    0, 0},
+src/test/app/Offer_test.cpp:2418:            {"ned",             reserve(env, 1) + 0 * f,    1, acctPreTrust, 1000,      tecUNFUNDED_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2419:            {"ole",             reserve(env, 1) + 1 * f,    1, acctPreTrust, 1000,      tecUNFUNDED_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2420:            {"pat",             reserve(env, 1) + 2 * f,    0, acctPreTrust, 1000,      tecUNFUNDED_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2421:            {"quy",             reserve(env, 1) + 2 * f,    1, acctPreTrust, 1000,      tecUNFUNDED_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2422:            {"ron",             reserve(env, 1) + 3 * f,    0, acctPreTrust, 1000, tecINSUF_RESERVE_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2425:            {"uli",             reserve(env, 2) + 0 * f,    0, acctPreTrust, 1000, tecINSUF_RESERVE_OFFER,           2 * f, USD(      0),    0, 1},
+src/test/app/Offer_test.cpp:2789:        // In pre-flow code alice's offer is left empty in the ledger.
+src/test/app/Offer_test.cpp:2828:            STAmount fundXrp;     // XRP acct funded with
+src/test/app/Offer_test.cpp:2829:            STAmount fundUSD;     // USD acct funded with
+src/test/app/Offer_test.cpp:2830:            STAmount gwGets;      // gw's offer
+src/test/app/Offer_test.cpp:2831:            STAmount gwPays;      //
+src/test/app/Offer_test.cpp:2832:            STAmount acctGets;    // acct's offer
+src/test/app/Offer_test.cpp:2833:            STAmount acctPays;    //
+src/test/app/Offer_test.cpp:2835:            STAmount spentXrp;    // Amount removed from fundXrp
+src/test/app/Offer_test.cpp:2836:            STAmount finalUsd;    // Final USD balance on acct
+src/test/app/Offer_test.cpp:2839:            STAmount takerGets;   // Remainder of acct's offer
+src/test/app/Offer_test.cpp:2840:            STAmount takerPays;   //
+src/test/app/Offer_test.cpp:2845:                STAmount const& fundXrp_,    // XRP acct funded with
+src/test/app/Offer_test.cpp:2846:                STAmount const& fundUSD_,    // USD acct funded with
+src/test/app/Offer_test.cpp:2847:                STAmount const& gwGets_,     // gw's offer
+src/test/app/Offer_test.cpp:2848:                STAmount const& gwPays_,     //
+src/test/app/Offer_test.cpp:2849:                STAmount const& acctGets_,   // acct's offer
+src/test/app/Offer_test.cpp:2850:                STAmount const& acctPays_,   //
+src/test/app/Offer_test.cpp:2852:                STAmount const& spentXrp_,   // Amount removed from fundXrp
+src/test/app/Offer_test.cpp:2853:                STAmount const& finalUsd_,   // Final USD balance on acct
+src/test/app/Offer_test.cpp:2856:                STAmount const& takerGets_,  // Remainder of acct's offer
+src/test/app/Offer_test.cpp:2857:                STAmount const& takerPays_)  //
+src/test/app/Offer_test.cpp:2878:                STAmount const& fundXrp_,   // XRP acct funded with
+src/test/app/Offer_test.cpp:2879:                STAmount const& fundUSD_,   // USD acct funded with
+src/test/app/Offer_test.cpp:2880:                STAmount const& gwGets_,    // gw's offer
+src/test/app/Offer_test.cpp:2881:                STAmount const& gwPays_,    //
+src/test/app/Offer_test.cpp:2882:                STAmount const& acctGets_,  // acct's offer
+src/test/app/Offer_test.cpp:2883:                STAmount const& acctPays_,  //
+src/test/app/Offer_test.cpp:2885:                STAmount const& spentXrp_,  // Amount removed from fundXrp
+src/test/app/Offer_test.cpp:2886:                STAmount const& finalUsd_,  // Final USD balance on acct
+src/test/app/Offer_test.cpp:2902:                      STAmount{0},
+src/test/app/Offer_test.cpp:2903:                      STAmount{0})
+src/test/app/Offer_test.cpp:2912:            {"ann", XRP(10) + reserve(env, 0) + 1 * f, USD( 0), XRP(10), USD( 5), USD(10), XRP(10), tecINSUF_RESERVE_OFFER, XRP(  0) + (1 * f), USD( 0),      0,      0},
+src/test/app/Offer_test.cpp:2921:            {"meg",           reserve(env, 1) + 2 * f, USD(10), USD(10), XRP( 5), XRP(10), USD(10), tecINSUF_RESERVE_OFFER, XRP(  0) + (2 * f), USD(10),      0,      1},
+src/test/app/Offer_test.cpp:3210:            // different transfer rates so we can see both transfer rates
+src/test/app/Offer_test.cpp:3250:            env(trust(ivy, USD(400)), qualityInPercent(90));
+src/test/app/Offer_test.cpp:3251:            env(trust(ivy, EUR(400)), qualityInPercent(80));
+src/test/app/Offer_test.cpp:3252:            env(trust(joe, USD(400)), qualityInPercent(70));
+src/test/app/Offer_test.cpp:3253:            env(trust(joe, EUR(400)), qualityInPercent(60));
+src/test/app/Offer_test.cpp:3292:            env(trust(lex, N_BUX(200)), qualityOutPercent(120));
+src/test/app/Offer_test.cpp:3361:            // In pre-flow code ova's offer is left empty in the ledger.
+src/test/app/Offer_test.cpp:3478:            STAmount fundXRP;    // XRP acct funded with
+src/test/app/Offer_test.cpp:3479:            STAmount fundUSD;    // USD acct funded with
+src/test/app/Offer_test.cpp:3480:            STAmount fundEUR;    // EUR acct funded with
+src/test/app/Offer_test.cpp:3491:            {"deb", reserve(env, 3) + f * 4, USD(   0), EUR(   1),             tesSUCCESS,      tecUNFUNDED_OFFER},
+src/test/app/Offer_test.cpp:3492:            {"eve", reserve(env, 3) + f * 4, USD(   1), EUR(   0),      tecUNFUNDED_OFFER,             tesSUCCESS},
+src/test/app/Offer_test.cpp:3493:            {"flo", reserve(env, 3) +     0, USD(1000), EUR(1000), tecINSUF_RESERVE_OFFER, tecINSUF_RESERVE_OFFER},
+src/test/app/Offer_test.cpp:3648:            env(trust(bob, D_BUX(200)), qualityOutPercent(120));
+src/test/app/Offer_test.cpp:3750:        testcase("Self crossing low quality offer");
+src/test/app/Offer_test.cpp:3777:            ter(tecINSUF_RESERVE_OFFER));
+src/test/app/Offer_test.cpp:3832:        // transfer rate was not being correctly handled.
+src/test/app/Offer_test.cpp:3874:                STAmount(JPY.issue(), std::uint64_t(2230682446713524ul), -12));
+src/test/app/Offer_test.cpp:3911:                STAmount{USD.issue(), std::uint64_t(2185410179555600), -14}));
+src/test/app/Offer_test.cpp:3915:                STAmount{JPY.issue(), std::uint64_t(6351823459548956), -12}));
+src/test/app/Offer_test.cpp:3920:            STAmount{USD.issue(), std::uint64_t(4371257532306000), -17},
+src/test/app/Offer_test.cpp:3921:            STAmount{JPY.issue(), std::uint64_t(4573216636606000), -15}));
+src/test/app/Offer_test.cpp:3927:            STAmount{JPY.issue(), std::uint64_t(2291181510070762), -12},
+src/test/app/Offer_test.cpp:3928:            STAmount{USD.issue(), std::uint64_t(2190218999914694), -14}));
+src/test/app/Offer_test.cpp:3939:                STAmount(USD.issue(), std::uint64_t(2185847305256635), -14));
+src/test/app/Offer_test.cpp:3942:                STAmount(JPY.issue(), std::uint64_t(2286608293434156), -12));
+src/test/app/Offer_test.cpp:3970:        STAmount const alicesCnyOffer{
+src/test/app/Offer_test.cpp:3977:        STAmount const bobsCnyStartBalance{
+src/test/app/Offer_test.cpp:3985:            STAmount{CNY.issue(), std::uint64_t(1000000000000000), -20}));
+src/test/app/Offer_test.cpp:4473:        testcase("RippleConnect Smoketest payment flow");
+src/test/app/Offer_test.cpp:4478:        // This test mimics the payment flow used in the Ripple Connect
+src/test/app/Offer_test.cpp:4807:        std::map<std::uint32_t, std::pair<STAmount, STAmount>> offers;
+src/test/app/Offer_test.cpp:4891:        // Create four offers from the same account with identical quality
+src/xrpld/app/paths/AMMContext.h:31: * Only one instance of this class is created in Flow.cpp::flow().
+src/libxrpl/protocol/STVar.cpp:24:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/STVar.cpp:194:            construct<STAmount>(std::forward<Args>(args)...);
+src/xrpld/app/paths/TrustLine.cpp:22:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/tokens.cpp:121:computers use 64-bit general purpose registers, and can multiply two 64 bit
+src/libxrpl/protocol/Serializer.cpp:254:        Throw<std::overflow_error>("lenlen");
+src/libxrpl/protocol/Serializer.cpp:263:        Throw<std::overflow_error>("len<0");
+src/libxrpl/protocol/Serializer.cpp:274:    Throw<std::overflow_error>("len>918744");
+src/libxrpl/protocol/Serializer.cpp:282:        Throw<std::overflow_error>("b1<0");
+src/libxrpl/protocol/Serializer.cpp:293:    Throw<std::overflow_error>("b1>254");
+src/libxrpl/protocol/Serializer.cpp:301:        Throw<std::overflow_error>("b1<0");
+src/libxrpl/protocol/Serializer.cpp:304:        Throw<std::overflow_error>("b1>254");
+src/libxrpl/protocol/Serializer.cpp:313:        Throw<std::overflow_error>("b1<193");
+src/libxrpl/protocol/Serializer.cpp:316:        Throw<std::overflow_error>("b1>240");
+src/libxrpl/protocol/Serializer.cpp:325:        Throw<std::overflow_error>("b1<241");
+src/libxrpl/protocol/Serializer.cpp:328:        Throw<std::overflow_error>("b1>254");
+src/xrpld/app/paths/Pathfinder.cpp:45:liquidity are dropped.  Otherwise, paths are sorted based on quality,
+src/xrpld/app/paths/Pathfinder.cpp:48:Path slots are filled in quality (ratio of out to in) order, with the
+src/xrpld/app/paths/Pathfinder.cpp:154:STAmount
+src/xrpld/app/paths/Pathfinder.cpp:155:smallestUsefulAmount(STAmount const& amount, int maxPaths)
+src/xrpld/app/paths/Pathfinder.cpp:157:    return divide(amount, STAmount(maxPaths + 2), amount.issue());
+src/xrpld/app/paths/Pathfinder.cpp:167:    STAmount const& saDstAmount,
+src/xrpld/app/paths/Pathfinder.cpp:168:    std::optional<STAmount> const& srcAmount,
+src/xrpld/app/paths/Pathfinder.cpp:179:    , mSrcAmount(srcAmount.value_or(STAmount(
+src/xrpld/app/paths/Pathfinder.cpp:281:        auto const reserve = STAmount(mLedger->fees().accountReserve(0));
+src/xrpld/app/paths/Pathfinder.cpp:351:    STAmount const& minDstAmount,  // IN:  The minimum output this path must
+src/xrpld/app/paths/Pathfinder.cpp:353:    STAmount& amountOut,           // OUT: The actual liquidity along the path.
+src/xrpld/app/paths/Pathfinder.cpp:354:    uint64_t& qualityOut) const    // OUT: The returned initial quality
+src/xrpld/app/paths/Pathfinder.cpp:384:        qualityOut = getRate(rc.actualAmountOut, rc.actualAmountIn);
+src/xrpld/app/paths/Pathfinder.cpp:413:        return tefEXCEPTION;
+src/xrpld/app/paths/Pathfinder.cpp:508:    auto const saMinDstAmount = [&]() -> STAmount {
+src/xrpld/app/paths/Pathfinder.cpp:527:            STAmount liquidity;
+src/xrpld/app/paths/Pathfinder.cpp:539:                JLOG(j_.debug()) << "findPaths: quality: " << uQuality << ": "
+src/xrpld/app/paths/Pathfinder.cpp:549:    //    cost of path (when considering quality)
+src/xrpld/app/paths/Pathfinder.cpp:557:            // 1) Higher quality (lower cost) is better
+src/xrpld/app/paths/Pathfinder.cpp:558:            if (!convert_all_ && a.quality != b.quality)
+src/xrpld/app/paths/Pathfinder.cpp:559:                return a.quality < b.quality;
+src/xrpld/app/paths/Pathfinder.cpp:602:    STAmount remaining = mRemainingAmount;
+src/xrpld/app/paths/Pathfinder.cpp:619:        else if (extraPathsIterator->quality < pathsIterator->quality)
+src/xrpld/app/paths/Pathfinder.cpp:621:        else if (extraPathsIterator->quality > pathsIterator->quality)
+src/libxrpl/protocol/QualityFunction.cpp:32:    Quality const& quality,
+src/libxrpl/protocol/QualityFunction.cpp:34:    : m_(0), b_(0), quality_(quality)
+src/libxrpl/protocol/QualityFunction.cpp:36:    if (quality.rate() <= beast::zero)
+src/libxrpl/protocol/QualityFunction.cpp:37:        Throw<std::runtime_error>("QualityFunction quality rate is 0.");
+src/libxrpl/protocol/QualityFunction.cpp:38:    b_ = 1 / quality.rate();
+src/libxrpl/protocol/QualityFunction.cpp:47:        quality_ = std::nullopt;
+src/libxrpl/protocol/QualityFunction.cpp:51:QualityFunction::outFromAvgQ(Quality const& quality)
+src/libxrpl/protocol/QualityFunction.cpp:53:    if (m_ != 0 && quality.rate() != beast::zero)
+src/libxrpl/protocol/QualityFunction.cpp:56:        auto const out = (1 / quality.rate() - b_) / m_;
+src/xrpld/app/paths/Flow.cpp:48:    result.actualAmountIn = toSTAmount(f.in, srcIssue);
+src/xrpld/app/paths/Flow.cpp:49:    result.actualAmountOut = toSTAmount(f.out, dstIssue);
+src/xrpld/app/paths/Flow.cpp:55:flow(
+src/xrpld/app/paths/Flow.cpp:57:    STAmount const& deliver,
+src/xrpld/app/paths/Flow.cpp:66:    std::optional<STAmount> const& sendMax,
+src/xrpld/app/paths/Flow.cpp:69:    path::detail::FlowDebugInfo* flowDebugInfo)
+src/xrpld/app/paths/Flow.cpp:136:    // types, use templates to tell `flow` about the amount types.
+src/xrpld/app/paths/Flow.cpp:143:            flow<XRPAmount, XRPAmount>(
+src/xrpld/app/paths/Flow.cpp:153:                flowDebugInfo));
+src/xrpld/app/paths/Flow.cpp:162:            flow<XRPAmount, IOUAmount>(
+src/xrpld/app/paths/Flow.cpp:172:                flowDebugInfo));
+src/xrpld/app/paths/Flow.cpp:181:            flow<IOUAmount, XRPAmount>(
+src/xrpld/app/paths/Flow.cpp:191:                flowDebugInfo));
+src/xrpld/app/paths/Flow.cpp:194:    XRPL_ASSERT(!srcIsXRP && !dstIsXRP, "ripple::flow : neither is XRP");
+src/xrpld/app/paths/Flow.cpp:199:        flow<IOUAmount, IOUAmount>(
+src/xrpld/app/paths/Flow.cpp:209:            flowDebugInfo));
+src/libxrpl/protocol/TxMeta.cpp:27:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/TxMeta.cpp:178:                        auto lim = dynamic_cast<STAmount const*>(&field);
+src/libxrpl/protocol/TxMeta.cpp:181:                            "ripple::getAffectedAccounts : STAmount type cast "
+src/xrpld/app/paths/Flow.h:48:  @param offerCrossing If Yes or Sell then flow is executing offer crossing, not
+src/xrpld/app/paths/Flow.h:50:  @param limitQuality Do not use liquidity below this quality threshold
+src/xrpld/app/paths/Flow.h:53:  @param flowDebugInfo If non-null a pointer to FlowDebugInfo for debugging
+src/xrpld/app/paths/Flow.h:57:flow(
+src/xrpld/app/paths/Flow.h:59:    STAmount const& deliver,
+src/xrpld/app/paths/Flow.h:68:    std::optional<STAmount> const& sendMax,
+src/xrpld/app/paths/Flow.h:71:    path::detail::FlowDebugInfo* flowDebugInfo = nullptr);
+src/libxrpl/protocol/STTx.cpp:42:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/STTx.cpp:176:        else if (auto samt = dynamic_cast<STAmount const*>(&it))
+src/libxrpl/protocol/STTx.cpp:773:                     static_cast<STAmount const&>(field).holds<MPTIssue>()) ||
+src/libxrpl/protocol/STNumber.cpp:27:#include <xrpl/protocol/STAmount.h>
+src/xrpld/app/tx/detail/VaultClawback.h:46:    Expected<std::pair<STAmount, STAmount>, TER>
+src/xrpld/app/tx/detail/VaultClawback.h:51:        STAmount const& clawbackAmount);
+src/libxrpl/protocol/STAmount.cpp:41:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/STAmount.cpp:77:getStaticSTAmountCanonicalizeSwitchover()
+src/libxrpl/protocol/STAmount.cpp:85:getSTAmountCanonicalizeSwitchover()
+src/libxrpl/protocol/STAmount.cpp:87:    return *getStaticSTAmountCanonicalizeSwitchover();
+src/libxrpl/protocol/STAmount.cpp:91:setSTAmountCanonicalizeSwitchover(bool v)
+src/libxrpl/protocol/STAmount.cpp:93:    *getStaticSTAmountCanonicalizeSwitchover() = v;
+src/libxrpl/protocol/STAmount.cpp:102:getInt64Value(STAmount const& amount, bool valid, char const* error)
+src/libxrpl/protocol/STAmount.cpp:122:getSNValue(STAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:128:getMPTValue(STAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:135:areComparable(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:145:static_assert(INITIAL_XRP.drops() == STAmount::cMaxNativeN);
+src/libxrpl/protocol/STAmount.cpp:147:STAmount::STAmount(SerialIter& sit, SField const& name) : STBase(name)
+src/libxrpl/protocol/STAmount.cpp:229:STAmount::STAmount(SField const& name, std::int64_t mantissa)
+src/libxrpl/protocol/STAmount.cpp:235:STAmount::STAmount(SField const& name, std::uint64_t mantissa, bool negative)
+src/libxrpl/protocol/STAmount.cpp:244:        "ripple::STAmount::STAmount(SField, std::uint64_t, bool) : maximum "
+src/libxrpl/protocol/STAmount.cpp:248:STAmount::STAmount(SField const& name, STAmount const& from)
+src/libxrpl/protocol/STAmount.cpp:257:        "ripple::STAmount::STAmount(SField, STAmount) : maximum input");
+src/libxrpl/protocol/STAmount.cpp:263:STAmount::STAmount(std::uint64_t mantissa, bool negative)
+src/libxrpl/protocol/STAmount.cpp:271:        "ripple::STAmount::STAmount(std::uint64_t, bool) : maximum mantissa "
+src/libxrpl/protocol/STAmount.cpp:275:STAmount::STAmount(XRPAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:286:std::unique_ptr<STAmount>
+src/libxrpl/protocol/STAmount.cpp:287:STAmount::construct(SerialIter& sit, SField const& name)
+src/libxrpl/protocol/STAmount.cpp:289:    return std::make_unique<STAmount>(sit, name);
+src/libxrpl/protocol/STAmount.cpp:293:STAmount::copy(std::size_t n, void* buf) const
+src/libxrpl/protocol/STAmount.cpp:299:STAmount::move(std::size_t n, void* buf)
+src/libxrpl/protocol/STAmount.cpp:310:STAmount::xrp() const
+src/libxrpl/protocol/STAmount.cpp:314:            "Cannot return non-native STAmount as XRPAmount");
+src/libxrpl/protocol/STAmount.cpp:317:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::xrp : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:326:STAmount::iou() const
+src/libxrpl/protocol/STAmount.cpp:329:        Throw<std::logic_error>("Cannot return non-IOU STAmount as IOUAmount");
+src/libxrpl/protocol/STAmount.cpp:341:STAmount::mpt() const
+src/libxrpl/protocol/STAmount.cpp:344:        Throw<std::logic_error>("Cannot return STAmount as MPTAmount");
+src/libxrpl/protocol/STAmount.cpp:347:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::mpt : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:355:STAmount&
+src/libxrpl/protocol/STAmount.cpp:356:STAmount::operator=(IOUAmount const& iou)
+src/libxrpl/protocol/STAmount.cpp:360:        "ripple::STAmount::operator=(IOUAmount) : is not integral");
+src/libxrpl/protocol/STAmount.cpp:370:STAmount&
+src/libxrpl/protocol/STAmount.cpp:371:STAmount::operator=(Number const& number)
+src/libxrpl/protocol/STAmount.cpp:396:STAmount&
+src/libxrpl/protocol/STAmount.cpp:397:STAmount::operator+=(STAmount const& a)
+src/libxrpl/protocol/STAmount.cpp:403:STAmount&
+src/libxrpl/protocol/STAmount.cpp:404:STAmount::operator-=(STAmount const& a)
+src/libxrpl/protocol/STAmount.cpp:410:STAmount
+src/libxrpl/protocol/STAmount.cpp:411:operator+(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:464:    // This addition cannot overflow an std::int64_t. It can overflow an
+src/libxrpl/protocol/STAmount.cpp:465:    // STAmount and the constructor will throw.
+src/libxrpl/protocol/STAmount.cpp:473:        return STAmount{
+src/libxrpl/protocol/STAmount.cpp:480:    return STAmount{
+src/libxrpl/protocol/STAmount.cpp:484:STAmount
+src/libxrpl/protocol/STAmount.cpp:485:operator-(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:492:std::uint64_t const STAmount::uRateOne = getRate(STAmount(1), STAmount(1));
+src/libxrpl/protocol/STAmount.cpp:495:STAmount::setIssue(Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:505:// <--    uRate: normalize(offerIn/offerOut)
+src/libxrpl/protocol/STAmount.cpp:510:getRate(STAmount const& offerOut, STAmount const& offerIn)
+src/libxrpl/protocol/STAmount.cpp:516:        STAmount r = divide(offerIn, offerOut, noIssue());
+src/libxrpl/protocol/STAmount.cpp:529:    // overflow -- very bad offer
+src/libxrpl/protocol/STAmount.cpp:534: * @brief Safely checks if two STAmount values can be added without overflow,
+src/libxrpl/protocol/STAmount.cpp:535: * underflow, or precision loss.
+src/libxrpl/protocol/STAmount.cpp:537: * This function determines whether the addition of two STAmount objects is
+src/libxrpl/protocol/STAmount.cpp:539: * - For XRP amounts, it checks for integer overflow and underflow.
+src/libxrpl/protocol/STAmount.cpp:541: * - For MPT amounts, it checks for overflow and underflow within 63-bit signed
+src/libxrpl/protocol/STAmount.cpp:547: * @param a The first STAmount to add.
+src/libxrpl/protocol/STAmount.cpp:548: * @param b The second STAmount to add.
+src/libxrpl/protocol/STAmount.cpp:552:canAdd(STAmount const& a, STAmount const& b)
+src/libxrpl/protocol/STAmount.cpp:562:    // XRP case (overflow & underflow check)
+src/libxrpl/protocol/STAmount.cpp:583:        static STAmount const one{IOUAmount{1, 0}, noIssue()};
+src/libxrpl/protocol/STAmount.cpp:584:        static STAmount const maxLoss{IOUAmount{1, -4}, noIssue()};
+src/libxrpl/protocol/STAmount.cpp:585:        STAmount lhs = divide((a - b) + b, a, noIssue()) - one;
+src/libxrpl/protocol/STAmount.cpp:586:        STAmount rhs = divide((b - a) + a, b, noIssue()) - one;
+src/libxrpl/protocol/STAmount.cpp:591:    // MPT (overflow & underflow check)
+src/libxrpl/protocol/STAmount.cpp:609:    UNREACHABLE("STAmount::canAdd : unexpected STAmount type");
+src/libxrpl/protocol/STAmount.cpp:615: * @brief Determines if it is safe to subtract one STAmount from another.
+src/libxrpl/protocol/STAmount.cpp:618: * considering currency compatibility and underflow conditions for specific
+src/libxrpl/protocol/STAmount.cpp:623: * - For XRP amounts, ensures no underflow or overflow occurs.
+src/libxrpl/protocol/STAmount.cpp:624: * - For IOU amounts, subtraction is always allowed (no underflow).
+src/libxrpl/protocol/STAmount.cpp:625: * - For MPT amounts, ensures no underflow or overflow occurs.
+src/libxrpl/protocol/STAmount.cpp:632:canSubtract(STAmount const& a, STAmount const& b)
+src/libxrpl/protocol/STAmount.cpp:642:    // XRP case (underflow & overflow check)
+src/libxrpl/protocol/STAmount.cpp:647:        // Check for underflow
+src/libxrpl/protocol/STAmount.cpp:651:        // Check for overflow
+src/libxrpl/protocol/STAmount.cpp:660:    // IOU case (no underflow)
+src/libxrpl/protocol/STAmount.cpp:666:    // MPT case (underflow & overflow check)
+src/libxrpl/protocol/STAmount.cpp:672:        // Underflow check
+src/libxrpl/protocol/STAmount.cpp:676:        // Overflow check
+src/libxrpl/protocol/STAmount.cpp:684:    UNREACHABLE("STAmount::canSubtract : unexpected STAmount type");
+src/libxrpl/protocol/STAmount.cpp:690:STAmount::setJson(Json::Value& elem) const
+src/libxrpl/protocol/STAmount.cpp:714:STAmount::getSType() const
+src/libxrpl/protocol/STAmount.cpp:720:STAmount::getFullText() const
+src/libxrpl/protocol/STAmount.cpp:730:STAmount::getText() const
+src/libxrpl/protocol/STAmount.cpp:758:    XRPL_ASSERT(mOffset + 43 > 0, "ripple::STAmount::getText : minimum offset");
+src/libxrpl/protocol/STAmount.cpp:784:        "ripple::STAmount::getText : first distance check");
+src/libxrpl/protocol/STAmount.cpp:795:        "ripple::STAmount::getText : second distance check");
+src/libxrpl/protocol/STAmount.cpp:819:STAmount::getJson(JsonOptions) const
+src/libxrpl/protocol/STAmount.cpp:827:STAmount::add(Serializer& s) const
+src/libxrpl/protocol/STAmount.cpp:831:        XRPL_ASSERT(mOffset == 0, "ripple::STAmount::add : zero offset");
+src/libxrpl/protocol/STAmount.cpp:866:STAmount::isEquivalent(STBase const& t) const
+src/libxrpl/protocol/STAmount.cpp:868:    STAmount const* v = dynamic_cast<STAmount const*>(&t);
+src/libxrpl/protocol/STAmount.cpp:873:STAmount::isDefault() const
+src/libxrpl/protocol/STAmount.cpp:897:STAmount::canonicalize()
+src/libxrpl/protocol/STAmount.cpp:911:        if (getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:922:        if (getSTNumberSwitchover() && getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:948:                if (getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:950:                    // N.B. do not move the overflow check to after the
+src/libxrpl/protocol/STAmount.cpp:993:            Throw<std::runtime_error>("value overflow");
+src/libxrpl/protocol/STAmount.cpp:1008:        Throw<std::runtime_error>("value overflow");
+src/libxrpl/protocol/STAmount.cpp:1012:        "ripple::STAmount::canonicalize : value inside range");
+src/libxrpl/protocol/STAmount.cpp:1015:        "ripple::STAmount::canonicalize : offset inside range");
+src/libxrpl/protocol/STAmount.cpp:1018:        "ripple::STAmount::canonicalize : value or offset set");
+src/libxrpl/protocol/STAmount.cpp:1022:STAmount::set(std::int64_t v)
+src/libxrpl/protocol/STAmount.cpp:1038:STAmount
+src/libxrpl/protocol/STAmount.cpp:1042:        return STAmount(noIssue());
+src/libxrpl/protocol/STAmount.cpp:1047:    return STAmount(noIssue(), mantissa, exponent);
+src/libxrpl/protocol/STAmount.cpp:1050:STAmount
+src/libxrpl/protocol/STAmount.cpp:1060:STAmount
+src/libxrpl/protocol/STAmount.cpp:1189:amountFromJsonNoThrow(STAmount& result, Json::Value const& jvSource)
+src/libxrpl/protocol/STAmount.cpp:1211:operator==(STAmount const& lhs, STAmount const& rhs)
+src/libxrpl/protocol/STAmount.cpp:1218:operator<(STAmount const& lhs, STAmount const& rhs)
+src/libxrpl/protocol/STAmount.cpp:1252:STAmount
+src/libxrpl/protocol/STAmount.cpp:1253:operator-(STAmount const& value)
+src/libxrpl/protocol/STAmount.cpp:1257:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1263:        STAmount::unchecked{});
+src/libxrpl/protocol/STAmount.cpp:1282:    boost::multiprecision::multiply(ret, multiplier, multiplicand);
+src/libxrpl/protocol/STAmount.cpp:1287:        Throw<std::overflow_error>(
+src/libxrpl/protocol/STAmount.cpp:1288:            "overflow: (" + std::to_string(multiplier) + " * " +
+src/libxrpl/protocol/STAmount.cpp:1304:    boost::multiprecision::multiply(ret, multiplier, multiplicand);
+src/libxrpl/protocol/STAmount.cpp:1310:        Throw<std::overflow_error>(
+src/libxrpl/protocol/STAmount.cpp:1311:            "overflow: ((" + std::to_string(multiplier) + " * " +
+src/libxrpl/protocol/STAmount.cpp:1319:STAmount
+src/libxrpl/protocol/STAmount.cpp:1320:divide(STAmount const& num, STAmount const& den, Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:1335:        while (numVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1345:        while (denVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1352:    // We divide the two mantissas (each is between 10^15
+src/libxrpl/protocol/STAmount.cpp:1353:    // and 10^16). To maintain precision, we multiply the
+src/libxrpl/protocol/STAmount.cpp:1357:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1364:STAmount
+src/libxrpl/protocol/STAmount.cpp:1365:multiply(STAmount const& v1, STAmount const& v2, Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:1368:        return STAmount(asset);
+src/libxrpl/protocol/STAmount.cpp:1376:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1379:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1381:        return STAmount(v1.getFName(), minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1389:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1392:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1394:        return STAmount(asset, minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1400:        return STAmount{asset, r};
+src/libxrpl/protocol/STAmount.cpp:1410:        while (value1 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1419:        while (value2 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1426:    // We multiply the two mantissas (each is between 10^15
+src/libxrpl/protocol/STAmount.cpp:1430:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1473:            value += (loops >= 2) ? 9 : 10;  // add before last divide
+src/libxrpl/protocol/STAmount.cpp:1478:    else if (value > STAmount::cMaxValue)
+src/libxrpl/protocol/STAmount.cpp:1480:        while (value > (10 * STAmount::cMaxValue))
+src/libxrpl/protocol/STAmount.cpp:1486:        value += 9;  // add before last divide
+src/libxrpl/protocol/STAmount.cpp:1520:                (hadRemainder && roundUp) ? 10 : 9;  // Add before last divide
+src/libxrpl/protocol/STAmount.cpp:1525:    else if (value > STAmount::cMaxValue)
+src/libxrpl/protocol/STAmount.cpp:1527:        while (value > (10 * STAmount::cMaxValue))
+src/libxrpl/protocol/STAmount.cpp:1532:        value += 9;  // add before last divide
+src/libxrpl/protocol/STAmount.cpp:1538:STAmount
+src/libxrpl/protocol/STAmount.cpp:1540:    STAmount const& value,
+src/libxrpl/protocol/STAmount.cpp:1558:    STAmount const referenceValue{
+src/libxrpl/protocol/STAmount.cpp:1559:        value.asset(), STAmount::cMinValue, scale, value.negative()};
+src/libxrpl/protocol/STAmount.cpp:1595:static STAmount
+src/libxrpl/protocol/STAmount.cpp:1596:mulRoundImpl(
+src/libxrpl/protocol/STAmount.cpp:1597:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1598:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1613:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1616:            Throw<std::runtime_error>("Native value overflow");
+src/libxrpl/protocol/STAmount.cpp:1618:        return STAmount(v1.getFName(), minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1627:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1630:            Throw<std::runtime_error>("MPT value overflow");
+src/libxrpl/protocol/STAmount.cpp:1632:        return STAmount(asset, minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1640:        while (value1 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1649:        while (value2 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1658:    // We multiply the two mantissas (each is between 10^15
+src/libxrpl/protocol/STAmount.cpp:1674:    STAmount result = [&]() {
+src/libxrpl/protocol/STAmount.cpp:1676:        // result from STAmount::canonicalize.
+src/libxrpl/protocol/STAmount.cpp:1678:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1692:            amount = STAmount::cMinValue;
+src/libxrpl/protocol/STAmount.cpp:1693:            offset = STAmount::cMinOffset;
+src/libxrpl/protocol/STAmount.cpp:1695:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1700:STAmount
+src/libxrpl/protocol/STAmount.cpp:1701:mulRound(
+src/libxrpl/protocol/STAmount.cpp:1702:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1703:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1707:    return mulRoundImpl<canonicalizeRound, DontAffectNumberRoundMode>(
+src/libxrpl/protocol/STAmount.cpp:1711:STAmount
+src/libxrpl/protocol/STAmount.cpp:1712:mulRoundStrict(
+src/libxrpl/protocol/STAmount.cpp:1713:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1714:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1718:    return mulRoundImpl<canonicalizeRoundStrict, NumberRoundModeGuard>(
+src/libxrpl/protocol/STAmount.cpp:1725:static STAmount
+src/libxrpl/protocol/STAmount.cpp:1727:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1728:    STAmount const& den,
+src/libxrpl/protocol/STAmount.cpp:1743:        while (numVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1752:        while (denVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1761:    // We divide the two mantissas (each is between 10^15
+src/libxrpl/protocol/STAmount.cpp:1762:    // and 10^16). To maintain precision, we multiply the
+src/libxrpl/protocol/STAmount.cpp:1778:    STAmount result = [&]() {
+src/libxrpl/protocol/STAmount.cpp:1785:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1799:            amount = STAmount::cMinValue;
+src/libxrpl/protocol/STAmount.cpp:1800:            offset = STAmount::cMinOffset;
+src/libxrpl/protocol/STAmount.cpp:1802:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1807:STAmount
+src/libxrpl/protocol/STAmount.cpp:1809:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1810:    STAmount const& den,
+src/libxrpl/protocol/STAmount.cpp:1817:STAmount
+src/libxrpl/protocol/STAmount.cpp:1819:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1820:    STAmount const& den,
+src/libxrpl/protocol/AMMCore.cpp:29:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/AMMCore.cpp:96:    STAmount const& amount,
+src/libxrpl/protocol/IOUAmount.cpp:27:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/IOUAmount.cpp:67:static std::int64_t constexpr minMantissa = STAmount::cMinValue;
+src/libxrpl/protocol/IOUAmount.cpp:68:static std::int64_t constexpr maxMantissa = STAmount::cMaxValue;
+src/libxrpl/protocol/IOUAmount.cpp:70:static int constexpr minExponent = STAmount::cMinOffset;
+src/libxrpl/protocol/IOUAmount.cpp:71:static int constexpr maxExponent = STAmount::cMaxOffset;
+src/libxrpl/protocol/IOUAmount.cpp:104:            Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:124:            Throw<std::overflow_error>("IOUAmount::normalize");
+src/libxrpl/protocol/IOUAmount.cpp:137:        Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:146:        Throw<std::overflow_error>("value overflow");
+src/libxrpl/protocol/IOUAmount.cpp:183:    // This addition cannot overflow an std::int64_t but we may throw from
+src/libxrpl/protocol/IOUAmount.cpp:259:    // never overflow
+src/libxrpl/protocol/IOUAmount.cpp:272:        // low does not overflow the largest amount we can store in the mantissa
+src/libxrpl/protocol/IOUAmount.cpp:273:        // and (rem/den128) is as large as possible. Scale by multiplying low
+src/libxrpl/protocol/IOUAmount.cpp:288:    // The largest result we can have is ~2^95, which overflows the 64 bit
+src/libxrpl/protocol/IOUAmount.cpp:320:            // This addition cannot overflow because the mantissa is already
+src/libxrpl/protocol/IOUAmount.cpp:331:            // This subtraction cannot underflow because `result` is not zero
+src/xrpld/app/paths/PathRequest.cpp:210:            saDstAmount < STAmount(lrLedger->fees().accountReserve(0)))
+src/xrpld/app/paths/PathRequest.cpp:317:    convert_all_ = saDstAmount == STAmount(saDstAmount.issue(), 1u, 0, true);
+src/xrpld/app/paths/PathRequest.cpp:343:             *saSendMax != STAmount(saSendMax->issue(), 1u, 0, true)))
+src/xrpld/app/paths/PathRequest.cpp:487:    STAmount const& dst_amount,
+src/xrpld/app/paths/PathRequest.cpp:547:            << " Trying to find paths: " << STAmount(issue, 1).getFullText();
+src/xrpld/app/paths/PathRequest.cpp:581:        STAmount saMaxAmount = saSendMax.value_or(
+src/xrpld/app/paths/PathRequest.cpp:582:            STAmount(Issue{issue.currency, sourceAccount}, 1u, 0, true));
+src/libxrpl/protocol/TER.cpp:57:        MAKE_ERROR(tecINSUF_RESERVE_LINE,            "Insufficient reserve to add trust line."),
+src/libxrpl/protocol/TER.cpp:58:        MAKE_ERROR(tecINSUF_RESERVE_OFFER,           "Insufficient reserve to create offer."),
+src/libxrpl/protocol/TER.cpp:63:        MAKE_ERROR(tecPATH_DRY,                      "Path could not send partial amount."),
+src/libxrpl/protocol/TER.cpp:68:        MAKE_ERROR(tecUNFUNDED,                      "Not enough XRP to satisfy the reserve requirement."),
+src/libxrpl/protocol/TER.cpp:69:        MAKE_ERROR(tecUNFUNDED_ADD,                  "DEPRECATED."),
+src/libxrpl/protocol/TER.cpp:70:        MAKE_ERROR(tecUNFUNDED_AMM,                  "Insufficient balance to fund AMM."),
+src/libxrpl/protocol/TER.cpp:71:        MAKE_ERROR(tecUNFUNDED_OFFER,                "Insufficient balance to fund created offer."),
+src/libxrpl/protocol/TER.cpp:72:        MAKE_ERROR(tecUNFUNDED_PAYMENT,              "Insufficient XRP balance to send."),
+src/libxrpl/protocol/TER.cpp:87:        MAKE_ERROR(tecINVARIANT_FAILED,              "One or more invariants for the transaction were not satisfied."),
+src/libxrpl/protocol/TER.cpp:139:        MAKE_ERROR(tefEXCEPTION,                   "Unexpected program state."),
+src/libxrpl/protocol/TER.cpp:186:        MAKE_ERROR(temBAD_SEND_XRP_LIMIT,        "Malformed: Limit quality is not allowed for XRP to XRP."),
+src/xrpld/app/tx/detail/SetAccount.cpp:128:        std::uint32_t uRate = tx.getFieldU32(sfTransferRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:130:        if (uRate && (uRate < QUALITY_ONE))
+src/xrpld/app/tx/detail/SetAccount.cpp:137:        if (uRate > 2 * QUALITY_ONE)
+src/xrpld/app/tx/detail/SetAccount.cpp:583:        std::uint32_t uRate = tx.getFieldU32(sfTransferRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:585:        if (uRate == 0 || uRate == QUALITY_ONE)
+src/xrpld/app/tx/detail/SetAccount.cpp:587:            JLOG(j_.trace()) << "unset transfer rate";
+src/xrpld/app/tx/detail/SetAccount.cpp:592:            JLOG(j_.trace()) << "set transfer rate";
+src/xrpld/app/tx/detail/SetAccount.cpp:593:            sle->setFieldU32(sfTransferRate, uRate);
+src/xrpld/app/paths/RippleCalc.cpp:42:    STAmount const& saMaxAmountReq,  // --> -1 = no limit.
+src/xrpld/app/paths/RippleCalc.cpp:48:    STAmount const& saDstAmountReq,
+src/xrpld/app/paths/RippleCalc.cpp:61:    Output flowOut;
+src/xrpld/app/paths/RippleCalc.cpp:62:    PaymentSandbox flowSB(&view);
+src/xrpld/app/paths/RippleCalc.cpp:88:        auto const sendMax = [&]() -> std::optional<STAmount> {
+src/xrpld/app/paths/RippleCalc.cpp:100:            flowOut = flow(
+src/xrpld/app/paths/RippleCalc.cpp:101:                flowSB,
+src/xrpld/app/paths/RippleCalc.cpp:118:            JLOG(j.error()) << "Exception from flow: " << e.what();
+src/xrpld/app/paths/RippleCalc.cpp:128:              << " actualIn: " << flowOut.actualAmountIn
+src/xrpld/app/paths/RippleCalc.cpp:129:              << ", actualOut: " << flowOut.actualAmountOut
+src/xrpld/app/paths/RippleCalc.cpp:130:              << ", result: " << flowOut.result()
+src/xrpld/app/paths/RippleCalc.cpp:134:    flowSB.apply(view);
+src/xrpld/app/paths/RippleCalc.cpp:135:    return flowOut;
+src/libxrpl/protocol/Asset.cpp:26:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/Asset.cpp:55:STAmount
+src/libxrpl/protocol/Asset.cpp:58:    return STAmount{*this, number};
+src/xrpld/app/tx/detail/ApplyContext.h:104:    deliver(STAmount const& amount)
+src/xrpld/app/paths/TrustLine.h:26:#include <xrpl/protocol/STAmount.h>
+src/xrpld/app/paths/TrustLine.h:157:    STAmount const&
+src/xrpld/app/paths/TrustLine.h:163:    STAmount const&
+src/xrpld/app/paths/TrustLine.h:169:    STAmount const&
+src/xrpld/app/paths/TrustLine.h:181:    STAmount const mLowLimit;
+src/xrpld/app/paths/TrustLine.h:182:    STAmount const mHighLimit;
+src/xrpld/app/paths/TrustLine.h:184:    STAmount mBalance;
+src/xrpld/app/paths/TrustLine.h:210:// This wrapper is used for the `AccountLines` command and includes the quality
+src/xrpld/app/paths/TrustLine.h:211:// in and quality out values.
+src/libxrpl/protocol/STParsedJSON.cpp:33:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/STParsedJSON.cpp:725:                    detail::make_stvar<STAmount>(amountFromJson(field, value));
+src/xrpld/app/tx/detail/Payment.cpp:39:        STAmount const maxAmount =
+src/xrpld/app/tx/detail/Payment.cpp:50:STAmount
+src/xrpld/app/tx/detail/Payment.cpp:53:    STAmount const& dstAmount,
+src/xrpld/app/tx/detail/Payment.cpp:54:    std::optional<STAmount> const& sendMax)
+src/xrpld/app/tx/detail/Payment.cpp:61:        return STAmount(
+src/xrpld/app/tx/detail/Payment.cpp:86:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:98:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:118:    STAmount const maxSourceAmount =
+src/xrpld/app/tx/detail/Payment.cpp:127:                        << deliverMin.value_or(STAmount{}).getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:199:            << "Limit quality specified for XRP to XRP or MPT to MPT.";
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:321:    STAmount const dstAmount(ctx.tx[sfAmount]);
+src/xrpld/app/tx/detail/Payment.cpp:349:        else if (dstAmount < STAmount(ctx.view.fees().accountReserve(0)))
+src/xrpld/app/tx/detail/Payment.cpp:425:    STAmount const dstAmount(ctx_.tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:427:    STAmount const maxSourceAmount =

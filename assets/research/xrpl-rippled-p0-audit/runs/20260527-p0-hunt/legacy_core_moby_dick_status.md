@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T07:54:41Z
-amendment_checked_utc: 2026-05-28T07:54:43Z
+runtime_checked_utc: 2026-05-28T08:03:43Z
+amendment_checked_utc: 2026-05-28T08:03:45Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533229, hash 9AF3C3309F035671A46C317A9DDBCF2C62C7AB50E1F121526D9C98150A7AFE70
-s2.ripple.com: rippled 3.1.3, ledger 104533229, hash 9AF3C3309F035671A46C317A9DDBCF2C62C7AB50E1F121526D9C98150A7AFE70
-runtime receipt sha256: 752b79b05d99214adb3e87b94b68850aec108efa9ae3b74456d9df255c971228
-amendment receipt sha256: 0b04d916d8500606437bfa594457fd36f8c247c8d3c30dc9b806f53f821ffe63
+s1.ripple.com: rippled 3.1.3, ledger 104533369, hash 5B7DBD4E4B5228723D13926C1BAE983AA11D2A5B3C17CD00F9684E2285B09872
+s2.ripple.com: rippled 3.1.3, ledger 104533369, hash 5B7DBD4E4B5228723D13926C1BAE983AA11D2A5B3C17CD00F9684E2285B09872
+runtime receipt sha256: 7fd94d5cd139dc7c2daabef7c15c9bf4a50309d711c1ff80afb4263cdb16935b
+amendment receipt sha256: 9a0bc9e390d42a79eecf49d81f4862569c94f65659076c977134c7fa28251c79
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -57,6 +57,7 @@ Completed and packet-bound work:
 - AMMDeposit LP-token reserve sibling scratch probe.
 - AccountDelete positive-unowned-trustline lifecycle scratch probe.
 - TrustSet legacy reserve-carveout source and suite sweep.
+- legacy amount/quality arithmetic continuation sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -273,6 +274,29 @@ ripple.basics.Number had 0 failures.
 ripple.protocol.STAmount had 0 failures.
 ripple.protocol.Quality had 0 failures.
 114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
+```
+
+This continuation ran a narrower legacy amount/quality pass across STAmount,
+Number, Quality, Offer, Flow, Path, PayStrand, and TrustAndBalance after
+refreshing direct live receipts. The pass again rediscovered the existing
+Number, MPT transfer-rate, permissioned-DEX quality, and trustline reserve
+signals but did not isolate a new old-core transaction witness. Static artifact
+`legacy_amount_quality_static_sweep_20260528.log` has sha256
+`e9acb64c13dfeea4adbc6a8cc9e99d60158054fd2852bc931a88a88b368b9802`.
+History artifact `legacy_amount_quality_history_sweep_20260528.log` has sha256
+`6e7024e72514d9edadc523bec130edbde1322e557877c42e2c64e4222b2e7542`.
+Suite artifact `legacy_amount_quality_source_kill_20260528.log` has sha256
+`e1d693d42ac1db37f178d41b0c07a0f25de3f7835dcf2cd4af2fcedbe69c037d`.
+
+```text
+ripple.app.Flow had 0 failures.
+ripple.app.OfferBaseUtil had 0 failures.
+ripple.app.PayStrand had 0 failures.
+ripple.app.TrustAndBalance had 0 failures.
+ripple.basics.Number had 0 failures.
+ripple.protocol.Quality had 0 failures.
+ripple.protocol.STAmount had 0 failures.
+89.9s, 14 suites, 540 cases, 166840 tests total, 0 failures
 ```
 
 `SOURCE-SIGNAL-CORE-ACCOUNTING-001` closed the planned source-signal clustering

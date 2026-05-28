@@ -273,6 +273,24 @@ ripple.protocol.Quality had 0 failures.
 114.9s, 18 suites, 626 cases, 175219 tests total, 0 failures
 ```
 
+Continuation on the next whip pass narrowed this to legacy amount/quality
+paths: `STAmount`, `Number`, `Quality`, `Offer`, `Flow`, `Path`, `PayStrand`,
+and `TrustAndBalance`. It again found only already-promoted or already-demoted
+signals and no new old-core transaction witness.
+
+```text
+runs/20260527-p0-hunt/legacy_amount_quality_static_sweep_20260528.log
+sha256: e9acb64c13dfeea4adbc6a8cc9e99d60158054fd2852bc931a88a88b368b9802
+
+runs/20260527-p0-hunt/legacy_amount_quality_history_sweep_20260528.log
+sha256: 6e7024e72514d9edadc523bec130edbde1322e557877c42e2c64e4222b2e7542
+
+runs/20260527-p0-hunt/legacy_amount_quality_source_kill_20260528.log
+sha256: e1d693d42ac1db37f178d41b0c07a0f25de3f7835dcf2cd4af2fcedbe69c037d
+
+89.9s, 14 suites, 540 cases, 166840 tests total, 0 failures
+```
+
 ## Current source kill: source-signal core-accounting cluster
 
 Status: source-reviewed, history-reviewed, and tested through existing upstream
