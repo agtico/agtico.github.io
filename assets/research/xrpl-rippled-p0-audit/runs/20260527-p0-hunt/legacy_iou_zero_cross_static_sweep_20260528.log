@@ -1,0 +1,142 @@
+legacy IOU zero-cross settlement static sweep
+repo: XRPLF/rippled
+target: 46b241ace8b30d9c9775d60ffba7d24b21903896
+tag: 3.1.3
+
+-- shared settlement/reserve symbols --
+src/test/app/Invariants_test.cpp:333:                adjustOwnerCount(ac.view(), sleA1, 1, ac.journal);
+src/test/app/Invariants_test.cpp:471:                            trustDelete(
+src/test/app/LoanBroker_test.cpp:1262:            accountSend failure, removeEmptyHolding failure,
+src/test/app/Loan_test.cpp:4896:        testcase << "LoanSet trigger ripple::accountSendMPT : minimum amount "
+src/test/app/MPToken_test.cpp:3655:        // accountSendMulti from the issuer to the given receivers.
+src/test/app/MPToken_test.cpp:3662:            auto const ter = accountSendMulti(
+src/test/app/Vault_test.cpp:6520:        // accountSend/accountHolds which read sfMPTAmount, so escrowed
+src/test/ledger/PaymentSandbox_test.cpp:123:            // accountSend, no deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:130:                auto r = accountSend(av, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:138:                auto r = accountSend(av, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:148:            // rippleCredit, no deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:155:            rippleCredit(av, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:161:            rippleCredit(av, alice, gw1, toDebit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:169:            // accountSend, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:178:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:187:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:197:            // rippleCredit, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:205:            rippleCredit(pv, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:245:            // accountSend, w/ deferredCredits and stacked views
+src/test/ledger/PaymentSandbox_test.cpp:254:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:273:                    auto r = accountSend(pv2, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:287:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:366:                    accountSend(sb, xrpAccount(), alice, XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:371:                    accountSend(sb, alice, xrpAccount(), XRP(100), env.journal);
+src/xrpld/app/paths/AMMOffer.h:125:        return accountSend(std::forward<Args>(args)..., WaiveTransferFee::Yes);
+src/xrpld/app/paths/detail/DirectStep.cpp:550:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:571:    rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:675:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:696:        rippleCredit(
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:269:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:292:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/tx/detail/AMMBid.cpp:351:        res = accountSend(
+src/xrpld/app/tx/detail/AMMClawback.cpp:232:    auto const ter = rippleCredit(sb, holder, issuer, amountWithdraw, true, j_);
+src/xrpld/app/tx/detail/AMMClawback.cpp:245:        return rippleCredit(sb, holder, issuer, *amount2Withdraw, true, j_);
+src/xrpld/app/tx/detail/AMMCreate.cpp:272:    auto res = accountSend(sb, accountId, account_, lpTokens, ctx_.journal);
+src/xrpld/app/tx/detail/AMMCreate.cpp:280:        if (auto const res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:577:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:603:        res = accountSend(
+src/xrpld/app/tx/detail/AMMDeposit.cpp:619:    res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:612:    auto res = accountSend(
+src/xrpld/app/tx/detail/AMMWithdraw.cpp:635:        res = accountSend(
+src/xrpld/app/tx/detail/CancelCheck.cpp:116:    adjustOwnerCount(view(), sleSrc, -1, viewJ);
+src/xrpld/app/tx/detail/CashCheck.cpp:377:                if (TER const ter = trustCreate(
+src/xrpld/app/tx/detail/CashCheck.cpp:507:    adjustOwnerCount(psb, psb.peek(keylet::account(srcId)), -1, viewJ);
+src/xrpld/app/tx/detail/Change.cpp:221:        if (tl->getFlags() & lsfLowReserve)
+src/xrpld/app/tx/detail/Change.cpp:222:            adjustOwnerCount(
+src/xrpld/app/tx/detail/Change.cpp:225:        if (tl->getFlags() & lsfHighReserve)
+src/xrpld/app/tx/detail/Change.cpp:226:            adjustOwnerCount(
+src/xrpld/app/tx/detail/Clawback.cpp:249:    return rippleCredit(
+src/xrpld/app/tx/detail/Clawback.cpp:275:    return rippleCredit(
+src/xrpld/app/tx/detail/CreateCheck.cpp:233:    adjustOwnerCount(view(), sle, 1, viewJ);
+src/xrpld/app/tx/detail/CreateOffer.cpp:859:    adjustOwnerCount(sb, sleCreator, 1, viewJ);
+src/xrpld/app/tx/detail/CreateTicket.cpp:138:    adjustOwnerCount(view(), sleAccountRoot, ticketCount, viewJ);
+src/xrpld/app/tx/detail/Credentials.cpp:168:        adjustOwnerCount(view(), sleIssuer, 1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:371:    adjustOwnerCount(view(), sleIssuer, -1, j_);
+src/xrpld/app/tx/detail/Credentials.cpp:372:    adjustOwnerCount(view(), sleSubject, 1, j_);
+src/xrpld/app/tx/detail/DID.cpp:102:    adjustOwnerCount(ctx.view(), sleAccount, 1, ctx.journal);
+src/xrpld/app/tx/detail/DID.cpp:202:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DelegateSet.cpp:136:        adjustOwnerCount(ctx_.view(), sleOwner, 1, ctx_.journal);
+src/xrpld/app/tx/detail/DelegateSet.cpp:165:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/DeleteOracle.cpp:85:    adjustOwnerCount(view, sleOwner, count, j);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:206:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:270:        adjustOwnerCount(view(), sleOwner, 1, j_);
+src/xrpld/app/tx/detail/DepositPreauth.cpp:313:    adjustOwnerCount(view, sleOwner, -1, j);
+src/xrpld/app/tx/detail/Escrow.cpp:420:    auto const ter = rippleCredit(
+src/xrpld/app/tx/detail/Escrow.cpp:610:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:865:        if (TER const ter = trustCreate(
+src/xrpld/app/tx/detail/Escrow.cpp:948:            rippleCredit(view, issuer, receiver, finalAmt, true, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:991:        adjustOwnerCount(view, sleDest, 1, journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1218:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/Escrow.cpp:1440:    adjustOwnerCount(ctx_.view(), sle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:346:    return accountSend(
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:114:    if (auto ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:139:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:187:        adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/tx/detail/LoanBrokerSet.cpp:232:        adjustOwnerCount(view, owner, 2, j_);
+src/xrpld/app/tx/detail/LoanDelete.cpp:109:    adjustOwnerCount(view, brokerSle, -1, j_);
+src/xrpld/app/tx/detail/LoanDelete.cpp:129:    adjustOwnerCount(view, borrowerSle, -1, j_);
+src/xrpld/app/tx/detail/LoanManage.cpp:294:    return accountSend(
+src/xrpld/app/tx/detail/LoanPay.cpp:636:    if (auto const ter = accountSendMulti(
+src/xrpld/app/tx/detail/LoanSet.cpp:501:    adjustOwnerCount(view, borrowerSle, 1, j_);
+src/xrpld/app/tx/detail/LoanSet.cpp:563:    if (auto const ter = accountSendMulti(
+src/xrpld/app/tx/detail/LoanSet.cpp:633:    adjustOwnerCount(view, brokerSle, 1, j_);
+src/xrpld/app/tx/detail/MPTokenIssuanceCreate.cpp:156:    adjustOwnerCount(view, acct, 1, journal);
+src/xrpld/app/tx/detail/MPTokenIssuanceDestroy.cpp:77:    adjustOwnerCount(view(), view().peek(keylet::account(account_)), -1, j_);
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:414:    auto const result = accountSend(view(), from, to, amount, j_);
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:294:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:461:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:499:            adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:550:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:706:    adjustOwnerCount(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1091:    adjustOwnerCount(view, view.peek(acctKeylet), 1, j);
+src/xrpld/app/tx/detail/Offer.h:276:    return accountSend(std::forward<Args>(args)...);
+src/xrpld/app/tx/detail/PayChan.cpp:162:    adjustOwnerCount(view, sle, -1, j);
+src/xrpld/app/tx/detail/PayChan.cpp:324:    adjustOwnerCount(ctx_.view(), sle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp:80:    adjustOwnerCount(view(), ownerSle, -1, ctx_.journal);
+src/xrpld/app/tx/detail/PermissionedDomainSet.cpp:138:        adjustOwnerCount(view(), ownerSle, 1, ctx_.journal);
+src/xrpld/app/tx/detail/SetOracle.cpp:177:adjustOwnerCount(ApplyContext& ctx, int count)
+src/xrpld/app/tx/detail/SetOracle.cpp:182:        adjustOwnerCount(ctx.view(), sleAccount, count, ctx.journal);
+src/xrpld/app/tx/detail/SetOracle.cpp:273:        if (adjust != 0 && !adjustOwnerCount(ctx_, adjust))
+src/xrpld/app/tx/detail/SetOracle.cpp:323:        if (!adjustOwnerCount(ctx_, count))
+src/xrpld/app/tx/detail/SetSignerList.cpp:163:// of adjustOwnerCount() (which must be signed).
+src/xrpld/app/tx/detail/SetSignerList.cpp:235:    adjustOwnerCount(
+src/xrpld/app/tx/detail/SetSignerList.cpp:398:    adjustOwnerCount(view(), sle, addedOwnerCount, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:404:    XRPAmount const reserveCreate(
+src/xrpld/app/tx/detail/SetTrust.cpp:434:        return trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:625:        bool const bLowReserved = (uFlagsIn & lsfLowReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:626:        bool const bHighReserved = (uFlagsIn & lsfHighReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:638:            adjustOwnerCount(view(), sleLowAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:639:            uFlagsOut |= lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:648:            adjustOwnerCount(view(), sleLowAccount, -1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:649:            uFlagsOut &= ~lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:655:            adjustOwnerCount(view(), sleHighAccount, 1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:656:            uFlagsOut |= lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:665:            adjustOwnerCount(view(), sleHighAccount, -1, viewJ);
+src/xrpld/app/tx/detail/SetTrust.cpp:666:            uFlagsOut &= ~lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:676:            terResult = trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:680:        else if (bReserveIncrease && mPriorBalance < reserveCreate)
+src/xrpld/app/tx/detail/SetTrust.cpp:709:    else if (mPriorBalance < reserveCreate)  // Reserve is not scaled by
+src/xrpld/app/tx/detail/SetTrust.cpp:730:        terResult = trustCreate(
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/VaultClawback.cpp:436:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultClawback.cpp:477:        if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultCreate.cpp:162:    adjustOwnerCount(view(), owner, 2, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:160:    adjustOwnerCount(view(), pseudoAcct, -1, j_);
+src/xrpld/app/tx/detail/VaultDelete.cpp:223:    adjustOwnerCount(view(), owner, -2, j_);
+src/xrpld/app/tx/detail/VaultDeposit.cpp:270:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultDeposit.cpp:296:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:271:    if (auto const ter = accountSend(
+src/xrpld/app/tx/detail/XChainBridge.cpp:758:            adjustOwnerCount(outerSb, sleOwner, -1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1183:        adjustOwnerCount(psb, sleDoor, 1, j);
+src/xrpld/app/tx/detail/XChainBridge.cpp:1535:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+src/xrpld/app/tx/detail/XChainBridge.cpp:2087:    adjustOwnerCount(ctx_.view(), sleAcct, 1, ctx_.journal);
+
+-- trustline positive-balance repro assertions --

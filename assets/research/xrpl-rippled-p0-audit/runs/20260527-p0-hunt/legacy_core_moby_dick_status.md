@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:18:00Z
-amendment_checked_utc: 2026-05-28T08:18:02Z
+runtime_checked_utc: 2026-05-28T08:25:40Z
+amendment_checked_utc: 2026-05-28T08:25:42Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533591, hash 99FD81AFE5911A8097E3364D1AA5A25C4B81492FA018627810250DBC803E663C
-s2.ripple.com: rippled 3.1.3, ledger 104533591, hash 99FD81AFE5911A8097E3364D1AA5A25C4B81492FA018627810250DBC803E663C
-runtime receipt sha256: d62614f191c672ecc57a4fdd14f85908069d3d0ecd660275d6276cd21eda83b8
-amendment receipt sha256: d8432954359598609d978379a392e92e82122d07de225d5b5874c5cd3be5c0ad
+s1.ripple.com: rippled 3.1.3, ledger 104533710, hash 89E0D12AD48B9A5D976891706D3AF18FF0CAA87B2B4B5581E41AF8B28D6CBFB4
+s2.ripple.com: rippled 3.1.3, ledger 104533710, hash 89E0D12AD48B9A5D976891706D3AF18FF0CAA87B2B4B5581E41AF8B28D6CBFB4
+runtime receipt sha256: a0afde08c4e1e27984c178dfab5b9ff88c61e7b5394d0b9d6e0012be7efa0a19
+amendment receipt sha256: c65b7f42d464fa6f003e118d0650f36eebaec74ce245f1254b869525c63d7241
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -60,6 +60,7 @@ Completed and packet-bound work:
 - legacy amount/quality arithmetic continuation sweep.
 - AccountSet legacy flag and policy-setting sweep.
 - legacy transaction envelope/signing/sequence source and suite sweep.
+- legacy IOU zero-cross settlement source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1113,6 +1114,25 @@ tests, and the following candidates were source-killed rather than promoted:
   `SetRegularKey`, `Transaction_ordering`, `PseudoTx`, and `Apply`. No clean
   transaction-visible replay, signature/auth, sequence, serialization, or
   canonical-ordering P0 was isolated.
+- `LEGACY-IOU-ZERO-CROSS-SWEEP-001`: old IOU settlement paths were reviewed
+  again around the specific reserve/owner-count failure mode: moving a
+  trustline from non-positive to positive balance without the receiver-side
+  reserve flag or `OwnerCount` transition. The sweep covered shared
+  `rippleCredit`, `accountSend`, `trustCreate`, `trustDelete`,
+  `adjustOwnerCount`, `lsfLowReserve`, and `lsfHighReserve` call sites across
+  `Payment`, path steps, `Offer`, `CheckCash`, `SetTrust`,
+  `TrustAndBalance`, and `PaymentSandbox`. Static artifact
+  `legacy_iou_zero_cross_static_sweep_20260528.log` has sha256
+  `e7a48bf5faf8a95ee052abe2c9d99b814488e33a97a48e6ced2d6a87a9f7c155`.
+  History artifact `legacy_iou_zero_cross_history_sweep_20260528.log` has
+  sha256 `92d7e9c4fc52b68808d525be312a53285495800ad9f28a5d183470d2188a5b66`.
+  Suite artifact `legacy_iou_zero_cross_source_kill_20260528.log` has sha256
+  `b1148f687e36bc488913c25eac67b57197641ce75d98fab2a296c65add0f31c5`.
+  The focused suite run passed with 14 suites, 545 cases, and 74,558 tests
+  across `Payment`, `PaymentSandbox`, `Flow`, `PayStrand`, `Path`, `Offer`,
+  `SetTrust`, `TrustAndBalance`, and `Check`. The sweep reinforced the
+  existing `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` root and its packet-bound
+  markers, but did not isolate a separate old-core P0 outside that root.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.

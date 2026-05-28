@@ -1,0 +1,259 @@
+legacy IOU zero-cross settlement history sweep
+repo: XRPLF/rippled
+target: 46b241ace8b30d9c9775d60ffba7d24b21903896
+tag: 3.1.3
+
+-- grep history: trustline/reserve/owner-count/payment/check/offer --
+570845892 (origin/copilot/add-ctid-to-ledger-response) Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+065908055 (origin/copilot/apply-asfdisallowincomingtrustline) Merge remote-tracking branch 'origin/develop' (refactor: readability-identifier-naming) into copilot/apply-asfdisallowincomingtrustline
+ad2195f12 fix: Numerically-stable (1+r)^n-1 in computePaymentFactor (#7033)
+4f8142fd1 fix: Numerically-stable (1+r)^n-1 in computePaymentFactor (#7033)
+17f26ba97 fix: Decouple reserve from fee in delegate payment (#6568)
+28c53362b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+b01ba1fce test: Add Vault+AMM integration coverage
+9d2d8538d Merge remote-tracking branch 'XRPLF/develop' into ximinez/lending-shortages
+10207700c (origin/tapanito/lending-common-prefix) fix: Numerically-stable (1+r)^n-1 in computePaymentFactor
+dbbdbaace test: Add lending protocol bug reproductions
+a59a6138b fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+d3e22a125 Add testAutoCreateReserve() unit-test to verify MPT/IOU consistent in not checking the reserves when creating MPToken or Trustline on partial offer crossing.
+50cacddcf Add CheckCash can't transfer failure unit-test.
+6d9ed125f fix: Decouple reserve from fee in delegate payment (#6568)
+02fa55df8 fix: Check trustline limits for share-denominated vault withdrawals (#6645)
+92607805c feat(telemetry): add validationsChecked recording hook in recvValidation
+23eee6192 feat: Make VaultID conditional on LoanBrokerSet
+810ffde48 (origin/tapanito/lending-impairment) fix: Prevent early loan impairment and due-date manipulation
+466540636 (origin/tapanito/vault-bugfixes) fix: Check trustline limits for share-denominated vault withdrawals
+f4aa13e8c Merge branch 'develop' into copilot/apply-asfdisallowincomingtrustline
+c585dbd65 Merge branch 'develop' into copilot/apply-asfdisallowincomingtrustline
+994b6aee9 Merge commit '2c1fad1023' into copilot/apply-asfdisallowincomingtrustline
+62c9b6bbd Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+88a5f3e29 Merge branch 'develop' into copilot/apply-asfdisallowincomingtrustline
+293954b0c Merge remote-tracking branch 'upstream/develop' into copilot/apply-asfdisallowincomingtrustline
+97bf84a4d Fix test: create trustlines before DisallowIncomingTrustline flag is set
+06d1b696c Create new amendment fixDisallowIncomingV2 for OfferCreate blocker
+5095cf073 Optimize trustline reading in checkAcceptAsset and improve test documentation
+fa0cc0abc Add asfDisallowIncomingTrustline check to OfferCreate and comprehensive tests
+fef83c296 Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+2601442e1 Improve and fix bugs in Lending Protocol (#6102)
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+316cdcaa0 Merge branch 'develop' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+c81b26b09 Add a few minor changes (#6158)
+b195011ef fix: Apply object reserve for Vault pseudo-account (#5954)
+7e6647e76 Review feedback from @shawnxie999: broker owner count
+dd5464d92 From discussion with @gregtatcam: Revert "Payment"
+283bc3ea3 Remove directory size limit (#5935)
+fd115cfc1 Address my review feedback on (#6017)
+23e5f43f9 (origin/gregtatcam/lending-protocol/refactor-payment) Refactor Payment transactor.
+31d6ad727 Refactors method and struct names (#6039)
+362ecbd1c fix: Apply object reserve for Vault pseudo-account (#5954)
+03ea1deed (origin/ximinez/lending-rebased) Merge remote-tracking branch 'upstream/develop' into ximinez/lending-rebased
+9582f75ce Convert sfNextPaymentDueDate from optional to default
+ba19d7f32 Add tfLoanLatePayment flag; full payment is no longer a special case
+e485d5d6a Add Grace Period to testLoanNextPaymentDueDateOverflow
+842825586 Handle zero rate in `computePaymentFactor`
+6c375f134 Convert sfNextPaymentDueDate from optional to default
+4396b77c4 Add tfLoanLatePayment flag; full payment is no longer a special case
+12c629a1d refactor: Retire CheckCashMakesTrustLine amendment (#5974)
+77d582629 Add Grace Period to testLoanNextPaymentDueDateOverflow
+74e331f3e Handle zero rate in `computePaymentFactor`
+7925cc405 fix: Check the borrower's balance in LoanSet for reserve
+4425f84c1 Remove directory size limit (#5935)
+5ebc29c48 fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+2dd1d682a Remove directory size limit (#5935)
+310852ba2 refactor: Payment component calculation will target next true state
+40ef91e7e Limit how many payments can be made in a single LoanPay
+0950d41fc refactor: De-templatize and move LendingHelper functions from .h to .cpp
+45819477d refactor: change what values are tracked as Payment Components - Part 2
+83e249eb8 refactor: change what values are tracked as Payment Components - Part 1
+9814ec030 Implement tfLoanFullPayment; use updated full payment calculations
+83ee3788e fix: Enforce reserve when creating trust line or MPToken in VaultWithdraw (#5857)
+d7196a8e5 Get remaining Loan unit tests working
+bda6bb46d Fix the singlePayment test helper lambda
+1efc532b2 Implement Vito's new loan payment part rounding algorithm, and more
+0b8cd2d7c Cool idea: Make Loan.NextDueDate optional; clear it when complete
+a8de91c57 Add LoanPaymentParts::operator+=
+519d1dbc3 refactor: Replace fee().accountReserve(0) with fee().reserve (#5843)
+f85c09e5f Merge remote-tracking branch 'origin' into vvysokikh1/fix-positive-balance-trustline-pay-no-reserve
+b4a45f1f0 fixed positive balance trustline not incrementing owners count in some cases
+b127b24da Addressed review feedback from @gregtatcam:
+b5ddc812e Review feedback from @gregtatcam:
+b9a2eb339 Review feedback from @gregtatcam
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+8ac514363 get new fees and reserves working (#5714)
+162875616 Correct more issues related to 0-interest loans and some rounding issues
+baf4b8381 fix `DeliveredAmount` and `delivered_amount` in transaction metadata for direct MPT transfer (#5569)
+e7a7bb83c VaultWithdraw destination account bugfix (#5572)
+e6e6360c1 Support MPT payments via Payment tx for LBCoverWithdraw.Destination
+6b4236343 Get CoverWithdraw IOU payments working
+b34f59eaf Start implementing LoanBrokerCoverWithdraw.Destination field
+8aa94ea09 fixAMMClawbackRounding: adjust last holder's LPToken balance (#5513)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+7e24adbdd fix: Address NFT interactions with trustlines (#5297)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+527e0c916 Lending protocol implementation (XLS-0066)
+848311563 Lending protocol implementation (XLS-0066)
+7ff2f58a9 fixup! Update to match latest spec: compute interest, LoanBroker reserves
+bcece6d68 Update to match latest spec: compute interest, LoanBroker reserves
+ceeb11aee Ensure that an account is not deleted with a non-zero owner count
+cc0fe0db0 LoanBrokerSet will charge a reserve increment when creating
+a574ec602 fix: `fixPayChanV1` (#4717)
+911c0466c Merge develop into ripple/smart-escrow (#5357)
+b6a95f997 PoC Smart Escrows (#5340)
+bf504912a fix: trust line RPC no ripple flag (#5345)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+c5c0e70e2 Fix token comparison in Payment (#5172)
+ec61f5e9d Add fixAMMv1_2 amendment (#5176)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+15390bedd Fix last Liquidity Provider withdrawal:
+0c32fc5f2 test: Env unit test RPC errors return a unique result: (#4877)
+828bb64eb `fixNFTokenReserve`: ensure NFT tx fails when reserve is not met (#4767)
+3b624d8bf `fixFillOrKill`: fix offer crossing with tfFillOrKill (#4694)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+5ba1f984d Rename `allowClawback` flag to `allowTrustLineClawback` (#4617)
+4f95b9d7a Prevent replay attacks with NetworkID field: (#4370)
+66627b26c Refactor fee initialization and configuration: (#4319)
+e4b17d1cf `XRPFees`: Fee setting and handling improvements (#4247)
+d8a84e953 `featureDisallowIncoming`: Opt-out of incoming Checks, PayChans, NFTokenOffers and Trustlines (#4336)
+0362e935a Reduce default reserves to 10/2 (#4329)
+04bd5878f Track total trustlines and avoid duplications
+bf7509422 Introduce CheckCashMakesTrustLine amendment:
+7d867b806 Add gRPC support (#3127):
+a3a9dc26b Introduce support for deletable accounts:
+79a0cb096 Payment paths with a zero output step are dry (RIPD-1749):
+2432f1390 Reserve correct vector size for fee calculations:
+e7a69cce6 Account for minimum reserve in potential spend:
+6572fc8e9 Implement MultiSignReserve amendment [RIPD-1647]:
+7bc163ee4 Add delivered_amount to tx result for CheckCash (RIPD-1623)
+2d5ddbf1b Checks (RIPD-1487):
+259394029 Support for lsfDepositAuth (RIPD-1487):
+369909df8 Use payment flow code for offer crossing (RIPD-1094):
+d69b16895 Conditional Suspended Payments (RIPD-1140):
+
+-- pickaxe history: shared settlement/reserve symbols --
+3547a9335 fix: Add assorted MPT/DEX fixes (#7040)
+9cb049276 feat: Propagate underlying MPT flags to vault shares (#7077)
+fcbc2f0a6 feat: Propagate underlying MPT flags to vault shares (#7077)
+570845892 (origin/copilot/add-ctid-to-ledger-response) Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+79a3ab4c2 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+26e310e49 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback (#6646)
+dd99ecc65 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback (#6646)
+d3e22a125 Add testAutoCreateReserve() unit-test to verify MPT/IOU consistent in not checking the reserves when creating MPToken or Trustline on partial offer crossing.
+2570c7df0 Sponsored Fees and Reserves for Attackathon (#6842)
+24241a6f9 fix: MPT/DEX assorted fixes (#6840)
+0a896b795 Fix double adjustOwnerCount() in AMMWithdraw.
+1a0323429 Merge develop: integrate MPT support for checkAcceptAsset with DisallowIncomingTrustline fix
+46e88dc73 refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+18d5e3e22 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback (#6646)
+c00ed673a refactor: Rename non-functional uses of `ripple(d)` to `xrpl(d)` (#6676)
+bd9166888 Merge branch 'develop' into dangell7/batch-v1
+11bab0661 fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+7d524a03b fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback (#6646)
+e9287812e move Journal to constructor
+819d3fcdf Merge branch 'develop' into mvadari/rearch/account
+89a6bb495 Merge branch 'develop' into copilot/add-ctid-to-ledger-response
+a911c1059 Merge branch 'develop' to resolve conflicts and update branch
+ad68f11dd fix: clang
+8158d28f3 fix: Clamp VaultClawback to assetsAvailable for zero-amount clawback
+0eb77f904 fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+14749fdfb fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+bee1056fa fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+8f182e825 refactor: Modularise ledger (#6536)
+43caa7d47 fix remaining build issues
+0c77be93d initial implementation of token holders
+e89e83c80 initial implementation of token holders
+ea1146d41 fix remaining build issues
+57e4cbbcd refactor: Add simple clang-tidy readability checks (#6556)
+5d0bf7851 Clang-format to 100 line length
+8b5ff313b Update formatting
+6266899ac Update formatting
+7eee8ca80 Update formatting
+2c1fad102 chore: Apply clang-format width 100 (#6387)
+79be4717f adds vault donation feature
+0976b2b68 refactor: Modularize app/tx (#6228)
+36240116a refactor: Decouple app/tx from `Application` and `Config` (#6227)
+4a06a0d58 uncommented tests
+4eec8bce0 More tests
+281dbd287 Add unit tests
+93e98ac71 Allow Lending transactions in Batch
+5f638f555 chore: Set ColumnLimit to 120 in clang-format (#6288)
+8bbab6b8c adds refactored vault invariant tests
+3cf6a21a2 [wip] refactored new tests
+1bb39b9b4 [wip] added test for edge case balance
+ed4e9de73 (origin/a1q123456/modularise-transactors) Move app/tx to libxrpl
+29d530804 (origin/a1q123456/modularise-jtx) Move app/tx to libxrpl
+418ce6830 VaultClawback: Burn shares of an empty vault (#6120)
+14467fba5 VaultClawback: Burn shares of an empty vault (#6120)
+4c8d9b576 (origin/vlntb/RIPD-4257-fix-tecFROZEN) Freeze specific for LP and SAV
+6da92d892 (origin/dangell/smart-contracts) feature
+5eec3305c Update rippled to xrpl
+1eb0fdac6 refactor: Rename `ripple` namespace to `xrpl` (#5982)
+fe75c5d44 Wasm SmartEscrow
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+b772f6281 Revert "Implement Lending Protocol (unsupported) (#5270)"
+6c67f1f52 Implement Lending Protocol (unsupported) (#5270)
+b195011ef fix: Apply object reserve for Vault pseudo-account (#5954)
+71bb08cd7 Review feedback from @Tapanito, @gregtatcam, and @shawnxie999
+dba187f8c fix build issues
+dd5464d92 From discussion with @gregtatcam: Revert "Payment"
+23e5f43f9 (origin/gregtatcam/lending-protocol/refactor-payment) Refactor Payment transactor.
+362ecbd1c fix: Apply object reserve for Vault pseudo-account (#5954)
+673fb06c7 refactor: Retire fixTrustLinesToSelf amendment (#5989)
+fe4269cf8 Avoid negative payments: limit origination fee to the loan principal
+f60e29862 Extend LoanBroaker and Loan unit-tests. (#5863)
+1efc532b2 Implement Vito's new loan payment part rounding algorithm, and more
+d353f4a2e Remove conditional LoanDraw code
+b4a45f1f0 fixed positive balance trustline not incrementing owners count in some cases
+e919a25ec Merge develop into ripple/confidential-transfer (#5835)
+dc8b37a52 refactor: Modularise ledger (#5493)
+dc8a689a2 (origin/dangell7/subscriptions) feature-subscriptions
+adb260fe1 Review feedback from @dangell7 and @gregtatcam
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+8ac514363 get new fees and reserves working (#5714)
+b5a63b39d refactor: Decouple ledger from xrpld/app (#5492)
+c46d89419 Implement LoanBrokerCoverClawback and many test cases
+6b4236343 Get CoverWithdraw IOU payments working
+b34f59eaf Start implementing LoanBrokerCoverWithdraw.Destination field
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+527e0c916 Lending protocol implementation (XLS-0066)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+848311563 Lending protocol implementation (XLS-0066)
+2db279180 Add PermissionDelegation feature (#5354)
+cc8d36892 Implement LoanPay (untested)
+37f365a05 Start implementing LoanPay transaction
+ba63f8d99 Implement LoanDraw, and made good progress on related tests
+bcece6d68 Update to match latest spec: compute interest, LoanBroker reserves
+9a8660241 Implement LoanDelete, and fix a bunch of math errors in LoanManage
+5295f4799 Finish `LoanManage` functionality and tests, modulo LoanDraw/Pay
+ceeb11aee Ensure that an account is not deleted with a non-zero owner count
+89f0b3b9e [WIP] Continue implementing LoanSet Transactor
+5bed1d94e [WIP] Start implementing LoanSet transactor
+1bb1992cf Add LoanBrokerCoverWithdraw transaction
+ffbc068dc Add LoanBrokerCoverDeposit transaction
+853c42fb9 Initial implementation of LoanBrokerDelete
+24374c548 [WIP] Define remaining transactions, start implementing LoanBrokerSet
+afeb6287f Cleanup in MPTokenAuthorize
+6a25ac948 Decouple VaultDestroy from MPTokenIssuanceDestroy
+ad6e048ab Bring back addEmptyHolding and removeEmptyHolding to View
+93bd26547 Move addEmptyHolding to VaultCreate and removeEmptyHolding to VaultDelete
+1f005d237 Add WaiveTransferFee::Yes for consistency
+b6a95f997 PoC Smart Escrows (#5340)
+9a7def38b Do not apply IOU fees on VaultDeposit/VaultWithdraw
+ffc88d703 Add deep freeze feature (XLS-77d) (#5187)
+9069e430a Permissioned Domains (XLS-80d) (#5161)
+33e1c4259 Add deep freeze feature (XLS-77d) (#5187)
+c325b6c7f Fix Vault unit tests
+ccc088980 Permissioned Domains (XLS-80d) (#5161)
+ad581661e wip clawback
+6046fa239 progress
+1680477e3 progress
+ff8c6491d Start vault implementation
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+54a350be7 Add AMMClawback Transaction (XLS-0073d) (#5142)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+c19a88fee Address rare corruption of NFTokenPage linked list (#4945)
+a17ccca61 Invariant: prevent a deleted account from leaving (most) artifacts on the ledger. (#4663)
+e416ee72c Rearrange sources (#4997)
+50760c693 Format first-party source according to .clang-format
+81326a6d0 Remove old payment code
+0bbe6e226 Remove beast::Journal default constructor
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

@@ -1643,6 +1643,33 @@ layer remains security-critical, but this bounded pass did not produce a clean
 transaction-visible replay, signature/auth, sequence, serialization, or
 canonical-ordering witness.
 
+## Demoted: legacy IOU zero-cross settlement sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The candidate asked whether the current trustline reserve bug has another old
+IOU settlement sibling: a route that moves a trustline from non-positive to
+positive balance without the matching receiver reserve flag or `OwnerCount`
+transition. The sweep covered the shared `rippleCredit`, `accountSend`,
+`trustCreate`, `trustDelete`, `adjustOwnerCount`, `lsfLowReserve`, and
+`lsfHighReserve` call sites across `Payment`, path steps, `Offer`, `CheckCash`,
+`SetTrust`, `TrustAndBalance`, and `PaymentSandbox`.
+
+The focused source/history sweep and upstream settlement suites were
+packet-bound:
+
+```text
+legacy_iou_zero_cross_static_sweep_20260528.log sha256 e7a48bf5faf8a95ee052abe2c9d99b814488e33a97a48e6ced2d6a87a9f7c155
+legacy_iou_zero_cross_history_sweep_20260528.log sha256 92d7e9c4fc52b68808d525be312a53285495800ad9f28a5d183470d2188a5b66
+legacy_iou_zero_cross_source_kill_20260528.log sha256 b1148f687e36bc488913c25eac67b57197641ce75d98fab2a296c65add0f31c5
+102.9s, 14 suites, 545 cases, 74558 tests total, 0 failures
+```
+
+Interpretation: this pass reinforced the already-promoted
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` root and its packet-bound markers, but
+did not isolate a separate Moby Dick P0 outside that root.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
