@@ -18,8 +18,8 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T05:10:34Z
-amendment_checked_utc: 2026-05-28T05:10:31Z
+runtime_checked_utc: 2026-05-28T05:32:50Z
+amendment_checked_utc: 2026-05-28T05:32:52Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
 ```
 
@@ -144,10 +144,26 @@ ripple.app.PayChan had 0 failures.
 22.0s, 2 suites, 64 cases, 11535 tests total, 0 failures
 ```
 
+`OFFER-LEGACY-RESERVE-CROSSED-001` asked whether the old offer-reserve rule can
+leave an invalid remainder offer or owner/reserve drift when an under-reserved
+offer partially crosses. The scratch control at the same reserve boundary
+returned `tecINSUF_RESERVE_OFFER` when nothing crossed. The partial-cross path
+returned `tesSUCCESS`, moved the crossed 50 XRP/USD leg, placed no Alice
+remainder offer, removed the market offer, and left `OwnerCount=1`. That matches
+the explicit `CreateOffer::applyGuts` behavior: crossed value can stand, but an
+under-reserved remainder is not placed. Source-kill artifact
+`offer_partial_cross_underreserve_source_kill_20260528.log` has sha256
+`9cc82378a5e67ba5c59db7f4c34a1b4ab23df11b628b3ee3bae2e24b4b4b7db6`.
+
+```text
+ripple.tx.OpenP0Repro SCRATCH OfferCreate partial cross under reserve cancels remainder
+16.0s, 1 suite, 71 cases, 16828 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
-16.0s, 1 suite, 70 cases, 16752 tests total, 0 failures
+16.8s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
 ## Current sibling: NFToken settlement positive-balance reserve drift
@@ -625,11 +641,13 @@ this candidate in this slice.
 
 ## Offer And Payment Probes
 
-`OFFER-LEGACY-RESERVE-CROSSED-001` was reviewed and not promoted. The current
-`Offer_test::testPartialCross` table already covers reserve-boundary behavior
-with `tecINSUF_RESERVE_OFFER` and `tecUNFUNDED_OFFER` controls, and the live
-`OfferCreate` path still intentionally returns those boundary results rather
-than exposing a new ledger corruption or object-lifetime failure in this slice.
+`OFFER-LEGACY-RESERVE-CROSSED-001` was reviewed, scratch-tested, and not
+promoted. The current `Offer_test::testPartialCross` table already covers
+reserve-boundary behavior with `tecINSUF_RESERVE_OFFER` and `tecUNFUNDED_OFFER`
+controls. The added scratch probe confirmed the live `OfferCreate` path: an
+under-reserved no-cross offer rejects, while an under-reserved partial cross
+lets crossed value stand but places no remainder offer. No new ledger corruption
+or object-lifetime failure was shown.
 
 `PAYMENT-LEGACY-TEFEXCEPTION-PATH-001` was reviewed and not promoted. Current
 `Payment.cpp` contains explicit guards that route internal exceptions to

@@ -96,6 +96,41 @@ ripple.app.PayChan had 0 failures.
 22.0s, 2 suites, 64 cases, 11535 tests total, 0 failures
 ```
 
+## Current source kill: offer partial-cross under reserve
+
+Status: scratch-tested and not promoted.
+
+Hypothesis: old `OfferCreate` reserve handling might let an under-reserved
+account partially cross an offer and then leave a remainder offer, owner-count,
+or reserve state that should be impossible.
+
+Scratch behavior: the no-cross control at the same reserve boundary returned
+`tecINSUF_RESERVE_OFFER` and placed no offer. The partial-cross path returned
+`tesSUCCESS`, transferred the crossed 50 XRP/USD leg, placed no Alice remainder
+offer, removed the market offer, and left Alice's `OwnerCount=1`. This matches
+the explicit `CreateOffer::applyGuts` rule: crossed value can stand, but if the
+account lacked reserve before processing, the remainder is not placed.
+
+Source-kill artifact:
+
+```text
+runs/20260527-p0-hunt/offer_partial_cross_underreserve_source_kill_20260528.log
+sha256: 9cc82378a5e67ba5c59db7f4c34a1b4ab23df11b628b3ee3bae2e24b4b4b7db6
+```
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro SCRATCH OfferCreate partial cross under reserve cancels remainder
+16.0s, 1 suite, 71 cases, 16828 tests total, 0 failures
+```
+
+After the scratch-only case was removed, the upstream packet harness returned:
+
+```text
+16.8s, 1 suite, 70 cases, 16752 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags
