@@ -79,6 +79,8 @@ Completed and packet-bound work:
   source and suite sweep.
 - OFAC XRP address milestone refresh from official OFAC SLS data plus direct
   XRPL account-state and `account_tx` scans.
+- OFAC XRP deep-freeze, clawback, NFT settlement, and RPC metadata source-kill
+  sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -189,6 +191,23 @@ ofac_xrp_activity_scan_20260528.json sha256 bab6cb82c1943a4b82f546921b7a45a18e07
 official SDN XML sha256 802ca279d4ec173dfd86b8c4cbefc8067d5354cd58fb5fc1f0aab1cca2eda818
 account_tx at/after cutoff: 18 own-signed, 37 counterparty-signed, visible-address check pass
 ```
+
+The next OFAC continuation source-killed the concrete deep-freeze/metadata
+branch. It swept deep-freeze helpers, clawback, AMMClawback, NFT settlement,
+affected-node metadata, `account_lines`, `account_objects`, `account_offers`,
+and `account_tx` visibility. The focused upstream suite run passed:
+
+```text
+ofac_deepfreeze_metadata_static_sweep_20260528.log sha256 207a10a4ad33855b7c454704118b0683cd4629040d3a5bf9cf9c3d67a5997e1a
+ofac_deepfreeze_metadata_history_sweep_20260528.log sha256 60e835498efce6f699f832de54b99d0224dd9f05d393b405bbf340ba01fbe228
+ofac_deepfreeze_metadata_source_kill_20260528.log sha256 b16073985f4e020596e3539752bbdccbd07f94f6b849266b60e0926fccb96606
+34.1s, 9 suites, 185 cases, 23586 tests total, 0 failures
+```
+
+No OFAC-specific P0 was promoted. The branch remains compliance-relevant
+triage, but the packet still requires a concrete local repro with unauthorized
+state mutation, metadata hiding, deep-freeze bypass, or consensus-visible
+failure.
 
 It is a baseline IOU trustline and settlement accounting issue, not a new
 disabled feature surface. The current repro markers are:

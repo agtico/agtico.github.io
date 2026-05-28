@@ -79,6 +79,7 @@ Direct XRPL JSON-RPC against `s1.ripple.com` and `s2.ripple.com` showed:
 | OFAC-AMMCLAWBACK-NOFREEZE-001 | AMM clawback allowed when issuer lacks `asfAllowTrustLineClawback` or has `asfNoFreeze` | `AMMClawback::preclaim` | `AMMClawback` live | Source-killed | Demoted: current 3.1.3 code returns `tecNO_PERMISSION` when `lsfAllowTrustLineClawback` is absent or `lsfNoFreeze` is set. |
 | OFAC-METADATA-HIDING-001 | RPC metadata hides the sanctioned account behind owner directories, deleted nodes, destination tags, or signer lists | `account_info`, `account_objects`, `account_lines`, `account_channels`, `account_tx` RPC surfaces | Baseline live | Direct live RPC and activity scan checked | No promoted bug. Direct RPC exposed `AccountRoot`, `SignerList`, and `RippleState` objects for the sanctioned account; no offers/channels were present in the checked snapshot. `ofac_xrp_activity_scan_20260527.json` scanned `account_tx` at/after `2021-11-08T00:00:00Z` and every returned transaction visibly contained the address in tx or metadata. Continue only with a concrete transaction-metadata repro outside this observed account_tx set. |
 | OFAC-FEE-BURN-001 | Counterparties can pay and burn XRPL fees for transactions that reference or mutate objects involving the sanctioned address | `account_tx` observation; normal transaction fee burn | Baseline live | Direct activity scan checked | Demoted from P0: this is real but expected XRPL mechanics. The scan saw 37 counterparty-signed successful transactions at/after `2021-11-08T00:00:00Z` involving the address, with `5.086555` XRP in counterparty-paid successful fees burned. Fee payer was the counterparty, not the sanctioned account, and the address was visible in the returned tx/meta. |
+| OFAC-DEEPFREEZE-METADATA-SWEEP-001 | Deep-freeze, clawback, AMMClawback, NFT settlement, account_lines, account_objects, account_offers, or account_tx could hide or mutate sanctioned-address exposure in a live path | Focused sweep across `Freeze`, `Clawback`, `AMMClawback`, `NFTokenAcceptOffer`, `AccountLines`, `AccountObjects`, `AccountOffers`, `AccountTx`, metadata affected nodes, destination-tag checks, and deep-freeze helpers | Baseline, Freeze, Clawback, AMMClawback, NFT, and RPC surfaces live | Source/history review plus upstream suites | Demoted/source-killed as a separate OFAC finding: static log `ofac_deepfreeze_metadata_static_sweep_20260528.log`, sha256 `207a10a4ad33855b7c454704118b0683cd4629040d3a5bf9cf9c3d67a5997e1a`; history log `ofac_deepfreeze_metadata_history_sweep_20260528.log`, sha256 `60e835498efce6f699f832de54b99d0224dd9f05d393b405bbf340ba01fbe228`; suite log `ofac_deepfreeze_metadata_source_kill_20260528.log`, sha256 `b16073985f4e020596e3539752bbdccbd07f94f6b849266b60e0926fccb96606`. `Freeze,Clawback,AMMClawback,NFTokenAuth,AccountLines,AccountObjects,AccountTx,AccountOffers` passed with 9 suites, 185 cases, and 23,586 tests. No deep-freeze bypass, metadata-hiding witness, unauthorized clawback/AMMClawback mutation, NFT settlement bypass, or RPC visibility failure was isolated. |
 
 ## Result
 
@@ -101,7 +102,9 @@ not be treated as equivalent to a full inbound block. A P0 promotion would need
 a stronger claim, such as deep-freeze bypass, metadata hiding, or unauthorized
 state mutation on a live-enabled path.
 
-Next OFAC-specific work should focus only on concrete metadata or deep-freeze
-path repros. Compliance-tooling observations are not enough for
-`live-unfixed-p0` without unauthorized state mutation, consensus-visible
-failure, or a clean policy-bypass repro on a live-enabled path.
+The concrete metadata/deep-freeze branch has now been source-killed for this
+slice. Further OFAC-specific work should start only from a new transaction hash,
+specific metadata inconsistency, or local repro hypothesis. Compliance-tooling
+observations are not enough for `live-unfixed-p0` without unauthorized state
+mutation, consensus-visible failure, or a clean policy-bypass repro on a
+live-enabled path.

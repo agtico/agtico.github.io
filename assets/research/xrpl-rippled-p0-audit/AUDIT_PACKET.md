@@ -47,6 +47,7 @@ Included findings must satisfy both conditions:
 | `runs/20260527-ofac-xrp/ofac_xrp_sdn_snapshot_20260528.json` | Official OFAC SLS SDN advanced snapshot extraction for XRP addresses; it refreshes the OFAC discovery milestone and is not a packet finding. |
 | `runs/20260527-ofac-xrp/ofac_xrp_live_account_state_20260528.json` | Direct XRPL account-state receipt for the current OFAC XRP address set; it is triage evidence, not a promoted finding. |
 | `runs/20260527-ofac-xrp/ofac_xrp_activity_scan_20260528.json` | Direct XRPL `account_tx` activity scan for the OFAC XRP address after the 2021-11-08 cutoff; it is triage evidence, not a promoted finding. |
+| `runs/20260527-ofac-xrp/ofac_deepfreeze_metadata_source_kill_20260528.log` | Focused OFAC deep-freeze/metadata suite log; it source-kills that OFAC-specific branch and is not a packet finding. |
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch` | Focused `2.5.0` old-tag test patch for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log` | `2.5.0` old-tag `SetTrust` proof log showing the reserve/owner-count drift probe passed. |

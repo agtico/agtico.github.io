@@ -1,0 +1,1983 @@
+src/xrpld/app/misc/NetworkOPs.cpp:41:#include <xrpld/app/misc/detail/AccountTxPaging.h>
+src/xrpld/app/misc/NetworkOPs.cpp:3823:                    std::optional<RelationalDatabase::AccountTxMarker> marker)
+src/xrpld/app/misc/NetworkOPs.cpp:3825:                    RelationalDatabase::AccountTxs,
+src/xrpld/app/misc/NetworkOPs.cpp:3826:                    std::optional<RelationalDatabase::AccountTxMarker>>> {
+src/xrpld/app/misc/NetworkOPs.cpp:3832:                        RelationalDatabase::AccountTxPageOptions options{
+src/xrpld/app/misc/NetworkOPs.cpp:3834:                        return db->newestAccountTxPage(options);
+src/xrpld/app/misc/NetworkOPs.cpp:3897:                std::optional<RelationalDatabase::AccountTxMarker> marker{};
+src/xrpld/app/misc/FeeEscalation.md:151:transactions using the `sfPreviousTxnID` or `sfAccountTxnID` fields.
+src/xrpld/app/misc/FeeEscalation.md:153:development will make the queue aware of `sfAccountTxnID` mechanisms.
+src/xrpld/app/misc/TxQ.h:347:    getAccountTxs(AccountID const& account) const;
+src/xrpld/app/misc/detail/AccountTxPaging.h:33:    RelationalDatabase::AccountTxs& to,
+src/xrpld/app/misc/detail/TxQ.cpp:394:    // AccountTxnID is not supported by the transaction
+src/xrpld/app/misc/detail/TxQ.cpp:398:        tx.isFieldPresent(sfAccountTxnID) || (flags & tapFAIL_HARD))
+src/xrpld/app/misc/detail/TxQ.cpp:1827:TxQ::getAccountTxs(AccountID const& account) const
+src/test/app/Batch_test.cpp:2494:            batch::inner(fset(bob, asfAllowTrustLineClawback), ledSeq),
+src/test/app/Batch_test.cpp:2966:            env(fset(alice, asfRequireDest));
+src/test/app/Batch_test.cpp:2982:                // tecDST_TAG_NEEDED - alice has enabled asfRequireDest
+src/test/app/Batch_test.cpp:4347:            env(fset(bob, asfRequireDest));
+src/test/jtx/permissioned_domains.h:48:// Get PermissionedDomain objects from account_objects rpc call
+src/xrpld/app/misc/detail/AccountTxPaging.cpp:23:#include <xrpld/app/misc/detail/AccountTxPaging.h>
+src/xrpld/app/misc/detail/AccountTxPaging.cpp:31:    RelationalDatabase::AccountTxs& to,
+src/test/jtx/TestHelpers.h:346:getAccountLines(Env& env, AccountID const& acctId);
+src/test/jtx/TestHelpers.h:349:getAccountLines(Env& env, Account const& acct)
+src/test/jtx/TestHelpers.h:351:    return getAccountLines(env, acct.id());
+src/test/jtx/TestHelpers.h:356:getAccountLines(Env& env, AccountID const& acctId, IOU... ious)
+src/test/jtx/TestHelpers.h:358:    auto const jrr = getAccountLines(env, acctId);
+src/test/jtx/TestHelpers.h:770:coverClawback(AccountID const& account, std::uint32_t flags = 0);
+src/test/jtx/impl/account_txn_id.cpp:20:#include <test/jtx/account_txn_id.h>
+src/test/jtx/impl/account_txn_id.cpp:27:account_txn_id::operator()(Env&, JTx& jt) const
+src/test/jtx/impl/account_txn_id.cpp:30:        jt["AccountTxnID"] = strHex(hash_);
+src/test/app/XChain_test.cpp:3507:                .tx(fset("scBob", asfRequireDest))  // set dest tag
+src/test/app/XChain_test.cpp:3569:                    .tx(fset("scBob", 0, asfRequireDest))  // clear dest tag
+src/test/jtx/impl/tag.cpp:29:    jt.jv["DestinationTag"] = value_;
+src/test/jtx/impl/trust.cpp:77:    jv[jss::TransactionType] = jss::Clawback;
+src/test/jtx/AMM.h:454:ammClawback(
+src/test/app/Discrepancy_test.cpp:111:        BEAST_EXPECT(meta[sfAffectedNodes.fieldName].size() == 9);
+src/test/app/Discrepancy_test.cpp:112:        for (auto const& an : meta[sfAffectedNodes.fieldName])
+src/test/app/Discrepancy_test.cpp:115:            if (an.isMember(sfCreatedNode.fieldName))
+src/test/app/Discrepancy_test.cpp:116:                node = an[sfCreatedNode.fieldName];
+src/test/app/Discrepancy_test.cpp:117:            else if (an.isMember(sfModifiedNode.fieldName))
+src/test/app/Discrepancy_test.cpp:118:                node = an[sfModifiedNode.fieldName];
+src/test/app/Discrepancy_test.cpp:119:            else if (an.isMember(sfDeletedNode.fieldName))
+src/test/app/Discrepancy_test.cpp:120:                node = an[sfDeletedNode.fieldName];
+src/test/jtx/impl/permissioned_domains.cpp:64:// Get PermissionedDomain objects by type from account_objects rpc call
+src/test/jtx/impl/permissioned_domains.cpp:74:    auto const& resp = env.rpc("json", "account_objects", to_string(params));
+src/test/jtx/impl/permissioned_domains.cpp:76:    objects = resp[jss::result][jss::account_objects];
+src/test/jtx/impl/permissioned_domains.cpp:160:    a = metaJson["AffectedNodes"];
+src/test/jtx/impl/permissioned_domains.cpp:164:        if (!node.isMember("CreatedNode") ||
+src/test/jtx/impl/permissioned_domains.cpp:165:            node["CreatedNode"]["LedgerEntryType"] != "PermissionedDomain")
+src/test/jtx/impl/permissioned_domains.cpp:170:            ret.parseHex(node["CreatedNode"]["LedgerIndex"].asString());
+src/test/jtx/Env_test.cpp:255:        env.require(nflags("alice", asfRequireDest));
+src/test/jtx/Env_test.cpp:256:        env(fset("alice", asfRequireDest),
+src/test/jtx/Env_test.cpp:257:            require(flags("alice", asfRequireDest)));
+src/test/jtx/Env_test.cpp:258:        env(fclear("alice", asfRequireDest),
+src/test/jtx/Env_test.cpp:259:            require(nflags("alice", asfRequireDest)));
+src/xrpld/app/rdb/RelationalDatabase.h:59:    struct AccountTxMarker
+src/xrpld/app/rdb/RelationalDatabase.h:65:    struct AccountTxOptions
+src/xrpld/app/rdb/RelationalDatabase.h:75:    struct AccountTxPageOptions
+src/xrpld/app/rdb/RelationalDatabase.h:80:        std::optional<AccountTxMarker> marker;
+src/xrpld/app/rdb/RelationalDatabase.h:85:    using AccountTx =
+src/xrpld/app/rdb/RelationalDatabase.h:87:    using AccountTxs = std::vector<AccountTx>;
+src/xrpld/app/rdb/RelationalDatabase.h:97:    struct AccountTxArgs
+src/xrpld/app/rdb/RelationalDatabase.h:104:        std::optional<AccountTxMarker> marker;
+src/xrpld/app/rdb/RelationalDatabase.h:107:    struct AccountTxResult
+src/xrpld/app/rdb/RelationalDatabase.h:109:        std::variant<AccountTxs, MetaTxsList> transactions;
+src/xrpld/app/rdb/RelationalDatabase.h:112:        std::optional<AccountTxMarker> marker;
+src/test/app/OpenP0Repro_test.cpp:202:        // Regular freeze ONLY (no tfSetDeepFreeze) — compliance case the code misses
+src/test/app/OpenP0Repro_test.cpp:219:        env(trust(issuer, asset(1'000), dest, tfSetDeepFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:420:    testF33_controlDeepFreezeBlocks()
+src/test/app/OpenP0Repro_test.cpp:455:        env(trust(issuer, asset(1'000), dest, tfSetFreeze | tfSetDeepFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:823:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/OpenP0Repro_test.cpp:960:    testVaultClawbackZeroAmountUnclampedPreFix()
+src/test/app/OpenP0Repro_test.cpp:963:            "VaultClawback pre-fix zero-amount asset clawback is not "
+src/test/app/OpenP0Repro_test.cpp:977:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/OpenP0Repro_test.cpp:1318:            clawEnv(fset(clawIssuer, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1332:            clawEnv(coverClawback(clawIssuer),
+src/test/app/OpenP0Repro_test.cpp:1367:            env(fset(issuer, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1441:            env(loanBroker::coverClawback(issuer),
+src/test/app/OpenP0Repro_test.cpp:1495:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/OpenP0Repro_test.cpp:2346:             .flags = tfMPTCanTransfer | tfMPTCanTrade | tfMPTCanEscrow | tfMPTCanClawback}};
+src/test/app/OpenP0Repro_test.cpp:3122:    testTrustlinePositiveBalanceAMMClawbackCurrent()
+src/test/app/OpenP0Repro_test.cpp:3124:        testcase("TrustLine current — AMMClawback creates positive balance without reserve");
+src/test/app/OpenP0Repro_test.cpp:3135:            testable_amendments() | featureAMM | featureAMMClawback;
+src/test/app/OpenP0Repro_test.cpp:3140:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3165:        env(amm::ammClawback(gw, alice, USD, EUR, USD(1'000)),
+src/test/app/OpenP0Repro_test.cpp:3261:        // Current 3.1.3 NFTokenAcceptOffer checks RequireAuth and deep-freeze,
+src/test/app/OpenP0Repro_test.cpp:3579:    testDisallowIncomingTrustlineAMMClawbackPairedAssetCurrent()
+src/test/app/OpenP0Repro_test.cpp:3582:            "AMM current — Clawback returns paired asset through DisallowIncomingTrustline");
+src/test/app/OpenP0Repro_test.cpp:3592:            featureAMMClawback | featureDisallowIncoming;
+src/test/app/OpenP0Repro_test.cpp:3597:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3622:        env(amm::ammClawback(gw, alice, USD, EUR, USD(1'000)),
+src/test/app/OpenP0Repro_test.cpp:3632:    testAMMClawbackDepositAuthPairedAssetCandidate()
+src/test/app/OpenP0Repro_test.cpp:3634:        testcase("AMM current — Clawback bypasses DepositAuth paired asset");
+src/test/app/OpenP0Repro_test.cpp:3644:            featureAMMClawback | featureDepositAuth;
+src/test/app/OpenP0Repro_test.cpp:3649:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3673:        env(amm::ammClawback(gw, alice, USD, EUR, USD(1'000)),
+src/test/app/OpenP0Repro_test.cpp:3904:        auto const runDeepFreeze = [&](FeatureBitset features) {
+src/test/app/OpenP0Repro_test.cpp:3922:            bad->setFieldU32(sfFlags, lsfLowDeepFreeze);
+src/test/app/OpenP0Repro_test.cpp:3931:            NoDeepFreezeTrustLinesWithoutFreeze invariant;
+src/test/app/OpenP0Repro_test.cpp:3957:        BEAST_EXPECT(runDeepFreeze(preFix));
+src/test/app/OpenP0Repro_test.cpp:3958:        BEAST_EXPECT(!runDeepFreeze(withFix));
+src/test/app/OpenP0Repro_test.cpp:3968:        testF33_controlDeepFreezeBlocks();
+src/test/app/OpenP0Repro_test.cpp:3984:        testVaultClawbackZeroAmountUnclampedPreFix();
+src/test/app/OpenP0Repro_test.cpp:4021:        testTrustlinePositiveBalanceAMMClawbackCurrent();
+src/test/app/OpenP0Repro_test.cpp:4030:        testDisallowIncomingTrustlineAMMClawbackPairedAssetCurrent();
+src/test/app/OpenP0Repro_test.cpp:4031:        testAMMClawbackDepositAuthPairedAssetCandidate();
+src/test/jtx/flags.h:43:            case asfRequireDest:
+src/test/jtx/flags.h:44:                mask_ |= lsfRequireDestTag;
+src/test/jtx/flags.h:55:            // case asfAccountTxnID: // ???
+src/test/jtx/flags.h:68:            case asfAllowTrustLineClawback:
+src/test/jtx/flags.h:69:                mask_ |= lsfAllowTrustLineClawback;
+src/test/jtx/impl/AMM.cpp:833:ammClawback(
+src/test/jtx/impl/AMM.cpp:841:    jv[jss::TransactionType] = jss::AMMClawback;
+src/test/app/AccountTxPaging_test.cpp:30:class AccountTxPaging_test : public beast::unit_test::suite
+src/test/app/AccountTxPaging_test.cpp:59:        return env.rpc("json", "account_tx", to_string(jvc))[jss::result];
+src/test/app/AccountTxPaging_test.cpp:63:    testAccountTxPaging()
+src/test/app/AccountTxPaging_test.cpp:269:        testAccountTxPaging();
+src/test/app/AccountTxPaging_test.cpp:273:BEAST_DEFINE_TESTSUITE(AccountTxPaging, app, ripple);
+src/test/jtx/impl/TestHelpers.cpp:40:getAccountLines(Env& env, AccountID const& acctId)
+src/test/jtx/impl/TestHelpers.cpp:44:    return env.rpc("json", "account_lines", to_string(jv))[jss::result];
+src/test/jtx/impl/TestHelpers.cpp:262:        jv[sfDestinationTag.fieldName] = *dstTag;
+src/test/jtx/impl/TestHelpers.cpp:438:coverClawback(AccountID const& account, std::uint32_t flags)
+src/test/jtx/impl/TestHelpers.cpp:441:    jv[sfTransactionType] = jss::LoanBrokerCoverClawback;
+src/test/app/AMMExtended_test.cpp:3249:            auto lines = getAccountLines(env, bob);
+src/test/app/AMMExtended_test.cpp:3258:            auto lines = getAccountLines(env, alice, G1["USD"]);
+src/test/app/AMMExtended_test.cpp:3303:            auto lines = getAccountLines(env, G1);
+src/test/app/AMMExtended_test.cpp:3321:            auto lines = getAccountLines(env, bob);
+src/test/app/AMMExtended_test.cpp:3333:            BEAST_EXPECT(g1Line[jss::freeze_peer] == true);
+src/test/app/AMMExtended_test.cpp:3342:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/AMMExtended_test.cpp:3346:                affected[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/PermissionedDomains_test.cpp:79:        // Test that account_objects is correct without passing it the type
+src/test/jtx/impl/mpt.cpp:425:                    if (*arg.mutableFlags & tmfMPTSetCanClawback)
+src/test/jtx/impl/mpt.cpp:426:                        flags |= lsfMPTCanClawback;
+src/test/jtx/impl/mpt.cpp:427:                    else if (*arg.mutableFlags & tmfMPTClearCanClawback)
+src/test/jtx/impl/mpt.cpp:428:                        flags &= ~lsfMPTCanClawback;
+src/test/app/FixNFTokenPageLinks_test.cpp:107:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/app/FixNFTokenPageLinks_test.cpp:110:                resp[jss::result][jss::account_objects];
+src/test/app/FixNFTokenPageLinks_test.cpp:161:            tx[sfAccountTxnID.jsonName] =
+src/test/jtx/impl/vault.cpp:89:Vault::clawback(ClawbackArgs const& args)
+src/test/jtx/impl/vault.cpp:92:    jv[jss::TransactionType] = jss::VaultClawback;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:136:     * @brief getOldestAccountTxs Returns the oldest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:139:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:146:    virtual AccountTxs
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:147:    getOldestAccountTxs(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:150:     * @brief getNewestAccountTxs Returns the newest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:153:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:160:    virtual AccountTxs
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:161:    getNewestAccountTxs(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:164:     * @brief getOldestAccountTxsB Returns the oldest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:167:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:175:    getOldestAccountTxsB(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:178:     * @brief getNewestAccountTxsB Returns the newest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:181:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:190:    getNewestAccountTxsB(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:193:     * @brief oldestAccountTxPage Returns the oldest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:196:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:204:    virtual std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:205:    oldestAccountTxPage(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:208:     * @brief newestAccountTxPage Returns the newest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:211:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:219:    virtual std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:220:    newestAccountTxPage(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:223:     * @brief oldestAccountTxPageB Returns the oldest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:226:     * @param options Struct AccountTxPageOptions which contains criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:235:    virtual std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:236:    oldestAccountTxPageB(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:239:     * @brief newestAccountTxPageB Returns the newest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:242:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:251:    virtual std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:252:    newestAccountTxPageB(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:269:    virtual std::variant<AccountTx, TxSearched>
+src/test/jtx/account_txn_id.h:29:struct account_txn_id
+src/test/jtx/account_txn_id.h:35:    explicit account_txn_id(uint256 const& hash) : hash_(hash)
+src/test/jtx/impl/token.cpp:188:    jv[jss::TransactionType] = jss::NFTokenAcceptOffer;
+src/test/jtx/impl/token.cpp:198:    jv[jss::TransactionType] = jss::NFTokenAcceptOffer;
+src/test/jtx/impl/token.cpp:212:    jv[jss::TransactionType] = jss::NFTokenAcceptOffer;
+src/test/app/Clawback_test.cpp:27:class Clawback_test : public beast::unit_test::suite
+src/test/app/Clawback_test.cpp:64:    testAllowTrustLineClawbackFlag(FeatureBitset features)
+src/test/app/Clawback_test.cpp:66:        testcase("Enable AllowTrustLineClawback flag");
+src/test/app/Clawback_test.cpp:69:        // Test that one can successfully set asfAllowTrustLineClawback flag.
+src/test/app/Clawback_test.cpp:71:        // Also, asfAllowTrustLineClawback cannot be cleared.
+src/test/app/Clawback_test.cpp:79:            // set asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:80:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:82:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:84:            // clear asfAllowTrustLineClawback does nothing
+src/test/app/Clawback_test.cpp:85:            env(fclear(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:87:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:89:            // asfNoFreeze cannot be set when asfAllowTrustLineClawback is set
+src/test/app/Clawback_test.cpp:95:        // Test that asfAllowTrustLineClawback cannot be set when
+src/test/app/Clawback_test.cpp:113:            // asfAllowTrustLineClawback cannot be set if asfNoFreeze is set
+src/test/app/Clawback_test.cpp:114:            env(fset(alice, asfAllowTrustLineClawback), ter(tecNO_PERMISSION));
+src/test/app/Clawback_test.cpp:117:            env.require(nflags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:120:        // Test that asfAllowTrustLineClawback is not allowed when owner dir is
+src/test/app/Clawback_test.cpp:132:            env.require(nflags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:143:            env(fset(alice, asfAllowTrustLineClawback), ter(tecOWNERS));
+src/test/app/Clawback_test.cpp:154:            // alice now is able to set asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:155:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:157:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:163:        // Test that one cannot enable asfAllowTrustLineClawback when
+src/test/app/Clawback_test.cpp:164:        // featureClawback amendment is disabled
+src/test/app/Clawback_test.cpp:166:            Env env(*this, features - featureClawback);
+src/test/app/Clawback_test.cpp:173:            env.require(nflags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:175:            // alice attempts to set asfAllowTrustLineClawback flag while
+src/test/app/Clawback_test.cpp:178:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:180:            env.require(nflags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:183:            env.enableFeature(featureClawback);
+src/test/app/Clawback_test.cpp:186:            // asfAllowTrustLineClawback can be set
+src/test/app/Clawback_test.cpp:187:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:189:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:199:        // Test that Clawback tx fails for the following:
+src/test/app/Clawback_test.cpp:201:        // 2. when asfAllowTrustLineClawback flag has not been set
+src/test/app/Clawback_test.cpp:203:            Env env(*this, features - featureClawback);
+src/test/app/Clawback_test.cpp:211:            env.require(nflags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:228:            env.enableFeature(featureClawback);
+src/test/app/Clawback_test.cpp:231:            // clawback fails because asfAllowTrustLineClawback has not been set
+src/test/app/Clawback_test.cpp:239:        // Test that Clawback tx fails for the following:
+src/test/app/Clawback_test.cpp:256:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:257:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:259:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:341:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:342:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:344:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:365:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:366:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:368:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:370:            // cindy sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:371:            env(fset(cindy, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:373:            env.require(flags(cindy, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:408:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:409:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:411:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:413:            // bob sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:414:            env(fset(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:416:            env.require(flags(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:477:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:478:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:480:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:527:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:528:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:530:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:532:            // bob sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:533:            env(fset(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:535:            env.require(flags(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:587:            // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:588:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:590:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:654:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:655:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:657:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:659:        // bob sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:660:        env(fset(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:662:        env.require(flags(bob, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:743:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:744:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:746:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:793:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:794:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:796:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:839:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:840:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:842:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:891:        // alice sets asfAllowTrustLineClawback
+src/test/app/Clawback_test.cpp:892:        env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:894:        env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/Clawback_test.cpp:935:        testAllowTrustLineClawbackFlag(features);
+src/test/app/Clawback_test.cpp:959:BEAST_DEFINE_TESTSUITE(Clawback, app, ripple);
+src/xrpld/rpc/handlers/AccountTx.cpp:43:using TxnsData = RelationalDatabase::AccountTxs;
+src/xrpld/rpc/handlers/AccountTx.cpp:46:using AccountTxArgs = RelationalDatabase::AccountTxArgs;
+src/xrpld/rpc/handlers/AccountTx.cpp:47:using AccountTxResult = RelationalDatabase::AccountTxResult;
+src/xrpld/rpc/handlers/AccountTx.cpp:215:std::pair<AccountTxResult, RPC::Status>
+src/xrpld/rpc/handlers/AccountTx.cpp:216:doAccountTxHelp(RPC::Context& context, AccountTxArgs const& args)
+src/xrpld/rpc/handlers/AccountTx.cpp:220:    AccountTxResult result;
+src/xrpld/rpc/handlers/AccountTx.cpp:233:    RelationalDatabase::AccountTxPageOptions options = {
+src/xrpld/rpc/handlers/AccountTx.cpp:251:            auto [tx, marker] = db->oldestAccountTxPageB(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:257:            auto [tx, marker] = db->newestAccountTxPageB(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:266:            auto [tx, marker] = db->oldestAccountTxPage(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:272:            auto [tx, marker] = db->newestAccountTxPage(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:286:    std::pair<AccountTxResult, RPC::Status> const& res,
+src/xrpld/rpc/handlers/AccountTx.cpp:287:    AccountTxArgs const& args,
+src/xrpld/rpc/handlers/AccountTx.cpp:298:        AccountTxResult const& result = res.first;
+src/xrpld/rpc/handlers/AccountTx.cpp:410:doAccountTxJson(RPC::JsonContext& context)
+src/xrpld/rpc/handlers/AccountTx.cpp:416:    AccountTxArgs args;
+src/xrpld/rpc/handlers/AccountTx.cpp:419:    // The document[https://xrpl.org/account_tx.html#account_tx] states that
+src/xrpld/rpc/handlers/AccountTx.cpp:482:    auto res = doAccountTxHelp(context, args);
+src/xrpld/rpc/handlers/Handlers.h:32:doAccountLines(RPC::JsonContext&);
+src/xrpld/rpc/handlers/Handlers.h:38:doAccountObjects(RPC::JsonContext&);
+src/xrpld/rpc/handlers/Handlers.h:42:doAccountTxJson(RPC::JsonContext&);
+src/test/app/Delegate_test.cpp:899:            env(trust(gw, gw["USD"](0), alice, tfSetDeepFreeze),
+src/test/app/Delegate_test.cpp:902:            env(trust(gw, gw["USD"](0), alice, tfClearDeepFreeze),
+src/test/app/Delegate_test.cpp:1036:            env(trust(gw, gw["USD"](0), alice, tfSetDeepFreeze),
+src/test/app/Delegate_test.cpp:1038:            env(trust(gw, gw["USD"](0), alice, tfClearDeepFreeze),
+src/test/app/Delegate_test.cpp:1262:            testSetClearFlag(asfAllowTrustLineClawback);
+src/test/app/Delegate_test.cpp:1280:            testSetClearFlag(asfRequireDest);
+src/test/app/Delegate_test.cpp:1283:            // bob can not set asfAccountTxnID on behalf of alice
+src/test/app/Delegate_test.cpp:1284:            env(fset(alice, asfAccountTxnID),
+src/test/app/Delegate_test.cpp:1287:            env(fset(alice, asfAccountTxnID));
+src/test/app/Delegate_test.cpp:1289:            BEAST_EXPECT(env.le(alice)->isFieldPresent(sfAccountTxnID));
+src/test/app/Delegate_test.cpp:1290:            env(fclear(alice, asfAccountTxnID),
+src/test/app/Delegate_test.cpp:1309:            // since we can not set asfNoFreeze if asfAllowTrustLineClawback is
+src/test/app/Delegate_test.cpp:1678:        // NFTokenAcceptOffer are not included, they are tested separately.
+src/test/app/Delegate_test.cpp:1685:            {"Clawback", featureClawback},
+src/test/app/Delegate_test.cpp:1686:            {"AMMClawback", featureAMMClawback},
+src/test/app/Delegate_test.cpp:1721:            {"VaultClawback", featureSingleAssetVault}};
+src/test/app/Delegate_test.cpp:1766:        // NFTokenAcceptOffer are tested separately. Since
+src/test/app/Delegate_test.cpp:1787:                  "NFTokenAcceptOffer"})
+src/test/app/Delegate_test.cpp:1797:        // NFTokenAcceptOffer are allowed to be delegated if either
+src/test/app/Delegate_test.cpp:1815:                      "NFTokenAcceptOffer"})
+src/xrpld/app/rdb/backend/detail/Node.cpp:699: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:714:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:786: * @brief getAccountTxs Returns the oldest or newest transactions for the
+src/xrpld/app/rdb/backend/detail/Node.cpp:792: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:806:static std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:807:getAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:811:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:815:    RelationalDatabase::AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/Node.cpp:886:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:887:getOldestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:891:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:894:    return getAccountTxs(session, app, ledgerMaster, options, false, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:897:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:898:getNewestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:902:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:905:    return getAccountTxs(session, app, ledgerMaster, options, true, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:909: * @brief getAccountTxsB Returns the oldest or newest transactions in binary
+src/xrpld/app/rdb/backend/detail/Node.cpp:914: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:929:getAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:932:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:987:getOldestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:990:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:993:    return getAccountTxsB(session, app, options, false, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:997:getNewestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1000:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1003:    return getAccountTxsB(session, app, options, true, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:1014: * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/detail/Node.cpp:1025:static std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1032:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1062:    std::optional<RelationalDatabase::AccountTxMarker> newmarker;
+src/xrpld/app/rdb/backend/detail/Node.cpp:1200:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1201:oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1207:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1214:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1215:newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1221:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1228:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/test/app/Vault_test.cpp:401:                    " fail to withdraw to 3rd party lsfRequireDestTag");
+src/test/app/Vault_test.cpp:412:                testcase(prefix + " withdraw to 3rd party lsfRequireDestTag");
+src/test/app/Vault_test.cpp:418:                tx[sfDestinationTag] = "0";
+src/test/app/Vault_test.cpp:432:                testcase(prefix + " fail to withdraw lsfRequireDestTag");
+src/test/app/Vault_test.cpp:443:                tx[sfDestinationTag] = "0";
+src/test/app/Vault_test.cpp:611:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:613:            env(fset(dave, asfRequireDest));
+src/test/app/Vault_test.cpp:615:            env.require(flags(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:644:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Vault_test.cpp:681:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:786:            tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:791:                tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:800:                tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:809:                tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:819:                tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:825:                tx[sfFlags] = tfClearDeepFreeze;
+src/test/app/Vault_test.cpp:1744:            bool enableClawback = true;
+src/test/app/Vault_test.cpp:1771:                     (args.enableClawback ? tfMPTCanClawback : none) |
+src/test/app/Vault_test.cpp:1889:            // Clawback is still permitted, even with global lock
+src/test/app/Vault_test.cpp:1898:            // Clawback removed shares MPToken
+src/test/app/Vault_test.cpp:2341:            {.enableClawback = false});
+src/test/app/Vault_test.cpp:2403:            // Clawback works
+src/test/app/Vault_test.cpp:2467:            // Clawback works, even when locked
+src/test/app/Vault_test.cpp:2492:                {.flags = tfMPTCanTransfer | tfMPTCanLock | lsfMPTCanClawback |
+src/test/app/Vault_test.cpp:2592:                env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:2749:                // Clawback works, even when locked
+src/test/app/Vault_test.cpp:2902:                // Clawback still works
+src/test/app/Vault_test.cpp:3355:            // Clawback is permitted
+src/test/app/Vault_test.cpp:3395:        env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:3397:        env.require(flags(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:3824:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:4660:        // Clawback 80 IOU → clamped to 60, then share math uses truncation.
+src/test/app/Vault_test.cpp:4953:            testcase("RPC account_objects");
+src/test/app/Vault_test.cpp:4959:                "json", "account_objects", to_string(jvParams))[jss::result];
+src/test/app/Vault_test.cpp:4961:            BEAST_EXPECT(jv[jss::account_objects].size() == 1);
+src/test/app/Vault_test.cpp:4962:            check(jv[jss::account_objects][0u]);
+src/test/app/Vault_test.cpp:5243:                 "VaultClawback"}));
+src/test/app/Vault_test.cpp:5341:    testVaultClawbackBurnShares()
+src/test/app/Vault_test.cpp:5460:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5482:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5502:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5520:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5539:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5559:                    "VaultClawback (share) - " + prefix +
+src/test/app/Vault_test.cpp:5602:        env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:5616:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Vault_test.cpp:5628:    testVaultClawbackAssets()
+src/test/app/Vault_test.cpp:5670:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5697:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5716:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5731:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5756:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5771:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5792:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5809:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5826:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5842:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5906:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:5966:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:6001:                // Clawback 30 — well under available (60), no clamping needed
+src/test/app/Vault_test.cpp:6027:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:6055:                // Clawback exactly 60 — at the boundary, no clamping needed
+src/test/app/Vault_test.cpp:6081:                    "VaultClawback (asset) - " + prefix +
+src/test/app/Vault_test.cpp:6163:        env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:6175:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Vault_test.cpp:6187:                "VaultClawback (asset) - IOU pre-fixCleanup3_1_3"
+src/test/app/Vault_test.cpp:6335:                         tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Vault_test.cpp:6538:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock |
+src/test/app/Vault_test.cpp:6607:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock |
+src/test/app/Vault_test.cpp:6693:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock |
+src/test/app/Vault_test.cpp:6791:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Vault_test.cpp:6998:        testVaultClawbackBurnShares();
+src/test/app/Vault_test.cpp:6999:        testVaultClawbackAssets();
+src/test/jtx/vault.h:93:    struct ClawbackArgs
+src/test/jtx/vault.h:102:    clawback(ClawbackArgs const& args);
+src/xrpld/app/tx/detail/VaultClawback.h:27:class VaultClawback : public Transactor
+src/xrpld/app/tx/detail/VaultClawback.h:32:    explicit VaultClawback(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/VaultClawback.h:47:    assetsToClawback(
+src/test/app/Loan_test.cpp:655:                         tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Loan_test.cpp:1986:                            tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Loan_test.cpp:1992:                            tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Loan_test.cpp:3728:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Loan_test.cpp:3874:            auto const res = env.rpc("account_objects", lender.human());
+src/test/app/Loan_test.cpp:3875:            auto const objects = res[jss::result][jss::account_objects];
+src/test/app/Loan_test.cpp:3895:                env.rpc("json", "account_objects", to_string(params));
+src/test/app/Loan_test.cpp:3896:            auto const objects = res[jss::result][jss::account_objects];
+src/test/app/Loan_test.cpp:4006:                env.rpc("json", "account_objects", to_string(params));
+src/test/app/Loan_test.cpp:4007:            auto const objects = res[jss::result][jss::account_objects];
+src/test/app/Loan_test.cpp:4469:    testServiceFeeOnBrokerDeepFreeze()
+src/test/app/Loan_test.cpp:4479:        for (bool const deepFreeze : {true, false})
+src/test/app/Loan_test.cpp:4531:                if (deepFreeze)
+src/test/app/Loan_test.cpp:4536:                        tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Loan_test.cpp:4543:                if (deepFreeze)
+src/test/app/Loan_test.cpp:4705:                tfSetFreeze | tfSetDeepFreeze),
+src/test/app/Loan_test.cpp:4711:                tfSetFreeze | tfSetDeepFreeze),
+src/test/app/Loan_test.cpp:4725:                tfClearFreeze | tfClearDeepFreeze),
+src/test/app/Loan_test.cpp:4912:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Loan_test.cpp:5810:            .flags = MPTDEXFlags | tfMPTRequireAuth | tfMPTCanClawback |
+src/test/app/Loan_test.cpp:6136:                testcase << "LoanBrokerCoverClawback drains cover via rounding"
+src/test/app/Loan_test.cpp:6153:                env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/Loan_test.cpp:6196:                env(coverClawback(issuer, 0), loanBrokerID(broker.brokerID));
+src/test/app/Loan_test.cpp:7371:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/Loan_test.cpp:7475:            .flags = tfMPTCanClawback | tfMPTRequireAuth | tfMPTCanTransfer |
+src/test/app/Loan_test.cpp:7586:            .flags = tfMPTCanClawback | tfMPTRequireAuth | tfMPTCanTransfer |
+src/test/app/Loan_test.cpp:8038:        testServiceFeeOnBrokerDeepFreeze();
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:22:#include <xrpld/app/misc/detail/AccountTxPaging.h>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:122:    AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:123:    getOldestAccountTxs(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:125:    AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:126:    getNewestAccountTxs(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:129:    getOldestAccountTxsB(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:132:    getNewestAccountTxsB(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:134:    std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:135:    oldestAccountTxPage(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:137:    std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:138:    newestAccountTxPage(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:140:    std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:141:    oldestAccountTxPageB(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:143:    std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:144:    newestAccountTxPageB(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:146:    std::variant<AccountTx, TxSearched>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:561:RelationalDatabase::AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:562:SQLiteDatabaseImp::getOldestAccountTxs(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:572:        return detail::getOldestAccountTxs(*db, app_, ledgerMaster, options, j_)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:579:RelationalDatabase::AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:580:SQLiteDatabaseImp::getNewestAccountTxs(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:590:        return detail::getNewestAccountTxs(*db, app_, ledgerMaster, options, j_)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:598:SQLiteDatabaseImp::getOldestAccountTxsB(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:606:        return detail::getOldestAccountTxsB(*db, app_, options, j_).first;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:613:SQLiteDatabaseImp::getNewestAccountTxsB(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:621:        return detail::getNewestAccountTxsB(*db, app_, options, j_).first;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:628:    RelationalDatabase::AccountTxs,
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:629:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:630:SQLiteDatabaseImp::oldestAccountTxPage(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:638:    AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:652:            detail::oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:662:    RelationalDatabase::AccountTxs,
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:663:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:664:SQLiteDatabaseImp::newestAccountTxPage(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:672:    AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:686:            detail::newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:697:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:698:SQLiteDatabaseImp::oldestAccountTxPageB(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:719:            detail::oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:730:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:731:SQLiteDatabaseImp::newestAccountTxPageB(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:752:            detail::newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:761:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/xrpld/app/tx/detail/Clawback.h:27:class Clawback : public Transactor
+src/xrpld/app/tx/detail/Clawback.h:32:    explicit Clawback(ApplyContext& ctx) : Transactor(ctx)
+src/test/protocol/STParsedJSON_test.cpp:2073:                    "\"ModifiedNode\":{\"Sequence\":1}, "
+src/test/protocol/STParsedJSON_test.cpp:2074:                    "\"DeletedNode\":{\"Sequence\":1}"
+src/test/app/Escrow_test.cpp:239:        env(fset(bob, asfRequireDest));
+src/test/app/Escrow_test.cpp:255:        BEAST_EXPECT((*sle)[sfDestinationTag] == 2);
+src/test/app/Escrow_test.cpp:453:        env(fset("carol", asfRequireDest));
+src/test/protocol/Memo_test.cpp:75:            auto& m = mi[sfCreatedNode.jsonName];  // CreatedNode in Memos
+src/xrpld/rpc/handlers/AccountObjects.cpp:181:doAccountObjects(RPC::JsonContext& context)
+src/xrpld/rpc/handlers/AccountObjects.cpp:248:        if (!RPC::isAccountObjectsValidType(type))
+src/xrpld/rpc/handlers/AccountObjects.cpp:287:    if (!RPC::getAccountObjects(
+src/test/app/PayChan_test.cpp:742:        env(fset(bob, asfRequireDest));
+src/test/app/AMMClawback_test.cpp:28:class AMMClawback_test : public beast::unit_test::suite
+src/test/app/AMMClawback_test.cpp:44:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:45:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:47:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:56:            env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:70:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:71:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:73:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:90:            env(amm::ammClawback(gw, alice, USD, gw["EUR"], std::nullopt),
+src/test/app/AMMClawback_test.cpp:103:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:104:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:106:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:117:            env(amm::ammClawback(gw, gw, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:121:            env(amm::ammClawback(alice, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:133:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:134:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:136:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:148:            env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:165:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:166:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:168:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:181:            env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:198:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:199:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:201:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:212:            env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:221:            env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:230:        // Test if the issuer did not set asfAllowTrustLineClawback, AMMClawback
+src/test/app/AMMClawback_test.cpp:250:            // If asfAllowTrustLineClawback is not set, the issuer is not
+src/test/app/AMMClawback_test.cpp:251:            // allowed to send the AMMClawback transaction.
+src/test/app/AMMClawback_test.cpp:252:            env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:264:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:265:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:267:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:278:            env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:292:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:293:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:295:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:310:            env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:323:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:324:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:326:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:338:            // Clawback XRP is prohibited.
+src/test/app/AMMClawback_test.cpp:339:            env(amm::ammClawback(gw, alice, XRP, USD, std::nullopt),
+src/test/app/AMMClawback_test.cpp:347:        testcase("test featureAMMClawback is not enabled.");
+src/test/app/AMMClawback_test.cpp:349:        if (!features[featureAMMClawback])
+src/test/app/AMMClawback_test.cpp:357:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:358:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:360:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:368:            // When featureAMMClawback is not enabled, AMMClawback is disabled.
+src/test/app/AMMClawback_test.cpp:369:            // Because when featureAMMClawback is disabled, we can not create
+src/test/app/AMMClawback_test.cpp:370:            // amm account, call amm::ammClawback directly for testing purpose.
+src/test/app/AMMClawback_test.cpp:371:            env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:377:    testAMMClawbackSpecificAmount(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:379:        testcase("test AMMClawback specific amount");
+src/test/app/AMMClawback_test.cpp:382:        // Test AMMClawback for USD/EUR pool. The assets are issued by different
+src/test/app/AMMClawback_test.cpp:392:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:393:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:395:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:421:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:448:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:466:        // Test AMMClawback for USD/XRP pool. Claw back USD, and XRP goes back
+src/test/app/AMMClawback_test.cpp:475:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:476:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:478:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:498:            env(amm::ammClawback(gw, alice, USD, XRP, USD(1000)),
+src/test/app/AMMClawback_test.cpp:524:            env(amm::ammClawback(gw, alice, USD, XRP, USD(1000)),
+src/test/app/AMMClawback_test.cpp:543:    testAMMClawbackExceedBalance(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:546:            "test AMMClawback specific amount which exceeds the current "
+src/test/app/AMMClawback_test.cpp:550:        // Test AMMClawback for USD/EUR pool. The assets are issued by different
+src/test/app/AMMClawback_test.cpp:552:        // holder. The last AMMClawback transaction exceeds the holder's USD
+src/test/app/AMMClawback_test.cpp:562:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:563:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:565:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:593:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:625:            env(amm::ammClawback(gw, alice, USD, EUR, USD(500)),
+src/test/app/AMMClawback_test.cpp:650:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:656:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:661:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:664:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:670:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:674:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:676:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:683:            env(amm::ammClawback(gw, alice, USD, EUR, USD(4000)),
+src/test/app/AMMClawback_test.cpp:698:        // Test AMMClawback for USD/XRP pool. Claw back USD for multiple times,
+src/test/app/AMMClawback_test.cpp:699:        // and XRP goes back to the holder. The last AMMClawback transaction
+src/test/app/AMMClawback_test.cpp:712:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:713:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:715:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:717:            // gw2 sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:718:            env(fset(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:720:            env.require(flags(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:780:            env(amm::ammClawback(gw, alice, USD, XRP, USD(500)),
+src/test/app/AMMClawback_test.cpp:793:            if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:801:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:804:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:807:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:813:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:816:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:819:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:827:            env(amm::ammClawback(gw, bob, USD, XRP, USD(10)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:838:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:843:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:846:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:852:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:855:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:858:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:862:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:865:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:868:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:873:            env(amm::ammClawback(gw2, alice, EUR, XRP, EUR(200)),
+src/test/app/AMMClawback_test.cpp:880:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:883:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:886:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:891:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:894:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:897:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:919:            env(amm::ammClawback(gw, alice, USD, XRP, USD(1000)),
+src/test/app/AMMClawback_test.cpp:927:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:930:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:933:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:939:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:942:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:945:            else if (features[fixAMMClawbackRounding] && features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:949:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:954:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:959:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:968:            env(amm::ammClawback(gw, bob, USD, XRP, USD(1000)),
+src/test/app/AMMClawback_test.cpp:988:            env(amm::ammClawback(gw2, alice, EUR, XRP, EUR(1000)),
+src/test/app/AMMClawback_test.cpp:1006:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1009:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1012:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1021:            env(amm::ammClawback(gw2, bob, EUR, XRP, EUR(2000)),
+src/test/app/AMMClawback_test.cpp:1040:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1043:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1046:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1055:    testAMMClawbackAll(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:1057:        testcase("test AMMClawback all the tokens in the AMM pool");
+src/test/app/AMMClawback_test.cpp:1060:        // Test AMMClawback for USD/EUR pool. The assets are issued by different
+src/test/app/AMMClawback_test.cpp:1072:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1073:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1075:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1077:            // gw2 sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1078:            env(fset(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1080:            env.require(flags(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1156:            env(amm::ammClawback(gw, bob, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1204:            env(amm::ammClawback(gw2, carol, EUR, USD, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1228:            env(amm::ammClawback(gw2, alice, EUR, USD, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1237:        // Test AMMClawback for USD/XRP pool. Claw back all the USD for
+src/test/app/AMMClawback_test.cpp:1247:            // gw sets asfAllowTrustLineClawback
+src/test/app/AMMClawback_test.cpp:1248:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1250:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1288:            env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1308:            env(amm::ammClawback(gw, bob, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1327:    testAMMClawbackSameIssuerAssets(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:1330:            "test AMMClawback from AMM pool with assets having the same "
+src/test/app/AMMClawback_test.cpp:1334:        // Test AMMClawback for USD/EUR pool. The assets are issued by different
+src/test/app/AMMClawback_test.cpp:1344:        // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1345:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1347:        env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1381:        env(amm::ammClawback(gw, carol, USD, EUR, USD(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1405:        env(amm::ammClawback(gw, bob, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1429:        env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:1452:    testAMMClawbackSameCurrency(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:1455:            "test AMMClawback from AMM pool with assets having the same "
+src/test/app/AMMClawback_test.cpp:1459:        // Test AMMClawback for USD/EUR pool. The assets are issued by different
+src/test/app/AMMClawback_test.cpp:1469:        // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1470:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1472:        env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1474:        // gw2 sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1475:        env(fset(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1477:        env.require(flags(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1504:        env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:1513:        env(amm::ammClawback(
+src/test/app/AMMClawback_test.cpp:1537:        env(amm::ammClawback(gw, bob, gw["USD"], gw2["USD"], std::nullopt),
+src/test/app/AMMClawback_test.cpp:1558:    testAMMClawbackIssuesEachOther(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:1560:        testcase("test AMMClawback when issuing token for each other");
+src/test/app/AMMClawback_test.cpp:1563:        // gw and gw2 issues token for each other. Test AMMClawback from
+src/test/app/AMMClawback_test.cpp:1572:        // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1573:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1575:        env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1577:        // gw2 sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1578:        env(fset(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1580:        env.require(flags(gw2, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1614:        env(amm::ammClawback(gw, gw2, USD, EUR, USD(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1616:        if (!features[fixAMMv1_3] || !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1624:        if (!features[fixAMMv1_3] || !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1639:        env(amm::ammClawback(gw2, gw, EUR, USD, EUR(1000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1641:        if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1646:        else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1649:        else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1655:        if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1658:        else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1661:        else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1665:        if (!features[fixAMMv1_3] || !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1681:        env(amm::ammClawback(gw2, alice, EUR, USD, EUR(4000)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:1683:        if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1688:        else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1691:        else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1697:        if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1700:        else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1703:        else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1707:        if (!features[fixAMMv1_3] || !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:1726:            "test AMMClawback from account which does not own any lptoken in "
+src/test/app/AMMClawback_test.cpp:1736:        // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1737:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1739:        env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1748:        // Alice did not deposit in the amm pool. So AMMClawback from Alice
+src/test/app/AMMClawback_test.cpp:1750:        env(amm::ammClawback(gw, alice, USD, XRP, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1769:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1770:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1772:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1800:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1815:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1837:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1838:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1840:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1869:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1890:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1891:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1893:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1921:            env(amm::ammClawback(gw, alice, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:1944:            // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:1945:            env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1947:            env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:1987:            env(amm::ammClawback(gw, carol, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:2012:            env(amm::ammClawback(gw, bob, USD, EUR, USD(1000)),
+src/test/app/AMMClawback_test.cpp:2036:            env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:2061:    testSingleDepositAndClawback(FeatureBitset features)
+src/test/app/AMMClawback_test.cpp:2067:        // Test AMMClawback for USD/XRP pool. Claw back USD, and XRP goes back
+src/test/app/AMMClawback_test.cpp:2075:        // gw sets asfAllowTrustLineClawback.
+src/test/app/AMMClawback_test.cpp:2076:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:2078:        env.require(flags(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:2101:        env(amm::ammClawback(gw, alice, USD, XRP, USD(400)), ter(tesSUCCESS));
+src/test/app/AMMClawback_test.cpp:2136:                env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMMClawback_test.cpp:2154:                getAccountLines(
+src/test/app/AMMClawback_test.cpp:2163:        // IOU/XRP pool. AMMClawback almost last holder's USD balance
+src/test/app/AMMClawback_test.cpp:2185:            if (!features[fixAMMClawbackRounding] || !features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:2187:                env(amm::ammClawback(gw, alice, USD, XRP, USD(1)),
+src/test/app/AMMClawback_test.cpp:2194:                env(amm::ammClawback(gw, alice, USD, XRP, USD(1)));
+src/test/app/AMMClawback_test.cpp:2203:        // IOU/XRP pool. AMMClawback part of last holder's USD balance
+src/test/app/AMMClawback_test.cpp:2224:            env(amm::ammClawback(gw, alice, USD, XRP, USD(0.5)));
+src/test/app/AMMClawback_test.cpp:2226:            if (!features[fixAMMv1_3] && !features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2233:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2240:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2251:        // IOU/XRP pool. AMMClawback all of last holder's USD balance
+src/test/app/AMMClawback_test.cpp:2273:            if (!features[fixAMMClawbackRounding] && !features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:2275:                env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt),
+src/test/app/AMMClawback_test.cpp:2278:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2280:                env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt));
+src/test/app/AMMClawback_test.cpp:2286:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2288:                env(amm::ammClawback(gw, alice, USD, XRP, std::nullopt));
+src/test/app/AMMClawback_test.cpp:2325:            if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2327:                env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt));
+src/test/app/AMMClawback_test.cpp:2332:                env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:2367:            if (features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2369:                env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:2375:                env(amm::ammClawback(gw, alice, USD, EUR, std::nullopt),
+src/test/app/AMMClawback_test.cpp:2412:            if (!features[fixAMMClawbackRounding] && !features[fixAMMv1_3])
+src/test/app/AMMClawback_test.cpp:2414:                env(amm::ammClawback(gw, alice, USD, EUR, USD(1)));
+src/test/app/AMMClawback_test.cpp:2420:            else if (!features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2424:                env(amm::ammClawback(gw, alice, USD, EUR, USD(1)),
+src/test/app/AMMClawback_test.cpp:2428:            else if (features[fixAMMv1_3] && features[fixAMMClawbackRounding])
+src/test/app/AMMClawback_test.cpp:2430:                env(amm::ammClawback(gw, alice, USD, EUR, USD(1)),
+src/test/app/AMMClawback_test.cpp:2451:        testFeatureDisabled(all - featureAMMClawback);
+src/test/app/AMMClawback_test.cpp:2453:             {all - fixAMMv1_3 - fixAMMClawbackRounding,
+src/test/app/AMMClawback_test.cpp:2454:              all - fixAMMClawbackRounding,
+src/test/app/AMMClawback_test.cpp:2457:            testAMMClawbackSpecificAmount(features);
+src/test/app/AMMClawback_test.cpp:2458:            testAMMClawbackExceedBalance(features);
+src/test/app/AMMClawback_test.cpp:2459:            testAMMClawbackAll(features);
+src/test/app/AMMClawback_test.cpp:2460:            testAMMClawbackSameIssuerAssets(features);
+src/test/app/AMMClawback_test.cpp:2461:            testAMMClawbackSameCurrency(features);
+src/test/app/AMMClawback_test.cpp:2462:            testAMMClawbackIssuesEachOther(features);
+src/test/app/AMMClawback_test.cpp:2465:            testSingleDepositAndClawback(features);
+src/test/app/AMMClawback_test.cpp:2470:BEAST_DEFINE_TESTSUITE(AMMClawback, app, ripple);
+src/xrpld/app/tx/detail/SetAccount.cpp:46:             *uSetFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:51:             *uClearFlag == asfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:98:    // RequireDestTag
+src/xrpld/app/tx/detail/SetAccount.cpp:100:    bool bSetRequireDest =
+src/xrpld/app/tx/detail/SetAccount.cpp:101:        (uTxFlags & tfRequireDestTag) || (uSetFlag == asfRequireDest);
+src/xrpld/app/tx/detail/SetAccount.cpp:102:    bool bClearRequireDest =
+src/xrpld/app/tx/detail/SetAccount.cpp:103:        (uTxFlags & tfOptionalDestTag) || (uClearFlag == asfRequireDest);
+src/xrpld/app/tx/detail/SetAccount.cpp:105:    if (bSetRequireDest && bClearRequireDest)
+src/xrpld/app/tx/detail/SetAccount.cpp:276:    // Clawback
+src/xrpld/app/tx/detail/SetAccount.cpp:278:    if (ctx.view.rules().enabled(featureClawback))
+src/xrpld/app/tx/detail/SetAccount.cpp:280:        if (uSetFlag == asfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:284:                JLOG(ctx.j.trace()) << "Can't set Clawback if NoFreeze is set";
+src/xrpld/app/tx/detail/SetAccount.cpp:297:            if (uFlagsIn & lsfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:325:    bool const bSetRequireDest{
+src/xrpld/app/tx/detail/SetAccount.cpp:326:        (uTxFlags & tfRequireDestTag) || (uSetFlag == asfRequireDest)};
+src/xrpld/app/tx/detail/SetAccount.cpp:327:    bool const bClearRequireDest{
+src/xrpld/app/tx/detail/SetAccount.cpp:328:        (uTxFlags & tfOptionalDestTag) || (uClearFlag == asfRequireDest)};
+src/xrpld/app/tx/detail/SetAccount.cpp:367:    // RequireDestTag
+src/xrpld/app/tx/detail/SetAccount.cpp:369:    if (bSetRequireDest && !(uFlagsIn & lsfRequireDestTag))
+src/xrpld/app/tx/detail/SetAccount.cpp:371:        JLOG(j_.trace()) << "Set lsfRequireDestTag.";
+src/xrpld/app/tx/detail/SetAccount.cpp:372:        uFlagsOut |= lsfRequireDestTag;
+src/xrpld/app/tx/detail/SetAccount.cpp:375:    if (bClearRequireDest && (uFlagsIn & lsfRequireDestTag))
+src/xrpld/app/tx/detail/SetAccount.cpp:377:        JLOG(j_.trace()) << "Clear lsfRequireDestTag.";
+src/xrpld/app/tx/detail/SetAccount.cpp:378:        uFlagsOut &= ~lsfRequireDestTag;
+src/xrpld/app/tx/detail/SetAccount.cpp:473:    if ((uSetFlag == asfAccountTxnID) && !sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:475:        JLOG(j_.trace()) << "Set AccountTxnID.";
+src/xrpld/app/tx/detail/SetAccount.cpp:476:        sle->makeFieldPresent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:479:    if ((uClearFlag == asfAccountTxnID) && sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/SetAccount.cpp:481:        JLOG(j_.trace()) << "Clear AccountTxnID.";
+src/xrpld/app/tx/detail/SetAccount.cpp:482:        sle->makeFieldAbsent(sfAccountTxnID);
+src/xrpld/app/tx/detail/SetAccount.cpp:660:    if (ctx_.view().rules().enabled(featureClawback) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:661:        uSetFlag == asfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:664:        uFlagsOut |= lsfAllowTrustLineClawback;
+src/xrpld/app/ledger/OrderBookDB.cpp:336:                if (node.getFName() == sfModifiedNode)
+src/xrpld/app/ledger/OrderBookDB.cpp:338:                else if (node.getFName() == sfCreatedNode)
+src/xrpld/app/ledger/OrderBookDB.cpp:340:                else if (node.getFName() == sfDeletedNode)
+src/test/app/Check_test.cpp:66:/** Set DestinationTag on a JTx. */
+src/test/app/Check_test.cpp:80:        jt[sfDestinationTag.jsonName] = tag_;
+src/test/app/Check_test.cpp:459:        env(fset(bob, asfRequireDest));
+src/test/app/Check_test.cpp:468:        env(fclear(bob, asfRequireDest));
+src/test/app/Check_test.cpp:1637:            // Set the RequireDest flag on bob's account (after the check
+src/test/app/Check_test.cpp:1639:            env(fset(bob, asfRequireDest));
+src/test/app/Check_test.cpp:1653:            // Clear the RequireDest flag on bob's account so he can
+src/test/app/Check_test.cpp:1654:            // cash the check with no DestinationTag.
+src/test/app/Check_test.cpp:1655:            env(fclear(bob, asfRequireDest));
+src/xrpld/rpc/handlers/AccountLines.cpp:64:        jPeer[jss::freeze_peer] = true;
+src/xrpld/rpc/handlers/AccountLines.cpp:65:    if (line.getDeepFreeze())
+src/xrpld/rpc/handlers/AccountLines.cpp:66:        jPeer[jss::deep_freeze] = true;
+src/xrpld/rpc/handlers/AccountLines.cpp:67:    if (line.getDeepFreezePeer())
+src/xrpld/rpc/handlers/AccountLines.cpp:68:        jPeer[jss::deep_freeze_peer] = true;
+src/xrpld/rpc/handlers/AccountLines.cpp:81:doAccountLines(RPC::JsonContext& context)
+src/xrpld/rpc/handlers/AccountLines.cpp:194:                        UNREACHABLE("ripple::doAccountLines : null SLE");
+src/test/jtx.h:31:#include <test/jtx/account_txn_id.h>
+src/test/app/NFTokenDir_test.cpp:952:        // See what the account_objects command does with "nft_offer".
+src/test/app/NFTokenDir_test.cpp:966:                        "json", "account_objects", to_string(params));
+src/test/app/NFTokenDir_test.cpp:977:                    if (result.isMember(jss::account_objects))
+src/test/app/NFTokenDir_test.cpp:979:                        Json::Value& someOffers = result[jss::account_objects];
+src/test/app/NFTokenDir_test.cpp:1012:            // account_objects should no longer return any "nft_offer"s.
+src/test/app/NFTokenDir_test.cpp:1018:                return env.rpc("json", "account_objects", to_string(params));
+src/test/app/NFTokenDir_test.cpp:1022:                remainingOffers[jss::result].isMember(jss::account_objects) &&
+src/test/app/NFTokenDir_test.cpp:1023:                remainingOffers[jss::result][jss::account_objects].size() == 0);
+src/xrpld/app/rdb/backend/detail/Node.h:262: * @brief getOldestAccountTxs Returns oldest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:267: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:280:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.h:281:getOldestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.h:285:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:289: * @brief getNewestAccountTxs Returns newest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:294: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:307:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.h:308:getNewestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.h:312:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:316: * @brief getOldestAccountTxsB Returns oldest transactions in binary form
+src/xrpld/app/rdb/backend/detail/Node.h:321: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:335:getOldestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.h:338:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:342: * @brief getNewestAccountTxsB Returns newest transactions in binary form
+src/xrpld/app/rdb/backend/detail/Node.h:347: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:361:getNewestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.h:364:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:368: * @brief oldestAccountTxPage Searches oldest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:375: * @param options Struct AccountTxPageOptions which contain criteria to
+src/xrpld/app/rdb/backend/detail/Node.h:385:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.h:386:oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.h:392:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:396: * @brief newestAccountTxPage Searches newest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:403: * @param options Struct AccountTxPageOptions which contain criteria to
+src/xrpld/app/rdb/backend/detail/Node.h:413:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.h:414:newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.h:420:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:439:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp:73:    if (auto const ret = checkDeepFrozen(ctx.view, pseudoAccountID, vaultAsset))
+src/test/app/TxQ_test.cpp:80:        auto const& txs = txq.getAccountTxs(account.id());
+src/test/app/TxQ_test.cpp:766:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:774:            auto bobStat = txQ.getAccountTxs(bob.id());
+src/test/app/TxQ_test.cpp:782:            auto noStat = txQ.getAccountTxs(Account::master.id());
+src/test/app/TxQ_test.cpp:1110:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:1550:        env(fset(alice, asfAccountTxnID));
+src/test/app/TxQ_test.cpp:1553:        // Immediately after the fset, the sfAccountTxnID field
+src/test/app/TxQ_test.cpp:1557:            json(R"({"AccountTxnID": "0"})"),
+src/test/app/TxQ_test.cpp:1569:        env(noop(alice), json(R"({"AccountTxnID": "0"})"), ter(tefWRONG_PRIOR));
+src/test/app/TxQ_test.cpp:1820:            env(fset(alice, asfAccountTxnID),
+src/test/app/TxQ_test.cpp:1895:            env(fset(alice, asfAccountTxnID), seq(aliceSeq + 0), queued);
+src/test/app/TxQ_test.cpp:1955:            env(fset(alice, asfAccountTxnID),
+src/test/app/TxQ_test.cpp:2059:            env(fset(alice, asfAccountTxnID), ticket::use(tkt + 2), queued);
+src/test/app/TxQ_test.cpp:2741:        env(fset(alice, asfAccountTxnID),
+src/test/app/TxQ_test.cpp:2751:        env(fset(alice, asfAccountTxnID),
+src/test/app/TxQ_test.cpp:2973:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:3018:            auto bobStat = txQ.getAccountTxs(bob.id());
+src/test/app/TxQ_test.cpp:3024:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:3045:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:3061:            auto bobStat = txQ.getAccountTxs(bob.id());
+src/test/app/TxQ_test.cpp:3065:            auto aliceStat = txQ.getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:3217:            fset(alice, asfAccountTxnID),
+src/test/app/TxQ_test.cpp:3802:    testClearQueuedAccountTxs()
+src/test/app/TxQ_test.cpp:3954:                env.app().getTxQ().getAccountTxs(alice.id());
+src/test/app/TxQ_test.cpp:5046:        testClearQueuedAccountTxs();
+src/test/app/MPToken_test.cpp:181:                     tfMPTCanTrade | tfMPTCanTransfer | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:219:                        tfMPTCanTrade | tfMPTCanTransfer | tfMPTCanClawback,
+src/test/app/MPToken_test.cpp:1648:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/MPToken_test.cpp:1651:                meta[0u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:1655:                meta[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:1659:                meta[2u][sfModifiedNode.fieldName][sfPreviousFields.fieldName]
+src/test/app/MPToken_test.cpp:1662:                !meta[2u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:2094:            // AMMClawback
+src/test/app/MPToken_test.cpp:2095:            auto ammClawback = [&](SField const& field) {
+src/test/app/MPToken_test.cpp:2097:                jv[jss::TransactionType] = jss::AMMClawback;
+src/test/app/MPToken_test.cpp:2107:                ammClawback(field);
+src/test/app/MPToken_test.cpp:2194:            // NFTokenAcceptOffer
+src/test/app/MPToken_test.cpp:2197:                jv[jss::TransactionType] = jss::NFTokenAcceptOffer;
+src/test/app/MPToken_test.cpp:2356:    testClawbackValidation(FeatureBitset features)
+src/test/app/MPToken_test.cpp:2418:        // Preclaim - clawback fails when MPTCanClawback is disabled on issuance
+src/test/app/MPToken_test.cpp:2426:            // enable asfAllowTrustLineClawback for alice
+src/test/app/MPToken_test.cpp:2427:            env(fset(alice, asfAllowTrustLineClawback));
+src/test/app/MPToken_test.cpp:2429:            env.require(flags(alice, asfAllowTrustLineClawback));
+src/test/app/MPToken_test.cpp:2438:            // alice cannot clawback before she didn't enable MPTCanClawback
+src/test/app/MPToken_test.cpp:2439:            // asfAllowTrustLineClawback has no effect
+src/test/app/MPToken_test.cpp:2462:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2506:    testClawback(FeatureBitset features)
+src/test/app/MPToken_test.cpp:2508:        testcase("MPT Clawback");
+src/test/app/MPToken_test.cpp:2520:                {.ownerCount = 1, .holderCount = 0, .flags = tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2548:                 .flags = tfMPTCanLock | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2573:                 .flags = tfMPTCanLock | tfMPTCanClawback});
+src/test/app/MPToken_test.cpp:2598:                 .flags = tfMPTCanClawback | tfMPTRequireAuth});
+src/test/app/MPToken_test.cpp:2951:                tmfMPTSetCanClawback | tmfMPTClearCanClawback,
+src/test/app/MPToken_test.cpp:2954:                    tmfMPTSetCanEscrow | tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:2984:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:2985:                tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:3135:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:3136:                tmfMPTClearCanClawback};
+src/test/app/MPToken_test.cpp:3271:                tmfMPTCanMutateCanClawback,
+src/test/app/MPToken_test.cpp:3272:                tmfMPTSetCanClawback,
+src/test/app/MPToken_test.cpp:3273:                tmfMPTClearCanClawback);
+src/test/app/MPToken_test.cpp:3322:                     tmfMPTCanMutateCanClawback | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:3335:                {.account = alice, .mutableFlags = tmfMPTSetCanClawback});
+src/test/app/MPToken_test.cpp:3337:                {.account = alice, .mutableFlags = tmfMPTClearCanClawback});
+src/test/app/MPToken_test.cpp:3350:                     tmfMPTCanMutateCanClawback | tmfMPTCanMutateMetadata});
+src/test/app/MPToken_test.cpp:3589:    testMutateCanClawback(FeatureBitset features)
+src/test/app/MPToken_test.cpp:3591:        testcase("Mutate MPTCanClawback");
+src/test/app/MPToken_test.cpp:3603:             .mutableFlags = tmfMPTCanMutateCanClawback});
+src/test/app/MPToken_test.cpp:3611:        // MPTCanClawback is not enabled
+src/test/app/MPToken_test.cpp:3614:        // Enable MPTCanClawback
+src/test/app/MPToken_test.cpp:3615:        mptAlice.set({.account = alice, .mutableFlags = tmfMPTSetCanClawback});
+src/test/app/MPToken_test.cpp:3620:        // Clear MPTCanClawback
+src/test/app/MPToken_test.cpp:3622:            {.account = alice, .mutableFlags = tmfMPTClearCanClawback});
+src/test/app/MPToken_test.cpp:3799:        testClawbackValidation(all);
+src/test/app/MPToken_test.cpp:3800:        testClawback(all);
+src/test/app/MPToken_test.cpp:3827:        testMutateCanClawback(all);
+src/test/app/AccountDelete_test.cpp:861:        env(fset(carol, asfRequireDest));
+src/test/app/NFToken_test.cpp:4784:        // NFTokenAcceptOffer.  issuer accepts buyer's offer.
+src/test/app/NFToken_test.cpp:7010:        // NFTokenAcceptOffer.
+src/test/app/NFToken_test.cpp:7033:        // changed in the most recent NFTokenMint or NFTokenAcceptOffer
+src/test/app/NFToken_test.cpp:7166:            // Verify the NFTokenID is correct in the NFTokenAcceptOffer tx meta
+src/test/app/NFToken_test.cpp:7197:            // Check NFTokenID meta for NFTokenAcceptOffer in brokered mode
+src/test/app/SetTrust_test.cpp:65:        auto beckyLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:68:        auto aliceLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:85:        beckyLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:88:        aliceLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:93:        // additionally, verify that account_objects is an empty array
+src/test/app/SetTrust_test.cpp:95:        auto const beckyObj = env.rpc("json", "account_objects", to_string(jv));
+src/test/app/SetTrust_test.cpp:96:        BEAST_EXPECT(beckyObj[jss::result][jss::account_objects].size() == 0);
+src/test/app/SetTrust_test.cpp:99:        auto const aliceObj = env.rpc("json", "account_objects", to_string(jv));
+src/test/app/SetTrust_test.cpp:100:        BEAST_EXPECT(aliceObj[jss::result][jss::account_objects].size() == 0);
+src/test/app/SetTrust_test.cpp:143:        auto beckyLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:146:        auto aliceLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:163:        beckyLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:166:        aliceLines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:243:            auto const lines = env.rpc("json", "account_lines", to_string(jv));
+src/test/app/SetTrust_test.cpp:475:            auto const lines = env.rpc("json", "account_lines", to_string(jv));
+src/test/rpc/AccountInfo_test.cpp:606:                     {"requireDestinationTag", asfRequireDest}}};
+src/test/rpc/AccountInfo_test.cpp:667:            allowTrustLineClawbackFlag{
+src/test/rpc/AccountInfo_test.cpp:668:                "allowTrustLineClawback", asfAllowTrustLineClawback};
+src/test/rpc/AccountInfo_test.cpp:670:        if (features[featureClawback])
+src/test/rpc/AccountInfo_test.cpp:674:                getAccountFlag(allowTrustLineClawbackFlag.first, bob);
+src/test/rpc/AccountInfo_test.cpp:678:            // Set allowTrustLineClawback
+src/test/rpc/AccountInfo_test.cpp:679:            env(fset(bob, allowTrustLineClawbackFlag.second));
+src/test/rpc/AccountInfo_test.cpp:682:                getAccountFlag(allowTrustLineClawbackFlag.first, bob);
+src/test/rpc/AccountInfo_test.cpp:689:                !getAccountFlag(allowTrustLineClawbackFlag.first, bob));
+src/test/rpc/AccountInfo_test.cpp:730:            allFeatures - featureDisallowIncoming - featureClawback);
+src/test/rpc/AccountInfo_test.cpp:732:            allFeatures - featureDisallowIncoming - featureClawback -
+src/test/app/Invariants_test.cpp:571:    testNoDeepFreezeTrustLinesWithoutFreeze()
+src/test/app/Invariants_test.cpp:586:                uFlags |= lsfLowDeepFreeze;
+src/test/app/Invariants_test.cpp:601:                uFlags |= lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:616:                uFlags |= lsfLowDeepFreeze | lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:631:                uFlags |= lsfLowDeepFreeze | lsfHighFreeze;
+src/test/app/Invariants_test.cpp:646:                uFlags |= lsfLowFreeze | lsfHighDeepFreeze;
+src/test/app/Invariants_test.cpp:686:        auto const A1DeepFrozenByIssuer =
+src/test/app/Invariants_test.cpp:689:                env(trust(G1, A1["USD"](10000), tfSetDeepFreeze));
+src/test/app/Invariants_test.cpp:732:            A1DeepFrozenByIssuer);
+src/test/app/Invariants_test.cpp:744:            A1DeepFrozenByIssuer);
+src/test/app/Invariants_test.cpp:1182:                        lsfRequireDestTag);
+src/test/app/Invariants_test.cpp:2277:                            {.flags = tfMPTCanClawback | tfMPTCanTransfer |
+src/test/app/Invariants_test.cpp:4348:        testcase << "overwrite: NoDeepFreeze" +
+src/test/app/Invariants_test.cpp:4380:                sleBad->setFieldU32(sfFlags, lsfLowDeepFreeze);
+src/test/app/Invariants_test.cpp:4572:        testNoDeepFreezeTrustLinesWithoutFreeze();
+src/test/rpc/AccountCurrencies_test.cpp:189:        result = env.rpc("account_lines", alice.human());
+src/xrpld/rpc/handlers/AccountInfo.cpp:96:                 {"requireDestinationTag", lsfRequireDestTag}}};
+src/xrpld/rpc/handlers/AccountInfo.cpp:108:        allowTrustLineClawbackFlag{
+src/xrpld/rpc/handlers/AccountInfo.cpp:109:            "allowTrustLineClawback", lsfAllowTrustLineClawback};
+src/xrpld/rpc/handlers/AccountInfo.cpp:143:        if (ledger->rules().enabled(featureClawback))
+src/xrpld/rpc/handlers/AccountInfo.cpp:144:            acctFlags[allowTrustLineClawbackFlag.first.data()] =
+src/xrpld/rpc/handlers/AccountInfo.cpp:145:                sleAccepted->isFlag(allowTrustLineClawbackFlag.second);
+src/xrpld/rpc/handlers/AccountInfo.cpp:219:            auto const txs = context.app.getTxQ().getAccountTxs(accountID);
+src/test/app/NFTokenBurn_test.cpp:1340:            // Try the account_objects RPC command.  Alice's account only shows
+src/test/app/NFTokenBurn_test.cpp:1345:                return env.rpc("json", "account_objects", to_string(params));
+src/test/app/NFTokenBurn_test.cpp:1349:                acctObjs[jss::result][jss::account_objects].size() == 2);
+src/xrpld/app/tx/detail/AMMDeposit.cpp:246:    if (ctx.view.rules().enabled(featureAMMClawback))
+src/test/app/Freeze_test.cpp:60:            auto lines = getAccountLines(env, bob);
+src/test/app/Freeze_test.cpp:69:            auto lines = getAccountLines(env, alice);
+src/test/app/Freeze_test.cpp:92:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:96:                affected[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/Freeze_test.cpp:110:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:114:                affected[3u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/Freeze_test.cpp:139:            auto lines = getAccountLines(env, G1);
+src/test/app/Freeze_test.cpp:157:            auto lines = getAccountLines(env, bob);
+src/test/app/Freeze_test.cpp:169:            BEAST_EXPECT(g1Line[jss::freeze_peer] == true);
+src/test/app/Freeze_test.cpp:178:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:182:                affected[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/Freeze_test.cpp:193:    testDeepFreeze(FeatureBitset features)
+src/test/app/Freeze_test.cpp:209:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:213:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:217:                BEAST_EXPECT(flags & lsfLowDeepFreeze);
+src/test/app/Freeze_test.cpp:218:                BEAST_EXPECT(!(flags & (lsfHighFreeze | lsfHighDeepFreeze)));
+src/test/app/Freeze_test.cpp:224:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:227:                BEAST_EXPECT(!(flags & (lsfLowFreeze | lsfLowDeepFreeze)));
+src/test/app/Freeze_test.cpp:228:                BEAST_EXPECT(!(flags & (lsfHighFreeze | lsfHighDeepFreeze)));
+src/test/app/Freeze_test.cpp:233:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:240:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:244:                BEAST_EXPECT(flags & lsfLowDeepFreeze);
+src/test/app/Freeze_test.cpp:245:                BEAST_EXPECT(!(flags & (lsfHighFreeze | lsfHighDeepFreeze)));
+src/test/app/Freeze_test.cpp:251:            env(trust(A1, G1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:255:                BEAST_EXPECT(flags & lsfLowDeepFreeze);
+src/test/app/Freeze_test.cpp:256:                BEAST_EXPECT(!(flags & (lsfHighFreeze | lsfHighDeepFreeze)));
+src/test/app/Freeze_test.cpp:265:            env(trust(G1, A1["USD"](0), tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:269:                BEAST_EXPECT(!(flags & lsfLowDeepFreeze));
+src/test/app/Freeze_test.cpp:270:                BEAST_EXPECT(!(flags & (lsfHighFreeze | lsfHighDeepFreeze)));
+src/test/app/Freeze_test.cpp:277:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze), ter(temINVALID_FLAG));
+src/test/app/Freeze_test.cpp:280:            env(trust(G1, A1["USD"](0), tfClearDeepFreeze),
+src/test/app/Freeze_test.cpp:315:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:317:            env(trust(G1, A1["USD"](1000), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:324:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:326:            env(trust(G1, A1["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:329:            BEAST_EXPECT(flags & lsfLowDeepFreeze);
+src/test/app/Freeze_test.cpp:352:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:358:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfClearDeepFreeze),
+src/test/app/Freeze_test.cpp:360:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze | tfClearFreeze),
+src/test/app/Freeze_test.cpp:362:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze | tfClearDeepFreeze),
+src/test/app/Freeze_test.cpp:372:                    JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:573:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:576:                G1, deepFrozenAcc["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:579:                BEAST_EXPECT(!(flags & (lsfLowFreeze | lsfLowDeepFreeze)));
+src/test/app/Freeze_test.cpp:581:                BEAST_EXPECT(flags & lsfHighDeepFreeze);
+src/test/app/Freeze_test.cpp:609:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:615:            env(trust(G1, frozenAcc["USD"](0), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:624:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:628:            auto let = affected[0u][sfModifiedNode.fieldName]
+src/test/app/Freeze_test.cpp:640:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:643:            env(trust(G1, deepFrozenAcc["USD"](0), tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:647:                BEAST_EXPECT(!(flags & lsfHighDeepFreeze));
+src/test/app/Freeze_test.cpp:701:            env.meta()->getJson(JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:705:            affected[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/Freeze_test.cpp:731:            env.meta()->getJson(JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:734:        ff = affected[0u][sfModifiedNode.fieldName][sfFinalFields.fieldName];
+src/test/app/Freeze_test.cpp:745:            env.meta()->getJson(JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:748:        auto created = affected[0u][sfCreatedNode.fieldName];
+src/test/app/Freeze_test.cpp:760:    testOffersWhenDeepFrozen(FeatureBitset features)
+src/test/app/Freeze_test.cpp:845:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:847:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:874:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:914:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:922:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:944:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:991:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:993:            env(trust(A1, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1020:            env(trust(A1, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1078:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1080:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1099:            env(trust(G1, A2["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1129:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1131:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1150:            env(trust(A2, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1187:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1189:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1208:            env(trust(G1, A2["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1238:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1240:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1259:            env(trust(A2, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1270:    testPaymentsWhenDeepFrozen(FeatureBitset features)
+src/test/app/Freeze_test.cpp:1320:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1323:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1338:            env(trust(G1, A1["USD"](0), tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1367:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1370:            env(trust(A1, limit, tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1535:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1537:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1575:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1585:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1600:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1646:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1648:            env(trust(A1, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1681:            env(trust(A1, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1752:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1754:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1787:            env(trust(G1, A1["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1830:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1834:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1841:            env(trust(G1, A2["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1861:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1864:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1872:            env(trust(G1, A2["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1877:        if (features[featureDeepFreeze] &&
+src/test/app/Freeze_test.cpp:1880:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1894:            env(trust(G1, A2["USD"](0), tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1916:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1920:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1927:            env(trust(A2, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1946:        if (features[featureDeepFreeze])
+src/test/app/Freeze_test.cpp:1949:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1957:            env(trust(A2, limit, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/Freeze_test.cpp:1962:        if (features[featureDeepFreeze] &&
+src/test/app/Freeze_test.cpp:1968:            env(trust(G1, broker["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1989:        if (features[featureDeepFreeze] &&
+src/test/app/Freeze_test.cpp:2017:            env(trust(G1, minter["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:2034:            env.meta()->getJson(JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/Freeze_test.cpp:2040:            return affected[expectedArrayIndex][sfModifiedNode.fieldName]
+src/test/app/Freeze_test.cpp:2045:        return affected[expectedArrayIndex][sfCreatedNode.fieldName]
+src/test/app/Freeze_test.cpp:2083:            testDeepFreeze(features);
+src/test/app/Freeze_test.cpp:2089:            testOffersWhenDeepFrozen(features);
+src/test/app/Freeze_test.cpp:2090:            testPaymentsWhenDeepFrozen(features);
+src/test/app/Freeze_test.cpp:2099:            sa - featureDeepFreeze - featurePermissionedDEX -
+src/test/app/Freeze_test.cpp:2102:        testAll(sa - featureDeepFreeze - featurePermissionedDEX);
+src/test/app/Freeze_test.cpp:2105:        testAll(sa - featureDeepFreeze);
+src/test/rpc/Simulate_test.cpp:562:                            metadata.isMember(sfAffectedNodes.jsonName)))
+src/test/rpc/Simulate_test.cpp:565:                            metadata[sfAffectedNodes.jsonName].size() == 1);
+src/test/rpc/Simulate_test.cpp:566:                        auto node = metadata[sfAffectedNodes.jsonName][0u];
+src/test/rpc/Simulate_test.cpp:568:                                node.isMember(sfModifiedNode.jsonName)))
+src/test/rpc/Simulate_test.cpp:570:                            auto modifiedNode = node[sfModifiedNode];
+src/test/rpc/Simulate_test.cpp:684:                                metadata.isMember(sfAffectedNodes.jsonName)))
+src/test/rpc/Simulate_test.cpp:687:                                metadata[sfAffectedNodes.jsonName].size() == 1);
+src/test/rpc/Simulate_test.cpp:688:                            auto node = metadata[sfAffectedNodes.jsonName][0u];
+src/test/rpc/Simulate_test.cpp:690:                                    node.isMember(sfModifiedNode.jsonName)))
+src/test/rpc/Simulate_test.cpp:692:                                auto modifiedNode = node[sfModifiedNode];
+src/test/rpc/Simulate_test.cpp:774:                            metadata.isMember(sfAffectedNodes.jsonName)))
+src/test/rpc/Simulate_test.cpp:777:                            metadata[sfAffectedNodes.jsonName].size() == 1);
+src/test/rpc/Simulate_test.cpp:778:                        auto node = metadata[sfAffectedNodes.jsonName][0u];
+src/test/rpc/Simulate_test.cpp:780:                                node.isMember(sfModifiedNode.jsonName)))
+src/test/rpc/Simulate_test.cpp:782:                            auto modifiedNode = node[sfModifiedNode];
+src/test/rpc/Simulate_test.cpp:1074:                            metadata.isMember(sfAffectedNodes.jsonName)))
+src/test/rpc/Simulate_test.cpp:1077:                            metadata[sfAffectedNodes.jsonName].size() == 5);
+src/test/rpc/Simulate_test.cpp:1083:                                 metadata[sfAffectedNodes.jsonName])
+src/test/rpc/Simulate_test.cpp:1085:                                if (node.isMember(sfDeletedNode.jsonName) &&
+src/test/rpc/Simulate_test.cpp:1086:                                    node[sfDeletedNode.jsonName]
+src/test/rpc/Simulate_test.cpp:1091:                                        node[sfDeletedNode.jsonName]
+src/test/rpc/Simulate_test.cpp:1179:                            metadata.isMember(sfAffectedNodes.jsonName)))
+src/test/rpc/Simulate_test.cpp:1182:                            metadata[sfAffectedNodes.jsonName].size() == 1);
+src/test/rpc/Simulate_test.cpp:1183:                        auto node = metadata[sfAffectedNodes.jsonName][0u];
+src/test/rpc/Simulate_test.cpp:1185:                                node.isMember(sfModifiedNode.jsonName)))
+src/test/rpc/Simulate_test.cpp:1187:                            auto modifiedNode = node[sfModifiedNode];
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:63:     {tmfMPTSetCanClawback,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:64:      tmfMPTClearCanClawback,
+src/xrpld/app/tx/detail/MPTokenIssuanceSet.cpp:65:      lsmfMPTCanMutateCanClawback}}};
+src/test/app/Ticket_test.cpp:67:        BEAST_EXPECT(metadata.isMember(sfAffectedNodes.jsonName));
+src/test/app/Ticket_test.cpp:68:        BEAST_EXPECT(metadata[sfAffectedNodes.jsonName].isArray());
+src/test/app/Ticket_test.cpp:74:        for (Json::Value const& node : metadata[sfAffectedNodes.jsonName])
+src/test/app/Ticket_test.cpp:76:            if (node.isMember(sfModifiedNode.jsonName))
+src/test/app/Ticket_test.cpp:78:                Json::Value const& modified = node[sfModifiedNode.jsonName];
+src/test/app/Ticket_test.cpp:183:            else if (node.isMember(sfCreatedNode.jsonName))
+src/test/app/Ticket_test.cpp:185:                Json::Value const& created = node[sfCreatedNode.jsonName];
+src/test/app/Ticket_test.cpp:209:            else if (node.isMember(sfDeletedNode.jsonName))
+src/test/app/Ticket_test.cpp:211:                Json::Value const& deleted = node[sfDeletedNode.jsonName];
+src/test/app/Ticket_test.cpp:307:        BEAST_EXPECT(metadata.isMember(sfAffectedNodes.jsonName));
+src/test/app/Ticket_test.cpp:308:        BEAST_EXPECT(metadata[sfAffectedNodes.jsonName].isArray());
+src/test/app/Ticket_test.cpp:313:        for (Json::Value const& node : metadata[sfAffectedNodes.jsonName])
+src/test/app/Ticket_test.cpp:315:            if (node.isMember(sfModifiedNode.jsonName))
+src/test/app/Ticket_test.cpp:317:                Json::Value const& modified{node[sfModifiedNode.jsonName]};
+src/test/app/Ticket_test.cpp:354:            else if (node.isMember(sfDeletedNode.jsonName))
+src/test/app/Ticket_test.cpp:356:                Json::Value const& deleted{node[sfDeletedNode.jsonName]};
+src/test/app/Ticket_test.cpp:699:        // AccountTxnID.
+src/test/app/Ticket_test.cpp:707:            json(R"({"AccountTxnID": "0"})"),
+src/test/app/LoanBroker_test.cpp:52:            // 3. LoanBrokerCoverClawback
+src/test/app/LoanBroker_test.cpp:53:            env(coverClawback(alice), ter(temDISABLED));
+src/test/app/LoanBroker_test.cpp:54:            env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:57:            env(coverClawback(alice), amount(asset(0)), ter(temDISABLED));
+src/test/app/LoanBroker_test.cpp:58:            env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:117:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/LoanBroker_test.cpp:190:                BEAST_EXPECT(!pseudo->isFieldPresent(sfAccountTxnID));
+src/test/app/LoanBroker_test.cpp:262:            env(coverClawback(alice), ter(temINVALID));
+src/test/app/LoanBroker_test.cpp:263:            env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:266:            env(coverClawback(alice), amount(XRP(1000)), ter(temBAD_AMOUNT));
+src/test/app/LoanBroker_test.cpp:267:            env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:270:            // Clawbacks with an MPT need to specify the broker ID
+src/test/app/LoanBroker_test.cpp:271:            env(coverClawback(alice), amount(badMptAsset(1)), ter(temINVALID));
+src/test/app/LoanBroker_test.cpp:272:            env(coverClawback(evan),
+src/test/app/LoanBroker_test.cpp:276:            env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:282:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:290:                    // Clawbacks without a loanBrokerID need to specify an IOU
+src/test/app/LoanBroker_test.cpp:292:                    env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:295:                    env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:299:                    env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:304:                    env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:310:                    env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:317:                    // Clawbacks with an MPT need to specify the broker ID, even
+src/test/app/LoanBroker_test.cpp:320:                    env(coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:326:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:396:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:411:                             coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:417:                             coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:424:                             coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:432:                             coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:553:        env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/LoanBroker_test.cpp:568:            {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/LoanBroker_test.cpp:876:        CoverClawback,
+src/test/app/LoanBroker_test.cpp:1016:            env(fset(dest, asfRequireDest), THISLINE);
+src/test/app/LoanBroker_test.cpp:1024:            env(fclear(dest, asfRequireDest), THISLINE);
+src/test/app/LoanBroker_test.cpp:1045:                    issuer, asset(1'000), dest, tfSetFreeze | tfSetDeepFreeze),
+src/test/app/LoanBroker_test.cpp:1059:        if (brokerTest == CoverClawback)
+src/test/app/LoanBroker_test.cpp:1064:                    coverClawback(alice),
+src/test/app/LoanBroker_test.cpp:1072:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:1079:                env(fset(issuer, asfAllowTrustLineClawback | asfNoFreeze),
+src/test/app/LoanBroker_test.cpp:1082:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:1090:                // preclaim: MPTCanClawback is not set or MPTCanLock is not set
+src/test/app/LoanBroker_test.cpp:1091:                env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:1123:            env(trust(issuer, asset(0), alice, tfSetFreeze | tfSetDeepFreeze),
+src/test/app/LoanBroker_test.cpp:1128:                    issuer, asset(0), alice, tfClearFreeze | tfClearDeepFreeze),
+src/test/app/LoanBroker_test.cpp:1175:    testInvalidLoanBrokerCoverClawback()
+src/test/app/LoanBroker_test.cpp:1177:        testcase("Invalid LoanBrokerCoverClawback");
+src/test/app/LoanBroker_test.cpp:1190:            auto jtx = env.jt(coverClawback(alice), amount(USD(100)));
+src/test/app/LoanBroker_test.cpp:1210:        // AllowTrustLineClawback is not set or NoFreeze is set
+src/test/app/LoanBroker_test.cpp:1211:        testLoanBroker({}, CoverClawback);
+src/test/app/LoanBroker_test.cpp:1214:        // MPTCanClawback is not set
+src/test/app/LoanBroker_test.cpp:1221:            CoverClawback);
+src/test/app/LoanBroker_test.cpp:1247:            tecNO_PERMISSION, checkFrozen failure, checkDeepFrozenFailure,
+src/test/app/LoanBroker_test.cpp:1368:            .flags = MPTDEXFlags | tfMPTRequireAuth | tfMPTCanClawback |
+src/test/app/LoanBroker_test.cpp:1463:            env(coverClawback(issuer),
+src/test/app/LoanBroker_test.cpp:1486:                {.flags = tfMPTCanClawback | tfMPTCanTransfer | tfMPTCanLock});
+src/test/app/LoanBroker_test.cpp:1973:        testInvalidLoanBrokerCoverClawback();
+src/test/app/AMM_test.cpp:903:                if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:905:                    // deposit the other non-frozen token when AMMClawback is
+src/test/app/AMM_test.cpp:910:                    // deposit the other non-frozen token when AMMClawback is
+src/test/app/AMM_test.cpp:950:                if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:951:                    // Can deposit non-frozen token if AMMClawback is not
+src/test/app/AMM_test.cpp:956:                    // frozen when AMMClawback is enabled
+src/test/app/AMM_test.cpp:1068:            if (features[featureAMMClawback])
+src/test/app/AMM_test.cpp:1069:                // if featureAMMClawback is enabled, bob can not deposit XRP
+src/test/app/AMM_test.cpp:5010:                    getAccountLines(env, LP2, TST)["lines"][0u]["balance"]
+src/test/app/AMM_test.cpp:5035:                    getAccountLines(env, LP2, TST)["lines"][0u]["balance"]
+src/test/app/AMM_test.cpp:5778:    testClawback()
+src/test/app/AMM_test.cpp:5780:        testcase("Clawback");
+src/test/app/AMM_test.cpp:5786:        env(fset(gw, asfAllowTrustLineClawback), ter(tecOWNERS));
+src/test/app/AMM_test.cpp:5813:                JsonOptions::none)[sfAffectedNodes.fieldName];
+src/test/app/AMM_test.cpp:5819:                    if (node.isMember(sfModifiedNode.fieldName) &&
+src/test/app/AMM_test.cpp:5820:                        node[sfModifiedNode.fieldName]
+src/test/app/AMM_test.cpp:5823:                        node[sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/AMM_test.cpp:5827:                        found = node[sfModifiedNode.fieldName]
+src/test/app/AMM_test.cpp:7223:            auto const lpToken = getAccountLines(
+src/test/app/AMM_test.cpp:7259:            auto const lpToken = getAccountLines(
+src/test/app/AMM_test.cpp:7323:    testAMMClawback(FeatureBitset features)
+src/test/app/AMM_test.cpp:7331:        env(fset(gw, asfAllowTrustLineClawback));
+src/test/app/AMM_test.cpp:7335:        // If featureAMMClawback is not enabled, AMMCreate is not allowed for
+src/test/app/AMM_test.cpp:7337:        if (!features[featureAMMClawback])
+src/test/app/AMM_test.cpp:7341:            env(fclear(gw, asfAllowTrustLineClawback));
+src/test/app/AMM_test.cpp:7346:        // If featureAMMClawback is enabled, AMMCreate is allowed for
+src/test/app/AMM_test.cpp:7347:        // clawback-enabled issuer. Clawback from the AMM Account is not
+src/test/app/AMM_test.cpp:7350:        // AMMClawback transaction to claw back from AMM Account.
+src/test/app/AMM_test.cpp:7360:            // error because regular Clawback transaction is not
+src/test/app/AMM_test.cpp:7421:        if (features[featureAMMClawback])
+src/test/app/AMM_test.cpp:7425:            // when feature AMMClawback is enabled.
+src/test/app/AMM_test.cpp:7441:            // when feature AMMClawback is not enabled.
+src/test/app/AMM_test.cpp:7927:        testInvalidDeposit(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7956:        testClawback();
+src/test/app/AMM_test.cpp:7973:        testAMMClawback(all);
+src/test/app/AMM_test.cpp:7974:        testAMMClawback(all - featureSingleAssetVault);
+src/test/app/AMM_test.cpp:7975:        testAMMClawback(all - featureAMMClawback - featureSingleAssetVault);
+src/test/app/AMM_test.cpp:7976:        testAMMClawback(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7977:        testAMMClawback(all - fixAMMv1_1 - fixAMMv1_3 - featureAMMClawback);
+src/test/app/AMM_test.cpp:7979:        testAMMDepositWithFrozenAssets(all - featureAMMClawback);
+src/test/app/AMM_test.cpp:7980:        testAMMDepositWithFrozenAssets(all - fixAMMv1_1 - featureAMMClawback);
+src/test/app/AMM_test.cpp:7982:            all - fixAMMv1_1 - fixAMMv1_3 - featureAMMClawback);
+src/test/app/EscrowToken_test.cpp:674:            env(trust(gw, USD(10'000), bob, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1943:            env(trust(gw, USD(10'000), alice, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1960:                gw, USD(10'000), alice, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1972:            env(trust(gw, USD(10'000), bob, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1985:                gw, USD(10'000), alice, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1986:            env(trust(gw, USD(10'000), bob, tfClearFreeze | tfClearDeepFreeze));
+src/test/app/EscrowToken_test.cpp:1998:            env(trust(gw, USD(10'000), bob, tfSetFreeze | tfSetDeepFreeze));
+src/test/rpc/AccountObjects_test.cpp:39:static char const* bobs_account_objects[] = {
+src/test/rpc/AccountObjects_test.cpp:117:class AccountObjects_test : public beast::unit_test::suite
+src/test/rpc/AccountObjects_test.cpp:131:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:142:                    "json", "account_objects", to_string(params))[jss::result];
+src/test/rpc/AccountObjects_test.cpp:160:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:168:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:178:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:189:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:199:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:209:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:226:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:231:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:237:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:243:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:249:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:255:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:261:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:270:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:271:            BEAST_EXPECT(resp[jss::result][jss::account_objects].size() == 0);
+src/test/rpc/AccountObjects_test.cpp:302:            Json::Reader{}.parse(bobs_account_objects[i], bobj[i]);
+src/test/rpc/AccountObjects_test.cpp:309:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:312:            BEAST_EXPECT(resp[jss::result][jss::account_objects].size() == 4);
+src/test/rpc/AccountObjects_test.cpp:315:                auto& aobj = resp[jss::result][jss::account_objects][i];
+src/test/rpc/AccountObjects_test.cpp:326:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:329:            BEAST_EXPECT(resp[jss::result][jss::account_objects].size() == 2);
+src/test/rpc/AccountObjects_test.cpp:332:                auto& aobj = resp[jss::result][jss::account_objects][i];
+src/test/rpc/AccountObjects_test.cpp:346:                    env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:347:                auto& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:391:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:393:            BEAST_EXPECT(resp[jss::result][jss::account_objects].size() == 0);
+src/test/rpc/AccountObjects_test.cpp:397:            resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:399:            BEAST_EXPECT(resp[jss::result][jss::account_objects].size() == 0);
+src/test/rpc/AccountObjects_test.cpp:412:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:415:            unpaged = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:423:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:425:            Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:438:                env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:439:            Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:463:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:466:            unpaged = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:474:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:476:            Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:490:                    env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:491:                Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:521:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:524:            unpaged = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:532:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:534:            Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:545:                    env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:546:                Json::Value& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:584:        // Make a lambda we can use to get "account_objects" easily.
+src/test/rpc/AccountObjects_test.cpp:599:            return env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:604:            return resp[jss::result][jss::account_objects].isArray() &&
+src/test/rpc/AccountObjects_test.cpp:605:                (resp[jss::result][jss::account_objects].size() == size);
+src/test/rpc/AccountObjects_test.cpp:650:            auto const& nftPage = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:667:            auto const& state = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:680:            auto const& check = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:693:            auto const& preauth = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:714:            auto const& escrow = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:734:                resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:771:                return scEnv.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:779:                resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:818:                return scEnv.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:828:                    resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:841:                    resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:875:                return scEnv.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:885:                    resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:904:            auto const& offer = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:928:            auto const& payChan = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:949:            auto const& did = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:962:                resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:980:            auto const& ticket = resp[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountObjects_test.cpp:991:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1005:            std::uint32_t const expectedAccountObjects{
+src/test/rpc/AccountObjects_test.cpp:1008:            if (BEAST_EXPECT(acctObjsIsSize(resp, expectedAccountObjects)))
+src/test/rpc/AccountObjects_test.cpp:1010:                auto const& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1012:                gotLedgerTypes.reserve(expectedAccountObjects);
+src/test/rpc/AccountObjects_test.cpp:1013:                for (std::uint32_t i = 0; i < expectedAccountObjects; ++i)
+src/test/rpc/AccountObjects_test.cpp:1029:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1033:                auto const& aobjs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1041:                auto const objs = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1042:                for (auto const& obj : resp[jss::result][jss::account_objects])
+src/test/rpc/AccountObjects_test.cpp:1062:            auto const lines = getAccountLines(env, amm.ammAccount());
+src/test/rpc/AccountObjects_test.cpp:1294:        // test account_objects with a limit and update marker
+src/test/rpc/AccountObjects_test.cpp:1300:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1301:            auto& accountObjects = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1307:        // test account_objects with valid marker and update marker
+src/test/rpc/AccountObjects_test.cpp:1314:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1315:            auto& accountObjects = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1329:                env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1339:        // test account_objects with an invalid marker that contains no ','
+src/test/rpc/AccountObjects_test.cpp:1352:        // test account_objects with an invalid marker containing invalid
+src/test/rpc/AccountObjects_test.cpp:1360:        // test account_objects with an invalid marker containing invalid
+src/test/rpc/AccountObjects_test.cpp:1369:        // test account_objects with an invalid marker containing invalid
+src/test/rpc/AccountObjects_test.cpp:1376:        // test account_objects with marker: "0,entryIndex", this is still
+src/test/rpc/AccountObjects_test.cpp:1386:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1387:            auto& accountObjects = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1392:        // test account_objects with an invalid marker containing invalid
+src/test/rpc/AccountObjects_test.cpp:1399:        // test account_objects with an invalid marker containing invalid
+src/test/rpc/AccountObjects_test.cpp:1406:        // continue getting account_objects with valid marker. This will be the
+src/test/rpc/AccountObjects_test.cpp:1414:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1415:            auto& accountObjects = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1422:        // test account_objects when the account only have nft pages, but
+src/test/rpc/AccountObjects_test.cpp:1430:            auto resp = env.rpc("json", "account_objects", to_string(params));
+src/test/rpc/AccountObjects_test.cpp:1431:            auto& accountObjects = resp[jss::result][jss::account_objects];
+src/test/rpc/AccountObjects_test.cpp:1449:BEAST_DEFINE_TESTSUITE(AccountObjects, rpc, ripple);
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:58:    // / `sfFinalFields` object in a `CreatedNode` / `ModifiedNode` object in
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:64:    // but after one iteration of the loop below, then it is a `ModifiedNode`
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:65:    // / `CreatedNode` object in a transaction's metadata.
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:68:    // Use to test an unlikely scenario when CreatedNode / ModifiedNode
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:94:        for (STObject const& node : meta->getFieldArray(sfAffectedNodes))
+src/xrpld/app/tx/detail/LoanSet.cpp:330:    if (auto const ret = checkDeepFrozen(ctx.view, brokerPseudo, asset))
+src/xrpld/app/tx/detail/LoanSet.cpp:347:    if (auto const ret = checkDeepFrozen(ctx.view, brokerOwner, asset))
+src/test/app/Credentials_test.cpp:1005:            testcase("account_tx");
+src/test/app/Credentials_test.cpp:1012:                    "json", "account_tx", to_string(params))[jss::result];
+src/test/app/Credentials_test.cpp:1029:                    "json", "account_tx", to_string(params))[jss::result];
+src/test/app/Credentials_test.cpp:1043:            testcase("account_objects");
+src/test/app/Credentials_test.cpp:1049:                    "json", "account_objects", to_string(params))[jss::result];
+src/test/app/Credentials_test.cpp:1051:                BEAST_EXPECT(jv[jss::account_objects].size() == 1);
+src/test/app/Credentials_test.cpp:1052:                auto const& object(jv[jss::account_objects][0u]);
+src/test/app/Credentials_test.cpp:1063:                    "json", "account_objects", to_string(params))[jss::result];
+src/test/app/Credentials_test.cpp:1065:                BEAST_EXPECT(jv[jss::account_objects].size() == 1);
+src/test/app/Credentials_test.cpp:1066:                auto const& object(jv[jss::account_objects][0u]);
+src/xrpld/rpc/handlers/AccountChannels.cpp:56:    if (auto const& v = line[~sfDestinationTag])
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:20:#include <xrpld/app/tx/detail/NFTokenAcceptOffer.h>
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:31:NFTokenAcceptOffer::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:33:    return tfNFTokenAcceptOfferMask;
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:37:NFTokenAcceptOffer::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:61:NFTokenAcceptOffer::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:183:                res = nft::checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:262:                res = nft::checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:357:            auto const res = nft::checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:394:            res = nft::checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:405:NFTokenAcceptOffer::pay(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:433:NFTokenAcceptOffer::transferNFToken(
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:487:NFTokenAcceptOffer::acceptOffer(std::shared_ptr<SLE> const& offer)
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.cpp:522:NFTokenAcceptOffer::doApply()
+src/xrpld/rpc/BookChanges.h:83:        for (auto const& node : tx.second->getFieldArray(sfAffectedNodes))
+src/xrpld/rpc/BookChanges.h:90:            if (nodeType != ltOFFER || metaType == sfCreatedNode)
+src/xrpld/rpc/BookChanges.h:113:            if (metaType == sfDeletedNode && offerCancel &&
+src/test/rpc/NoRipple_test.cpp:66:                env.rpc("json", "account_lines", to_string(account_gw))};
+src/test/rpc/NoRipple_test.cpp:71:            lines = env.rpc("json", "account_lines", to_string(account_alice));
+src/test/rpc/NoRipple_test.cpp:132:            auto getAccountLines = [&env](Account const& acct) {
+src/test/rpc/NoRipple_test.cpp:133:                auto const r = jtx::getAccountLines(env, acct);
+src/test/rpc/NoRipple_test.cpp:137:                auto const aliceLines = getAccountLines(alice);
+src/test/rpc/NoRipple_test.cpp:141:                auto const bobLines = getAccountLines(bob);
+src/test/rpc/NoRipple_test.cpp:156:                auto const aliceLines = getAccountLines(alice);
+src/test/rpc/NoRipple_test.cpp:160:                auto const bobLines = getAccountLines(bob);
+src/test/rpc/NoRipple_test.cpp:237:            auto lines = env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/NoRipple_test.cpp:245:            auto lines = env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/NoRipple_test.cpp:253:            auto lines = env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/NoRipple_test.cpp:261:            auto lines = env.rpc("json", "account_lines", to_string(params));
+src/xrpld/app/tx/detail/InvariantCheck.h:293:class NoDeepFreezeTrustLinesWithoutFreeze
+src/xrpld/app/tx/detail/InvariantCheck.h:295:    bool deepFreezeWithoutFreeze_ = false;
+src/xrpld/app/tx/detail/InvariantCheck.h:548: * Clawback.
+src/xrpld/app/tx/detail/InvariantCheck.h:554:class ValidClawback
+src/xrpld/app/tx/detail/InvariantCheck.h:961:    NoDeepFreezeTrustLinesWithoutFreeze,
+src/xrpld/app/tx/detail/InvariantCheck.h:968:    ValidClawback,
+src/xrpld/app/tx/detail/Payment.cpp:364:        (sleDst->getFlags() & lsfRequireDestTag) &&
+src/xrpld/app/tx/detail/Payment.cpp:365:        !ctx.tx.isFieldPresent(sfDestinationTag))
+src/xrpld/app/tx/detail/Payment.cpp:373:            << "Malformed transaction: DestinationTag required.";
+src/xrpld/app/tx/detail/CreateOffer.cpp:310:        (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/NFTokenUtils.h:164:checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp:112:        if (auto const ret = checkDeepFrozen(ctx.view, dstAcct, vaultAsset))
+src/test/rpc/RPCCall_test.cpp:505:    // account_lines
+src/test/rpc/RPCCall_test.cpp:507:    {"account_lines: minimal.",
+src/test/rpc/RPCCall_test.cpp:509:     {"account_lines", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"},
+src/test/rpc/RPCCall_test.cpp:512:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:520:    {"account_lines: peer.",
+src/test/rpc/RPCCall_test.cpp:522:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:527:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:536:    {"account_lines: peer and numeric ledger index.",
+src/test/rpc/RPCCall_test.cpp:538:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:544:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:554:    {"account_lines: peer and text ledger index.",
+src/test/rpc/RPCCall_test.cpp:556:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:562:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:572:    {"account_lines: peer and ledger hash.",
+src/test/rpc/RPCCall_test.cpp:574:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:580:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:590:    {"account_lines: too few arguments.",
+src/test/rpc/RPCCall_test.cpp:593:         "account_lines",
+src/test/rpc/RPCCall_test.cpp:597:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:607:     "account_lines: four arguments.",
+src/test/rpc/RPCCall_test.cpp:609:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:616:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:627:     "account_lines: five arguments.",
+src/test/rpc/RPCCall_test.cpp:629:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:637:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:647:    {"account_lines: too many arguments.",
+src/test/rpc/RPCCall_test.cpp:649:     {"account_lines",
+src/test/rpc/RPCCall_test.cpp:658:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:668:        "account_lines: first invalid accountID.",
+src/test/rpc/RPCCall_test.cpp:671:            "account_lines",
+src/test/rpc/RPCCall_test.cpp:676:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:687:        "account_lines: second invalid accountID.",
+src/test/rpc/RPCCall_test.cpp:690:            "account_lines",
+src/test/rpc/RPCCall_test.cpp:696:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:706:        "account_lines: invalid ledger selector.",
+src/test/rpc/RPCCall_test.cpp:708:        {"account_lines",
+src/test/rpc/RPCCall_test.cpp:714:    "method" : "account_lines",
+src/test/rpc/RPCCall_test.cpp:726:    // account_objects
+src/test/rpc/RPCCall_test.cpp:728:    {"account_objects: minimal.",
+src/test/rpc/RPCCall_test.cpp:730:     {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"},
+src/test/rpc/RPCCall_test.cpp:733:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:741:    {"account_objects: with numeric ledger index.",
+src/test/rpc/RPCCall_test.cpp:743:     {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "77777"},
+src/test/rpc/RPCCall_test.cpp:746:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:755:    {"account_objects: with text ledger index.",
+src/test/rpc/RPCCall_test.cpp:757:     {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "closed"},
+src/test/rpc/RPCCall_test.cpp:760:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:769:    {"account_objects: with ledger hash.",
+src/test/rpc/RPCCall_test.cpp:771:     {"account_objects",
+src/test/rpc/RPCCall_test.cpp:776:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:785:    {"account_objects: with ledger index.",
+src/test/rpc/RPCCall_test.cpp:787:     {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "validated"},
+src/test/rpc/RPCCall_test.cpp:790:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:799:    {"account_objects: too few arguments.",
+src/test/rpc/RPCCall_test.cpp:802:         "account_objects",
+src/test/rpc/RPCCall_test.cpp:806:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:816:     "account_objects: four arguments.",
+src/test/rpc/RPCCall_test.cpp:819:         "account_objects",
+src/test/rpc/RPCCall_test.cpp:827:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:836:     "account_objects: five arguments.",
+src/test/rpc/RPCCall_test.cpp:839:         "account_objects",
+src/test/rpc/RPCCall_test.cpp:848:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:856:    {"account_objects: too many arguments.",
+src/test/rpc/RPCCall_test.cpp:859:         "account_objects",
+src/test/rpc/RPCCall_test.cpp:869:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:879:        "account_objects: invalid accountID.",
+src/test/rpc/RPCCall_test.cpp:882:            "account_objects",
+src/test/rpc/RPCCall_test.cpp:887:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:900:        "account_objects: invalid ledger selection 1.",
+src/test/rpc/RPCCall_test.cpp:902:        {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "no_ledger"},
+src/test/rpc/RPCCall_test.cpp:905:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:918:        "account_objects: invalid ledger selection 2.",
+src/test/rpc/RPCCall_test.cpp:920:        {"account_objects", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "no_ledger"},
+src/test/rpc/RPCCall_test.cpp:923:    "method" : "account_objects",
+src/test/rpc/RPCCall_test.cpp:1117:    // account_tx
+src/test/rpc/RPCCall_test.cpp:1119:    {"account_tx: minimal.",
+src/test/rpc/RPCCall_test.cpp:1121:     {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"},
+src/test/rpc/RPCCall_test.cpp:1124:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1132:    {"account_tx: ledger_index .",
+src/test/rpc/RPCCall_test.cpp:1134:     {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "444"},
+src/test/rpc/RPCCall_test.cpp:1137:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1146:    {"account_tx: ledger_index plus trailing params.",
+src/test/rpc/RPCCall_test.cpp:1148:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1156:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1168:    {"account_tx: ledger_index_min and _max.",
+src/test/rpc/RPCCall_test.cpp:1170:     {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "-1", "-1"},
+src/test/rpc/RPCCall_test.cpp:1173:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1183:    {"account_tx: ledger_index_min and _max plus trailing params.",
+src/test/rpc/RPCCall_test.cpp:1185:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1194:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1207:    {"account_tx: ledger_index_min and _max plus limit.",
+src/test/rpc/RPCCall_test.cpp:1209:     {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "247", "-1", "300"},
+src/test/rpc/RPCCall_test.cpp:1212:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1223:    {"account_tx: ledger_index_min and _max, limit, trailing args.",
+src/test/rpc/RPCCall_test.cpp:1225:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1235:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1249:    {"account_tx: ledger_index_min and _max plus limit and offset.",
+src/test/rpc/RPCCall_test.cpp:1251:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1259:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1271:    {"account_tx: ledger_index_min and _max, limit, offset, trailing.",
+src/test/rpc/RPCCall_test.cpp:1273:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1283:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1297:    {"account_tx: too few arguments.",
+src/test/rpc/RPCCall_test.cpp:1300:         "account_tx",
+src/test/rpc/RPCCall_test.cpp:1304:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1313:    {"account_tx: too many arguments.",
+src/test/rpc/RPCCall_test.cpp:1315:     {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1327:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1337:        "account_tx: invalid accountID.",
+src/test/rpc/RPCCall_test.cpp:1339:        {"account_tx", "rHb9CJAWyB4rj9!VRWn96DkukG4bwdtyTh"},
+src/test/rpc/RPCCall_test.cpp:1342:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1354:        "account_tx: invalid ledger.",
+src/test/rpc/RPCCall_test.cpp:1356:        {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "-478.7"},
+src/test/rpc/RPCCall_test.cpp:1359:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1370:        "account_tx: max less than min.",
+src/test/rpc/RPCCall_test.cpp:1372:        {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "580", "579"},
+src/test/rpc/RPCCall_test.cpp:1376:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1386:    "method" : "account_tx",
+src/test/rpc/RPCCall_test.cpp:1398:        "account_tx: non-integer min.",
+src/test/rpc/RPCCall_test.cpp:1400:        {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "Binary", "-1"},
+src/test/rpc/RPCCall_test.cpp:1406:        "account_tx: non-integer max.",
+src/test/rpc/RPCCall_test.cpp:1408:        {"account_tx", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "-1", "counts"},
+src/test/rpc/RPCCall_test.cpp:1414:        "account_tx: non-integer offset.",
+src/test/rpc/RPCCall_test.cpp:1416:        {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1426:        "account_tx: non-integer limit.",
+src/test/rpc/RPCCall_test.cpp:1428:        {"account_tx",
+src/test/rpc/RPCCall_test.cpp:1438:     "account_tx: RIPD-1570.",
+src/test/rpc/RPCCall_test.cpp:1440:     {"account_tx",
+src/xrpld/app/tx/detail/PayChan.cpp:71:        DestinationTag (optional)
+src/xrpld/app/tx/detail/PayChan.cpp:75:            intended to go to. Required if the destination has lsfRequireDestTag
+src/xrpld/app/tx/detail/PayChan.cpp:236:        if ((flags & lsfRequireDestTag) && !ctx.tx[~sfDestinationTag])
+src/xrpld/app/tx/detail/PayChan.cpp:293:    (*slep)[~sfDestinationTag] = ctx_.tx[~sfDestinationTag];
+src/test/rpc/AccountSet_test.cpp:98:                if (flag == asfAllowTrustLineClawback)
+src/test/rpc/AccountSet_test.cpp:100:                    // The asfAllowTrustLineClawback flag can't be cleared.  It
+src/test/rpc/AccountSet_test.cpp:141:            {asfRequireDest,
+src/test/rpc/AccountSet_test.cpp:152:            {asfRequireDest,
+src/test/rpc/AccountSet_test.cpp:162:    testSetAndResetAccountTxnID()
+src/test/rpc/AccountSet_test.cpp:164:        testcase("Set and reset AccountTxnID");
+src/test/rpc/AccountSet_test.cpp:173:        // asfAccountTxnID is special and not actually set as a flag,
+src/test/rpc/AccountSet_test.cpp:175:        BEAST_EXPECT(!env.le(alice)->isFieldPresent(sfAccountTxnID));
+src/test/rpc/AccountSet_test.cpp:176:        env(fset(alice, asfAccountTxnID), sig(alice));
+src/test/rpc/AccountSet_test.cpp:177:        BEAST_EXPECT(env.le(alice)->isFieldPresent(sfAccountTxnID));
+src/test/rpc/AccountSet_test.cpp:178:        env(fclear(alice, asfAccountTxnID));
+src/test/rpc/AccountSet_test.cpp:179:        BEAST_EXPECT(!env.le(alice)->isFieldPresent(sfAccountTxnID));
+src/test/rpc/AccountSet_test.cpp:494:        jt = fset(alice, asfRequireDest);
+src/test/rpc/AccountSet_test.cpp:495:        jt[jss::ClearFlag] = asfRequireDest;
+src/test/rpc/AccountSet_test.cpp:506:        jt = fset(alice, asfRequireDest);
+src/test/rpc/AccountSet_test.cpp:510:        jt = fset(alice, asfRequireDest);
+src/test/rpc/AccountSet_test.cpp:614:        testSetAndResetAccountTxnID();
+src/xrpld/app/tx/detail/VaultClawback.cpp:20:#include <xrpld/app/tx/detail/VaultClawback.h>
+src/xrpld/app/tx/detail/VaultClawback.cpp:38:VaultClawback::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/VaultClawback.cpp:42:        JLOG(ctx.j.debug()) << "VaultClawback: zero/empty vault ID.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:54:            JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback XRP.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:79:VaultClawback::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/VaultClawback.cpp:96:            << "VaultClawback: missing issuance of vault shares.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:108:            << "VaultClawback: must specify amount when issuer is owner.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:124:                << "VaultClawback: only vault owner can clawback shares.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:136:                << "VaultClawback: vault owner can clawback shares only"
+src/xrpld/app/tx/detail/VaultClawback.cpp:156:                    << "VaultClawback: vault owner must clawback all "
+src/xrpld/app/tx/detail/VaultClawback.cpp:171:            JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback XRP.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:179:                << "VaultClawback: only asset issuer can clawback asset.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:187:                << "VaultClawback: issuer cannot be the holder.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:202:                    if (!(issueFlags & lsfMPTCanClawback))
+src/xrpld/app/tx/detail/VaultClawback.cpp:204:                        JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback "
+src/xrpld/app/tx/detail/VaultClawback.cpp:217:                            << "VaultClawback: missing submitter account.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:224:                    if (!(issuerFlags & lsfAllowTrustLineClawback) ||
+src/xrpld/app/tx/detail/VaultClawback.cpp:227:                        JLOG(ctx.j.debug()) << "VaultClawback: cannot clawback "
+src/xrpld/app/tx/detail/VaultClawback.cpp:242:VaultClawback::assetsToClawback(
+src/xrpld/app/tx/detail/VaultClawback.cpp:252:        JLOG(j_.error()) << "VaultClawback: asset mismatch in clawback.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:345:                    << "VaultClawback: invalid rounding of shares.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:356:            << "VaultClawback: overflow error with"
+src/xrpld/app/tx/detail/VaultClawback.cpp:368:VaultClawback::doApply()
+src/xrpld/app/tx/detail/VaultClawback.cpp:380:        JLOG(j_.error()) << "VaultClawback: missing issuance of vault shares.";
+src/xrpld/app/tx/detail/VaultClawback.cpp:395:        "ripple::VaultClawback::doApply : loss and assets do balance");
+src/xrpld/app/tx/detail/VaultClawback.cpp:416:            "ripple::VaultClawback::doApply : matching asset");
+src/xrpld/app/tx/detail/VaultClawback.cpp:419:            assetsToClawback(vault, sleIssuance, holder, amount);
+src/xrpld/app/tx/detail/VaultClawback.cpp:456:                << "VaultClawback: removed empty MPToken for vault shares"
+src/xrpld/app/tx/detail/VaultClawback.cpp:464:                << "VaultClawback: failed to remove MPToken for vault shares"
+src/xrpld/app/tx/detail/VaultClawback.cpp:498:                << "VaultClawback: negative balance of vault assets.";
+src/xrpld/rpc/detail/RPCCall.cpp:238:    // account_tx accountID [ledger_min [ledger_max [limit [offset]]]] [binary]
+src/xrpld/rpc/detail/RPCCall.cpp:737:    // account_lines <account> <account>|"" [<ledger>]
+src/xrpld/rpc/detail/RPCCall.cpp:739:    parseAccountLines(Json::Value const& jvParams)
+src/xrpld/rpc/detail/RPCCall.cpp:1249:            {"account_lines", &RPCParser::parseAccountLines, 1, 5},
+src/xrpld/rpc/detail/RPCCall.cpp:1252:            {"account_objects", &RPCParser::parseAccountItems, 1, 5},
+src/xrpld/rpc/detail/RPCCall.cpp:1254:            {"account_tx", &RPCParser::parseAccountTransactions, 1, 8},
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:1:#include <xrpld/app/tx/detail/LoanBrokerCoverClawback.h>
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:10:LoanBrokerCoverClawback::checkExtraFeatures(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:16:LoanBrokerCoverClawback::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:175:    // If AllowTrustLineClawback is not set or NoFreeze is set, return no
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:177:    if (!(sleIssuer.isFlag(lsfAllowTrustLineClawback)) ||
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:197:    if (!sleIssuance->isFlag(lsfMPTCanClawback))
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:208:LoanBrokerCoverClawback::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp:308:LoanBrokerCoverClawback::doApply()
+src/xrpld/app/tx/detail/CashCheck.cpp:106:        if ((sleDst->getFlags() & lsfRequireDestTag) &&
+src/xrpld/app/tx/detail/CashCheck.cpp:107:            !sleCheck->isFieldPresent(sfDestinationTag))
+src/xrpld/app/tx/detail/CashCheck.cpp:112:                << "Malformed transaction: DestinationTag required in check.";
+src/xrpld/app/tx/detail/SetTrust.cpp:41:    bool bSetDeepFreeze,
+src/xrpld/app/tx/detail/SetTrust.cpp:42:    bool bClearDeepFreeze)
+src/xrpld/app/tx/detail/SetTrust.cpp:52:    if (bSetDeepFreeze && !bClearDeepFreeze && !bNoFreeze)
+src/xrpld/app/tx/detail/SetTrust.cpp:55:            (bHigh ? ripple::lsfHighDeepFreeze : ripple::lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:57:    else if (bClearDeepFreeze && !bSetDeepFreeze)
+src/xrpld/app/tx/detail/SetTrust.cpp:60:            ~(bHigh ? ripple::lsfHighDeepFreeze : ripple::lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:84:    if (!ctx.rules.enabled(featureDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:88:        if (uTxFlags & (tfSetDeepFreeze | tfClearDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:311:    if (ctx.view.rules().enabled(featureDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:315:        bool const bSetDeepFreeze = (uTxFlags & tfSetDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:317:        if (bNoFreeze && (bSetFreeze || bSetDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:324:        bool const bClearDeepFreeze = (uTxFlags & tfClearDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:325:        if ((bSetFreeze || bSetDeepFreeze) &&
+src/xrpld/app/tx/detail/SetTrust.cpp:326:            (bClearFreeze || bClearDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:346:            bSetDeepFreeze,
+src/xrpld/app/tx/detail/SetTrust.cpp:347:            bClearDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:351:            uFlags & (bHigh ? lsfHighDeepFreeze : lsfLowDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:422:    bool const bSetDeepFreeze = (uTxFlags & tfSetDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:423:    bool const bClearDeepFreeze = (uTxFlags & tfClearDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:598:            bSetDeepFreeze,
+src/xrpld/app/tx/detail/SetTrust.cpp:599:            bClearDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:740:            bSetDeepFreeze,
+src/xrpld/rpc/detail/Handler.cpp:91:    {"account_lines", byRef(&doAccountLines), Role::USER, NO_CONDITION},
+src/xrpld/rpc/detail/Handler.cpp:94:    {"account_objects", byRef(&doAccountObjects), Role::USER, NO_CONDITION},
+src/xrpld/rpc/detail/Handler.cpp:96:    {"account_tx", byRef(&doAccountTxJson), Role::USER, NO_CONDITION},
+src/test/rpc/LedgerEntry_test.cpp:1886:                 tfMPTCanTrade | tfMPTCanTransfer | tfMPTCanClawback});
+src/xrpld/app/tx/detail/Transactor.cpp:203:    // An AccountTxnID field constrains transaction ordering more than the
+src/xrpld/app/tx/detail/Transactor.cpp:205:    // constraints.  Because Tickets and AccountTxnID work against one
+src/xrpld/app/tx/detail/Transactor.cpp:210:        ctx.tx.isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:545:    if (ctx.tx.isFieldPresent(sfAccountTxnID) &&
+src/xrpld/app/tx/detail/Transactor.cpp:546:        (sle->getFieldH256(sfAccountTxnID) !=
+src/xrpld/app/tx/detail/Transactor.cpp:547:         ctx.tx.getFieldH256(sfAccountTxnID)))
+src/xrpld/app/tx/detail/Transactor.cpp:677:        if (sle->isFieldPresent(sfAccountTxnID))
+src/xrpld/app/tx/detail/Transactor.cpp:678:            sle->setFieldH256(sfAccountTxnID, ctx_.tx.getTransactionID());
+src/xrpld/rpc/detail/Tuning.h:36:/** Limits for the account_lines command. */
+src/xrpld/rpc/detail/Tuning.h:42:/** Limits for the account_objects command. */
+src/xrpld/rpc/detail/Tuning.h:48:/** Limits for the account_tx command. */
+src/test/rpc/Subscribe_test.cpp:206:                return jv[jss::meta]["AffectedNodes"][1u]["CreatedNode"]
+src/test/rpc/Subscribe_test.cpp:221:                return jv[jss::meta]["AffectedNodes"][0u]["ModifiedNode"]
+src/test/rpc/Subscribe_test.cpp:231:                return jv[jss::meta]["AffectedNodes"][1u]["CreatedNode"]
+src/test/rpc/Subscribe_test.cpp:246:                return jv[jss::meta]["AffectedNodes"][0u]["ModifiedNode"]
+src/test/rpc/Subscribe_test.cpp:295:                return jv[jss::meta]["AffectedNodes"][1u]["ModifiedNode"]
+src/test/rpc/Subscribe_test.cpp:301:                return jv[jss::meta]["AffectedNodes"][1u]["CreatedNode"]
+src/test/rpc/Subscribe_test.cpp:357:                return jv[jss::meta]["AffectedNodes"][1u]["CreatedNode"]
+src/test/rpc/Subscribe_test.cpp:381:                return jv[jss::meta]["AffectedNodes"][0u]["ModifiedNode"]
+src/test/rpc/Subscribe_test.cpp:1372:        // response for NFTokenMint and NFTokenAcceptOffer.
+src/test/rpc/Subscribe_test.cpp:1404:        // changed in the most recent NFTokenMint or NFTokenAcceptOffer
+src/test/rpc/Subscribe_test.cpp:1506:            // Verify the NFTokenID is correct in the NFTokenAcceptOffer tx meta
+src/test/rpc/Subscribe_test.cpp:1537:            // Check NFTokenID meta for NFTokenAcceptOffer in brokered mode
+src/xrpld/app/tx/detail/DeleteAccount.cpp:241:    if ((*sleDst)[sfFlags] & lsfRequireDestTag && !ctx.tx[~sfDestinationTag])
+src/xrpld/app/paths/PathRequest.cpp:227:            (sleDest->getFlags() & lsfRequireDestTag);
+src/xrpld/app/tx/detail/XChainBridge.cpp:422:        if ((sleDst->getFlags() & lsfRequireDestTag) && !dstTag)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1478:        if (sleIssuer->getFlags() & lsfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/XChainBridge.cpp:1841:    std::optional<std::uint32_t> const dstTag = ctx_.tx[~sfDestinationTag];
+src/xrpld/app/paths/TrustLine.h:138:    getDeepFreeze() const
+src/xrpld/app/paths/TrustLine.h:140:        return mFlags & (mViewLowest ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/paths/TrustLine.h:152:    getDeepFreezePeer() const
+src/xrpld/app/paths/TrustLine.h:154:        return mFlags & (!mViewLowest ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/paths/TrustLine.h:210:// This wrapper is used for the `AccountLines` command and includes the quality
+src/xrpld/app/tx/detail/Clawback.cpp:20:#include <xrpld/app/tx/detail/Clawback.h>
+src/xrpld/app/tx/detail/Clawback.cpp:79:Clawback::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Clawback.cpp:81:    return tfClawbackMask;
+src/xrpld/app/tx/detail/Clawback.cpp:85:Clawback::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Clawback.cpp:116:    // If AllowTrustLineClawback is not set or NoFreeze is set, return no
+src/xrpld/app/tx/detail/Clawback.cpp:118:    if (!(issuerFlagsIn & lsfAllowTrustLineClawback) ||
+src/xrpld/app/tx/detail/Clawback.cpp:173:    if (!((*sleIssuance)[sfFlags] & lsfMPTCanClawback))
+src/xrpld/app/tx/detail/Clawback.cpp:195:Clawback::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/Clawback.cpp:285:Clawback::doApply()
+src/xrpld/app/tx/detail/LoanBrokerDelete.cpp:89:        if (auto const ret = checkDeepFrozen(ctx.view, brokerOwner, asset))
+src/xrpld/rpc/detail/RPCHelpers.h:105:getAccountObjects(
+src/xrpld/rpc/detail/RPCHelpers.h:237: * Check if the type is a valid filtering type for account_objects method
+src/xrpld/rpc/detail/RPCHelpers.h:243:isAccountObjectsValidType(LedgerEntryType const& type);
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.h:8:class LoanBrokerCoverClawback : public Transactor
+src/xrpld/app/tx/detail/LoanBrokerCoverClawback.h:13:    explicit LoanBrokerCoverClawback(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/Escrow.cpp:518:        if (((*sled)[sfFlags] & lsfRequireDestTag) &&
+src/xrpld/app/tx/detail/Escrow.cpp:519:            !ctx_.tx[~sfDestinationTag])
+src/xrpld/app/tx/detail/Escrow.cpp:540:    (*slep)[~sfDestinationTag] = ctx_.tx[~sfDestinationTag];
+src/xrpld/app/tx/detail/Escrow.cpp:733:    if (isDeepFrozen(ctx.view, dest, amount.getCurrency(), amount.getIssuer()))
+src/test/rpc/AccountTx_test.cpp:35:class AccountTx_test : public beast::unit_test::suite
+src/test/rpc/AccountTx_test.cpp:38:    // transactions array node as returned by the account_tx RPC command.
+src/test/rpc/AccountTx_test.cpp:84:             txNode[jss::meta][sfAffectedNodes.jsonName])
+src/test/rpc/AccountTx_test.cpp:86:            if (metaNode.isMember(sfCreatedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:88:                    metaNode[sfCreatedNode.jsonName][sfLedgerEntryType.jsonName]
+src/test/rpc/AccountTx_test.cpp:91:            else if (metaNode.isMember(sfDeletedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:93:                    metaNode[sfDeletedNode.jsonName][sfLedgerEntryType.jsonName]
+src/test/rpc/AccountTx_test.cpp:96:            else if (metaNode.isMember(sfModifiedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:97:                modifiedNodes.insert(metaNode[sfModifiedNode.jsonName]
+src/test/rpc/AccountTx_test.cpp:200:            env.rpc("json", "account_tx", to_string(jParams)),
+src/test/rpc/AccountTx_test.cpp:206:            env.rpc("json", "account_tx", to_string(jParams)),
+src/test/rpc/AccountTx_test.cpp:211:            env.rpc(apiVersion, "json", "account_tx", to_string(jParams))));
+src/test/rpc/AccountTx_test.cpp:219:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:225:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:228:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:235:                    noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:238:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:244:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:253:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:258:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:261:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:266:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:276:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:281:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:284:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:289:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:293:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:296:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:305:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:308:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:312:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:317:                env.rpc("json", "account_tx", to_string(p)), rpcLGR_NOT_FOUND));
+src/test/rpc/AccountTx_test.cpp:326:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:329:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:345:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:348:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:358:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:361:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:370:                    "json", "account_tx", to_string(params))[jss::result];
+src/test/rpc/AccountTx_test.cpp:389:                Json::Value result{env.rpc("json", "account_tx", to_string(p))};
+src/test/rpc/AccountTx_test.cpp:394:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:398:            Json::Value result{env.rpc("json", "account_tx", to_string(p))};
+src/test/rpc/AccountTx_test.cpp:406:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:410:            result = env.rpc("json", "account_tx", to_string(p));
+src/test/rpc/AccountTx_test.cpp:420:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:428:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:437:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:446:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:455:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:464:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:473:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:482:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:491:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:501:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:512:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:521:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:682:        // Setup is done.  Look at the transactions returned by account_tx.
+src/test/rpc/AccountTx_test.cpp:689:            env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:740:        // Verify that if an account is resurrected then the account_tx RPC
+src/test/rpc/AccountTx_test.cpp:795:        // Verify that we can recover becky's account_tx information even
+src/test/rpc/AccountTx_test.cpp:804:                env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:846:        // Setup is done.  Look at the transactions returned by account_tx.
+src/test/rpc/AccountTx_test.cpp:847:        // Verify that account_tx locates all of becky's transactions.
+src/test/rpc/AccountTx_test.cpp:854:            env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:895:                env.rpc("json", "account_tx", to_string(params))[jss::result];
+src/test/rpc/AccountTx_test.cpp:910:             .flags = tfMPTCanClawback | tfMPTRequireAuth | tfMPTCanTransfer});
+src/test/rpc/AccountTx_test.cpp:954:            std::bind_front(&AccountTx_test::testParameters, this));
+src/test/rpc/AccountTx_test.cpp:960:BEAST_DEFINE_TESTSUITE(AccountTx, rpc, ripple);
+src/xrpld/app/tx/detail/AMMClawback.cpp:22:#include <xrpld/app/tx/detail/AMMClawback.h>
+src/xrpld/app/tx/detail/AMMClawback.cpp:37:AMMClawback::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMClawback.cpp:39:    return tfAMMClawbackMask;
+src/xrpld/app/tx/detail/AMMClawback.cpp:43:AMMClawback::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/AMMClawback.cpp:51:            << "AMMClawback: holder cannot be the same as issuer.";
+src/xrpld/app/tx/detail/AMMClawback.cpp:67:            << "AMMClawback: tfClawTwoAssets can only be enabled when two "
+src/xrpld/app/tx/detail/AMMClawback.cpp:74:        JLOG(ctx.j.trace()) << "AMMClawback: Asset's account does not "
+src/xrpld/app/tx/detail/AMMClawback.cpp:81:        JLOG(ctx.j.trace()) << "AMMClawback: Amount's issuer/currency subfield "
+src/xrpld/app/tx/detail/AMMClawback.cpp:93:AMMClawback::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/AMMClawback.cpp:107:        JLOG(ctx.j.debug()) << "AMM Clawback: Invalid asset pair.";
+src/xrpld/app/tx/detail/AMMClawback.cpp:113:    // If AllowTrustLineClawback is not set or NoFreeze is set, return no
+src/xrpld/app/tx/detail/AMMClawback.cpp:115:    if (!(issuerFlagsIn & lsfAllowTrustLineClawback) ||
+src/xrpld/app/tx/detail/AMMClawback.cpp:123:AMMClawback::doApply()
+src/xrpld/app/tx/detail/AMMClawback.cpp:135:AMMClawback::applyGuts(Sandbox& sb)
+src/xrpld/app/tx/detail/AMMClawback.cpp:152:    if (sb.rules().enabled(fixAMMClawbackRounding))
+src/xrpld/app/tx/detail/AMMClawback.cpp:228:        << "AMM Withdraw during AMMClawback: lptoken new balance: "
+src/xrpld/app/tx/detail/AMMClawback.cpp:251:AMMClawback::equalWithdrawMatchingOneAmount(
+src/xrpld/app/tx/detail/AMMClawback.cpp:289:    if (rules.enabled(fixAMMClawbackRounding))
+src/xrpld/rpc/detail/RPCHelpers.cpp:153:getAccountObjects(
+src/xrpld/rpc/detail/RPCHelpers.cpp:191:    auto& jvObjects = (jvResult[jss::account_objects] = Json::arrayValue);
+src/xrpld/rpc/detail/RPCHelpers.cpp:259:        // give empty array for account_objects.
+src/xrpld/rpc/detail/RPCHelpers.cpp:261:            jvResult[jss::account_objects] = Json::arrayValue;
+src/xrpld/rpc/detail/RPCHelpers.cpp:265:        // true regardless of nftoken page presence; if absent, account_objects
+src/xrpld/rpc/detail/RPCHelpers.cpp:997:isAccountObjectsValidType(LedgerEntryType const& type)
+src/test/rpc/AccountLines_test.cpp:30:class AccountLines_test : public beast::unit_test::suite
+src/test/rpc/AccountLines_test.cpp:34:    testAccountLines()
+src/test/rpc/AccountLines_test.cpp:36:        testcase("account_lines");
+src/test/rpc/AccountLines_test.cpp:41:            // account_lines with no account.
+src/test/rpc/AccountLines_test.cpp:42:            auto const lines = env.rpc("json", "account_lines", "{ }");
+src/test/rpc/AccountLines_test.cpp:48:            // account_lines with a malformed account.
+src/test/rpc/AccountLines_test.cpp:53:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:64:                    "json", "account_lines", to_string(params))[jss::result];
+src/test/rpc/AccountLines_test.cpp:79:            // account_lines on an unfunded account.
+src/test/rpc/AccountLines_test.cpp:83:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:98:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:108:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:119:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:172:                tfSetNoRipple | tfSetFreeze | tfSetDeepFreeze));
+src/test/rpc/AccountLines_test.cpp:179:        auto testAccountLinesHistory = [this, &env](
+src/test/rpc/AccountLines_test.cpp:183:            // Get account_lines by ledger index.
+src/test/rpc/AccountLines_test.cpp:188:                env.rpc("json", "account_lines", to_string(paramsSeq));
+src/test/rpc/AccountLines_test.cpp:192:            // Get account_lines by ledger hash.
+src/test/rpc/AccountLines_test.cpp:197:                env.rpc("json", "account_lines", to_string(paramsHash));
+src/test/rpc/AccountLines_test.cpp:203:        testAccountLinesHistory(alice, ledger3Info, 0);
+src/test/rpc/AccountLines_test.cpp:206:        testAccountLinesHistory(alice, ledger4Info, 26);
+src/test/rpc/AccountLines_test.cpp:209:        testAccountLinesHistory(alice, ledger58Info, 52);
+src/test/rpc/AccountLines_test.cpp:219:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:228:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:238:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:253:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:264:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:275:                env.rpc("json", "account_lines", to_string(paramsA));
+src/test/rpc/AccountLines_test.cpp:285:                env.rpc("json", "account_lines", to_string(paramsB));
+src/test/rpc/AccountLines_test.cpp:295:                env.rpc("json", "account_lines", to_string(paramsC));
+src/test/rpc/AccountLines_test.cpp:305:                env.rpc("json", "account_lines", to_string(paramsD));
+src/test/rpc/AccountLines_test.cpp:316:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:328:                env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:331:            BEAST_EXPECT(line[jss::deep_freeze].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:342:                env.rpc("json", "account_lines", to_string(paramsA));
+src/test/rpc/AccountLines_test.cpp:344:            BEAST_EXPECT(lineA[jss::freeze_peer].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:345:            BEAST_EXPECT(lineA[jss::deep_freeze_peer].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:358:                env.rpc("json", "account_lines", to_string(paramsB));
+src/test/rpc/AccountLines_test.cpp:366:    testAccountLinesMarker()
+src/test/rpc/AccountLines_test.cpp:372:        // The goal of this test is observe account_lines RPC calls return an
+src/test/rpc/AccountLines_test.cpp:402:            env.rpc("json", "account_objects", to_string(aliceObjectsParams));
+src/test/rpc/AccountLines_test.cpp:404:            aliceObjects[jss::result][jss::account_objects][0u];
+src/test/rpc/AccountLines_test.cpp:415:        // Get account_lines for alice.  Limit at 1, so we get a marker
+src/test/rpc/AccountLines_test.cpp:421:            env.rpc("json", "account_lines", to_string(aliceLines1Params));
+src/test/rpc/AccountLines_test.cpp:436:            env.rpc("json", "account_lines", to_string(aliceLines2Params));
+src/test/rpc/AccountLines_test.cpp:446:            env.rpc("json", "account_lines", to_string(beckyLinesParams));
+src/test/rpc/AccountLines_test.cpp:457:        // The goal here is to observe account_lines marker behavior if the
+src/test/rpc/AccountLines_test.cpp:497:        // Get account_lines for alice.  Limit at 1, so we get a marker.
+src/test/rpc/AccountLines_test.cpp:502:            env.rpc("json", "account_lines", to_string(linesBegParams));
+src/test/rpc/AccountLines_test.cpp:517:            env.rpc("json", "account_lines", to_string(linesEndParams));
+src/test/rpc/AccountLines_test.cpp:524:    testAccountLinesWalkMarkers()
+src/test/rpc/AccountLines_test.cpp:531:        // The goal of this test is observe account_lines RPC calls return an
+src/test/rpc/AccountLines_test.cpp:559:        // included in the search, nor found by `account_objects`. If that ever
+src/test/rpc/AccountLines_test.cpp:645:            // Now make repeated calls to `account_lines` with a limit of 1.
+src/test/rpc/AccountLines_test.cpp:657:                return env.rpc("json", "account_lines", to_string(params));
+src/test/rpc/AccountLines_test.cpp:700:                "json", "account_objects", to_string(aliceObjectsParams2));
+src/test/rpc/AccountLines_test.cpp:705:                aliceObjects[jss::result].isMember(jss::account_objects));
+src/test/rpc/AccountLines_test.cpp:707:                aliceObjects[jss::result][jss::account_objects].isArray());
+src/test/rpc/AccountLines_test.cpp:708:            // account_objects does not currently return NFTPages. If
+src/test/rpc/AccountLines_test.cpp:709:            // that ever changes, without also changing account_lines,
+src/test/rpc/AccountLines_test.cpp:712:                aliceObjects[jss::result][jss::account_objects].size() ==
+src/test/rpc/AccountLines_test.cpp:724:                "json", "account_objects", to_string(beckyObjectsParams));
+src/test/rpc/AccountLines_test.cpp:729:                beckyObjects[jss::result].isMember(jss::account_objects));
+src/test/rpc/AccountLines_test.cpp:731:                beckyObjects[jss::result][jss::account_objects].isArray());
+src/test/rpc/AccountLines_test.cpp:735:                beckyObjects[jss::result][jss::account_objects].size() ==
+src/test/rpc/AccountLines_test.cpp:736:                aliceObjects[jss::result][jss::account_objects].size() - 2);
+src/test/rpc/AccountLines_test.cpp:742:    testAccountLines2()
+src/test/rpc/AccountLines_test.cpp:744:        testcase("V2: account_lines");
+src/test/rpc/AccountLines_test.cpp:749:            // account_lines with mal-formed json2 (missing id field).
+src/test/rpc/AccountLines_test.cpp:751:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:762:            // account_lines with no account.
+src/test/rpc/AccountLines_test.cpp:764:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:780:            // account_lines with a malformed account.
+src/test/rpc/AccountLines_test.cpp:785:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:803:            // account_lines on an unfunded account.
+src/test/rpc/AccountLines_test.cpp:807:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:833:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:854:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:875:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:938:                tfSetNoRipple | tfSetFreeze | tfSetDeepFreeze));
+src/test/rpc/AccountLines_test.cpp:945:        auto testAccountLinesHistory = [this, &env](
+src/test/rpc/AccountLines_test.cpp:949:            // Get account_lines by ledger index.
+src/test/rpc/AccountLines_test.cpp:954:            requestSeq[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:970:            // Get account_lines by ledger hash.
+src/test/rpc/AccountLines_test.cpp:975:            requestHash[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:994:        testAccountLinesHistory(alice, ledger3Info, 0);
+src/test/rpc/AccountLines_test.cpp:997:        testAccountLinesHistory(alice, ledger4Info, 26);
+src/test/rpc/AccountLines_test.cpp:1000:        testAccountLinesHistory(alice, ledger58Info, 52);
+src/test/rpc/AccountLines_test.cpp:1010:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1030:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1051:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1073:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1095:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1117:            requestA[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1138:            requestB[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1159:            requestC[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1180:            requestD[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1202:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1225:            request[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1233:            BEAST_EXPECT(line[jss::deep_freeze].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:1250:            requestA[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1257:            BEAST_EXPECT(lineA[jss::freeze_peer].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:1258:            BEAST_EXPECT(lineA[jss::deep_freeze_peer].asBool() == true);
+src/test/rpc/AccountLines_test.cpp:1277:            requestB[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1299:        testcase("V2: account_lines with removed marker");
+src/test/rpc/AccountLines_test.cpp:1304:        // The goal here is to observe account_lines marker behavior if the
+src/test/rpc/AccountLines_test.cpp:1344:        // Get account_lines for alice.  Limit at 1, so we get a marker.
+src/test/rpc/AccountLines_test.cpp:1349:        linesBegRequest[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1375:        linesEndRequest[jss::method] = "account_lines";
+src/test/rpc/AccountLines_test.cpp:1395:        testAccountLines();
+src/test/rpc/AccountLines_test.cpp:1396:        testAccountLinesMarker();
+src/test/rpc/AccountLines_test.cpp:1398:        testAccountLinesWalkMarkers();
+src/test/rpc/AccountLines_test.cpp:1399:        testAccountLines2();
+src/test/rpc/AccountLines_test.cpp:1404:BEAST_DEFINE_TESTSUITE(AccountLines, rpc, ripple);
+src/xrpld/app/tx/detail/AMMCreate.cpp:188:    // If featureAMMClawback is enabled, allow AMMCreate without checking
+src/xrpld/app/tx/detail/AMMCreate.cpp:190:    if (ctx.view.rules().enabled(featureAMMClawback))
+src/xrpld/app/tx/detail/AMMCreate.cpp:193:    // Disallow AMM if the issuer has clawback enabled when featureAMMClawback
+src/xrpld/app/tx/detail/AMMCreate.cpp:201:        else if (sle->getFlags() & lsfAllowTrustLineClawback)
+src/xrpld/rpc/detail/MPTokenIssuanceID.cpp:51:            node.getFName() != sfCreatedNode)
+src/test/rpc/RobustTransaction_test.cpp:138:                auto const& ff = jv[jss::meta]["AffectedNodes"][1u]
+src/test/rpc/RobustTransaction_test.cpp:139:                                   ["ModifiedNode"]["FinalFields"];
+src/test/rpc/RobustTransaction_test.cpp:145:                auto const& ff = jv[jss::meta]["AffectedNodes"][1u]
+src/test/rpc/RobustTransaction_test.cpp:146:                                   ["ModifiedNode"]["FinalFields"];
+src/test/rpc/RobustTransaction_test.cpp:214:            // RPC account_tx
+src/test/rpc/RobustTransaction_test.cpp:220:            jv = wsc->invoke("account_tx", jv);
+src/test/rpc/RobustTransaction_test.cpp:232:                        ["AffectedNodes"][1u]["ModifiedNode"]["FinalFields"];
+src/test/rpc/RobustTransaction_test.cpp:407:            // RPC account_tx
+src/test/rpc/RobustTransaction_test.cpp:413:            jv = wsc->invoke("account_tx", jv);
+src/test/rpc/RobustTransaction_test.cpp:425:                        ["AffectedNodes"][1u]["ModifiedNode"]["FinalFields"];
+src/xrpld/app/tx/detail/VaultWithdraw.cpp:119:                    ctx.tx.isFieldPresent(sfDestinationTag)))
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.h:27:class NFTokenAcceptOffer : public Transactor
+src/xrpld/app/tx/detail/NFTokenAcceptOffer.h:50:    explicit NFTokenAcceptOffer(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/LoanPay.cpp:223:    if (auto const ret = checkDeepFrozen(ctx.view, vaultPseudoAccount, asset))
+src/xrpld/app/tx/detail/LoanPay.cpp:307:            !isDeepFrozen(view, brokerOwner, asset) &&
+src/xrpld/app/tx/detail/LoanPay.cpp:318:        if (auto const ret = checkDeepFrozen(view, brokerPayee, asset))
+src/xrpld/app/tx/detail/CreateCheck.cpp:94:    if ((flags & lsfRequireDestTag) && !ctx.tx.isFieldPresent(sfDestinationTag))
+src/xrpld/app/tx/detail/CreateCheck.cpp:98:        JLOG(ctx.j.warn()) << "Malformed transaction: DestinationTag required.";
+src/xrpld/app/tx/detail/CreateCheck.cpp:188:    if (auto const dstTag = ctx_.tx[~sfDestinationTag])
+src/xrpld/app/tx/detail/CreateCheck.cpp:189:        sleCheck->setFieldU32(sfDestinationTag, *dstTag);
+src/xrpld/app/main/Main.cpp:126:           "     account_lines <account> <account>|\"\" [<ledger>]\n"
+src/xrpld/app/main/Main.cpp:128:           "     account_objects <account> [<ledger>]\n"
+src/xrpld/app/main/Main.cpp:130:           "     account_tx accountID [ledger_index_min [ledger_index_max "
+src/xrpld/app/tx/detail/OfferStream.cpp:280:        bool const deepFrozen = isDeepFrozen(
+src/xrpld/app/paths/detail/StepChecks.h:58:        if (sle->isFlag(lsfHighDeepFreeze) || sle->isFlag(lsfLowDeepFreeze))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1153:checkTrustlineDeepFrozen(
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1162:        "ripple::nft::checkTrustlineDeepFrozen : valid to check.");
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1164:    if (view.rules().enabled(featureDeepFreeze))
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1169:            JLOG(j.debug()) << "ripple::nft::checkTrustlineDeepFrozen: can't "
+src/xrpld/app/tx/detail/NFTokenUtils.cpp:1195:            (*trustLine)[sfFlags] & (lsfLowDeepFreeze | lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/AMMClawback.h:27:class AMMClawback : public Transactor
+src/xrpld/app/tx/detail/AMMClawback.h:32:    explicit AMMClawback(ApplyContext& ctx) : Transactor(ctx)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:491:    // A successful AMMWithdraw/AMMClawback MAY delete one account root
+src/xrpld/app/tx/detail/InvariantCheck.cpp:727:NoDeepFreezeTrustLinesWithoutFreeze::visitEntry(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:739:        bool const lowDeepFreeze = uFlags & lsfLowDeepFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:742:        bool const highDeepFreeze = uFlags & lsfHighDeepFreeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:745:            (lowDeepFreeze && !lowFreeze) || (highDeepFreeze && !highFreeze);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:747:            deepFreezeWithoutFreeze_ |= bad;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:749:            deepFreezeWithoutFreeze_ = bad;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:754:NoDeepFreezeTrustLinesWithoutFreeze::finalize(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:761:    if (!deepFreezeWithoutFreeze_)
+src/xrpld/app/tx/detail/InvariantCheck.cpp:822:     * enforce = view.rules().enabled(featureDeepFreeze) ||
+src/xrpld/app/tx/detail/InvariantCheck.cpp:826:        view.rules().enabled(featureDeepFreeze);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1013:    bool const deepFreeze =
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1014:        change.line->isFlag(high ? lsfLowDeepFreeze : lsfHighDeepFreeze);
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1015:    bool const frozen = globalFreeze || deepFreeze || freeze;
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1024:    // AMMClawbacks are allowed to override some freeze rules
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1029:                        << " a frozen trustline for AMMClawback "
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1407:ValidClawback::visitEntry(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:1420:ValidClawback::finalize(
+src/xrpld/app/tx/detail/InvariantCheck.cpp:2279:        // Last Withdraw or Clawback deleted AMM

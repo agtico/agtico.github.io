@@ -258,6 +258,13 @@ one of the WHIP gates:
   counterparty-signed transactions at/after `2021-11-08T00:00:00Z`, with the
   address visible in every returned tx or metadata object. No OFAC-specific P0
   was promoted.
+- The concrete OFAC deep-freeze/metadata branch was source-killed by focused
+  static/history review and upstream suites. The focused suite set was
+  `Freeze`, `Clawback`, `AMMClawback`, `NFTokenAuth`, `AccountLines`,
+  `AccountObjects`, `AccountTx`, and `AccountOffers`; it passed with 9 suites,
+  185 cases, and 23,586 tests. No deep-freeze bypass, metadata-hiding witness,
+  unauthorized clawback/AMMClawback mutation, NFT settlement bypass, or RPC
+  visibility failure was isolated.
 
 ## Still-Promoted Unfixed Set
 
