@@ -44,6 +44,8 @@ Included findings must satisfy both conditions:
 | `runs/20260527-p0-hunt/live_p0_hunt_v2_triage.md` | Continuation triage for the live-only promotions and excluded candidates. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch` | Focused `2.5.0` old-tag test patch for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log` | `2.5.0` old-tag `SetTrust` proof log showing the reserve/owner-count drift probe passed. |
+| `runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.patch` | Focused `2.0.0` old-tag test patch plus build-only Conan compatibility edits for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
+| `runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log` | `2.0.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
 | `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v13.log` | Live-only proof extract with marker coverage and zero-failure footer. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |

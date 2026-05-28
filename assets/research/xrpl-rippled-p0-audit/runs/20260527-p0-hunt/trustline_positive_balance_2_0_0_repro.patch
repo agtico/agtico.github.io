@@ -1,0 +1,202 @@
+diff --git a/conanfile.py b/conanfile.py
+index c789cacf5..6b5efeb65 100644
+--- a/conanfile.py
++++ b/conanfile.py
+@@ -24,20 +24,23 @@ class Xrpl(ConanFile):
+     }
+
+     requires = [
+-        'boost/1.82.0',
++        'boost/1.83.0',
+         'date/3.0.1',
+         'grpc/1.50.1',
+         'libarchive/3.6.2',
+-        'lz4/1.9.3',
++        'lz4/1.9.4',
+         'nudb/2.0.8',
+         'openssl/1.1.1u',
+-        'protobuf/3.21.9',
+         'snappy/1.1.10',
+         'soci/4.0.3',
+-        'sqlite3/3.42.0',
++        'sqlite3/3.44.2',
+         'zlib/1.2.13',
+     ]
+
++    tool_requires = [
++        'protobuf/3.21.9',
++    ]
++
+     default_options = {
+         'assertions': False,
+         'coverage': False,
+@@ -50,42 +53,42 @@ class Xrpl(ConanFile):
+         'tests': True,
+         'unity': False,
+
+-        'cassandra-cpp-driver:shared': False,
+-        'cassandra-cpp-driver:use_atomic': None,
+-        'date:header_only': True,
+-        'grpc:shared': False,
+-        'grpc:secure': True,
+-        'libarchive:shared': False,
+-        'libarchive:with_acl': False,
+-        'libarchive:with_bzip2': False,
+-        'libarchive:with_cng': False,
+-        'libarchive:with_expat': False,
+-        'libarchive:with_iconv': False,
+-        'libarchive:with_libxml2': False,
+-        'libarchive:with_lz4': True,
+-        'libarchive:with_lzma': False,
+-        'libarchive:with_lzo': False,
+-        'libarchive:with_nettle': False,
+-        'libarchive:with_openssl': False,
+-        'libarchive:with_pcreposix': False,
+-        'libarchive:with_xattr': False,
+-        'libarchive:with_zlib': False,
+-        'libpq:shared': False,
+-        'lz4:shared': False,
+-        'openssl:shared': False,
+-        'protobuf:shared': False,
+-        'protobuf:with_zlib': True,
+-        'rocksdb:enable_sse': False,
+-        'rocksdb:lite': False,
+-        'rocksdb:shared': False,
+-        'rocksdb:use_rtti': True,
+-        'rocksdb:with_jemalloc': False,
+-        'rocksdb:with_lz4': True,
+-        'rocksdb:with_snappy': True,
+-        'snappy:shared': False,
+-        'soci:shared': False,
+-        'soci:with_sqlite3': True,
+-        'soci:with_boost': True,
++        'cassandra-cpp-driver/*:shared': False,
++        'cassandra-cpp-driver/*:use_atomic': None,
++        'date/*:header_only': True,
++        'grpc/*:shared': False,
++        'grpc/*:secure': True,
++        'libarchive/*:shared': False,
++        'libarchive/*:with_acl': False,
++        'libarchive/*:with_bzip2': False,
++        'libarchive/*:with_cng': False,
++        'libarchive/*:with_expat': False,
++        'libarchive/*:with_iconv': False,
++        'libarchive/*:with_libxml2': False,
++        'libarchive/*:with_lz4': True,
++        'libarchive/*:with_lzma': False,
++        'libarchive/*:with_lzo': False,
++        'libarchive/*:with_nettle': False,
++        'libarchive/*:with_openssl': False,
++        'libarchive/*:with_pcreposix': False,
++        'libarchive/*:with_xattr': False,
++        'libarchive/*:with_zlib': False,
++        'libpq/*:shared': False,
++        'lz4/*:shared': False,
++        'openssl/*:shared': False,
++        'protobuf/*:shared': False,
++        'protobuf/*:with_zlib': True,
++        'rocksdb/*:enable_sse': False,
++        'rocksdb/*:lite': False,
++        'rocksdb/*:shared': False,
++        'rocksdb/*:use_rtti': True,
++        'rocksdb/*:with_jemalloc': False,
++        'rocksdb/*:with_lz4': True,
++        'rocksdb/*:with_snappy': True,
++        'snappy/*:shared': False,
++        'soci/*:shared': False,
++        'soci/*:with_sqlite3': True,
++        'soci/*:with_boost': True,
+     }
+
+     def set_version(self):
+@@ -101,6 +104,7 @@ class Xrpl(ConanFile):
+             self.options['boost'].visibility = 'global'
+
+     def requirements(self):
++        self.requires('protobuf/3.21.9', force=True)
+         if self.options.jemalloc:
+             self.requires('jemalloc/5.3.0')
+         if self.options.reporting:
+diff --git a/src/test/app/SetTrust_test.cpp b/src/test/app/SetTrust_test.cpp
+index 599ac1917..ed8e85fa5 100644
+--- a/src/test/app/SetTrust_test.cpp
++++ b/src/test/app/SetTrust_test.cpp
+@@ -386,6 +386,70 @@ public:
+         env.close();
+     }
+
++    void
++    testPositiveBalanceWithoutReserveLegacy()
++    {
++        testcase(
++            "Legacy 2.0.0 -- offer crossing creates positive balance without "
++            "reserve");
++
++        using namespace jtx;
++
++        Account const gw{"gateway"};
++        Account const alice{"alice"};
++        Account const market{"market"};
++        auto const USD = gw["USD"];
++        bool const aliceHigh = alice.id() > gw.id();
++
++        Env env{*this};
++        env.fund(XRP(100000), gw, alice, market);
++        env.close();
++
++        env(trust(alice, USD(1000)));
++        env(trust(market, USD(1000)));
++        env.close();
++
++        env(pay(gw, alice, USD(100)));
++        env(pay(gw, market, USD(1000)));
++        env.close();
++
++        env(fclear(gw, asfDefaultRipple));
++        env.close();
++
++        env(trust(alice, USD(0)));
++        env.close();
++        env(pay(alice, gw, USD(100)));
++        env.close();
++
++        auto const lineKey = keylet::line(alice.id(), USD.issue());
++        auto const cleared = env.le(lineKey);
++        if (!BEAST_EXPECT(cleared))
++            return;
++        auto const aliceBefore = env.le(alice);
++        if (!BEAST_EXPECT(aliceBefore))
++            return;
++        BEAST_EXPECT(aliceBefore->getFieldU32(sfOwnerCount) == 0);
++        BEAST_EXPECT(!cleared->isFlag(
++            aliceHigh ? lsfHighReserve : lsfLowReserve));
++
++        env(offer(market, XRP(100), USD(100)));
++        env.close();
++
++        env(offer(alice, USD(50), XRP(50)));
++        env.close();
++
++        auto const crossed = env.le(lineKey);
++        if (!BEAST_EXPECT(crossed))
++            return;
++        BEAST_EXPECT(env.balance(alice, USD) == USD(50));
++        auto const aliceAfter = env.le(alice);
++        if (!BEAST_EXPECT(aliceAfter))
++            return;
++        BEAST_EXPECT(aliceAfter->getFieldU32(sfOwnerCount) == 0);
++        BEAST_EXPECT(!crossed->isFlag(
++            aliceHigh ? lsfHighReserve : lsfLowReserve));
++    }
++
+     void
+     testWithFeats(FeatureBitset features)
+     {
+@@ -402,6 +466,7 @@ public:
+         testModifyQualityOfTrustline(features, true, false);
+         testModifyQualityOfTrustline(features, true, true);
+         testDisallowIncoming(features);
++        testPositiveBalanceWithoutReserveLegacy();
+     }
+
+ public:

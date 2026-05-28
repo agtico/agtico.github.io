@@ -36,8 +36,8 @@ cases and 9,119 tests.
 
 ## Old-tag hardening: trustline positive-balance reserve drift
 
-Status: reproduced on the buildable `2.5.0` release tag in addition to the
-current `3.1.3` packet target.
+Status: reproduced on the buildable `2.5.0` and `2.0.0` release tags in
+addition to the current `3.1.3` packet target.
 
 Minimal behavior:
 
@@ -58,17 +58,28 @@ ripple.app.SetTrust had 0 failures.
 4.9s, 1 suite, 32 cases, 1656 tests total, 0 failures
 ```
 
+2.0.0 proof excerpt:
+
+```text
+ripple.app.SetTrust Legacy 2.0.0 -- offer crossing creates positive balance without reserve
+ripple.app.SetTrust Legacy 2.0.0 -- offer crossing creates positive balance without reserve
+5.4s, 1 suite, 22 cases, 700 tests total, 0 failures
+```
+
 Artifacts:
 
 ```text
 runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.patch
 runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log
+runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.patch
+runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log
 ```
 
-Interpretation: this is now current-binary repro plus older buildable-tag
-binary repro plus source-lineage evidence. The `2.5.0` tag dates to
-2025-06-23; older binary-span claims still require provisioning older build
-toolchains.
+Interpretation: this is now current-binary repro plus two older buildable-tag
+binary repros plus source-lineage evidence. The `2.0.0` tag dates to
+2024-01-08, which gives this candidate a reproduced binary span of more than
+two years on release tags. Claims earlier than `2.0.0` still require older
+toolchain provisioning.
 
 Additional dispositions:
 

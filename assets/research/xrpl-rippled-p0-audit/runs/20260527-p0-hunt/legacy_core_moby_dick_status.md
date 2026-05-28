@@ -79,9 +79,9 @@ through `3.1.3`:
 ```
 
 That source-lineage evidence supports the hypothesis that the missing
-receiver-side reserve transition is old. This slice now adds a clean binary
-reproduction on the buildable `2.5.0` release tag, so the candidate is no
-longer only current-binary plus source-lineage evidence.
+receiver-side reserve transition is old. This lane now adds clean binary
+reproduction on the buildable `2.5.0` and `2.0.0` release tags, so the
+candidate is no longer only current-binary plus source-lineage evidence.
 
 The source-lineage check is now script-bound:
 
@@ -126,16 +126,19 @@ That is a source-lineage anchor, not proof that the behavior was introduced in
 that exact refactor. It is enough to support the claim that the shape is
 well-entrenched in the pre-`3.1.3` lineage.
 
-I hardened the old-tag anchor further by building `rippled` `2.5.0` from
-source in a temporary worktree and adding a focused `SetTrust` probe for the
-same reserve/owner-count drift. The probe asserts that offer crossing gives
-Alice a positive gateway IOU balance while `OwnerCount` remains zero and the
-receiver reserve flag remains unset.
+I hardened the old-tag anchor further by building `rippled` `2.5.0` and
+`2.0.0` from source in temporary worktrees and adding a focused `SetTrust` probe
+for the same reserve/owner-count drift. The probe asserts that offer crossing
+gives Alice a positive gateway IOU balance while `OwnerCount` remains zero and
+the receiver reserve flag remains unset.
 
 ```text
 2.5.0 build: succeeded
 ./rippled --unittest=SetTrust --unittest-log -> 32 cases, 1656 tests total, 0 failures
 probe marker: Legacy 2.5.0 -- offer crossing creates positive balance without reserve
+2.0.0 build: succeeded after build-only Conan compatibility edits for the current toolchain
+./rippled --unittest SetTrust --unittest-log -> 22 cases, 700 tests total, 0 failures
+probe marker: Legacy 2.0.0 -- offer crossing creates positive balance without reserve
 ```
 
 The old-tag repro artifacts are preserved in this packet:
@@ -147,12 +150,18 @@ log: runs/20260527-p0-hunt/trustline_positive_balance_2_5_0_repro.log
 log_sha256: 3e9968cf305851dbd2cdf9f8a50d55b3dab784649af1fb7d9993fdd0fcccb494
 tag_commit: 1e01cd34f7a216092ed779f291b43324c167167a
 tag_commit_date: 2025-06-23
+patch: runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.patch
+patch_sha256: 07651b66c8e5f0e3e39fac776d57933a767988b8e663efb072eae1804be08cd9
+log: runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log
+log_sha256: 8fc64bef728cb84a1f38e4763877e530a6ce54716706ac34ffb3957b070794b2
+tag_commit: 2b0313d60c4226cc98ad39fe8eb659deca48f32a
+tag_commit_date: 2024-01-08
 ```
 
-This proves the specific bad post-state on both the current `3.1.3` packet
-target and the older buildable `2.5.0` tag. It still does not prove a
-multi-year binary span by itself; the multi-year evidence remains source
-lineage until an older buildable tag is provisioned and reproduced.
+This proves the specific bad post-state on the current `3.1.3` packet target
+and on the older buildable `2.5.0` and `2.0.0` tags. The reproduced release-tag
+binary span now reaches back to January 2024. Earlier claims remain
+source-lineage until a pre-`2.0.0` toolchain is provisioned and reproduced.
 
 I also attempted to harden the claim by booting the oldest sampled release tag
 (`0.12.0`) in a temporary worktree. That path is currently blocked in this
@@ -163,9 +172,9 @@ environment by historical toolchain gaps:
 - the old build also expects Boost headers that are not available in this
   workspace.
 
-So the packet now has current-binary repro, `2.5.0` binary repro, and older
-source-lineage evidence for this candidate. A pre-`2.5.0` binary span still
-requires old toolchain provisioning.
+So the packet now has current-binary repro, `2.5.0` and `2.0.0` binary repros,
+and older source-lineage evidence for this candidate. A pre-`2.0.0` binary span
+still requires old toolchain provisioning.
 
 ## Source-Killed Candidate
 
@@ -231,15 +240,15 @@ tests, and the following candidates were source-killed rather than promoted:
 That leaves the current legacy-core live candidate set unchanged: the best
 remaining old/simple/current target is still
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`; the current slice moved it from
-source-lineage plus current repro to source-lineage plus current and `2.5.0`
-binary repro.
+source-lineage plus current repro to source-lineage plus current, `2.5.0`, and
+`2.0.0` binary repro.
 
 ## Next Step
 
 Keep drilling `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` unless an even older and
 cleaner source signal appears:
 
-1. provision the oldest practical pre-`2.5.0` toolchain that still contains the
+1. provision the oldest practical pre-`2.0.0` toolchain that still contains the
    relevant offer-crossing path;
 2. reproduce the same reserve/owner-count drift there if buildable;
-3. only then promote any specific multi-year binary-span statement.
+3. only then promote any specific pre-2024 binary-span statement.
