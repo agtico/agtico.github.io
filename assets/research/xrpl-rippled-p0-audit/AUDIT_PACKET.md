@@ -49,7 +49,7 @@ Included findings must satisfy both conditions:
 | `runs/20260527-p0-hunt/trustline_positive_balance_2_0_0_repro.log` | `2.0.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.patch` | Focused `1.5.0` old-tag test patch plus build-only compatibility edits for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. |
 | `runs/20260527-p0-hunt/trustline_positive_balance_1_5_0_repro.log` | Ubuntu 20.04 Docker `1.5.0` old-tag `SetTrust` proof log showing the same reserve/owner-count drift probe passed. |
-| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v15.log` | Live-only proof extract with marker coverage and zero-failure footer, including the CheckCash existing-owner sibling for the trustline reserve finding. |
+| `runs/20260527-p0-hunt/live_mainnet_enabled_proof_extract_20260527_v16.log` | Live-only proof extract with marker coverage and zero-failure footer, including offer-crossing and CheckCash existing-owner siblings for the trustline reserve finding. |
 | `fetch_direct_amendment_status.py` | Refreshes direct amendment and raw-hash live-status evidence. |
 | `fetch_direct_runtime_status.py` | Refreshes direct public-server runtime and amendment evidence. |
 | `run_repro.sh` | Common runner used by every per-finding wrapper. |
@@ -106,7 +106,7 @@ Expected proof footer:
 
 ```text
 ripple.tx.OpenP0Repro had 0 failures.
-61 cases, 16164 tests total, 0 failures
+62 cases, 16229 tests total, 0 failures
 ripple.tx.OpenP0ReproCrash had 0 failures.
 1 case, 12 tests total, 0 failures
 ```

@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-14.3s, 1 suite, 61 cases, 16164 tests total, 0 failures
+14.9s, 1 suite, 62 cases, 16229 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,13 +136,40 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-14.3s, 1 suite, 61 cases, 16164 tests total, 0 failures
+14.9s, 1 suite, 62 cases, 16229 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
 narrow explanation based on the old `OwnerCount < 2` reserve carveout. The
 holder already has two owned objects; the missing transition is still the
 positive-trustline owner-count/reserve update.
+
+## Current sibling: offer crossing existing-owner reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero balance, zero
+   limit, `OwnerCount=0`, and no receiver reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2` before crossing the
+   offer.
+3. A market account posts an offer selling gateway USD for XRP.
+4. Alice crosses the offer and receives 50 USD.
+5. Alice still has `OwnerCount=2` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
+14.9s, 1 suite, 62 cases, 16229 tests total, 0 failures
+```
+
+Interpretation: this is the offer-side companion to the CheckCash
+existing-owner control. Both live settlement paths skip the receiver-side
+owner-count/reserve update even after the holder is beyond the historical
+two-object reserve carveout.
 
 Additional dispositions:
 

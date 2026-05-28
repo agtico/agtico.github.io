@@ -25,6 +25,7 @@ disabled feature surface. The current repro markers are:
 
 ```text
 TrustLine current - offer crossing creates positive balance without reserve
+TrustLine current - offer crossing leaves positive balance unowned with existing owner objects
 TrustLine current - CheckCash creates positive balance without reserve
 TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
 ```
@@ -38,23 +39,51 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: dca92337ba1855f91e8428be24af945f495d245e43e0de71a66e7559221209a0
+local wrapper log sha256: 0ec999dc91f0e89b40c21700e49763d72c3654e7d6253a0f90cbabdeadc16087
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-15.6s, 1 suite, 61 cases, 16164 tests total, 0 failures
+16.0s, 1 suite, 62 cases, 16229 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=21 proof_sha256=deaff258ef93df21a994c836feb97fdc00e994d7baad4253b1ad356751288f54
+records=19 markers=22 proof_sha256=24ae56f1ece19028b24abb38bd9e5d8714e29a85340e393cfe919d5db220ad38
 ```
+
+## Offer Existing-Owner Control
+
+This slice added a fourth marker under the same finding. It is not a new
+finding count.
+
+Minimal behavior:
+
+1. Alice clears the same gateway USD trustline back to zero and no receiver
+   reserve flag.
+2. Alice creates two ticket objects, so `OwnerCount=2` before crossing the
+   offer.
+3. A market account posts an offer selling gateway USD for XRP.
+4. Alice crosses the offer and receives 50 USD.
+5. Alice ends with a positive 50 USD balance while `OwnerCount` remains `2`
+   and the receiver reserve flag remains unset.
+
+The packet proof marker is:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
+```
+
+This matters for the same reason as the CheckCash existing-owner control: it
+rules out the narrow explanation that the behavior is only the historical
+`OwnerCount < 2` reserve carveout. The offer-crossing witness also fails to
+apply the positive-trustline owner-count/reserve transition after the holder
+already owns two objects.
 
 ## CheckCash Sibling Repro
 
-This slice added a second current-live marker under the same finding, not a new
-finding count.
+An earlier slice added a second current-live marker under the same finding, not
+a new finding count.
 
 Minimal behavior:
 
@@ -80,8 +109,8 @@ positive receiver balance.
 
 ## CheckCash Existing-Owner Control
 
-This slice added a third marker under the same finding. It is not a new finding
-count.
+An earlier slice added a third marker under the same finding. It is not a new
+finding count.
 
 Minimal behavior:
 
@@ -110,8 +139,9 @@ is the receiver-side owner-count/reserve update for the positive trustline.
 The broken behavior is simple: after a holder clears its trust limit and
 balance, old live settlement paths can give that holder a positive IOU balance
 while `OwnerCount` and the trustline reserve flag remain wrong. This is now
-reproduced through offer crossing, CheckCash with zero existing owned objects,
-and CheckCash with two existing owned objects.
+reproduced through offer crossing with zero existing owned objects, offer
+crossing with two existing owned objects, CheckCash with zero existing owned
+objects, and CheckCash with two existing owned objects.
 
 The expected behavior is also simple: if an account's trustline balance moves
 from non-positive to positive, the receiver should either be charged the owner
@@ -322,8 +352,9 @@ remaining old/simple/current target is still
 `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`; the current slice moved it from
 source-lineage plus current repro to source-lineage plus current, `2.5.0`,
 `2.0.0`, and `1.5.0` binary repro, then added CheckCash as a second
-current-live settlement-path marker and CheckCash-with-existing-owner-objects
-as a third marker for the same root cause.
+current-live settlement-path marker, CheckCash-with-existing-owner-objects as a
+third marker, and offer-crossing-with-existing-owner-objects as a fourth marker
+for the same root cause.
 
 ## Next Step
 

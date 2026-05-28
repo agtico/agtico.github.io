@@ -64,10 +64,10 @@ Five additional findings were promoted during the live-only continuation:
 - `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`: standard IOU settlement can create
   a positive balance for a receiver while leaving the receiver reserve flag
   unset after that receiver previously cleared the trustline limit and balance.
-  The current packet reproduces the same reserve drift through offer crossing,
-  CheckCash with `OwnerCount=0`, and CheckCash with two existing ticket objects,
-  where `OwnerCount` remains `2` instead of increasing for the positive
-  trustline.
+  The current packet reproduces the same reserve drift through offer crossing
+  and CheckCash with `OwnerCount=0`, and through both paths with two existing
+  ticket objects, where `OwnerCount` remains `2` instead of increasing for the
+  positive trustline.
 - `TRUSTLINE-DISALLOW-INCOMING-OFFER-001`: an issuer can set
   `asfDisallowIncomingTrustline`, but `OfferCreate` can still cross into that
   issuer's IOU for a taker with no existing trustline, creating the incoming

@@ -2509,6 +2509,63 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceOfferExistingOwnersCurrent()
+    {
+        testcase("TrustLine current — offer crossing leaves positive balance unowned with existing owner objects");
+        using namespace jtx;
+
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const market{"market"};
+        auto const USD = gw["USD"];
+        bool const aliceHigh = alice.id() > gw.id();
+
+        Env env{*this};
+        env.fund(XRP(100'000), gw, alice, market);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env(trust(market, USD(1'000)), THISLINE);
+        env.close();
+
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env(pay(gw, market, USD(1'000)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(0)), THISLINE);
+        env.close();
+        env(pay(alice, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const lineKey = keylet::line(alice, gw, to_currency("USD"));
+        auto const cleared = env.le(lineKey);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, alice) == 0);
+        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+
+        env(ticket::create(alice, 2), THISLINE);
+        env.close();
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+
+        env(offer(market, XRP(100), USD(100)), THISLINE);
+        env.close();
+
+        env(offer(alice, USD(50), XRP(50)), THISLINE);
+        env.close();
+
+        auto const crossed = env.le(lineKey);
+        if (!BEAST_EXPECT(crossed))
+            return;
+        BEAST_EXPECT(env.balance(alice, USD) == USD(50));
+        BEAST_EXPECT(ownerCount(env, alice) == 2);
+        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testTrustlinePositiveBalanceCheckCashCurrent()
     {
         testcase("TrustLine current — CheckCash creates positive balance without reserve");
@@ -3449,6 +3506,7 @@ public:
         testMPTSTIssueLegacyWireOrderCurrent();
         testMPTLockedHolderUnauthorizeWithoutSavCurrent();
         testTrustlinePositiveBalanceNoOwnerReserveCurrent();
+        testTrustlinePositiveBalanceOfferExistingOwnersCurrent();
         testTrustlinePositiveBalanceCheckCashCurrent();
         testTrustlinePositiveBalanceCheckCashExistingOwnersCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
