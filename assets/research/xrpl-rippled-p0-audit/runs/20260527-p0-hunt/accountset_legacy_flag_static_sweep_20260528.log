@@ -1,0 +1,311 @@
+src/test/app/OpenP0Repro_test.cpp:559:    testPermissionedDomainTicketSequencePrefixCollision()
+src/test/app/OpenP0Repro_test.cpp:561:        testcase("PermissionedDomainSet pre-fix ticket sequence collision candidate");
+src/test/app/OpenP0Repro_test.cpp:565:            (testable_amendments() | featurePermissionedDomains |
+src/test/app/OpenP0Repro_test.cpp:580:        auto const zeroKey = keylet::permissionedDomain(alice.id(), 0);
+src/test/app/OpenP0Repro_test.cpp:601:            testable_amendments() | featurePermissionedDomains |
+src/test/app/OpenP0Repro_test.cpp:624:        BEAST_EXPECT(!fixedEnv.le(keylet::permissionedDomain(bob.id(), 0)));
+src/test/app/OpenP0Repro_test.cpp:625:        BEAST_EXPECT(fixedEnv.le(keylet::permissionedDomain(bob.id(), bobFirstTicket)));
+src/test/app/OpenP0Repro_test.cpp:626:        BEAST_EXPECT(fixedEnv.le(keylet::permissionedDomain(bob.id(), bobFirstTicket + 1)));
+src/test/app/OpenP0Repro_test.cpp:637:                             TER expectedDomain) {
+src/test/app/OpenP0Repro_test.cpp:701:            auto const domTer = verifyValidDomain(av, subject.id(), domain, j);
+src/test/app/OpenP0Repro_test.cpp:704:            BEAST_EXPECT(domTer == expectedDomain);
+src/test/app/OpenP0Repro_test.cpp:710:            featurePermissionedDomains | featureDepositPreauth;
+src/test/app/OpenP0Repro_test.cpp:731:            uint256 const domain = pdomain::getNewDomain(env.meta());
+src/test/app/OpenP0Repro_test.cpp:739:            offer->setFieldH256(sfDomainID, domain);
+src/test/app/OpenP0Repro_test.cpp:747:                     [&](STObject& tx) { tx.setFieldH256(sfDomainID, domain); }},
+src/test/app/OpenP0Repro_test.cpp:755:            testable_amendments() | featurePermissionedDomains |
+src/test/app/OpenP0Repro_test.cpp:823:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/OpenP0Repro_test.cpp:977:            env(fset(issuer, asfAllowTrustLineClawback));
+src/test/app/OpenP0Repro_test.cpp:1318:            clawEnv(fset(clawIssuer, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1367:            env(fset(issuer, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1573:        env(fset(gateway, asfDefaultRipple));
+src/test/app/OpenP0Repro_test.cpp:1762:    testMPTDomainRequireAuthCanBeClearedCurrent()
+src/test/app/OpenP0Repro_test.cpp:1778:        auto const domainID = pdomain::getNewDomain(env.meta());
+src/test/app/OpenP0Repro_test.cpp:1792:        BEAST_EXPECT(before->isFieldPresent(sfDomainID));
+src/test/app/OpenP0Repro_test.cpp:1804:        // DomainID on the issuance. Later upstream fix 366899d5 rejects this
+src/test/app/OpenP0Repro_test.cpp:1805:        // with tecNO_PERMISSION because a domain-bound issuance must not be
+src/test/app/OpenP0Repro_test.cpp:1811:        BEAST_EXPECT(after->isFieldPresent(sfDomainID));
+src/test/app/OpenP0Repro_test.cpp:1884:    testMPTTransferRateLargeAmountOverflowCurrent()
+src/test/app/OpenP0Repro_test.cpp:2098:        env(fset(issuer, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2140:        env(fset(issuer, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2482:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2535:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2592:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2638:    testTrustlinePositiveBalanceOfferTransferRateCurrent()
+src/test/app/OpenP0Repro_test.cpp:2664:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2715:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2767:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2823:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2896:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2958:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3019:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3091:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3140:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3153:        env(fclear(gw2, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3257:        env(trust(seller, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3312:        env(trust(broker, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3360:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3413:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3463:        env(trust(alice, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3501:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3561:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3597:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3618:        env(trust(alice, EUR(10'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3649:        env(fset(gw, asfAllowTrustLineClawback), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3670:        env(pay(gw2, alice, EUR(1)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3723:            ter(tecNO_PERMISSION),
+src/test/app/OpenP0Repro_test.cpp:3778:    testDelegatedEmptyAccountSetCurrent()
+src/test/app/OpenP0Repro_test.cpp:3780:        testcase("Delegate current — empty AccountSet with unrelated permission consumes principal sequence");
+src/test/app/OpenP0Repro_test.cpp:3978:        testPermissionedDomainTicketSequencePrefixCollision();
+src/test/app/OpenP0Repro_test.cpp:3994:        testMPTDomainRequireAuthCanBeClearedCurrent();
+src/test/app/OpenP0Repro_test.cpp:3997:        testMPTTransferRateLargeAmountOverflowCurrent();
+src/test/app/OpenP0Repro_test.cpp:4013:        testTrustlinePositiveBalanceOfferTransferRateCurrent();
+src/test/app/OpenP0Repro_test.cpp:4034:        testDelegatedEmptyAccountSetCurrent();
+src/test/app/AccountDelete_test.cpp:106:            ter(temINVALID_FLAG));
+src/test/app/AccountDelete_test.cpp:880:        env(acctdelete(becky, alice), fee(acctDelFee), ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:964:                ter(tecNO_PERMISSION));
+src/test/app/AccountDelete_test.cpp:975:                ter(tecNO_PERMISSION));
+src/test/app/Invariants_test.cpp:1131:                    lsfDisableMaster | lsfDefaultRipple | lsfDefaultRipple);
+src/test/app/Invariants_test.cpp:1148:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:1164:                    sfFlags, lsfDisableMaster | lsfDefaultRipple);
+src/test/app/Invariants_test.cpp:1181:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth |
+src/test/app/Invariants_test.cpp:1338:    createPermissionedDomain(
+src/test/app/Invariants_test.cpp:1345:        Keylet const pdKeylet = keylet::permissionedDomain(A1.id(), seq);
+src/test/app/Invariants_test.cpp:1373:    testPermissionedDomainInvariants(FeatureBitset features)
+src/test/app/Invariants_test.cpp:1383:        testcase << "PermissionedDomain" +
+src/test/app/Invariants_test.cpp:1390:                return createPermissionedDomain(ac, A1, A2, 0).get();
+src/test/app/Invariants_test.cpp:1396:        testcase << "PermissionedDomain 2";
+src/test/app/Invariants_test.cpp:1398:        auto constexpr tooBig = maxPermissionedDomainCredentialsArraySize + 1;
+src/test/app/Invariants_test.cpp:1404:                return !!createPermissionedDomain(ac, A1, A2, tooBig);
+src/test/app/Invariants_test.cpp:1410:        testcase << "PermissionedDomain 3";
+src/test/app/Invariants_test.cpp:1415:                auto slePd = createPermissionedDomain(ac, A1, A2, 0);
+src/test/app/Invariants_test.cpp:1437:        testcase << "PermissionedDomain 4";
+src/test/app/Invariants_test.cpp:1442:                auto slePd = createPermissionedDomain(ac, A1, A2, 0);
+src/test/app/Invariants_test.cpp:1460:        testcase << "PermissionedDomain Set 1";
+src/test/app/Invariants_test.cpp:1466:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1481:        testcase << "PermissionedDomain Set 2";
+src/test/app/Invariants_test.cpp:1488:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1515:        testcase << "PermissionedDomain Set 3";
+src/test/app/Invariants_test.cpp:1521:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1548:        testcase << "PermissionedDomain Set 4";
+src/test/app/Invariants_test.cpp:1554:                auto slePd = createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1582:        std::vector<std::string> badNoDomains{
+src/test/app/Invariants_test.cpp:1591:            testcase << "PermissionedDomain set 2 domains ";
+src/test/app/Invariants_test.cpp:1596:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1597:                    createPermissionedDomain(ac, A1, A2, 2, 11);
+src/test/app/Invariants_test.cpp:1606:            testcase << "PermissionedDomain del 2 domains";
+src/test/app/Invariants_test.cpp:1616:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1618:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1639:            testcase << "PermissionedDomain set 0 domains ";
+src/test/app/Invariants_test.cpp:1642:                fixEnabled ? badNoDomains : emptyV,
+src/test/app/Invariants_test.cpp:1652:            testcase << "PermissionedDomain del 0 domains";
+src/test/app/Invariants_test.cpp:1662:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1664:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1671:                fixEnabled ? badNoDomains : emptyV,
+src/test/app/Invariants_test.cpp:1681:            testcase << "PermissionedDomain set, delete domain";
+src/test/app/Invariants_test.cpp:1691:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1710:            testcase << "PermissionedDomain del, create domain ";
+src/test/app/Invariants_test.cpp:1715:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1724:            testcase << "PermissionedDomain invalid tx";
+src/test/app/Invariants_test.cpp:1729:                    createPermissionedDomain(ac, A1, A2);
+src/test/app/Invariants_test.cpp:1790:                [](SLE::pointer& sle) { sle->at(sfFlags) = lsfNoFreeze; },
+src/test/app/Invariants_test.cpp:1860:    createPermissionedDomainEnv(
+src/test/app/Invariants_test.cpp:1878:        uint256 key = pdomain::getNewDomain(env.meta());
+src/test/app/Invariants_test.cpp:1911:                        sfDomainID,
+src/test/app/Invariants_test.cpp:1953:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:1968:                    sleOffer->setFieldH256(sfDomainID, pd1);
+src/test/app/Invariants_test.cpp:1992:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2007:                    sleOffer->setFieldH256(sfDomainID, pd1);
+src/test/app/Invariants_test.cpp:2029:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2044:                    sleOffer->setFieldH256(sfDomainID, pd1);
+src/test/app/Invariants_test.cpp:2062:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2064:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2078:                    sleOffer->setFieldH256(sfDomainID, pd1);
+src/test/app/Invariants_test.cpp:2086:                        tx.setFieldH256(sfDomainID, pd2);
+src/test/app/Invariants_test.cpp:2102:                createPermissionedDomainEnv(env1, A1, A2);
+src/test/app/Invariants_test.cpp:2124:                        tx.setFieldH256(sfDomainID, pd1);
+src/test/app/Invariants_test.cpp:2920:                sleShares->setFieldH256(sfDomainID, uint256(13));
+src/test/app/Invariants_test.cpp:3493:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:3557:                    lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/test/app/Invariants_test.cpp:4580:        testPermissionedDomainInvariants(defaultAmendments() | fixCleanup3_1_3);
+src/test/app/Invariants_test.cpp:4581:        testPermissionedDomainInvariants(defaultAmendments() - fixCleanup3_1_3);
+src/test/app/SetTrust_test.cpp:120:        env(fset(alice, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:321:                    ter(temINVALID_FLAG));
+src/test/app/SetTrust_test.cpp:342:        // tfSetAuth flag should not be set if not required by lsfRequireAuth
+src/test/app/SetTrust_test.cpp:388:        env(fset(alice, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:529:                env(fset(gw, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:541:                    withFix ? ter(tesSUCCESS) : ter(tecNO_PERMISSION);
+src/test/app/SetTrust_test.cpp:569:        env(trust(alice, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:602:        env(trust(bob, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:607:        env(trust(gw, bob["USD"](1000)), ter(tecNO_PERMISSION));
+src/test/app/SetRegularKey_test.cpp:50:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:55:        env(fclear(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:59:        env(fclear(alice, asfDisableMaster), sig(bob));
+src/test/app/SetRegularKey_test.cpp:85:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:90:        env(fclear(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:94:        env(fclear(alice, asfDisableMaster), sig(bob));
+src/test/app/SetRegularKey_test.cpp:118:        env(fset(alice, asfDisableMaster), sig(alice));
+src/test/app/SetRegularKey_test.cpp:129:        env(regkey(alice, disabled), ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/SetRegularKey_test.cpp:130:        env(fclear(alice, asfDisableMaster));
+src/test/app/SetRegularKey_test.cpp:132:        env(fset(alice, asfDisableMaster), ter(tecNO_ALTERNATIVE_KEY));
+src/test/app/SetRegularKey_test.cpp:198:        env(jv, ter(temINVALID_FLAG));
+src/test/app/SetRegularKey_test.cpp:223:        env(fset(alice, asfDisableMaster),
+src/test/app/SetRegularKey_test.cpp:237:        env(fclear(alice, asfDisableMaster),
+src/test/app/Freeze_test.cpp:234:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:261:            env(trust(G1, A1["USD"](0), tfClearFreeze), ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:277:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze), ter(temINVALID_FLAG));
+src/test/app/Freeze_test.cpp:281:                ter(temINVALID_FLAG));
+src/test/app/Freeze_test.cpp:318:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:357:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:359:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:361:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:363:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:417:            // Is toggled via AccountSet using SetFlag and ClearFlag
+src/test/app/Freeze_test.cpp:419:            env.require(nflags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:420:            env(fset(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:421:            env.require(flags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:422:            env.require(nflags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:425:            env(fclear(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:426:            env.require(nflags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:427:            env.require(nflags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:488:            env.require(nflags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:489:            env(fset(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:490:            env.require(flags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:491:            env.require(nflags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:588:        env.require(nflags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:589:        env(fset(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:590:        env.require(flags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:591:        env.require(nflags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:594:        env(fclear(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:595:        env.require(flags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:596:        env.require(nflags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:599:        env(fset(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:600:        env.require(flags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:601:        env.require(flags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:604:        env(fclear(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:605:        env.require(flags(G1, asfNoFreeze));
+src/test/app/Freeze_test.cpp:606:        env.require(flags(G1, asfGlobalFreeze));
+src/test/app/Freeze_test.cpp:611:            env(trust(G1, A1["USD"](0), tfSetFreeze), ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:616:                ter(tecNO_PERMISSION));
+src/xrpld/app/tx/detail/SetTrust.cpp:90:            return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetTrust.cpp:206:    if (bSetAuth && !(sle->getFieldU32(sfFlags) & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetTrust.cpp:266:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:293:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:303:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:313:        bool const bNoFreeze = sle->isFlag(lsfNoFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:320:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:330:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:358:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:583:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:590:        // Have to use lsfNoFreeze to maintain pre-deep freeze behavior
+src/xrpld/app/tx/detail/SetTrust.cpp:591:        bool const bNoFreeze = sle->isFlag(lsfNoFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:607:        bool const bLowDefRipple = sleLowAccount->getFlags() & lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetTrust.cpp:609:            sleHighAccount->getFlags() & lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetRegularKey.cpp:83:            return tecNO_ALTERNATIVE_KEY;
+src/xrpld/app/tx/detail/SetAccount.cpp:21:#include <xrpld/app/tx/detail/SetAccount.h>
+src/xrpld/app/tx/detail/SetAccount.cpp:35:SetAccount::makeTxConsequences(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetAccount.cpp:37:    // The SetAccount may be a blocker, but only if it sets or clears
+src/xrpld/app/tx/detail/SetAccount.cpp:45:            (*uSetFlag == asfRequireAuth || *uSetFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:50:            (*uClearFlag == asfRequireAuth || *uClearFlag == asfDisableMaster ||
+src/xrpld/app/tx/detail/SetAccount.cpp:61:SetAccount::getFlagsMask(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetAccount.cpp:63:    return tfAccountSetMask;
+src/xrpld/app/tx/detail/SetAccount.cpp:67:SetAccount::preflight(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/SetAccount.cpp:80:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:87:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:89:        (uTxFlags & tfOptionalAuth) || (uClearFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:94:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:108:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:115:        (uTxFlags & tfDisallowXRP) || (uSetFlag == asfDisallowXRP);
+src/xrpld/app/tx/detail/SetAccount.cpp:117:        (uTxFlags & tfAllowXRP) || (uClearFlag == asfDisallowXRP);
+src/xrpld/app/tx/detail/SetAccount.cpp:122:        return temINVALID_FLAG;
+src/xrpld/app/tx/detail/SetAccount.cpp:125:    // TransferRate
+src/xrpld/app/tx/detail/SetAccount.cpp:126:    if (tx.isFieldPresent(sfTransferRate))
+src/xrpld/app/tx/detail/SetAccount.cpp:128:        std::uint32_t uRate = tx.getFieldU32(sfTransferRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:145:    // TickSize
+src/xrpld/app/tx/detail/SetAccount.cpp:146:    if (tx.isFieldPresent(sfTickSize))
+src/xrpld/app/tx/detail/SetAccount.cpp:148:        auto uTickSize = tx[sfTickSize];
+src/xrpld/app/tx/detail/SetAccount.cpp:149:        if (uTickSize &&
+src/xrpld/app/tx/detail/SetAccount.cpp:150:            ((uTickSize < Quality::minTickSize) ||
+src/xrpld/app/tx/detail/SetAccount.cpp:151:             (uTickSize > Quality::maxTickSize)))
+src/xrpld/app/tx/detail/SetAccount.cpp:158:    if (auto const mk = tx[~sfMessageKey])
+src/xrpld/app/tx/detail/SetAccount.cpp:167:    if (auto const domain = tx[~sfDomain];
+src/xrpld/app/tx/detail/SetAccount.cpp:168:        domain && domain->size() > maxDomainLength)
+src/xrpld/app/tx/detail/SetAccount.cpp:190:SetAccount::checkPermission(ReadView const& view, STTx const& tx)
+src/xrpld/app/tx/detail/SetAccount.cpp:192:    // SetAccount is prohibited to be granted on a transaction level,
+src/xrpld/app/tx/detail/SetAccount.cpp:211:    // AccountSet transaction. If any delegated account is trying to
+src/xrpld/app/tx/detail/SetAccount.cpp:217:    if (tx.isFieldPresent(sfEmailHash) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:218:        !granularPermissions.contains(AccountEmailHashSet))
+src/xrpld/app/tx/detail/SetAccount.cpp:225:    if (tx.isFieldPresent(sfMessageKey) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:226:        !granularPermissions.contains(AccountMessageKeySet))
+src/xrpld/app/tx/detail/SetAccount.cpp:229:    if (tx.isFieldPresent(sfDomain) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:230:        !granularPermissions.contains(AccountDomainSet))
+src/xrpld/app/tx/detail/SetAccount.cpp:233:    if (tx.isFieldPresent(sfTransferRate) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:234:        !granularPermissions.contains(AccountTransferRateSet))
+src/xrpld/app/tx/detail/SetAccount.cpp:237:    if (tx.isFieldPresent(sfTickSize) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:238:        !granularPermissions.contains(AccountTickSizeSet))
+src/xrpld/app/tx/detail/SetAccount.cpp:245:SetAccount::preclaim(PreclaimContext const& ctx)
+src/xrpld/app/tx/detail/SetAccount.cpp:259:    // legacy AccountSet flags
+src/xrpld/app/tx/detail/SetAccount.cpp:261:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth);
+src/xrpld/app/tx/detail/SetAccount.cpp:266:    if (bSetRequireAuth && !(uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:271:            return (ctx.flags & tapRETRY) ? TER{terOWNERS} : TER{tecOWNERS};
+src/xrpld/app/tx/detail/SetAccount.cpp:280:        if (uSetFlag == asfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:282:            if (uFlagsIn & lsfNoFreeze)
+src/xrpld/app/tx/detail/SetAccount.cpp:285:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:291:                return tecOWNERS;
+src/xrpld/app/tx/detail/SetAccount.cpp:294:        else if (uSetFlag == asfNoFreeze)
+src/xrpld/app/tx/detail/SetAccount.cpp:297:            if (uFlagsIn & lsfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:301:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetAccount.cpp:310:SetAccount::doApply()
+src/xrpld/app/tx/detail/SetAccount.cpp:323:    // legacy AccountSet flags
+src/xrpld/app/tx/detail/SetAccount.cpp:330:        (uTxFlags & tfRequireAuth) || (uSetFlag == asfRequireAuth)};
+src/xrpld/app/tx/detail/SetAccount.cpp:332:        (uTxFlags & tfOptionalAuth) || (uClearFlag == asfRequireAuth)};
+src/xrpld/app/tx/detail/SetAccount.cpp:334:        (uTxFlags & tfDisallowXRP) || (uSetFlag == asfDisallowXRP)};
+src/xrpld/app/tx/detail/SetAccount.cpp:336:        (uTxFlags & tfAllowXRP) || (uClearFlag == asfDisallowXRP)};
+src/xrpld/app/tx/detail/SetAccount.cpp:354:    if (bSetRequireAuth && !(uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:357:        uFlagsOut |= lsfRequireAuth;
+src/xrpld/app/tx/detail/SetAccount.cpp:360:    if (bClearRequireAuth && (uFlagsIn & lsfRequireAuth))
+src/xrpld/app/tx/detail/SetAccount.cpp:363:        uFlagsOut &= ~lsfRequireAuth;
+src/xrpld/app/tx/detail/SetAccount.cpp:399:    if ((uSetFlag == asfDisableMaster) && !(uFlagsIn & lsfDisableMaster))
+src/xrpld/app/tx/detail/SetAccount.cpp:411:            return tecNO_ALTERNATIVE_KEY;
+src/xrpld/app/tx/detail/SetAccount.cpp:418:    if ((uClearFlag == asfDisableMaster) && (uFlagsIn & lsfDisableMaster))
+src/xrpld/app/tx/detail/SetAccount.cpp:427:    if (uSetFlag == asfDefaultRipple)
+src/xrpld/app/tx/detail/SetAccount.cpp:429:        JLOG(j_.trace()) << "Set lsfDefaultRipple.";
+src/xrpld/app/tx/detail/SetAccount.cpp:430:        uFlagsOut |= lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetAccount.cpp:432:    else if (uClearFlag == asfDefaultRipple)
+src/xrpld/app/tx/detail/SetAccount.cpp:434:        JLOG(j_.trace()) << "Clear lsfDefaultRipple.";
+src/xrpld/app/tx/detail/SetAccount.cpp:435:        uFlagsOut &= ~lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetAccount.cpp:441:    if (uSetFlag == asfNoFreeze)
+src/xrpld/app/tx/detail/SetAccount.cpp:450:        uFlagsOut |= lsfNoFreeze;
+src/xrpld/app/tx/detail/SetAccount.cpp:454:    if (uSetFlag == asfGlobalFreeze)
+src/xrpld/app/tx/detail/SetAccount.cpp:457:        uFlagsOut |= lsfGlobalFreeze;
+src/xrpld/app/tx/detail/SetAccount.cpp:463:    if ((uSetFlag != asfGlobalFreeze) && (uClearFlag == asfGlobalFreeze) &&
+src/xrpld/app/tx/detail/SetAccount.cpp:464:        ((uFlagsOut & lsfNoFreeze) == 0))
+src/xrpld/app/tx/detail/SetAccount.cpp:467:        uFlagsOut &= ~lsfGlobalFreeze;
+src/xrpld/app/tx/detail/SetAccount.cpp:503:    // EmailHash
+src/xrpld/app/tx/detail/SetAccount.cpp:505:    if (tx.isFieldPresent(sfEmailHash))
+src/xrpld/app/tx/detail/SetAccount.cpp:507:        uint128 const uHash = tx.getFieldH128(sfEmailHash);
+src/xrpld/app/tx/detail/SetAccount.cpp:512:            sle->makeFieldAbsent(sfEmailHash);
+src/xrpld/app/tx/detail/SetAccount.cpp:517:            sle->setFieldH128(sfEmailHash, uHash);
+src/xrpld/app/tx/detail/SetAccount.cpp:541:    // MessageKey
+src/xrpld/app/tx/detail/SetAccount.cpp:543:    if (tx.isFieldPresent(sfMessageKey))
+src/xrpld/app/tx/detail/SetAccount.cpp:545:        Blob const messageKey = tx.getFieldVL(sfMessageKey);
+src/xrpld/app/tx/detail/SetAccount.cpp:550:            sle->makeFieldAbsent(sfMessageKey);
+src/xrpld/app/tx/detail/SetAccount.cpp:555:            sle->setFieldVL(sfMessageKey, messageKey);
+src/xrpld/app/tx/detail/SetAccount.cpp:560:    // Domain
+src/xrpld/app/tx/detail/SetAccount.cpp:562:    if (tx.isFieldPresent(sfDomain))
+src/xrpld/app/tx/detail/SetAccount.cpp:564:        Blob const domain = tx.getFieldVL(sfDomain);
+src/xrpld/app/tx/detail/SetAccount.cpp:569:            sle->makeFieldAbsent(sfDomain);
+src/xrpld/app/tx/detail/SetAccount.cpp:574:            sle->setFieldVL(sfDomain, domain);
+src/xrpld/app/tx/detail/SetAccount.cpp:579:    // TransferRate
+src/xrpld/app/tx/detail/SetAccount.cpp:581:    if (tx.isFieldPresent(sfTransferRate))
+src/xrpld/app/tx/detail/SetAccount.cpp:583:        std::uint32_t uRate = tx.getFieldU32(sfTransferRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:588:            sle->makeFieldAbsent(sfTransferRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:593:            sle->setFieldU32(sfTransferRate, uRate);
+src/xrpld/app/tx/detail/SetAccount.cpp:598:    // TickSize
+src/xrpld/app/tx/detail/SetAccount.cpp:600:    if (tx.isFieldPresent(sfTickSize))
+src/xrpld/app/tx/detail/SetAccount.cpp:602:        auto uTickSize = tx[sfTickSize];
+src/xrpld/app/tx/detail/SetAccount.cpp:603:        if ((uTickSize == 0) || (uTickSize == Quality::maxTickSize))
+src/xrpld/app/tx/detail/SetAccount.cpp:606:            sle->makeFieldAbsent(sfTickSize);
+src/xrpld/app/tx/detail/SetAccount.cpp:611:            sle->setFieldU8(sfTickSize, uTickSize);
+src/xrpld/app/tx/detail/SetAccount.cpp:661:        uSetFlag == asfAllowTrustLineClawback)
+src/xrpld/app/tx/detail/SetAccount.cpp:664:        uFlagsOut |= lsfAllowTrustLineClawback;

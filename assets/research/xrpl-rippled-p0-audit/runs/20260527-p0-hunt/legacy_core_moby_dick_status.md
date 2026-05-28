@@ -18,13 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T08:03:43Z
-amendment_checked_utc: 2026-05-28T08:03:45Z
+runtime_checked_utc: 2026-05-28T08:11:11Z
+amendment_checked_utc: 2026-05-28T08:11:13Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533369, hash 5B7DBD4E4B5228723D13926C1BAE983AA11D2A5B3C17CD00F9684E2285B09872
-s2.ripple.com: rippled 3.1.3, ledger 104533369, hash 5B7DBD4E4B5228723D13926C1BAE983AA11D2A5B3C17CD00F9684E2285B09872
-runtime receipt sha256: 7fd94d5cd139dc7c2daabef7c15c9bf4a50309d711c1ff80afb4263cdb16935b
-amendment receipt sha256: 9a0bc9e390d42a79eecf49d81f4862569c94f65659076c977134c7fa28251c79
+s1.ripple.com: rippled 3.1.3, ledger 104533485, hash AB8CC2AD6A292FE1E069D2262C15A1051593F2480DA26A578D2936CA57388A5E
+s2.ripple.com: rippled 3.1.3, ledger 104533485, hash AB8CC2AD6A292FE1E069D2262C15A1051593F2480DA26A578D2936CA57388A5E
+runtime receipt sha256: 948955bed83c537c17e4122415e0e348497a1e5f8e9689317897060b4c50a41b
+amendment receipt sha256: 179e960b3e003a9d1fbc46edca072c46dbbd5aaf0152aa9e54870e779c7c30f6
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -58,6 +58,7 @@ Completed and packet-bound work:
 - AccountDelete positive-unowned-trustline lifecycle scratch probe.
 - TrustSet legacy reserve-carveout source and suite sweep.
 - legacy amount/quality arithmetic continuation sweep.
+- AccountSet legacy flag and policy-setting sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1074,6 +1075,24 @@ tests, and the following candidates were source-killed rather than promoted:
   DisallowIncoming, trustline deletion/reset, no-ripple, authorization, freeze,
   and deep-freeze behavior. The current evidence does not show live-state
   corruption or a stranded object from the carveout itself.
+- `ACCOUNTSET-LEGACY-FLAG-SWEEP-001`: old AccountSet policy flags and
+  transfer-rate/tick-size fields were reviewed as a possible source of
+  irreversible account-policy drift. The sweep covered `SetAccount`,
+  `SetRegularKey`, `SetTrust`, RequireAuth, NoFreeze, GlobalFreeze,
+  DefaultRipple, DisallowXRP, DisableMaster, AllowTrustLineClawback,
+  TransferRate, TickSize, Domain, EmailHash, and MessageKey source and history.
+  Static artifact `accountset_legacy_flag_static_sweep_20260528.log` has
+  sha256 `3301768d245f4f8b883fd79e1bf9e3c90f1cf75b1f540ae8c3a873e88c04ab5e`.
+  History artifact `accountset_legacy_flag_history_sweep_20260528.log` has
+  sha256 `3c20b7cf7445e52bb283be15e4b0135a3d79a550bfc17b66dad641f382791137`.
+  Suite artifact `accountset_legacy_flag_source_kill_20260528.log` has sha256
+  `8027ce231849a0ec589c0dd1a254a598c8b14345b5a4f5e4075fe7870977a5ba`.
+  The effect suites passed with 263 cases and 32,279 tests across Freeze,
+  SetTrust, SetRegularKey, TrustAndBalance, AccountDelete, Invariants,
+  Clawback, and DepositAuth. No clean legacy-core transaction witness showed
+  forbidden flag-combination mutation, broken alternate-key state, freeze/auth
+  policy drift, reserve/object drift, or invariant failure from AccountSet
+  itself.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.

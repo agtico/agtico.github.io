@@ -1590,6 +1590,32 @@ a trustline from non-positive to positive balance; the explicit `TrustSet`
 bootstrap carveout does not by itself reproduce state corruption or stranded
 objects.
 
+## Demoted: AccountSet legacy flag sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether old AccountSet policy flags or settings could be a
+legacy-core source of forbidden flag combinations, broken alternate-key state,
+freeze/auth policy drift, reserve/object drift, or invariant failure. The sweep
+covered `SetAccount`, `SetRegularKey`, RequireAuth, NoFreeze, GlobalFreeze,
+DefaultRipple, DisallowXRP, DisableMaster, AllowTrustLineClawback,
+TransferRate, TickSize, Domain, EmailHash, and MessageKey source/history.
+
+There is no standalone `SetAccount` suite in this tree, so the test pass
+covered AccountSet effects through the suites that exercise those flags:
+`Freeze,SetTrust,SetRegularKey,TrustAndBalance,AccountDelete,Invariants,Clawback,DepositAuth`.
+
+```text
+accountset_legacy_flag_static_sweep_20260528.log sha256 3301768d245f4f8b883fd79e1bf9e3c90f1cf75b1f540ae8c3a873e88c04ab5e
+accountset_legacy_flag_history_sweep_20260528.log sha256 3c20b7cf7445e52bb283be15e4b0135a3d79a550bfc17b66dad641f382791137
+accountset_legacy_flag_source_kill_20260528.log sha256 8027ce231849a0ec589c0dd1a254a598c8b14345b5a4f5e4075fe7870977a5ba
+62.7s, 8 suites, 263 cases, 32279 tests total, 0 failures
+```
+
+Interpretation: this did not isolate a new Moby Dick P0. AccountSet remains a
+high-leverage review surface, but this bounded pass did not produce a clean
+current transaction witness.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.
