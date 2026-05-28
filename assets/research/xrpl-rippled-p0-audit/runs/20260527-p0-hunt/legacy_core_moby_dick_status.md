@@ -346,6 +346,20 @@ suite before this triage note was written.
 
 This is not a promoted finding.
 
+`PAYCHAN-DIRFULL-PARTIAL-001` and `ESCROW-DIRFULL-PARTIAL-001` were also
+probed and demoted in the same two-directory-write class.
+
+The scratch PayChannel probe filled the destination owner directory before
+`PaymentChannelCreate`. The transaction returned `tecDIR_FULL`, the computed
+channel key did not exist afterward, and the source account owner count stayed
+at zero. The scratch Escrow probe filled the destination owner directory before
+`EscrowCreate` with a valid `FinishAfter`. It also returned `tecDIR_FULL`,
+left no escrow object, and left the source owner count at zero. Both temporary
+scratch tests passed locally in `OpenP0Repro` and were removed from the suite
+before this triage note was written.
+
+These are not promoted findings.
+
 ## PayChan Legacy Probe
 
 `PAYCHAN-LEGACY-CLOSE-OWNERDIR-001` was source-reviewed in this slice but not
