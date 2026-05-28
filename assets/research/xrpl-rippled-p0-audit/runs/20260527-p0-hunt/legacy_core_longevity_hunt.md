@@ -1,6 +1,6 @@
 # XRPL Legacy-Core Longevity P0 Hunt Plan
 
-Date: 2026-05-27
+Date: 2026-05-28
 
 Scope: find live XRPL bugs that are old, simple, and transaction-visible. This
 is deliberately not another sweep of newly activated AMM/MPT/Vault/Lending
@@ -24,6 +24,33 @@ obvious once isolated:
 
 If this works, the finding is materially stronger than "a new amendment shipped
 with a bug." It says an old live primitive sat broken through many releases.
+
+## Current Lead For The Next 8-Hour Pass
+
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` is now the model candidate for this
+lane. The bug shape is old core reserve/accounting drift:
+
+1. an account clears its IOU trustline limit and returns to zero balance;
+2. the trustline remains with `OwnerCount=0` and no receiver reserve flag;
+3. offer crossing gives the account a positive IOU balance again;
+4. `OwnerCount` remains `0` and the receiver reserve flag remains unset.
+
+Packet-bound proof already exists on the current `3.1.3` target, `2.5.0`, and
+`2.0.0`. A `1.5.0` Ubuntu 20.04 Docker build produced a passing terminal repro
+with marker:
+
+```text
+Legacy 1.5.0 -- offer crossing creates positive balance without reserve
+2.5s, 1 suite, 9 cases, 271 tests total, 0 failures
+```
+
+That `1.5.0` proof is not yet packet evidence until the patch/log are saved,
+hashed, verifier-bound, committed, and the temporary worktree is cleaned.
+
+The next hunt should look for siblings of this shape before broadening:
+alternate old receive/settlement paths that create positive balance,
+non-default trustline state, object ownership, or directory entries without the
+matching reserve/owner-count transition.
 
 ## Promotion Gates
 
@@ -102,7 +129,114 @@ machinery:
 | `CreateCheck.cpp` / `CashCheck.cpp` | 2018 | Check creation uses object insertion plus two owner-directory insertions; CheckCash can auto-create trustlines. Both are old and mechanically simple. |
 | `CreateTicket.cpp` / `Transactor.cpp` | 2014+ | Tickets reduce sequence ordering constraints; raw sequence vs ticket sequence mistakes have already produced real bugs. |
 
-## Candidate Queue
+## 8-Hour Operator Queue
+
+### Phase 0. Package `1.5.0` Trustline Proof
+
+Timebox: 45 minutes.
+
+Tasks:
+
+1. Save the `1.5.0` repro patch and full proof log.
+2. Record tag commit, tag date, Docker image, build flags, proof marker, and
+   result count.
+3. Add the artifact hashes to this run packet.
+4. Run the packet verifier and the trustline repro wrapper.
+5. Commit only if checks pass.
+6. Return the temporary `rippled-1.5.0` worktree to a clean/non-misleading
+   state after artifacting.
+
+### Phase 1. Trustline/Offer Reserve Siblings
+
+Timebox: 2 hours.
+
+Probe first:
+
+1. Path payment/rippling creates positive balance after a cleared trustline.
+2. `CheckCash` creates or resurrects positive IOU balance without reserve.
+3. Offer crossing with transfer rate, quality-in/out, and partial crossing at
+   reserve boundaries.
+4. Trustline default-state deletion followed by alternate-path resurrection.
+5. Direct `Payment`/`TrustSet` controls that reject or charge reserve while the
+   alternate path succeeds.
+
+Promotion condition: positive balance, owned object, directory entry, or
+non-default trustline state exists without the expected owner/reserve
+accounting.
+
+### Phase 2. Old Object Lifecycle And Directory State
+
+Timebox: 90 minutes.
+
+Probe:
+
+1. `CreateCheck` directory-full and two-owner-directory failure paths.
+2. `PayChan` close/claim/delete around recipient owner-directory migration.
+3. XRP `Escrow` cancel/finish/delete around account deletion and owner counts.
+4. Ticket-paid create paths that may derive object keys from raw `sfSequence`.
+
+Promotion condition: a live transaction can strand an object, leak a directory
+entry, leave owner count wrong, collide object keys, or reach an internal
+exception from normal input.
+
+### Phase 3. Authorization/Freeze Receive-Path Siblings
+
+Timebox: 90 minutes.
+
+Probe:
+
+1. Direct payment control versus path payment, offer crossing, check cash, and
+   deferred settlement.
+2. Local freeze and global freeze on IOU receive/send/offer paths.
+3. `RequireAuth` on direct and indirect receive paths.
+4. Clawback/deep-freeze interactions only where direct RPC proves the surface
+   live.
+
+Demote pure semantics disputes. Promote only if a direct path rejects but an
+indirect path accepts the same ledger effect and creates durable state or value
+movement.
+
+### Phase 4. Deterministic Exception And Arithmetic Sweep
+
+Timebox: 75 minutes.
+
+Probe:
+
+1. `STAmount`, quality, and transfer-rate boundaries in old IOU/offer paths.
+2. Path-payment amount extraction and issue mismatch paths.
+3. Offer book crossing with tiny/huge qualities and partial crossing.
+4. Owner-directory traversal and object deletion failure paths.
+
+Promotion condition: transaction-visible `tefINTERNAL`, `tefEXCEPTION`,
+overflow, assertion, or invariant failure from normal input.
+
+### Phase 5. Source-Signal Clustering
+
+Timebox: 45 minutes.
+
+Use commit history, branch names, and touched files as source signals, not
+evidence. Cluster around:
+
+- `fix-positive-balance-trustline-pay-no-reserve`;
+- owner-count and reserve edits;
+- `rippleCreditIOU`, `accountSend`, `trustCreate`, `trustDelete`,
+  `adjustOwnerCount`;
+- directory insert/delete helpers;
+- result-code changes in `Payment`, `OfferCreate`, `SetTrust`, `CreateCheck`,
+  `CashCheck`, `Escrow`, and `PayChan`.
+
+If a signal does not produce a repro quickly, write a source-kill note and move
+on.
+
+### Phase 6. Packet Hardening
+
+Timebox: final 30 minutes.
+
+For every promoted candidate: save patch/log/hash, update repro wrapper,
+manifest, packet docs, triage, verifier, run checks, and commit only after
+checks pass.
+
+## Legacy Candidate Details
 
 ### 1. `CHECK-LEGACY-DIRFULL-PARTIAL-001`
 
@@ -280,7 +414,10 @@ Probe:
 Promotion condition: any live transaction type reaches duplicate insertion,
 `tefEXCEPTION`, or object collision from normal ticket-paid use.
 
-## First Probe Order
+## Legacy Fallback Probe Order
+
+Use this queue only after the `1.5.0` proof is packet-bound and the
+trustline/offer reserve sibling probes are exhausted or source-killed:
 
 1. `CHECK-LEGACY-DIRFULL-PARTIAL-001`
 2. `PAYCHAN-LEGACY-CLOSE-OWNERDIR-001`
@@ -290,9 +427,8 @@ Promotion condition: any live transaction type reaches duplicate insertion,
 6. `PAYMENT-LEGACY-TEFEXCEPTION-PATH-001`
 7. `ESCROW-LEGACY-XRP-DELETE-EDGE-001`
 
-This order is chosen for fastest kill/promote cycle. Directory and sequence
-bugs should fail loudly if present. Reserve/accounting bugs require more state
-setup but are likely to be more serious if they reproduce.
+This order is still useful for negative inventory, but the new evidence says
+reserve/accounting siblings should get first attention.
 
 ## Evidence Packet Template
 
@@ -332,7 +468,9 @@ article_status: not-public-until-authorized
 
 ## Immediate Next Action
 
-Write one scratch jtx test for `CHECK-LEGACY-DIRFULL-PARTIAL-001`. If it dies
-cleanly, move directly to `PAYCHAN-LEGACY-CLOSE-OWNERDIR-001`. Do not spend more
-than one hour on a candidate without either a reproducing marker or a written
-source-kill note.
+Package the observed `1.5.0`
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` proof into the packet. If that cannot
+be done within 45 minutes, write the precise blocker. Then start Phase 1 and
+hunt sibling trustline/offer reserve bugs before returning to the legacy
+fallback queue. Do not spend more than one hour on a candidate without either a
+reproducing marker or a written source-kill note.
