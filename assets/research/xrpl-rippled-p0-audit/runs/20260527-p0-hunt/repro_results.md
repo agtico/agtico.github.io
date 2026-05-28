@@ -131,6 +131,35 @@ After the scratch-only case was removed, the upstream packet harness returned:
 16.8s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
+## Current source kill: XRP Escrow lifecycle and account deletion
+
+Status: tested through existing upstream suites and not promoted.
+
+Hypothesis: legacy XRP Escrow finish, cancel, ticket use, directory cleanup, or
+account-delete obligation checks might strand an escrow, leak owner-directory
+entries, miss an obligation, or corrupt owner counts.
+
+Existing upstream coverage exercised escrow enablement, finish/cancel timing,
+tags, DisallowXRP behavior, implied finish time, failure cases, lockup
+owner-count assertions, crypto-conditions, metadata to self/other, transaction
+consequences, ticket-created escrows, credential/deposit-preauth combinations,
+and account-delete obligation checks.
+
+Source-kill artifact:
+
+```text
+runs/20260527-p0-hunt/escrow_accountdelete_source_kill_20260528.log
+sha256: b38d0438aa3af6bc9d7c20a9ffe789923fbd5537c94f5c26628555c51c68b05a
+```
+
+Proof excerpt:
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.Escrow had 0 failures.
+19.4s, 2 suites, 53 cases, 11568 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

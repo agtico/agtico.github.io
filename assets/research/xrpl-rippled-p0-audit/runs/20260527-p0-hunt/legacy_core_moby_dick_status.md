@@ -160,6 +160,22 @@ ripple.tx.OpenP0Repro SCRATCH OfferCreate partial cross under reserve cancels re
 16.0s, 1 suite, 71 cases, 16828 tests total, 0 failures
 ```
 
+`ESCROW-LEGACY-XRP-DELETE-EDGE-001` asked whether legacy XRP Escrow finish,
+cancel, tickets, owner-directory cleanup, or account-delete obligation checks
+can strand obligations or corrupt owner-count/directory state. Existing
+upstream `Escrow` and `AccountDelete` coverage passed across enablement,
+finish/cancel timing, tags, DisallowXRP, implied finish time, failure cases,
+lockup owner-count assertions, crypto-conditions, metadata, consequences,
+tickets, credentials, and account-delete obligation checks. Source-kill artifact
+`escrow_accountdelete_source_kill_20260528.log` has sha256
+`b38d0438aa3af6bc9d7c20a9ffe789923fbd5537c94f5c26628555c51c68b05a`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.Escrow had 0 failures.
+19.4s, 2 suites, 53 cases, 11568 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
