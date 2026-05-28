@@ -1,0 +1,568 @@
+src/test/rpc/AccountTx_test.cpp:35:class AccountTx_test : public beast::unit_test::suite
+src/test/rpc/AccountTx_test.cpp:38:    // transactions array node as returned by the account_tx RPC command.
+src/test/rpc/AccountTx_test.cpp:83:        for (Json::Value const& metaNode :
+src/test/rpc/AccountTx_test.cpp:84:             txNode[jss::meta][sfAffectedNodes.jsonName])
+src/test/rpc/AccountTx_test.cpp:86:            if (metaNode.isMember(sfCreatedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:88:                    metaNode[sfCreatedNode.jsonName][sfLedgerEntryType.jsonName]
+src/test/rpc/AccountTx_test.cpp:91:            else if (metaNode.isMember(sfDeletedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:93:                    metaNode[sfDeletedNode.jsonName][sfLedgerEntryType.jsonName]
+src/test/rpc/AccountTx_test.cpp:96:            else if (metaNode.isMember(sfModifiedNode.jsonName))
+src/test/rpc/AccountTx_test.cpp:97:                modifiedNodes.insert(metaNode[sfModifiedNode.jsonName]
+src/test/rpc/AccountTx_test.cpp:103:                    "Unexpected or unlabeled node type in metadata.",
+src/test/rpc/AccountTx_test.cpp:200:            env.rpc("json", "account_tx", to_string(jParams)),
+src/test/rpc/AccountTx_test.cpp:206:            env.rpc("json", "account_tx", to_string(jParams)),
+src/test/rpc/AccountTx_test.cpp:211:            env.rpc(apiVersion, "json", "account_tx", to_string(jParams))));
+src/test/rpc/AccountTx_test.cpp:219:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:225:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:228:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:235:                    noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:238:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:244:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:253:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:258:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:261:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:266:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:276:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:281:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:284:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:289:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:293:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:296:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:305:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:308:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:312:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:317:                env.rpc("json", "account_tx", to_string(p)), rpcLGR_NOT_FOUND));
+src/test/rpc/AccountTx_test.cpp:326:                env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:329:            BEAST_EXPECT(noTxs(env.rpc("json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:345:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:348:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:358:                    env.rpc(apiVersion, "json", "account_tx", to_string(p))));
+src/test/rpc/AccountTx_test.cpp:361:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:370:                    "json", "account_tx", to_string(params))[jss::result];
+src/test/rpc/AccountTx_test.cpp:389:                Json::Value result{env.rpc("json", "account_tx", to_string(p))};
+src/test/rpc/AccountTx_test.cpp:394:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:398:            Json::Value result{env.rpc("json", "account_tx", to_string(p))};
+src/test/rpc/AccountTx_test.cpp:406:                    env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:410:            result = env.rpc("json", "account_tx", to_string(p));
+src/test/rpc/AccountTx_test.cpp:420:                env.rpc("json", "account_tx", to_string(p)),
+src/test/rpc/AccountTx_test.cpp:428:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:437:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:446:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:455:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:464:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:473:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:482:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:491:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:501:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:512:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:521:                    "account_tx",
+src/test/rpc/AccountTx_test.cpp:682:        // Setup is done.  Look at the transactions returned by account_tx.
+src/test/rpc/AccountTx_test.cpp:689:            env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:740:        // Verify that if an account is resurrected then the account_tx RPC
+src/test/rpc/AccountTx_test.cpp:795:        // Verify that we can recover becky's account_tx information even
+src/test/rpc/AccountTx_test.cpp:804:                env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:846:        // Setup is done.  Look at the transactions returned by account_tx.
+src/test/rpc/AccountTx_test.cpp:847:        // Verify that account_tx locates all of becky's transactions.
+src/test/rpc/AccountTx_test.cpp:854:            env.rpc("json", "account_tx", to_string(params))};
+src/test/rpc/AccountTx_test.cpp:895:                env.rpc("json", "account_tx", to_string(params))[jss::result];
+src/test/rpc/AccountTx_test.cpp:954:            std::bind_front(&AccountTx_test::testParameters, this));
+src/test/rpc/AccountTx_test.cpp:960:BEAST_DEFINE_TESTSUITE(AccountTx, rpc, ripple);
+src/test/rpc/DeliveredAmount_test.cpp:30:// Helper class to track the expected number `delivered_amount` results.
+src/test/rpc/DeliveredAmount_test.cpp:31:class CheckDeliveredAmount
+src/test/rpc/DeliveredAmount_test.cpp:35:    // number of payments expected 'delivered_amount' available
+src/test/rpc/DeliveredAmount_test.cpp:37:    // Number of payments with field with `delivered_amount` set to the
+src/test/rpc/DeliveredAmount_test.cpp:40:    // Number of payments with no `delivered_amount` field
+src/test/rpc/DeliveredAmount_test.cpp:68:    explicit CheckDeliveredAmount(bool afterSwitchTime)
+src/test/rpc/DeliveredAmount_test.cpp:99:    // Check if the transaction has `delivered_amount` in the metaData as
+src/test/rpc/DeliveredAmount_test.cpp:104:    checkTxn(Json::Value const& t, Json::Value const& metaData)
+src/test/rpc/DeliveredAmount_test.cpp:109:        bool isSet = metaData.isMember(jss::delivered_amount);
+src/test/rpc/DeliveredAmount_test.cpp:114:            if (metaData[jss::delivered_amount] != "unavailable")
+src/test/rpc/DeliveredAmount_test.cpp:128:            if (metaData.isMember(sfDeliveredAmount.jsonName))
+src/test/rpc/DeliveredAmount_test.cpp:130:                if (metaData[jss::delivered_amount] !=
+src/test/rpc/DeliveredAmount_test.cpp:131:                    metaData[sfDeliveredAmount.jsonName])
+src/test/rpc/DeliveredAmount_test.cpp:138:                    if (metaData[jss::delivered_amount] != t[jss::Amount])
+src/test/rpc/DeliveredAmount_test.cpp:143:                    if (metaData[jss::delivered_amount] != "unavailable")
+src/test/rpc/DeliveredAmount_test.cpp:149:        if (metaData[sfTransactionResult.jsonName] != "tesSUCCESS")
+src/test/rpc/DeliveredAmount_test.cpp:163:                if (metaData.isMember(sfDeliveredAmount.jsonName))
+src/test/rpc/DeliveredAmount_test.cpp:179:class DeliveredAmount_test : public beast::unit_test::suite
+src/test/rpc/DeliveredAmount_test.cpp:182:    testAccountDeliveredAmountSubscribe()
+src/test/rpc/DeliveredAmount_test.cpp:184:        testcase("Ledger Request Subscribe DeliveredAmount");
+src/test/rpc/DeliveredAmount_test.cpp:207:            CheckDeliveredAmount checkDeliveredAmount{afterSwitchTime};
+src/test/rpc/DeliveredAmount_test.cpp:213:                checkDeliveredAmount.adjCountersSuccess();
+src/test/rpc/DeliveredAmount_test.cpp:215:                checkDeliveredAmount.adjCountersSuccess();
+src/test/rpc/DeliveredAmount_test.cpp:219:                checkDeliveredAmount.adjCountersPartialPayment();
+src/test/rpc/DeliveredAmount_test.cpp:224:                checkDeliveredAmount.adjCountersFail();
+src/test/rpc/DeliveredAmount_test.cpp:265:                    BEAST_EXPECT(checkDeliveredAmount.checkTxn(
+src/test/rpc/DeliveredAmount_test.cpp:266:                        (*r)[jss::transaction], (*r)[jss::meta]));
+src/test/rpc/DeliveredAmount_test.cpp:269:            BEAST_EXPECT(checkDeliveredAmount.checkExpectedCounters());
+src/test/rpc/DeliveredAmount_test.cpp:273:    testTxDeliveredAmountRPC()
+src/test/rpc/DeliveredAmount_test.cpp:275:        testcase("Ledger Request RPC DeliveredAmount");
+src/test/rpc/DeliveredAmount_test.cpp:298:            CheckDeliveredAmount checkDeliveredAmount{afterSwitchTime};
+src/test/rpc/DeliveredAmount_test.cpp:301:            checkDeliveredAmount.adjCountersSuccess();
+src/test/rpc/DeliveredAmount_test.cpp:303:            checkDeliveredAmount.adjCountersSuccess();
+src/test/rpc/DeliveredAmount_test.cpp:307:            checkDeliveredAmount.adjCountersPartialPayment();
+src/test/rpc/DeliveredAmount_test.cpp:312:            checkDeliveredAmount.adjCountersFail();
+src/test/rpc/DeliveredAmount_test.cpp:328:                    checkDeliveredAmount.checkTxn(t, t[jss::metaData]));
+src/test/rpc/DeliveredAmount_test.cpp:329:            BEAST_EXPECT(checkDeliveredAmount.checkExpectedCounters());
+src/test/rpc/DeliveredAmount_test.cpp:334:    testMPTDeliveredAmountRPC(FeatureBitset features)
+src/test/rpc/DeliveredAmount_test.cpp:336:        testcase("MPT DeliveredAmount");
+src/test/rpc/DeliveredAmount_test.cpp:367:        Json::Value meta = env.rpc("tx", txHash)[jss::result][jss::meta];
+src/test/rpc/DeliveredAmount_test.cpp:369:        if (features[fixMPTDeliveredAmount])
+src/test/rpc/DeliveredAmount_test.cpp:372:                meta[sfDeliveredAmount.jsonName] ==
+src/test/rpc/DeliveredAmount_test.cpp:375:                meta[jss::delivered_amount] ==
+src/test/rpc/DeliveredAmount_test.cpp:380:            BEAST_EXPECT(!meta.isMember(sfDeliveredAmount.jsonName));
+src/test/rpc/DeliveredAmount_test.cpp:382:                meta[jss::delivered_amount] = Json::Value("unavailable"));
+src/test/rpc/DeliveredAmount_test.cpp:391:        meta = env.rpc("tx", txHash)[jss::result][jss::meta];
+src/test/rpc/DeliveredAmount_test.cpp:393:        if (features[fixMPTDeliveredAmount])
+src/test/rpc/DeliveredAmount_test.cpp:396:                meta[sfDeliveredAmount.jsonName] ==
+src/test/rpc/DeliveredAmount_test.cpp:399:                meta[jss::delivered_amount] ==
+src/test/rpc/DeliveredAmount_test.cpp:404:            BEAST_EXPECT(!meta.isMember(sfDeliveredAmount.jsonName));
+src/test/rpc/DeliveredAmount_test.cpp:406:                meta[jss::delivered_amount] = Json::Value("unavailable"));
+src/test/rpc/DeliveredAmount_test.cpp:417:        testTxDeliveredAmountRPC();
+src/test/rpc/DeliveredAmount_test.cpp:418:        testAccountDeliveredAmountSubscribe();
+src/test/rpc/DeliveredAmount_test.cpp:420:        testMPTDeliveredAmountRPC(all - fixMPTDeliveredAmount);
+src/test/rpc/DeliveredAmount_test.cpp:421:        testMPTDeliveredAmountRPC(all);
+src/test/rpc/DeliveredAmount_test.cpp:425:BEAST_DEFINE_TESTSUITE(DeliveredAmount, rpc, ripple);
+src/test/rpc/Transaction_test.cpp:71:        std::vector<std::shared_ptr<STObject const>> metas;
+src/test/rpc/Transaction_test.cpp:78:            metas.emplace_back(
+src/test/rpc/Transaction_test.cpp:87:            auto const& meta = metas[i];
+src/test/rpc/Transaction_test.cpp:100:                result[jss::result][jss::meta] ==
+src/test/rpc/Transaction_test.cpp:101:                strHex(meta->getSerializer().getData()));
+src/test/rpc/Transaction_test.cpp:323:        std::vector<std::shared_ptr<STObject const>> metas;
+src/test/rpc/Transaction_test.cpp:330:            metas.emplace_back(
+src/test/rpc/Transaction_test.cpp:339:            auto const& meta = metas[i];
+src/test/rpc/Transaction_test.cpp:340:            uint32_t txnIdx = meta->getFieldU32(sfTransactionIndex);
+src/test/rpc/Transaction_test.cpp:353:                result[jss::result][jss::meta] ==
+src/test/rpc/Transaction_test.cpp:354:                strHex(meta->getSerializer().getData()));
+src/test/rpc/Transaction_test.cpp:382:            auto const& meta = metas[i];
+src/test/rpc/Transaction_test.cpp:383:            uint32_t txnIdx = meta->getFieldU32(sfTransactionIndex);
+src/test/rpc/Transaction_test.cpp:449:            auto const& meta = metas[0];
+src/test/rpc/Transaction_test.cpp:450:            uint32_t txnIdx = meta->getFieldU32(sfTransactionIndex);
+src/test/rpc/Transaction_test.cpp:809:        std::shared_ptr<STObject const> meta =
+src/test/rpc/Transaction_test.cpp:888:        std::shared_ptr<STObject const> meta =
+src/test/rpc/Transaction_test.cpp:892:        std::string const expected_meta_blob = serializeHex(*meta);
+src/test/rpc/Transaction_test.cpp:917:                    result[jss::result][jss::meta_blob] == expected_meta_blob);
+src/test/rpc/Transaction_test.cpp:930:                    result[jss::result][jss::meta] == expected_meta_blob);
+src/xrpld/app/misc/NetworkOPs.cpp:25:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/app/misc/NetworkOPs.cpp:41:#include <xrpld/app/misc/detail/AccountTxPaging.h>
+src/xrpld/app/misc/NetworkOPs.cpp:52:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/app/misc/NetworkOPs.cpp:643:    transJson(
+src/xrpld/app/misc/NetworkOPs.cpp:648:        std::optional<std::reference_wrapper<TxMeta const>> meta);
+src/xrpld/app/misc/NetworkOPs.cpp:3070:        transJson(transaction, result, false, ledger, std::nullopt);
+src/xrpld/app/misc/NetworkOPs.cpp:3252:NetworkOPsImp::transJson(
+src/xrpld/app/misc/NetworkOPs.cpp:3257:    std::optional<std::reference_wrapper<TxMeta const>> meta)
+src/xrpld/app/misc/NetworkOPs.cpp:3272:    if (meta)
+src/xrpld/app/misc/NetworkOPs.cpp:3274:        jvObj[jss::meta] = meta->get().getJson(JsonOptions::none);
+src/xrpld/app/misc/NetworkOPs.cpp:3275:        RPC::insertDeliveredAmount(
+src/xrpld/app/misc/NetworkOPs.cpp:3276:            jvObj[jss::meta], *ledger, transaction, meta->get());
+src/xrpld/app/misc/NetworkOPs.cpp:3277:        RPC::insertNFTSyntheticInJson(jvObj, transaction, meta->get());
+src/xrpld/app/misc/NetworkOPs.cpp:3279:            jvObj[jss::meta], transaction, meta->get());
+src/xrpld/app/misc/NetworkOPs.cpp:3370:    auto const metaRef = std::ref(transaction.getMeta());
+src/xrpld/app/misc/NetworkOPs.cpp:3372:    MultiApiJson jvObj = transJson(stTxn, trResult, true, ledger, metaRef);
+src/xrpld/app/misc/NetworkOPs.cpp:3517:        auto const metaRef = std::ref(transaction.getMeta());
+src/xrpld/app/misc/NetworkOPs.cpp:3519:        MultiApiJson jvObj = transJson(stTxn, trResult, true, ledger, metaRef);
+src/xrpld/app/misc/NetworkOPs.cpp:3601:        MultiApiJson jvObj = transJson(tx, result, false, ledger, std::nullopt);
+src/xrpld/app/misc/NetworkOPs.cpp:3755:                                 std::shared_ptr<TxMeta> const& meta) -> bool {
+src/xrpld/app/misc/NetworkOPs.cpp:3768:                for (auto& node : meta->getNodes())
+src/xrpld/app/misc/NetworkOPs.cpp:3823:                    std::optional<RelationalDatabase::AccountTxMarker> marker)
+src/xrpld/app/misc/NetworkOPs.cpp:3825:                    RelationalDatabase::AccountTxs,
+src/xrpld/app/misc/NetworkOPs.cpp:3826:                    std::optional<RelationalDatabase::AccountTxMarker>>> {
+src/xrpld/app/misc/NetworkOPs.cpp:3832:                        RelationalDatabase::AccountTxPageOptions options{
+src/xrpld/app/misc/NetworkOPs.cpp:3834:                        return db->newestAccountTxPage(options);
+src/xrpld/app/misc/NetworkOPs.cpp:3897:                std::optional<RelationalDatabase::AccountTxMarker> marker{};
+src/xrpld/app/misc/NetworkOPs.cpp:3921:                        auto const& [tx, meta] = txns[i];
+src/xrpld/app/misc/NetworkOPs.cpp:3923:                        if (!tx || !meta)
+src/xrpld/app/misc/NetworkOPs.cpp:3927:                                << toBase58(accountId) << " empty tx or meta.";
+src/xrpld/app/misc/NetworkOPs.cpp:3964:                        auto const mRef = std::ref(*meta);
+src/xrpld/app/misc/NetworkOPs.cpp:3965:                        auto const trR = meta->getResultTER();
+src/xrpld/app/misc/NetworkOPs.cpp:3967:                            transJson(stTxn, trR, true, curTxLedger, mRef);
+src/xrpld/app/misc/NetworkOPs.cpp:3975:                        if (isFirstTx(tx, meta))
+src/xrpld/app/tx/detail/Payment.cpp:619:            if (view().rules().enabled(fixMPTDeliveredAmount) &&
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:21:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:25:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:135:        auto const json_meta =
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:136:            (fill.context->apiVersion > 1 ? jss::meta_blob : jss::meta);
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:138:            txJson[json_meta] = serializeHex(*stMeta);
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:151:            txJson[jss::meta] = stMeta->getJson(JsonOptions::none);
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:155:                RPC::insertDeliveredAmount(
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:156:                    txJson[jss::meta],
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:163:                txJson[jss::meta],
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:188:            txJson[jss::metaData] = stMeta->getJson(JsonOptions::none);
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:192:                RPC::insertDeliveredAmount(
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:193:                    txJson[jss::metaData],
+src/xrpld/app/ledger/detail/LedgerToJson.cpp:200:                txJson[jss::metaData],
+src/xrpld/rpc/MPTokenIssuanceID.h:36:   Add a `mpt_issuance_id` field to the `meta` input/output parameter.
+src/test/app/MPToken_test.cpp:67:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:76:                     .metadata = "test",
+src/test/app/MPToken_test.cpp:87:                     .metadata = "test",
+src/test/app/MPToken_test.cpp:98:                     .metadata = "test",
+src/test/app/MPToken_test.cpp:106:                     .metadata = "test",
+src/test/app/MPToken_test.cpp:117:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:126:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:129:            // empty metadata returns error
+src/test/app/MPToken_test.cpp:134:                 .metadata = "",
+src/test/app/MPToken_test.cpp:142:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:150:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:156:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:178:                 .metadata = "123",
+src/test/app/MPToken_test.cpp:208:                    return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:216:                    .metadata = "123",
+src/test/app/MPToken_test.cpp:874:                    return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:888:                    return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:997:                delivermin(XRP(100)),
+src/test/app/MPToken_test.cpp:1008:                delivermin(MPT(100)),
+src/test/app/MPToken_test.cpp:1011:                delivermin(MPT(100)),
+src/test/app/MPToken_test.cpp:1166:                        return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:1208:                        return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:1268:                        return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:1280:                        return pdomain::getNewDomain(env.meta());
+src/test/app/MPToken_test.cpp:1557:                delivermin(MPT(100)),
+src/test/app/MPToken_test.cpp:1563:                delivermin(MPT(99)),
+src/test/app/MPToken_test.cpp:1646:            // Verify the metadata
+src/test/app/MPToken_test.cpp:1647:            auto const meta = env.meta()->getJson(
+src/test/app/MPToken_test.cpp:1651:                meta[0u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:1655:                meta[1u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:1659:                meta[2u][sfModifiedNode.fieldName][sfPreviousFields.fieldName]
+src/test/app/MPToken_test.cpp:1662:                !meta[2u][sfModifiedNode.fieldName][sfFinalFields.fieldName]
+src/test/app/MPToken_test.cpp:2346:        Json::Value const meta = env.rpc("tx", txHash)[jss::result][jss::meta];
+src/test/app/MPToken_test.cpp:2347:        auto const id = meta[jss::mpt_issuance_id].asString();
+src/test/app/MPToken_test.cpp:2349:        BEAST_EXPECT(meta.isMember(jss::mpt_issuance_id));
+src/test/app/MPToken_test.cpp:2814:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:2819:                 .metadata = "",
+src/test/app/MPToken_test.cpp:2855:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:2888:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:2915:                 .metadata = "test"});
+src/test/app/MPToken_test.cpp:2920:                 .metadata = "test2"});
+src/test/app/MPToken_test.cpp:3004:            std::string metadata(maxMPTokenMetadataLength + 1, 'a');
+src/test/app/MPToken_test.cpp:3006:                {.account = alice, .metadata = metadata, .err = temMALFORMED});
+src/test/app/MPToken_test.cpp:3009:        // Can not mutate metadata when it is not mutable
+src/test/app/MPToken_test.cpp:3017:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:3158:            // Can mutate metadata
+src/test/app/MPToken_test.cpp:3159:            mptAlice.set({.account = alice, .metadata = "test"});
+src/test/app/MPToken_test.cpp:3160:            mptAlice.set({.account = alice, .metadata = ""});
+src/test/app/MPToken_test.cpp:3172:        // Mutate metadata
+src/test/app/MPToken_test.cpp:3177:                {.metadata = "test",
+src/test/app/MPToken_test.cpp:3181:            std::vector<std::string> metadatas = {
+src/test/app/MPToken_test.cpp:3182:                "mutate metadata",
+src/test/app/MPToken_test.cpp:3183:                "mutate metadata 2",
+src/test/app/MPToken_test.cpp:3184:                "mutate metadata 3",
+src/test/app/MPToken_test.cpp:3185:                "mutate metadata 3",
+src/test/app/MPToken_test.cpp:3187:                "mutate metadata"};
+src/test/app/MPToken_test.cpp:3189:            for (auto const& metadata : metadatas)
+src/test/app/MPToken_test.cpp:3191:                mptAlice.set({.account = alice, .metadata = metadata});
+src/test/app/MPToken_test.cpp:3192:                BEAST_EXPECT(mptAlice.checkMetadata(metadata));
+src/test/app/MPToken_test.cpp:3196:            mptAlice.set({.account = alice, .metadata = ""});
+src/test/app/MPToken_test.cpp:3206:                 .metadata = "test",
+src/test/app/MPToken_test.cpp:3237:                    {.metadata = "test",
+src/test/app/MPToken_test.cpp:3338:            mptAlice.set({.account = alice, .metadata = "mutate"});
+src/test/app/MPToken_test.cpp:3810:        // Test parsed MPTokenIssuanceID in API response metadata
+src/xrpld/rpc/DeliveredAmount.h:47:   Add a `delivered_amount` field to the `meta` input/output parameter.
+src/xrpld/rpc/DeliveredAmount.h:56:insertDeliveredAmount(
+src/xrpld/rpc/DeliveredAmount.h:57:    Json::Value& meta,
+src/xrpld/rpc/DeliveredAmount.h:63:insertDeliveredAmount(
+src/xrpld/rpc/DeliveredAmount.h:64:    Json::Value& meta,
+src/xrpld/rpc/DeliveredAmount.h:69:insertDeliveredAmount(
+src/xrpld/rpc/DeliveredAmount.h:70:    Json::Value& meta,
+src/xrpld/rpc/DeliveredAmount.h:76:getDeliveredAmount(
+src/xrpld/rpc/BookChanges.h:85:            SField const& metaType = node.getFName();
+src/xrpld/rpc/BookChanges.h:90:            if (nodeType != ltOFFER || metaType == sfCreatedNode)
+src/xrpld/rpc/BookChanges.h:113:            if (metaType == sfDeletedNode && offerCancel &&
+src/xrpld/app/rdb/RelationalDatabase.h:59:    struct AccountTxMarker
+src/xrpld/app/rdb/RelationalDatabase.h:65:    struct AccountTxOptions
+src/xrpld/app/rdb/RelationalDatabase.h:75:    struct AccountTxPageOptions
+src/xrpld/app/rdb/RelationalDatabase.h:80:        std::optional<AccountTxMarker> marker;
+src/xrpld/app/rdb/RelationalDatabase.h:85:    using AccountTx =
+src/xrpld/app/rdb/RelationalDatabase.h:87:    using AccountTxs = std::vector<AccountTx>;
+src/xrpld/app/rdb/RelationalDatabase.h:97:    struct AccountTxArgs
+src/xrpld/app/rdb/RelationalDatabase.h:104:        std::optional<AccountTxMarker> marker;
+src/xrpld/app/rdb/RelationalDatabase.h:107:    struct AccountTxResult
+src/xrpld/app/rdb/RelationalDatabase.h:109:        std::variant<AccountTxs, MetaTxsList> transactions;
+src/xrpld/app/rdb/RelationalDatabase.h:112:        std::optional<AccountTxMarker> marker;
+src/xrpld/rpc/handlers/Simulate.cpp:27:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/rpc/handlers/Simulate.cpp:267:    if (result.metadata)
+src/xrpld/rpc/handlers/Simulate.cpp:271:            auto const metaBlob =
+src/xrpld/rpc/handlers/Simulate.cpp:272:                result.metadata->getAsObject().getSerializer().getData();
+src/xrpld/rpc/handlers/Simulate.cpp:273:            jvResult[jss::meta_blob] = strHex(makeSlice(metaBlob));
+src/xrpld/rpc/handlers/Simulate.cpp:277:            jvResult[jss::meta] = result.metadata->getJson(JsonOptions::none);
+src/xrpld/rpc/handlers/Simulate.cpp:278:            RPC::insertDeliveredAmount(
+src/xrpld/rpc/handlers/Simulate.cpp:279:                jvResult[jss::meta],
+src/xrpld/rpc/handlers/Simulate.cpp:282:                *result.metadata);
+src/xrpld/rpc/handlers/Simulate.cpp:284:                jvResult, transaction->getSTransaction(), *result.metadata);
+src/xrpld/rpc/handlers/Simulate.cpp:286:                jvResult[jss::meta],
+src/xrpld/rpc/handlers/Simulate.cpp:288:                *result.metadata);
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:42: * metadata objects. Stops early if the callback returns true.
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:59:    // a transaction's metadata.
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:65:    // / `CreatedNode` object in a transaction's metadata.
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:72:    Meta meta = nullptr;
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:91:        meta = ledger->txRead(prevTx).second;
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:94:        for (STObject const& node : meta->getFieldArray(sfAffectedNodes))
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:103:            // if a meta is for the new and this is the first
+src/xrpld/rpc/handlers/GetAggregatePrice.cpp:104:            // look-up then it's the meta for the tx that
+src/xrpld/rpc/handlers/Tx.cpp:28:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/rpc/handlers/Tx.cpp:58:    std::variant<std::shared_ptr<TxMeta>, Blob> meta;
+src/xrpld/rpc/handlers/Tx.cpp:131:    auto [txn, meta] = std::get<TxPair>(v);
+src/xrpld/rpc/handlers/Tx.cpp:155:    if (ledger && meta)
+src/xrpld/rpc/handlers/Tx.cpp:159:            result.meta = meta->getAsObject().getSerializer().getData();
+src/xrpld/rpc/handlers/Tx.cpp:163:            result.meta = meta;
+src/xrpld/rpc/handlers/Tx.cpp:172:        if (meta->getAsObject().isFieldPresent(sfTransactionIndex))
+src/xrpld/rpc/handlers/Tx.cpp:176:                meta->getAsObject().getFieldU32(sfTransactionIndex);
+src/xrpld/rpc/handlers/Tx.cpp:255:        // populate binary metadata
+src/xrpld/rpc/handlers/Tx.cpp:256:        if (auto blob = std::get_if<Blob>(&result.meta))
+src/xrpld/rpc/handlers/Tx.cpp:260:            auto json_meta =
+src/xrpld/rpc/handlers/Tx.cpp:261:                (context.apiVersion > 1 ? jss::meta_blob : jss::meta);
+src/xrpld/rpc/handlers/Tx.cpp:262:            response[json_meta] = strHex(makeSlice(*blob));
+src/xrpld/rpc/handlers/Tx.cpp:264:        // populate meta data
+src/xrpld/rpc/handlers/Tx.cpp:265:        else if (auto m = std::get_if<std::shared_ptr<TxMeta>>(&result.meta))
+src/xrpld/rpc/handlers/Tx.cpp:267:            auto& meta = *m;
+src/xrpld/rpc/handlers/Tx.cpp:268:            if (meta)
+src/xrpld/rpc/handlers/Tx.cpp:270:                response[jss::meta] = meta->getJson(JsonOptions::none);
+src/xrpld/rpc/handlers/Tx.cpp:271:                insertDeliveredAmount(
+src/xrpld/rpc/handlers/Tx.cpp:272:                    response[jss::meta], context, result.txn, *meta);
+src/xrpld/rpc/handlers/Tx.cpp:273:                RPC::insertNFTSyntheticInJson(response, sttx, *meta);
+src/xrpld/rpc/handlers/Tx.cpp:274:                RPC::insertMPTokenIssuanceID(response[jss::meta], sttx, *meta);
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:136:     * @brief getOldestAccountTxs Returns the oldest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:139:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:143:     * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:146:    virtual AccountTxs
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:147:    getOldestAccountTxs(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:150:     * @brief getNewestAccountTxs Returns the newest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:153:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:157:     * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:160:    virtual AccountTxs
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:161:    getNewestAccountTxs(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:164:     * @brief getOldestAccountTxsB Returns the oldest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:167:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:171:     * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:175:    getOldestAccountTxsB(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:178:     * @brief getNewestAccountTxsB Returns the newest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:181:     * @param options Struct AccountTxOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:185:     * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:190:    getNewestAccountTxsB(AccountTxOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:193:     * @brief oldestAccountTxPage Returns the oldest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:196:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:200:     * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:204:    virtual std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:205:    oldestAccountTxPage(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:208:     * @brief newestAccountTxPage Returns the newest transactions for the
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:211:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:215:     * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:219:    virtual std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:220:    newestAccountTxPage(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:223:     * @brief oldestAccountTxPageB Returns the oldest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:226:     * @param options Struct AccountTxPageOptions which contains criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:230:     * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:235:    virtual std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:236:    oldestAccountTxPageB(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:239:     * @brief newestAccountTxPageB Returns the newest transactions in binary
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:242:     * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:246:     * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:251:    virtual std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:252:    newestAccountTxPageB(AccountTxPageOptions const& options) = 0;
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:261:     * @return Transaction and its metadata if found, otherwise TxSearched::all
+src/xrpld/app/rdb/backend/SQLiteDatabase.h:269:    virtual std::variant<AccountTx, TxSearched>
+src/xrpld/rpc/detail/RPCCall.cpp:238:    // account_tx accountID [ledger_min [ledger_max [limit [offset]]]] [binary]
+src/xrpld/rpc/detail/RPCCall.cpp:1254:            {"account_tx", &RPCParser::parseAccountTransactions, 1, 8},
+src/xrpld/rpc/handlers/TransactionEntry.cpp:104:            auto const json_meta =
+src/xrpld/rpc/handlers/TransactionEntry.cpp:105:                (context.apiVersion > 1 ? jss::meta : jss::metadata);
+src/xrpld/rpc/handlers/TransactionEntry.cpp:107:                jvResult[json_meta] = stobj->getJson(JsonOptions::none);
+src/xrpld/rpc/detail/Handler.cpp:96:    {"account_tx", byRef(&doAccountTxJson), Role::USER, NO_CONDITION},
+src/xrpld/rpc/handlers/LedgerData.cpp:20:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/handlers/LedgerHeader.cpp:20:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/handlers/LedgerHandler.h:24:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/detail/RPCHandler.cpp:22:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/handlers/AccountTx.cpp:26:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/rpc/handlers/AccountTx.cpp:43:using TxnsData = RelationalDatabase::AccountTxs;
+src/xrpld/rpc/handlers/AccountTx.cpp:46:using AccountTxArgs = RelationalDatabase::AccountTxArgs;
+src/xrpld/rpc/handlers/AccountTx.cpp:47:using AccountTxResult = RelationalDatabase::AccountTxResult;
+src/xrpld/rpc/handlers/AccountTx.cpp:215:std::pair<AccountTxResult, RPC::Status>
+src/xrpld/rpc/handlers/AccountTx.cpp:216:doAccountTxHelp(RPC::Context& context, AccountTxArgs const& args)
+src/xrpld/rpc/handlers/AccountTx.cpp:220:    AccountTxResult result;
+src/xrpld/rpc/handlers/AccountTx.cpp:233:    RelationalDatabase::AccountTxPageOptions options = {
+src/xrpld/rpc/handlers/AccountTx.cpp:251:            auto [tx, marker] = db->oldestAccountTxPageB(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:257:            auto [tx, marker] = db->newestAccountTxPageB(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:266:            auto [tx, marker] = db->oldestAccountTxPage(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:272:            auto [tx, marker] = db->newestAccountTxPage(options);
+src/xrpld/rpc/handlers/AccountTx.cpp:286:    std::pair<AccountTxResult, RPC::Status> const& res,
+src/xrpld/rpc/handlers/AccountTx.cpp:287:    AccountTxArgs const& args,
+src/xrpld/rpc/handlers/AccountTx.cpp:298:        AccountTxResult const& result = res.first;
+src/xrpld/rpc/handlers/AccountTx.cpp:349:                        jvObj[jss::meta] =
+src/xrpld/rpc/handlers/AccountTx.cpp:351:                        insertDeliveredAmount(
+src/xrpld/rpc/handlers/AccountTx.cpp:352:                            jvObj[jss::meta], context, txn, *txnMeta);
+src/xrpld/rpc/handlers/AccountTx.cpp:355:                            jvObj[jss::meta], sttx, *txnMeta);
+src/xrpld/rpc/handlers/AccountTx.cpp:379:                auto const json_meta =
+src/xrpld/rpc/handlers/AccountTx.cpp:380:                    (context.apiVersion > 1 ? jss::meta_blob : jss::meta);
+src/xrpld/rpc/handlers/AccountTx.cpp:381:                jvObj[json_meta] = strHex(std::get<1>(binaryData));
+src/xrpld/rpc/handlers/AccountTx.cpp:410:doAccountTxJson(RPC::JsonContext& context)
+src/xrpld/rpc/handlers/AccountTx.cpp:416:    AccountTxArgs args;
+src/xrpld/rpc/handlers/AccountTx.cpp:419:    // The document[https://xrpl.org/account_tx.html#account_tx] states that
+src/xrpld/rpc/handlers/AccountTx.cpp:482:    auto res = doAccountTxHelp(context, args);
+src/xrpld/rpc/handlers/LedgerHandler.cpp:20:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/handlers/LedgerHandler.cpp:145:                        txn->set_metadata_blob(sMeta.data(), sMeta.getLength());
+src/xrpld/rpc/detail/Tuning.h:48:/** Limits for the account_tx command. */
+src/xrpld/rpc/handlers/LedgerRequest.cpp:20:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/app/rdb/backend/detail/Node.cpp:22:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/app/rdb/backend/detail/Node.cpp:699: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:714:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:786: * @brief getAccountTxs Returns the oldest or newest transactions for the
+src/xrpld/app/rdb/backend/detail/Node.cpp:792: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:798: * @return Vector of pairs of found transactions and their metadata sorted by
+src/xrpld/app/rdb/backend/detail/Node.cpp:806:static std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:807:getAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:811:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:815:    RelationalDatabase::AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/Node.cpp:861:            {  // Work around a bug that could leave the metadata missing
+src/xrpld/app/rdb/backend/detail/Node.cpp:886:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:887:getOldestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:891:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:894:    return getAccountTxs(session, app, ledgerMaster, options, false, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:897:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:898:getNewestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.cpp:902:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:905:    return getAccountTxs(session, app, ledgerMaster, options, true, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:909: * @brief getAccountTxsB Returns the oldest or newest transactions in binary
+src/xrpld/app/rdb/backend/detail/Node.cpp:914: * @param options Struct AccountTxOptions which contains the criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.cpp:921: *         metadata, and their account sequences) sorted by account sequence in
+src/xrpld/app/rdb/backend/detail/Node.cpp:929:getAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:932:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:987:getOldestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:990:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:993:    return getAccountTxsB(session, app, options, false, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:997:getNewestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1000:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1003:    return getAccountTxsB(session, app, options, true, j);
+src/xrpld/app/rdb/backend/detail/Node.cpp:1014: * @param options Struct AccountTxPageOptions which contains the criteria to
+src/xrpld/app/rdb/backend/detail/Node.cpp:1020: * @return Vector of tuples of found transactions, their metadata and account
+src/xrpld/app/rdb/backend/detail/Node.cpp:1025:static std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1032:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1062:    std::optional<RelationalDatabase::AccountTxMarker> newmarker;
+src/xrpld/app/rdb/backend/detail/Node.cpp:1131:        soci::indicator dataPresent, metaPresent;
+src/xrpld/app/rdb/backend/detail/Node.cpp:1139:             soci::into(txnMeta, metaPresent));
+src/xrpld/app/rdb/backend/detail/Node.cpp:1168:            if (metaPresent == soci::i_ok)
+src/xrpld/app/rdb/backend/detail/Node.cpp:1173:            // Work around a bug that could leave the metadata missing
+src/xrpld/app/rdb/backend/detail/Node.cpp:1200:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1201:oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1207:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1214:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1215:newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.cpp:1221:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.cpp:1228:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/xrpld/app/rdb/backend/detail/Node.cpp:1249:        soci::indicator txn, meta;
+src/xrpld/app/rdb/backend/detail/Node.cpp:1252:            soci::into(sociRawTxnBlob, txn), soci::into(sociRawMetaBlob, meta);
+src/xrpld/app/rdb/backend/detail/Node.cpp:1256:        if ((!got_data || txn != soci::i_ok || meta != soci::i_ok) && !range)
+src/xrpld/app/rdb/backend/detail/Node.h:262: * @brief getOldestAccountTxs Returns oldest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:267: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:272: * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/detail/Node.h:280:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.h:281:getOldestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.h:285:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:289: * @brief getNewestAccountTxs Returns newest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:294: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:299: * @return Vector of pairs of found transactions and their metadata
+src/xrpld/app/rdb/backend/detail/Node.h:307:std::pair<RelationalDatabase::AccountTxs, int>
+src/xrpld/app/rdb/backend/detail/Node.h:308:getNewestAccountTxs(
+src/xrpld/app/rdb/backend/detail/Node.h:312:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:316: * @brief getOldestAccountTxsB Returns oldest transactions in binary form
+src/xrpld/app/rdb/backend/detail/Node.h:321: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:326: * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/detail/Node.h:335:getOldestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.h:338:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:342: * @brief getNewestAccountTxsB Returns newest transactions in binary form
+src/xrpld/app/rdb/backend/detail/Node.h:347: * @param options Struct AccountTxOptions which contain criteria to match:
+src/xrpld/app/rdb/backend/detail/Node.h:352: * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/detail/Node.h:361:getNewestAccountTxsB(
+src/xrpld/app/rdb/backend/detail/Node.h:364:    RelationalDatabase::AccountTxOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:368: * @brief oldestAccountTxPage Searches oldest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:375: * @param options Struct AccountTxPageOptions which contain criteria to
+src/xrpld/app/rdb/backend/detail/Node.h:380: * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/detail/Node.h:385:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.h:386:oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.h:392:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:396: * @brief newestAccountTxPage Searches newest transactions for given
+src/xrpld/app/rdb/backend/detail/Node.h:403: * @param options Struct AccountTxPageOptions which contain criteria to
+src/xrpld/app/rdb/backend/detail/Node.h:408: * @return Vector of tuples of found transactions, their metadata and
+src/xrpld/app/rdb/backend/detail/Node.h:413:std::pair<std::optional<RelationalDatabase::AccountTxMarker>, int>
+src/xrpld/app/rdb/backend/detail/Node.h:414:newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/Node.h:420:    RelationalDatabase::AccountTxPageOptions const& options,
+src/xrpld/app/rdb/backend/detail/Node.h:432: * @return Transaction and its metadata if found, TxSearched::all if range
+src/xrpld/app/rdb/backend/detail/Node.h:439:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/xrpld/rpc/handlers/Handlers.h:42:doAccountTxJson(RPC::JsonContext&);
+src/xrpld/rpc/handlers/AccountInfo.cpp:219:            auto const txs = context.app.getTxQ().getAccountTxs(accountID);
+src/xrpld/rpc/detail/DeliveredAmount.cpp:24:#include <xrpld/rpc/DeliveredAmount.h>
+src/xrpld/rpc/detail/DeliveredAmount.cpp:44:getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:53:    if (transactionMeta.hasDeliveredAmount())
+src/xrpld/rpc/detail/DeliveredAmount.cpp:55:        return transactionMeta.getDeliveredAmount();
+src/xrpld/rpc/detail/DeliveredAmount.cpp:62:        // Ledger 4594095 is the first ledger in which the DeliveredAmount field
+src/xrpld/rpc/detail/DeliveredAmount.cpp:66:        // If the ledger closed long after the DeliveredAmount code was deployed
+src/xrpld/rpc/detail/DeliveredAmount.cpp:68:        // Amount field. DeliveredAmount went live January 24, 2014.
+src/xrpld/rpc/detail/DeliveredAmount.cpp:69:        // 446000000 is in Feb 2014, well after DeliveredAmount went live
+src/xrpld/rpc/detail/DeliveredAmount.cpp:80:// Returns true if transaction meta could contain a delivered amount field,
+src/xrpld/rpc/detail/DeliveredAmount.cpp:84:canHaveDeliveredAmountHelp(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:108:// Returns true if transaction meta could contain a delivered amount field,
+src/xrpld/rpc/detail/DeliveredAmount.cpp:111:canHaveDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:124:    return canHaveDeliveredAmountHelp(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:129:insertDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:130:    Json::Value& meta,
+src/xrpld/rpc/detail/DeliveredAmount.cpp:140:    if (canHaveDeliveredAmountHelp(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:146:        auto amt = getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:150:            meta[jss::delivered_amount] =
+src/xrpld/rpc/detail/DeliveredAmount.cpp:157:            meta[jss::delivered_amount] = Json::Value("unavailable");
+src/xrpld/rpc/detail/DeliveredAmount.cpp:164:getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:170:    if (canHaveDeliveredAmount(context, serializedTx, transactionMeta))
+src/xrpld/rpc/detail/DeliveredAmount.cpp:177:        return getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:185:getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:191:    return getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:198:insertDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:199:    Json::Value& meta,
+src/xrpld/rpc/detail/DeliveredAmount.cpp:204:    insertDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:205:        meta, context, transaction->getSTransaction(), transactionMeta);
+src/xrpld/rpc/detail/DeliveredAmount.cpp:209:insertDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:210:    Json::Value& meta,
+src/xrpld/rpc/detail/DeliveredAmount.cpp:215:    if (canHaveDeliveredAmount(context, transaction, transactionMeta))
+src/xrpld/rpc/detail/DeliveredAmount.cpp:217:        auto amt = getDeliveredAmount(
+src/xrpld/rpc/detail/DeliveredAmount.cpp:224:            meta[jss::delivered_amount] =
+src/xrpld/rpc/detail/DeliveredAmount.cpp:231:            meta[jss::delivered_amount] = Json::Value("unavailable");
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:22:#include <xrpld/app/misc/detail/AccountTxPaging.h>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:122:    AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:123:    getOldestAccountTxs(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:125:    AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:126:    getNewestAccountTxs(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:129:    getOldestAccountTxsB(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:132:    getNewestAccountTxsB(AccountTxOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:134:    std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:135:    oldestAccountTxPage(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:137:    std::pair<AccountTxs, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:138:    newestAccountTxPage(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:140:    std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:141:    oldestAccountTxPageB(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:143:    std::pair<MetaTxsList, std::optional<AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:144:    newestAccountTxPageB(AccountTxPageOptions const& options) override;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:146:    std::variant<AccountTx, TxSearched>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:561:RelationalDatabase::AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:562:SQLiteDatabaseImp::getOldestAccountTxs(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:572:        return detail::getOldestAccountTxs(*db, app_, ledgerMaster, options, j_)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:579:RelationalDatabase::AccountTxs
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:580:SQLiteDatabaseImp::getNewestAccountTxs(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:590:        return detail::getNewestAccountTxs(*db, app_, ledgerMaster, options, j_)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:598:SQLiteDatabaseImp::getOldestAccountTxsB(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:606:        return detail::getOldestAccountTxsB(*db, app_, options, j_).first;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:613:SQLiteDatabaseImp::getNewestAccountTxsB(AccountTxOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:621:        return detail::getNewestAccountTxsB(*db, app_, options, j_).first;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:628:    RelationalDatabase::AccountTxs,
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:629:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:630:SQLiteDatabaseImp::oldestAccountTxPage(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:638:    AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:652:            detail::oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:662:    RelationalDatabase::AccountTxs,
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:663:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:664:SQLiteDatabaseImp::newestAccountTxPage(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:672:    AccountTxs ret;
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:686:            detail::newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:697:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:698:SQLiteDatabaseImp::oldestAccountTxPageB(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:719:            detail::oldestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:730:    std::optional<RelationalDatabase::AccountTxMarker>>
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:731:SQLiteDatabaseImp::newestAccountTxPageB(AccountTxPageOptions const& options)
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:752:            detail::newestAccountTxPage(
+src/xrpld/app/rdb/backend/detail/SQLiteDatabase.cpp:761:std::variant<RelationalDatabase::AccountTx, TxSearched>
+src/xrpld/rpc/detail/RPCHelpers.cpp:21:#include <xrpld/app/ledger/LedgerToJson.h>
+src/xrpld/rpc/detail/RPCHelpers.cpp:28:#include <xrpld/rpc/DeliveredAmount.h>

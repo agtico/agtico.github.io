@@ -265,6 +265,13 @@ one of the WHIP gates:
   185 cases, and 23,586 tests. No deep-freeze bypass, metadata-hiding witness,
   unauthorized clawback/AMMClawback mutation, NFT settlement bypass, or RPC
   visibility failure was isolated.
+- `MPT-DELIVERED-AMOUNT-RPC-SWEEP-001` source-killed the live
+  `fixMPTDeliveredAmount` metadata/RPC branch. Static/history review plus
+  `DeliveredAmount`, `MPToken`, `Flow`, `PayStrand`, `Path`, `AccountTx`,
+  `LedgerRPC`, `Transaction`, and `TransactionEntry` passed with 11 suites, 165
+  cases, and 38,008 tests. No direct MPT transfer, partial-payment,
+  transfer-rate, ledger JSON, `tx`, `transaction_entry`, or `account_tx`
+  metadata witness was isolated.
 
 ## Still-Promoted Unfixed Set
 

@@ -1,0 +1,263 @@
+dc707b9f3 2026-04-24 feat: Enable and rename fixSecurity3_1_3 amendment (#90)
+024c9c57f 2026-04-20 refactor: Improve Forwarded header field parsing (#31)
+066e3956f 2026-04-13 refactor: Fill txJson based on apiVersion (#54)
+2ddef8c87 2026-04-09 fix: Check network ID in `transactionSignFor` (#64)
+56a9d69bf 2026-04-07 refactor: Improve RPC variable naming and handling (#60)
+08d8e440c 2026-04-17 Stop tx processing if failed to delete expired credentials (#6715)
+53a9690d8 2026-04-10 fix: Change `Tuning::bookOffers` minimum limit to 1 (#6812)
+4e066ea45 2026-04-08 refactor: Apply various minor improvements and corrections (#6739)
+9deae7eef 2026-01-22 refactor: Enforce 15-char limit and simplify labels for thread naming (#6212)
+baa78ad13 2026-03-22 fix: Assorted Oracle fixes (#6570)
+543e6f35e 2026-03-04 fix: Gateway balance with MPT (#6143)
+136034af4 2025-11-21 Fix: nullptr resolving without db config (#6029)
+ee4e2f6e5 2025-11-20 fix: Set correct index for limit in `book_offers` CLI (#6043)
+b8577bd7b 2025-11-19 Fix: Perform array size check (#6030)
+b46a9818e 2025-10-28 fix: account_tx limit parameter validation for malformed values (#5891)
+11bab0661 2026-04-01 fix: Enforce aggregate MaximumAmount in multi-send MPT (#6644)
+0e3600a18 2026-03-10 refactor: Improve exception handling
+1ead5a7ac 2026-01-12 Expand Number to support full integer range (#6192)
+91d239f10 2026-01-12 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 2026-01-09 fix: Inner batch transactions never have valid signatures (#6069)
+138d6e751 2025-12-02 Implement Lending Protocol (unsupported) (#5270)
+587d4ac5c 2025-10-30 refactor: Add support for extra transaction signature validation (#5851)
+0754cca98 2025-10-16 refactor: replace boost::lexical_cast<std::string> with to_string (#5883)
+eb66ae1bd 2025-10-15 refactor: replace JSON LastLedgerSequence with last_ledger_seq (#5884)
+b444457c1 2025-10-13 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+5b2ab905c 2025-10-08 chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+5e43e91d4 2025-10-10 Revert "refactor: Update to Boost 1.88 and 1.86" (#5872)
+d67dcfe3c 2025-09-29 refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+3cbdf818a 2025-09-18 Miscellaneous refactors and updates (#5590)
+dc8b37a52 2025-09-18 refactor: Modularise ledger (#5493)
+37b951859 2025-09-17 Rename mutable flags (#5797)
+ccb9f1e42 2025-09-15 Support DynamicMPT XLS-94d (#5705)
+bd182c0a3 2025-09-15 fix: Skip processing transaction batch if the batch is empty (#5670)
+6fe0599cc 2025-09-11 refactor: clean up `CTID.h` (#5681)
+e6f8bc720 2025-09-11 Add additional metadata to simulate response (#5754)
+61d628d65 2025-09-10 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+e0b9812fc 2025-08-29 Refactor `ledger_entry` RPC source code and tests (#5237)
+1506e6555 2025-08-27 refactor: Update to Boost 1.88 (#5570)
+7775c725f 2025-08-22 Merge remote-tracking branch 'upstream/release' into ximinez/merge-release
+c57cd8b23 2025-08-22 Revert "perf: Move mutex to the partition level (#5486)"
+ceb0ce563 2025-08-16 refactor: Decouple net from xrpld and move rpc-related classes to the rpc folder (#5477)
+b7ed99426 2025-08-11 fix: Make test suite names match the directory name (#5597)
+97f0747e1 2025-08-11 chore: Run prettier on all files (#5657)
+94decc753 2025-08-07 perf: Move mutex to the partition level (#5486)
+baf4b8381 2025-07-29 fix `DeliveredAmount` and `delivered_amount` in transaction metadata for direct MPT transfer (#5569)
+7179ce9c5 2025-07-25 Build options cleanup (#5581)
+60e340d35 2025-07-23 Include `network_id` in validations and subscription stream responses (#5579)
+80d82c5b2 2025-07-23 Add support for `DomainID` in `MPTokenIssuance` transactions (#5509)
+c233df720 2025-07-23 refactor: Makes HashRouter flags more type-safe (#5371)
+1a40f18bd 2025-07-18 Remove the type filter from "ledger" RPC command (#4934)
+8bfaa7fe0 2025-07-16 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+c9135a63c 2025-07-16 Retire Flow Cross amendment (#5562)
+b8626ea3c 2025-07-11 Add MPT related txns into issuer's account history  (#5530)
+8e94ea315 2025-07-10 fix: add allowTrustLineLocking flag for account_info (#5525)
+9874d47d7 2025-07-03 Decouple CredentialHelpers from xrpld/app/tx (#5487)
+e9d46f0bf 2025-06-24 Remove OwnerPaysFee as it's never fully supported (#5435)
+c55ea56c5 2025-06-24 Add nftoken_id, nftoken_ids, offer_id to meta for transaction stream (#5230)
+fc0984d28 2025-06-20 Require a message on "Application::signalStop" (#5255)
+8f2f5310e 2025-06-19 Fix: Improve error handling in Batch RPC response (#5503)
+a5e953b19 2025-06-03 fix: Add tecNO_DELEGATE_PERMISSION and fix flags (#5465)
+053e1af7f 2025-06-03 Add support for XLS-85 Token Escrow (#5185)
+0a34b5c69 2025-05-30 Add support for XLS-81 Permissioned DEX (#5404)
+2a61aee56 2025-05-23 Add Batch feature (XLS-56) (#5060)
+e514de76e 2025-05-20 Add single asset vault (XLS-65d) (#5224)
+3e152fec7 2025-05-08 refactor: use east const convention (#5409)
+2db279180 2025-05-08 Add PermissionDelegation feature (#5354)
+4a084ce34 2025-05-01 Improve transaction relay logic (#4985)
+cba512068 2025-04-11 refactor: Clean up test logging to make it easier to search (#5396)
+c4308b216 2025-04-10 fix: Adds CTID to RPC tx and updates error (#4738)
+e429455f4 2025-04-09 refactor(trivial): reorganize ledger entry tests and helper functions (#5376)
+a099f5a80 2025-04-08 Remove UNREACHABLE from `NetworkOPsImp::processTrustedProposal` (#5387)
+4ba928893 2025-04-04 fix: disable `channel_authorize` when `signing_support` is disabled (#5385)
+2bc5cb240 2025-03-25 test: enable unit tests to work with variable reference fee (#5145)
+d22a5057b 2025-03-20 Prevent consensus from getting stuck in the establish phase (#5277)
+bf504912a 2025-03-18 fix: trust line RPC no ripple flag (#5345)
+a7fb8ae91 2025-03-18 fix: Handle invalid marker parameter in grpc call (#5317)
+d9b7a2688 2025-03-17 fix: Error message for ledger_entry rpc (#5344)
+c3ecdb474 2025-03-14 Rename "deadlock" to "stall" in `LoadManager` (#5341)
+c17676a9b 2025-03-12 refactor: Improve ordering of headers with clang-format (#5343)
+2406b28e6 2025-03-11 refactor: Remove unused and add missing includes (#5293)
+af018c7b0 2025-02-27 Log detailed correlated consensus data together (#5302)
+159dfb5ac 2025-02-19 Revert "Reduce duplicate peer traffic for ledger data (#5126)" (#5300)
+db0fad682 2025-02-14 Log proposals and validations (#5291)
+dd5e6559d 2025-02-14 Reduce duplicate peer traffic for ledger data (#5126)
+7c9d652d9 2025-02-14 Support canonical ledger entry names (#5271)
+d9e4009e3 2025-02-07 fix: issues in `simulate` RPC (#5265)
+f6d63082c 2025-02-05 Improve git commit hash lookup (#5225)
+33e1c4259 2025-01-31 Add deep freeze feature (XLS-77d) (#5187)
+3d02580c0 2025-01-29 Merge remote-tracking branch 'upstream/master' into merge231
+dcc458122 2025-01-28 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+50b8f19cb 2025-01-28 Fix CI unit tests (#5196)
+b14c24960 2025-01-13 Reduce the peer charges for well-behaved peers:
+eac3abdca 2025-01-21 fix: Error consistency in LedgerEntry::parsePermissionedDomains() (#5252)
+ff8b9aa43 2025-01-14 Fix failing assert in `connect` RPC (#5235)
+ccc088980 2025-01-10 Permissioned Domains (XLS-80d) (#5161)
+0324764a8 2025-01-02 prefix Uint384 and Uint512 with Hash in server_definitions (#5231)
+679e35fd4 2025-01-02 refactor: add `rpcName` to `LEDGER_ENTRY` macro (#5202)
+5cd72f243 2024-12-16 Add MPTIssue to STIssue (#5200)
+eabca8439 2024-12-16 Antithesis instrumentation improvements (#5213)
+6d5806590 2024-12-04 refactor: clean up `LedgerEntry.cpp` (#5199)
+d7e949193 2024-12-03 Add Antithesis intrumentation (#5042)
+f419c1805 2024-11-25 Add a new serialized type: STNumber (#5121)
+0ec17b602 2024-11-18 fix: check for valid ammID field in amm_info RPC (#5188)
+2316d843d 2024-11-12 Fix ledger_entry crash on invalid credentials request (#5189)
+7b1800619 2024-11-06 Replace Uint192 with Hash192 in server_definitions response (#5177)
+9e48fc0c8 2024-11-06 Fix potential deadlock (#5124)
+8e827e32a 2024-11-06 Introduce Credentials support (XLS-70d): (#5103)
+c5c0e70e2 2024-11-06 Fix token comparison in Payment (#5172)
+d57cced17 2024-11-05 Fix unity build (#5179)
+54a350be7 2024-11-04 Add AMMClawback Transaction (XLS-0073d) (#5142)
+d4a5f8390 2024-10-29 fix: reject invalid markers in account_objects RPC calls (#5046)
+23c37fa50 2024-10-29 Introduce MPT support (XLS-33d): (#5143)
+552377c76 2024-10-15 Reformat code with clang-format-18
+a75309919 2024-09-20 feat(SQLite): allow configurable database pragma values (#5135)
+b6391fe01 2024-09-19 fix(book_changes): add "validated" field and reduce RPC latency (#5096)
+23991c99c 2024-09-11 test: Retry RPC commands to try to fix MacOS CI jobs (#5120)
+37b3e96b0 2024-09-03 Merge remote-tracking branch 'upstream/master' into upstream--develop
+4d7aed84e 2024-08-28 refactor: Remove reporting mode (#5092)
+7d27b1119 2024-08-02 Remove shards (#5066)
+8b181ed81 2024-07-31 Merge branch 'master' into develop
+a39720e94 2024-07-30 fix: change error for invalid `feature` param in `feature` RPC (#5063)
+d54151e7c 2024-07-29 Disallow filtering account_objects by unsupported types (#5056)
+eba5d1937 2024-07-12 Improve error handling in some RPC commands
+0f3210999 2024-07-05 fix CTID in tx command returns invalidParams on lowercase hex (#5049)
+e1534a320 2024-07-02 fix "account_nfts" with unassociated marker returning issue (#5045)
+9fec615dc 2024-06-27 fixInnerObjTemplate2 amendment (#5047)
+1d23148e6 2024-06-20 Rewrite includes (#4997)
+e416ee72c 2024-06-20 Rearrange sources (#4997)
+ae7ea33b7 2024-06-13 fixReducedOffersV2: prevent offers from blocking order books: (#5032)
+f4da2e31d 2024-05-09 Price Oracle: validate input parameters and extend test coverage: (#5013)
+0eebe6a5f 2024-03-23 Rewrite includes
+659bd99a6 2024-04-18 fix amendment to add `PreviousTxnID`/`PreviousTxnLgrSequence` (#4751)
+6edf03c15 2024-03-23 Write improved `forAllApiVersions` used in NetworkOPs (#4833)
+d5939727e 2023-11-16 Fix 2.0 regression in tx method with binary output (#4812)
+ac27089c6 2023-11-13 Promote API version 2 to supported (#4803)
+32ced493d 2023-11-08 Unify JSON serialization format of transactions (#4775)
+3b624d8bf 2023-10-30 `fixFillOrKill`: fix offer crossing with tfFillOrKill (#4694)
+397268394 2023-10-23 APIv2(DeliverMax): add alias for Amount in Payment transactions (#4733)
+b421945e7 2023-10-18 `DID`: Decentralized identifiers (DIDs) (XLS-40): (#4636)
+649c11a78 2023-09-14 `XChainBridge`: Introduce sidechain support (XLS-38): (#4292)
+7fae1c126 2023-09-13 APIv2(account_tx, noripple_check): return error on invalid input (#4620)
+c6f637501 2023-09-08 APIv2(ledger_entry): return invalidParams for bad parameters (#4630)
+5d88b726c 2023-07-08 test: add forAllApiVersions helper function (#4611)
+58f7aecb0 2023-07-17 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+5530a0b66 2023-08-18 feat: support Concise Transaction Identifier (CTID) (XLS-37) (#4418)
+3c9db4b69 2023-07-12 Introduce AMM support (XLS-30d): (#4294)
+a45a95e5e 2023-07-06 APIv2(ledger_entry): return "invalidParams" when fields missing (#4552)
+d34e8be31 2023-06-29 APIv2: add error messages for account_tx (#4571)
+0e983528e 2023-06-27 fix: remove deprecated fields in `ledger` method (#4244)
+66627b26c 2023-03-28 Refactor fee initialization and configuration: (#4319)
+e4b17d1cf 2023-02-02 `XRPFees`: Fee setting and handling improvements (#4247)
+6f8750316 2023-01-03 RPC tooBusy response has 503 HTTP status if "ripplerpc": "3.0": (#4143)
+0362e935a 2022-12-13 Reduce default reserves to 10/2 (#4329)
+92d35e54c 2021-11-16 Switch from C++17 to C++20
+0839a202c 2022-05-13 Reduce console noise coming from unit tests:
+dac080f1c 2021-09-11 Advance ripple.app.rdb
+04bd5878f 2022-02-18 Track total trustlines and avoid duplications
+70779f685 2021-08-13 Introduce NFT support (XLS020)
+df60e4675 2021-12-14 Improve deterministic transaction sorting in TxQ:
+417cfc2fb 2022-01-12 Adjust pathfinding configuration defaults:
+b1c9b134d 2021-12-08 Make transaction queue order deterministic:
+ff3d2e7c2 2021-04-13 Use jtx::offer_cancel more places:
+22cc9a254 2021-03-25 Maintenance of Offer and PayStrand unit tests
+2eb1c6a39 2020-06-23 Enable testing beta RPC API version with config
+6d82fb83a 2020-06-03 Relational DB interface
+207e1730e 2021-03-10 Serialize metadata as blob in tx RPC when binary flag is true
+3b33318dc 2020-11-13 Prefer std::optional over boost:optional:
+36be4856f 2020-12-01 Fix path finding for XRP dst and sendmax:
+fe129e8e4 2020-06-25  Optimize payment path exploration in flow:
+44fe0e1fc 2020-12-11 Add support for the 'TicketBatch' amendment:
+6dd3d825c 2020-12-16 Adjust time resolution of genesis ledger:
+f07246940 2020-10-05 Simplify & modernize code:
+17abca1ca 2020-11-06 Use macros to instantiate most SField instances:
+801b1580f 2020-08-05 Improve handling of RPC ledger_index argument:
+7724cca38 2018-10-18 Implement enhanced Ticket support:
+1067086f7 2020-05-27 Consolidate "Not Synced" error messages:
+2d23e7bd1 2020-05-14 Use std::size in place of std::extent
+328e42ad4 2020-04-24 Minor cleanups:
+894d3463c 2020-04-29 Extend unit testing of account_tx with deleted account:
+74f9edef0 2020-03-31 Prefer keylets instead of naked hashes:
+50760c693 2020-04-17 Format first-party source according to .clang-format
+a6246b0ba 2020-02-28 Remove conditionals for fix1373 enabled 07Jul2017
+e93a44fe9 2020-02-27 Remove conditionals for fix1368 enabled 31Mar2017
+d097819c5 2020-01-06 Check XRP endpoints for circular paths (RIPD-1781):
+81326a6d0 2020-01-07 Remove old payment code
+ae707b814 2019-12-17 Always enable fix1449 dated March 30, 2017 20:00:00 UTC
+9c580b20a 2019-12-13 Always enable fix1443 dated March 12, 2017 01:00:00 UTC
+70c21f90b 2019-12-13 Always enable fix1298 dated December 21, 2016 18:00:00 UTC
+0964379a6 2019-12-11 Always enable fix1274 dated September 30, 2016 17:00:00 UTC
+a176f58a9 2019-12-09 Always enable fix1141 dated July 1, 2016 17:00:00 UTC
+fc0a08270 2019-12-09 Remove STAmountSO::soTime and soTime2:
+7d867b806 2019-10-16 Add gRPC support (#3127):
+761bb5744 2019-08-28 Make XRPAmount constructor explicit:
+e3b5b808c 2019-02-14 Add units to all fee calculations:
+2aa11fa41 2019-11-11 Support API versioning
+47501b7f9 2019-11-01 Provide additional info with `txnNotFound` errors.
+a3a9dc26b 2018-11-01 Introduce support for deletable accounts:
+82484e26f 2019-10-03 Add option to enable -Wextra for gcc/clang.
+e33ac1d45 2019-08-09 Add PayChan to recipient's owner directory
+a9a4e2c8f 2019-08-19 Add Destination to Check threading
+c2d2ba9f4 2019-08-15 Simplify code using if constexpr:
+7912ee6f7 2019-08-06 Use structured bindings in some places:
+5d1728cc9 2019-08-06 Use class template argument deduction for locks
+28b942b18 2019-06-17 Enhance AccountTx unit test
+f8365f500 2019-06-08 Add JsonOptions enum class to contain options passed to getJSON methods
+79a0cb096 2019-05-09 Payment paths with a zero output step are dry (RIPD-1749):
+b39b0fef3 2019-05-01 Get names of transactions and ledger types from jss
+64b55c0f8 2019-03-30 Rename JsonFields.h to jss.h:
+88cb0e592 2018-08-23 Allow manifests to include an optional 'domain' field:
+c5d215d90 2019-02-20 Add delivered amount to the ledger RPC command
+148bbf4e8 2018-12-21 Add safe_cast (RIPD-1702):
+58f786cbb 2018-10-16 Make the FeeEscalation amendment permanent (RIPD-1654):
+a999894da 2018-10-12 Allow rippled to compile with C++17:
+63e167b7a 2018-10-09 ledger_entry RPC by index matches other forms [RIPD-1538]
+0bbe6e226 2018-09-12 Remove beast::Journal default constructor
+7295cf979 2018-07-20 Grow the open ledger expected transactions quickly (RIPD-1630):
+e14f91324 2016-12-28 Update TxQ developer docs:
+2901577be 2018-08-03 Remove using namespace declarations at namespace scope in headers
+f658656b8 2018-05-20 Mark some single-argument constructors explicit
+7c785d0d7 2018-05-13 Add missing override keyword:
+cfdc64d7c 2018-05-08 Enable manual tests in CI:
+008ff67ac 2018-04-20 Add DepositPreauth ledger type and transaction (RIPD-1624):
+118c25c0f 2018-04-16 Compile time check preflight returns no tec (RIPD-1624):
+04f138886 2018-05-04 Remove extra semicolons:
+c4a9b73a6 2018-03-23 Add check, escrow, and pay_chan to ledger_entry (RIPD-1600)
+deb9e4ce3 2018-04-02 Remove BeastConfig.h (RIPD-1167)
+a8481e369 2018-01-17 Better error messages for out of range integral values
+259394029 2017-08-25 Support for lsfDepositAuth (RIPD-1487):
+722917e9a 2017-11-22 Improved error message on mistyped command [RIPD-1527]:
+8a02b76d7 2017-11-27 Fix snprintf warning
+83dc45db6 2017-10-18 Default account_tx RPC to validated ledger range (RIPD-1544)
+e8d02c133 2017-11-28 Refactor FeatureBitset:
+3523cee63 2017-08-16 Minimize use of jtx::with_only_features (RIPD-1515):
+feb7582ac 2017-08-03 Unit tests don't enable Tickets or SHAMapV2 by default:
+1853c0d67 2017-04-13 Add STAmount switchover support to tx queue:
+a02a469b2 2017-08-14 Fix unit test compiler warnings
+5ad49454f 2017-07-18 Remove unused lambda captures
+56946e812 2017-05-01 Change features default behavior in Env (RIPD-1460):
+7dc2fe9ce 2017-05-09 Handle strand creation for erroneous self-payment
+5f3776529 2017-04-26 Make Paystrand tests automatic:
+a56d31910 2017-04-26 Disallow account one in payments
+369909df8 2016-03-15 Use payment flow code for offer crossing (RIPD-1094):
+2680b78b5 2017-04-14 Rename featureToStrandV2 to fix1373
+068889e5b 2017-03-31 Cleanup fix1449
+3bd9772c0 2017-03-30 Rename timebase switches from 'amendment' to 'fix'
+026a24917 2017-02-23 Implement transaction invariant checks (RIPD-1425):
+1a7a6f22e 2017-03-17 Add 'type' param to ledger_data and ledger rpc commands (RIPD-1446):
+1bb92d40a 2017-03-14 Fix tx re-ordering bug in test:
+726572944 2017-02-13 TxQ full queue RPC info (RIPD-1404):
+846723d77 2017-02-08 New rules for payment paths:
+80d9b0464 2017-02-07 Add helper to modify Env configs (RIPD-1247)
+ffa79ac6a 2017-03-11 Enforce rippling constraints during payments
+f423181b9 2017-03-07 Rename amendment featureRIPD1368 -> fix1368
+4b0a0b0b8 2017-02-13 Add test for transaction_entry request (RIPD-1401):
+3d6a1781e 2017-01-24 Add tests for lookupLedger (RIPD-1268):
+2c6b0f319 2016-12-19 Fix limiting step re-execute bug (RIPD-1368):
+fb60cc9b5 2017-01-03 Cleanup unit test support code (RIPD-1380):
+b6a01ea41 2016-11-28 Move support test code to src/test/support (RIPD-1313)
+fd7a2835e 2016-12-02 Migrate path tests to cpp (RIPD-1155):
+4b261b12a 2016-10-28 Prevent misuse of `JobQueue` header files:
+35504f172 2016-10-17 Add Ledger RPC Tests (RIPD-1297):
+bb0b97f46 2016-09-16 Fix unfunded offer not removed (RIPD-1298):
+8f9788917 2016-09-02 Don't include unit test sources in code coverage (RIPD-1132):

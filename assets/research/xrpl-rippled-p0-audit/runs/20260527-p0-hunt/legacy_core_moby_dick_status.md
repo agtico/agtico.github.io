@@ -81,6 +81,8 @@ Completed and packet-bound work:
   XRPL account-state and `account_tx` scans.
 - OFAC XRP deep-freeze, clawback, NFT settlement, and RPC metadata source-kill
   sweep.
+- MPT delivered-amount metadata, transaction-history, ledger, and account-tx
+  source-kill sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -208,6 +210,20 @@ No OFAC-specific P0 was promoted. The branch remains compliance-relevant
 triage, but the packet still requires a concrete local repro with unauthorized
 state mutation, metadata hiding, deep-freeze bypass, or consensus-visible
 failure.
+
+The following continuation checked the live `fixMPTDeliveredAmount` branch:
+direct MPT transfer metadata, transfer-rate partial delivery, `DeliveredAmount`
+and `delivered_amount` insertion, ledger JSON, `tx`, `transaction_entry`, and
+`account_tx` views. The branch did not promote a new finding. The focused
+source/history review and upstream suite run showed the metadata/RPC paths are
+covered for the checked `3.1.3` target:
+
+```text
+mpt_delivered_amount_rpc_static_sweep_20260528.log sha256 83fc33a298124f454557dd5eccf7623c2c2a6899e7a59aebc7907aeda6c6cb11
+mpt_delivered_amount_rpc_history_sweep_20260528.log sha256 942bc1c4e8be6a97fdaef7a0fdf74f14787d617ffe3c816285eb7fc2a10cc0a2
+mpt_delivered_amount_rpc_source_kill_20260528.log sha256 d0f7b7f5fd1ebe06996e1f34c01bbea0ce860af64124226a46e6e09fc8c6c5ad
+51.6s, 11 suites, 165 cases, 38008 tests total, 0 failures
+```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new
 disabled feature surface. The current repro markers are:
