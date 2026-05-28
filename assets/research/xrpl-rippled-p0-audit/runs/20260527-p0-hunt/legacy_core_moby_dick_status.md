@@ -403,6 +403,27 @@ tests, and the following candidates were source-killed rather than promoted:
   `featureSingleAssetVault` is off, and `MPTokenAuthorize::preclaim` only
   blocks the delete path when SAV is enabled. That makes the no-SAV deletion
   behavior look intentional, not like a live Moby Dick defect.
+- `AUTO-CREATE-RESERVE-PARTIAL-CROSS-001`: upstream commit `d3e22a125`
+  adds `OfferMPT_test::testAutoCreateReserve` and explicitly documents that a
+  partially crossed book offer may auto-create an IOU trustline or MPToken for
+  the offer owner without a reserve sufficiency check. That is a useful source
+  signal, but not a new promoted finding by itself. The packet keeps the
+  promoted reserve finding narrower: after the holder already has the
+  trustline and moves from non-positive to positive balance, the receiver-side
+  owner-count/reserve transition remains missing across offer crossing and
+  `CheckCash`.
+- `AMMWITHDRAW-MPT-DOUBLE-OWNERCOUNT-001`: upstream commit `0a896b795`
+  fixes a double `adjustOwnerCount()` in a future MPT-aware `AMMWithdraw`
+  implementation. It is not promoted in this legacy-core lane because current
+  `3.1.3` `AMMWithdraw.cpp` handles `Issue` assets, not MPT `Asset`/`MPTIssue`
+  withdrawals, and the fix commit is not an ancestor of `3.1.3`, `3.2.0-b7`,
+  or `origin/develop`.
+- `BOOK-DIR-INVARIANT-DELETE-001`: upstream commit `e34c2667d` fixes
+  `ValidBookDirectory` invariant handling for deleted or ordinary modified
+  book directories. It remains a future-branch quality signal for the
+  `fixCleanup3_2_0` invariant lane, not a current `3.1.3` legacy-core P0,
+  because the checked `3.1.3` proof target does not contain
+  `ValidBookDirectory`.
 
 That leaves the current legacy-core live candidate set unchanged: the best
 remaining old/simple/current target is still

@@ -133,6 +133,11 @@ machinery:
 
 ### Phase 0. Package `1.5.0` Trustline Proof
 
+Status: complete in the packet. The `1.5.0` Docker proof, patch, log, hashes,
+tag commit, and build profile are now bound by `verify_packet.py` through the
+trustline lineage report and artifact table. Do not repeat this step unless the
+packet verifier fails or the old-tag proof artifacts are changed.
+
 Timebox: 45 minutes.
 
 Tasks:
@@ -468,9 +473,9 @@ article_status: not-public-until-authorized
 
 ## Immediate Next Action
 
-Package the observed `1.5.0`
-`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` proof into the packet. If that cannot
-be done within 45 minutes, write the precise blocker. Then start Phase 1 and
-hunt sibling trustline/offer reserve bugs before returning to the legacy
-fallback queue. Do not spend more than one hour on a candidate without either a
-reproducing marker or a written source-kill note.
+Continue Phase 1 and Phase 2. The `1.5.0`
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` proof is already packet-bound, so the
+next useful work is not another packaging pass. Hunt sibling trustline/offer
+reserve bugs first, then old object lifecycle and directory-state defects. Do
+not spend more than one hour on a candidate without either a reproducing marker
+or a written source-kill note.
