@@ -18,11 +18,13 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T07:41:35Z
-amendment_checked_utc: 2026-05-28T07:41:37Z
+runtime_checked_utc: 2026-05-28T07:54:41Z
+amendment_checked_utc: 2026-05-28T07:54:43Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104533026, hash D6C7C8396E5C1AA0E03B5201AB4CFDF487255FA7B7EE0518A770B07BE3365E7F
-s2.ripple.com: rippled 3.1.3, ledger 104533026, hash D6C7C8396E5C1AA0E03B5201AB4CFDF487255FA7B7EE0518A770B07BE3365E7F
+s1.ripple.com: rippled 3.1.3, ledger 104533229, hash 9AF3C3309F035671A46C317A9DDBCF2C62C7AB50E1F121526D9C98150A7AFE70
+s2.ripple.com: rippled 3.1.3, ledger 104533229, hash 9AF3C3309F035671A46C317A9DDBCF2C62C7AB50E1F121526D9C98150A7AFE70
+runtime receipt sha256: 752b79b05d99214adb3e87b94b68850aec108efa9ae3b74456d9df255c971228
+amendment receipt sha256: 0b04d916d8500606437bfa594457fd36f8c247c8d3c30dc9b806f53f821ffe63
 fixCleanup3_1_3: enabled by raw Amendments hash 303ACB16CF8DBD3B5C34F131A9D19A7DE01AE05F480A8A682B869D1B4AAC8CFC
 ```
 
@@ -54,6 +56,7 @@ Completed and packet-bound work:
 - NFT brokered auth/freeze receive-path sweep.
 - AMMDeposit LP-token reserve sibling scratch probe.
 - AccountDelete positive-unowned-trustline lifecycle scratch probe.
+- TrustSet legacy reserve-carveout source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1034,8 +1037,19 @@ tests, and the following candidates were source-killed rather than promoted:
 - `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`: the reserve carveout is an explicit
   gateway bootstrap rule in `SetTrust::doApply`, not an accidental leak. It
   skips reserve enforcement only while `OwnerCount < 2`, then reverts to normal
-  reserve checks. The current code and test shape do not show a live-state
-  corruption or stranded object from the carveout itself.
+  reserve checks. A focused source/history sweep and the upstream
+  `SetTrust,TrustAndBalance,Freeze` suites were packet-bound in this slice.
+  Static artifact `trustset_reserve_carveout_static_sweep_20260528.log` has
+  sha256 `3ec97306684ca8e4072a76c7058f285dcae06cff1aa5823a03dea69a8976f65b`.
+  History artifact `trustset_reserve_carveout_history_sweep_20260528.log` has
+  sha256 `89daae83eec3df6338b5855ffce51f945a1821829ce816c5f9abe32dd5c91352`.
+  Suite artifact `trustset_reserve_carveout_source_kill_20260528.log` has
+  sha256 `593e5958864764b00791eb39d5da57c5ccf6a9a49c1dc56a838b4b87c7112b31`.
+  The suite passed with 145 cases and 13,435 tests, including explicit
+  coverage for two free trustlines, dynamic trustline reserve enforcement,
+  DisallowIncoming, trustline deletion/reset, no-ripple, authorization, freeze,
+  and deep-freeze behavior. The current evidence does not show live-state
+  corruption or a stranded object from the carveout itself.
 - `TICKET-LEGACY-SEQUENCE-COLLISION-001`: `CreateTicket` derives ticket keys
   from the post-consume sequence, checks `tecDIR_FULL` before owner-count
   mutation, and has explicit `tefINTERNAL` guardrails for bad sequence state.

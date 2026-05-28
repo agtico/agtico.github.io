@@ -1546,6 +1546,32 @@ or a stranded positive trustline after account removal. The positive trustline
 still blocks `AccountDelete` even though it is not reflected in Alice's owner
 count.
 
+## Demoted: TrustSet legacy reserve carveout
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a finding.
+
+The candidate asked whether the old two-free-trustline carveout in
+`SetTrust::doApply` could be the deeper Moby Dick behind the current
+positive-balance/no-reserve bug. It is not. The carveout is explicit gateway
+bootstrap semantics: `reserveCreate` is zero only while `OwnerCount < 2`; after
+that, normal trustline reserve enforcement resumes.
+
+The focused source/history sweep and upstream `SetTrust,TrustAndBalance,Freeze`
+suites were packet-bound:
+
+```text
+trustset_reserve_carveout_static_sweep_20260528.log sha256 3ec97306684ca8e4072a76c7058f285dcae06cff1aa5823a03dea69a8976f65b
+trustset_reserve_carveout_history_sweep_20260528.log sha256 89daae83eec3df6338b5855ffce51f945a1821829ce816c5f9abe32dd5c91352
+trustset_reserve_carveout_source_kill_20260528.log sha256 593e5958864764b00791eb39d5da57c5ccf6a9a49c1dc56a838b4b87c7112b31
+19.8s, 3 suites, 145 cases, 13435 tests total, 0 failures
+```
+
+Interpretation: the promoted trustline reserve bug stays narrow. The bug is
+the missing receiver-side owner-count/reserve transition when settlement moves
+a trustline from non-positive to positive balance; the explicit `TrustSet`
+bootstrap carveout does not by itself reproduce state corruption or stranded
+objects.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

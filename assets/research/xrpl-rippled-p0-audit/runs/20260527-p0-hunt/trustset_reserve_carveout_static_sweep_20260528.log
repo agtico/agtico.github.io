@@ -1,0 +1,323 @@
+src/test/app/Freeze_test.cpp:90:            env(trust(G1, bob["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:213:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:233:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:234:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:236:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:240:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:261:            env(trust(G1, A1["USD"](0), tfClearFreeze), ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:277:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze), ter(temINVALID_FLAG));
+src/test/app/Freeze_test.cpp:301:            env(trust(G1, A1["USD"](1000), tfSetFreeze));
+src/test/app/Freeze_test.cpp:317:            env(trust(G1, A1["USD"](1000), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:318:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:326:            env(trust(G1, A1["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:356:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfClearFreeze),
+src/test/app/Freeze_test.cpp:357:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:358:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfClearDeepFreeze),
+src/test/app/Freeze_test.cpp:359:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:360:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze | tfClearFreeze),
+src/test/app/Freeze_test.cpp:361:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:362:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze | tfClearDeepFreeze),
+src/test/app/Freeze_test.cpp:363:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:369:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfClearFreeze));
+src/test/app/Freeze_test.cpp:567:        env(trust(G1, frozenAcc["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:576:                G1, deepFrozenAcc["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:611:            env(trust(G1, A1["USD"](0), tfSetFreeze), ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:615:            env(trust(G1, frozenAcc["USD"](0), tfSetDeepFreeze),
+src/test/app/Freeze_test.cpp:616:                ter(tecNO_PERMISSION));
+src/test/app/Freeze_test.cpp:622:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:699:        env(trust(G1, A3["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:729:        env(trust(G1, A4["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:807:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:847:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:888:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:922:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:951:            env(trust(A1, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:993:            env(trust(A1, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1054:            env(trust(G1, A2["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1061:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1069:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1080:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1087:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1095:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1106:            env(trust(A2, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1113:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1120:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1131:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1138:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1146:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1164:            env(trust(G1, A2["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1171:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1178:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1189:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1196:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1204:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1215:            env(trust(A2, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1222:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1229:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1240:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1247:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1255:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1305:        env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1323:            env(trust(G1, A1["USD"](0), tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1347:        env(trust(A1, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1370:            env(trust(A1, limit, tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1467:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1514:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1537:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1585:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1607:            env(trust(A1, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1648:            env(trust(A1, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1714:            env(trust(G1, A1["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1721:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1728:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1736:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1743:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1754:            env(trust(G1, A1["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1761:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1768:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1776:                txflags(tfNoRippleDirect),
+src/test/app/Freeze_test.cpp:1784:                txflags(tfNoRippleDirect));
+src/test/app/Freeze_test.cpp:1818:            env(trust(G1, A2["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1834:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1848:            env(trust(G1, A2["USD"](0), tfSetFreeze));
+src/test/app/Freeze_test.cpp:1864:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1880:            env(trust(G1, A2["USD"](0), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1904:            env(trust(A2, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1920:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1934:            env(trust(A2, limit, tfSetFreeze));
+src/test/app/Freeze_test.cpp:1949:            env(trust(A2, limit, tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:1968:            env(trust(G1, broker["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/Freeze_test.cpp:2017:            env(trust(G1, minter["USD"](1000), tfSetFreeze | tfSetDeepFreeze));
+src/test/app/SetTrust_test.cpp:130:        env(trust(alice, alice["USD"](0), becky, tfSetfAuth));
+src/test/app/SetTrust_test.cpp:195:        auto const baseReserve = env.current()->fees().accountReserve(0);
+src/test/app/SetTrust_test.cpp:196:        auto const threelineReserve = env.current()->fees().accountReserve(3);
+src/test/app/SetTrust_test.cpp:225:                ter(tecINSUF_RESERVE_LINE));
+src/test/app/SetTrust_test.cpp:343:        env(trust(alice, gw["USD"](100), tfSetfAuth), ter(tefNO_AUTH_REQUIRED));
+src/test/app/SetTrust_test.cpp:462:        txWithoutQuality["QualityIn"] = "0";
+src/test/app/SetTrust_test.cpp:463:        txWithoutQuality["QualityOut"] = "0";
+src/test/app/SetTrust_test.cpp:466:        txWithQuality["QualityIn"] = "1000";
+src/test/app/SetTrust_test.cpp:467:        txWithQuality["QualityOut"] = "1000";
+src/test/app/SetTrust_test.cpp:541:                    withFix ? ter(tesSUCCESS) : ter(tecNO_PERMISSION);
+src/test/app/SetTrust_test.cpp:543:                    txflags(tfSetfAuth),
+src/test/app/SetTrust_test.cpp:569:        env(trust(alice, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:602:        env(trust(bob, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:607:        env(trust(gw, bob["USD"](1000)), ter(tecNO_PERMISSION));
+src/test/app/OpenP0Repro_test.cpp:202:        // Regular freeze ONLY (no tfSetDeepFreeze) — compliance case the code misses
+src/test/app/OpenP0Repro_test.cpp:203:        env(trust(issuer, asset(1'000), dest, tfSetFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:219:        env(trust(issuer, asset(1'000), dest, tfSetDeepFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:241:        env(trust(issuer, fixture.asset(1'000), broker, tfSetFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:266:        env(trust(issuer, fixture.asset(1'000), fixture.brokerPseudo, tfSetFreeze),
+src/test/app/OpenP0Repro_test.cpp:297:        env(trust(issuer, fixture.asset(1'000), broker, tfSetFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:330:        env(trust(issuer, fixture.asset(1'000), broker, tfSetFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:360:        env(trust(issuer, fixture.asset(1'000), fixture.vaultPseudo, tfSetFreeze),
+src/test/app/OpenP0Repro_test.cpp:404:        env(trust(issuer, fixture.asset(1'000), fixture.brokerPseudo, tfSetFreeze),
+src/test/app/OpenP0Repro_test.cpp:455:        env(trust(issuer, asset(1'000), dest, tfSetFreeze | tfSetDeepFreeze), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:1573:        env(fset(gateway, asfDefaultRipple));
+src/test/app/OpenP0Repro_test.cpp:1805:        // with tecNO_PERMISSION because a domain-bound issuance must not be
+src/test/app/OpenP0Repro_test.cpp:1922:        auto const reserve = env.current()->fees().accountReserve(1);
+src/test/app/OpenP0Repro_test.cpp:2098:        env(fset(issuer, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2140:        env(fset(issuer, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2482:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2495:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2508:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2535:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2548:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2565:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2592:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2605:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2619:            env.current()->fees().accountReserve(2) + XRP(50) + feeAmount;
+src/test/app/OpenP0Repro_test.cpp:2633:        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+src/test/app/OpenP0Repro_test.cpp:2634:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2664:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2677:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2690:        BEAST_EXPECT(!crossed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2715:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2728:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2742:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2767:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2780:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2798:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2823:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2836:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2851:            env.current()->fees().accountReserve(2) + feeAmount;
+src/test/app/OpenP0Repro_test.cpp:2865:        BEAST_EXPECT(env.balance(alice) < env.current()->fees().accountReserve(3));
+src/test/app/OpenP0Repro_test.cpp:2866:        BEAST_EXPECT(!cashed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2896:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2909:        BEAST_EXPECT(!cleared->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2932:        BEAST_EXPECT(!finished->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2958:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:2971:        BEAST_EXPECT(!cleared->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:2991:        BEAST_EXPECT(!settled->isFlag(sellerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3019:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3032:        BEAST_EXPECT(!cleared->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3061:        BEAST_EXPECT(!paid->isFlag(brokerHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3091:        env(fclear(gw, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3104:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3118:        BEAST_EXPECT(!withdrawn->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3153:        env(fclear(gw2, asfDefaultRipple), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3163:        BEAST_EXPECT(!cleared->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3175:        BEAST_EXPECT(!clawed->isFlag(aliceHigh ? lsfHighReserve : lsfLowReserve));
+src/test/app/OpenP0Repro_test.cpp:3257:        env(trust(seller, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3312:        env(trust(broker, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3360:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3413:        env(trust(bob, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3463:        env(trust(alice, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3501:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3561:        env(trust(probe, USD(1'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3618:        env(trust(alice, EUR(10'000)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3670:        env(pay(gw2, alice, EUR(1)), ter(tecNO_PERMISSION), THISLINE);
+src/test/app/OpenP0Repro_test.cpp:3723:            ter(tecNO_PERMISSION),
+src/libxrpl/ledger/View.cpp:713:        : view.fees().accountReserve(ownerCount);
+src/libxrpl/ledger/View.cpp:1259:        sfFlags, lsfDisableMaster | lsfDefaultRipple | lsfDepositAuth);
+src/libxrpl/ledger/View.cpp:1277:    else if (!issuer->isFlag(lsfDefaultRipple))
+src/libxrpl/ledger/View.cpp:1383:            return tecNO_PERMISSION;
+src/libxrpl/ledger/View.cpp:1486:    if (!sleSrc->isFlag(lsfDefaultRipple))
+src/libxrpl/ledger/View.cpp:1494:    if (priorBalance < view.fees().accountReserve(ownerCount + 1))
+src/libxrpl/ledger/View.cpp:1591:        XRPAmount const reserveCreate(
+src/libxrpl/ledger/View.cpp:1592:            (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/libxrpl/ledger/View.cpp:1593:                              : view.fees().accountReserve(uOwnerCount + 1));
+src/libxrpl/ledger/View.cpp:1595:        if (priorBalance < reserveCreate)
+src/libxrpl/ledger/View.cpp:1668:    bool const bNoRipple,       // --> others cannot ripple through
+src/libxrpl/ledger/View.cpp:1675:    std::uint32_t uQualityIn,
+src/libxrpl/ledger/View.cpp:1676:    std::uint32_t uQualityOut,
+src/libxrpl/ledger/View.cpp:1740:    if (uQualityIn)
+src/libxrpl/ledger/View.cpp:1742:            bSetHigh ? sfHighQualityIn : sfLowQualityIn, uQualityIn);
+src/libxrpl/ledger/View.cpp:1744:    if (uQualityOut)
+src/libxrpl/ledger/View.cpp:1746:            bSetHigh ? sfHighQualityOut : sfLowQualityOut, uQualityOut);
+src/libxrpl/ledger/View.cpp:1748:    std::uint32_t uFlags = bSetHigh ? lsfHighReserve : lsfLowReserve;
+src/libxrpl/ledger/View.cpp:1754:    if (bNoRipple)
+src/libxrpl/ledger/View.cpp:1756:        uFlags |= (bSetHigh ? lsfHighNoRipple : lsfLowNoRipple);
+src/libxrpl/ledger/View.cpp:1767:    if ((slePeer->getFlags() & lsfDefaultRipple) == 0)
+src/libxrpl/ledger/View.cpp:1770:        uFlags |= (bSetHigh ? lsfLowNoRipple : lsfHighNoRipple);
+src/libxrpl/ledger/View.cpp:1817:    if (line->isFlag(lsfLowReserve))
+src/libxrpl/ledger/View.cpp:1829:        line->clearFlag(lsfLowReserve);
+src/libxrpl/ledger/View.cpp:1832:    if (line->isFlag(lsfHighReserve))
+src/libxrpl/ledger/View.cpp:1844:        line->clearFlag(lsfHighReserve);
+src/libxrpl/ledger/View.cpp:1847:    return trustDelete(
+src/libxrpl/ledger/View.cpp:1890:trustDelete(
+src/libxrpl/ledger/View.cpp:1901:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: low";
+src/libxrpl/ledger/View.cpp:1912:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: high";
+src/libxrpl/ledger/View.cpp:1923:    JLOG(j.trace()) << "trustDelete: Deleting ripple line: state";
+src/libxrpl/ledger/View.cpp:2052:            && (uFlags & (!bSenderHigh ? lsfLowReserve : lsfHighReserve))
+src/libxrpl/ledger/View.cpp:2056:                uFlags & (!bSenderHigh ? lsfLowNoRipple : lsfHighNoRipple)) !=
+src/libxrpl/ledger/View.cpp:2059:                    lsfDefaultRipple) &&
+src/libxrpl/ledger/View.cpp:2065:                   !bSenderHigh ? sfLowQualityIn : sfHighQualityIn)
+src/libxrpl/ledger/View.cpp:2068:                   !bSenderHigh ? sfLowQualityOut : sfHighQualityOut))
+src/libxrpl/ledger/View.cpp:2078:                uFlags & (!bSenderHigh ? ~lsfLowReserve : ~lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2082:                && !(uFlags & (bSenderHigh ? lsfLowReserve : lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2095:            return trustDelete(
+src/libxrpl/ledger/View.cpp:2121:    bool const noRipple = (sleAccount->getFlags() & lsfDefaultRipple) == 0;
+src/libxrpl/ledger/View.cpp:2903:        && (flags & (!bSenderHigh ? lsfLowReserve : lsfHighReserve))
+src/libxrpl/ledger/View.cpp:2906:               flags & (!bSenderHigh ? lsfLowNoRipple : lsfHighNoRipple)) !=
+src/libxrpl/ledger/View.cpp:2907:            static_cast<bool>(sle->getFlags() & lsfDefaultRipple) &&
+src/libxrpl/ledger/View.cpp:2911:        && !state->getFieldU32(!bSenderHigh ? sfLowQualityIn : sfHighQualityIn)
+src/libxrpl/ledger/View.cpp:2914:        !state->getFieldU32(!bSenderHigh ? sfLowQualityOut : sfHighQualityOut))
+src/libxrpl/ledger/View.cpp:2923:            sfFlags, flags & (!bSenderHigh ? ~lsfLowReserve : ~lsfHighReserve));
+src/libxrpl/ledger/View.cpp:2927:            && !(flags & (bSenderHigh ? lsfLowReserve : lsfHighReserve)))
+src/libxrpl/ledger/View.cpp:2989:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3013:    bool noRipple = (receiverAccount->getFlags() & lsfDefaultRipple) == 0;
+src/libxrpl/ledger/View.cpp:3084:            return trustDelete(
+src/libxrpl/ledger/View.cpp:3426:            return line->isFlag(issuerHigh ? lsfHighNoRipple : lsfLowNoRipple);
+src/libxrpl/ledger/View.cpp:3428:        return sleIssuer->isFlag(lsfDefaultRipple) == false;
+src/libxrpl/ledger/View.cpp:3553:    if (auto const ter = trustDelete(view, sleState, low, high, j);
+src/libxrpl/ledger/View.cpp:3561:    auto const uFlags = !ammLow ? lsfLowReserve : lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:88:        if (uTxFlags & (tfSetDeepFreeze | tfClearDeepFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:154:    if (tx.isFieldPresent(sfQualityIn) || tx.isFieldPresent(sfQualityOut))
+src/xrpld/app/tx/detail/SetTrust.cpp:169:    if (txFlags & tfSetfAuth &&
+src/xrpld/app/tx/detail/SetTrust.cpp:172:    if (txFlags & tfSetFreeze && !granularPermissions.contains(TrustlineFreeze))
+src/xrpld/app/tx/detail/SetTrust.cpp:204:    bool const bSetAuth = (uTxFlags & tfSetfAuth);
+src/xrpld/app/tx/detail/SetTrust.cpp:266:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:293:                    return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:303:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:314:        bool const bSetFreeze = (uTxFlags & tfSetFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:315:        bool const bSetDeepFreeze = (uTxFlags & tfSetDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:320:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:330:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:358:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:366:SetTrust::doApply()
+src/xrpld/app/tx/detail/SetTrust.cpp:371:    bool const bQualityIn(ctx_.tx.isFieldPresent(sfQualityIn));
+src/xrpld/app/tx/detail/SetTrust.cpp:372:    bool const bQualityOut(ctx_.tx.isFieldPresent(sfQualityOut));
+src/xrpld/app/tx/detail/SetTrust.cpp:404:    XRPAmount const reserveCreate(
+src/xrpld/app/tx/detail/SetTrust.cpp:405:        (uOwnerCount < 2) ? XRPAmount(beast::zero)
+src/xrpld/app/tx/detail/SetTrust.cpp:406:                          : view().fees().accountReserve(uOwnerCount + 1));
+src/xrpld/app/tx/detail/SetTrust.cpp:408:    std::uint32_t uQualityIn(bQualityIn ? ctx_.tx.getFieldU32(sfQualityIn) : 0);
+src/xrpld/app/tx/detail/SetTrust.cpp:409:    std::uint32_t uQualityOut(
+src/xrpld/app/tx/detail/SetTrust.cpp:410:        bQualityOut ? ctx_.tx.getFieldU32(sfQualityOut) : 0);
+src/xrpld/app/tx/detail/SetTrust.cpp:412:    if (bQualityOut && QUALITY_ONE == uQualityOut)
+src/xrpld/app/tx/detail/SetTrust.cpp:413:        uQualityOut = 0;
+src/xrpld/app/tx/detail/SetTrust.cpp:417:    bool const bSetAuth = (uTxFlags & tfSetfAuth);
+src/xrpld/app/tx/detail/SetTrust.cpp:418:    bool const bSetNoRipple = (uTxFlags & tfSetNoRipple);
+src/xrpld/app/tx/detail/SetTrust.cpp:419:    bool const bClearNoRipple = (uTxFlags & tfClearNoRipple);
+src/xrpld/app/tx/detail/SetTrust.cpp:420:    bool const bSetFreeze = (uTxFlags & tfSetFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:422:    bool const bSetDeepFreeze = (uTxFlags & tfSetDeepFreeze);
+src/xrpld/app/tx/detail/SetTrust.cpp:434:        return trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:463:        std::uint32_t uLowQualityIn;
+src/xrpld/app/tx/detail/SetTrust.cpp:464:        std::uint32_t uLowQualityOut;
+src/xrpld/app/tx/detail/SetTrust.cpp:465:        std::uint32_t uHighQualityIn;
+src/xrpld/app/tx/detail/SetTrust.cpp:466:        std::uint32_t uHighQualityOut;
+src/xrpld/app/tx/detail/SetTrust.cpp:495:        if (!bQualityIn)
+src/xrpld/app/tx/detail/SetTrust.cpp:499:            uLowQualityIn = sleRippleState->getFieldU32(sfLowQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:500:            uHighQualityIn = sleRippleState->getFieldU32(sfHighQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:502:        else if (uQualityIn)
+src/xrpld/app/tx/detail/SetTrust.cpp:507:                !bHigh ? sfLowQualityIn : sfHighQualityIn, uQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:509:            uLowQualityIn = !bHigh
+src/xrpld/app/tx/detail/SetTrust.cpp:510:                ? uQualityIn
+src/xrpld/app/tx/detail/SetTrust.cpp:511:                : sleRippleState->getFieldU32(sfLowQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:512:            uHighQualityIn = bHigh
+src/xrpld/app/tx/detail/SetTrust.cpp:513:                ? uQualityIn
+src/xrpld/app/tx/detail/SetTrust.cpp:514:                : sleRippleState->getFieldU32(sfHighQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:521:                !bHigh ? sfLowQualityIn : sfHighQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:523:            uLowQualityIn =
+src/xrpld/app/tx/detail/SetTrust.cpp:524:                !bHigh ? 0 : sleRippleState->getFieldU32(sfLowQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:525:            uHighQualityIn =
+src/xrpld/app/tx/detail/SetTrust.cpp:526:                bHigh ? 0 : sleRippleState->getFieldU32(sfHighQualityIn);
+src/xrpld/app/tx/detail/SetTrust.cpp:529:        if (QUALITY_ONE == uLowQualityIn)
+src/xrpld/app/tx/detail/SetTrust.cpp:530:            uLowQualityIn = 0;
+src/xrpld/app/tx/detail/SetTrust.cpp:532:        if (QUALITY_ONE == uHighQualityIn)
+src/xrpld/app/tx/detail/SetTrust.cpp:533:            uHighQualityIn = 0;
+src/xrpld/app/tx/detail/SetTrust.cpp:539:        if (!bQualityOut)
+src/xrpld/app/tx/detail/SetTrust.cpp:543:            uLowQualityOut = sleRippleState->getFieldU32(sfLowQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:544:            uHighQualityOut = sleRippleState->getFieldU32(sfHighQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:546:        else if (uQualityOut)
+src/xrpld/app/tx/detail/SetTrust.cpp:551:                !bHigh ? sfLowQualityOut : sfHighQualityOut, uQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:553:            uLowQualityOut = !bHigh
+src/xrpld/app/tx/detail/SetTrust.cpp:554:                ? uQualityOut
+src/xrpld/app/tx/detail/SetTrust.cpp:555:                : sleRippleState->getFieldU32(sfLowQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:556:            uHighQualityOut = bHigh
+src/xrpld/app/tx/detail/SetTrust.cpp:557:                ? uQualityOut
+src/xrpld/app/tx/detail/SetTrust.cpp:558:                : sleRippleState->getFieldU32(sfHighQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:565:                !bHigh ? sfLowQualityOut : sfHighQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:567:            uLowQualityOut =
+src/xrpld/app/tx/detail/SetTrust.cpp:568:                !bHigh ? 0 : sleRippleState->getFieldU32(sfLowQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:569:            uHighQualityOut =
+src/xrpld/app/tx/detail/SetTrust.cpp:570:                bHigh ? 0 : sleRippleState->getFieldU32(sfHighQualityOut);
+src/xrpld/app/tx/detail/SetTrust.cpp:576:        if (bSetNoRipple && !bClearNoRipple)
+src/xrpld/app/tx/detail/SetTrust.cpp:579:                uFlagsOut |= (bHigh ? lsfHighNoRipple : lsfLowNoRipple);
+src/xrpld/app/tx/detail/SetTrust.cpp:583:                return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/SetTrust.cpp:585:        else if (bClearNoRipple && !bSetNoRipple)
+src/xrpld/app/tx/detail/SetTrust.cpp:587:            uFlagsOut &= ~(bHigh ? lsfHighNoRipple : lsfLowNoRipple);
+src/xrpld/app/tx/detail/SetTrust.cpp:601:        if (QUALITY_ONE == uLowQualityOut)
+src/xrpld/app/tx/detail/SetTrust.cpp:602:            uLowQualityOut = 0;
+src/xrpld/app/tx/detail/SetTrust.cpp:604:        if (QUALITY_ONE == uHighQualityOut)
+src/xrpld/app/tx/detail/SetTrust.cpp:605:            uHighQualityOut = 0;
+src/xrpld/app/tx/detail/SetTrust.cpp:607:        bool const bLowDefRipple = sleLowAccount->getFlags() & lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetTrust.cpp:609:            sleHighAccount->getFlags() & lsfDefaultRipple;
+src/xrpld/app/tx/detail/SetTrust.cpp:611:        bool const bLowReserveSet = uLowQualityIn || uLowQualityOut ||
+src/xrpld/app/tx/detail/SetTrust.cpp:612:            ((uFlagsOut & lsfLowNoRipple) == 0) != bLowDefRipple ||
+src/xrpld/app/tx/detail/SetTrust.cpp:617:        bool const bHighReserveSet = uHighQualityIn || uHighQualityOut ||
+src/xrpld/app/tx/detail/SetTrust.cpp:618:            ((uFlagsOut & lsfHighNoRipple) == 0) != bHighDefRipple ||
+src/xrpld/app/tx/detail/SetTrust.cpp:625:        bool const bLowReserved = (uFlagsIn & lsfLowReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:626:        bool const bHighReserved = (uFlagsIn & lsfHighReserve);
+src/xrpld/app/tx/detail/SetTrust.cpp:639:            uFlagsOut |= lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:649:            uFlagsOut &= ~lsfLowReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:656:            uFlagsOut |= lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:666:            uFlagsOut &= ~lsfHighReserve;
+src/xrpld/app/tx/detail/SetTrust.cpp:676:            terResult = trustDelete(
+src/xrpld/app/tx/detail/SetTrust.cpp:680:        else if (bReserveIncrease && mPriorBalance < reserveCreate)
+src/xrpld/app/tx/detail/SetTrust.cpp:687:            terResult = tecINSUF_RESERVE_LINE;
+src/xrpld/app/tx/detail/SetTrust.cpp:699:        (!bQualityIn || !uQualityIn) &&    // Not setting quality in or
+src/xrpld/app/tx/detail/SetTrust.cpp:701:        (!bQualityOut || !uQualityOut) &&  // Not setting quality out or
+src/xrpld/app/tx/detail/SetTrust.cpp:709:    else if (mPriorBalance < reserveCreate)  // Reserve is not scaled by
+src/xrpld/app/tx/detail/SetTrust.cpp:738:            bSetNoRipple && !bClearNoRipple,
+src/xrpld/app/tx/detail/SetTrust.cpp:743:            uQualityIn,
+src/xrpld/app/tx/detail/SetTrust.cpp:744:            uQualityOut,
