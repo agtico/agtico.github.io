@@ -18,8 +18,8 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T03:55:56Z
-amendment_checked_utc: 2026-05-28T03:55:54Z
+runtime_checked_utc: 2026-05-28T04:06:41Z
+amendment_checked_utc: 2026-05-28T04:06:39Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
 ```
 
@@ -479,6 +479,24 @@ is already an ancestor of the current `3.1.3` proof target and `origin/develop`.
 It resolved an old queued-transaction fee/reserve accounting issue and also
 changed legacy Escrow/PayChan owner-count writes to `adjustOwnerCount()`. Since
 the current target already contains it, it is not a live Moby Dick candidate.
+
+`PAYMENT-HOLDER-TO-HOLDER-RESERVE-SIBLING-001` was scratch-tested as the next
+plain-payment sibling for `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`. The setup
+cleared Alice's gateway USD trustline back to zero balance, zero limit,
+`OwnerCount=0`, and no receiver reserve flag, then attempted a holder-to-holder
+USD payment from Bob into Alice. The compiled scratch case returned
+`tecPATH_DRY`, left Alice's USD balance at zero, and left `OwnerCount=0`:
+
+```text
+ripple.tx.OpenP0Repro SCRATCH holder payment into cleared trustline
+16.5s, 1 suite, 68 cases, 16619 tests total, 0 failures
+```
+
+The scratch probe was removed before packet commit. This further narrows the
+current reserve finding: plain `Payment` variants fail closed in the cleared
+trustline setup, while offer crossing, `CheckCash`, TokenEscrow finish, and
+NFToken settlement remain the reproduced live paths that move the receiver
+positive without the owner-count/reserve transition.
 
 ## PayChan Legacy Probe
 
