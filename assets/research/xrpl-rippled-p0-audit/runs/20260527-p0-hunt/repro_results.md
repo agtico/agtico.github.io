@@ -1803,6 +1803,33 @@ offer-book and directory paths did not show stale offer objects, wrong
 book-directory quality, owner-count drift, or normal-input invariant/internal
 failure beyond the existing trustline positive-balance reserve finding.
 
+## Demoted: legacy payment/path result-code and amount/issue sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The candidate asked whether old `Payment` and pathing inputs could route normal
+transaction-shaped input to `tefEXCEPTION`, `tefINTERNAL`, fee-burning bad-input
+behavior, amount/issue mismatch state, or another transaction-visible payment
+P0. The sweep covered `Payment`, `Flow`, `PayStrand`, path steps,
+`PaymentSandbox`, `STAmount`, `STNumber`, `Number`, `IOUAmount`, `Issue`,
+`SetTrust`, and `TrustAndBalance`.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+legacy_payment_path_resultcode_static_sweep_20260528.log sha256 2daf4925260ba78b6130256fa2f260879aece0d994750264f1fba9e919cec718
+legacy_payment_path_resultcode_history_sweep_20260528.log sha256 35f878a1f76e052744bdbd1f8aef81f25a59eaccec8b0149d93732c41c4bd884
+legacy_payment_path_resultcode_source_kill_20260528.log sha256 e8445786dca171ccc500810f8a4ec456316282d423e126c9def3b5387215e254
+31.1s, 11 suites, 265 cases, 122354 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new Moby Dick P0. The checked
+payment, pathing, amount, and trustline-control paths did not show a separate
+normal-input internal result-code, fee-burning malformed-input, amount/issue
+mismatch, or payment-path witness beyond the existing trustline positive-balance
+reserve finding and already-demoted plain-payment reserve siblings.
+
 ## Open candidates
 
 The bridge, NFT, AMM, authorization, and remaining vault/loan candidates are source-backed or model-triaged but not reproduced. They stay in `candidate_matrix.md` until a clean jtx or unit-level repro exists.

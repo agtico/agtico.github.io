@@ -1,0 +1,152 @@
+08d8e440c Stop tx processing if failed to delete expired credentials (#6715)
+e09949ccd fix: Fix touchy "funds are conserved" assertion in LoanPay (#6231)
+e3644f265 fix:  Remove DEFAULT fields that change to the default in associateAsset (#6259)
+1ead5a7ac Expand Number to support full integer range (#6192)
+91d239f10 Improve and fix bugs in Lending Protocol - XLS-66 (#6156)
+f17e476f7 fix: Inner batch transactions never have valid signatures (#6069)
+138d6e751 Implement Lending Protocol (unsupported) (#5270)
+6b55db490 fix: JSON parsing of negative `STNumber` and `STAmount` (#5990)
+b444457c1 chore: Exclude code/unreachable transaction code from Codecov (#5847)
+5b2ab905c chore: exclude all `UNREACHABLE` blocks from codecov (#5846)
+51ef35ab5 fix: Transaction sig checking functions do not get a full context (#5829)
+550f90a75 refactor: Add support for extra transaction signatures (#5594)
+d67dcfe3c refactor: Restructure Transactor::preflight to reduce boilerplate (#5592)
+3cbdf818a Miscellaneous refactors and updates (#5590)
+dc8b37a52 refactor: Modularise ledger (#5493)
+61d628d65 fix: Add restrictions to Permission Delegation: fixDelegateV1_1 (#5650)
+cf5f65b68 Add `Scale` to SingleAssetVault (#5652)
+a14551b15 fix: Change log to debug level for AMM offer retrieval and IOU payment check (#5686)
+b7ed99426 fix: Make test suite names match the directory name (#5597)
+baf4b8381 fix `DeliveredAmount` and `delivered_amount` in transaction metadata for direct MPT transfer (#5569)
+8bfaa7fe0 test: Run unit tests regardless of 'Supported' amendment status (#5537)
+c9135a63c Retire Flow Cross amendment (#5562)
+9874d47d7 Decouple CredentialHelpers from xrpld/app/tx (#5487)
+e9d46f0bf Remove OwnerPaysFee as it's never fully supported (#5435)
+35a40a8e6 fix: Improve multi-sign usage of `simulate` (#5479)
+58c2c82a3 fix: Amendment-guard `TokenEscrow` preclaim and expand tests (#5473)
+a5e953b19 fix: Add tecNO_DELEGATE_PERMISSION and fix flags (#5465)
+053e1af7f Add support for XLS-85 Token Escrow (#5185)
+0a34b5c69 Add support for XLS-81 Permissioned DEX (#5404)
+2a61aee56 Add Batch feature (XLS-56) (#5060)
+e514de76e Add single asset vault (XLS-65d) (#5224)
+3e152fec7 refactor: use east const convention (#5409)
+2db279180 Add PermissionDelegation feature (#5354)
+f608e653c Fix undefined uint128_t type on Windows non-unity builds (#5377)
+2bc5cb240 test: enable unit tests to work with variable reference fee (#5145)
+c17676a9b refactor: Improve ordering of headers with clang-format (#5343)
+2406b28e6 refactor: Remove unused and add missing includes (#5293)
+fb3713bc2 Amendment `fixFrozenLPTokenTransfer` (#5227)
+dcc458122 Add RPC "simulate" to execute a dry run of a transaction (#5069)
+409c1d5aa Add missing space character to a log message (#5251)
+839d17e7b fix: Use consistent CMake settings for all modules (#5228)
+eabca8439 Antithesis instrumentation improvements (#5213)
+ea1fffeeb Enforce levelization in libxrpl with CMake (#5111)
+d7e949193 Add Antithesis intrumentation (#5042)
+f419c1805 Add a new serialized type: STNumber (#5121)
+8e827e32a Introduce Credentials support (XLS-70d): (#5103)
+c5c0e70e2 Fix token comparison in Payment (#5172)
+23c37fa50 Introduce MPT support (XLS-33d): (#5143)
+552377c76 Reformat code with clang-format-18
+9a6af9c43 chore: fix typos in comments (#5094)
+0a331ea72 Factor out Transactor::trapTransaction (#5087)
+20707fac4 chore: Rename two files from Directory* to Dir*: (#5058)
+1d23148e6 Rewrite includes (#4997)
+e416ee72c Rearrange sources (#4997)
+ae7ea33b7 fixReducedOffersV2: prevent offers from blocking order books: (#5032)
+263e984bf Additional unit tests for testing deletion of trust lines (#4886)
+0eebe6a5f Rewrite includes
+3b624d8bf `fixFillOrKill`: fix offer crossing with tfFillOrKill (#4694)
+6ba9450c8 `fixDisallowIncomingV1`: allow issuers to authorize trust lines (#4721)
+58f7aecb0 fix(AMM): prevent orphaned objects, inconsistent ledger state: (#4626)
+3c9db4b69 Introduce AMM support (XLS-30d): (#4294)
+6eaaa7bcf Replace Number division algorithm
+e354497f6 Include rounding mode in XRPAmount to STAmount conversion.
+3f3347122 Introduce rounding modes for Number:
+a82ad5ba7 Use Number for IOUAmount and STAmount arithmetic
+48e804c40 Add tests
+c9c54c979 Add implicit conversion from STAmount to Number
+24fe5f9fd Add clip
+476ee8a47 Add conversions between Number, XRPAmount and int64_t
+0ee63b7c7 AMM Add Number class and associated algorithms
+d8a84e953 `featureDisallowIncoming`: Opt-out of incoming Checks, PayChans, NFTokenOffers and Trustlines (#4336)
+92d35e54c Switch from C++17 to C++20
+04bd5878f Track total trustlines and avoid duplications
+417cfc2fb Adjust pathfinding configuration defaults:
+8d59c7dd4 Redistribute unit test priorities based on current measurements
+22cc9a254 Maintenance of Offer and PayStrand unit tests
+2eb1c6a39 Enable testing beta RPC API version with config
+3b33318dc Prefer std::optional over boost:optional:
+36be4856f Fix path finding for XRP dst and sendmax:
+fe129e8e4  Optimize payment path exploration in flow:
+44fe0e1fc Add support for the 'TicketBatch' amendment:
+f07246940 Simplify & modernize code:
+7724cca38 Implement enhanced Ticket support:
+1067086f7 Consolidate "Not Synced" error messages:
+328e42ad4 Minor cleanups:
+50760c693 Format first-party source according to .clang-format
+a6246b0ba Remove conditionals for fix1373 enabled 07Jul2017
+e93a44fe9 Remove conditionals for fix1368 enabled 31Mar2017
+d097819c5 Check XRP endpoints for circular paths (RIPD-1781):
+81326a6d0 Remove old payment code
+ae707b814 Always enable fix1449 dated March 30, 2017 20:00:00 UTC
+9c580b20a Always enable fix1443 dated March 12, 2017 01:00:00 UTC
+70c21f90b Always enable fix1298 dated December 21, 2016 18:00:00 UTC
+0964379a6 Always enable fix1274 dated September 30, 2016 17:00:00 UTC
+a176f58a9 Always enable fix1141 dated July 1, 2016 17:00:00 UTC
+fc0a08270 Remove STAmountSO::soTime and soTime2:
+7d867b806 Add gRPC support (#3127):
+761bb5744 Make XRPAmount constructor explicit:
+e3b5b808c Add units to all fee calculations:
+2aa11fa41 Support API versioning
+a3a9dc26b Introduce support for deletable accounts:
+82484e26f Add option to enable -Wextra for gcc/clang.
+c2d2ba9f4 Simplify code using if constexpr:
+7912ee6f7 Use structured bindings in some places:
+5d1728cc9 Use class template argument deduction for locks
+b9e73b485 Fix shadowing variables
+f8365f500 Add JsonOptions enum class to contain options passed to getJSON methods
+79a0cb096 Payment paths with a zero output step are dry (RIPD-1749):
+b39b0fef3 Get names of transactions and ledger types from jss
+64b55c0f8 Rename JsonFields.h to jss.h:
+148bbf4e8 Add safe_cast (RIPD-1702):
+58f786cbb Make the FeeEscalation amendment permanent (RIPD-1654):
+a999894da Allow rippled to compile with C++17:
+0bbe6e226 Remove beast::Journal default constructor
+2901577be Remove using namespace declarations at namespace scope in headers
+70d9d88cd Remove using namespace beast in base_uint.h
+f658656b8 Mark some single-argument constructors explicit
+7c785d0d7 Add missing override keyword:
+cfdc64d7c Enable manual tests in CI:
+118c25c0f Compile time check preflight returns no tec (RIPD-1624):
+04f138886 Remove extra semicolons:
+deb9e4ce3 Remove BeastConfig.h (RIPD-1167)
+259394029 Support for lsfDepositAuth (RIPD-1487):
+8a02b76d7 Fix snprintf warning
+e8d02c133 Refactor FeatureBitset:
+3523cee63 Minimize use of jtx::with_only_features (RIPD-1515):
+feb7582ac Unit tests don't enable Tickets or SHAMapV2 by default:
+1853c0d67 Add STAmount switchover support to tx queue:
+a02a469b2 Fix unit test compiler warnings
+5ad49454f Remove unused lambda captures
+56946e812 Change features default behavior in Env (RIPD-1460):
+7dc2fe9ce Handle strand creation for erroneous self-payment
+5f3776529 Make Paystrand tests automatic:
+a56d31910 Disallow account one in payments
+369909df8 Use payment flow code for offer crossing (RIPD-1094):
+2680b78b5 Rename featureToStrandV2 to fix1373
+068889e5b Cleanup fix1449
+3bd9772c0 Rename timebase switches from 'amendment' to 'fix'
+1bb92d40a Fix tx re-ordering bug in test:
+846723d77 New rules for payment paths:
+ffa79ac6a Enforce rippling constraints during payments
+f423181b9 Rename amendment featureRIPD1368 -> fix1368
+2c6b0f319 Fix limiting step re-execute bug (RIPD-1368):
+fb60cc9b5 Cleanup unit test support code (RIPD-1380):
+b6a01ea41 Move support test code to src/test/support (RIPD-1313)
+fd7a2835e Migrate path tests to cpp (RIPD-1155):
+b712125bc Add TrustAndBalance Tests (RIPD-1153):
+4b261b12a Prevent misuse of `JobQueue` header files:
+61d9dda4e Expand unit test coverage of SetTrust:
+b8cae2dfa Unit test for free trust lines (RIPD-911)
+bb0b97f46 Fix unfunded offer not removed (RIPD-1298):
+8f9788917 Don't include unit test sources in code coverage (RIPD-1132):

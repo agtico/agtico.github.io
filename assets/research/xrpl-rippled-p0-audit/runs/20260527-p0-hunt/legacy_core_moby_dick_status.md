@@ -18,14 +18,14 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T09:10:18Z
-amendment_checked_utc: 2026-05-28T09:10:20Z
+runtime_checked_utc: 2026-05-28T09:18:37Z
+amendment_checked_utc: 2026-05-28T09:18:39Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104534399, hash E48438374CB635D3C35A190397F5ACA50FB3CFA53E0DBE0A8744262FDCC905EE
-s2.ripple.com: rippled 3.1.3, ledger 104534399, hash E48438374CB635D3C35A190397F5ACA50FB3CFA53E0DBE0A8744262FDCC905EE
-feature/amendment receipt ledger: 104534400, hash EB0059D511680D846D900AC1BA17667537DB8782808611F9DC810FC3F4CD27B5
-runtime receipt sha256: 34d15339d1c4415e742a12e9b4387e3d9823c641b6662e999fb20cbb794eed70
-amendment receipt sha256: c2024f204248ec9a1c7b7af82f4a713c5371875ca7ab581d95b5f54dd57dc82b
+s1.ripple.com: rippled 3.1.3, ledger 104534528, hash AEAA7E407BF771F57D399FDD2C9A437FB699B38AFF0BEB66DE4BEA515BB774F5
+s2.ripple.com: rippled 3.1.3, ledger 104534529, hash EE744119155AEFF5A965D8A0E8EE738C7A1DE501281B0A7185044CEB863E5E20
+feature/amendment receipt ledger: 104534529, hash EE744119155AEFF5A965D8A0E8EE738C7A1DE501281B0A7185044CEB863E5E20
+runtime receipt sha256: c1ec868e3589c90105d034bf4aafe17775884ab1c2630f4214cee8b339392dce
+amendment receipt sha256: f63df5577ccaffa58ce278f6179fcfd1c02719e81db4444166a385400859dc7d
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -69,6 +69,7 @@ Completed and packet-bound work:
 - legacy governance, validator-list, and pseudo-transaction source and suite sweep.
 - DID/Credentials object lifecycle and directory-full source and suite sweep.
 - legacy offer-book directory, quality, cancellation, and invariant sweep.
+- legacy payment/path result-code, amount/issue, and fee-boundary sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -1065,12 +1066,22 @@ under-reserved no-cross offer rejects, while an under-reserved partial cross
 lets crossed value stand but places no remainder offer. No new ledger corruption
 or object-lifetime failure was shown.
 
-`PAYMENT-LEGACY-TEFEXCEPTION-PATH-001` was reviewed and not promoted. Current
-`Payment.cpp` contains explicit guards that route internal exceptions to
-`tefEXCEPTION`/`tefINTERNAL` handling, but no clean current-release transaction
-repro surfaced that turned a normal live-enabled payment into a new Moby Dick
-P0. Keep it as a lower-priority source-review target unless a sharper input
-shape appears.
+`PAYMENT-LEGACY-TEFEXCEPTION-PATH-001` was source-reviewed, history-reviewed,
+and suite-tested in this slice. Current `Payment.cpp` contains explicit guards
+that route internal exceptions to `tefEXCEPTION`/`tefINTERNAL` handling, so the
+candidate asked whether normal live-enabled payment/path input can still reach
+internal result codes, fee-burning bad-input behavior, amount/issue mismatch
+state, or another transaction-visible Moby Dick witness. The focused sweep
+covered `Payment`, `Flow`, `PayStrand`, path steps, `PaymentSandbox`,
+`STAmount`, `STNumber`, `Number`, `IOUAmount`, `Issue`, `SetTrust`, and
+`TrustAndBalance`. It did not isolate a clean current-release payment/path P0.
+
+```text
+legacy_payment_path_resultcode_static_sweep_20260528.log sha256 2daf4925260ba78b6130256fa2f260879aece0d994750264f1fba9e919cec718
+legacy_payment_path_resultcode_history_sweep_20260528.log sha256 35f878a1f76e052744bdbd1f8aef81f25a59eaccec8b0149d93732c41c4bd884
+legacy_payment_path_resultcode_source_kill_20260528.log sha256 e8445786dca171ccc500810f8a4ec456316282d423e126c9def3b5387215e254
+31.1s, 11 suites, 265 cases, 122354 tests total, 0 failures
+```
 
 The continuation also scratch-tested three reserve-drift variants after Alice
 cleared the same gateway USD trustline back to zero: direct issuer `Payment`,

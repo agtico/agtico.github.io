@@ -151,6 +151,12 @@ one of the WHIP gates:
   passed with 435 cases and 83,311 tests. No stale offer object, wrong
   book-directory quality, owner-count drift, or normal-input invariant/internal
   failure was isolated outside the already-promoted trustline reserve root.
+- `PAYMENT-LEGACY-TEFEXCEPTION-PATH-001` was source-killed with a focused
+  payment/path result-code and amount/issue sweep. Static/history review plus
+  `PaymentSandbox,Flow,PayStrand,Path,SetTrust,TrustAndBalance,STAmount,
+  STNumber,Number,IOUAmount,Issue` passed with 265 cases and 122,354 tests. No
+  normal-input `tefEXCEPTION`, `tefINTERNAL`, fee-burning bad-input, amount
+  issue mismatch, or separate payment/path Moby Dick witness was isolated.
 - `PAYMENT-DISALLOW-INCOMING-TRUSTLINE-001` was tested as a direct
   holder-to-recipient IOU `Payment` variant of the live
   `DisallowIncomingTrustline` family. It returned `tecPATH_DRY` and left no

@@ -1,0 +1,2028 @@
+src/libxrpl/ledger/PaymentSandbox.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/libxrpl/ledger/PaymentSandbox.cpp:45:    STAmount const& amount,
+src/libxrpl/ledger/PaymentSandbox.cpp:46:    STAmount const& preCreditSenderBalance)
+src/libxrpl/ledger/PaymentSandbox.cpp:88:DeferredCredits::ownerCount(
+src/libxrpl/ledger/PaymentSandbox.cpp:94:    auto r = ownerCounts_.emplace(std::make_pair(id, v));
+src/libxrpl/ledger/PaymentSandbox.cpp:103:DeferredCredits::ownerCount(AccountID const& id) const
+src/libxrpl/ledger/PaymentSandbox.cpp:105:    auto i = ownerCounts_.find(id);
+src/libxrpl/ledger/PaymentSandbox.cpp:106:    if (i != ownerCounts_.end())
+src/libxrpl/ledger/PaymentSandbox.cpp:157:    for (auto const& i : ownerCounts_)
+src/libxrpl/ledger/PaymentSandbox.cpp:159:        auto r = to.ownerCounts_.emplace(i);
+src/libxrpl/ledger/PaymentSandbox.cpp:171:STAmount
+src/libxrpl/ledger/PaymentSandbox.cpp:175:    STAmount const& amount) const
+src/libxrpl/ledger/PaymentSandbox.cpp:209:    adjustedAmt.setIssuer(amount.getIssuer());
+src/libxrpl/ledger/PaymentSandbox.cpp:222:PaymentSandbox::ownerCountHook(AccountID const& account, std::uint32_t count)
+src/libxrpl/ledger/PaymentSandbox.cpp:228:        if (auto adj = curSB->tab_.ownerCount(account))
+src/libxrpl/ledger/PaymentSandbox.cpp:238:    STAmount const& amount,
+src/libxrpl/ledger/PaymentSandbox.cpp:239:    STAmount const& preCreditBalance)
+src/libxrpl/ledger/PaymentSandbox.cpp:245:PaymentSandbox::adjustOwnerCountHook(
+src/libxrpl/ledger/PaymentSandbox.cpp:250:    tab_.ownerCount(account, cur, next);
+src/libxrpl/ledger/PaymentSandbox.cpp:268:std::map<std::tuple<AccountID, AccountID, Currency>, STAmount>
+src/libxrpl/ledger/PaymentSandbox.cpp:276:    std::map<key_t, STAmount> result;
+src/libxrpl/ledger/PaymentSandbox.cpp:285:        STAmount oldBalance;
+src/libxrpl/ledger/PaymentSandbox.cpp:286:        STAmount newBalance;
+src/libxrpl/ledger/PaymentSandbox.cpp:306:                    lowID = (*before)[sfLowLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:307:                    highID = (*before)[sfHighLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:331:                    lowID = (*after)[sfLowLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:332:                    highID = (*after)[sfHighLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:360:                    lowID = (*after)[sfLowLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:361:                    highID = (*after)[sfHighLimit].getIssuer();
+src/libxrpl/ledger/PaymentSandbox.cpp:393:XRPAmount
+src/libxrpl/protocol/STAmount.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/libxrpl/protocol/STAmount.cpp:34:#include <xrpl/protocol/IOUAmount.h>
+src/libxrpl/protocol/STAmount.cpp:35:#include <xrpl/protocol/Issue.h>
+src/libxrpl/protocol/STAmount.cpp:36:#include <xrpl/protocol/MPTAmount.h>
+src/libxrpl/protocol/STAmount.cpp:37:#include <xrpl/protocol/MPTIssue.h>
+src/libxrpl/protocol/STAmount.cpp:41:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/STAmount.cpp:47:#include <xrpl/protocol/XRPAmount.h>
+src/libxrpl/protocol/STAmount.cpp:62:#include <exception>
+src/libxrpl/protocol/STAmount.cpp:77:getStaticSTAmountCanonicalizeSwitchover()
+src/libxrpl/protocol/STAmount.cpp:85:getSTAmountCanonicalizeSwitchover()
+src/libxrpl/protocol/STAmount.cpp:87:    return *getStaticSTAmountCanonicalizeSwitchover();
+src/libxrpl/protocol/STAmount.cpp:91:setSTAmountCanonicalizeSwitchover(bool v)
+src/libxrpl/protocol/STAmount.cpp:93:    *getStaticSTAmountCanonicalizeSwitchover() = v;
+src/libxrpl/protocol/STAmount.cpp:102:getInt64Value(STAmount const& amount, bool valid, char const* error)
+src/libxrpl/protocol/STAmount.cpp:122:getSNValue(STAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:128:getMPTValue(STAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:131:        amount, amount.holds<MPTIssue>(), "amount is not MPT!");
+src/libxrpl/protocol/STAmount.cpp:135:areComparable(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:137:    if (v1.holds<Issue>() && v2.holds<Issue>())
+src/libxrpl/protocol/STAmount.cpp:139:            v1.get<Issue>().currency == v2.get<Issue>().currency;
+src/libxrpl/protocol/STAmount.cpp:140:    if (v1.holds<MPTIssue>() && v2.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:141:        return v1.get<MPTIssue>() == v2.get<MPTIssue>();
+src/libxrpl/protocol/STAmount.cpp:145:static_assert(INITIAL_XRP.drops() == STAmount::cMaxNativeN);
+src/libxrpl/protocol/STAmount.cpp:147:STAmount::STAmount(SerialIter& sit, SField const& name) : STBase(name)
+src/libxrpl/protocol/STAmount.cpp:152:    if ((value & cIssuedCurrency) == 0)
+src/libxrpl/protocol/STAmount.cpp:164:        mAsset = xrpIssue();
+src/libxrpl/protocol/STAmount.cpp:184:    Issue issue;
+src/libxrpl/protocol/STAmount.cpp:229:STAmount::STAmount(SField const& name, std::int64_t mantissa)
+src/libxrpl/protocol/STAmount.cpp:230:    : STBase(name), mAsset(xrpIssue()), mOffset(0)
+src/libxrpl/protocol/STAmount.cpp:235:STAmount::STAmount(SField const& name, std::uint64_t mantissa, bool negative)
+src/libxrpl/protocol/STAmount.cpp:237:    , mAsset(xrpIssue())
+src/libxrpl/protocol/STAmount.cpp:244:        "ripple::STAmount::STAmount(SField, std::uint64_t, bool) : maximum "
+src/libxrpl/protocol/STAmount.cpp:248:STAmount::STAmount(SField const& name, STAmount const& from)
+src/libxrpl/protocol/STAmount.cpp:257:        "ripple::STAmount::STAmount(SField, STAmount) : maximum input");
+src/libxrpl/protocol/STAmount.cpp:263:STAmount::STAmount(std::uint64_t mantissa, bool negative)
+src/libxrpl/protocol/STAmount.cpp:264:    : mAsset(xrpIssue())
+src/libxrpl/protocol/STAmount.cpp:271:        "ripple::STAmount::STAmount(std::uint64_t, bool) : maximum mantissa "
+src/libxrpl/protocol/STAmount.cpp:275:STAmount::STAmount(XRPAmount const& amount)
+src/libxrpl/protocol/STAmount.cpp:276:    : mAsset(xrpIssue()), mOffset(0), mIsNegative(amount < beast::zero)
+src/libxrpl/protocol/STAmount.cpp:286:std::unique_ptr<STAmount>
+src/libxrpl/protocol/STAmount.cpp:287:STAmount::construct(SerialIter& sit, SField const& name)
+src/libxrpl/protocol/STAmount.cpp:289:    return std::make_unique<STAmount>(sit, name);
+src/libxrpl/protocol/STAmount.cpp:293:STAmount::copy(std::size_t n, void* buf) const
+src/libxrpl/protocol/STAmount.cpp:299:STAmount::move(std::size_t n, void* buf)
+src/libxrpl/protocol/STAmount.cpp:309:XRPAmount
+src/libxrpl/protocol/STAmount.cpp:310:STAmount::xrp() const
+src/libxrpl/protocol/STAmount.cpp:314:            "Cannot return non-native STAmount as XRPAmount");
+src/libxrpl/protocol/STAmount.cpp:316:    auto drops = static_cast<XRPAmount::value_type>(mValue);
+src/libxrpl/protocol/STAmount.cpp:317:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::xrp : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:322:    return XRPAmount{drops};
+src/libxrpl/protocol/STAmount.cpp:325:IOUAmount
+src/libxrpl/protocol/STAmount.cpp:326:STAmount::iou() const
+src/libxrpl/protocol/STAmount.cpp:329:        Throw<std::logic_error>("Cannot return non-IOU STAmount as IOUAmount");
+src/libxrpl/protocol/STAmount.cpp:340:MPTAmount
+src/libxrpl/protocol/STAmount.cpp:341:STAmount::mpt() const
+src/libxrpl/protocol/STAmount.cpp:343:    if (!holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:344:        Throw<std::logic_error>("Cannot return STAmount as MPTAmount");
+src/libxrpl/protocol/STAmount.cpp:346:    auto value = static_cast<MPTAmount::value_type>(mValue);
+src/libxrpl/protocol/STAmount.cpp:347:    XRPL_ASSERT(mOffset == 0, "ripple::STAmount::mpt : amount is canonical");
+src/libxrpl/protocol/STAmount.cpp:352:    return MPTAmount{value};
+src/libxrpl/protocol/STAmount.cpp:355:STAmount&
+src/libxrpl/protocol/STAmount.cpp:356:STAmount::operator=(IOUAmount const& iou)
+src/libxrpl/protocol/STAmount.cpp:360:        "ripple::STAmount::operator=(IOUAmount) : is not integral");
+src/libxrpl/protocol/STAmount.cpp:370:STAmount&
+src/libxrpl/protocol/STAmount.cpp:371:STAmount::operator=(Number const& number)
+src/libxrpl/protocol/STAmount.cpp:396:STAmount&
+src/libxrpl/protocol/STAmount.cpp:397:STAmount::operator+=(STAmount const& a)
+src/libxrpl/protocol/STAmount.cpp:403:STAmount&
+src/libxrpl/protocol/STAmount.cpp:404:STAmount::operator-=(STAmount const& a)
+src/libxrpl/protocol/STAmount.cpp:410:STAmount
+src/libxrpl/protocol/STAmount.cpp:411:operator+(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:432:    if (v1.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:465:    // STAmount and the constructor will throw.
+src/libxrpl/protocol/STAmount.cpp:473:        return STAmount{
+src/libxrpl/protocol/STAmount.cpp:480:    return STAmount{
+src/libxrpl/protocol/STAmount.cpp:484:STAmount
+src/libxrpl/protocol/STAmount.cpp:485:operator-(STAmount const& v1, STAmount const& v2)
+src/libxrpl/protocol/STAmount.cpp:492:std::uint64_t const STAmount::uRateOne = getRate(STAmount(1), STAmount(1));
+src/libxrpl/protocol/STAmount.cpp:495:STAmount::setIssue(Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:510:getRate(STAmount const& offerOut, STAmount const& offerIn)
+src/libxrpl/protocol/STAmount.cpp:516:        STAmount r = divide(offerIn, offerOut, noIssue());
+src/libxrpl/protocol/STAmount.cpp:525:    catch (std::exception const&)
+src/libxrpl/protocol/STAmount.cpp:534: * @brief Safely checks if two STAmount values can be added without overflow,
+src/libxrpl/protocol/STAmount.cpp:537: * This function determines whether the addition of two STAmount objects is
+src/libxrpl/protocol/STAmount.cpp:547: * @param a The first STAmount to add.
+src/libxrpl/protocol/STAmount.cpp:548: * @param b The second STAmount to add.
+src/libxrpl/protocol/STAmount.cpp:552:canAdd(STAmount const& a, STAmount const& b)
+src/libxrpl/protocol/STAmount.cpp:565:        XRPAmount A = a.xrp();
+src/libxrpl/protocol/STAmount.cpp:566:        XRPAmount B = b.xrp();
+src/libxrpl/protocol/STAmount.cpp:568:        if ((B > XRPAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:569:             A > XRPAmount{std::numeric_limits<XRPAmount::value_type>::max()} -
+src/libxrpl/protocol/STAmount.cpp:571:            (B < XRPAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:572:             A < XRPAmount{std::numeric_limits<XRPAmount::value_type>::min()} -
+src/libxrpl/protocol/STAmount.cpp:581:    if (a.holds<Issue>() && b.holds<Issue>())
+src/libxrpl/protocol/STAmount.cpp:583:        static STAmount const one{IOUAmount{1, 0}, noIssue()};
+src/libxrpl/protocol/STAmount.cpp:584:        static STAmount const maxLoss{IOUAmount{1, -4}, noIssue()};
+src/libxrpl/protocol/STAmount.cpp:585:        STAmount lhs = divide((a - b) + b, a, noIssue()) - one;
+src/libxrpl/protocol/STAmount.cpp:586:        STAmount rhs = divide((b - a) + a, b, noIssue()) - one;
+src/libxrpl/protocol/STAmount.cpp:592:    if (a.holds<MPTIssue>() && b.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:594:        MPTAmount A = a.mpt();
+src/libxrpl/protocol/STAmount.cpp:595:        MPTAmount B = b.mpt();
+src/libxrpl/protocol/STAmount.cpp:596:        if ((B > MPTAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:597:             A > MPTAmount{std::numeric_limits<MPTAmount::value_type>::max()} -
+src/libxrpl/protocol/STAmount.cpp:599:            (B < MPTAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:600:             A < MPTAmount{std::numeric_limits<MPTAmount::value_type>::min()} -
+src/libxrpl/protocol/STAmount.cpp:609:    UNREACHABLE("STAmount::canAdd : unexpected STAmount type");
+src/libxrpl/protocol/STAmount.cpp:615: * @brief Determines if it is safe to subtract one STAmount from another.
+src/libxrpl/protocol/STAmount.cpp:632:canSubtract(STAmount const& a, STAmount const& b)
+src/libxrpl/protocol/STAmount.cpp:645:        XRPAmount A = a.xrp();
+src/libxrpl/protocol/STAmount.cpp:646:        XRPAmount B = b.xrp();
+src/libxrpl/protocol/STAmount.cpp:648:        if (B > XRPAmount{0} && A < B)
+src/libxrpl/protocol/STAmount.cpp:652:        if (B < XRPAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:653:            A > XRPAmount{std::numeric_limits<XRPAmount::value_type>::max()} +
+src/libxrpl/protocol/STAmount.cpp:661:    if (a.holds<Issue>() && b.holds<Issue>())
+src/libxrpl/protocol/STAmount.cpp:667:    if (a.holds<MPTIssue>() && b.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:669:        MPTAmount A = a.mpt();
+src/libxrpl/protocol/STAmount.cpp:670:        MPTAmount B = b.mpt();
+src/libxrpl/protocol/STAmount.cpp:673:        if (B > MPTAmount{0} && A < B)
+src/libxrpl/protocol/STAmount.cpp:677:        if (B < MPTAmount{0} &&
+src/libxrpl/protocol/STAmount.cpp:678:            A > MPTAmount{std::numeric_limits<MPTAmount::value_type>::max()} +
+src/libxrpl/protocol/STAmount.cpp:684:    UNREACHABLE("STAmount::canSubtract : unexpected STAmount type");
+src/libxrpl/protocol/STAmount.cpp:690:STAmount::setJson(Json::Value& elem) const
+src/libxrpl/protocol/STAmount.cpp:714:STAmount::getSType() const
+src/libxrpl/protocol/STAmount.cpp:720:STAmount::getFullText() const
+src/libxrpl/protocol/STAmount.cpp:730:STAmount::getText() const
+src/libxrpl/protocol/STAmount.cpp:745:    if (native() || mAsset.holds<MPTIssue>() || scientific)
+src/libxrpl/protocol/STAmount.cpp:758:    XRPL_ASSERT(mOffset + 43 > 0, "ripple::STAmount::getText : minimum offset");
+src/libxrpl/protocol/STAmount.cpp:784:        "ripple::STAmount::getText : first distance check");
+src/libxrpl/protocol/STAmount.cpp:795:        "ripple::STAmount::getText : second distance check");
+src/libxrpl/protocol/STAmount.cpp:819:STAmount::getJson(JsonOptions) const
+src/libxrpl/protocol/STAmount.cpp:827:STAmount::add(Serializer& s) const
+src/libxrpl/protocol/STAmount.cpp:831:        XRPL_ASSERT(mOffset == 0, "ripple::STAmount::add : zero offset");
+src/libxrpl/protocol/STAmount.cpp:838:    else if (mAsset.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:845:        s.addBitString(mAsset.get<MPTIssue>().getMptID());
+src/libxrpl/protocol/STAmount.cpp:850:            s.add64(cIssuedCurrency);
+src/libxrpl/protocol/STAmount.cpp:860:        s.addBitString(mAsset.get<Issue>().currency);
+src/libxrpl/protocol/STAmount.cpp:861:        s.addBitString(mAsset.get<Issue>().account);
+src/libxrpl/protocol/STAmount.cpp:866:STAmount::isEquivalent(STBase const& t) const
+src/libxrpl/protocol/STAmount.cpp:868:    STAmount const* v = dynamic_cast<STAmount const*>(&t);
+src/libxrpl/protocol/STAmount.cpp:873:STAmount::isDefault() const
+src/libxrpl/protocol/STAmount.cpp:897:STAmount::canonicalize()
+src/libxrpl/protocol/STAmount.cpp:911:        if (getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:917:            // log(maxMPTokenAmount, 10) ~ 18.96
+src/libxrpl/protocol/STAmount.cpp:918:            if (mAsset.holds<MPTIssue>() && mOffset > 18)
+src/libxrpl/protocol/STAmount.cpp:922:        if (getSTNumberSwitchover() && getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:931:                set(XRPAmount{num});
+src/libxrpl/protocol/STAmount.cpp:932:            else if (mAsset.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:933:                set(MPTAmount{num});
+src/libxrpl/protocol/STAmount.cpp:948:                if (getSTAmountCanonicalizeSwitchover())
+src/libxrpl/protocol/STAmount.cpp:955:                    else if (!native() && mValue > maxMPTokenAmount)
+src/libxrpl/protocol/STAmount.cpp:965:        else if (!native() && mValue > maxMPTokenAmount)
+src/libxrpl/protocol/STAmount.cpp:1012:        "ripple::STAmount::canonicalize : value inside range");
+src/libxrpl/protocol/STAmount.cpp:1015:        "ripple::STAmount::canonicalize : offset inside range");
+src/libxrpl/protocol/STAmount.cpp:1018:        "ripple::STAmount::canonicalize : value or offset set");
+src/libxrpl/protocol/STAmount.cpp:1022:STAmount::set(std::int64_t v)
+src/libxrpl/protocol/STAmount.cpp:1038:STAmount
+src/libxrpl/protocol/STAmount.cpp:1042:        return STAmount(noIssue());
+src/libxrpl/protocol/STAmount.cpp:1047:    return STAmount(noIssue(), mantissa, exponent);
+src/libxrpl/protocol/STAmount.cpp:1050:STAmount
+src/libxrpl/protocol/STAmount.cpp:1054:    if ((asset.native() || asset.holds<MPTIssue>()) && parts.exponent < 0)
+src/libxrpl/protocol/STAmount.cpp:1060:STAmount
+src/libxrpl/protocol/STAmount.cpp:1128:        asset = xrpIssue();
+src/libxrpl/protocol/STAmount.cpp:1134:            // sequence (32 bits) + account (160 bits)
+src/libxrpl/protocol/STAmount.cpp:1142:            Issue issue;
+src/libxrpl/protocol/STAmount.cpp:1176:        if ((asset.native() || asset.holds<MPTIssue>()) && parts.exponent < 0)
+src/libxrpl/protocol/STAmount.cpp:1189:amountFromJsonNoThrow(STAmount& result, Json::Value const& jvSource)
+src/libxrpl/protocol/STAmount.cpp:1196:    catch (std::exception const& e)
+src/libxrpl/protocol/STAmount.cpp:1211:operator==(STAmount const& lhs, STAmount const& rhs)
+src/libxrpl/protocol/STAmount.cpp:1218:operator<(STAmount const& lhs, STAmount const& rhs)
+src/libxrpl/protocol/STAmount.cpp:1252:STAmount
+src/libxrpl/protocol/STAmount.cpp:1253:operator-(STAmount const& value)
+src/libxrpl/protocol/STAmount.cpp:1257:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1263:        STAmount::unchecked{});
+src/libxrpl/protocol/STAmount.cpp:1319:STAmount
+src/libxrpl/protocol/STAmount.cpp:1320:divide(STAmount const& num, STAmount const& den, Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:1333:    if (num.native() || num.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1335:        while (numVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1343:    if (den.native() || den.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1345:        while (denVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1357:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1364:STAmount
+src/libxrpl/protocol/STAmount.cpp:1365:multiply(STAmount const& v1, STAmount const& v2, Asset const& asset)
+src/libxrpl/protocol/STAmount.cpp:1368:        return STAmount(asset);
+src/libxrpl/protocol/STAmount.cpp:1381:        return STAmount(v1.getFName(), minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1383:    if (v1.holds<MPTIssue>() && v2.holds<MPTIssue>() && asset.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1388:        if (minV > 3037000499ull)  // sqrt(maxMPTokenAmount) ~ 3037000499.98
+src/libxrpl/protocol/STAmount.cpp:1391:        if (((maxV >> 32) * minV) > 2147483648ull)  // maxMPTokenAmount / 2^32
+src/libxrpl/protocol/STAmount.cpp:1394:        return STAmount(asset, minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1400:        return STAmount{asset, r};
+src/libxrpl/protocol/STAmount.cpp:1408:    if (v1.native() || v1.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1410:        while (value1 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1417:    if (v2.native() || v2.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1419:        while (value2 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1430:    return STAmount(
+src/libxrpl/protocol/STAmount.cpp:1478:    else if (value > STAmount::cMaxValue)
+src/libxrpl/protocol/STAmount.cpp:1480:        while (value > (10 * STAmount::cMaxValue))
+src/libxrpl/protocol/STAmount.cpp:1525:    else if (value > STAmount::cMaxValue)
+src/libxrpl/protocol/STAmount.cpp:1527:        while (value > (10 * STAmount::cMaxValue))
+src/libxrpl/protocol/STAmount.cpp:1538:STAmount
+src/libxrpl/protocol/STAmount.cpp:1540:    STAmount const& value,
+src/libxrpl/protocol/STAmount.cpp:1558:    STAmount const referenceValue{
+src/libxrpl/protocol/STAmount.cpp:1559:        value.asset(), STAmount::cMinValue, scale, value.negative()};
+src/libxrpl/protocol/STAmount.cpp:1595:static STAmount
+src/libxrpl/protocol/STAmount.cpp:1597:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1598:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1618:        return STAmount(v1.getFName(), minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1621:    if (v1.holds<MPTIssue>() && v2.holds<MPTIssue>() && asset.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1626:        if (minV > 3037000499ull)  // sqrt(maxMPTokenAmount) ~ 3037000499.98
+src/libxrpl/protocol/STAmount.cpp:1629:        if (((maxV >> 32) * minV) > 2147483648ull)  // maxMPTokenAmount / 2^32
+src/libxrpl/protocol/STAmount.cpp:1632:        return STAmount(asset, minV * maxV);
+src/libxrpl/protocol/STAmount.cpp:1638:    if (v1.native() || v1.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1640:        while (value1 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1647:    if (v2.native() || v2.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1649:        while (value2 < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1674:    STAmount result = [&]() {
+src/libxrpl/protocol/STAmount.cpp:1676:        // result from STAmount::canonicalize.
+src/libxrpl/protocol/STAmount.cpp:1678:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1692:            amount = STAmount::cMinValue;
+src/libxrpl/protocol/STAmount.cpp:1693:            offset = STAmount::cMinOffset;
+src/libxrpl/protocol/STAmount.cpp:1695:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1700:STAmount
+src/libxrpl/protocol/STAmount.cpp:1702:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1703:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1711:STAmount
+src/libxrpl/protocol/STAmount.cpp:1713:    STAmount const& v1,
+src/libxrpl/protocol/STAmount.cpp:1714:    STAmount const& v2,
+src/libxrpl/protocol/STAmount.cpp:1725:static STAmount
+src/libxrpl/protocol/STAmount.cpp:1727:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1728:    STAmount const& den,
+src/libxrpl/protocol/STAmount.cpp:1741:    if (num.native() || num.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1743:        while (numVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1750:    if (den.native() || den.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1752:        while (denVal < STAmount::cMinValue)
+src/libxrpl/protocol/STAmount.cpp:1776:            asset.native() || asset.holds<MPTIssue>(), amount, offset, roundUp);
+src/libxrpl/protocol/STAmount.cpp:1778:    STAmount result = [&]() {
+src/libxrpl/protocol/STAmount.cpp:1785:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1790:        if (asset.native() || asset.holds<MPTIssue>())
+src/libxrpl/protocol/STAmount.cpp:1799:            amount = STAmount::cMinValue;
+src/libxrpl/protocol/STAmount.cpp:1800:            offset = STAmount::cMinOffset;
+src/libxrpl/protocol/STAmount.cpp:1802:        return STAmount(asset, amount, offset, resultNegative);
+src/libxrpl/protocol/STAmount.cpp:1807:STAmount
+src/libxrpl/protocol/STAmount.cpp:1809:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1810:    STAmount const& den,
+src/libxrpl/protocol/STAmount.cpp:1817:STAmount
+src/libxrpl/protocol/STAmount.cpp:1819:    STAmount const& num,
+src/libxrpl/protocol/STAmount.cpp:1820:    STAmount const& den,
+src/test/app/SetTrust_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/app/SetTrust_test.cpp:120:        env(fset(alice, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:194:        auto const txFee = env.current()->fees().base;
+src/test/app/SetTrust_test.cpp:195:        auto const baseReserve = env.current()->fees().accountReserve(0);
+src/test/app/SetTrust_test.cpp:196:        auto const threelineReserve = env.current()->fees().accountReserve(3);
+src/test/app/SetTrust_test.cpp:213:                ter(tecNO_LINE_INSUF_RESERVE),
+src/test/app/SetTrust_test.cpp:229:        env(pay(env.master, creator, STAmount{threelineReserve - baseReserve}));
+src/test/app/SetTrust_test.cpp:271:        env(pay(gw, alice, USD(200)), ter(tecPATH_DRY));
+src/test/app/SetTrust_test.cpp:275:        std::uint32_t const ticketSeq{env.seq(alice) + 1};
+src/test/app/SetTrust_test.cpp:289:    trust_explicit_amt(jtx::Account const& a, STAmount const& amt)
+src/test/app/SetTrust_test.cpp:293:        jv[jss::LimitAmount] = amt.getJson(JsonOptions::none);
+src/test/app/SetTrust_test.cpp:325:        env(trust_explicit_amt(alice, drops(10000)), ter(temBAD_LIMIT));
+src/test/app/SetTrust_test.cpp:329:            ter(temBAD_CURRENCY));
+src/test/app/SetTrust_test.cpp:332:        env(trust(alice, gw["USD"](-1000)), ter(temBAD_LIMIT));
+src/test/app/SetTrust_test.cpp:336:                alice, STAmount{Issue{to_currency("USD"), noAccount()}, 100}),
+src/test/app/SetTrust_test.cpp:342:        // tfSetAuth flag should not be set if not required by lsfRequireAuth
+src/test/app/SetTrust_test.cpp:388:        env(fset(alice, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:398:        env(pay(alice, bob, alice["USD"](10)), ter(tecPATH_DRY));
+src/test/app/SetTrust_test.cpp:422:        env(pay(alice, bob, alice["USD"](20)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:425:        // Issued tokens are fungible. i.e. alice's USD is identical to bob's
+src/test/app/SetTrust_test.cpp:427:        env(pay(bob, alice, bob["USD"](10)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:436:        env(pay(bob, alice, bob["USD"](10)), ter(tesSUCCESS));
+src/test/app/SetTrust_test.cpp:447:                 << " quality of trustline for "
+src/test/app/SetTrust_test.cpp:472:        auto check_quality = [&](bool const exists) {
+src/test/app/SetTrust_test.cpp:476:            auto quality = exists ? 1000 : 0;
+src/test/app/SetTrust_test.cpp:480:                lines[jss::result][jss::lines][0u][jss::quality_in] == quality);
+src/test/app/SetTrust_test.cpp:482:                lines[jss::result][jss::lines][0u][jss::quality_out] ==
+src/test/app/SetTrust_test.cpp:483:                quality);
+src/test/app/SetTrust_test.cpp:487:        check_quality(createQuality);
+src/test/app/SetTrust_test.cpp:490:        check_quality(!createQuality);
+src/test/app/SetTrust_test.cpp:529:                env(fset(gw, asfRequireAuth));
+src/test/app/SetTrust_test.cpp:541:                    withFix ? ter(tesSUCCESS) : ter(tecNO_PERMISSION);
+src/test/app/SetTrust_test.cpp:548:                    withFix ? ter(tesSUCCESS) : ter(tecPATH_DRY);
+src/test/app/SetTrust_test.cpp:569:        env(trust(alice, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:602:        env(trust(bob, USD(1000)), ter(tecNO_PERMISSION));
+src/test/app/SetTrust_test.cpp:607:        env(trust(gw, bob["USD"](1000)), ter(tecNO_PERMISSION));
+src/test/app/TrustAndBalance_test.cpp:7:  purpose  with  or without fee is hereby granted, provided that the above
+src/test/app/TrustAndBalance_test.cpp:111:        env(trust(alice, gw["USD"](-1)), ter(temBAD_LIMIT));
+src/test/app/TrustAndBalance_test.cpp:181:        env(pay(bob, alice, bob["USD"](1)), ter(tecPATH_DRY));
+src/test/app/TrustAndBalance_test.cpp:307:            ter(tecPATH_DRY));
+src/test/app/TrustAndBalance_test.cpp:400:                STAmount(
+src/test/app/TrustAndBalance_test.cpp:401:                    carol["USD"].issue(),
+src/test/app/TrustAndBalance_test.cpp:405:                    STAmount::unchecked{})));
+src/test/basics/IOUAmount_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/basics/IOUAmount_test.cpp:21:#include <xrpl/protocol/IOUAmount.h>
+src/test/basics/IOUAmount_test.cpp:25:class IOUAmount_test : public beast::unit_test::suite
+src/test/basics/IOUAmount_test.cpp:33:        IOUAmount const z(0, 0);
+src/test/basics/IOUAmount_test.cpp:45:        IOUAmount const zz(beast::zero);
+src/test/basics/IOUAmount_test.cpp:49:        IOUAmount const zzz{};
+src/test/basics/IOUAmount_test.cpp:59:        IOUAmount const neg(-1, 0);
+src/test/basics/IOUAmount_test.cpp:62:        IOUAmount const zer(0, 0);
+src/test/basics/IOUAmount_test.cpp:65:        IOUAmount const pos(1, 0);
+src/test/basics/IOUAmount_test.cpp:77:            IOUAmount z(zero);
+src/test/basics/IOUAmount_test.cpp:87:            IOUAmount const neg(-2, 0);
+src/test/basics/IOUAmount_test.cpp:95:            IOUAmount const pos(2, 0);
+src/test/basics/IOUAmount_test.cpp:108:        IOUAmount const n(-2, 0);
+src/test/basics/IOUAmount_test.cpp:109:        IOUAmount const z(0, 0);
+src/test/basics/IOUAmount_test.cpp:110:        IOUAmount const p(2, 0);
+src/test/basics/IOUAmount_test.cpp:163:        auto test = [this](IOUAmount const& n, std::string const& expected) {
+src/test/basics/IOUAmount_test.cpp:175:            test(IOUAmount(-2, 0), "-2");
+src/test/basics/IOUAmount_test.cpp:176:            test(IOUAmount(0, 0), "0");
+src/test/basics/IOUAmount_test.cpp:177:            test(IOUAmount(2, 0), "2");
+src/test/basics/IOUAmount_test.cpp:178:            test(IOUAmount(25, -3), "0.025");
+src/test/basics/IOUAmount_test.cpp:179:            test(IOUAmount(-25, -3), "-0.025");
+src/test/basics/IOUAmount_test.cpp:180:            test(IOUAmount(25, 1), "250");
+src/test/basics/IOUAmount_test.cpp:181:            test(IOUAmount(-25, 1), "-250");
+src/test/basics/IOUAmount_test.cpp:182:            test(IOUAmount(2, 20), "2e20");
+src/test/basics/IOUAmount_test.cpp:183:            test(IOUAmount(-2, -20), "-2e-20");
+src/test/basics/IOUAmount_test.cpp:204:            IOUAmount bigMan(maxMantissa, 0);
+src/test/basics/IOUAmount_test.cpp:211:            IOUAmount bigMan(-maxMantissa, 0);
+src/test/basics/IOUAmount_test.cpp:219:            IOUAmount tiny(minMantissa, minExponent);
+src/test/basics/IOUAmount_test.cpp:229:            IOUAmount tinyNeg(-minMantissa, minExponent);
+src/test/basics/IOUAmount_test.cpp:242:                IOUAmount one(1, 0);
+src/test/basics/IOUAmount_test.cpp:248:                IOUAmount big(maxMantissa, maxExponent);
+src/test/basics/IOUAmount_test.cpp:255:                IOUAmount negOne(-1, 0);
+src/test/basics/IOUAmount_test.cpp:265:            IOUAmount one(1, 0);
+src/test/basics/IOUAmount_test.cpp:271:            IOUAmount big(maxMantissa, maxExponent);
+src/test/basics/IOUAmount_test.cpp:290:BEAST_DEFINE_TESTSUITE(IOUAmount, basics, ripple);
+src/test/basics/Number_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/basics/Number_test.cpp:22:#include <xrpl/protocol/IOUAmount.h>
+src/test/basics/Number_test.cpp:23:#include <xrpl/protocol/STAmount.h>
+src/test/basics/Number_test.cpp:1161:        IOUAmount x{5, 6};
+src/test/basics/Number_test.cpp:1164:        IOUAmount z{y};
+src/test/basics/Number_test.cpp:1166:        XRPAmount xrp{500};
+src/test/basics/Number_test.cpp:1167:        STAmount st = xrp;
+src/test/basics/Number_test.cpp:1169:        BEAST_EXPECT(XRPAmount{n} == xrp);
+src/test/basics/Number_test.cpp:1170:        IOUAmount x0{0, 0};
+src/test/basics/Number_test.cpp:1173:        IOUAmount z0{y0};
+src/test/basics/Number_test.cpp:1175:        XRPAmount xrp0{0};
+src/test/basics/Number_test.cpp:1178:        XRPAmount xrp1{n0};
+src/test/basics/Number_test.cpp:1519:    test_toSTAmount()
+src/test/basics/Number_test.cpp:1522:        Issue const issue;
+src/test/basics/Number_test.cpp:1525:        auto res2 = STAmount{issue, n};
+src/test/basics/Number_test.cpp:1526:        BEAST_EXPECT(res2 == STAmount{7518784});
+src/test/basics/Number_test.cpp:1529:        res2 = STAmount{issue, n};
+src/test/basics/Number_test.cpp:1530:        BEAST_EXPECT(res2 == STAmount{7518783});
+src/test/basics/Number_test.cpp:1533:        res2 = STAmount{issue, n};
+src/test/basics/Number_test.cpp:1534:        BEAST_EXPECT(res2 == STAmount{7518783});
+src/test/basics/Number_test.cpp:1537:        res2 = STAmount{issue, n};
+src/test/basics/Number_test.cpp:1538:        BEAST_EXPECT(res2 == STAmount{7518784});
+src/test/basics/Number_test.cpp:1757:            test_toSTAmount();
+src/xrpld/app/paths/detail/StrandFlow.h:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/detail/StrandFlow.h:26:#include <xrpld/app/paths/detail/AmountSpec.h>
+src/xrpld/app/paths/detail/StrandFlow.h:34:#include <xrpl/protocol/IOUAmount.h>
+src/xrpld/app/paths/detail/StrandFlow.h:35:#include <xrpl/protocol/XRPAmount.h>
+src/xrpld/app/paths/detail/StrandFlow.h:98:   @param out Amount of output requested from the strand
+src/xrpld/app/paths/detail/StrandFlow.h:136:        EitherAmount limitStepOut;
+src/xrpld/app/paths/detail/StrandFlow.h:138:            EitherAmount stepOut(out);
+src/xrpld/app/paths/detail/StrandFlow.h:157:                        *sb, *afView, ofrsToRm, EitherAmount(*maxIn));
+src/xrpld/app/paths/detail/StrandFlow.h:168:                        // throwing out the sandbox can only increase liquidity
+src/xrpld/app/paths/detail/StrandFlow.h:175:                        UNREACHABLE(
+src/xrpld/app/paths/detail/StrandFlow.h:205:                        // throwing out the sandbox can only increase liquidity
+src/xrpld/app/paths/detail/StrandFlow.h:215:                        UNREACHABLE(
+src/xrpld/app/paths/detail/StrandFlow.h:229:            EitherAmount stepIn(limitStepOut);
+src/xrpld/app/paths/detail/StrandFlow.h:253:                    UNREACHABLE(
+src/xrpld/app/paths/detail/StrandFlow.h:272:            EitherAmount stepIn(*strand[0]->cachedIn());
+src/xrpld/app/paths/detail/StrandFlow.h:328:        , ter(tesSUCCESS)
+src/xrpld/app/paths/detail/StrandFlow.h:350:qualityUpperBound(ReadView const& v, Strand const& strand)
+src/xrpld/app/paths/detail/StrandFlow.h:352:    Quality q{STAmount::uRateOne};
+src/xrpld/app/paths/detail/StrandFlow.h:357:        if (std::tie(stepQ, dir) = step->qualityUpperBound(v, dir); stepQ)
+src/xrpld/app/paths/detail/StrandFlow.h:358:            q = composed_quality(q, *stepQ);
+src/xrpld/app/paths/detail/StrandFlow.h:368: * Targets one path payment with AMM where the average quality is linear
+src/xrpld/app/paths/detail/StrandFlow.h:369: * and instant quality is quadratic function of output. Calculating quality
+src/xrpld/app/paths/detail/StrandFlow.h:372: * increases quality of AMM steps, increasing the strand's composite
+src/xrpld/app/paths/detail/StrandFlow.h:373: * quality as the result.
+src/xrpld/app/paths/detail/StrandFlow.h:407:        else if constexpr (std::is_same_v<TOutAmt, XRPAmount>)
+src/xrpld/app/paths/detail/StrandFlow.h:408:            return XRPAmount{*out};
+src/xrpld/app/paths/detail/StrandFlow.h:409:        else if constexpr (std::is_same_v<TOutAmt, IOUAmount>)
+src/xrpld/app/paths/detail/StrandFlow.h:410:            return IOUAmount{*out};
+src/xrpld/app/paths/detail/StrandFlow.h:412:            return STAmount{
+src/xrpld/app/paths/detail/StrandFlow.h:413:                remainingOut.issue(), out->mantissa(), out->exponent()};
+src/xrpld/app/paths/detail/StrandFlow.h:452:        // add the strands in `next_` to `cur_`, sorted by theoretical quality.
+src/xrpld/app/paths/detail/StrandFlow.h:453:        // Best quality first.
+src/xrpld/app/paths/detail/StrandFlow.h:468:                    if (auto const qual = qualityUpperBound(v, *strand))
+src/xrpld/app/paths/detail/StrandFlow.h:472:                            // If a strand's quality is ever over limitQuality
+src/xrpld/app/paths/detail/StrandFlow.h:474:                            // that when transfer fees are charged, and an
+src/xrpld/app/paths/detail/StrandFlow.h:476:                            // strand quality _can_ increase; However, this is
+src/xrpld/app/paths/detail/StrandFlow.h:509:            UNREACHABLE("ripple::ActiveStrands::get : input out of range");
+src/xrpld/app/paths/detail/StrandFlow.h:556:   @param outReq Amount of output requested from the strand
+src/xrpld/app/paths/detail/StrandFlow.h:559:   @param limitQuality If present, the minimum quality for any strand taken
+src/xrpld/app/paths/detail/StrandFlow.h:560:   @param sendMaxST If present, the maximum STAmount to send
+src/xrpld/app/paths/detail/StrandFlow.h:576:    std::optional<STAmount> const& sendMaxST,
+src/xrpld/app/paths/detail/StrandFlow.h:581:    // Used to track the strand that offers the best quality (output/input
+src/xrpld/app/paths/detail/StrandFlow.h:589:        Quality quality;
+src/xrpld/app/paths/detail/StrandFlow.h:596:            Quality const& quality_)
+src/xrpld/app/paths/detail/StrandFlow.h:601:            , quality(quality_)
+src/xrpld/app/paths/detail/StrandFlow.h:616:        sendMaxST ? toAmount<TInAmt>(*sendMaxST) : TInAmt{beast::zero};
+src/xrpld/app/paths/detail/StrandFlow.h:698:                auto const strandQ = qualityUpperBound(sb, *strand);
+src/xrpld/app/paths/detail/StrandFlow.h:715:                    EitherAmount(f.in), EitherAmount(f.out));
+src/xrpld/app/paths/detail/StrandFlow.h:729:            // limitQuality. But the actual limit quality might be slightly
+src/xrpld/app/paths/detail/StrandFlow.h:753:            if (!best || best->quality < q ||
+src/xrpld/app/paths/detail/StrandFlow.h:754:                (best->quality == q && best->out < f.out))
+src/xrpld/app/paths/detail/StrandFlow.h:757:                // offers) and ends up having the best quality, remove it
+src/xrpld/app/paths/detail/StrandFlow.h:759:                // best quality, keep it active.
+src/xrpld/app/paths/detail/StrandFlow.h:797:                    EitherAmount(best->in),
+src/xrpld/app/paths/detail/StrandFlow.h:798:                    EitherAmount(best->out),
+src/xrpld/app/paths/detail/StrandFlow.h:857:            // UNREACHABLE("ripple::flow : rounding error");
+src/xrpld/app/paths/detail/StrandFlow.h:859:            return {tefEXCEPTION, std::move(ofrsToRmOnFail)};
+src/xrpld/app/paths/detail/StrandFlow.h:880:            return {tecPATH_DRY, std::move(ofrsToRmOnFail)};
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:20:#include <xrpld/app/paths/detail/AmountSpec.h>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:28:#include <xrpl/protocol/IOUAmount.h>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:30:#include <xrpl/protocol/XRPAmount.h>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:40:    : public StepImp<XRPAmount, XRPAmount, XRPEndpointStep<TDerived>>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:50:    std::optional<XRPAmount> cache_;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:52:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:57:        return EitherAmount(*cache_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:80:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:86:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:99:    qualityUpperBound(ReadView const& v, DebtDirection prevStepDir)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:102:    std::pair<XRPAmount, XRPAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:107:        XRPAmount const& out);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:109:    std::pair<XRPAmount, XRPAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:114:        XRPAmount const& in);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:116:    std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:117:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:125:    XRPAmount
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:176:    XRPAmount
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:217:    XRPAmount
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:246:XRPEndpointStep<TDerived>::qualityUpperBound(
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:251:        Quality{STAmount::uRateOne},
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:256:std::pair<XRPAmount, XRPAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:261:    XRPAmount const& out)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:269:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:270:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:271:        return {XRPAmount{beast::zero}, XRPAmount{beast::zero}};
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:278:std::pair<XRPAmount, XRPAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:283:    XRPAmount const& in)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:292:    auto ter = accountSend(sb, sender, receiver, toSTAmount(result), j_);
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:293:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:294:        return {XRPAmount{beast::zero}, XRPAmount{beast::zero}};
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:301:std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:305:    EitherAmount const& in)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:310:        return {false, EitherAmount(XRPAmount(beast::zero))};
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:323:        return {false, EitherAmount(balance)};
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:342:        return temBAD_PATH;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:356:        return temBAD_PATH;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:362:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:368:        if (!ctx.seenDirectIssues[issuesIndex].insert(xrpIssue()).second)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:373:            return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:377:    return tesSUCCESS;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:401:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:416:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/XRPEndpointStep.cpp:419:    return {tesSUCCESS, std::move(r)};
+src/test/ledger/PaymentSandbox_test.cpp:7:  purpose  with  or without fee is hereby granted, provided that the above
+src/test/ledger/PaymentSandbox_test.cpp:20:#include <test/jtx/PathSet.h>
+src/test/ledger/PaymentSandbox_test.cpp:25:#include <xrpl/protocol/AmountConversions.h>
+src/test/ledger/PaymentSandbox_test.cpp:86:        PathSet paths(Path(gw1, USD_gw2, gw2), Path(gw2, USD_gw1, gw1));
+src/test/ledger/PaymentSandbox_test.cpp:120:        STAmount const toCredit(USD_gw1(30));
+src/test/ledger/PaymentSandbox_test.cpp:121:        STAmount const toDebit(USD_gw1(20));
+src/test/ledger/PaymentSandbox_test.cpp:123:            // accountSend, no deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:126:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:127:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:130:                auto r = accountSend(av, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:131:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:136:                startingAmount + toCredit);
+src/test/ledger/PaymentSandbox_test.cpp:138:                auto r = accountSend(av, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:139:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:144:                startingAmount + toCredit - toDebit);
+src/test/ledger/PaymentSandbox_test.cpp:148:            // rippleCredit, no deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:151:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:152:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:155:            rippleCredit(av, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:159:                startingAmount + toCredit);
+src/test/ledger/PaymentSandbox_test.cpp:161:            rippleCredit(av, alice, gw1, toDebit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:165:                startingAmount + toCredit - toDebit);
+src/test/ledger/PaymentSandbox_test.cpp:169:            // accountSend, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:173:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:174:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:178:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:179:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:184:                startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:187:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:188:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:193:                startingAmount - toDebit);
+src/test/ledger/PaymentSandbox_test.cpp:197:            // rippleCredit, w/ deferredCredits
+src/test/ledger/PaymentSandbox_test.cpp:201:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:202:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:205:            rippleCredit(pv, gw1, alice, toCredit, true, j);
+src/test/ledger/PaymentSandbox_test.cpp:209:                startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:217:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:218:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:221:            BEAST_EXPECT(redeemIOU(pv, alice, toDebit, iss, j) == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:225:                startingAmount - toDebit);
+src/test/ledger/PaymentSandbox_test.cpp:233:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:234:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:237:            BEAST_EXPECT(issueIOU(pv, alice, toCredit, iss, j) == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:241:                startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:245:            // accountSend, w/ deferredCredits and stacked views
+src/test/ledger/PaymentSandbox_test.cpp:249:            auto const iss = USD_gw1.issue();
+src/test/ledger/PaymentSandbox_test.cpp:250:            auto const startingAmount = accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:254:                auto r = accountSend(pv, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:255:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:260:                startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:271:                        j) == startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:273:                    auto r = accountSend(pv2, gw1, alice, toCredit, j);
+src/test/ledger/PaymentSandbox_test.cpp:274:                    BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:283:                        j) == startingAmount);
+src/test/ledger/PaymentSandbox_test.cpp:287:                auto r = accountSend(pv, alice, gw1, toDebit, j);
+src/test/ledger/PaymentSandbox_test.cpp:288:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:293:                startingAmount - toDebit);
+src/test/ledger/PaymentSandbox_test.cpp:314:        auto const issue = USD.issue();
+src/test/ledger/PaymentSandbox_test.cpp:315:        STAmount tinyAmt(
+src/test/ledger/PaymentSandbox_test.cpp:317:            STAmount::cMinValue,
+src/test/ledger/PaymentSandbox_test.cpp:318:            STAmount::cMinOffset + 1,
+src/test/ledger/PaymentSandbox_test.cpp:320:            STAmount::unchecked{});
+src/test/ledger/PaymentSandbox_test.cpp:321:        STAmount hugeAmt(
+src/test/ledger/PaymentSandbox_test.cpp:323:            STAmount::cMaxValue,
+src/test/ledger/PaymentSandbox_test.cpp:324:            STAmount::cMaxOffset - 1,
+src/test/ledger/PaymentSandbox_test.cpp:326:            STAmount::unchecked{});
+src/test/ledger/PaymentSandbox_test.cpp:342:                                  beast::Journal j) -> XRPAmount {
+src/test/ledger/PaymentSandbox_test.cpp:343:            return toAmount<XRPAmount>(accountHolds(
+src/test/ledger/PaymentSandbox_test.cpp:347:        auto reserve = [](jtx::Env& env, std::uint32_t count) -> XRPAmount {
+src/test/ledger/PaymentSandbox_test.cpp:348:            return env.current()->fees().accountReserve(count);
+src/test/ledger/PaymentSandbox_test.cpp:366:                    accountSend(sb, xrpAccount(), alice, XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:367:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:371:                    accountSend(sb, alice, xrpAccount(), XRP(100), env.journal);
+src/test/ledger/PaymentSandbox_test.cpp:372:                BEAST_EXPECT(r == tesSUCCESS);
+src/test/ledger/PaymentSandbox_test.cpp:382:        // Make sure the Issue::Account returned by PAymentSandbox::balanceHook
+src/test/ledger/PaymentSandbox_test.cpp:398:        Issue tlIssue = noIssue();
+src/test/ledger/PaymentSandbox_test.cpp:399:        tlIssue.currency = USD.issue().currency;
+src/test/ledger/PaymentSandbox_test.cpp:401:        sb.creditHook(gw.id(), alice.id(), {USD, 400}, {tlIssue, 600});
+src/test/ledger/PaymentSandbox_test.cpp:402:        sb.creditHook(gw.id(), alice.id(), {USD, 100}, {tlIssue, 600});
+src/test/ledger/PaymentSandbox_test.cpp:404:        // Expect that the STAmount issuer returned by balanceHook() is correct.
+src/test/ledger/PaymentSandbox_test.cpp:405:        STAmount const balance =
+src/test/ledger/PaymentSandbox_test.cpp:407:        BEAST_EXPECT(balance.getIssuer() == USD.issue().account);
+src/xrpld/app/paths/Flow.h:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/Flow.h:40:  @param deliver Amount to deliver to the dst account
+src/xrpld/app/paths/Flow.h:47:  @param ownerPaysTransferFee If true then owner, not sender, pays fee
+src/xrpld/app/paths/Flow.h:50:  @param limitQuality Do not use liquidity below this quality threshold
+src/xrpld/app/paths/Flow.h:59:    STAmount const& deliver,
+src/xrpld/app/paths/Flow.h:62:    STPathSet const& paths,
+src/xrpld/app/paths/Flow.h:68:    std::optional<STAmount> const& sendMax,
+src/xrpld/app/paths/Flow.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/Flow.cpp:22:#include <xrpld/app/paths/detail/AmountSpec.h>
+src/xrpld/app/paths/Flow.cpp:28:#include <xrpl/protocol/IOUAmount.h>
+src/xrpld/app/paths/Flow.cpp:29:#include <xrpl/protocol/XRPAmount.h>
+src/xrpld/app/paths/Flow.cpp:37:    Issue const& srcIssue,
+src/xrpld/app/paths/Flow.cpp:38:    Issue const& dstIssue,
+src/xrpld/app/paths/Flow.cpp:42:    if (f.ter == tesSUCCESS)
+src/xrpld/app/paths/Flow.cpp:48:    result.actualAmountIn = toSTAmount(f.in, srcIssue);
+src/xrpld/app/paths/Flow.cpp:49:    result.actualAmountOut = toSTAmount(f.out, dstIssue);
+src/xrpld/app/paths/Flow.cpp:57:    STAmount const& deliver,
+src/xrpld/app/paths/Flow.cpp:60:    STPathSet const& paths,
+src/xrpld/app/paths/Flow.cpp:66:    std::optional<STAmount> const& sendMax,
+src/xrpld/app/paths/Flow.cpp:71:    Issue const srcIssue = [&] {
+src/xrpld/app/paths/Flow.cpp:73:            return sendMax->issue();
+src/xrpld/app/paths/Flow.cpp:74:        if (!isXRP(deliver.issue().currency))
+src/xrpld/app/paths/Flow.cpp:75:            return Issue(deliver.issue().currency, src);
+src/xrpld/app/paths/Flow.cpp:76:        return xrpIssue();
+src/xrpld/app/paths/Flow.cpp:79:    Issue const dstIssue = deliver.issue();
+src/xrpld/app/paths/Flow.cpp:81:    std::optional<Issue> sendMaxIssue;
+src/xrpld/app/paths/Flow.cpp:83:        sendMaxIssue = sendMax->issue();
+src/xrpld/app/paths/Flow.cpp:94:        dstIssue,
+src/xrpld/app/paths/Flow.cpp:96:        sendMaxIssue,
+src/xrpld/app/paths/Flow.cpp:105:    if (toStrandsTer != tesSUCCESS)
+src/xrpld/app/paths/Flow.cpp:117:                  << "\nsrcIssue: " << srcIssue << "\ndstIssue: " << dstIssue;
+src/xrpld/app/paths/Flow.cpp:129:    bool const srcIsXRP = isXRP(srcIssue.currency);
+src/xrpld/app/paths/Flow.cpp:130:    bool const dstIsXRP = isXRP(dstIssue.currency);
+src/xrpld/app/paths/Flow.cpp:132:    auto const asDeliver = toAmountSpec(deliver);
+src/xrpld/app/paths/Flow.cpp:141:            srcIssue,
+src/xrpld/app/paths/Flow.cpp:142:            dstIssue,
+src/xrpld/app/paths/Flow.cpp:143:            flow<XRPAmount, XRPAmount>(
+src/xrpld/app/paths/Flow.cpp:160:            srcIssue,
+src/xrpld/app/paths/Flow.cpp:161:            dstIssue,
+src/xrpld/app/paths/Flow.cpp:162:            flow<XRPAmount, IOUAmount>(
+src/xrpld/app/paths/Flow.cpp:179:            srcIssue,
+src/xrpld/app/paths/Flow.cpp:180:            dstIssue,
+src/xrpld/app/paths/Flow.cpp:181:            flow<IOUAmount, XRPAmount>(
+src/xrpld/app/paths/Flow.cpp:197:        srcIssue,
+src/xrpld/app/paths/Flow.cpp:198:        dstIssue,
+src/xrpld/app/paths/Flow.cpp:199:        flow<IOUAmount, IOUAmount>(
+src/test/protocol/STAmount_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/protocol/STAmount_test.cpp:24:#include <xrpl/protocol/STAmount.h>
+src/test/protocol/STAmount_test.cpp:25:#include <xrpl/protocol/XRPAmount.h>
+src/test/protocol/STAmount_test.cpp:29:class STAmount_test : public beast::unit_test::suite
+src/test/protocol/STAmount_test.cpp:32:    static STAmount
+src/test/protocol/STAmount_test.cpp:33:    serializeAndDeserialize(STAmount const& s)
+src/test/protocol/STAmount_test.cpp:39:        return STAmount(sit, sfGeneric);
+src/test/protocol/STAmount_test.cpp:43:    STAmount
+src/test/protocol/STAmount_test.cpp:44:    roundSelf(STAmount const& amount)
+src/test/protocol/STAmount_test.cpp:56:            if (mantissa < STAmount::cMinValue)
+src/test/protocol/STAmount_test.cpp:58:                    amount.issue(),
+src/test/protocol/STAmount_test.cpp:64:                amount.issue(),
+src/test/protocol/STAmount_test.cpp:68:                STAmount::unchecked{}};
+src/test/protocol/STAmount_test.cpp:75:            if (mantissa > STAmount::cMaxValue)
+src/test/protocol/STAmount_test.cpp:77:                    amount.issue(),
+src/test/protocol/STAmount_test.cpp:83:                amount.issue(),
+src/test/protocol/STAmount_test.cpp:87:                STAmount::unchecked{}};
+src/test/protocol/STAmount_test.cpp:96:        // check STAmount rounding
+src/test/protocol/STAmount_test.cpp:97:        STAmount num(noIssue(), n);
+src/test/protocol/STAmount_test.cpp:98:        STAmount den(noIssue(), d);
+src/test/protocol/STAmount_test.cpp:99:        STAmount mul(noIssue(), m);
+src/test/protocol/STAmount_test.cpp:100:        STAmount quot = divide(STAmount(n), STAmount(d), noIssue());
+src/test/protocol/STAmount_test.cpp:101:        STAmount res = roundSelf(multiply(quot, mul, noIssue()));
+src/test/protocol/STAmount_test.cpp:105:        STAmount cmp(noIssue(), (n * m) / d);
+src/test/protocol/STAmount_test.cpp:109:        BEAST_EXPECT(cmp.issue().currency == res.issue().currency);
+src/test/protocol/STAmount_test.cpp:124:        STAmount aa(noIssue(), a);
+src/test/protocol/STAmount_test.cpp:125:        STAmount bb(noIssue(), b);
+src/test/protocol/STAmount_test.cpp:126:        STAmount prod1(multiply(aa, bb, noIssue()));
+src/test/protocol/STAmount_test.cpp:130:        STAmount prod2(
+src/test/protocol/STAmount_test.cpp:131:            noIssue(),
+src/test/protocol/STAmount_test.cpp:148:        Issue const& issue,
+src/test/protocol/STAmount_test.cpp:153:            STAmount const amount = amountFromString(issue, value);
+src/test/protocol/STAmount_test.cpp:156:        catch (std::exception const&)
+src/test/protocol/STAmount_test.cpp:168:            Issue const xrp(xrpIssue());
+src/test/protocol/STAmount_test.cpp:201:            Issue const usd(Currency(0x5553440000000000), AccountID(0x4985601));
+src/test/protocol/STAmount_test.cpp:233:        STAmount zeroSt, one(1), hundred(100);
+src/test/protocol/STAmount_test.cpp:234:        // VFALCO NOTE Why repeat "STAmount fail" so many times??
+src/test/protocol/STAmount_test.cpp:235:        unexpected(serializeAndDeserialize(zeroSt) != zeroSt, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:236:        unexpected(serializeAndDeserialize(one) != one, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:238:            serializeAndDeserialize(hundred) != hundred, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:239:        unexpected(!zeroSt.native(), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:240:        unexpected(!hundred.native(), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:241:        unexpected(zeroSt != beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:242:        unexpected(one == beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:243:        unexpected(hundred == beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:244:        unexpected((zeroSt < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:245:        unexpected(!(zeroSt < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:246:        unexpected(!(zeroSt < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:247:        unexpected((one < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:248:        unexpected((one < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:249:        unexpected(!(one < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:250:        unexpected((hundred < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:251:        unexpected((hundred < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:252:        unexpected((hundred < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:253:        unexpected((zeroSt > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:254:        unexpected((zeroSt > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:255:        unexpected((zeroSt > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:256:        unexpected(!(one > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:257:        unexpected((one > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:258:        unexpected((one > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:259:        unexpected(!(hundred > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:260:        unexpected(!(hundred > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:261:        unexpected((hundred > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:262:        unexpected(!(zeroSt <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:263:        unexpected(!(zeroSt <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:264:        unexpected(!(zeroSt <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:265:        unexpected((one <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:266:        unexpected(!(one <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:267:        unexpected(!(one <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:268:        unexpected((hundred <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:269:        unexpected((hundred <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:270:        unexpected(!(hundred <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:271:        unexpected(!(zeroSt >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:272:        unexpected((zeroSt >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:273:        unexpected((zeroSt >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:274:        unexpected(!(one >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:275:        unexpected(!(one >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:276:        unexpected((one >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:277:        unexpected(!(hundred >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:278:        unexpected(!(hundred >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:279:        unexpected(!(hundred >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:280:        unexpected(!(zeroSt == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:281:        unexpected((zeroSt == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:282:        unexpected((zeroSt == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:283:        unexpected((one == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:284:        unexpected(!(one == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:285:        unexpected((one == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:286:        unexpected((hundred == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:287:        unexpected((hundred == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:288:        unexpected(!(hundred == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:289:        unexpected((zeroSt != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:290:        unexpected(!(zeroSt != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:291:        unexpected(!(zeroSt != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:292:        unexpected(!(one != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:293:        unexpected((one != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:294:        unexpected(!(one != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:295:        unexpected(!(hundred != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:296:        unexpected(!(hundred != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:297:        unexpected((hundred != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:298:        unexpected(STAmount().getText() != "0", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:299:        unexpected(STAmount(31).getText() != "31", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:300:        unexpected(STAmount(310).getText() != "310", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:317:        STAmount zeroSt(noIssue()), one(noIssue(), 1), hundred(noIssue(), 100);
+src/test/protocol/STAmount_test.cpp:318:        unexpected(serializeAndDeserialize(zeroSt) != zeroSt, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:319:        unexpected(serializeAndDeserialize(one) != one, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:321:            serializeAndDeserialize(hundred) != hundred, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:322:        unexpected(zeroSt.native(), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:323:        unexpected(hundred.native(), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:324:        unexpected(zeroSt != beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:325:        unexpected(one == beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:326:        unexpected(hundred == beast::zero, "STAmount fail");
+src/test/protocol/STAmount_test.cpp:327:        unexpected((zeroSt < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:328:        unexpected(!(zeroSt < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:329:        unexpected(!(zeroSt < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:330:        unexpected((one < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:331:        unexpected((one < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:332:        unexpected(!(one < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:333:        unexpected((hundred < zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:334:        unexpected((hundred < one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:335:        unexpected((hundred < hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:336:        unexpected((zeroSt > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:337:        unexpected((zeroSt > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:338:        unexpected((zeroSt > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:339:        unexpected(!(one > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:340:        unexpected((one > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:341:        unexpected((one > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:342:        unexpected(!(hundred > zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:343:        unexpected(!(hundred > one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:344:        unexpected((hundred > hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:345:        unexpected(!(zeroSt <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:346:        unexpected(!(zeroSt <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:347:        unexpected(!(zeroSt <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:348:        unexpected((one <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:349:        unexpected(!(one <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:350:        unexpected(!(one <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:351:        unexpected((hundred <= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:352:        unexpected((hundred <= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:353:        unexpected(!(hundred <= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:354:        unexpected(!(zeroSt >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:355:        unexpected((zeroSt >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:356:        unexpected((zeroSt >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:357:        unexpected(!(one >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:358:        unexpected(!(one >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:359:        unexpected((one >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:360:        unexpected(!(hundred >= zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:361:        unexpected(!(hundred >= one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:362:        unexpected(!(hundred >= hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:363:        unexpected(!(zeroSt == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:364:        unexpected((zeroSt == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:365:        unexpected((zeroSt == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:366:        unexpected((one == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:367:        unexpected(!(one == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:368:        unexpected((one == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:369:        unexpected((hundred == zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:370:        unexpected((hundred == one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:371:        unexpected(!(hundred == hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:372:        unexpected((zeroSt != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:373:        unexpected(!(zeroSt != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:374:        unexpected(!(zeroSt != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:375:        unexpected(!(one != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:376:        unexpected((one != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:377:        unexpected(!(one != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:378:        unexpected(!(hundred != zeroSt), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:379:        unexpected(!(hundred != one), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:380:        unexpected((hundred != hundred), "STAmount fail");
+src/test/protocol/STAmount_test.cpp:381:        unexpected(STAmount(noIssue()).getText() != "0", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:382:        unexpected(STAmount(noIssue(), 31).getText() != "31", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:384:            STAmount(noIssue(), 31, 1).getText() != "310", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:386:            STAmount(noIssue(), 31, -1).getText() != "3.1", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:388:            STAmount(noIssue(), 31, -2).getText() != "0.31", "STAmount fail");
+src/test/protocol/STAmount_test.cpp:390:            multiply(STAmount(noIssue(), 20), STAmount(3), noIssue())
+src/test/protocol/STAmount_test.cpp:392:            "STAmount multiply fail 1");
+src/test/protocol/STAmount_test.cpp:394:            multiply(STAmount(noIssue(), 20), STAmount(3), xrpIssue())
+src/test/protocol/STAmount_test.cpp:396:            "STAmount multiply fail 2");
+src/test/protocol/STAmount_test.cpp:398:            multiply(STAmount(20), STAmount(3), noIssue()).getText() != "60",
+src/test/protocol/STAmount_test.cpp:399:            "STAmount multiply fail 3");
+src/test/protocol/STAmount_test.cpp:401:            multiply(STAmount(20), STAmount(3), xrpIssue()).getText() != "60",
+src/test/protocol/STAmount_test.cpp:402:            "STAmount multiply fail 4");
+src/test/protocol/STAmount_test.cpp:404:        if (divide(STAmount(noIssue(), 60), STAmount(3), noIssue()).getText() !=
+src/test/protocol/STAmount_test.cpp:408:                << divide(STAmount(noIssue(), 60), STAmount(3), noIssue())
+src/test/protocol/STAmount_test.cpp:410:            fail("STAmount divide fail");
+src/test/protocol/STAmount_test.cpp:418:            divide(STAmount(noIssue(), 60), STAmount(3), xrpIssue())
+src/test/protocol/STAmount_test.cpp:420:            "STAmount divide fail");
+src/test/protocol/STAmount_test.cpp:423:            divide(STAmount(noIssue(), 60), STAmount(noIssue(), 3), noIssue())
+src/test/protocol/STAmount_test.cpp:425:            "STAmount divide fail");
+src/test/protocol/STAmount_test.cpp:428:            divide(STAmount(noIssue(), 60), STAmount(noIssue(), 3), xrpIssue())
+src/test/protocol/STAmount_test.cpp:430:            "STAmount divide fail");
+src/test/protocol/STAmount_test.cpp:432:        STAmount a1(noIssue(), 60), a2(noIssue(), 10, -1);
+src/test/protocol/STAmount_test.cpp:435:            divide(a2, a1, noIssue()) != amountFromQuality(getRate(a1, a2)),
+src/test/protocol/STAmount_test.cpp:436:            "STAmount setRate(getRate) fail");
+src/test/protocol/STAmount_test.cpp:439:            divide(a1, a2, noIssue()) != amountFromQuality(getRate(a2, a1)),
+src/test/protocol/STAmount_test.cpp:440:            "STAmount setRate(getRate) fail");
+src/test/protocol/STAmount_test.cpp:451:        // convertToDisplayAmount, convertToInternalAmount, getRate, getClaimed,
+src/test/protocol/STAmount_test.cpp:455:            getRate(STAmount(1), STAmount(10)) !=
+src/test/protocol/STAmount_test.cpp:457:            "STAmount getRate fail 1");
+src/test/protocol/STAmount_test.cpp:460:            getRate(STAmount(10), STAmount(1)) !=
+src/test/protocol/STAmount_test.cpp:462:            "STAmount getRate fail 2");
+src/test/protocol/STAmount_test.cpp:465:            getRate(STAmount(noIssue(), 1), STAmount(noIssue(), 10)) !=
+src/test/protocol/STAmount_test.cpp:467:            "STAmount getRate fail 3");
+src/test/protocol/STAmount_test.cpp:470:            getRate(STAmount(noIssue(), 10), STAmount(noIssue(), 1)) !=
+src/test/protocol/STAmount_test.cpp:472:            "STAmount getRate fail 4");
+src/test/protocol/STAmount_test.cpp:475:            getRate(STAmount(noIssue(), 1), STAmount(10)) !=
+src/test/protocol/STAmount_test.cpp:477:            "STAmount getRate fail 5");
+src/test/protocol/STAmount_test.cpp:480:            getRate(STAmount(noIssue(), 10), STAmount(1)) !=
+src/test/protocol/STAmount_test.cpp:482:            "STAmount getRate fail 6");
+src/test/protocol/STAmount_test.cpp:485:            getRate(STAmount(1), STAmount(noIssue(), 10)) !=
+src/test/protocol/STAmount_test.cpp:487:            "STAmount getRate fail 7");
+src/test/protocol/STAmount_test.cpp:490:            getRate(STAmount(10), STAmount(noIssue(), 1)) !=
+src/test/protocol/STAmount_test.cpp:492:            "STAmount getRate fail 8");
+src/test/protocol/STAmount_test.cpp:514:        STAmount bigNative(STAmount::cMaxNative / 2);
+src/test/protocol/STAmount_test.cpp:515:        STAmount bigValue(
+src/test/protocol/STAmount_test.cpp:516:            noIssue(),
+src/test/protocol/STAmount_test.cpp:517:            (STAmount::cMinValue + STAmount::cMaxValue) / 2,
+src/test/protocol/STAmount_test.cpp:518:            STAmount::cMaxOffset - 1);
+src/test/protocol/STAmount_test.cpp:519:        STAmount smallValue(
+src/test/protocol/STAmount_test.cpp:520:            noIssue(),
+src/test/protocol/STAmount_test.cpp:521:            (STAmount::cMinValue + STAmount::cMaxValue) / 2,
+src/test/protocol/STAmount_test.cpp:522:            STAmount::cMinOffset + 1);
+src/test/protocol/STAmount_test.cpp:523:        STAmount zeroSt(noIssue(), 0);
+src/test/protocol/STAmount_test.cpp:525:        STAmount smallXsmall = multiply(smallValue, smallValue, noIssue());
+src/test/protocol/STAmount_test.cpp:529:        STAmount bigDsmall = divide(smallValue, bigValue, noIssue());
+src/test/protocol/STAmount_test.cpp:535:        bigDsmall = divide(smallValue, bigValue, xrpIssue());
+src/test/protocol/STAmount_test.cpp:539:        bigDsmall = divide(smallValue, bigNative, xrpIssue());
+src/test/protocol/STAmount_test.cpp:569:        STAmount one (noIssue(), 1);
+src/test/protocol/STAmount_test.cpp:570:        STAmount two (noIssue(), 2);
+src/test/protocol/STAmount_test.cpp:571:        STAmount three (noIssue(), 3);
+src/test/protocol/STAmount_test.cpp:573:        STAmount oneThird1 = divRound (one, three, noIssue(), false);
+src/test/protocol/STAmount_test.cpp:574:        STAmount oneThird2 = divide (one, three, noIssue());
+src/test/protocol/STAmount_test.cpp:575:        STAmount oneThird3 = divRound (one, three, noIssue(), true);
+src/test/protocol/STAmount_test.cpp:580:        STAmount twoThird1 = divRound (two, three, noIssue(), false);
+src/test/protocol/STAmount_test.cpp:581:        STAmount twoThird2 = divide (two, three, noIssue());
+src/test/protocol/STAmount_test.cpp:582:        STAmount twoThird3 = divRound (two, three, noIssue(), true);
+src/test/protocol/STAmount_test.cpp:587:        STAmount oneA = mulRound (oneThird1, three, noIssue(), false);
+src/test/protocol/STAmount_test.cpp:588:        STAmount oneB = multiply (oneThird2, three, noIssue());
+src/test/protocol/STAmount_test.cpp:589:        STAmount oneC = mulRound (oneThird3, three, noIssue(), true);
+src/test/protocol/STAmount_test.cpp:594:        STAmount fourThirdsB = twoThird2 + twoThird2;
+src/test/protocol/STAmount_test.cpp:599:        STAmount dripTest1 = mulRound (twoThird2, two, xrpIssue (), false);
+src/test/protocol/STAmount_test.cpp:600:        STAmount dripTest2 = multiply (twoThird2, two, xrpIssue ());
+src/test/protocol/STAmount_test.cpp:601:        STAmount dripTest3 = mulRound (twoThird2, two, xrpIssue (), true);
+src/test/protocol/STAmount_test.cpp:611:        static_assert(!std::is_convertible_v<STAmount*, Number*>);
+src/test/protocol/STAmount_test.cpp:614:            STAmount const stnum{sfNumber};
+src/test/protocol/STAmount_test.cpp:623:                amountFromJson(sfNumber, Json::Value(42)) == XRPAmount(42));
+src/test/protocol/STAmount_test.cpp:625:                amountFromJson(sfNumber, Json::Value(-42)) == XRPAmount(-42));
+src/test/protocol/STAmount_test.cpp:628:                amountFromJson(sfNumber, Json::UInt(42)) == XRPAmount(42));
+src/test/protocol/STAmount_test.cpp:630:            BEAST_EXPECT(amountFromJson(sfNumber, "-123") == XRPAmount(-123));
+src/test/protocol/STAmount_test.cpp:632:            BEAST_EXPECT(amountFromJson(sfNumber, "123") == XRPAmount(123));
+src/test/protocol/STAmount_test.cpp:633:            BEAST_EXPECT(amountFromJson(sfNumber, "-123") == XRPAmount(-123));
+src/test/protocol/STAmount_test.cpp:635:            BEAST_EXPECT(amountFromJson(sfNumber, "3.14e2") == XRPAmount(314));
+src/test/protocol/STAmount_test.cpp:637:                amountFromJson(sfNumber, "-3.14e2") == XRPAmount(-314));
+src/test/protocol/STAmount_test.cpp:639:            BEAST_EXPECT(amountFromJson(sfNumber, "0") == XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:640:            BEAST_EXPECT(amountFromJson(sfNumber, "-0") == XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:643:            BEAST_EXPECT(amountFromJson(sfNumber, imin) == XRPAmount(imin));
+src/test/protocol/STAmount_test.cpp:646:                XRPAmount(imin));
+src/test/protocol/STAmount_test.cpp:649:            BEAST_EXPECT(amountFromJson(sfNumber, imax) == XRPAmount(imax));
+src/test/protocol/STAmount_test.cpp:652:                XRPAmount(imax));
+src/test/protocol/STAmount_test.cpp:655:            BEAST_EXPECT(amountFromJson(sfNumber, umax) == XRPAmount(umax));
+src/test/protocol/STAmount_test.cpp:658:                XRPAmount(umax));
+src/test/protocol/STAmount_test.cpp:821:        testcase("STAmount to XRPAmount conversions");
+src/test/protocol/STAmount_test.cpp:823:        Issue const usd{Currency(0x5553440000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:824:        Issue const xrp{xrpIssue()};
+src/test/protocol/STAmount_test.cpp:832:            BEAST_EXPECT(t == STAmount(XRPAmount(drops)));
+src/test/protocol/STAmount_test.cpp:833:            BEAST_EXPECT(s == XRPAmount(drops));
+src/test/protocol/STAmount_test.cpp:845:        catch (std::exception const&)
+src/test/protocol/STAmount_test.cpp:847:            fail("wrong exception");
+src/test/protocol/STAmount_test.cpp:854:        testcase("STAmount to IOUAmount conversions");
+src/test/protocol/STAmount_test.cpp:856:        Issue const usd{Currency(0x5553440000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:857:        Issue const xrp{xrpIssue()};
+src/test/protocol/STAmount_test.cpp:864:            BEAST_EXPECT(t == STAmount(s, usd));
+src/test/protocol/STAmount_test.cpp:878:        catch (std::exception const&)
+src/test/protocol/STAmount_test.cpp:880:            fail("wrong exception");
+src/test/protocol/STAmount_test.cpp:891:            STAmount amt1(XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:892:            STAmount amt2(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:898:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:899:            STAmount amt2(XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:905:            STAmount amt1(XRPAmount(500));
+src/test/protocol/STAmount_test.cpp:906:            STAmount amt2(XRPAmount(1500));
+src/test/protocol/STAmount_test.cpp:912:            STAmount amt1(XRPAmount(-500));
+src/test/protocol/STAmount_test.cpp:913:            STAmount amt2(XRPAmount(-1500));
+src/test/protocol/STAmount_test.cpp:919:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:920:            STAmount amt2(XRPAmount(-1000));
+src/test/protocol/STAmount_test.cpp:926:            STAmount amt1(std::numeric_limits<XRPAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:927:            STAmount amt2(XRPAmount(1));
+src/test/protocol/STAmount_test.cpp:933:            STAmount amt1(std::numeric_limits<XRPAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:934:            amt1 += XRPAmount(1);
+src/test/protocol/STAmount_test.cpp:935:            STAmount amt2(XRPAmount(-1));
+src/test/protocol/STAmount_test.cpp:945:        Issue const usd{Currency(0x5553440000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:946:        Issue const eur{Currency(0x4555520000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:950:            STAmount amt1(usd, 500);
+src/test/protocol/STAmount_test.cpp:951:            STAmount amt2(usd, 1500);
+src/test/protocol/STAmount_test.cpp:957:            STAmount amt1(usd, 1000);
+src/test/protocol/STAmount_test.cpp:958:            STAmount amt2(usd, -1000);
+src/test/protocol/STAmount_test.cpp:964:            STAmount amt1(usd, std::numeric_limits<int64_t>::max());
+src/test/protocol/STAmount_test.cpp:965:            STAmount amt2(usd, 1);
+src/test/protocol/STAmount_test.cpp:971:            STAmount amt1(usd, std::numeric_limits<std::int64_t>::min());
+src/test/protocol/STAmount_test.cpp:972:            STAmount amt2(usd, -1);
+src/test/protocol/STAmount_test.cpp:978:            STAmount amt1(XRPAmount(1));
+src/test/protocol/STAmount_test.cpp:979:            STAmount amt2(usd, 1);
+src/test/protocol/STAmount_test.cpp:985:            STAmount amt1(usd, 1000);
+src/test/protocol/STAmount_test.cpp:986:            STAmount amt2(eur, 500);
+src/test/protocol/STAmount_test.cpp:992:            STAmount amt1(usd, 0);
+src/test/protocol/STAmount_test.cpp:993:            STAmount amt2(eur, 500);
+src/test/protocol/STAmount_test.cpp:1003:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+src/test/protocol/STAmount_test.cpp:1004:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+src/test/protocol/STAmount_test.cpp:1008:            STAmount amt1(mpt, 0);
+src/test/protocol/STAmount_test.cpp:1009:            STAmount amt2(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1015:            STAmount amt1(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1016:            STAmount amt2(mpt, 0);
+src/test/protocol/STAmount_test.cpp:1022:            STAmount amt1(mpt, 500);
+src/test/protocol/STAmount_test.cpp:1023:            STAmount amt2(mpt, 1500);
+src/test/protocol/STAmount_test.cpp:1029:            STAmount amt1(mpt, -500);
+src/test/protocol/STAmount_test.cpp:1030:            STAmount amt2(mpt, -1500);
+src/test/protocol/STAmount_test.cpp:1036:            STAmount amt1(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1037:            STAmount amt2(mpt, -1000);
+src/test/protocol/STAmount_test.cpp:1043:            STAmount amt1(
+src/test/protocol/STAmount_test.cpp:1044:                mpt, std::numeric_limits<MPTAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:1045:            STAmount amt2(mpt, 1);
+src/test/protocol/STAmount_test.cpp:1051:        // STAmount with a negative MPT amount.
+src/test/protocol/STAmount_test.cpp:1055:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1056:            STAmount amt2(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1062:            STAmount amt1(mpt2, 500);
+src/test/protocol/STAmount_test.cpp:1063:            STAmount amt2(mpt, 500);
+src/test/protocol/STAmount_test.cpp:1069:            STAmount amt1(mpt2, 0);
+src/test/protocol/STAmount_test.cpp:1070:            STAmount amt2(mpt, 500);
+src/test/protocol/STAmount_test.cpp:1082:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1083:            STAmount amt2(XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:1089:            STAmount amt1(XRPAmount(0));
+src/test/protocol/STAmount_test.cpp:1090:            STAmount amt2(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1096:            STAmount amt1(XRPAmount(1500));
+src/test/protocol/STAmount_test.cpp:1097:            STAmount amt2(XRPAmount(500));
+src/test/protocol/STAmount_test.cpp:1103:            STAmount amt1(XRPAmount(-1500));
+src/test/protocol/STAmount_test.cpp:1104:            STAmount amt2(XRPAmount(-500));
+src/test/protocol/STAmount_test.cpp:1110:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1111:            STAmount amt2(XRPAmount(-1000));
+src/test/protocol/STAmount_test.cpp:1117:            STAmount amt1(std::numeric_limits<XRPAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:1118:            amt1 += XRPAmount(1);
+src/test/protocol/STAmount_test.cpp:1119:            STAmount amt2(XRPAmount(1));
+src/test/protocol/STAmount_test.cpp:1125:            STAmount amt1(std::numeric_limits<XRPAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:1126:            STAmount amt2(XRPAmount(-1));
+src/test/protocol/STAmount_test.cpp:1135:        Issue const usd{Currency(0x5553440000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:1136:        Issue const eur{Currency(0x4555520000000000), AccountID(0x4985601)};
+src/test/protocol/STAmount_test.cpp:1140:            STAmount amt1(usd, 1500);
+src/test/protocol/STAmount_test.cpp:1141:            STAmount amt2(usd, 500);
+src/test/protocol/STAmount_test.cpp:1147:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1148:            STAmount amt2(usd, 1000);
+src/test/protocol/STAmount_test.cpp:1154:            STAmount amt1(usd, 1000);
+src/test/protocol/STAmount_test.cpp:1155:            STAmount amt2(eur, 500);
+src/test/protocol/STAmount_test.cpp:1161:            STAmount amt1(usd, 0);
+src/test/protocol/STAmount_test.cpp:1162:            STAmount amt2(eur, 500);
+src/test/protocol/STAmount_test.cpp:1172:        MPTIssue const mpt{MPTIssue{makeMptID(1, AccountID(0x4985601))}};
+src/test/protocol/STAmount_test.cpp:1173:        MPTIssue const mpt2{MPTIssue{makeMptID(2, AccountID(0x4985601))}};
+src/test/protocol/STAmount_test.cpp:1177:            STAmount amt1(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1178:            STAmount amt2(mpt, 0);
+src/test/protocol/STAmount_test.cpp:1184:            STAmount amt1(mpt, 0);
+src/test/protocol/STAmount_test.cpp:1185:            STAmount amt2(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1191:            STAmount amt1(mpt, 1500);
+src/test/protocol/STAmount_test.cpp:1192:            STAmount amt2(mpt, 500);
+src/test/protocol/STAmount_test.cpp:1198:            STAmount amt1(mpt, -1500);
+src/test/protocol/STAmount_test.cpp:1199:            STAmount amt2(mpt, -500);
+src/test/protocol/STAmount_test.cpp:1205:            STAmount amt1(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1206:            STAmount amt2(mpt, -1000);
+src/test/protocol/STAmount_test.cpp:1212:        // the STAmount with a negative MPT amount.
+src/test/protocol/STAmount_test.cpp:1216:            STAmount amt1(
+src/test/protocol/STAmount_test.cpp:1217:                mpt, std::numeric_limits<MPTAmount::value_type>::max());
+src/test/protocol/STAmount_test.cpp:1218:            STAmount amt2(mpt, -2);
+src/test/protocol/STAmount_test.cpp:1224:            STAmount amt1(XRPAmount(1000));
+src/test/protocol/STAmount_test.cpp:1225:            STAmount amt2(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1231:            STAmount amt1(mpt, 1000);
+src/test/protocol/STAmount_test.cpp:1232:            STAmount amt2(mpt2, 500);
+src/test/protocol/STAmount_test.cpp:1238:            STAmount amt1(mpt, 0);
+src/test/protocol/STAmount_test.cpp:1239:            STAmount amt2(mpt2, 500);
+src/test/protocol/STAmount_test.cpp:1267:BEAST_DEFINE_TESTSUITE(STAmount, protocol, ripple);
+src/test/app/Path_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/app/Path_test.cpp:133:        STAmount const& saDstAmount,
+src/test/app/Path_test.cpp:134:        std::optional<STAmount> const& saSendMax = std::nullopt,
+src/test/app/Path_test.cpp:141:        Resource::Charge loadType = Resource::feeReferenceRPC;
+src/test/app/Path_test.cpp:163:            saDstAmount.getJson(JsonOptions::none);
+src/test/app/Path_test.cpp:164:        if (saSendMax)
+src/test/app/Path_test.cpp:165:            params[jss::send_max] = saSendMax->getJson(JsonOptions::none);
+src/test/app/Path_test.cpp:192:    std::tuple<STPathSet, STAmount, STAmount>
+src/test/app/Path_test.cpp:197:        STAmount const& saDstAmount,
+src/test/app/Path_test.cpp:198:        std::optional<STAmount> const& saSendMax = std::nullopt,
+src/test/app/Path_test.cpp:203:            env, src, dst, saDstAmount, saSendMax, saSrcCurrency, domain);
+src/test/app/Path_test.cpp:206:        STAmount da;
+src/test/app/Path_test.cpp:210:        STAmount sa;
+src/test/app/Path_test.cpp:211:        STPathSet paths;
+src/test/app/Path_test.cpp:231:                    paths = po.object->getFieldPathSet(sfPaths);
+src/test/app/Path_test.cpp:253:        Resource::Charge loadType = Resource::feeReferenceRPC;
+src/test/app/Path_test.cpp:347:        STPathSet st;
+src/test/app/Path_test.cpp:348:        STAmount sa;
+src/test/app/Path_test.cpp:396:        STPathSet st;
+src/test/app/Path_test.cpp:397:        STAmount sa;
+src/test/app/Path_test.cpp:453:            STPathSet st;
+src/test/app/Path_test.cpp:454:            STAmount sa;
+src/test/app/Path_test.cpp:455:            STAmount da;
+src/test/app/Path_test.cpp:493:            STPathSet st;
+src/test/app/Path_test.cpp:494:            STAmount sa;
+src/test/app/Path_test.cpp:495:            STAmount da;
+src/test/app/Path_test.cpp:501:                std::optional<STAmount>(XRP(1000000)),
+src/test/app/Path_test.cpp:510:                std::optional<STAmount>(XRP(1000000)),
+src/test/app/Path_test.cpp:525:                    std::optional<STAmount>(XRP(1000000)),
+src/test/app/Path_test.cpp:659:    alternative_paths_limit_returned_paths_to_best_quality(
+src/test/app/Path_test.cpp:664:                "alternative paths - limit returned paths to best quality") +
+src/test/app/Path_test.cpp:696:        STPathSet st;
+src/test/app/Path_test.cpp:697:        STAmount sa;
+src/test/app/Path_test.cpp:716:    issues_path_negative_issue(bool const domainEnabled)
+src/test/app/Path_test.cpp:719:            std::string("path negative: Issue #5") +
+src/test/app/Path_test.cpp:749:        env(pay("alice", "bob", Account("alice")["USD"](25)), ter(tecPATH_DRY));
+src/test/app/Path_test.cpp:889:        STPathSet st;
+src/test/app/Path_test.cpp:890:        STAmount sa;
+src/test/app/Path_test.cpp:898:    quality_paths_quality_set_and_test()
+src/test/app/Path_test.cpp:900:        testcase("quality set and test");
+src/test/app/Path_test.cpp:938:                       Account("bob").id(), Account("alice")["USD"].issue()))
+src/test/app/Path_test.cpp:982:                       Account("bob").id(), Account("alice")["USD"].issue()))
+src/test/app/Path_test.cpp:991:                Account("bob").id(), Account("alice")["USD"].issue())) ==
+src/test/app/Path_test.cpp:1037:                       Account("alice").id(), Account("bob")["USD"].issue()))
+src/test/app/Path_test.cpp:1045:                Account("alice").id(), Account("bob")["USD"].issue())) ==
+src/test/app/Path_test.cpp:1101:        STPathSet st;
+src/test/app/Path_test.cpp:1102:        STAmount sa, da;
+src/test/app/Path_test.cpp:1193:        STPathSet st;
+src/test/app/Path_test.cpp:1194:        STAmount sa, da;
+src/test/app/Path_test.cpp:1208:            BEAST_EXPECT(same(st, stpath(G3, IPE(xrpIssue()))));
+src/test/app/Path_test.cpp:1249:        // SnapSwap wants to be able to set trust line quality settings so they
+src/test/app/Path_test.cpp:1250:        // can charge a fee when transactions ripple across. Liquidity
+src/test/app/Path_test.cpp:1260:        STPathSet st;
+src/test/app/Path_test.cpp:1261:        STAmount sa, da;
+src/test/app/Path_test.cpp:1397:        STPathSet st;
+src/test/app/Path_test.cpp:1398:        STAmount sa, da;
+src/test/app/Path_test.cpp:1470:                stpath(IPE(xrpIssue()), IPE(G2["HKD"]))));
+src/test/app/Path_test.cpp:1492:                stpath(G1, IPE(xrpIssue()), IPE(G2["HKD"]))));
+src/test/app/Path_test.cpp:1515:                stpath(G1, IPE(xrpIssue()), IPE(G2["HKD"]), G2)));
+src/test/app/Path_test.cpp:1565:        STPathSet st;
+src/test/app/Path_test.cpp:1566:        STAmount sa, da;
+src/test/app/Path_test.cpp:1624:                    pathElem.isOffer() && pathElem.getIssuerID() == gw.id() &&
+src/test/app/Path_test.cpp:1666:                    pathElem.getIssuerID() == xrpAccount() &&
+src/test/app/Path_test.cpp:1786:            STPathSet st;
+src/test/app/Path_test.cpp:1787:            STAmount sa, da;
+src/test/app/Path_test.cpp:1859:                    stpath(IPE(xrpIssue()), IPE(G2["HKD"]))));
+src/test/app/Path_test.cpp:1881:                    stpath(G1, IPE(xrpIssue()), IPE(G2["HKD"]))));
+src/test/app/Path_test.cpp:1904:                    stpath(G1, IPE(xrpIssue()), IPE(G2["HKD"]), G2)));
+src/test/app/Path_test.cpp:2073:        STPathSet st;
+src/test/app/Path_test.cpp:2074:        STAmount sa, da;
+src/test/app/Path_test.cpp:2086:        BEAST_EXPECT(same(st, stpath(gw, IPE(xrpIssue()))));
+src/test/app/Path_test.cpp:2100:        quality_paths_quality_set_and_test();
+src/test/app/Path_test.cpp:2111:            alternative_paths_limit_returned_paths_to_best_quality(
+src/test/app/Path_test.cpp:2113:            issues_path_negative_issue(domainEnabled);
+src/test/app/Path_test.cpp:2119:            // that were originally implemented in js/coffee and migrated
+src/xrpld/app/paths/detail/BookStep.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/detail/BookStep.cpp:33:#include <xrpl/protocol/IOUAmount.h>
+src/xrpld/app/paths/detail/BookStep.cpp:35:#include <xrpl/protocol/XRPAmount.h>
+src/xrpld/app/paths/detail/BookStep.cpp:54:    // Charge transfer fees when the prev step redeems
+src/xrpld/app/paths/detail/BookStep.cpp:68:    // if AMM offer quality is better than CLOB offer
+src/xrpld/app/paths/detail/BookStep.cpp:69:    // quality or there is no CLOB offer.
+src/xrpld/app/paths/detail/BookStep.cpp:94:    BookStep(StrandContext const& ctx, Issue const& in, Issue const& out)
+src/xrpld/app/paths/detail/BookStep.cpp:104:            ammSle && ammSle->getFieldAmount(sfLPTokenBalance) != beast::zero)
+src/xrpld/app/paths/detail/BookStep.cpp:121:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/BookStep.cpp:126:        return EitherAmount(cache_->in);
+src/xrpld/app/paths/detail/BookStep.cpp:129:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/BookStep.cpp:134:        return EitherAmount(cache_->out);
+src/xrpld/app/paths/detail/BookStep.cpp:151:    qualityUpperBound(ReadView const& v, DebtDirection prevStepDir)
+src/xrpld/app/paths/detail/BookStep.cpp:174:    std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/BookStep.cpp:175:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/BookStep.cpp:217:    // Iterate through the offers at the best quality in a book.
+src/xrpld/app/paths/detail/BookStep.cpp:236:        TAmounts<TIn, TOut> const& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:237:        TAmounts<TIn, TOut> const& stepAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:240:    // If clobQuality is available and has a better quality then return nullopt,
+src/xrpld/app/paths/detail/BookStep.cpp:247:    // If seated then it is either order book tip quality or AMMOffer,
+src/xrpld/app/paths/detail/BookStep.cpp:248:    // whichever is a better quality.
+src/xrpld/app/paths/detail/BookStep.cpp:251:    // If seated then it is either AMM or CLOB quality,
+src/xrpld/app/paths/detail/BookStep.cpp:252:    // whichever is a better quality. OfferType is AMM
+src/xrpld/app/paths/detail/BookStep.cpp:253:    // if AMM quality is better.
+src/xrpld/app/paths/detail/BookStep.cpp:256:    // If seated then it is either AMM or CLOB quality function,
+src/xrpld/app/paths/detail/BookStep.cpp:257:    // whichever is a better quality.
+src/xrpld/app/paths/detail/BookStep.cpp:278:    using BookStep<TIn, TOut, BookPaymentStep<TIn, TOut>>::qualityUpperBound;
+src/xrpld/app/paths/detail/BookStep.cpp:281:    // Never limit self cross quality on a payment.
+src/xrpld/app/paths/detail/BookStep.cpp:295:    // A payment can look at offers of any quality
+src/xrpld/app/paths/detail/BookStep.cpp:297:    checkQualityThreshold(Quality const& quality) const
+src/xrpld/app/paths/detail/BookStep.cpp:302:    // A payment doesn't use quality threshold (limitQuality)
+src/xrpld/app/paths/detail/BookStep.cpp:303:    // since the strand's quality doesn't directly relate to the step's quality.
+src/xrpld/app/paths/detail/BookStep.cpp:305:    qualityThreshold(Quality const& lobQuality) const
+src/xrpld/app/paths/detail/BookStep.cpp:338:        // Charge a fee even if the owner is the same as the issuer
+src/xrpld/app/paths/detail/BookStep.cpp:339:        // (the old code does not charge a fee)
+src/xrpld/app/paths/detail/BookStep.cpp:345:            return transferRate(v, id);
+src/xrpld/app/paths/detail/BookStep.cpp:350:        // Always charge the transfer fee, even if the owner is the issuer,
+src/xrpld/app/paths/detail/BookStep.cpp:351:        // unless the fee is waived
+src/xrpld/app/paths/detail/BookStep.cpp:357:        Quality const q1{getRate(STAmount(trOut.value), STAmount(trIn.value))};
+src/xrpld/app/paths/detail/BookStep.cpp:358:        return composed_quality(q1, ofrQ);
+src/xrpld/app/paths/detail/BookStep.cpp:374:        qualityUpperBound;
+src/xrpld/app/paths/detail/BookStep.cpp:379:    // Helper function that throws if the optional passed to the constructor
+src/xrpld/app/paths/detail/BookStep.cpp:384:        // It's really a programming error if the quality is missing.
+src/xrpld/app/paths/detail/BookStep.cpp:387:            "ripple::BookOfferCrossingStep::getQuality : nonzero quality");
+src/xrpld/app/paths/detail/BookStep.cpp:389:            Throw<FlowException>(tefINTERNAL, "Offer requires quality.");
+src/xrpld/app/paths/detail/BookStep.cpp:396:        Issue const& in,
+src/xrpld/app/paths/detail/BookStep.cpp:397:        Issue const& out)
+src/xrpld/app/paths/detail/BookStep.cpp:400:        , qualityThreshold_(getQuality(ctx.limitQuality))
+src/xrpld/app/paths/detail/BookStep.cpp:440:        //   b. The offer's quality is at least as good as our quality, and
+src/xrpld/app/paths/detail/BookStep.cpp:443:        if (defaultPath_ && offer.quality() >= qualityThreshold_ &&
+src/xrpld/app/paths/detail/BookStep.cpp:451:            // a different quality.
+src/xrpld/app/paths/detail/BookStep.cpp:462:    // quality threshold.
+src/xrpld/app/paths/detail/BookStep.cpp:464:    checkQualityThreshold(Quality const& quality) const
+src/xrpld/app/paths/detail/BookStep.cpp:466:        return !defaultPath_ || quality >= qualityThreshold_;
+src/xrpld/app/paths/detail/BookStep.cpp:469:    // Return quality threshold or nullopt to use when generating AMM offer.
+src/xrpld/app/paths/detail/BookStep.cpp:470:    // AMM synthetic offer is generated to match LOB offer quality.
+src/xrpld/app/paths/detail/BookStep.cpp:471:    // If LOB tip offer quality is less than qualityThreshold
+src/xrpld/app/paths/detail/BookStep.cpp:472:    // then generated AMM offer quality is also less than qualityThreshold and
+src/xrpld/app/paths/detail/BookStep.cpp:473:    // the offer is not crossed even though AMM might generate a better quality
+src/xrpld/app/paths/detail/BookStep.cpp:474:    // offer. To address this, if qualityThreshold is greater than lobQuality
+src/xrpld/app/paths/detail/BookStep.cpp:475:    // then don't use quality to generate the AMM offer. The limit out value
+src/xrpld/app/paths/detail/BookStep.cpp:477:    // the quality threshold. This only applies to single path scenario.
+src/xrpld/app/paths/detail/BookStep.cpp:480:    qualityThreshold(Quality const& lobQuality) const
+src/xrpld/app/paths/detail/BookStep.cpp:483:            qualityThreshold_ > lobQuality)
+src/xrpld/app/paths/detail/BookStep.cpp:488:    // For offer crossing don't pay the transfer fee if alice is paying alice.
+src/xrpld/app/paths/detail/BookStep.cpp:528:        // Offer x-ing does not charge a transfer fee when the offer's owner
+src/xrpld/app/paths/detail/BookStep.cpp:530:        // `qualityUpperBound` is an upper bound on the quality (it is used to
+src/xrpld/app/paths/detail/BookStep.cpp:531:        // ignore strands whose quality cannot meet a minimum threshold).  When
+src/xrpld/app/paths/detail/BookStep.cpp:532:        // calculating quality assume no fee is charged, or the estimate will no
+src/xrpld/app/paths/detail/BookStep.cpp:536:        // when calculating the upper bound quality and the quality function
+src/xrpld/app/paths/detail/BookStep.cpp:537:        // because single path AMM's offer quality is not constant.
+src/xrpld/app/paths/detail/BookStep.cpp:548:            return transferRate(v, id);
+src/xrpld/app/paths/detail/BookStep.cpp:553:        // AMM doesn't pay the transfer fee on the out amount
+src/xrpld/app/paths/detail/BookStep.cpp:556:        Quality const q1{getRate(STAmount(trOut.value), STAmount(trIn.value))};
+src/xrpld/app/paths/detail/BookStep.cpp:557:        return composed_quality(q1, ofrQ);
+src/xrpld/app/paths/detail/BookStep.cpp:568:    Quality const qualityThreshold_;
+src/xrpld/app/paths/detail/BookStep.cpp:584:BookStep<TIn, TOut, TDerived>::qualityUpperBound(
+src/xrpld/app/paths/detail/BookStep.cpp:623:        auto static const qOne = Quality{STAmount::uRateOne};
+src/xrpld/app/paths/detail/BookStep.cpp:642:        *(res->quality()),
+src/xrpld/app/paths/detail/BookStep.cpp:662:    TAmounts<TIn, TOut>& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:663:    TAmounts<TIn, TOut>& stpAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:665:    std::uint32_t transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:666:    std::uint32_t transferRateOut,
+src/xrpld/app/paths/detail/BookStep.cpp:673:            mulRatio(stpAmt.in, QUALITY_ONE, transferRateIn, /*roundUp*/ false);
+src/xrpld/app/paths/detail/BookStep.cpp:676:        // that the quality of an offer left in the ledger is as good or
+src/xrpld/app/paths/detail/BookStep.cpp:677:        // better than the quality of the containing order book page.
+src/xrpld/app/paths/detail/BookStep.cpp:684:            ofrAmt.out, transferRateOut, QUALITY_ONE, /*roundUp*/ false);
+src/xrpld/app/paths/detail/BookStep.cpp:693:    TAmounts<TIn, TOut>& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:694:    TAmounts<TIn, TOut>& stpAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:696:    std::uint32_t transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:697:    std::uint32_t transferRateOut,
+src/xrpld/app/paths/detail/BookStep.cpp:704:            stpAmt.out, transferRateOut, QUALITY_ONE, /*roundUp*/ false);
+src/xrpld/app/paths/detail/BookStep.cpp:710:            mulRatio(ofrAmt.in, transferRateIn, QUALITY_ONE, /*roundUp*/ true);
+src/xrpld/app/paths/detail/BookStep.cpp:724:    // Charge a fee even if the owner is the same as the issuer
+src/xrpld/app/paths/detail/BookStep.cpp:725:    // (the old code does not charge a fee)
+src/xrpld/app/paths/detail/BookStep.cpp:731:        return transferRate(sb, id).value;
+src/xrpld/app/paths/detail/BookStep.cpp:736:    // Always charge the transfer fee, even if the owner is the issuer
+src/xrpld/app/paths/detail/BookStep.cpp:749:        // Note that offer.quality() returns a (non-optional) Quality.  So
+src/xrpld/app/paths/detail/BookStep.cpp:752:            ofrQ = offer.quality();
+src/xrpld/app/paths/detail/BookStep.cpp:753:        else if (*ofrQ != offer.quality())
+src/xrpld/app/paths/detail/BookStep.cpp:767:            if (issuer && ((*issuer)[sfFlags] & lsfRequireAuth))
+src/xrpld/app/paths/detail/BookStep.cpp:769:                // Issuer requires authorization.  See if offer owner has that.
+src/xrpld/app/paths/detail/BookStep.cpp:784:                        // Change quality only if no previous offers were tried.
+src/xrpld/app/paths/detail/BookStep.cpp:793:                offer.quality()))
+src/xrpld/app/paths/detail/BookStep.cpp:803:        TAmounts stpAmt{
+src/xrpld/app/paths/detail/BookStep.cpp:807:        // owner pays the transfer fee.
+src/xrpld/app/paths/detail/BookStep.cpp:843:        // If offer crossing then use either LOB quality or nullopt
+src/xrpld/app/paths/detail/BookStep.cpp:844:        // to prevent AMM being blocked by a lower quality LOB.
+src/xrpld/app/paths/detail/BookStep.cpp:845:        auto const qualityThreshold = [&]() -> std::optional<Quality> {
+src/xrpld/app/paths/detail/BookStep.cpp:847:                return static_cast<TDerived const*>(this)->qualityThreshold(
+src/xrpld/app/paths/detail/BookStep.cpp:851:        auto ammOffer = getAMMOffer(sb, qualityThreshold);
+src/xrpld/app/paths/detail/BookStep.cpp:857:        if (tryAMM(offers.tip().quality()))
+src/xrpld/app/paths/detail/BookStep.cpp:881:    TAmounts<TIn, TOut> const& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:882:    TAmounts<TIn, TOut> const& stepAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:892:                tecINVARIANT_FAILED, "AMM pool product invariant failed.");
+src/xrpld/app/paths/detail/BookStep.cpp:897:    // stepAmt is a transfer fee that goes to book_.in.account
+src/xrpld/app/paths/detail/BookStep.cpp:903:            toSTAmount(ofrAmt.in, book_.in),
+src/xrpld/app/paths/detail/BookStep.cpp:905:        if (dr != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:910:    // stepAmt is a transfer fee that goes to book_.out.account
+src/xrpld/app/paths/detail/BookStep.cpp:916:            toSTAmount(ownerGives, book_.out),
+src/xrpld/app/paths/detail/BookStep.cpp:918:        if (cr != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:944:        bt.step(j_) ? std::optional<Quality>(bt.quality()) : std::nullopt;
+src/xrpld/app/paths/detail/BookStep.cpp:945:    // Multi-path offer generates an offer with the quality
+src/xrpld/app/paths/detail/BookStep.cpp:946:    // calculated from the offer size and the quality is constant in this case.
+src/xrpld/app/paths/detail/BookStep.cpp:947:    // Single path offer quality changes with the offer size. Spot price quality
+src/xrpld/app/paths/detail/BookStep.cpp:948:    // (SPQ) can't be used in this case as the upper bound quality because
+src/xrpld/app/paths/detail/BookStep.cpp:949:    // even if SPQ quality is better than LOB quality, it might not be possible
+src/xrpld/app/paths/detail/BookStep.cpp:950:    // to generate AMM offer at or better quality than LOB quality. Another
+src/xrpld/app/paths/detail/BookStep.cpp:951:    // factor to consider is limit quality on offer crossing. If LOB quality
+src/xrpld/app/paths/detail/BookStep.cpp:952:    // is greater than limit quality then use LOB quality when generating AMM
+src/xrpld/app/paths/detail/BookStep.cpp:953:    // offer, otherwise don't use quality threshold when generating AMM offer.
+src/xrpld/app/paths/detail/BookStep.cpp:955:    // based on the best offer quality. Using the quality to generate AMM offer
+src/xrpld/app/paths/detail/BookStep.cpp:959:    // on offer crossing but AMM can't generate the offer at this quality,
+src/xrpld/app/paths/detail/BookStep.cpp:962:    auto const qualityThreshold = [&]() -> std::optional<Quality> {
+src/xrpld/app/paths/detail/BookStep.cpp:964:            return static_cast<TDerived const*>(this)->qualityThreshold(
+src/xrpld/app/paths/detail/BookStep.cpp:968:    // AMM quality is better or no LOB offer
+src/xrpld/app/paths/detail/BookStep.cpp:969:    if (auto const ammOffer = getAMMOffer(view, qualityThreshold); ammOffer &&
+src/xrpld/app/paths/detail/BookStep.cpp:970:        ((lobQuality && ammOffer->quality() > lobQuality) || !lobQuality))
+src/xrpld/app/paths/detail/BookStep.cpp:972:    // LOB quality is better or nullopt
+src/xrpld/app/paths/detail/BookStep.cpp:987:            std::get<AMMOffer<TIn, TOut>>(*res).quality(), OfferType::AMM);
+src/xrpld/app/paths/detail/BookStep.cpp:1022:    TAmounts<TIn, TOut> result(beast::zero, beast::zero);
+src/xrpld/app/paths/detail/BookStep.cpp:1036:                         TAmounts<TIn, TOut> const& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:1037:                         TAmounts<TIn, TOut> const& stpAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:1039:                         std::uint32_t transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:1040:                         std::uint32_t transferRateOut) mutable -> bool {
+src/xrpld/app/paths/detail/BookStep.cpp:1048:            result = TAmounts<TIn, TOut>(sum(savedIns), sum(savedOuts));
+src/xrpld/app/paths/detail/BookStep.cpp:1065:                transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:1066:                transferRateOut,
+src/xrpld/app/paths/detail/BookStep.cpp:1119:            UNREACHABLE("ripple::BookStep::revImp : remaining less than zero");
+src/xrpld/app/paths/detail/BookStep.cpp:1145:    TAmounts<TIn, TOut> result(beast::zero, beast::zero);
+src/xrpld/app/paths/detail/BookStep.cpp:1157:                         TAmounts<TIn, TOut> const& ofrAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:1158:                         TAmounts<TIn, TOut> const& stpAmt,
+src/xrpld/app/paths/detail/BookStep.cpp:1160:                         std::uint32_t transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:1161:                         std::uint32_t transferRateOut) mutable -> bool {
+src/xrpld/app/paths/detail/BookStep.cpp:1178:            result = TAmounts<TIn, TOut>(sum(savedIns), sum(savedOuts));
+src/xrpld/app/paths/detail/BookStep.cpp:1189:                transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:1190:                transferRateOut,
+src/xrpld/app/paths/detail/BookStep.cpp:1220:                transferRateIn,
+src/xrpld/app/paths/detail/BookStep.cpp:1221:                transferRateOut,
+src/xrpld/app/paths/detail/BookStep.cpp:1292:            UNREACHABLE("ripple::BookStep::fwdImp : remaining less than zero");
+src/xrpld/app/paths/detail/BookStep.cpp:1309:std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/BookStep.cpp:1313:    EitherAmount const& in)
+src/xrpld/app/paths/detail/BookStep.cpp:1318:        return {false, EitherAmount(TOut(beast::zero))};
+src/xrpld/app/paths/detail/BookStep.cpp:1330:        return {false, EitherAmount(TOut(beast::zero))};
+src/xrpld/app/paths/detail/BookStep.cpp:1341:        return {false, EitherAmount(cache_->out)};
+src/xrpld/app/paths/detail/BookStep.cpp:1343:    return {true, EitherAmount(cache_->out)};
+src/xrpld/app/paths/detail/BookStep.cpp:1354:        return temBAD_PATH;
+src/xrpld/app/paths/detail/BookStep.cpp:1360:        return temBAD_PATH;
+src/xrpld/app/paths/detail/BookStep.cpp:1366:        ctx.seenDirectIssues[0].count(book_.out))
+src/xrpld/app/paths/detail/BookStep.cpp:1369:        return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/BookStep.cpp:1372:    if (ctx.seenDirectIssues[1].count(book_.out))
+src/xrpld/app/paths/detail/BookStep.cpp:1375:        return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/BookStep.cpp:1378:    auto issuerExists = [](ReadView const& view, Issue const& iss) -> bool {
+src/xrpld/app/paths/detail/BookStep.cpp:1397:                return terNO_LINE;
+src/xrpld/app/paths/detail/BookStep.cpp:1404:    return tesSUCCESS;
+src/xrpld/app/paths/detail/BookStep.cpp:1429:        UNREACHABLE("ripple::test::bookStepEqual : no XRP to XRP book step");
+src/xrpld/app/paths/detail/BookStep.cpp:1435:            XRPAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1436:            IOUAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1437:            BookPaymentStep<XRPAmount, IOUAmount>>(step, book);
+src/xrpld/app/paths/detail/BookStep.cpp:1440:            IOUAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1441:            XRPAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1442:            BookPaymentStep<IOUAmount, XRPAmount>>(step, book);
+src/xrpld/app/paths/detail/BookStep.cpp:1445:            IOUAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1446:            IOUAmount,
+src/xrpld/app/paths/detail/BookStep.cpp:1447:            BookPaymentStep<IOUAmount, IOUAmount>>(step, book);
+src/xrpld/app/paths/detail/BookStep.cpp:1456:make_BookStepHelper(StrandContext const& ctx, Issue const& in, Issue const& out)
+src/xrpld/app/paths/detail/BookStep.cpp:1458:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/BookStep.cpp:1474:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/BookStep.cpp:1477:    return {tesSUCCESS, std::move(r)};
+src/xrpld/app/paths/detail/BookStep.cpp:1481:make_BookStepII(StrandContext const& ctx, Issue const& in, Issue const& out)
+src/xrpld/app/paths/detail/BookStep.cpp:1483:    return make_BookStepHelper<IOUAmount, IOUAmount>(ctx, in, out);
+src/xrpld/app/paths/detail/BookStep.cpp:1487:make_BookStepIX(StrandContext const& ctx, Issue const& in)
+src/xrpld/app/paths/detail/BookStep.cpp:1489:    return make_BookStepHelper<IOUAmount, XRPAmount>(ctx, in, xrpIssue());
+src/xrpld/app/paths/detail/BookStep.cpp:1493:make_BookStepXI(StrandContext const& ctx, Issue const& out)
+src/xrpld/app/paths/detail/BookStep.cpp:1495:    return make_BookStepHelper<XRPAmount, IOUAmount>(ctx, xrpIssue(), out);
+src/test/app/Flow_test.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/app/Flow_test.cpp:21:#include <test/jtx/PathSet.h>
+src/test/app/Flow_test.cpp:124:            // and charge a transfer fee
+src/test/app/Flow_test.cpp:134:            // alice will redeem to bob; a transfer fee will be charged
+src/test/app/Flow_test.cpp:144:            // Pay by rippling through accounts, specify path and transfer fee
+src/test/app/Flow_test.cpp:145:            // Test that the transfer fee is not charged when alice issues
+src/test/app/Flow_test.cpp:163:            // test best quality path is taken
+src/test/app/Flow_test.cpp:176:            // Pay alice so she redeems to carol and a transfer fee is charged
+src/test/app/Flow_test.cpp:188:            // Limit quality
+src/test/app/Flow_test.cpp:199:                ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:231:                env(trust(bob, USDD(100)), qualityInPercent(bobDanQIn));
+src/test/app/Flow_test.cpp:232:                env(trust(bob, USDA(100)), qualityOutPercent(bobAliceQOut));
+src/test/app/Flow_test.cpp:259:            env(trust(carol, USDA(10)), qualityInPercent(carolAliceQIn));
+src/test/app/Flow_test.cpp:275:            env(trust(bob, USDA(10)), qualityOutPercent(bobAliceQOut));
+src/test/app/Flow_test.cpp:465:                STAmount deliver(USD(51));
+src/test/app/Flow_test.cpp:466:                STAmount smax(BTC(61));
+src/test/app/Flow_test.cpp:468:                STPathSet paths;
+src/test/app/Flow_test.cpp:469:                auto IPE = [](Issue const& iss) {
+src/test/app/Flow_test.cpp:470:                    return STPathElement(
+src/test/app/Flow_test.cpp:471:                        STPathElement::typeCurrency | STPathElement::typeIssuer,
+src/test/app/Flow_test.cpp:478:                    STPath p1({IPE(USD.issue())});
+src/test/app/Flow_test.cpp:481:                    STPath p2({IPE(EUR.issue()), IPE(USD.issue())});
+src/test/app/Flow_test.cpp:538:            Keylet const bobUsdOffer = keylet::offer(bob, env.seq(bob));
+src/test/app/Flow_test.cpp:549:                reducedOffersV2 ? TER(tecPATH_DRY) : TER(tesSUCCESS);
+src/test/app/Flow_test.cpp:568:                        // book page.  That's where the quality is stored.
+src/test/app/Flow_test.cpp:602:        // Offer where the owner is also the issuer, sender pays fee
+src/test/app/Flow_test.cpp:646:        // tecPATH_DRY, but the entire path should not be marked as dry. This
+src/test/app/Flow_test.cpp:663:        // Single path with two offers and limit quality. The quality limit is
+src/test/app/Flow_test.cpp:698:    static XRPAmount
+src/test/app/Flow_test.cpp:701:        return env.current()->fees().accountReserve(count);
+src/test/app/Flow_test.cpp:726:        // check catches the problem and throws out the transaction.
+src/test/app/Flow_test.cpp:742:        // The fee that's charged for transactions.
+src/test/app/Flow_test.cpp:743:        auto const f = env.current()->fees().base;
+src/test/app/Flow_test.cpp:813:        // The fee that's charged for transactions.
+src/test/app/Flow_test.cpp:814:        auto const f = env.current()->fees().base;
+src/test/app/Flow_test.cpp:914:            STAmount tinyAmt1{
+src/test/app/Flow_test.cpp:915:                USD.issue(),
+src/test/app/Flow_test.cpp:919:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:920:            STAmount tinyAmt3{
+src/test/app/Flow_test.cpp:921:                USD.issue(),
+src/test/app/Flow_test.cpp:925:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:948:            STAmount tinyAmt1{
+src/test/app/Flow_test.cpp:949:                USD.issue(),
+src/test/app/Flow_test.cpp:953:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:954:            STAmount tinyAmt3{
+src/test/app/Flow_test.cpp:955:                USD.issue(),
+src/test/app/Flow_test.cpp:959:                STAmount::unchecked{}};
+src/test/app/Flow_test.cpp:998:            STAmount{
+src/test/app/Flow_test.cpp:999:                USD.issue(), std::uint64_t(1255555555555555ull), -14, false}));
+src/test/app/Flow_test.cpp:1004:            STAmount{
+src/test/app/Flow_test.cpp:1005:                USD.issue(), std::uint64_t(5000000000000000ull), -15, false},
+src/test/app/Flow_test.cpp:1011:            STAmount{
+src/test/app/Flow_test.cpp:1012:                USD.issue(), std::uint64_t(5555555555555555ull), -16, false},
+src/test/app/Flow_test.cpp:1018:            STAmount{
+src/test/app/Flow_test.cpp:1019:                USD.issue(), std::uint64_t(4444444444444444ull), -15, false},
+src/test/app/Flow_test.cpp:1025:            STAmount{
+src/test/app/Flow_test.cpp:1026:                USD.issue(), std::uint64_t(1700000000000000ull), -14, false},
+src/test/app/Flow_test.cpp:1066:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1079:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1122:            ter(tecPATH_DRY));
+src/test/app/Flow_test.cpp:1132:        testcase("Self crossing low quality offer");
+src/test/app/Flow_test.cpp:1142:        auto const fee = env.current()->fees().base;
+src/test/app/Flow_test.cpp:1143:        env.fund(reserve(env, 2) + drops(9999640) + fee, ann);
+src/test/app/Flow_test.cpp:1144:        env.fund(reserve(env, 2) + fee * 4, gw);
+src/test/app/Flow_test.cpp:1178:            ter(temBAD_PATH));
+src/test/app/Flow_test.cpp:1218:                    withFix ? TER{temBAD_PATH_LOOP} : TER{tesSUCCESS};
+src/test/app/Flow_test.cpp:1246:                ter(temBAD_PATH_LOOP));
+src/test/app/Flow_test.cpp:1274:                ter(temBAD_PATH_LOOP));
+src/test/app/Flow_test.cpp:1293:        std::uint32_t const ticketSeq{env.seq(alice) + 1};
+src/test/app/Flow_test.cpp:1301:            balance(alice, XRP(9000) - (env.current()->fees().base * 2)));
+src/xrpld/app/tx/detail/Transactor.h:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/tx/detail/Transactor.h:29:#include <xrpl/protocol/XRPAmount.h>
+src/xrpld/app/tx/detail/Transactor.h:78:/** State information when determining if a tx is likely to claim a fee. */
+src/xrpld/app/tx/detail/Transactor.h:135:class TxConsequences;
+src/xrpld/app/tx/detail/Transactor.h:148:    XRPAmount mPriorBalance;   // Balance before fees.
+src/xrpld/app/tx/detail/Transactor.h:149:    XRPAmount mSourceBalance;  // Balance after fees.
+src/xrpld/app/tx/detail/Transactor.h:157:    enum ConsequencesFactoryType { Normal, Blocker, Custom };
+src/xrpld/app/tx/detail/Transactor.h:191:    checkFee(PreclaimContext const& ctx, XRPAmount baseFee);
+src/xrpld/app/tx/detail/Transactor.h:199:    // Returns the fee in fee units, not scaled for load.
+src/xrpld/app/tx/detail/Transactor.h:200:    static XRPAmount
+src/xrpld/app/tx/detail/Transactor.h:215:        // Required, even if it just returns tesSUCCESS.
+src/xrpld/app/tx/detail/Transactor.h:237:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.h:264:    /** Compute the minimum fee required to process a transaction
+src/xrpld/app/tx/detail/Transactor.h:268:        @param baseFee The base fee of a candidate transaction
+src/xrpld/app/tx/detail/Transactor.h:270:        @param fees Fee settings from the current ledger
+src/xrpld/app/tx/detail/Transactor.h:271:        @param flags Transaction processing fees
+src/xrpld/app/tx/detail/Transactor.h:273:    static XRPAmount
+src/xrpld/app/tx/detail/Transactor.h:276:        XRPAmount baseFee,
+src/xrpld/app/tx/detail/Transactor.h:277:        Fees const& fees,
+src/xrpld/app/tx/detail/Transactor.h:280:    // Returns the fee in fee units, not scaled for load.
+src/xrpld/app/tx/detail/Transactor.h:281:    static XRPAmount
+src/xrpld/app/tx/detail/Transactor.h:301:    // Base class always returns tesSUCCESS
+src/xrpld/app/tx/detail/Transactor.h:332:    std::pair<TER, XRPAmount>
+src/xrpld/app/tx/detail/Transactor.h:333:    reset(XRPAmount fee);
+src/xrpld/app/tx/detail/Transactor.h:356:    /** Performs early sanity checks on the account and fee fields.
+src/libxrpl/basics/Number.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/libxrpl/basics/Number.cpp:290:        throw std::overflow_error(location);
+src/libxrpl/basics/Number.cpp:330:            throw std::overflow_error(location);  // LCOV_EXCL_LINE
+src/libxrpl/basics/Number.cpp:433:            throw std::overflow_error("Number::normalize 1");
+src/libxrpl/basics/Number.cpp:462:            throw std::overflow_error("Number::normalize 1.5");
+src/libxrpl/basics/Number.cpp:543:        throw std::overflow_error("Number::shiftExponent");
+src/libxrpl/basics/Number.cpp:753:        throw std::overflow_error("Number: divide by 0");
+src/libxrpl/basics/Number.cpp:866:                throw std::overflow_error("Number::operator rep() overflow");
+src/libxrpl/basics/Number.cpp:886:    // We are guaranteed that normalize() will never throw an exception
+src/libxrpl/basics/Number.cpp:1030:        throw std::overflow_error("Number::root infinity");
+src/libxrpl/basics/Number.cpp:1033:        throw std::overflow_error("Number::root nan");
+src/libxrpl/basics/Number.cpp:1101:        throw std::overflow_error("Number::root nan");
+src/libxrpl/basics/Number.cpp:1150:        throw std::overflow_error("Number::power nan");
+src/libxrpl/basics/Number.cpp:1158:        throw std::overflow_error("Number::power infinity");
+src/libxrpl/basics/Number.cpp:1165:        throw std::overflow_error("Number::power nan");
+src/libxrpl/protocol/IOUAmount.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/libxrpl/protocol/IOUAmount.cpp:20:#include <xrpl/protocol/IOUAmount.h>
+src/libxrpl/protocol/IOUAmount.cpp:21:// Do not remove. Forces IOUAmount.h to stay first, to verify it can compile
+src/libxrpl/protocol/IOUAmount.cpp:27:#include <xrpl/protocol/STAmount.h>
+src/libxrpl/protocol/IOUAmount.cpp:67:static std::int64_t constexpr minMantissa = STAmount::cMinValue;
+src/libxrpl/protocol/IOUAmount.cpp:68:static std::int64_t constexpr maxMantissa = STAmount::cMaxValue;
+src/libxrpl/protocol/IOUAmount.cpp:70:static int constexpr minExponent = STAmount::cMinOffset;
+src/libxrpl/protocol/IOUAmount.cpp:71:static int constexpr maxExponent = STAmount::cMaxOffset;
+src/libxrpl/protocol/IOUAmount.cpp:73:IOUAmount
+src/libxrpl/protocol/IOUAmount.cpp:74:IOUAmount::fromNumber(Number const& number)
+src/libxrpl/protocol/IOUAmount.cpp:76:    // Need to create a default IOUAmount and assign directly so it doesn't try
+src/libxrpl/protocol/IOUAmount.cpp:78:    IOUAmount result{};
+src/libxrpl/protocol/IOUAmount.cpp:84:IOUAmount
+src/libxrpl/protocol/IOUAmount.cpp:85:IOUAmount::minPositiveAmount()
+src/libxrpl/protocol/IOUAmount.cpp:87:    return IOUAmount(minMantissa, minExponent);
+src/libxrpl/protocol/IOUAmount.cpp:91:IOUAmount::normalize()
+src/libxrpl/protocol/IOUAmount.cpp:124:            Throw<std::overflow_error>("IOUAmount::normalize");
+src/libxrpl/protocol/IOUAmount.cpp:143:IOUAmount::IOUAmount(Number const& other) : IOUAmount(fromNumber(other))
+src/libxrpl/protocol/IOUAmount.cpp:151:IOUAmount&
+src/libxrpl/protocol/IOUAmount.cpp:152:IOUAmount::operator+=(IOUAmount const& other)
+src/libxrpl/protocol/IOUAmount.cpp:165:        *this = IOUAmount{Number{*this} + Number{other}};
+src/libxrpl/protocol/IOUAmount.cpp:183:    // This addition cannot overflow an std::int64_t but we may throw from
+src/libxrpl/protocol/IOUAmount.cpp:198:to_string(IOUAmount const& amount)
+src/libxrpl/protocol/IOUAmount.cpp:203:IOUAmount
+src/libxrpl/protocol/IOUAmount.cpp:205:    IOUAmount const& amt,
+src/libxrpl/protocol/IOUAmount.cpp:309:    IOUAmount result(mantissa, exponent);
+src/libxrpl/protocol/IOUAmount.cpp:318:                return IOUAmount::minPositiveAmount();
+src/libxrpl/protocol/IOUAmount.cpp:322:            return IOUAmount(result.mantissa() + 1, result.exponent());
+src/libxrpl/protocol/IOUAmount.cpp:329:                return IOUAmount(-minMantissa, minExponent);
+src/libxrpl/protocol/IOUAmount.cpp:332:            return IOUAmount(result.mantissa() - 1, result.exponent());
+src/xrpld/app/paths/detail/DirectStep.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/paths/detail/DirectStep.cpp:27:#include <xrpl/protocol/IOUAmount.h>
+src/xrpld/app/paths/detail/DirectStep.cpp:38:class DirectStepI : public StepImp<IOUAmount, IOUAmount, DirectStepI<TDerived>>
+src/xrpld/app/paths/detail/DirectStep.cpp:45:    // Charge transfer fees when the prev step redeems
+src/xrpld/app/paths/detail/DirectStep.cpp:52:        IOUAmount in;
+src/xrpld/app/paths/detail/DirectStep.cpp:53:        IOUAmount srcToDst;
+src/xrpld/app/paths/detail/DirectStep.cpp:54:        IOUAmount out;
+src/xrpld/app/paths/detail/DirectStep.cpp:58:            IOUAmount const& in_,
+src/xrpld/app/paths/detail/DirectStep.cpp:59:            IOUAmount const& srcToDst_,
+src/xrpld/app/paths/detail/DirectStep.cpp:60:            IOUAmount const& out_,
+src/xrpld/app/paths/detail/DirectStep.cpp:70:    // the best available quality.
+src/xrpld/app/paths/detail/DirectStep.cpp:73:    std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:82:    qualitiesSrcIssues(ReadView const& sb, DebtDirection prevStepDebtDirection)
+src/xrpld/app/paths/detail/DirectStep.cpp:123:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:128:        return EitherAmount(cache_->in);
+src/xrpld/app/paths/detail/DirectStep.cpp:131:    std::optional<EitherAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:136:        return EitherAmount(cache_->out);
+src/xrpld/app/paths/detail/DirectStep.cpp:158:    qualityUpperBound(ReadView const& v, DebtDirection dir) const override;
+src/xrpld/app/paths/detail/DirectStep.cpp:160:    std::pair<IOUAmount, IOUAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:165:        IOUAmount const& out);
+src/xrpld/app/paths/detail/DirectStep.cpp:167:    std::pair<IOUAmount, IOUAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:172:        IOUAmount const& in);
+src/xrpld/app/paths/detail/DirectStep.cpp:174:    std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:175:    validFwd(PaymentSandbox& sb, ApplyView& afView, EitherAmount const& in)
+src/xrpld/app/paths/detail/DirectStep.cpp:185:        IOUAmount const& fwdIn,
+src/xrpld/app/paths/detail/DirectStep.cpp:186:        IOUAmount const& fwdSrcToDst,
+src/xrpld/app/paths/detail/DirectStep.cpp:187:        IOUAmount const& fwdOut,
+src/xrpld/app/paths/detail/DirectStep.cpp:255:    quality(ReadView const& sb, QualityDirection qDir) const;
+src/xrpld/app/paths/detail/DirectStep.cpp:258:    // the best available quality.
+src/xrpld/app/paths/detail/DirectStep.cpp:261:    std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:262:    maxFlow(ReadView const& sb, IOUAmount const& desired) const;
+src/xrpld/app/paths/detail/DirectStep.cpp:306:    quality(ReadView const& sb, QualityDirection qDir) const;
+src/xrpld/app/paths/detail/DirectStep.cpp:309:    // the best available quality.
+src/xrpld/app/paths/detail/DirectStep.cpp:312:    std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:313:    maxFlow(ReadView const& sb, IOUAmount const& desired) const;
+src/xrpld/app/paths/detail/DirectStep.cpp:331:DirectIPaymentStep::quality(ReadView const& sb, QualityDirection qDir) const
+src/xrpld/app/paths/detail/DirectStep.cpp:344:            // compute dst quality in
+src/xrpld/app/paths/detail/DirectStep.cpp:352:            // compute src quality out
+src/xrpld/app/paths/detail/DirectStep.cpp:370:DirectIOfferCrossingStep::quality(ReadView const&, QualityDirection qDir) const
+src/xrpld/app/paths/detail/DirectStep.cpp:377:std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:378:DirectIPaymentStep::maxFlow(ReadView const& sb, IOUAmount const&) const
+src/xrpld/app/paths/detail/DirectStep.cpp:383:std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:384:DirectIOfferCrossingStep::maxFlow(ReadView const& sb, IOUAmount const& desired)
+src/xrpld/app/paths/detail/DirectStep.cpp:417:            return terNO_LINE;
+src/xrpld/app/paths/detail/DirectStep.cpp:422:        if (((*sleSrc)[sfFlags] & lsfRequireAuth) &&
+src/xrpld/app/paths/detail/DirectStep.cpp:454:                return tecPATH_DRY;
+src/xrpld/app/paths/detail/DirectStep.cpp:458:    return tesSUCCESS;
+src/xrpld/app/paths/detail/DirectStep.cpp:469:    return tesSUCCESS;
+src/xrpld/app/paths/detail/DirectStep.cpp:475:std::pair<IOUAmount, DebtDirection>
+src/xrpld/app/paths/detail/DirectStep.cpp:478:    auto const srcOwed = toAmount<IOUAmount>(
+src/xrpld/app/paths/detail/DirectStep.cpp:505:std::pair<IOUAmount, IOUAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:510:    IOUAmount const& out)
+src/xrpld/app/paths/detail/DirectStep.cpp:521:        "ripple::DirectStepI : valid destination quality");
+src/xrpld/app/paths/detail/DirectStep.cpp:523:    Issue const srcToDstIss(currency_, redeems(srcDebtDir) ? dst_ : src_);
+src/xrpld/app/paths/detail/DirectStep.cpp:535:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:536:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:537:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:542:    IOUAmount const srcToDst =
+src/xrpld/app/paths/detail/DirectStep.cpp:547:        IOUAmount const in =
+src/xrpld/app/paths/detail/DirectStep.cpp:550:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:554:            toSTAmount(srcToDst, srcToDstIss),
+src/xrpld/app/paths/detail/DirectStep.cpp:555:            /*checkIssuer*/ true,
+src/xrpld/app/paths/detail/DirectStep.cpp:566:    IOUAmount const in =
+src/xrpld/app/paths/detail/DirectStep.cpp:568:    IOUAmount const actualOut =
+src/xrpld/app/paths/detail/DirectStep.cpp:571:    rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:575:        toSTAmount(maxSrcToDst, srcToDstIss),
+src/xrpld/app/paths/detail/DirectStep.cpp:576:        /*checkIssuer*/ true,
+src/xrpld/app/paths/detail/DirectStep.cpp:593:    IOUAmount const& fwdIn,
+src/xrpld/app/paths/detail/DirectStep.cpp:594:    IOUAmount const& fwdSrcToDst,
+src/xrpld/app/paths/detail/DirectStep.cpp:595:    IOUAmount const& fwdOut,
+src/xrpld/app/paths/detail/DirectStep.cpp:600:        IOUAmount const smallDiff(1, -9);
+src/xrpld/app/paths/detail/DirectStep.cpp:633:std::pair<IOUAmount, IOUAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:638:    IOUAmount const& in)
+src/xrpld/app/paths/detail/DirectStep.cpp:648:    Issue const srcToDstIss(currency_, redeems(srcDebtDir) ? dst_ : src_);
+src/xrpld/app/paths/detail/DirectStep.cpp:660:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:661:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:662:            IOUAmount(beast::zero),
+src/xrpld/app/paths/detail/DirectStep.cpp:667:    IOUAmount const srcToDst =
+src/xrpld/app/paths/detail/DirectStep.cpp:672:        IOUAmount const out =
+src/xrpld/app/paths/detail/DirectStep.cpp:675:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:679:            toSTAmount(cache_->srcToDst, srcToDstIss),
+src/xrpld/app/paths/detail/DirectStep.cpp:680:            /*checkIssuer*/ true,
+src/xrpld/app/paths/detail/DirectStep.cpp:691:        IOUAmount const actualIn =
+src/xrpld/app/paths/detail/DirectStep.cpp:693:        IOUAmount const out =
+src/xrpld/app/paths/detail/DirectStep.cpp:696:        rippleCredit(
+src/xrpld/app/paths/detail/DirectStep.cpp:700:            toSTAmount(cache_->srcToDst, srcToDstIss),
+src/xrpld/app/paths/detail/DirectStep.cpp:701:            /*checkIssuer*/ true,
+src/xrpld/app/paths/detail/DirectStep.cpp:713:std::pair<bool, EitherAmount>
+src/xrpld/app/paths/detail/DirectStep.cpp:717:    EitherAmount const& in)
+src/xrpld/app/paths/detail/DirectStep.cpp:722:        return {false, EitherAmount(IOUAmount(beast::zero))};
+src/xrpld/app/paths/detail/DirectStep.cpp:740:        return {false, EitherAmount(IOUAmount(beast::zero))};
+src/xrpld/app/paths/detail/DirectStep.cpp:749:        return {false, EitherAmount(cache_->out)};
+src/xrpld/app/paths/detail/DirectStep.cpp:760:        return {false, EitherAmount(cache_->out)};
+src/xrpld/app/paths/detail/DirectStep.cpp:762:    return {true, EitherAmount(cache_->out)};
+src/xrpld/app/paths/detail/DirectStep.cpp:775:        static_cast<TDerived const*>(this)->quality(sb, QualityDirection::out);
+src/xrpld/app/paths/detail/DirectStep.cpp:785:DirectStepI<TDerived>::qualitiesSrcIssues(
+src/xrpld/app/paths/detail/DirectStep.cpp:794:        "ripple::DirectStepI::qualitiesSrcIssues : will prevStepDebtDirection "
+src/xrpld/app/paths/detail/DirectStep.cpp:798:        ? transferRate(sb, src_).value
+src/xrpld/app/paths/detail/DirectStep.cpp:801:        static_cast<TDerived const*>(this)->quality(sb, QualityDirection::in);
+src/xrpld/app/paths/detail/DirectStep.cpp:827:        return qualitiesSrcIssues(sb, prevStepDebtDirection);
+src/xrpld/app/paths/detail/DirectStep.cpp:835:    // dst quality in
+src/xrpld/app/paths/detail/DirectStep.cpp:836:    return static_cast<TDerived const*>(this)->quality(v, QualityDirection::in);
+src/xrpld/app/paths/detail/DirectStep.cpp:841:DirectStepI<TDerived>::qualityUpperBound(
+src/xrpld/app/paths/detail/DirectStep.cpp:851:                return transferRate(v, src_).value;
+src/xrpld/app/paths/detail/DirectStep.cpp:854:        auto dstQIn = static_cast<TDerived const*>(this)->quality(
+src/xrpld/app/paths/detail/DirectStep.cpp:859:        Issue const iss{currency_, src_};
+src/xrpld/app/paths/detail/DirectStep.cpp:861:            Quality(getRate(STAmount(iss, srcQOut), STAmount(iss, dstQIn))),
+src/xrpld/app/paths/detail/DirectStep.cpp:867:        : qualitiesSrcIssues(v, prevStepDir);
+src/xrpld/app/paths/detail/DirectStep.cpp:869:    Issue const iss{currency_, src_};
+src/xrpld/app/paths/detail/DirectStep.cpp:877:        Quality(getRate(STAmount(iss, dstQIn), STAmount(iss, srcQOut))), dir};
+src/xrpld/app/paths/detail/DirectStep.cpp:888:        return temBAD_PATH;
+src/xrpld/app/paths/detail/DirectStep.cpp:894:        return temBAD_PATH;
+src/xrpld/app/paths/detail/DirectStep.cpp:910:        if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:922:            if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:927:        Issue const srcIssue{currency_, src_};
+src/xrpld/app/paths/detail/DirectStep.cpp:928:        Issue const dstIssue{currency_, dst_};
+src/xrpld/app/paths/detail/DirectStep.cpp:930:        if (ctx.seenBookOuts.count(srcIssue))
+src/xrpld/app/paths/detail/DirectStep.cpp:935:                UNREACHABLE(
+src/xrpld/app/paths/detail/DirectStep.cpp:938:                return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/DirectStep.cpp:946:                if (book->out != srcIssue)
+src/xrpld/app/paths/detail/DirectStep.cpp:947:                    return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/DirectStep.cpp:951:        if (!ctx.seenDirectIssues[0].insert(srcIssue).second ||
+src/xrpld/app/paths/detail/DirectStep.cpp:952:            !ctx.seenDirectIssues[1].insert(dstIssue).second)
+src/xrpld/app/paths/detail/DirectStep.cpp:957:            return temBAD_PATH_LOOP;
+src/xrpld/app/paths/detail/DirectStep.cpp:993:    TER ter = tefINTERNAL;
+src/xrpld/app/paths/detail/DirectStep.cpp:1009:    if (ter != tesSUCCESS)
+src/xrpld/app/paths/detail/DirectStep.cpp:1012:    return {tesSUCCESS, std::move(r)};
+src/xrpld/app/tx/detail/Payment.h:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/tx/detail/Payment.h:36:    static constexpr ConsequencesFactoryType ConsequencesFactory{Custom};
+src/xrpld/app/tx/detail/Payment.h:42:    static TxConsequences
+src/xrpld/app/tx/detail/Payment.h:43:    makeTxConsequences(PreflightContext const& ctx);
+src/test/app/PayStrand_test.cpp:6:    purpose  with  or without fee is hereby granted, provided that the above
+src/test/app/PayStrand_test.cpp:19:#include <test/jtx/PathSet.h>
+src/test/app/PayStrand_test.cpp:49:enum class TrustFlag { freeze, auth, noripple };
+src/test/app/PayStrand_test.cpp:56:        case TrustFlag::freeze:
+src/test/app/PayStrand_test.cpp:141:STPathElement
+src/test/app/PayStrand_test.cpp:144:    return STPathElement(
+src/test/app/PayStrand_test.cpp:145:        STPathElement::typeAccount, a, xrpCurrency(), xrpAccount());
+src/test/app/PayStrand_test.cpp:148:// Issue path element
+src/test/app/PayStrand_test.cpp:149:STPathElement
+src/test/app/PayStrand_test.cpp:150:ipe(Issue const& iss)
+src/test/app/PayStrand_test.cpp:152:    return STPathElement(
+src/test/app/PayStrand_test.cpp:153:        STPathElement::typeCurrency | STPathElement::typeIssuer,
+src/test/app/PayStrand_test.cpp:159:// Issuer path element
+src/test/app/PayStrand_test.cpp:160:STPathElement
+src/test/app/PayStrand_test.cpp:163:    return STPathElement(
+src/test/app/PayStrand_test.cpp:164:        STPathElement::typeIssuer, xrpAccount(), xrpCurrency(), account);
+src/test/app/PayStrand_test.cpp:192:    STPathElement const* prev_ = nullptr;
+src/test/app/PayStrand_test.cpp:224:    explicit ElementComboIter(STPathElement const* prev = nullptr) : prev_(prev)
+src/test/app/PayStrand_test.cpp:310:                STPathElement::Type::typeBoundary,
+src/test/app/PayStrand_test.cpp:502:        std::vector<std::tuple<STAmount, STAmount, AccountID, AccountID>> diffs;
+src/test/app/PayStrand_test.cpp:507:                return STAmount{};
+src/test/app/PayStrand_test.cpp:513:                return STAmount{};
+src/test/app/PayStrand_test.cpp:563:        STAmount const& sendMax,
+src/test/app/PayStrand_test.cpp:564:        STAmount const& deliver,
+src/test/app/PayStrand_test.cpp:565:        std::vector<STPathElement> const& prefix,
+src/test/app/PayStrand_test.cpp:566:        std::vector<STPathElement> const& suffix,
+src/test/app/PayStrand_test.cpp:576:        STPathElement const* prevOuter =
+src/test/app/PayStrand_test.cpp:580:        std::vector<STPathElement> outerResult;
+src/test/app/PayStrand_test.cpp:581:        std::vector<STPathElement> result;
+src/test/app/PayStrand_test.cpp:597:            STPathElement const* prevInner = &outerResult.back();
+src/test/app/PayStrand_test.cpp:646:                        Issue const& deliver,
+src/test/app/PayStrand_test.cpp:647:                        std::optional<Issue> const& sendMaxIssue,
+src/test/app/PayStrand_test.cpp:648:                        STPath const& path,
+src/test/app/PayStrand_test.cpp:657:                sendMaxIssue,
+src/test/app/PayStrand_test.cpp:678:                STPath const path =
+src/test/app/PayStrand_test.cpp:679:                    STPath({ipe(bob["USD"]), cpe(EUR.currency)});
+src/test/app/PayStrand_test.cpp:684:                    /*deliver*/ xrpIssue(),
+src/test/app/PayStrand_test.cpp:686:                    /*sendMaxIssue*/ EUR.issue(),
+src/test/app/PayStrand_test.cpp:694:                BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:697:                STPath const path = STPath({ipe(USD), cpe(xrpCurrency())});
+src/test/app/PayStrand_test.cpp:702:                    /*deliver*/ xrpIssue(),
+src/test/app/PayStrand_test.cpp:704:                    /*sendMaxIssue*/ EUR.issue(),
+src/test/app/PayStrand_test.cpp:712:                BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:720:            test(env, USD, std::nullopt, STPath(), terNO_LINE);
+src/test/app/PayStrand_test.cpp:723:            test(env, USD, std::nullopt, STPath(), tecPATH_DRY);
+src/test/app/PayStrand_test.cpp:733:                STPath(),
+src/test/app/PayStrand_test.cpp:734:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:743:                USD.issue(),
+src/test/app/PayStrand_test.cpp:744:                STPath(),
+src/test/app/PayStrand_test.cpp:745:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:754:                USD.issue(),
+src/test/app/PayStrand_test.cpp:755:                STPath({ipe(EUR)}),
+src/test/app/PayStrand_test.cpp:756:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:766:                USD.issue(),
+src/test/app/PayStrand_test.cpp:767:                STPath({iape(carol)}),
+src/test/app/PayStrand_test.cpp:768:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:777:                xrpIssue(),
+src/test/app/PayStrand_test.cpp:778:                STPath({ipe(USD)}),
+src/test/app/PayStrand_test.cpp:779:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:787:                xrpIssue(),
+src/test/app/PayStrand_test.cpp:788:                USD.issue(),
+src/test/app/PayStrand_test.cpp:789:                STPath({STPathElement{
+src/test/app/PayStrand_test.cpp:790:                    STPathElement::typeCurrency,
+src/test/app/PayStrand_test.cpp:794:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:803:                USD.issue(),
+src/test/app/PayStrand_test.cpp:804:                STPath({cpe(xrpCurrency())}),
+src/test/app/PayStrand_test.cpp:805:                tesSUCCESS,
+src/test/app/PayStrand_test.cpp:812:            test(env, XRP, std::nullopt, STPath({ape(carol)}), temBAD_PATH);
+src/test/app/PayStrand_test.cpp:825:                        USD.issue(),
+src/test/app/PayStrand_test.cpp:826:                        STPath(),
+src/test/app/PayStrand_test.cpp:832:                    BEAST_EXPECT(r.first == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:843:                        STPath(),
+src/test/app/PayStrand_test.cpp:849:                    BEAST_EXPECT(r.first == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:860:                        STPath(),
+src/test/app/PayStrand_test.cpp:866:                    BEAST_EXPECT(r.first == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:874:                USD.issue(),
+src/test/app/PayStrand_test.cpp:875:                STPath({ipe(USD), ipe(EUR)}),
+src/test/app/PayStrand_test.cpp:876:                temBAD_PATH);
+src/test/app/PayStrand_test.cpp:883:                STPath({STPathElement(
+src/test/app/PayStrand_test.cpp:885:                temBAD_PATH);
+src/test/app/PayStrand_test.cpp:894:                STPath({ape(gw), ape(carol)}),
+src/test/app/PayStrand_test.cpp:895:                temBAD_PATH_LOOP);
+src/test/app/PayStrand_test.cpp:901:                USD.issue(),
+src/test/app/PayStrand_test.cpp:902:                STPath({ipe(EUR), ipe(USD), ipe(EUR)}),
+src/test/app/PayStrand_test.cpp:903:                temBAD_PATH_LOOP);
+src/test/app/PayStrand_test.cpp:928:                ter(temBAD_PATH_LOOP));
+src/test/app/PayStrand_test.cpp:936:            test(env, USD, std::nullopt, STPath(), terNO_RIPPLE);
+src/test/app/PayStrand_test.cpp:940:            // check global freeze
+src/test/app/PayStrand_test.cpp:948:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:950:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:954:            test(env, USD, std::nullopt, STPath(), terNO_LINE);
+src/test/app/PayStrand_test.cpp:956:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:960:            test(env, USD, std::nullopt, STPath(), terNO_LINE);
+src/test/app/PayStrand_test.cpp:962:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:970:            test(env, USD, std::nullopt, STPath(), tesSUCCESS);
+src/test/app/PayStrand_test.cpp:972:            BEAST_EXPECT(getTrustFlag(env, gw, alice, usdC, TrustFlag::freeze));
+src/test/app/PayStrand_test.cpp:973:            test(env, USD, std::nullopt, STPath(), terNO_LINE);
+src/test/app/PayStrand_test.cpp:981:            env(fset(gw, asfRequireAuth));
+src/test/app/PayStrand_test.cpp:988:            test(env, USD, std::nullopt, STPath(), terNO_AUTH);
+src/test/app/PayStrand_test.cpp:998:                STPath(),
+src/test/app/PayStrand_test.cpp:1004:            BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:1016:            STPath path;
+src/test/app/PayStrand_test.cpp:1025:                USD.issue(),
+src/test/app/PayStrand_test.cpp:1032:            BEAST_EXPECT(ter == tesSUCCESS);
+src/test/app/PayStrand_test.cpp:1036:                B{USD.issue(), xrpIssue(), std::nullopt},
+src/test/app/PayStrand_test.cpp:1077:            PathSet paths(p);
+src/test/app/PayStrand_test.cpp:1083:                ter(temBAD_PATH));
+src/test/app/PayStrand_test.cpp:1101:                ter(temBAD_SEND_XRP_PATHS));
+src/test/app/PayStrand_test.cpp:1120:                ter(temBAD_SEND_XRP_MAX));
+src/test/app/PayStrand_test.cpp:1155:                ter(temBAD_PATH_LOOP));
+src/test/app/PayStrand_test.cpp:1178:                ter(temBAD_PATH_LOOP));
+src/test/app/PayStrand_test.cpp:1196:        STAmount sendMax{USD.issue(), 100, 1};
+src/test/app/PayStrand_test.cpp:1197:        STAmount noAccountAmount{Issue{USD.currency, noAccount()}, 100, 1};
+src/test/app/PayStrand_test.cpp:1198:        STAmount deliver;
+src/test/app/PayStrand_test.cpp:1201:        STPathSet pathSet;
+src/test/app/PayStrand_test.cpp:1218:                BEAST_EXPECT(r.result() == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:1231:                BEAST_EXPECT(r.result() == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:1236:                    noAccountAmount,
+src/test/app/PayStrand_test.cpp:1244:                BEAST_EXPECT(r.result() == temBAD_PATH);
+src/test/app/PayStrand_test.cpp:1250:                    noAccountAmount,
+src/test/app/PayStrand_test.cpp:1257:                BEAST_EXPECT(r.result() == temBAD_PATH);
+src/xrpld/app/tx/detail/Transactor.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/tx/detail/Transactor.cpp:94:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:110:        return temBAD_SIGNATURE;
+src/xrpld/app/tx/detail/Transactor.cpp:112:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:134:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:154:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:161:/** Performs early sanity checks on the account and fee fields */
+src/xrpld/app/tx/detail/Transactor.cpp:166:    // skip this function, and those do not allow an sfTicketSequence field.
+src/xrpld/app/tx/detail/Transactor.cpp:167:    if (ctx.tx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:170:        return temMALFORMED;
+src/xrpld/app/tx/detail/Transactor.cpp:179:            return temBAD_SIGNER;
+src/xrpld/app/tx/detail/Transactor.cpp:189:        return temBAD_SRC_ACCOUNT;
+src/xrpld/app/tx/detail/Transactor.cpp:192:    // No point in going any further if the transaction fee is malformed.
+src/xrpld/app/tx/detail/Transactor.cpp:193:    auto const fee = ctx.tx.getFieldAmount(sfFee);
+src/xrpld/app/tx/detail/Transactor.cpp:194:    if (!fee.native() || fee.negative() || !isLegalAmount(fee.xrp()))
+src/xrpld/app/tx/detail/Transactor.cpp:196:        JLOG(ctx.j.debug()) << "preflight1: invalid fee";
+src/xrpld/app/tx/detail/Transactor.cpp:197:        return temBAD_FEE;
+src/xrpld/app/tx/detail/Transactor.cpp:204:    // Sequence field.  Tickets, on the other hand, reduce ordering
+src/xrpld/app/tx/detail/Transactor.cpp:221:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:242:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:258:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:290:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:298:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:309:XRPAmount
+src/xrpld/app/tx/detail/Transactor.cpp:312:    // Returns the fee in fee units.
+src/xrpld/app/tx/detail/Transactor.cpp:315:    //  * The base fee, which is the same for most transactions.
+src/xrpld/app/tx/detail/Transactor.cpp:317:    XRPAmount const baseFee = view.fees().base;
+src/xrpld/app/tx/detail/Transactor.cpp:319:    // Each signer adds one more baseFee to the minimum required fee
+src/xrpld/app/tx/detail/Transactor.cpp:327:// Returns the fee in fee units, not scaled for load.
+src/xrpld/app/tx/detail/Transactor.cpp:328:XRPAmount
+src/xrpld/app/tx/detail/Transactor.cpp:332:    // fee.
+src/xrpld/app/tx/detail/Transactor.cpp:335:    // significantly larger than the base fee (or even worse, smaller), we will
+src/xrpld/app/tx/detail/Transactor.cpp:336:    // need to rethink charging an owner reserve as a transaction fee.
+src/xrpld/app/tx/detail/Transactor.cpp:342:        view.fees().increment > view.fees().base * 100,
+src/xrpld/app/tx/detail/Transactor.cpp:345:    return view.fees().increment;
+src/xrpld/app/tx/detail/Transactor.cpp:348:XRPAmount
+src/xrpld/app/tx/detail/Transactor.cpp:351:    XRPAmount baseFee,
+src/xrpld/app/tx/detail/Transactor.cpp:352:    Fees const& fees,
+src/xrpld/app/tx/detail/Transactor.cpp:355:    return scaleFeeLoad(baseFee, app.getFeeTrack(), fees, flags & tapUNLIMITED);
+src/xrpld/app/tx/detail/Transactor.cpp:359:Transactor::checkFee(PreclaimContext const& ctx, XRPAmount baseFee)
+src/xrpld/app/tx/detail/Transactor.cpp:362:        return temBAD_FEE;
+src/xrpld/app/tx/detail/Transactor.cpp:364:    auto const feePaid = ctx.tx[sfFee].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:368:        if (feePaid == beast::zero)
+src/xrpld/app/tx/detail/Transactor.cpp:369:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:372:        return temBAD_FEE;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:375:    if (!isLegalAmount(feePaid) || feePaid < beast::zero)
+src/xrpld/app/tx/detail/Transactor.cpp:376:        return temBAD_FEE;
+src/xrpld/app/tx/detail/Transactor.cpp:378:    // Only check fee is sufficient when the ledger is open.
+src/xrpld/app/tx/detail/Transactor.cpp:381:        auto const feeDue =
+src/xrpld/app/tx/detail/Transactor.cpp:382:            minimumFee(ctx.app, baseFee, ctx.view.fees(), ctx.flags);
+src/xrpld/app/tx/detail/Transactor.cpp:384:        if (feePaid < feeDue)
+src/xrpld/app/tx/detail/Transactor.cpp:387:                << "Insufficient fee paid: " << to_string(feePaid) << "/"
+src/xrpld/app/tx/detail/Transactor.cpp:388:                << to_string(feeDue);
+src/xrpld/app/tx/detail/Transactor.cpp:393:    if (feePaid == beast::zero)
+src/xrpld/app/tx/detail/Transactor.cpp:394:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:405:    if (balance < feePaid)
+src/xrpld/app/tx/detail/Transactor.cpp:409:            << " paid=" << to_string(feePaid);
+src/xrpld/app/tx/detail/Transactor.cpp:413:            // Closed ledger, non-zero balance, less than fee
+src/xrpld/app/tx/detail/Transactor.cpp:420:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:426:    auto const feePaid = ctx_.tx[sfFee].xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:434:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:436:        delegatedSle->setFieldAmount(
+src/xrpld/app/tx/detail/Transactor.cpp:437:            sfBalance, delegatedSle->getFieldAmount(sfBalance) - feePaid);
+src/xrpld/app/tx/detail/Transactor.cpp:444:            return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:446:        // Deduct the fee, so it's not available during the transaction.
+src/xrpld/app/tx/detail/Transactor.cpp:449:        mSourceBalance -= feePaid;
+src/xrpld/app/tx/detail/Transactor.cpp:450:        sle->setFieldAmount(sfBalance, mSourceBalance);
+src/xrpld/app/tx/detail/Transactor.cpp:455:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:476:    SeqProxy const t_seqProx = tx.getSeqProxy();
+src/xrpld/app/tx/detail/Transactor.cpp:477:    SeqProxy const a_seq = SeqProxy::sequence((*sle)[sfSequence]);
+src/xrpld/app/tx/detail/Transactor.cpp:479:    if (t_seqProx.isSeq())
+src/xrpld/app/tx/detail/Transactor.cpp:481:        if (tx.isFieldPresent(sfTicketSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:484:            JLOG(j.trace()) << "applyTransaction: has both a TicketSequence "
+src/xrpld/app/tx/detail/Transactor.cpp:485:                               "and a non-zero Sequence number";
+src/xrpld/app/tx/detail/Transactor.cpp:488:        if (t_seqProx != a_seq)
+src/xrpld/app/tx/detail/Transactor.cpp:490:            if (a_seq < t_seqProx)
+src/xrpld/app/tx/detail/Transactor.cpp:493:                    << "applyTransaction: has future sequence number "
+src/xrpld/app/tx/detail/Transactor.cpp:494:                    << "a_seq=" << a_seq << " t_seq=" << t_seqProx;
+src/xrpld/app/tx/detail/Transactor.cpp:497:            // It's an already-used sequence number.
+src/xrpld/app/tx/detail/Transactor.cpp:498:            JLOG(j.trace()) << "applyTransaction: has past sequence number "
+src/xrpld/app/tx/detail/Transactor.cpp:499:                            << "a_seq=" << a_seq << " t_seq=" << t_seqProx;
+src/xrpld/app/tx/detail/Transactor.cpp:503:    else if (t_seqProx.isTicket())
+src/xrpld/app/tx/detail/Transactor.cpp:506:        if (a_seq.value() <= t_seqProx.value())
+src/xrpld/app/tx/detail/Transactor.cpp:509:            // account sequence there's the possibility that the
+src/xrpld/app/tx/detail/Transactor.cpp:513:                            << "a_seq=" << a_seq << " t_seq=" << t_seqProx;
+src/xrpld/app/tx/detail/Transactor.cpp:518:        if (!view.exists(keylet::ticket(id, t_seqProx)))
+src/xrpld/app/tx/detail/Transactor.cpp:522:                << "a_seq=" << a_seq << " t_seq=" << t_seqProx;
+src/xrpld/app/tx/detail/Transactor.cpp:527:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:550:    if (ctx.tx.isFieldPresent(sfLastLedgerSequence) &&
+src/xrpld/app/tx/detail/Transactor.cpp:551:        (ctx.view.seq() > ctx.tx.getFieldU32(sfLastLedgerSequence)))
+src/xrpld/app/tx/detail/Transactor.cpp:557:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:565:    SeqProxy const seqProx = ctx_.tx.getSeqProxy();
+src/xrpld/app/tx/detail/Transactor.cpp:566:    if (seqProx.isSeq())
+src/xrpld/app/tx/detail/Transactor.cpp:569:        // the transaction will modify the account root sfSequence
+src/xrpld/app/tx/detail/Transactor.cpp:571:        sleAccount->setFieldU32(sfSequence, seqProx.value() + 1);
+src/xrpld/app/tx/detail/Transactor.cpp:572:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:575:        view(), account_, getTicketIndex(account_, seqProx), j_);
+src/xrpld/app/tx/detail/Transactor.cpp:633:    adjustOwnerCount(view, sleAccount, -1, j);
+src/xrpld/app/tx/detail/Transactor.cpp:637:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:666:        mPriorBalance = STAmount{(*sle)[sfBalance]}.xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:670:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:674:        if (result != tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:716:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:724:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:768:    NotTEC ret = tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:779:                !isTesSuccess(ret))
+src/xrpld/app/tx/detail/Transactor.cpp:799:                return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:804:                !isTesSuccess(ret))
+src/xrpld/app/tx/detail/Transactor.cpp:826:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:832:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:869:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:1041:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Transactor.cpp:1096:                !isTesSuccess(ter))
+src/xrpld/app/tx/detail/Transactor.cpp:1124:            tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:1132:/** Reset the context, discarding any changes made and adjust the fee.
+src/xrpld/app/tx/detail/Transactor.cpp:1134:    @param fee The transaction fee to be charged.
+src/xrpld/app/tx/detail/Transactor.cpp:1135:    @return A pair containing the transaction result and the actual fee charged.
+src/xrpld/app/tx/detail/Transactor.cpp:1137:std::pair<TER, XRPAmount>
+src/xrpld/app/tx/detail/Transactor.cpp:1138:Transactor::reset(XRPAmount fee)
+src/xrpld/app/tx/detail/Transactor.cpp:1146:    // is missing then we can't very well charge it a fee, can we?
+src/xrpld/app/tx/detail/Transactor.cpp:1148:        return {tefINTERNAL, beast::zero};
+src/xrpld/app/tx/detail/Transactor.cpp:1154:        return {tefINTERNAL, beast::zero};  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Transactor.cpp:1156:    auto const balance = payerSle->getFieldAmount(sfBalance).xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:1160:        balance != beast::zero && (!view().open() || balance >= fee),
+src/xrpld/app/tx/detail/Transactor.cpp:1165:    // the fee
+src/xrpld/app/tx/detail/Transactor.cpp:1166:    if (fee > balance)
+src/xrpld/app/tx/detail/Transactor.cpp:1167:        fee = balance;
+src/xrpld/app/tx/detail/Transactor.cpp:1169:    // Since we reset the context, we need to charge the fee and update
+src/xrpld/app/tx/detail/Transactor.cpp:1170:    // the account's sequence number (or consume the Ticket) again.
+src/xrpld/app/tx/detail/Transactor.cpp:1172:    // If for some reason we are unable to consume the ticket or sequence
+src/xrpld/app/tx/detail/Transactor.cpp:1175:    payerSle->setFieldAmount(sfBalance, balance - fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1178:        isTesSuccess(ter), "ripple::Transactor::reset : result is tesSUCCESS");
+src/xrpld/app/tx/detail/Transactor.cpp:1180:    if (isTesSuccess(ter))
+src/xrpld/app/tx/detail/Transactor.cpp:1187:    return {ter, fee};
+src/xrpld/app/tx/detail/Transactor.cpp:1226:            UNREACHABLE(
+src/xrpld/app/tx/detail/Transactor.cpp:1240:    if (result == tesSUCCESS)
+src/xrpld/app/tx/detail/Transactor.cpp:1252:    bool applied = isTesSuccess(result);
+src/xrpld/app/tx/detail/Transactor.cpp:1253:    auto fee = ctx_.tx.getFieldAmount(sfFee).xrp();
+src/xrpld/app/tx/detail/Transactor.cpp:1258:    if (isTecClaim(result) && (view().flags() & tapFAIL_HARD))
+src/xrpld/app/tx/detail/Transactor.cpp:1268:        (isTecClaimHardFail(result, view().flags())))
+src/xrpld/app/tx/detail/Transactor.cpp:1308:                        (before->getFieldAmount(sfTakerPays) ==
+src/xrpld/app/tx/detail/Transactor.cpp:1309:                         after->getFieldAmount(sfTakerPays)))
+src/xrpld/app/tx/detail/Transactor.cpp:1333:        // Reset the context, potentially adjusting the fee.
+src/xrpld/app/tx/detail/Transactor.cpp:1335:            auto const resetResult = reset(fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1336:            if (!isTesSuccess(resetResult.first))
+src/xrpld/app/tx/detail/Transactor.cpp:1339:            fee = resetResult.second;
+src/xrpld/app/tx/detail/Transactor.cpp:1359:        applied = isTecClaim(result);
+src/xrpld/app/tx/detail/Transactor.cpp:1364:        // Check invariants: if `tecINVARIANT_FAILED` is not returned, we can
+src/xrpld/app/tx/detail/Transactor.cpp:1366:        result = ctx_.checkInvariants(result, fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1370:            // if invariants checking failed again, reset the context and
+src/xrpld/app/tx/detail/Transactor.cpp:1371:            // attempt to only claim a fee.
+src/xrpld/app/tx/detail/Transactor.cpp:1372:            auto const resetResult = reset(fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1373:            if (!isTesSuccess(resetResult.first))
+src/xrpld/app/tx/detail/Transactor.cpp:1376:            fee = resetResult.second;
+src/xrpld/app/tx/detail/Transactor.cpp:1378:            // Check invariants again to ensure the fee claiming doesn't
+src/xrpld/app/tx/detail/Transactor.cpp:1379:            // violate invariants.
+src/xrpld/app/tx/detail/Transactor.cpp:1380:            if (isTesSuccess(result) || isTecClaim(result))
+src/xrpld/app/tx/detail/Transactor.cpp:1381:                result = ctx_.checkInvariants(result, fee);
+src/xrpld/app/tx/detail/Transactor.cpp:1384:        // We ran through the invariant checker, which can, in some cases,
+src/xrpld/app/tx/detail/Transactor.cpp:1386:        if (!isTecClaim(result) && !isTesSuccess(result))
+src/xrpld/app/tx/detail/Transactor.cpp:1394:        // transaction could claim a fee)
+src/xrpld/app/tx/detail/Transactor.cpp:1396:        // The transactor and invariant checkers guarantee that this will
+src/xrpld/app/tx/detail/Transactor.cpp:1398:        // that charges a negative fee.
+src/xrpld/app/tx/detail/Transactor.cpp:1399:        if (fee < beast::zero)
+src/xrpld/app/tx/detail/Transactor.cpp:1400:            Throw<std::logic_error>("fee charged is negative!");
+src/xrpld/app/tx/detail/Transactor.cpp:1402:        // Charge whatever fee they specified. The fee has already been
+src/xrpld/app/tx/detail/Transactor.cpp:1406:        if (!view().open() && fee != beast::zero)
+src/xrpld/app/tx/detail/Transactor.cpp:1407:            ctx_.destroyXRP(fee);
+src/libxrpl/protocol/STPathSet.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/libxrpl/protocol/STPathSet.cpp:27:#include <xrpl/protocol/STPathSet.h>
+src/libxrpl/protocol/STPathSet.cpp:40:STPathElement::get_hash(STPathElement const& element)
+src/libxrpl/protocol/STPathSet.cpp:56:    for (auto const x : element.getIssuerID())
+src/libxrpl/protocol/STPathSet.cpp:62:STPathSet::STPathSet(SerialIter& sit, SField const& name) : STBase(name)
+src/libxrpl/protocol/STPathSet.cpp:64:    std::vector<STPathElement> path;
+src/libxrpl/protocol/STPathSet.cpp:69:        if (iType == STPathElement::typeNone ||
+src/libxrpl/protocol/STPathSet.cpp:70:            iType == STPathElement::typeBoundary)
+src/libxrpl/protocol/STPathSet.cpp:81:            if (iType == STPathElement::typeNone)
+src/libxrpl/protocol/STPathSet.cpp:84:        else if (iType & ~STPathElement::typeAll)
+src/libxrpl/protocol/STPathSet.cpp:92:            auto hasAccount = iType & STPathElement::typeAccount;
+src/libxrpl/protocol/STPathSet.cpp:93:            auto hasCurrency = iType & STPathElement::typeCurrency;
+src/libxrpl/protocol/STPathSet.cpp:94:            auto hasIssuer = iType & STPathElement::typeIssuer;
+src/libxrpl/protocol/STPathSet.cpp:106:            if (hasIssuer)
+src/libxrpl/protocol/STPathSet.cpp:115:STPathSet::copy(std::size_t n, void* buf) const
+src/libxrpl/protocol/STPathSet.cpp:121:STPathSet::move(std::size_t n, void* buf)
+src/libxrpl/protocol/STPathSet.cpp:127:STPathSet::assembleAdd(STPath const& base, STPathElement const& tail)
+src/libxrpl/protocol/STPathSet.cpp:131:    std::vector<STPath>::reverse_iterator it = value.rbegin();
+src/libxrpl/protocol/STPathSet.cpp:133:    STPath& newPath = *it;
+src/libxrpl/protocol/STPathSet.cpp:148:STPathSet::isEquivalent(STBase const& t) const
+src/libxrpl/protocol/STPathSet.cpp:150:    STPathSet const* v = dynamic_cast<STPathSet const*>(&t);
+src/libxrpl/protocol/STPathSet.cpp:155:STPathSet::isDefault() const
+src/libxrpl/protocol/STPathSet.cpp:161:STPath::hasSeen(
+src/libxrpl/protocol/STPathSet.cpp:169:            p.getIssuerID() == issuer)
+src/libxrpl/protocol/STPathSet.cpp:177:STPath::getJson(JsonOptions) const
+src/libxrpl/protocol/STPathSet.cpp:188:        if (iType & STPathElement::typeAccount)
+src/libxrpl/protocol/STPathSet.cpp:191:        if (iType & STPathElement::typeCurrency)
+src/libxrpl/protocol/STPathSet.cpp:194:        if (iType & STPathElement::typeIssuer)
+src/libxrpl/protocol/STPathSet.cpp:195:            elem[jss::issuer] = to_string(it.getIssuerID());
+src/libxrpl/protocol/STPathSet.cpp:204:STPathSet::getJson(JsonOptions options) const
+src/libxrpl/protocol/STPathSet.cpp:214:STPathSet::getSType() const
+src/libxrpl/protocol/STPathSet.cpp:220:STPathSet::add(Serializer& s) const
+src/libxrpl/protocol/STPathSet.cpp:223:        getFName().isBinary(), "ripple::STPathSet::add : field is binary");
+src/libxrpl/protocol/STPathSet.cpp:226:        "ripple::STPathSet::add : valid field type");
+src/libxrpl/protocol/STPathSet.cpp:232:            s.add8(STPathElement::typeBoundary);
+src/libxrpl/protocol/STPathSet.cpp:240:            if (iType & STPathElement::typeAccount)
+src/libxrpl/protocol/STPathSet.cpp:243:            if (iType & STPathElement::typeCurrency)
+src/libxrpl/protocol/STPathSet.cpp:246:            if (iType & STPathElement::typeIssuer)
+src/libxrpl/protocol/STPathSet.cpp:247:                s.addBitString(speElement.getIssuerID());
+src/libxrpl/protocol/STPathSet.cpp:253:    s.add8(STPathElement::typeNone);
+src/xrpld/app/tx/detail/Payment.cpp:7:    purpose  with  or without fee is hereby granted, provided that the above
+src/xrpld/app/tx/detail/Payment.cpp:35:TxConsequences
+src/xrpld/app/tx/detail/Payment.cpp:36:Payment::makeTxConsequences(PreflightContext const& ctx)
+src/xrpld/app/tx/detail/Payment.cpp:38:    auto calculateMaxXRPSpend = [](STTx const& tx) -> XRPAmount {
+src/xrpld/app/tx/detail/Payment.cpp:39:        STAmount const maxAmount =
+src/xrpld/app/tx/detail/Payment.cpp:40:            tx.isFieldPresent(sfSendMax) ? tx[sfSendMax] : tx[sfAmount];
+src/xrpld/app/tx/detail/Payment.cpp:42:        // If there's no sfSendMax in XRP, and the sfAmount isn't
+src/xrpld/app/tx/detail/Payment.cpp:44:        return maxAmount.native() ? maxAmount.xrp() : beast::zero;
+src/xrpld/app/tx/detail/Payment.cpp:47:    return TxConsequences{ctx.tx, calculateMaxXRPSpend(ctx.tx)};
+src/xrpld/app/tx/detail/Payment.cpp:50:STAmount
+src/xrpld/app/tx/detail/Payment.cpp:51:getMaxSourceAmount(
+src/xrpld/app/tx/detail/Payment.cpp:53:    STAmount const& dstAmount,
+src/xrpld/app/tx/detail/Payment.cpp:54:    std::optional<STAmount> const& sendMax)
+src/xrpld/app/tx/detail/Payment.cpp:58:    else if (dstAmount.native() || dstAmount.holds<MPTIssue>())
+src/xrpld/app/tx/detail/Payment.cpp:59:        return dstAmount;
+src/xrpld/app/tx/detail/Payment.cpp:61:        return STAmount(
+src/xrpld/app/tx/detail/Payment.cpp:62:            Issue{dstAmount.get<Issue>().currency, account},
+src/xrpld/app/tx/detail/Payment.cpp:63:            dstAmount.mantissa(),
+src/xrpld/app/tx/detail/Payment.cpp:64:            dstAmount.exponent(),
+src/xrpld/app/tx/detail/Payment.cpp:65:            dstAmount < beast::zero);
+src/xrpld/app/tx/detail/Payment.cpp:86:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:87:    bool const mptDirect = dstAmount.holds<MPTIssue>();
+src/xrpld/app/tx/detail/Payment.cpp:98:    STAmount const dstAmount(tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:99:    bool const mptDirect = dstAmount.holds<MPTIssue>();
+src/xrpld/app/tx/detail/Payment.cpp:107:        return temMALFORMED;
+src/xrpld/app/tx/detail/Payment.cpp:113:    bool const hasMax = tx.isFieldPresent(sfSendMax);
+src/xrpld/app/tx/detail/Payment.cpp:115:    auto const deliverMin = tx[~sfDeliverMin];
+src/xrpld/app/tx/detail/Payment.cpp:118:    STAmount const maxSourceAmount =
+src/xrpld/app/tx/detail/Payment.cpp:119:        getMaxSourceAmount(account, dstAmount, tx[~sfSendMax]);
+src/xrpld/app/tx/detail/Payment.cpp:121:    if ((mptDirect && dstAmount.asset() != maxSourceAmount.asset()) ||
+src/xrpld/app/tx/detail/Payment.cpp:122:        (!mptDirect && maxSourceAmount.holds<MPTIssue>()))
+src/xrpld/app/tx/detail/Payment.cpp:125:                        << dstAmount.getFullText() << " "
+src/xrpld/app/tx/detail/Payment.cpp:126:                        << maxSourceAmount.getFullText() << " "
+src/xrpld/app/tx/detail/Payment.cpp:127:                        << deliverMin.value_or(STAmount{}).getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:128:        return temMALFORMED;
+src/xrpld/app/tx/detail/Payment.cpp:131:    auto const& srcAsset = maxSourceAmount.asset();
+src/xrpld/app/tx/detail/Payment.cpp:132:    auto const& dstAsset = dstAmount.asset();
+src/xrpld/app/tx/detail/Payment.cpp:136:    if (!isLegalNet(dstAmount) || !isLegalNet(maxSourceAmount))
+src/xrpld/app/tx/detail/Payment.cpp:137:        return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:147:    if (hasMax && maxSourceAmount <= beast::zero)
+src/xrpld/app/tx/detail/Payment.cpp:150:                        << maxSourceAmount.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:151:        return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:153:    if (dstAmount <= beast::zero)
+src/xrpld/app/tx/detail/Payment.cpp:156:                        << dstAmount.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:157:        return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:162:        return temBAD_CURRENCY;
+src/xrpld/app/tx/detail/Payment.cpp:177:                        << "SendMax specified for XRP to XRP.";
+src/xrpld/app/tx/detail/Payment.cpp:178:        return temBAD_SEND_XRP_MAX;
+src/xrpld/app/tx/detail/Payment.cpp:185:        return temBAD_SEND_XRP_PATHS;
+src/xrpld/app/tx/detail/Payment.cpp:192:        return temBAD_SEND_XRP_PARTIAL;
+src/xrpld/app/tx/detail/Payment.cpp:199:            << "Limit quality specified for XRP to XRP or MPT to MPT.";
+src/xrpld/app/tx/detail/Payment.cpp:200:        return temBAD_SEND_XRP_LIMIT;
+src/xrpld/app/tx/detail/Payment.cpp:208:        return temBAD_SEND_XRP_NO_DIRECT;
+src/xrpld/app/tx/detail/Payment.cpp:217:                            << jss::DeliverMin.c_str() << ".";
+src/xrpld/app/tx/detail/Payment.cpp:218:            return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:225:                << "Malformed transaction: Invalid " << jss::DeliverMin.c_str()
+src/xrpld/app/tx/detail/Payment.cpp:227:            return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:229:        if (dMin.asset() != dstAmount.asset())
+src/xrpld/app/tx/detail/Payment.cpp:234:                << jss::DeliverMin.c_str() << ". " << dMin.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:235:            return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:237:        if (dMin > dstAmount)
+src/xrpld/app/tx/detail/Payment.cpp:241:                << jss::DeliverMin.c_str() << ". " << dMin.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:242:            return temBAD_AMOUNT;
+src/xrpld/app/tx/detail/Payment.cpp:247:        !isTesSuccess(err))
+src/xrpld/app/tx/detail/Payment.cpp:250:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:258:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:266:    if (checkTxPermission(sle, tx) == tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:267:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:272:    auto const& dstAmount = tx.getFieldAmount(sfAmount);
+src/xrpld/app/tx/detail/Payment.cpp:277:        auto const& amountAsset = dstAmount.asset();
+src/xrpld/app/tx/detail/Payment.cpp:278:        if (tx.isFieldPresent(sfSendMax) &&
+src/xrpld/app/tx/detail/Payment.cpp:279:            tx[sfSendMax].asset() != amountAsset)
+src/xrpld/app/tx/detail/Payment.cpp:283:            amountAsset.getIssuer() == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:284:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:287:            amountAsset.getIssuer() == tx[sfDestination])
+src/xrpld/app/tx/detail/Payment.cpp:288:            return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:293:    // Calling dstAmount.issue() in the next line would throw if it holds MPT.
+src/xrpld/app/tx/detail/Payment.cpp:294:    // That exception would be caught in preclaim and returned as tefEXCEPTION.
+src/xrpld/app/tx/detail/Payment.cpp:296:    if (dstAmount.holds<MPTIssue>())
+src/xrpld/app/tx/detail/Payment.cpp:297:        return tefEXCEPTION;
+src/xrpld/app/tx/detail/Payment.cpp:299:    auto const& amountIssue = dstAmount.issue();
+src/xrpld/app/tx/detail/Payment.cpp:300:    if (granularPermissions.contains(PaymentMint) && !isXRP(amountIssue) &&
+src/xrpld/app/tx/detail/Payment.cpp:301:        amountIssue.account == tx[sfAccount])
+src/xrpld/app/tx/detail/Payment.cpp:302:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:304:    if (granularPermissions.contains(PaymentBurn) && !isXRP(amountIssue) &&
+src/xrpld/app/tx/detail/Payment.cpp:305:        amountIssue.account == tx[sfDestination])
+src/xrpld/app/tx/detail/Payment.cpp:306:        return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:318:    auto const sendMax = ctx.tx[~sfSendMax];
+src/xrpld/app/tx/detail/Payment.cpp:321:    STAmount const dstAmount(ctx.tx[sfAmount]);
+src/xrpld/app/tx/detail/Payment.cpp:329:        if (!dstAmount.native())
+src/xrpld/app/tx/detail/Payment.cpp:349:        else if (dstAmount < STAmount(ctx.view.fees().accountReserve(0)))
+src/xrpld/app/tx/detail/Payment.cpp:379:    if ((hasPaths || sendMax || !dstAmount.native()) && ctx.view.open())
+src/xrpld/app/tx/detail/Payment.cpp:381:        STPathSet const& paths = ctx.tx.getFieldPathSet(sfPaths);
+src/xrpld/app/tx/detail/Payment.cpp:384:            std::any_of(paths.begin(), paths.end(), [](STPath const& path) {
+src/xrpld/app/tx/detail/Payment.cpp:394:        !isTesSuccess(err))
+src/xrpld/app/tx/detail/Payment.cpp:401:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:405:            return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:408:    return tesSUCCESS;
+src/xrpld/app/tx/detail/Payment.cpp:414:    auto const deliverMin = ctx_.tx[~sfDeliverMin];
+src/xrpld/app/tx/detail/Payment.cpp:422:    auto const sendMax = ctx_.tx[~sfSendMax];
+src/xrpld/app/tx/detail/Payment.cpp:425:    STAmount const dstAmount(ctx_.tx.getFieldAmount(sfAmount));
+src/xrpld/app/tx/detail/Payment.cpp:426:    bool const mptDirect = dstAmount.holds<MPTIssue>();
+src/xrpld/app/tx/detail/Payment.cpp:427:    STAmount const maxSourceAmount =
+src/xrpld/app/tx/detail/Payment.cpp:428:        getMaxSourceAmount(account_, dstAmount, sendMax);
+src/xrpld/app/tx/detail/Payment.cpp:430:    JLOG(j_.trace()) << "maxSourceAmount=" << maxSourceAmount.getFullText()
+src/xrpld/app/tx/detail/Payment.cpp:431:                     << " dstAmount=" << dstAmount.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:439:        std::uint32_t const seqno{
+src/xrpld/app/tx/detail/Payment.cpp:440:            view().rules().enabled(featureDeletableAccounts) ? view().seq()
+src/xrpld/app/tx/detail/Payment.cpp:446:        sleDst->setFieldU32(sfSequence, seqno);
+src/xrpld/app/tx/detail/Payment.cpp:453:        // account.  The source account gets always charged a fee so it's always
+src/xrpld/app/tx/detail/Payment.cpp:459:    bool const depositAuth = view().rules().enabled(featureDepositAuth);
+src/xrpld/app/tx/detail/Payment.cpp:460:    bool const reqDepositAuth =
+src/xrpld/app/tx/detail/Payment.cpp:461:        sleDst->getFlags() & lsfDepositAuth && depositAuth;
+src/xrpld/app/tx/detail/Payment.cpp:466:        (hasPaths || sendMax || !dstAmount.native()) && !mptDirect;
+src/xrpld/app/tx/detail/Payment.cpp:468:    // If the destination has lsfDepositAuth set, then only direct XRP
+src/xrpld/app/tx/detail/Payment.cpp:470:    if (!depositPreauth && ripple && reqDepositAuth)
+src/xrpld/app/tx/detail/Payment.cpp:471:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:485:            if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Payment.cpp:492:                !isTesSuccess(err))
+src/xrpld/app/tx/detail/Payment.cpp:509:                maxSourceAmount,
+src/xrpld/app/tx/detail/Payment.cpp:510:                dstAmount,
+src/xrpld/app/tx/detail/Payment.cpp:513:                ctx_.tx.getFieldPathSet(sfPaths),
+src/xrpld/app/tx/detail/Payment.cpp:525:        if (rc.result() == tesSUCCESS && rc.actualAmountOut != dstAmount)
+src/xrpld/app/tx/detail/Payment.cpp:527:            if (deliverMin && rc.actualAmountOut < *deliverMin)
+src/xrpld/app/tx/detail/Payment.cpp:530:                ctx_.deliver(rc.actualAmountOut);
+src/xrpld/app/tx/detail/Payment.cpp:536:        // fails with a retry code, claim a fee
+src/xrpld/app/tx/detail/Payment.cpp:540:            terResult = tecPATH_DRY;
+src/xrpld/app/tx/detail/Payment.cpp:545:        JLOG(j_.trace()) << " dstAmount=" << dstAmount.getFullText();
+src/xrpld/app/tx/detail/Payment.cpp:546:        auto const& mptIssue = dstAmount.get<MPTIssue>();
+src/xrpld/app/tx/detail/Payment.cpp:548:        if (auto const ter = requireAuth(view(), mptIssue, account_);
+src/xrpld/app/tx/detail/Payment.cpp:549:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:552:        if (auto const ter = requireAuth(view(), mptIssue, dstAccountID);
+src/xrpld/app/tx/detail/Payment.cpp:553:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:557:                canTransfer(view(), mptIssue, account_, dstAccountID);
+src/xrpld/app/tx/detail/Payment.cpp:558:            ter != tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:561:        if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Payment.cpp:568:            !isTesSuccess(err))
+src/xrpld/app/tx/detail/Payment.cpp:571:        auto const& issuer = mptIssue.getIssuer();
+src/xrpld/app/tx/detail/Payment.cpp:582:            if (isAnyFrozen(view(), {account_, dstAccountID}, mptIssue))
+src/xrpld/app/tx/detail/Payment.cpp:586:            rate = transferRate(view(), mptIssue.getMptID());
+src/xrpld/app/tx/detail/Payment.cpp:589:        // Amount to deliver.
+src/xrpld/app/tx/detail/Payment.cpp:590:        STAmount amountDeliver = dstAmount;
+src/xrpld/app/tx/detail/Payment.cpp:593:        STAmount requiredMaxSourceAmount = multiply(dstAmount, rate);
+src/xrpld/app/tx/detail/Payment.cpp:596:        // the account wants to deliver (if no SendMax).
+src/xrpld/app/tx/detail/Payment.cpp:598:        if (partialPaymentAllowed && requiredMaxSourceAmount > maxSourceAmount)
+src/xrpld/app/tx/detail/Payment.cpp:600:            requiredMaxSourceAmount = maxSourceAmount;
+src/xrpld/app/tx/detail/Payment.cpp:602:            amountDeliver = divide(maxSourceAmount, rate);
+src/xrpld/app/tx/detail/Payment.cpp:605:        if (requiredMaxSourceAmount > maxSourceAmount ||
+src/xrpld/app/tx/detail/Payment.cpp:610:        auto res = accountSend(
+src/xrpld/app/tx/detail/Payment.cpp:612:        if (res == tesSUCCESS)
+src/xrpld/app/tx/detail/Payment.cpp:617:            // amount due to partial payment or transfer fee, we need to update
+src/xrpld/app/tx/detail/Payment.cpp:618:            // DelieveredAmount using the actual delivered amount
+src/xrpld/app/tx/detail/Payment.cpp:619:            if (view().rules().enabled(fixMPTDeliveredAmount) &&
+src/xrpld/app/tx/detail/Payment.cpp:620:                amountDeliver != dstAmount)
+src/xrpld/app/tx/detail/Payment.cpp:623:        else if (res == tecINSUFFICIENT_FUNDS || res == tecPATH_DRY)
+src/xrpld/app/tx/detail/Payment.cpp:629:    XRPL_ASSERT(dstAmount.native(), "ripple::Payment::doApply : amount is XRP");
+src/xrpld/app/tx/detail/Payment.cpp:635:        return tefINTERNAL;  // LCOV_EXCL_LINE
+src/xrpld/app/tx/detail/Payment.cpp:637:    // ownerCount is the number of entries in this ledger for this
+src/xrpld/app/tx/detail/Payment.cpp:639:    auto const ownerCount = sleSrc->getFieldU32(sfOwnerCount);
+src/xrpld/app/tx/detail/Payment.cpp:642:    auto const reserve = view().fees().accountReserve(ownerCount);
+src/xrpld/app/tx/detail/Payment.cpp:645:    // fees were charged. We want to make sure we have enough reserve
+src/xrpld/app/tx/detail/Payment.cpp:646:    // to send. Allow final spend to use reserve for fee.
+src/xrpld/app/tx/detail/Payment.cpp:647:    auto const mmm = std::max(reserve, ctx_.tx.getFieldAmount(sfFee).xrp());
+src/xrpld/app/tx/detail/Payment.cpp:649:    if (mPriorBalance < dstAmount.xrp() + mmm)
+src/xrpld/app/tx/detail/Payment.cpp:655:                         << to_string(dstAmount.xrp() + mmm) << " ("
+src/xrpld/app/tx/detail/Payment.cpp:667:        return tecNO_PERMISSION;
+src/xrpld/app/tx/detail/Payment.cpp:683:        // in an unusable state if it sets the lsfDepositAuth flag and
+src/xrpld/app/tx/detail/Payment.cpp:685:        // account with lsfDepositAuth set spent all of its XRP, it
+src/xrpld/app/tx/detail/Payment.cpp:686:        // would be unable to acquire more XRP required to pay fees.
+src/xrpld/app/tx/detail/Payment.cpp:693:        XRPAmount const dstReserve{view().fees().accountReserve(0)};
+src/xrpld/app/tx/detail/Payment.cpp:695:        if (dstAmount > dstReserve ||
+src/xrpld/app/tx/detail/Payment.cpp:696:            sleDst->getFieldAmount(sfBalance) > dstReserve)
+src/xrpld/app/tx/detail/Payment.cpp:698:            if (auto err = verifyDepositPreauth(
+src/xrpld/app/tx/detail/Payment.cpp:705:                !isTesSuccess(err))
+src/xrpld/app/tx/detail/Payment.cpp:711:    sleSrc->setFieldAmount(sfBalance, mSourceBalance - dstAmount);
+src/xrpld/app/tx/detail/Payment.cpp:712:    sleDst->setFieldAmount(
+src/xrpld/app/tx/detail/Payment.cpp:713:        sfBalance, sleDst->getFieldAmount(sfBalance) + dstAmount);
+src/xrpld/app/tx/detail/Payment.cpp:715:    // Re-arm the password change fee if we can and need to.
+src/xrpld/app/tx/detail/Payment.cpp:719:    return tesSUCCESS;
