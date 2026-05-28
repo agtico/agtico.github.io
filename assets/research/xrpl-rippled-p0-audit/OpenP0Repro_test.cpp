@@ -2811,6 +2811,72 @@ class OpenP0Repro_test : public beast::unit_test::suite
     }
 
     void
+    testTrustlinePositiveBalanceTokenEscrowCurrent()
+    {
+        testcase("TrustLine current — TokenEscrow creates positive balance without reserve");
+        using namespace jtx;
+        using namespace std::chrono_literals;
+
+        FeatureBitset const features = testable_amendments() | featureTokenEscrow;
+        Account const gw{"gateway"};
+        Account const alice{"alice"};
+        Account const bob{"bob"};
+        auto const USD = gw["USD"];
+        bool const bobHigh = bob.id() > gw.id();
+
+        Env env{*this, features};
+        auto const baseFee = env.current()->fees().base;
+        env.fund(XRP(400'000), gw, alice, bob);
+        env(fset(gw, asfAllowTrustLineLocking), THISLINE);
+        env.close();
+
+        env(trust(alice, USD(1'000)), THISLINE);
+        env(trust(bob, USD(1'000)), THISLINE);
+        env.close();
+        env(pay(gw, alice, USD(100)), THISLINE);
+        env(pay(gw, bob, USD(100)), THISLINE);
+        env.close();
+
+        env(fclear(gw, asfDefaultRipple), THISLINE);
+        env.close();
+
+        env(trust(bob, USD(0)), THISLINE);
+        env.close();
+        env(pay(bob, gw, USD(100)), THISLINE);
+        env.close();
+
+        auto const bobLine = keylet::line(bob, gw, to_currency("USD"));
+        auto const cleared = env.le(bobLine);
+        if (!BEAST_EXPECT(cleared))
+            return;
+        BEAST_EXPECT(ownerCount(env, bob) == 0);
+        BEAST_EXPECT(!cleared->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+
+        auto const escrowSeq = env.seq(alice);
+        env(escrow::create(alice, bob, USD(40)),
+            escrow::condition(escrow::cb1),
+            escrow::finish_time(env.now() + 1s),
+            fee(baseFee * 150),
+            THISLINE);
+        env.close();
+
+        env(escrow::finish(bob, alice, escrowSeq),
+            escrow::condition(escrow::cb1),
+            escrow::fulfillment(escrow::fb1),
+            fee(baseFee * 150),
+            ter(tesSUCCESS),
+            THISLINE);
+        env.close();
+
+        auto const finished = env.le(bobLine);
+        if (!BEAST_EXPECT(finished))
+            return;
+        BEAST_EXPECT(env.balance(bob, USD) == USD(40));
+        BEAST_EXPECT(ownerCount(env, bob) == 0);
+        BEAST_EXPECT(!finished->isFlag(bobHigh ? lsfHighReserve : lsfLowReserve));
+    }
+
+    void
     testDisallowIncomingTrustlineOfferCreateCurrent()
     {
         testcase("TrustLine current — OfferCreate bypasses DisallowIncomingTrustline");
@@ -3648,6 +3714,7 @@ public:
         testTrustlinePositiveBalanceCheckCashCurrent();
         testTrustlinePositiveBalanceCheckCashExistingOwnersCurrent();
         testTrustlinePositiveBalanceCheckCashReserveBoundaryCurrent();
+        testTrustlinePositiveBalanceTokenEscrowCurrent();
         testDisallowIncomingTrustlineOfferCreateCurrent();
         testDisallowIncomingTrustlineNFTokenAcceptCurrent();
         testDisallowIncomingTrustlineNFTokenBrokerFeeCurrent();

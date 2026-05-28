@@ -109,7 +109,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash creates positive balance without reserve
-16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 Interpretation: this is a second current-live settlement path for the same
@@ -136,7 +136,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash leaves positive balance unowned with existing owner objects
-16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 Interpretation: this strengthens the same root cause because it rules out a
@@ -163,7 +163,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing leaves positive balance unowned with existing owner objects
-16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side companion to the CheckCash
@@ -192,7 +192,7 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — offer crossing succeeds below missing owner reserve
-16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 Interpretation: this is the offer-side reserve-boundary companion to the
@@ -220,12 +220,38 @@ Proof excerpt:
 
 ```text
 ripple.tx.OpenP0Repro TrustLine current — CheckCash succeeds below missing owner reserve
-16.5s, 1 suite, 64 cases, 16354 tests total, 0 failures
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 Interpretation: this proves the same root cause at the reserve boundary. The
 path succeeds even when the receiver lacks reserve capacity for the owner-count
 increment that should accompany a positive trustline balance.
+
+## Current sibling: TokenEscrow positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Bob clears the same gateway USD trustline back to zero balance, zero limit,
+   `OwnerCount=0`, and no receiver reserve flag.
+2. Alice escrows 40 USD to Bob through TokenEscrow.
+3. Bob finishes the escrow and receives 40 USD.
+4. Bob still has `OwnerCount=0` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+```
+
+Interpretation: this is a third live settlement path for the same old
+receiver-side reserve transition. TokenEscrow correctly checks reserve when it
+must create a missing destination line, but if the line already exists in the
+cleared/no-reserve state, finish can move it positive without charging the
+receiver owner reserve.
 
 Additional dispositions:
 

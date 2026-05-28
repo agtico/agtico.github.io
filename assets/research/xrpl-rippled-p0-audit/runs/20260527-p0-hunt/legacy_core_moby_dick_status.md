@@ -30,6 +30,7 @@ TrustLine current - offer crossing succeeds below missing owner reserve
 TrustLine current - CheckCash creates positive balance without reserve
 TrustLine current - CheckCash leaves positive balance unowned with existing owner objects
 TrustLine current - CheckCash succeeds below missing owner reserve
+TrustLine current - TokenEscrow creates positive balance without reserve
 ```
 
 The packet wrapper reproduced the marker:
@@ -41,18 +42,44 @@ assets/research/xrpl-rippled-p0-audit/repros/TRUSTLINE-POSITIVE-BALANCE-RESERVE-
 Observed wrapper result:
 
 ```text
-local wrapper log sha256: da1ec7a1f191d655d58bf160d456f6bbbd7e8c8c6d025a12b7c392f73de7fd61
+local wrapper log sha256: 8a9500778976093094769df9d0a7d4106bf6fc789a4e9249626603a7a7df17f7
 targeted finding TRUSTLINE-POSITIVE-BALANCE-RESERVE-001 reproduced by marker assertion.
 ripple.tx.OpenP0Repro had 0 failures.
-15.2s, 1 suite, 64 cases, 16354 tests total, 0 failures
+16.4s, 1 suite, 65 cases, 16418 tests total, 0 failures
 ```
 
 The full packet verifier also passed:
 
 ```text
 packet-ok
-records=19 markers=24 proof_sha256=ef971fdea2044cd0b1d84916668503bcfc334d8d45a4a211cae9591b074395a4
+records=19 markers=25 proof_sha256=02b5a8dfb409ae43fc7387f700583da21a088fd662deee02664fbef366deffb1
 ```
+
+## Current sibling: TokenEscrow positive-balance reserve drift
+
+Status: reproduced on current `3.1.3` under the same
+`TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` finding.
+
+Minimal behavior:
+
+1. Bob opens a gateway USD trustline, receives 100 USD, clears the limit, and
+   pays the 100 USD back.
+2. The line remains with `OwnerCount=0` and no receiver reserve flag.
+3. Alice escrows 40 USD to Bob through TokenEscrow.
+4. Bob finishes the escrow and receives 40 USD.
+5. Bob still has `OwnerCount=0` and no receiver reserve flag.
+
+Proof excerpt:
+
+```text
+ripple.tx.OpenP0Repro TrustLine current — TokenEscrow creates positive balance without reserve
+15.3s, 1 suite, 65 cases, 16418 tests total, 0 failures
+```
+
+Interpretation: this is a third current-live settlement path for the same
+reserve/owner-count root cause. It is not counted as a new finding; it confirms
+that the missing transition sits in the shared IOU credit behavior reached by
+multiple ledger-effect paths.
 
 ## Offer Missing-Owner-Reserve Boundary
 
