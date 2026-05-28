@@ -18,8 +18,8 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T03:45:56Z
-amendment_checked_utc: 2026-05-28T03:45:54Z
+runtime_checked_utc: 2026-05-28T03:55:56Z
+amendment_checked_utc: 2026-05-28T03:55:54Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
 ```
 
@@ -454,6 +454,31 @@ scratch tests passed locally in `OpenP0Repro` and were removed from the suite
 before this triage note was written.
 
 These are not promoted findings.
+
+## Current continuation: payment and reserve source-signal sweep
+
+This slice inspected the remaining high-signal old payment/reserve commits
+before returning to broader hunting. No new packet finding was promoted.
+
+`PAYMENT-SANDBOX-DEFERRED-CREDITS-001` was source-reviewed from upstream commit
+`7cfa5d461` / `b8792e242`, "fix: Make assorted Payments fixes (#6585)." The
+commit changes `PaymentSandbox` deferred-credit accounting names and removes a
+debug balance-delta helper, plus initializes `sfBalance` when `Payment` creates
+a destination account. The account-creation branch is already represented in
+the candidate matrix as `PAYMENT-BALANCE-001` and was scratch-tested/demoted:
+exact-reserve XRP account creation succeeds on the current `3.1.3` target. The
+remaining deferred-credit change is a useful payment-path review signal, but
+this slice did not produce a clean current-release transaction witness showing
+unauthorized movement, reserve drift, invariant failure, or consensus-visible
+state corruption. Keep it as a focused path-payment/MPT review target, not a
+packet finding.
+
+`TXQ-MIN-RESERVE-POTENTIAL-SPEND-001` was source-reviewed from historical
+commit `e7a69cce6`, "Account for minimum reserve in potential spend." That fix
+is already an ancestor of the current `3.1.3` proof target and `origin/develop`.
+It resolved an old queued-transaction fee/reserve accounting issue and also
+changed legacy Escrow/PayChan owner-count writes to `adjustOwnerCount()`. Since
+the current target already contains it, it is not a live Moby Dick candidate.
 
 ## PayChan Legacy Probe
 
