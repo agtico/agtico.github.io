@@ -66,6 +66,36 @@ After the scratch-only case was removed, the upstream packet harness returned:
 16.0s, 1 suite, 70 cases, 16752 tests total, 0 failures
 ```
 
+## Current source kill: PaymentChannel close and owner-directory migration
+
+Status: tested through existing upstream suites and not promoted.
+
+Hypothesis: payment-channel close, claim, fund, account-delete, or recipient
+owner-directory migration around `fixPayChanRecipientOwnerDir` might strand a
+channel, leak an owner-directory entry, miss an obligation, or corrupt owner
+counts.
+
+Existing upstream coverage exercised old-style channels without recipient
+backlinks, new-style channels with recipient backlinks, mixed amendment
+activation, destination account deletion and resurrection, claim/fund behavior
+after destination deletion, close/refund cleanup, tickets, metadata ownership,
+deposit authorization, credentials, and account-delete obligation checks.
+
+Source-kill artifact:
+
+```text
+runs/20260527-p0-hunt/paychan_accountdelete_source_kill_20260528.log
+sha256: a26cd88fb8f0746c44708dd951b2132d5f907ab6fd7f911bd4d3113c2368985f
+```
+
+Proof excerpt:
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.PayChan had 0 failures.
+22.0s, 2 suites, 64 cases, 11535 tests total, 0 failures
+```
+
 ## Old-tag hardening: trustline positive-balance reserve drift
 
 Status: reproduced on the buildable `2.5.0`, `2.0.0`, and `1.5.0` release tags

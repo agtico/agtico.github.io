@@ -127,6 +127,23 @@ probe returned `tecDIR_FULL`, left no PayChannel object, and left the source
 `paychan_dest_dirfull_source_kill_20260528.log` has sha256
 `ff0ac270d50fc9424eed8d077be0b91e08d7f771ec4cbf1aed37f7425dd3f8cc`.
 
+`PAYCHAN-LEGACY-CLOSE-OWNERDIR-001` asked whether close, claim, fund,
+account-delete, or old/new recipient-owner-dir migration around
+`fixPayChanRecipientOwnerDir` can strand a channel or leak owner-directory /
+obligation state. Existing upstream `PayChan` and `AccountDelete` coverage
+passed across old-style channels, new-style recipient backlinks, mixed
+activation, destination deletion/resurrection, claim/fund after deletion,
+close/refund cleanup, metadata ownership, tickets, DepositAuth, credentials,
+and account-delete obligation checks. Source-kill artifact
+`paychan_accountdelete_source_kill_20260528.log` has sha256
+`a26cd88fb8f0746c44708dd951b2132d5f907ab6fd7f911bd4d3113c2368985f`.
+
+```text
+ripple.app.AccountDelete had 0 failures.
+ripple.app.PayChan had 0 failures.
+22.0s, 2 suites, 64 cases, 11535 tests total, 0 failures
+```
+
 After removing scratch-only probes, the upstream `OpenP0Repro` suite returned:
 
 ```text
