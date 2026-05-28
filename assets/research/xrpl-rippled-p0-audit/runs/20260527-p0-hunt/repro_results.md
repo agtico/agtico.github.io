@@ -1973,8 +1973,39 @@ and amount/invariant handling, but did not produce a new result-code,
 owner-count, directory, amount, authorization, freeze, clawback, MPT, or
 invariant witness.
 
+## Demoted: Credentials current-tag transaction surface sweep
+
+Status: source-reviewed and suite-tested on upstream `3.1.3`; not a separate
+finding.
+
+The next broader live-feature pass focused on Credentials create, accept,
+delete, helper cleanup, DepositAuth, PermissionedDomains, DID, AccountDelete,
+owner directories, owner counts, RPC visibility, and invariant paths. The
+sweep covered `CredentialCreate`, `CredentialAccept`, `CredentialDelete`,
+`deleteSLE`, `removeExpired`, `verifyDepositPreauth`, `verifyValidDomain`,
+`PermissionedDomainSet/Delete`, DID cleanup, `AccountObjects`, `OwnerInfo`,
+`DepositAuthorized`, owner-directory boundaries, and credential-visible
+settlement surfaces.
+
+The focused source/history sweep and upstream suites were packet-bound:
+
+```text
+credentials_current_tag_surface_static_sweep_20260528.log sha256 43b494f6da8ca4c8d9bca5278ca8592b2f8b936eecfadb5a33f391055488139c
+credentials_current_tag_surface_history_sweep_20260528.log sha256 0ba4427881b5e9100b76ba4ac4a1f115370dd8ab59686171330baaa2bcd219be
+credentials_current_tag_surface_source_kill_20260528.log sha256 de40b800e94e4a19b09e3e54d14ffd2731cad298e9cbd60924fb533ef3555b58
+101.7s, 15 suites, 381 cases, 48135 tests total, 0 failures
+```
+
+Interpretation: this pass did not isolate a new live Credentials P0. The
+checked paths reinforce existing packet and triage entries around
+PermissionedDEX credential usage, DepositAuth credential authorization, DID and
+Credentials lifecycle cleanup, owner-directory boundaries, and RPC visibility,
+but did not produce a new credential create/accept/delete, expired-credential
+cleanup, PermissionedDomain, DID, account-cleanup, owner-count, directory, or
+invariant witness.
+
 ## Open candidates
 
-The bridge, NFT, Credentials, authorization, and remaining vault/loan
-candidates are source-backed or model-triaged but not reproduced. They stay in
+The bridge, NFT, authorization, and remaining vault/loan candidates are
+source-backed or model-triaged but not reproduced. They stay in
 `candidate_matrix.md` until a clean jtx or unit-level repro exists.

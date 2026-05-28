@@ -18,15 +18,15 @@ s2.ripple.com: rippled 3.1.3, ledger 104527318, hash 561F36C3B8C6EF66D643DF6157B
 Direct live receipts were refreshed again during the current continuation:
 
 ```text
-runtime_checked_utc: 2026-05-28T10:07:37Z
-amendment_checked_utc: 2026-05-28T10:07:35Z
+runtime_checked_utc: 2026-05-28T10:16:36Z
+amendment_checked_utc: 2026-05-28T10:16:34Z
 receipt files: direct_xrpl_mainnet_runtime_status_20260527.json, direct_xrpl_amendment_status_20260527.json
-s1.ripple.com: rippled 3.1.3, ledger 104535288, hash EF2AC48D8E65E5EF91B50F90417B95578C398AA75A0E600F81CE3E33E201FA8F
-s2.ripple.com: rippled 3.1.3, ledger 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
-runtime feature/amendment receipt ledger: 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
-amendment feature/amendment receipt ledger: 104535289, hash 8F3B923DDBE54BCD5973FC0F8B6B3A11E0BC0CD0711C3A7C2CC77525CA1A6FDE
-runtime receipt sha256: 3d76c4ba5e7cca8e1ab7ea88a123257cfe6272af943ccd3714e580a26ed64c01
-amendment receipt sha256: bb8d90e251a7c18ad4d4ff218b5dea9c959dc3d935d3a5dc77bd924ab26c291b
+s1.ripple.com: rippled 3.1.3, ledger 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
+s2.ripple.com: rippled 3.1.3, ledger 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
+runtime feature/amendment receipt ledger: 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
+amendment feature/amendment receipt ledger: 104535428, hash C1197C2562CDD2F7F4C68D8374D45C192EC42149328B5D5FC392182545F358D6
+runtime receipt sha256: 38785ee304da1efe3d4bce62f183ef7d5db0b3927fd63ec01a6307461e3b3ae5
+amendment receipt sha256: 0abb2801c2d86dc6cef0da3215f059733d82644b3ac957e58fb8e7e5eb8361ae
 DID/fixEmptyDID feature receipt: direct_xrpl_did_feature_status_20260528.json
 DID/fixEmptyDID feature receipt sha256: e97e39ecd9ebf7e83a144887c65e330c664e70230b823ac2dbbe6e0ad8bace4c
 DID/fixEmptyDID feature receipt ledger: 104534260, hash 8D35F7DE95FF6BDCC513DDDA29C4943D48BD6B18D4FE98C6D2B6B59FC34A6F71
@@ -73,6 +73,8 @@ Completed and packet-bound work:
 - legacy payment/path result-code, amount/issue, and fee-boundary sweep.
 - native XRP payment account-create, destination-tag, DisallowXRP,
   DepositAuth, and result-code boundary sweep.
+- Credentials create, accept, delete, helper cleanup, DepositAuth, domain, RPC,
+  owner-directory, owner-count, and invariant source and suite sweep.
 
 Current conclusion: `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001` remains the best
 old, simple, live, unfixed Moby Dick candidate. The later source-kill phases
@@ -131,6 +133,19 @@ tokenescrow_resultcode_invariant_static_sweep_20260528.log sha256 a38b3fc2f7b5fb
 tokenescrow_resultcode_invariant_history_sweep_20260528.log sha256 031ddf73f8b1ea7acb68f4bc4c2ac346ae656d97539762130fa20bf3bd3bab9f
 tokenescrow_resultcode_invariant_source_kill_20260528.log sha256 11cf95bd00a8e169a62df4968d679556fbc1a925efe2d5e9fab5f7b873fb94a5
 122.4s, 13 suites, 447 cases, 169461 tests total, 0 failures
+```
+
+The following broader live-feature continuation checked Credentials create,
+accept, delete, helper cleanup, DepositAuth, PermissionedDomains, DID,
+AccountDelete, owner directories, owner counts, RPC visibility, and invariant
+paths. It did not promote a new finding. The pass source-killed the remaining
+current-tag Credentials lane and left the 19-record packet manifest unchanged.
+
+```text
+credentials_current_tag_surface_static_sweep_20260528.log sha256 43b494f6da8ca4c8d9bca5278ca8592b2f8b936eecfadb5a33f391055488139c
+credentials_current_tag_surface_history_sweep_20260528.log sha256 0ba4427881b5e9100b76ba4ac4a1f115370dd8ab59686171330baaa2bcd219be
+credentials_current_tag_surface_source_kill_20260528.log sha256 de40b800e94e4a19b09e3e54d14ffd2731cad298e9cbd60924fb533ef3555b58
+101.7s, 15 suites, 381 cases, 48135 tests total, 0 failures
 ```
 
 It is a baseline IOU trustline and settlement accounting issue, not a new

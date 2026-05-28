@@ -1,6 +1,6 @@
 # Live XRPL P0 Hunt V2 Triage
 
-Checked: `2026-05-28T10:07:35Z`
+Checked: `2026-05-28T10:16:34Z`
 
 ## Live Scope
 
@@ -211,6 +211,15 @@ one of the WHIP gates:
   authorization, freeze, clawback, MPT, or invariant witness was isolated beyond
   the already packeted TokenEscrow DisallowIncoming and trustline-reserve
   markers.
+- `CREDENTIALS-CURRENT-TAG-SURFACE-SWEEP-001` source-killed the remaining
+  current-tag Credentials lane. Static/history review plus `Credentials`,
+  `DepositAuth`, `DepositPreauth`, `PermissionedDomains`, `DID`,
+  `AccountDelete`, `Invariants`, `Escrow`, `EscrowToken`, `MPToken`,
+  `DepositAuthorized`, `AccountObjects`, `OwnerInfo`, and `AccountTx` passed
+  with 381 cases and 48,135 tests. No new credential create/accept/delete,
+  expired-credential cleanup, DepositAuth, PermissionedDomain, DID,
+  account-cleanup, RPC visibility, owner-count, directory, or invariant witness
+  was isolated.
 - The remaining legacy-core queue was also source-reviewed in this pass:
   `TRUSTSET-LEGACY-RESERVE-CARVEOUT-001`, `TICKET-LEGACY-SEQUENCE-COLLISION-001`,
   and `ESCROW-LEGACY-XRP-DELETE-EDGE-001` did not produce a clean current-tag
@@ -252,7 +261,7 @@ the checked `3.2.0-b7` or `origin/develop` refs:
 
 ## Next Hunt Targets
 
-The next high-yield live-only review should stay inside:
-
-1. Credentials current-tag transaction paths that do not rely on disabled
-   cleanup-era behavior.
+No explicit remaining current-tag live-feature target is listed in this lane.
+The next pass should pivot only if a new source signal appears, or return to
+the whip's legacy-core source-signal queue instead of forcing another
+Credentials variant without a new lead.
