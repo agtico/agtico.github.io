@@ -19,7 +19,7 @@ tags:
   <p><strong>The contention.</strong> As it stands today, Post Fiat inherits the XRP Ledger. Our controlled testnet runs on a maintained <code>XRPLF/rippled</code> fork, and prior to this work the operating assumption was simple: we are live on that fork and we inherit its package updates as they ship. This article exists because we are now testing that assumption directly. We are in the midst of a full-scale security audit of the upstream codebase to settle two questions: <strong>(1)</strong> which XRPL features Post Fiat actually needs to support, and <strong>(2)</strong> whether the inherited implementation is sound enough to build on — or whether Post Fiat needs its own chain. That is the context for everything below.</p>
   <p><strong>Audience and intent.</strong> This report is written for Post Fiat validators; it is the evidence base for those two decisions. Over the coming weeks we will also put forth best-effort pull requests upstream to <code>XRPLF/rippled</code> for the findings that warrant one.</p>
   <p><strong>Baseline.</strong> The audit targets upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p><strong>What the packet contains.</strong> The packet reproduces 22 individual behaviors as local jtx cases, but they collapse to a much smaller set of distinct findings, and we count them that way. Unfixed in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs: <strong>five distinct findings</strong> — three core safety/accounting defects (a baseline IOU reserve/owner-count asymmetry, an MPT lock-state deletion, an MPT transfer-rate overflow), <strong>one policy-enforcement pattern reproduced across thirteen transaction-family paths</strong> (DisallowIncoming / DepositAuth enforced on direct paths but not on indirect settlement — one architectural issue, not thirteen criticals, and of genuinely contested severity; see Severity Calibration), and one minor issuer self-exemption. Separately, <strong>five findings were remediated after 3.1.3</strong>. A later continuation sweep adds overlay-layer, invariant-layer, and consensus-trust-model findings in their own sections below.</p>
+  <p><strong>What the packet contains.</strong> The packet reproduces 22 individual behaviors as local jtx cases, but they collapse to a much smaller set of distinct findings, and we count them that way. Unfixed in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs: <strong>five distinct findings</strong> — three core safety/accounting defects (a baseline IOU reserve/owner-count asymmetry, an MPT lock-state deletion, an MPT transfer-rate overflow), <strong>one policy-enforcement pattern reproduced across thirteen transaction-family paths</strong> (DisallowIncoming / DepositAuth enforced on direct paths but not on indirect settlement — one architectural issue of genuinely contested severity, counted once; see Severity Calibration), and one minor issuer self-exemption. Separately, <strong>five findings were remediated after 3.1.3</strong>. A later continuation sweep adds overlay-layer, invariant-layer, and consensus-trust-model findings in their own sections below.</p>
   <p><strong>Proof model:</strong> each packet finding is reproduced in a clean local upstream jtx harness, bound to a named marker, checked against live amendment state from direct XRPL JSON-RPC, and backed by a static packet verifier.</p>
 </div>
 
@@ -31,7 +31,7 @@ This is a fork-inheritance audit. The practical question is whether a new chain 
 
 A finding only enters the inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
 
-The publisher's incentives are stated plainly. Post Fiat is building in the same authority-validator settlement lineage that made XRPL important, and this audit exists to decide whether direct RippleD inheritance is engineering leverage or inherited risk. Do not take the conclusions on our motives. Take them on what reproduces: the manifest, the live-amendment receipt, the local jtx proof markers, the remediation refs, and the verifier hash. Every claim here reduces to one of those.
+The publisher's incentives are stated plainly. Post Fiat is building in the same authority-validator settlement lineage that made XRPL important, and this audit exists to decide whether direct RippleD inheritance is engineering leverage or inherited risk. Weigh the conclusions against what reproduces: the manifest, the live-amendment receipt, the local jtx proof markers, the remediation refs, and the verifier hash. Every claim here reduces to one of those.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
@@ -42,7 +42,7 @@ The publisher's incentives are stated plainly. Post Fiat is building in the same
   <div class="pearl-scorecard warn">
     <span class="label">Core safety/accounting</span>
     <span class="value">3</span>
-    <span class="hint">Reserve/owner-count asymmetry, MPT lock-state deletion, MPT transfer-rate overflow — not policy-dependent.</span>
+    <span class="hint">Reserve/owner-count asymmetry, MPT lock-state deletion, MPT transfer-rate overflow — policy-independent.</span>
   </div>
   <div class="pearl-scorecard good">
     <span class="label">Remediating</span>
@@ -62,13 +62,13 @@ The main pattern is straightforward: direct paths often enforce account policy, 
 
 This report is public because fork-inheritance claims need to be falsifiable. A private assertion that "RippleD is too risky to inherit" would be useless to downstream engineers; a packet with a manifest, exact baseline, live-surface gate, local reproducer, and verifier can be checked or refuted.
 
-The reproduction scripts are not mainnet wallet scripts. They are local `jtx` harness wrappers that run the upstream `OpenP0Repro` unit-test target and assert named proof markers. They do not require a mainnet wallet, do not submit transactions to XRPL mainnet, and do not depend on explorer state. The live-chain component is the amendment/runtime receipt used to decide whether a locally reproduced surface is relevant to current mainnet semantics.
+The reproduction scripts are local `jtx` harness wrappers that run the upstream `OpenP0Repro` unit-test target and assert named proof markers. They require no mainnet wallet, submit nothing to XRPL mainnet, and read no explorer state. The live-chain component is the amendment/runtime receipt used to decide whether a locally reproduced surface is relevant to current mainnet semantics.
 
-This does not make public disclosure risk-free. It does make the report's blast radius materially different from a live exploit runbook. The point is to let maintainers, fork authors, auditors, and infrastructure operators distinguish three things that are often blurred together: reproducible state-transition behavior, live amendment relevance, and the policy question of whether upstream considers the behavior intended.
+Public disclosure still carries risk, but the report's blast radius is materially different from a live exploit runbook. The point is to let maintainers, fork authors, auditors, and infrastructure operators distinguish three things that are often blurred together: reproducible state-transition behavior, live amendment relevance, and the policy question of whether upstream considers the behavior intended.
 
 ## Severity Calibration
 
-The scores in this report are internal fork-inheritance risk scores. They are not CVSS scores, official CVEs, or an upstream severity assignment. They answer a narrower engineering question: "how dangerous or expensive is this behavior for a chain deciding whether to inherit `rippled 3.1.3` semantics?"
+The scores in this report are internal fork-inheritance risk labels for our own prioritization, calibrated to one engineering question: "how dangerous or expensive is this behavior for a chain deciding whether to inherit `rippled 3.1.3` semantics?" They carry no CVSS or CVE weight.
 
 <div class="xrpl-calibration-grid">
   <div class="xrpl-calibration-card critical">
@@ -166,7 +166,7 @@ flowchart TB
     C -. expected invariant .-> G
 ```
 
-The system-level lesson is that receiver/issuer policy should live at the shared ledger-effect boundary. If each transaction family has to remember every policy check independently, every new settlement path becomes another bypass candidate. The policy cluster is therefore not framed as "every instance independently drains funds." It is framed as evidence that the implementation distributes policy across too many call sites.
+The system-level lesson is that receiver/issuer policy should live at the shared ledger-effect boundary. If each transaction family has to remember every policy check independently, every new settlement path becomes another bypass candidate. The policy cluster therefore stands as evidence that the implementation distributes policy across too many call sites.
 
 <div class="xrpl-surface-map">
   <div class="xrpl-surface-card hot">
