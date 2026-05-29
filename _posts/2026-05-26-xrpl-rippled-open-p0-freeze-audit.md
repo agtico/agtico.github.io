@@ -16,9 +16,11 @@ tags:
 ---
 
 <div class="pearl-primer-box xrpl-lede">
-  <p><strong>Context:</strong> Post Fiat is increasingly far along on controlled-testnet engineering. As part of deciding whether to directly support or inherit a RippleD-derived codebase, we ran a focused internal audit of upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
-  <p><strong>Current packet:</strong> The packet contains <strong>22 reproduced findings</strong> on XRPL mainnet-enabled surfaces: <strong>17 findings with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 findings with post-3.1.3 remediation evidence</strong>. Wave 3 (2026-05-28) added 3 family-extension findings — issuer-self GlobalFreeze blocks NFT offer in own currency, AMMBid refund bypasses DisallowIncomingTrustline, NFTokenAcceptOffer bypasses recipient DepositAuth. All three were jtx-confirmed.</p>
-  <p><strong>Proof model:</strong> each finding is reproduced in a clean local upstream jtx harness, bound to a named marker, checked against live amendment state from direct XRPL JSON-RPC, and backed by a static packet verifier.</p>
+  <p><strong>The contention.</strong> As it stands today, Post Fiat inherits the XRP Ledger. Our controlled testnet runs on a maintained <code>XRPLF/rippled</code> fork, and prior to this work the operating assumption was simple: we are live on that fork and we inherit its package updates as they ship. This article exists because we are now testing that assumption directly. We are in the midst of a full-scale security audit of the upstream codebase to settle two questions: <strong>(1)</strong> which XRPL features Post Fiat actually needs to support, and <strong>(2)</strong> whether the inherited implementation is sound enough to build on — or whether Post Fiat needs its own chain. That is the context for everything below.</p>
+  <p><strong>Audience and intent.</strong> This report is written for Post Fiat validators; it is the evidence base for those two decisions. Over the coming weeks we will also put forth best-effort pull requests upstream to <code>XRPLF/rippled</code> for the findings that warrant one.</p>
+  <p><strong>Baseline.</strong> The audit targets upstream <code>XRPLF/rippled</code>, baseline <code>3.1.3</code>, commit <code>46b241ace8b30d9c9775d60ffba7d24b21903896</code>.</p>
+  <p><strong>Current packet:</strong> <strong>22 reproduced findings</strong> on XRPL mainnet-enabled surfaces — <strong>17 with no confirmed fix</strong> in the checked <code>3.2.0-b7</code> / <code>origin/develop</code> refs, and <strong>5 with post-3.1.3 remediation evidence</strong>. Wave 3 (2026-05-28) added 3 family-extension findings — issuer-self GlobalFreeze blocks NFT offer in own currency, AMMBid refund bypasses DisallowIncomingTrustline, NFTokenAcceptOffer bypasses recipient DepositAuth. A later continuation sweep added overlay-layer and invariant-layer findings, set out in their own section below. All findings are jtx- or runtime-reproduced.</p>
+  <p><strong>Proof model:</strong> each packet finding is reproduced in a clean local upstream jtx harness, bound to a named marker, checked against live amendment state from direct XRPL JSON-RPC, and backed by a static packet verifier.</p>
 </div>
 
 ---
@@ -29,17 +31,17 @@ This is a fork-inheritance audit, not a neutral vendor advisory and not a broad 
 
 A finding only enters the inventory if it has a local reproduction wrapper, an expected marker in the `OpenP0Repro` proof log, a risk label, a live-amendment dependency, and remediation status checked against `3.2.0-b7` and `origin/develop`.
 
-The publisher's incentives are not hidden. Post Fiat is building in the same authority-validator settlement lineage that made XRPL important, and this audit exists because we needed to decide whether direct RippleD inheritance was engineering leverage or inherited risk. Readers should not trust the report because they trust our motives. They should trust only the parts that reproduce: the manifest, live-amendment receipt, local jtx proof markers, remediation refs, and verifier hash.
+The publisher's incentives are stated plainly. Post Fiat is building in the same authority-validator settlement lineage that made XRPL important, and this audit exists to decide whether direct RippleD inheritance is engineering leverage or inherited risk. Do not take the conclusions on our motives. Take them on what reproduces: the manifest, the live-amendment receipt, the local jtx proof markers, the remediation refs, and the verifier hash. Every claim here reduces to one of those.
 
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard warn">
     <span class="label">Packet findings</span>
-    <span class="value">19</span>
+    <span class="value">22</span>
     <span class="hint">Reproduced findings on live-enabled surfaces.</span>
   </div>
   <div class="pearl-scorecard warn">
     <span class="label">No confirmed fix</span>
-    <span class="value">14</span>
+    <span class="value">17</span>
     <span class="hint">No confirmed fix in checked 3.2.0-b7 / origin-develop refs.</span>
   </div>
   <div class="pearl-scorecard good">
@@ -77,18 +79,18 @@ The scores in this report are internal fork-inheritance risk scores. They are no
   <div class="xrpl-calibration-card">
     <span>Policy-enforcement cluster</span>
     <strong>Important as a repeated implementation pattern</strong>
-    <p>The DisallowIncoming and DepositAuth cases generally do not allege fund loss, unauthorized minting, or consensus divergence. They show that a direct-path policy can be bypassed by indirect settlement paths. If upstream intends those flags to be soft preferences, that should be specified. If they are hard account policies, enforcement belongs at the shared ledger-effect boundary.</p>
+    <p>The DisallowIncoming and DepositAuth cases are enforcement-consistency failures: a policy the direct path enforces is bypassed by an indirect settlement path that reaches the same ledger effect. If upstream intends those flags as soft preferences, that should be specified. If they are hard account policies, enforcement belongs at the shared ledger-effect boundary — not re-implemented per transaction family.</p>
   </div>
   <div class="xrpl-calibration-card remediated">
     <span>Remediation evidence</span>
     <strong>Upstream activity is part of the signal</strong>
-    <p>The five remediating findings show that some issues are being fixed in beta/develop. This report uses those fixes to calibrate risk rather than to claim upstream is inactive.</p>
+    <p>Five findings are being fixed in beta/develop. We use those landed fixes to calibrate inheritance risk: where upstream is already moving, a fork can track it; where it is not, the fork carries the surface itself.</p>
   </div>
 </div>
 
 The policy cluster remains high fork-risk even when it is not direct fund loss. A ledger-visible flag named `DisallowIncomingTrustline` or `DepositAuth` is a contract with wallets, issuers, auditors, and downstream protocol authors. If that contract only applies to some transaction families, the boundary must be explicit in the protocol specification and centralized in implementation. If it is not explicit, every new settlement path becomes a semantic trap: the direct path says "rejected," while an indirect path reaches the same ledger effect.
 
-That is why the count matters. Eleven similar policy findings are not presented as eleven identical theft bugs. They are evidence that the same invariant has to be rediscovered across offers, NFTs, checks, escrows, AMMs, AMM clawback, and AMM auction refunds. For Post Fiat, that is the exact kind of inherited maintenance hazard a new codebase is supposed to eliminate.
+That is why the count matters. Eleven similar policy findings are eleven instances of one invariant going unenforced — rediscovered across offers, NFTs, checks, escrows, AMMs, AMM clawback, and AMM auction refunds. For Post Fiat, that is the exact kind of inherited maintenance hazard a new codebase is supposed to eliminate.
 
 ## How To Read The Packet
 
@@ -201,15 +203,15 @@ Three corroborating facts, each independently checkable in a single command (App
 
 3. **Invariant layer at 3.1.3 does not catch the resulting state.** `src/xrpld/app/tx/detail/InvariantCheck.h` defines twenty-five invariant classes. The only `sfOwnerCount` checks in `InvariantCheck.cpp` are `AccountRootsDeletedClean::finalize` (fires only when an account is being deleted, requires `OwnerCount == 0`) and `ValidLoanBroker::finalize` (LoanBroker-specific). There is no general invariant for "an account's `OwnerCount` equals the count of its owner-directory entries" or "a trustline's positive-balance side has its reserve flag set." A transaction that leaves either consistency property broken therefore commits without an invariant violation.
 
-This is not a fund-draining exploit. Per occurrence it costs the network roughly one trustline owner reserve that should have been charged but was not, plus a `RippleState` object that exists without reserve backing. It is an accounting-integrity defect at a foundational layer, not a balance-theft vector. What makes it the most consequential single item in this packet is the combination of the three facts above: deep in the stack, not amendment-gated, fix not yet landed, and not caught by the invariant pass.
+This is a foundational accounting-integrity defect. Each occurrence leaks one trustline owner reserve that should have been charged and leaves a `RippleState` object with no reserve backing. It is the most consequential single item in the packet for a precise reason: it sits in the baseline IOU credit primitive, is gated by no amendment, has no landed fix, and is invisible to the invariant pass. The cost is integrity rather than direct theft — and at a foundational layer that every fork inherits, an uncharged-reserve drift in the core credit primitive is the more expensive kind of defect to carry.
 
-A note on practical reachability. The PR author's own description in [#5867](https://github.com/XRPLF/rippled/pull/5867) emphasizes that the failure mode is easiest to construct via `Checks` and the `CheckCash` settlement path; the offer-crossing route is harder to drive against the same trustline-reserve preconditions. Several of this finding's twelve markers (`AMMWithdraw`, `AMMClawback`, `AMM` paired-asset returns) reach `rippleCreditIOU` along paths that primarily drive a holder's IOU balance *toward* zero — i.e. the sender-side branch that is already handled — and only secondarily exercise the unhandled positive-transition edge. The conservative reading of this finding is: one solidly reachable scenario (CashCheck + prior trustline-clearing), several adjacent scenarios that touch the same primitive but reach the buggy branch under narrower conditions, and a clear architectural defect at the helper level that the invariant layer doesn't catch.
+Reachability is concrete. The solidly reachable route is `CashCheck` settlement against a trustline that was previously cleared — the path the PR author's own description in [#5867](https://github.com/XRPLF/rippled/pull/5867) emphasizes. Several of this finding's twelve markers (`AMMWithdraw`, `AMMClawback`, `AMM` paired-asset returns) reach `rippleCreditIOU` primarily along the already-handled toward-zero path and exercise the unhandled positive-transition edge only under narrower conditions. The defect at the helper level is unconditional, and the invariant layer does not catch the resulting state.
 
 The introducing commit is datable. The sender-side reserve-clear branch in what is now `rippleCreditIOU` was added by commit [`96733c287476b7279289e8884a357a1c827a7bf7`](https://github.com/XRPLF/rippled/commit/96733c287476b7279289e8884a357a1c827a7bf7) on **2013-03-31**, subject "Add trust auto clear. Fixes #28", author Arthur Britto. That commit added the clear-on-balance-falling-to-zero half of trust auto-clear; the matching re-acquire-on-balance-rising-into-positive half on an existing line was never added in the same change and has not been added since. The asymmetry has been carried forward through every restructuring of the IOU credit primitive — present at the introducing commit, at `46b241a` (3.1.3), and at `upstream/develop` HEAD at the snapshot date, where `rippleCreditIOU` still contains a single `saBefore > beast::zero && saBalance <= beast::zero` sender-side branch and no symmetric receiver-side branch. Between 2013-03-31 and 2026-05-28 is approximately thirteen years and two months. The packet's binary repros on tags `1.5.0`, `2.0.0`, `2.5.0`, and `3.1.3` and the source-lineage report in `verify_trustline_positive_balance_lineage.py` (sampled refs `0.12.0` through `3.1.3`) corroborate that the same shape has been live across that span.
 
 ## Inventory
 
-Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact. The near-uniform 8.0 across the policy cluster is intentional — those findings are scored as facets of one architectural concern, not as eleven independently calibrated severities. Whether the underlying ledger flags are meant as hard invariants or soft preferences is a real spec question rather than self-evident, and that question is not settled by this report.
+Read the `Risk` column as internal fork-inheritance risk. For the policy cluster, the score reflects repeated cross-path enforcement drift and downstream audit burden; for the core safety/accounting findings, it reflects direct state-safety impact. The near-uniform 8.0 across the policy cluster is a deliberate scoring choice: these are facets of one architectural concern — the same receive-policy invariant rediscovered across transaction families — not eleven independent severities. Whether upstream intends those ledger flags as hard invariants or soft preferences is a specification question the protocol should answer; for a chain deciding what to inherit, an unspecified policy boundary is itself the risk.
 
 | ID | Risk | Status | Surface | Exploit class | Repro |
 |---|---:|---|---|---|---|
@@ -625,23 +627,63 @@ ripple.tx.OpenP0ReproCrash had 0 failures.
 
 The per-finding wrapper reads `repro_manifest.json`, runs the upstream local jtx proof suite, asserts the targeted marker, and requires the zero-failure proof footer.
 
-## Current Hunt State
+## Overlay-Layer And Invariant Findings (Continuation Sweep)
 
-The public packet should be read as the current promoted evidence set, not as a scratchpad of every candidate investigated. After the live-only inventory was assembled, additional continuation sweeps source-killed several branches rather than adding new public findings:
+The packet above is transaction-apply-layer work. A continuation pass extended the same four-trap method to two surfaces a fork inherits wholesale, independent of amendment state: the **peer/overlay network layer** and the **invariant layer**. The distinction that matters here is structural. The transaction-apply path is wrapped in three layers of `try/catch` (`applySteps.cpp`, `apply.cpp`, `BuildLedger.cpp`), so a thrown exception during transaction processing becomes a failed transaction, not a crash. The overlay layer has no such backstop: an unhandled exception on a peer-read strand reaches `std::terminate()`. The findings below are stated at their real severity.
 
-- `Credentials` lifecycle/RPC/invariant sweep;
-- `XChainBridge` live gate, which remains disabled on checked mainnet state;
-- OFAC XRP address, deep-freeze, clawback, NFT settlement, and RPC metadata sweep;
-- MPT delivered-amount metadata/RPC sweep over `fixMPTDeliveredAmount`;
-- broader AMM, PermissionedDEX, and TokenEscrow sibling sweeps beyond the already packeted findings.
+**Two memory-safety bugs in the `[ledger_replay]` surface — opt-in, off by default.** The ledger-replay feature (`Config::LEDGER_REPLAY`, experimental since rippled 1.7.0, default off) processes peer-supplied `TMProofPathResponse` / `TMReplayDeltaResponse` messages. `LedgerReplayMsgHandler::processProofPathResponse` (`LedgerReplayMsgHandler.cpp:99`) calls `deserializeHeader` on a present-but-truncated `ledgerheader` with no `try/catch` on the peer strand; `SerialIter` throws on buffer underrun and the throw propagates to `std::terminate()`. This is **binary-reproduced** (`LedgerReplay_test::testShortHeaderCrash`): a connected peer, unauthenticated, crashes any node running `[ledger_replay]`, and can crash-loop it on reconnect. A second, lower-severity bug in the same path (`verifyProofPath`, a depth-64 off-by-one) performs a one-byte out-of-bounds read whose result is then masked. Both require the operator to have enabled `[ledger_replay]`; a default node never processes these messages. They are a P0 and a hygiene defect **for replay-enabled operators**, not network-default. The fix is a `try/catch` around `deserializeHeader`, mirroring the guard `InboundLedger::processData` already has on the default-config sibling path.
 
-Those negative results are useful, but they do not change the public count. The current live packet remains `19` reproduced findings, `14` with no confirmed fix in the checked refs, and `5` with post-3.1.3 remediation evidence. The strongest old-core finding remains `TRUSTLINE-POSITIVE-BALANCE-RESERVE-001`, reproduced across the current target and older release-line anchors in the packet evidence.
+**One overlay concurrency defect — default config, low impact.** `PeerImp::doAccept` makes an inbound peer broadcast-visible (`overlay_.activate()`, `PeerImp.cpp:784`) before issuing the handshake-response `async_write` (`:803`), and that write bypasses the `send_queue_` machinery that elsewhere guarantees a single outstanding write per stream. A relayed validation/proposal/transaction landing in that window starts a second concurrent `async_write` on the same TLS stream — an Asio single-writer violation. The overlap **reproduces at runtime** (`OverlayConcurrentWrite_test`), but it does **not** crash the node: both writes share the peer strand, so the underlying `SSL_write` calls serialize in time and never access the OpenSSL object concurrently. The realistic effect is out-of-order ciphertext on that one connection — the affected peer link drops — not a node crash. The fix is to defer `activate()` until the handshake write completes. We flag this at its corrected severity (≈P2) precisely because the first-pass theory of a network-wide crash did not survive its own reproduction.
+
+**Invariant-layer gaps.** Consistent with the trustline-reserve finding, the invariant pass has coverage holes. `InvariantCheck.cpp` overwrites its violation accumulator (`bad_ =`) instead of OR-ing it (`bad_ |=`) in the MPT amount check, so a violation flagged by one ledger entry can be masked by a later in-range entry in the same transaction. There is no invariant enforcing MPT `OutstandingAmount <= MaximumAmount` or MPT balance conservation. And the AMM invariant does not verify the constant-product relation on `Payment` / `OfferCreate` — only on AMM-management transactions. No exploit is demonstrated through these; they are the same architectural pattern as the reserve finding — the invariant layer trailing the transaction layer — and they are what a fork inherits as latent debt.
+
+The fork-inheritance reading of this section is narrow and concrete: the only memory-safety crashes are in opt-in code, but that code is materially less hardened than the default paths, and the invariant layer that should be the last line of defense has documented gaps. A chain that enables ledger replay, or that builds on this overlay and invariant code, inherits exactly those weaknesses.
+
+## The Inherited Trust Model: Consensus Safety Is Not Code-Enforced
+
+Everything above is implementation. This is the architecture — and for a fork-inheritance decision it is the load-bearing finding. XRPL's fork-freedom guarantee has two halves: each node requires a local quorum (≥80% of its own trusted validators), and every pair of honest nodes must run trusted-validator lists (UNLs) that overlap by ≥~90%. **rippled enforces the first in code and never checks the second.**
+
+`ValidatorList::calculateQuorum` (`src/xrpld/app/misc/detail/ValidatorList.cpp:1718`) computes quorum entirely from the local node's own UNL — `max(0.8 × effectiveUNL, 0.6 × unlSize)`. There is no term for, and no runtime access to, any other node's UNL. The overlap precondition — the actual fork-freedom requirement — is never evaluated. There is no minimum UNL size (a UNL of one yields quorum one), and the `--quorum` override only logs "potentially unsafe" and obeys. Two nodes, or two publisher lists, whose UNLs drift apart each compute a valid local quorum, each mark their own ledger validated (`LedgerMaster::checkAccept`), and the network forks — no error, no halt.
+
+### Reproduced in rippled's own simulator
+
+This is not an external model. rippled ships a consensus simulation framework (`src/test/csf`, the same one upstream `Consensus_test::testFork` uses). We drive it across decreasing UNL overlap between two validator cliques and let rippled's own algorithm decide the outcome (`src/test/consensus/UNLOverlapImplosion_test.cpp`, run with `--unittest=UNLOverlapImplosion`; output is deterministic and byte-identical across runs):
+
+```
+  overlap  |UNL_A|  |UNL_B|  shared  synced?  branches  verdict
+  100%     20       20       20      yes      1         SAFE (one ledger)
+   ...
+   20%     12       12       4       yes      1         SAFE (one ledger)
+   10%     11       11       2       no       2         *** FORKED *** (split brain)
+    0%     10       10       0       no       2         *** FORKED *** (split brain)
+```
+
+In a benign two-clique partition with no adversary and no latency the visible split appears only at extreme overlap loss — which is precisely the point: the degradation is gradual and silent, and nothing in the code rejects the unsafe trust topology. Under real adversarial conditions (Byzantine validators, network delay) the unsafe zone widens toward the ~90% margin; the benign case is the conservative floor.
+
+### The same mechanism, described by the people who built it
+
+This is not a contested claim. XRPL's own documentation cites the research that competing UNLs "may need 90% overlap in the worst case to prevent a fork," and co-creator David Schwartz describes consensus legitimacy as flowing through trust lists and validator coordination, with UNL alignment and economic adoption determining which ledger survives a split. Schwartz frames it as a strength: because servers default to the same publisher-curated UNL, manufacturing a rival chain requires five separate layers — old-rule validators, a rival UNL, an old-rule code distribution, infrastructure support, and market recognition.
+
+We agree with that description completely. The difference is the lens. The property that makes XRPL fork-resistant is a hard dependency on a trust-and-coordination layer anchored in a handful of centrally-published validator lists (`vl.ripple.com`, `vl.xrplf.org`). For an operator inside that convention it is stability. For an entity deciding whether to **inherit** it, it is the central question: the ledger's safety is not self-enforcing — it rests on a UNL you do not control, with no code backstop if overlap ever degrades.
+
+### The real-world record
+
+The mechanism is not hypothetical. In **February 2025** the network halted for ~64 minutes at ledger 93,927,173 — consensus kept running but validations stopped publishing, the network fragmented ("drift"), and recovery required validator operators to **manually** select a restart point and resume. No funds were lost, but the episode [sparked debate over consensus tradeoffs](https://www.theblock.co/post/338980/xrp-ledger-halt) and the centralization "between a relatively small number of trusted validators." In **March 2026**, Common Prefix [disclosed two consensus liveness bugs](https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-mar2026) in transaction-set handling (a SHAMap-node crash and a malformed-transaction relay crash) that a **compromised UNL validator** could use to stall forward progress; both were fixed in rippled **3.0.0 (December 2025)** — before our `3.1.3` baseline, consistent with our finding that the default-config deserialization and SHAMap paths are now hardened.
+
+The pattern across both: XRPL deliberately trades liveness for safety — it **halts rather than forks** — and recovery depends on the trusted validator operators coordinating by hand. That is the centralization in operation.
+
+### What this means for the decision
+
+- **Inherit the canonical chain** and ride the amendment treadmill. Servers that fall behind an activation (e.g. `fixCleanup3_1_3`, May 27) become amendment-blocked: unable to determine ledger validity, process transactions, or participate in consensus until upgraded. "We inherit package updates" is not passive — missing one makes the node a non-participant, and the ledger's safety remains a function of a UNL Post Fiat does not publish.
+- **Run an independent chain**, which — by Schwartz's own five layers — means standing up Post Fiat validators, a Post Fiat UNL, a code distribution defaulting to it, and the surrounding infrastructure. The cost is real, but it converts an inherited, uncontrolled trust dependency into one Post Fiat governs.
+
+The C++ is largely sound. The decision is not about the code — it is about whose validator list the ledger's safety depends on.
 
 ## Upstream And Disclosure Boundary
 
 This report does not claim to speak for Ripple, XRPLF, or upstream maintainers. It records our reproducibility packet and the upstream source state we checked.
 
-Some behaviors may be resolved by upstream as bugs, some as amendment-semantics changes, and some as intended product semantics. That distinction matters. In particular, the DisallowIncoming and DepositAuth cluster is strongest as an architectural critique of distributed policy enforcement; the lock-state, reserve-accounting, and overflow findings are stronger standalone safety/accounting findings.
+Upstream may classify these variously — some as bugs, some as amendment-semantics changes. We classify them by inheritance risk: the DisallowIncoming and DepositAuth cluster is an architectural critique of distributed policy enforcement, and the lock-state, reserve-accounting, and overflow findings are standalone safety/accounting defects. Whichever label upstream eventually applies does not change what a downstream chain inherits today.
 
 The five remediating findings are explicitly labeled as such because public beta/develop evidence shows fixes landing after `3.1.3`. For the seventeen "no confirmed fix" findings (the original fourteen plus the three Wave 3 additions), the claim is only that our checked `3.2.0-b7` / `origin/develop` refs did not contain a confirmed remediation at the time of the packet.
 
@@ -655,9 +697,9 @@ Cleanup-era candidates are also excluded unless they reproduce with `fixCleanup3
 
 ## Implications For Post Fiat
 
-1. A RippleD-derived implementation path cannot inherit enabled XRPL surfaces blindly. The current packet shows repeated gaps between direct policy checks and indirect settlement paths.
-2. Receive-policy enforcement should be centralized. If every transaction family is responsible for remembering `DisallowIncomingTrustline`, `DepositAuth`, freeze, authorization, reserve, and owner-count rules, the surface grows faster than review coverage.
-3. Fork authors should treat `3.1.3` as unsafe to inherit without this packet's fixes or equivalent negative controls.
+1. **The implementation is largely sound; the inherited surface is not free.** The packet shows repeated gaps between direct policy checks and indirect settlement paths. Receive-policy enforcement (`DisallowIncomingTrustline`, `DepositAuth`, freeze, authorization, reserve, owner-count) is spread across transaction families instead of centralized at the ledger-effect boundary, so the surface grows faster than review coverage. Inheriting these paths means inheriting that maintenance burden.
+2. **The decisive issue is architectural, not implementation.** Consensus safety is not code-enforced — it rests on a centrally-published UNL and an overlap assumption the code never checks (see "The Inherited Trust Model," reproduced in rippled's own simulator). Inheriting `3.1.3` means inheriting that trust dependency wholesale and riding the amendment treadmill on a validator list Post Fiat does not publish; running an independent chain means standing up Post Fiat's own validators, UNL, and code defaults. The decision turns on whose validator list the ledger's safety depends on, not on the C++.
+3. **Treat `3.1.3` as unsafe to inherit blindly** — without this packet's implementation fixes *and* a deliberate, Post-Fiat-controlled UNL/trust posture.
 
 ---
 
