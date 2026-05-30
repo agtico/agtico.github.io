@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-30T06:38:44.260Z",
+  "generated_at": "2026-05-30T09:07:30.005Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,53 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:779717fa",
+      "timestamp": "2026-05-30T08:53:07.497Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning leverage-aware backtest visualizations for a crypto factor pipeline.",
+      "summary": "Planning leverage-aware backtest visualizations for a crypto factor pipeline.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:779717fa"
+      }
+    },
+    {
+      "id": "task:c1ebf1e2",
+      "timestamp": "2026-05-30T06:46:06.126Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Starting work on a deterministic Python gate for SDK handover remediation receipts.",
+      "summary": "Starting work on a deterministic Python gate for SDK handover remediation receipts.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:c1ebf1e2"
+      }
+    },
     {
       "id": "task:1890569b",
       "timestamp": "2026-05-30T00:25:03.353Z",
@@ -889,71 +936,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:f5073090"
-      }
-    },
-    {
-      "id": "task:66643a9d",
-      "timestamp": "2026-05-29T13:58:33.183Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Planning a manifest update to publish SHA-256 hashes for parser and selector source blocks in...",
-      "summary": "Planning a manifest update to publish SHA-256 hashes for parser and selector source blocks in Dynamic UNL scoring.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "EB0E98503DBA65B631D82AD7AA626B73195007B3BBEFA21F174B60586B955F8A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/EB0E98503DBA65B631D82AD7AA626B73195007B3BBEFA21F174B60586B955F8A/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "046568EFA9A04858FC49702212E833E55EB319AAA7E79B4E0B69980A37001FE0",
-          "url": "https://explorer.testnet.postfiat.org/transactions/046568EFA9A04858FC49702212E833E55EB319AAA7E79B4E0B69980A37001FE0/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "612B59917CF1253B2C9DECCFD8D6DA8A1C56D1AE980C9553A5A7CBD68F0E9D6F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/612B59917CF1253B2C9DECCFD8D6DA8A1C56D1AE980C9553A5A7CBD68F0E9D6F/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:66643a9d"
-      }
-    },
-    {
-      "id": "task:24797476",
-      "timestamp": "2026-05-29T12:00:32.858Z",
-      "type": "task_published",
-      "status": "refused",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Passed on a routing outcome feedback reducer after the offer expired with no response.",
-      "summary": "Passed on a routing outcome feedback reducer after the offer expired with no response.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:24797476"
       }
     }
   ]
