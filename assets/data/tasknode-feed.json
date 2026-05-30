@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-30T13:37:51.866Z",
+  "generated_at": "2026-05-30T14:57:19.283Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:6e578f80",
+      "timestamp": "2026-05-30T14:48:06.053Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:dcf76286",
+      "category": "network",
+      "title": "Planning a public macro alpha brief as a canonical JSON artifact for agent intake.",
+      "summary": "Planning a public macro alpha brief as a canonical JSON artifact for agent intake.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6e578f80"
+      }
+    },
     {
       "id": "task:a61ba02d",
       "timestamp": "2026-05-30T12:30:05.910Z",
@@ -944,49 +967,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:5ea79610"
-      }
-    },
-    {
-      "id": "task:cf9c77e4",
-      "timestamp": "2026-05-29T16:01:33.502Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:6825fa53",
-      "category": "ai",
-      "title": "Uploaded follow-up evidence for a teardown of an arXiv paper on quantum error mitigation limits.",
-      "summary": "Uploaded follow-up evidence for a teardown of an arXiv paper on quantum error mitigation limits.",
-      "tickers": [
-        "IBM"
-      ],
-      "tags": [
-        "ai",
-        "task-node",
-        "personal",
-        "$IBM"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "5B076A936F78F8F24F81E8EC3D3B72CC38F36F4A6282F35E8B030421085CCAD1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/5B076A936F78F8F24F81E8EC3D3B72CC38F36F4A6282F35E8B030421085CCAD1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "F837E84320985C991B052B94D622E290843F510A045C549B7C116C23052051E9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F837E84320985C991B052B94D622E290843F510A045C549B7C116C23052051E9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "F5BD7498C2245CF1D3EF20F9192BC48B511EABF0686E36DB8CE3F831BEC0691B",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F5BD7498C2245CF1D3EF20F9192BC48B511EABF0686E36DB8CE3F831BEC0691B/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:cf9c77e4"
       }
     }
   ]
