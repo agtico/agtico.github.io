@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-30T22:30:43.684Z",
+  "generated_at": "2026-05-30T23:49:07.946Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,32 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:da001249",
+      "timestamp": "2026-05-30T23:08:39.593Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a controlled live crypto factor run on Hyperliquid using Binance data with risk gate...",
+      "summary": "Planning a controlled live crypto factor run on Hyperliquid using Binance data with risk gates and capped orders.",
+      "tickers": [
+        "HYPE",
+        "BNB"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE",
+        "$BNB"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:da001249"
+      }
+    },
     {
       "id": "task:ab670a40",
       "timestamp": "2026-05-30T21:34:08.983Z",
@@ -916,49 +942,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:d8dad884"
-      }
-    },
-    {
-      "id": "task:f5646c80",
-      "timestamp": "2026-05-30T10:32:36.664Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Uploaded follow-up evidence for leverage-aware crypto factor backtest visualizations.",
-      "summary": "Uploaded follow-up evidence for leverage-aware crypto factor backtest visualizations.",
-      "tickers": [
-        "BTC"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$BTC"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:f5646c80"
       }
     }
   ]
