@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-30T20:01:04.035Z",
+  "generated_at": "2026-05-30T21:29:31.492Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,51 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:f0101921",
+      "timestamp": "2026-05-30T20:38:37.421Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "ai",
+      "title": "Planning an evaluation card that turns a lecture on embodied cognition into rules for assessi...",
+      "summary": "Planning an evaluation card that turns a lecture on embodied cognition into rules for assessing AI agents.",
+      "tickers": [],
+      "tags": [
+        "ai",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f0101921"
+      }
+    },
+    {
+      "id": "task:9c9afc4a",
+      "timestamp": "2026-05-30T20:33:37.170Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:714a4365",
+      "category": "trading",
+      "title": "Planning a BTC M15 session review focused on close-location decision candles.",
+      "summary": "Planning a BTC M15 session review focused on close-location decision candles.",
+      "tickers": [
+        "BTC"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$BTC"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:9c9afc4a"
+      }
+    },
     {
       "id": "task:62de51da",
       "timestamp": "2026-05-30T16:32:06.726Z",
@@ -934,92 +979,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:f751a0ee"
-      }
-    },
-    {
-      "id": "task:88b33949",
-      "timestamp": "2026-05-30T10:20:35.262Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Requested verification for leverage-aware crypto factor backtest visualizations.",
-      "summary": "Requested verification for leverage-aware crypto factor backtest visualizations.",
-      "tickers": [
-        "BTC"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$BTC"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:88b33949"
-      }
-    },
-    {
-      "id": "task:78056da7",
-      "timestamp": "2026-05-30T10:20:07.450Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Recorded proof of leverage-aware crypto factor backtest visualizations on PFTL.",
-      "summary": "Recorded proof of leverage-aware crypto factor backtest visualizations on PFTL.",
-      "tickers": [
-        "BTC"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$BTC"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/36160EB16394588C24BF67BCDEB84319F23421CA7B4C53CAC58E9109B5CF60FA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1190C7BABA522D341B5FDA5CC08AFE737F8A9883A3FA0F668E0C4C21089745C2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796",
-          "url": "https://explorer.testnet.postfiat.org/transactions/55A4BB1967559B66448C48A00E77C1670CFA76C8BF04007858A2D474A066D796/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:78056da7"
       }
     }
   ]
