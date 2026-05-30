@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-30T00:00:08.778Z",
+  "generated_at": "2026-05-30T03:30:19.036Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:1890569b",
+      "timestamp": "2026-05-30T00:25:03.353Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Planning a Python reducer for handover disagreement reviews in the network workflow.",
+      "summary": "Planning a Python reducer for handover disagreement reviews in the network workflow.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:1890569b"
+      }
+    },
     {
       "id": "task:8649dd00",
       "timestamp": "2026-05-29T16:02:02.480Z",
@@ -931,61 +954,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:24797476"
-      }
-    },
-    {
-      "id": "task:16d78fe0",
-      "timestamp": "2026-05-29T10:47:03.249Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Delivered a cross-market factor transfer test on futures and FX and earned a reward.",
-      "summary": "Delivered a cross-market factor transfer test on futures and FX and earned a reward.",
-      "tickers": [
-        "GC",
-        "SI",
-        "PL",
-        "PA",
-        "HG",
-        "ES",
-        "EURUSD"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$GC",
-        "$SI",
-        "$PL",
-        "$PA",
-        "$HG",
-        "$ES",
-        "$EURUSD"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "49BC3AE0CC80127A9BD104A207AFC342930AB672F79CE66766303AC592C20FBF",
-          "url": "https://explorer.testnet.postfiat.org/transactions/49BC3AE0CC80127A9BD104A207AFC342930AB672F79CE66766303AC592C20FBF/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "71007200A1760676FE6FDAA00297B6691AB6F2DDC32E44094EB7B34F40A5EF06",
-          "url": "https://explorer.testnet.postfiat.org/transactions/71007200A1760676FE6FDAA00297B6691AB6F2DDC32E44094EB7B34F40A5EF06/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "8F5640C5D8D4E84D3144A241A5BFD87C24203E338CF32B54030119664386574A",
-          "url": "https://explorer.testnet.postfiat.org/transactions/8F5640C5D8D4E84D3144A241A5BFD87C24203E338CF32B54030119664386574A/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:16d78fe0"
       }
     }
   ]
