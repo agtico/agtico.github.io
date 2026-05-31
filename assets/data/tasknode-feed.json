@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-31T16:52:43.042Z",
+  "generated_at": "2026-05-31T17:51:40.270Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:98b72cbc",
+      "timestamp": "2026-05-31T16:56:14.922Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning an update to the HyperLiquid position monitor to cover the expanded top 84 coin univ...",
+      "summary": "Planning an update to the HyperLiquid position monitor to cover the expanded top 84 coin universe.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:98b72cbc"
+      }
+    },
     {
       "id": "task:90818a7e",
       "timestamp": "2026-05-31T15:40:11.208Z",
@@ -898,45 +922,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:84ec3b09"
-      }
-    },
-    {
-      "id": "task:0e90bd06",
-      "timestamp": "2026-05-31T06:53:39.505Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Planning a public memo on the Agora V3 monitor failure and reusable count-based detection scr...",
-      "summary": "Planning a public memo on the Agora V3 monitor failure and reusable count-based detection script.",
-      "tickers": [],
-      "tags": [
-        "network",
-        "task-node"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "A7796EA6437A97DD5BD31214695524DB84E8B3F10AFF17ABBE4D92ECF19B3545",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A7796EA6437A97DD5BD31214695524DB84E8B3F10AFF17ABBE4D92ECF19B3545/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "1A43E966C7C25A45A955459D29AB148F77F4F7BB661887BE7CF20AF85799FDAB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1A43E966C7C25A45A955459D29AB148F77F4F7BB661887BE7CF20AF85799FDAB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "315C179628523377E7BA5A347B791A94626926C079BC6FED6A242C2A06A429D6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/315C179628523377E7BA5A347B791A94626926C079BC6FED6A242C2A06A429D6/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0e90bd06"
       }
     }
   ]
