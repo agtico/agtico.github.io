@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-31T21:29:24.608Z",
+  "generated_at": "2026-05-31T22:31:56.953Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:62379f7f",
+      "timestamp": "2026-05-31T21:49:41.539Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Starting audit of the crypto factor cycle pipeline for deterministic signals and complete tar...",
+      "summary": "Starting audit of the crypto factor cycle pipeline for deterministic signals and complete target adjustments.",
+      "tickers": [
+        "HYPE"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$HYPE"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:62379f7f"
+      }
+    },
     {
       "id": "task:623cb64d",
       "timestamp": "2026-05-31T18:43:11.846Z",
@@ -954,49 +978,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:a2ef65ea"
-      }
-    },
-    {
-      "id": "task:05a79479",
-      "timestamp": "2026-05-31T10:17:41.527Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Planning configurable leverage across a crypto factor pipeline with risk gates and dry-run ch...",
-      "summary": "Planning configurable leverage across a crypto factor pipeline with risk gates and dry-run checks.",
-      "tickers": [
-        "COIN"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$COIN"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7A1E862394DE8229A012F707CD7EED4AD1C7682E18EBEF8B7A80280EBAC3E8AB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7A1E862394DE8229A012F707CD7EED4AD1C7682E18EBEF8B7A80280EBAC3E8AB/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "2A81A32276C01AFDF126C258876BC14A65E590CC9F19EFBFB94E149CE2C46AEA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2A81A32276C01AFDF126C258876BC14A65E590CC9F19EFBFB94E149CE2C46AEA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "A4090EFEB25978C66BE23B39240738F50459995B9883775FD6EFF4A195C24FCB",
-          "url": "https://explorer.testnet.postfiat.org/transactions/A4090EFEB25978C66BE23B39240738F50459995B9883775FD6EFF4A195C24FCB/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:05a79479"
       }
     }
   ]
