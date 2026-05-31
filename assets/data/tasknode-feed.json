@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-31T14:24:36.431Z",
+  "generated_at": "2026-05-31T15:44:27.313Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,57 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:90818a7e",
+      "timestamp": "2026-05-31T15:40:11.208Z",
+      "type": "task_published",
+      "status": "pending",
+      "actor": "node:dcf76286",
+      "category": "network",
+      "title": "Planning a Python reducer that gates alpha briefs into ready, revise, or reject for Post Fiat...",
+      "summary": "Planning a Python reducer that gates alpha briefs into ready, revise, or reject for Post Fiat scoring workflows.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:90818a7e"
+      }
+    },
+    {
+      "id": "task:8ca56485",
+      "timestamp": "2026-05-31T15:12:10.347Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:bc847e68",
+      "category": "content",
+      "title": "Planning a May market musings Substack post with a new intro and macro-focused structure.",
+      "summary": "Planning a May market musings Substack post with a new intro and macro-focused structure.",
+      "tickers": [
+        "SPY",
+        "QQQ",
+        "XLF"
+      ],
+      "tags": [
+        "content",
+        "task-node",
+        "personal",
+        "$SPY",
+        "$QQQ",
+        "$XLF"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8ca56485"
+      }
+    },
     {
       "id": "task:a162b098",
       "timestamp": "2026-05-31T11:14:10.662Z",
@@ -886,90 +937,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:0e90bd06"
-      }
-    },
-    {
-      "id": "task:5aa4b7c9",
-      "timestamp": "2026-05-31T06:30:40.730Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Delivered a Validator Oracle stale-data incident memo and earned a reward.",
-      "summary": "Delivered a Validator Oracle stale-data incident memo and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "7A34FBBB481881F054DC7041898EBF844EC61F2DA810E4D3E06AD8AB003CE9C9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7A34FBBB481881F054DC7041898EBF844EC61F2DA810E4D3E06AD8AB003CE9C9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B4C7114E0E72B803F92F2C038056E14F424B5AF1F46362C8972B07A98E0726F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B4C7114E0E72B803F92F2C038056E14F424B5AF1F46362C8972B07A98E0726F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E5ECE470CBEDCD80C779603D659D71CEB1D1254D75E8F6FC399D8888820C31A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E5ECE470CBEDCD80C779603D659D71CEB1D1254D75E8F6FC399D8888820C31A2/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:5aa4b7c9"
-      }
-    },
-    {
-      "id": "task:53dbb130",
-      "timestamp": "2026-05-31T06:30:09.875Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8e7396a",
-      "category": "network",
-      "title": "Recorded a verification response for a Validator Oracle stale-data memo on PFTL.",
-      "summary": "Recorded a verification response for a Validator Oracle stale-data memo on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "E5ECE470CBEDCD80C779603D659D71CEB1D1254D75E8F6FC399D8888820C31A2",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E5ECE470CBEDCD80C779603D659D71CEB1D1254D75E8F6FC399D8888820C31A2/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B4C7114E0E72B803F92F2C038056E14F424B5AF1F46362C8972B07A98E0726F8",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B4C7114E0E72B803F92F2C038056E14F424B5AF1F46362C8972B07A98E0726F8/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "7A34FBBB481881F054DC7041898EBF844EC61F2DA810E4D3E06AD8AB003CE9C9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7A34FBBB481881F054DC7041898EBF844EC61F2DA810E4D3E06AD8AB003CE9C9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:53dbb130"
       }
     }
   ]
