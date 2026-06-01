@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T02:11:57.126Z",
+  "generated_at": "2026-06-01T07:26:45.921Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,52 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:393874e7",
+      "timestamp": "2026-06-01T06:22:44.815Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Starting a deterministic Python gate for verification-appeal intake in Task Node.",
+      "summary": "Starting a deterministic Python gate for verification-appeal intake in Task Node.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:393874e7"
+      }
+    },
+    {
+      "id": "task:95341d33",
+      "timestamp": "2026-06-01T04:13:13.143Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Starting a Python gate for contributor-context refresh receipts.",
+      "summary": "Starting a Python gate for contributor-context refresh receipts.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:95341d33"
+      }
+    },
     {
       "id": "task:0838553f",
       "timestamp": "2026-06-01T02:07:12.593Z",
@@ -912,90 +958,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:fda81ac8"
-      }
-    },
-    {
-      "id": "task:0e2bd6a8",
-      "timestamp": "2026-05-31T23:23:13.689Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a Unified Decision View change-trace comparator.",
-      "summary": "Uploaded follow-up evidence for a Unified Decision View change-trace comparator.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "927242F2A30ABAE679B27C455536F2B652D1738F6A1ED8E3B37F84994B5C1544",
-          "url": "https://explorer.testnet.postfiat.org/transactions/927242F2A30ABAE679B27C455536F2B652D1738F6A1ED8E3B37F84994B5C1544/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "26155892423F12A282B90D8EEEE39335056A944B07E2AA8B11B88FE148BF9998",
-          "url": "https://explorer.testnet.postfiat.org/transactions/26155892423F12A282B90D8EEEE39335056A944B07E2AA8B11B88FE148BF9998/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1D7BEEE8797318FACC40411029965ACA9E9BEE623940DC233E9FC2F8B1C9BE59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1D7BEEE8797318FACC40411029965ACA9E9BEE623940DC233E9FC2F8B1C9BE59/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0e2bd6a8"
-      }
-    },
-    {
-      "id": "task:9434b33b",
-      "timestamp": "2026-05-31T23:21:16.703Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:88ad000e",
-      "category": "network",
-      "title": "Submitted evidence for a Unified Decision View change-trace comparator.",
-      "summary": "Submitted evidence for a Unified Decision View change-trace comparator.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "927242F2A30ABAE679B27C455536F2B652D1738F6A1ED8E3B37F84994B5C1544",
-          "url": "https://explorer.testnet.postfiat.org/transactions/927242F2A30ABAE679B27C455536F2B652D1738F6A1ED8E3B37F84994B5C1544/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "26155892423F12A282B90D8EEEE39335056A944B07E2AA8B11B88FE148BF9998",
-          "url": "https://explorer.testnet.postfiat.org/transactions/26155892423F12A282B90D8EEEE39335056A944B07E2AA8B11B88FE148BF9998/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "1D7BEEE8797318FACC40411029965ACA9E9BEE623940DC233E9FC2F8B1C9BE59",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1D7BEEE8797318FACC40411029965ACA9E9BEE623940DC233E9FC2F8B1C9BE59/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9434b33b"
       }
     }
   ]
