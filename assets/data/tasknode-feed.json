@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-02T19:34:10.129Z",
+  "generated_at": "2026-06-02T22:15:12.985Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:0b7943f8",
+      "timestamp": "2026-06-02T21:50:50.981Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Planning a read-only walkforward backtest of a crypto factor combo on equities before deeper...",
+      "summary": "Planning a read-only walkforward backtest of a crypto factor combo on equities before deeper integration.",
+      "tickers": [],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:0b7943f8"
+      }
+    },
     {
       "id": "task:cf2bf3af",
       "timestamp": "2026-06-02T18:44:20.525Z",
@@ -934,48 +955,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:7356988f"
-      }
-    },
-    {
-      "id": "task:c6ba162b",
-      "timestamp": "2026-06-02T15:35:51.559Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Recorded a verification response for a documentation-only routing overhaul that maps node pro...",
-      "summary": "Recorded a verification response for a documentation-only routing overhaul that maps node provisioning to the correct repo on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "10C1540CFE0F3DB11818B8FFAA0E11F8A1E23293D614D9D2D5EFDC141073F797",
-          "url": "https://explorer.testnet.postfiat.org/transactions/10C1540CFE0F3DB11818B8FFAA0E11F8A1E23293D614D9D2D5EFDC141073F797/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "1146ED7573F32DB5166A2100A0E808D31FF73AF65F8582904841FD3B1465DF76",
-          "url": "https://explorer.testnet.postfiat.org/transactions/1146ED7573F32DB5166A2100A0E808D31FF73AF65F8582904841FD3B1465DF76/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "7A9B859D243FF3C214A93A2D962ED173281694BB5AB058E46646694A7CA980F7",
-          "url": "https://explorer.testnet.postfiat.org/transactions/7A9B859D243FF3C214A93A2D962ED173281694BB5AB058E46646694A7CA980F7/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c6ba162b"
       }
     }
   ]
