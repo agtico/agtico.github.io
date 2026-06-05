@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T10:38:47.774Z",
+  "generated_at": "2026-06-05T13:45:59.408Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,14 +10,14 @@
   },
   "items": [
     {
-      "id": "task:5e7aa704",
-      "timestamp": "2026-06-05T07:47:43.042Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:2f99eb53",
+      "id": "task:33a041fd",
+      "timestamp": "2026-06-05T13:35:15.324Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Planning a Python gate for verification resubmission eligibility in Task Node.",
-      "summary": "Planning a Python gate for verification resubmission eligibility in Task Node.",
+      "title": "Delivered a PFTL chain-watcher subsystem and earned a reward.",
+      "summary": "Delivered a PFTL chain-watcher subsystem and earned a reward.",
       "tickers": [
         "PFT"
       ],
@@ -25,22 +25,293 @@
         "network",
         "task-node",
         "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:33a041fd"
+      }
+    },
+    {
+      "id": "task:5d727d3f",
+      "timestamp": "2026-06-05T13:35:13.808Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded a verification response for a PFTL chain watcher cursor and dedup update on PFTL.",
+      "summary": "Recorded a verification response for a PFTL chain watcher cursor and dedup update on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:5d727d3f"
+      }
+    },
+    {
+      "id": "task:f95673f2",
+      "timestamp": "2026-06-05T13:35:12.087Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Uploaded follow-up evidence for a PFTL chain watcher cursor and dedup logic.",
+      "summary": "Uploaded follow-up evidence for a PFTL chain watcher cursor and dedup logic.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f95673f2"
+      }
+    },
+    {
+      "id": "task:f6fda0c1",
+      "timestamp": "2026-06-05T13:33:18.459Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Recorded proof of a PFTL chain watcher commit on PFTL.",
+      "summary": "Recorded proof of a PFTL chain watcher commit on PFTL.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:f6fda0c1"
+      }
+    },
+    {
+      "id": "task:83fcbcf7",
+      "timestamp": "2026-06-05T13:33:16.875Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Requested verification for a PFTL chain watcher commit with config discovery, polling, and a...",
+      "summary": "Requested verification for a PFTL chain watcher commit with config discovery, polling, and a durable cursor.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:83fcbcf7"
+      }
+    },
+    {
+      "id": "task:a628073e",
+      "timestamp": "2026-06-05T13:33:15.547Z",
+      "type": "task_completed",
+      "status": "rewarded",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Submitted evidence for a PFTL chain watcher commit in the validator-scoring sidecar with conf...",
+      "summary": "Submitted evidence for a PFTL chain watcher commit in the validator-scoring sidecar with config discovery, polling, and a durable cursor.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL reward",
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL verification",
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
+        }
+      ],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a628073e"
+      }
+    },
+    {
+      "id": "task:9a1bd8b8",
+      "timestamp": "2026-06-05T13:23:43.615Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:0ad81ad6",
+      "category": "general",
+      "title": "Passed on building a 90-day opportunity backlog due to wrong scope.",
+      "summary": "Passed on building a 90-day opportunity backlog due to wrong scope.",
+      "tickers": [],
+      "tags": [
+        "general",
+        "task-node",
+        "personal"
       ],
       "links": [],
       "source": {
         "system": "pftasks",
-        "source_id": "task:5e7aa704"
+        "source_id": "task:9a1bd8b8"
       }
     },
     {
-      "id": "task:b2c47047",
-      "timestamp": "2026-06-05T07:45:12.144Z",
-      "type": "task_completed",
-      "status": "rewarded",
+      "id": "task:d0f6c87d",
+      "timestamp": "2026-06-05T13:23:13.036Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:0ad81ad6",
+      "category": "business-development",
+      "title": "Planning a 90-day backlog of new GMH growth tasks around audience, sponsorships, and executiv...",
+      "summary": "Planning a 90-day backlog of new GMH growth tasks around audience, sponsorships, and executive relationships.",
+      "tickers": [],
+      "tags": [
+        "business-development",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:d0f6c87d"
+      }
+    },
+    {
+      "id": "task:7eaf0d53",
+      "timestamp": "2026-06-05T12:52:12.310Z",
+      "type": "task_published",
+      "status": "pending_verification",
       "actor": "node:2f99eb53",
       "category": "network",
-      "title": "Delivered a deterministic Task Node refusal-reason migration reducer and earned a reward.",
-      "summary": "Delivered a deterministic Task Node refusal-reason migration reducer and earned a reward.",
+      "title": "Requested verification for a deterministic Task Node reducer that validates reviewer reliabil...",
+      "summary": "Requested verification for a deterministic Task Node reducer that validates reviewer reliability update receipts.",
       "tickers": [
         "PFT"
       ],
@@ -53,36 +324,24 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
+          "hash": "B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:b2c47047"
+        "source_id": "task:7eaf0d53"
       }
     },
     {
-      "id": "task:4933d7dc",
-      "timestamp": "2026-06-05T07:44:45.865Z",
-      "type": "task_completed",
-      "status": "rewarded",
+      "id": "task:800477c7",
+      "timestamp": "2026-06-05T12:51:47.489Z",
+      "type": "task_published",
+      "status": "pending_verification",
       "actor": "node:2f99eb53",
       "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Task Node refusal-reason migration reducer.",
-      "summary": "Uploaded follow-up evidence for a deterministic Task Node refusal-reason migration reducer.",
+      "title": "Submitted evidence for a deterministic Task Node reducer that validates reviewer reliability...",
+      "summary": "Submitted evidence for a deterministic Task Node reducer that validates reviewer reliability update receipts.",
       "tickers": [
         "PFT"
       ],
@@ -95,36 +354,24 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
+          "hash": "B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:4933d7dc"
+        "source_id": "task:800477c7"
       }
     },
     {
-      "id": "task:4159c10a",
-      "timestamp": "2026-06-05T07:44:44.438Z",
-      "type": "task_completed",
-      "status": "rewarded",
+      "id": "task:2f845b54",
+      "timestamp": "2026-06-05T12:51:44.966Z",
+      "type": "task_published",
+      "status": "pending_verification",
       "actor": "node:2f99eb53",
       "category": "network",
-      "title": "Recorded a verification response for a deterministic Task Node refusal-reason migration reduc...",
-      "summary": "Recorded a verification response for a deterministic Task Node refusal-reason migration reducer on PFTL.",
+      "title": "Recorded proof for a deterministic Task Node reducer that validates reviewer reliability upda...",
+      "summary": "Recorded proof for a deterministic Task Node reducer that validates reviewer reliability update receipts.",
       "tickers": [
         "PFT"
       ],
@@ -137,36 +384,24 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
+          "hash": "B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B",
+          "url": "https://explorer.testnet.postfiat.org/transactions/B18142E24D13710BFEF531F869F48D11EFF2021EB3AD42C4C696EA12D182545B/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:4159c10a"
+        "source_id": "task:2f845b54"
       }
     },
     {
-      "id": "task:43af2851",
-      "timestamp": "2026-06-05T07:29:11.643Z",
+      "id": "task:85626d02",
+      "timestamp": "2026-06-05T12:30:13.738Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Requested verification for a deterministic Task Node refusal-reason migration reducer.",
-      "summary": "Requested verification for a deterministic Task Node refusal-reason migration reducer.",
+      "title": "Planning a PFTL chain watcher for the validator-scoring sidecar with config discovery, valida...",
+      "summary": "Planning a PFTL chain watcher for the validator-scoring sidecar with config discovery, validated ledger polling, and a durable cursor.",
       "tickers": [
         "PFT"
       ],
@@ -179,36 +414,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
+          "hash": "76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066",
+          "url": "https://explorer.testnet.postfiat.org/transactions/76785A0B2B4D2D30E553F2D0990E92E0DEC5A220AAC74AD9AA3FA0A54E2C8066/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
+          "hash": "CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3",
+          "url": "https://explorer.testnet.postfiat.org/transactions/CFB70C63C72CD42ACEE02C128A182CC21278CBFB9CE684150DBE42BEC1FC79D3/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
+          "hash": "4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/4E27E1CBFBF78B278759ABF2DCDB9EC029D3E050B797767482F524327D2F6C6C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:43af2851"
+        "source_id": "task:85626d02"
       }
     },
     {
-      "id": "task:f19078b5",
-      "timestamp": "2026-06-05T07:28:59.897Z",
+      "id": "task:f3dabe1c",
+      "timestamp": "2026-06-05T12:18:12.379Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Submitted evidence for a deterministic Task Node refusal-reason migration reducer.",
-      "summary": "Submitted evidence for a deterministic Task Node refusal-reason migration reducer.",
+      "title": "Delivered a public config update exposing round-announcement discovery fields and earned a re...",
+      "summary": "Delivered a public config update exposing round-announcement discovery fields and earned a reward.",
       "tickers": [
         "PFT"
       ],
@@ -221,36 +456,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
+          "label": "PFTL proof",
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:f19078b5"
+        "source_id": "task:f3dabe1c"
       }
     },
     {
-      "id": "task:d76a570c",
-      "timestamp": "2026-06-05T07:28:57.820Z",
+      "id": "task:9c0be4d3",
+      "timestamp": "2026-06-05T12:17:45.985Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Submitted evidence for a deterministic Task Node refusal-reason migration reducer.",
-      "summary": "Submitted evidence for a deterministic Task Node refusal-reason migration reducer.",
+      "title": "Recorded a verification response for a public config update exposing round-announcement disco...",
+      "summary": "Recorded a verification response for a public config update exposing round-announcement discovery fields on PFTL.",
       "tickers": [
         "PFT"
       ],
@@ -263,36 +498,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D",
-          "url": "https://explorer.testnet.postfiat.org/transactions/78A3FF3EF20C9E30AEA8B21C1DEE5CC64D77B844723FE9DA4AA842E1DF5BE61D/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/621ABA0B3B045E6286A19D14F7DD46C25046A470F3A1105744B01E67425F6D0F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/6ACCDA5218B09255FD65DACEDB3E6C75FFF0D3CB60F15E4B85A9C9F018D82E3E/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:d76a570c"
+        "source_id": "task:9c0be4d3"
       }
     },
     {
-      "id": "task:33f685a8",
-      "timestamp": "2026-06-05T03:56:42.966Z",
+      "id": "task:cf7b35f0",
+      "timestamp": "2026-06-05T12:15:42.618Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Delivered a deterministic Python gate for Dynamic UNL frozen-input promotion and earned a rew...",
-      "summary": "Delivered a deterministic Python gate for Dynamic UNL frozen-input promotion and earned a reward.",
+      "title": "Uploaded follow-up evidence for a public config update exposing round-announcement discovery...",
+      "summary": "Uploaded follow-up evidence for a public config update exposing round-announcement discovery fields.",
       "tickers": [
         "PFT"
       ],
@@ -305,78 +540,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:33f685a8"
-      }
-    },
-    {
-      "id": "task:8f7698ac",
-      "timestamp": "2026-06-05T03:56:13.789Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Python gate for Dynamic UNL frozen-input prom...",
-      "summary": "Uploaded follow-up evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:8f7698ac"
+        "source_id": "task:cf7b35f0"
       }
     },
     {
-      "id": "task:6950fd8a",
-      "timestamp": "2026-06-05T03:56:12.345Z",
+      "id": "task:3b5695a4",
+      "timestamp": "2026-06-05T12:10:43.086Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Python gate for Dynamic UNL frozen-input prom...",
-      "summary": "Uploaded follow-up evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion receipts.",
+      "title": "Requested verification for a public config update exposing round-announcement discovery fields.",
+      "summary": "Requested verification for a public config update exposing round-announcement discovery fields.",
       "tickers": [
         "PFT"
       ],
@@ -389,78 +582,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:6950fd8a"
-      }
-    },
-    {
-      "id": "task:cb0db868",
-      "timestamp": "2026-06-05T03:43:41.626Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Requested verification for a deterministic Python gate for Dynamic UNL frozen-input promotion...",
-      "summary": "Requested verification for a deterministic Python gate for Dynamic UNL frozen-input promotion receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:cb0db868"
+        "source_id": "task:3b5695a4"
       }
     },
     {
-      "id": "task:54b40942",
-      "timestamp": "2026-06-05T03:43:17.672Z",
+      "id": "task:4cbaeaea",
+      "timestamp": "2026-06-05T12:10:14.527Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Submitted evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion rec...",
-      "summary": "Submitted evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion receipts.",
+      "title": "Recorded proof of a public config update exposing round-announcement discovery fields on PFTL.",
+      "summary": "Recorded proof of a public config update exposing round-announcement discovery fields on PFTL.",
       "tickers": [
         "PFT"
       ],
@@ -473,36 +624,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:54b40942"
+        "source_id": "task:4cbaeaea"
       }
     },
     {
-      "id": "task:f3c35020",
-      "timestamp": "2026-06-05T03:43:14.631Z",
+      "id": "task:41ecbbb3",
+      "timestamp": "2026-06-05T12:10:12.297Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:2f99eb53",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Submitted evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion rec...",
-      "summary": "Submitted evidence for a deterministic Python gate for Dynamic UNL frozen-input promotion receipts.",
+      "title": "Submitted evidence for a public config update exposing round-announcement discovery fields in...",
+      "summary": "Submitted evidence for a public config update exposing round-announcement discovery fields in dynamic-unl-scoring.",
       "tickers": [
         "PFT"
       ],
@@ -515,36 +666,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00A8B1BABD4E221B62FF7ACA9C6C9CC321D990EE6AA9083D93F690486BBCA2B9/detailed"
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FCDC87AB46E8BBF3BB9B0516CAE07B79075E04910AA8C888BA84400A60FAA4A9/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C4384D34948CAFE30C11CD439D6F5A279E60566D40E3E4ED067CE68A64D33901/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:f3c35020"
+        "source_id": "task:41ecbbb3"
       }
     },
     {
-      "id": "task:ab4524f4",
-      "timestamp": "2026-06-05T02:02:41.691Z",
+      "id": "task:4fe1a933",
+      "timestamp": "2026-06-05T11:58:13.065Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:c8ff8d57",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Delivered a public reward reconciliation demo page and earned a reward.",
-      "summary": "Delivered a public reward reconciliation demo page and earned a reward.",
+      "title": "Planning a public config update for dynamic-unl-scoring so validators can discover round-anno...",
+      "summary": "Planning a public config update for dynamic-unl-scoring so validators can discover round-announcement settings.",
       "tickers": [
         "PFT"
       ],
@@ -557,120 +708,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:ab4524f4"
-      }
-    },
-    {
-      "id": "task:6b73a36f",
-      "timestamp": "2026-06-05T02:02:12.913Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Recorded a verification response for a public reward reconciliation demo page with local brow...",
-      "summary": "Recorded a verification response for a public reward reconciliation demo page with local browser integrity checks on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6/detailed"
+          "hash": "C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/C88339CA527191EF377CC71A1AD0EC88310406B2C1B694881D0A5F8706D38B1C/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:6b73a36f"
-      }
-    },
-    {
-      "id": "task:07e34261",
-      "timestamp": "2026-06-05T02:02:11.402Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a public reward reconciliation demo page with local browser v...",
-      "summary": "Uploaded follow-up evidence for a public reward reconciliation demo page with local browser verification.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548/detailed"
+          "hash": "6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/6D1C80501615927EEE05BA1B09D1D5B70D883920B5A8F40084DE74806BEC4C1A/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA/detailed"
+          "hash": "761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C",
+          "url": "https://explorer.testnet.postfiat.org/transactions/761EABEB89293FFAA72ACD20963701B8841DDCF3AEFF4F55F6345476E139452C/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:07e34261"
+        "source_id": "task:4fe1a933"
       }
     },
     {
-      "id": "task:7b9daf25",
-      "timestamp": "2026-06-04T21:56:10.101Z",
+      "id": "task:813ca91c",
+      "timestamp": "2026-06-05T11:32:43.094Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:baa2991c",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Delivered a validator evidence-bundle manifest checker and earned a reward.",
-      "summary": "Delivered a validator evidence-bundle manifest checker and earned a reward.",
+      "title": "Delivered Dynamic UNL round announcements on chain and earned a reward.",
+      "summary": "Delivered Dynamic UNL round announcements on chain and earned a reward.",
       "tickers": [
         "PFT"
       ],
@@ -683,36 +750,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
+          "hash": "324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
+          "hash": "1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
+          "hash": "59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:7b9daf25"
+        "source_id": "task:813ca91c"
       }
     },
     {
-      "id": "task:43dfb07c",
-      "timestamp": "2026-06-04T21:55:40.006Z",
+      "id": "task:a6a09fa1",
+      "timestamp": "2026-06-05T11:32:15.842Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:baa2991c",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Recorded a verification response for a validator evidence-bundle manifest checker on PFTL.",
-      "summary": "Recorded a verification response for a validator evidence-bundle manifest checker on PFTL.",
+      "title": "Uploaded follow-up evidence for Dynamic UNL round announcement idempotency and non-blocking f...",
+      "summary": "Uploaded follow-up evidence for Dynamic UNL round announcement idempotency and non-blocking failure handling.",
       "tickers": [
         "PFT"
       ],
@@ -725,78 +792,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
+          "hash": "1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:43dfb07c"
-      }
-    },
-    {
-      "id": "task:2fb811a8",
-      "timestamp": "2026-06-04T21:53:11.242Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:baa2991c",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a validator evidence-bundle manifest checker.",
-      "summary": "Uploaded follow-up evidence for a validator evidence-bundle manifest checker.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
+          "hash": "324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
+          "hash": "59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:2fb811a8"
+        "source_id": "task:a6a09fa1"
       }
     },
     {
-      "id": "task:6aa2dccb",
-      "timestamp": "2026-06-04T21:50:44.993Z",
+      "id": "task:81fe93f8",
+      "timestamp": "2026-06-05T11:32:14.507Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:baa2991c",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Recorded proof of a validator evidence-bundle manifest checker on PFTL.",
-      "summary": "Recorded proof of a validator evidence-bundle manifest checker on PFTL.",
+      "title": "Recorded a verification response for the Dynamic UNL round announcement commit on PFTL.",
+      "summary": "Recorded a verification response for the Dynamic UNL round announcement commit on PFTL.",
       "tickers": [
         "PFT"
       ],
@@ -809,36 +834,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
+          "hash": "59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A/detailed"
+        },
+        {
+          "type": "pftl_tx",
+          "label": "PFTL proof",
+          "hash": "1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
+          "hash": "324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:6aa2dccb"
+        "source_id": "task:81fe93f8"
       }
     },
     {
-      "id": "task:dadbeb86",
-      "timestamp": "2026-06-04T21:50:43.477Z",
+      "id": "task:3765f8b9",
+      "timestamp": "2026-06-05T11:27:47.395Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:baa2991c",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Requested verification for a validator evidence-bundle manifest checker for Task Node reviewers.",
-      "summary": "Requested verification for a validator evidence-bundle manifest checker for Task Node reviewers.",
+      "title": "Submitted evidence for the Dynamic UNL round announcement commit.",
+      "summary": "Submitted evidence for the Dynamic UNL round announcement commit.",
       "tickers": [
         "PFT"
       ],
@@ -851,36 +876,36 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
+          "hash": "1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
+          "hash": "324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
+          "hash": "59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:dadbeb86"
+        "source_id": "task:3765f8b9"
       }
     },
     {
-      "id": "task:9dc5aaea",
-      "timestamp": "2026-06-04T21:28:42.304Z",
+      "id": "task:10e7b3c9",
+      "timestamp": "2026-06-05T11:27:45.808Z",
       "type": "task_completed",
       "status": "rewarded",
-      "actor": "node:baa2991c",
+      "actor": "node:a53e54bc",
       "category": "network",
-      "title": "Submitted evidence for a validator evidence-bundle manifest checker for Task Node reviewers.",
-      "summary": "Submitted evidence for a validator evidence-bundle manifest checker for Task Node reviewers.",
+      "title": "Requested verification for the Dynamic UNL round announcement commit.",
+      "summary": "Requested verification for the Dynamic UNL round announcement commit.",
       "tickers": [
         "PFT"
       ],
@@ -893,109 +918,25 @@
         {
           "type": "pftl_tx",
           "label": "PFTL proof",
-          "hash": "4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4BBB97466283E94F4D66399DD6CE6773DDA4AC29D228D2BD1A6A3FF94AA32FB9/detailed"
+          "hash": "1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4",
+          "url": "https://explorer.testnet.postfiat.org/transactions/1FBEC05254FD1A9823B9EAC34435C4E68B6517CB7282100944AEA2307B9EE0B4/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL reward",
-          "hash": "D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D61E1646E7DC937AE840358F80FC75EDDFFD7FCECE8F4744218F2D3BCC040053/detailed"
+          "hash": "324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7",
+          "url": "https://explorer.testnet.postfiat.org/transactions/324B71FE519399A4DB31376D43ED41BB2D70502961423E502087D47262445FE7/detailed"
         },
         {
           "type": "pftl_tx",
           "label": "PFTL verification",
-          "hash": "67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD",
-          "url": "https://explorer.testnet.postfiat.org/transactions/67FBF0721EB62B0C9A5DBF643D7BA1DAA2AD00241B7BDD178BF3365F5FC551CD/detailed"
+          "hash": "59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A",
+          "url": "https://explorer.testnet.postfiat.org/transactions/59312B0F4CFCC23202248E369A2986FED5D1365C6842F757C03C5506C1C6E09A/detailed"
         }
       ],
       "source": {
         "system": "pftasks",
-        "source_id": "task:9dc5aaea"
-      }
-    },
-    {
-      "id": "task:c1e4a121",
-      "timestamp": "2026-06-04T21:19:48.348Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Submitted evidence for a public reward reconciliation demo page.",
-      "summary": "Submitted evidence for a public reward reconciliation demo page.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:c1e4a121"
-      }
-    },
-    {
-      "id": "task:4566cbcd",
-      "timestamp": "2026-06-04T21:19:46.762Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:c8ff8d57",
-      "category": "network",
-      "title": "Requested verification for a public reward reconciliation demo page.",
-      "summary": "Requested verification for a public reward reconciliation demo page.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0F2D7E58E5163205CB117F8E148AA56F80E54BFEA4A9C2468FC47F71EBF8C0C6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FAE48C3901BC9316AC75673F6D64122C59DDD96C88E7D8AB8C94FDC8A3F4D548/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C305DD7A249963F28A4C1DF80CF73D294AEBF2E5FF58FCDB0F273FF4523700CA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:4566cbcd"
+        "source_id": "task:10e7b3c9"
       }
     }
   ]
