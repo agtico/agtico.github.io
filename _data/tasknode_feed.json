@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-06T09:05:04.778Z",
+  "generated_at": "2026-06-06T11:01:32.442Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,27 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:99384529",
+      "timestamp": "2026-06-06T10:39:18.926Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "security",
+      "title": "Planning a patch to the crypto risk monitor so data outages do not trigger drawdown-based ris...",
+      "summary": "Planning a patch to the crypto risk monitor so data outages do not trigger drawdown-based risk cuts.",
+      "tickers": [],
+      "tags": [
+        "security",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:99384529"
+      }
+    },
     {
       "id": "task:a7fee50e",
       "timestamp": "2026-06-06T08:35:15.606Z",
@@ -785,49 +806,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:97db54d5"
-      }
-    },
-    {
-      "id": "task:2bc6aff7",
-      "timestamp": "2026-06-05T17:27:17.088Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "trading",
-      "title": "Uploaded follow-up evidence for a read-only audit of Expanded84 Binance crypto factor signal...",
-      "summary": "Uploaded follow-up evidence for a read-only audit of Expanded84 Binance crypto factor signal correctness.",
-      "tickers": [
-        "BNB"
-      ],
-      "tags": [
-        "trading",
-        "task-node",
-        "personal",
-        "$BNB"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "2AD17CDA5EDDBE8D01C00AC81D1A4E1D5B893A9F88AC9E4D5F0386CB0178BA09",
-          "url": "https://explorer.testnet.postfiat.org/transactions/2AD17CDA5EDDBE8D01C00AC81D1A4E1D5B893A9F88AC9E4D5F0386CB0178BA09/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "B57A719B367E15109BB04D7909F15664CC2D733EA6A5B3DC3686840A51D0C5D1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B57A719B367E15109BB04D7909F15664CC2D733EA6A5B3DC3686840A51D0C5D1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "00006E828C4E34886D6B7ECD97245EFF65CB6C92CB14D3221A3855429277F2DC",
-          "url": "https://explorer.testnet.postfiat.org/transactions/00006E828C4E34886D6B7ECD97245EFF65CB6C92CB14D3221A3855429277F2DC/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:2bc6aff7"
       }
     }
   ]
