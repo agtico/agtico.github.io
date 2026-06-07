@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-07T02:07:46.140Z",
+  "generated_at": "2026-06-07T06:45:29.305Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,92 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:8b807d35",
+      "timestamp": "2026-06-07T06:39:18.148Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:dad52c45",
+      "category": "frontend",
+      "title": "Starting a WhatsApp v0 testing packet with chat, Cantonese commands, reliability, image resen...",
+      "summary": "Starting a WhatsApp v0 testing packet with chat, Cantonese commands, reliability, image resend fallback, and scam-warning decisions.",
+      "tickers": [],
+      "tags": [
+        "frontend",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8b807d35"
+      }
+    },
+    {
+      "id": "task:6a80e3c0",
+      "timestamp": "2026-06-07T06:36:49.058Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:dad52c45",
+      "category": "general",
+      "title": "Passed on writing the Haroun v0 implementation memo and asked for a more useful technical pac...",
+      "summary": "Passed on writing the Haroun v0 implementation memo and asked for a more useful technical packet.",
+      "tickers": [],
+      "tags": [
+        "general",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6a80e3c0"
+      }
+    },
+    {
+      "id": "task:879e34f4",
+      "timestamp": "2026-06-07T06:15:04.054Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:dad52c45",
+      "category": "product",
+      "title": "Planning a technical memo for a WhatsApp assistant v0 focused on chat, translation, image rel...",
+      "summary": "Planning a technical memo for a WhatsApp assistant v0 focused on chat, translation, image reliability, and fallback UX.",
+      "tickers": [],
+      "tags": [
+        "product",
+        "task-node",
+        "personal"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:879e34f4"
+      }
+    },
+    {
+      "id": "task:fe5bdfd2",
+      "timestamp": "2026-06-07T03:08:51.353Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Planning a deterministic Python gate for Task Node task-offer revision receipts.",
+      "summary": "Planning a deterministic Python gate for Task Node task-offer revision receipts.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:fe5bdfd2"
+      }
+    },
     {
       "id": "task:dff60e73",
       "timestamp": "2026-06-06T21:25:50.278Z",
@@ -772,153 +858,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:00fe71ca"
-      }
-    },
-    {
-      "id": "task:84059cd3",
-      "timestamp": "2026-06-06T12:58:17.639Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "security",
-      "title": "Recorded proof for a Hyperliquid risk monitor patch that treats missing market data as unavai...",
-      "summary": "Recorded proof for a Hyperliquid risk monitor patch that treats missing market data as unavailable instead of forcing de-risking.",
-      "tickers": [
-        "HYPE"
-      ],
-      "tags": [
-        "security",
-        "task-node",
-        "personal",
-        "$HYPE"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:84059cd3"
-      }
-    },
-    {
-      "id": "task:0000e448",
-      "timestamp": "2026-06-06T12:58:15.686Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "crypto",
-      "title": "Submitted evidence for a Hyperliquid risk monitor patch that treats stale or missing market d...",
-      "summary": "Submitted evidence for a Hyperliquid risk monitor patch that treats stale or missing market data as unavailable instead of forcing de-risking.",
-      "tickers": [],
-      "tags": [
-        "crypto",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:0000e448"
-      }
-    },
-    {
-      "id": "task:99384529",
-      "timestamp": "2026-06-06T10:39:18.926Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:13944212",
-      "category": "security",
-      "title": "Planning a patch to the crypto risk monitor so data outages do not trigger drawdown-based ris...",
-      "summary": "Planning a patch to the crypto risk monitor so data outages do not trigger drawdown-based risk cuts.",
-      "tickers": [],
-      "tags": [
-        "security",
-        "task-node",
-        "personal"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D121BD47D409F969EE747F335F4254B4E7B956124DCE844CA3E440EDFED45150/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3648CCEC0D631C47AA5B6145064D2701975AB595663C700522D45D44CB343254/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4E197B767B8816D604B59AFF97EEABFBB810D00257E85D5AE8F856D38B585B6E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:99384529"
-      }
-    },
-    {
-      "id": "task:a7fee50e",
-      "timestamp": "2026-06-06T08:35:15.606Z",
-      "type": "task_published",
-      "status": "in_progress",
-      "actor": "node:91f2e54c",
-      "category": "commerce",
-      "title": "Planning a Telegram bot ranking for best-selling products using confirmed sales only.",
-      "summary": "Planning a Telegram bot ranking for best-selling products using confirmed sales only.",
-      "tickers": [
-        "META"
-      ],
-      "tags": [
-        "commerce",
-        "task-node",
-        "personal",
-        "$META"
-      ],
-      "links": [],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:a7fee50e"
       }
     }
   ]
