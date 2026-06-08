@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-08T16:32:38.798Z",
+  "generated_at": "2026-06-08T19:12:43.584Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,30 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:14bb744d",
+      "timestamp": "2026-06-08T19:11:25.956Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:13944212",
+      "category": "trading",
+      "title": "Starting analysis of YTD options execution cost drag from Telegram risk monitor data.",
+      "summary": "Starting analysis of YTD options execution cost drag from Telegram risk monitor data.",
+      "tickers": [
+        "TON"
+      ],
+      "tags": [
+        "trading",
+        "task-node",
+        "personal",
+        "$TON"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:14bb744d"
+      }
+    },
     {
       "id": "task:39d6d44a",
       "timestamp": "2026-06-08T16:32:26.262Z",
@@ -922,48 +946,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:25f6275f"
-      }
-    },
-    {
-      "id": "task:50615bdc",
-      "timestamp": "2026-06-08T13:11:56.337Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Delivered the sidecar round announcement decoder and earned a reward.",
-      "summary": "Delivered the sidecar round announcement decoder and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "811C0824522897DC1451F36ECD1882893875CE3F72F131201A5DDA1345BCF14C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/811C0824522897DC1451F36ECD1882893875CE3F72F131201A5DDA1345BCF14C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "59D4769390E956CDEAB76D8C6DC6716A18726E010C38AA9E651F96EC29D69263",
-          "url": "https://explorer.testnet.postfiat.org/transactions/59D4769390E956CDEAB76D8C6DC6716A18726E010C38AA9E651F96EC29D69263/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "D159D6FB079126B800F1EA4FF9F2D6871981DCC62D50CDADB2C09A2B76CBB158",
-          "url": "https://explorer.testnet.postfiat.org/transactions/D159D6FB079126B800F1EA4FF9F2D6871981DCC62D50CDADB2C09A2B76CBB158/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:50615bdc"
       }
     }
   ]
