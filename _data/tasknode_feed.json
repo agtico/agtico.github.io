@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-08T23:55:53.003Z",
+  "generated_at": "2026-06-09T01:57:57.633Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -10,10 +10,33 @@
   },
   "items": [
     {
+      "id": "task:a6d0eba5",
+      "timestamp": "2026-06-09T01:43:54.702Z",
+      "type": "task_published",
+      "status": "refused",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Passed on building a deterministic Python gate for reward-settlement hold release receipts du...",
+      "summary": "Passed on building a deterministic Python gate for reward-settlement hold release receipts due to no response.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:a6d0eba5"
+      }
+    },
+    {
       "id": "task:8a91cbfd",
       "timestamp": "2026-06-08T23:04:24.433Z",
       "type": "task_published",
-      "status": "pending",
+      "status": "refused",
       "actor": "node:2f99eb53",
       "category": "network",
       "title": "Planning a deterministic Python gate for reward-settlement hold release receipts.",
@@ -926,43 +949,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:c8a9e3fd"
-      }
-    },
-    {
-      "id": "task:2651db7d",
-      "timestamp": "2026-06-08T16:31:56.152Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:91f2e54c",
-      "category": "commerce",
-      "title": "Uploaded follow-up evidence for a Telegram bot that ranks best-selling products using confirm...",
-      "summary": "Uploaded follow-up evidence for a Telegram bot that ranks best-selling products using confirmed sales only.",
-      "tickers": [
-        "META"
-      ],
-      "tags": [
-        "commerce",
-        "task-node",
-        "personal",
-        "$META"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "B6AD4EBD50F353ABB4D93506F52E26EEBE9DA29FE2D159F8427000859F08FD98",
-          "url": "https://explorer.testnet.postfiat.org/transactions/B6AD4EBD50F353ABB4D93506F52E26EEBE9DA29FE2D159F8427000859F08FD98/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "F8A85A1BEDA28A3E6826B73B20319EED4560CDB6E94E5C84AB1029C8D025F5EA",
-          "url": "https://explorer.testnet.postfiat.org/transactions/F8A85A1BEDA28A3E6826B73B20319EED4560CDB6E94E5C84AB1029C8D025F5EA/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:2651db7d"
       }
     }
   ]
