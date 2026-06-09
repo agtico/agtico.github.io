@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-09T10:06:32.455Z",
+  "generated_at": "2026-06-09T13:20:03.227Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:20279333",
+      "timestamp": "2026-06-09T12:25:56.736Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning a reveal submission path for the validator sidecar, with on-chain commitment checks,...",
+      "summary": "Planning a reveal submission path for the validator sidecar, with on-chain commitment checks, signing, and windowed broadcast logic.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:20279333"
+      }
+    },
     {
       "id": "task:9c0c4b3d",
       "timestamp": "2026-06-09T06:06:26.233Z",
@@ -878,48 +901,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:d7d6127f"
-      }
-    },
-    {
-      "id": "task:a009d827",
-      "timestamp": "2026-06-08T21:27:57.084Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:baa2991c",
-      "category": "network",
-      "title": "Planning a public Python validator evidence continuity drift checker for Task Node verifier i...",
-      "summary": "Planning a public Python validator evidence continuity drift checker for Task Node verifier infrastructure.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "51404266A6D0114BF4159E8D325DEE2E7D5F6855B93B51D818D80F42F3CF59C6",
-          "url": "https://explorer.testnet.postfiat.org/transactions/51404266A6D0114BF4159E8D325DEE2E7D5F6855B93B51D818D80F42F3CF59C6/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "0D3C87EBD2257E992523789B0D39878955BDAC020DE2C9B5819454F52755A5F3",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0D3C87EBD2257E992523789B0D39878955BDAC020DE2C9B5819454F52755A5F3/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "4029E82042299388B22DDCD87813C5C581F61EE165A7B1CD92C264C799C551B9",
-          "url": "https://explorer.testnet.postfiat.org/transactions/4029E82042299388B22DDCD87813C5C581F61EE165A7B1CD92C264C799C551B9/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:a009d827"
       }
     }
   ]
