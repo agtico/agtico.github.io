@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-09T16:14:50.498Z",
+  "generated_at": "2026-06-09T18:26:03.853Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,52 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:6ad63e84",
+      "timestamp": "2026-06-09T17:20:08.806Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:a53e54bc",
+      "category": "network",
+      "title": "Planning an unattended PFTL validator sidecar loop for scoring, commit, and reveal submissions.",
+      "summary": "Planning an unattended PFTL validator sidecar loop for scoring, commit, and reveal submissions.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:6ad63e84"
+      }
+    },
+    {
+      "id": "task:8a1515f0",
+      "timestamp": "2026-06-09T16:34:35.893Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Starting a deterministic Python gate for Post Fiat alpha QA drift-window receipts.",
+      "summary": "Starting a deterministic Python gate for Post Fiat alpha QA drift-window receipts.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:8a1515f0"
+      }
+    },
     {
       "id": "task:a0a9563c",
       "timestamp": "2026-06-09T15:31:36.609Z",
@@ -955,90 +1001,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:e487e955"
-      }
-    },
-    {
-      "id": "task:3bcf78a7",
-      "timestamp": "2026-06-09T06:04:24.954Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Delivered a deterministic Python gate for onboarding usage receipts and earned a reward.",
-      "summary": "Delivered a deterministic Python gate for onboarding usage receipts and earned a reward.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "3A078302CE3BF3217AA6CF2DF67AEBBC7A55ED40F17774075D8807FB591EBD09",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3A078302CE3BF3217AA6CF2DF67AEBBC7A55ED40F17774075D8807FB591EBD09/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FEF417C329A3273770D30579C5A36C4D7FB3636324C6ED311ED2D99D11E28AF1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FEF417C329A3273770D30579C5A36C4D7FB3636324C6ED311ED2D99D11E28AF1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E42760338856587B14307D18B48109A98183F42D469F21CC229DB2BB9CD8F55E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E42760338856587B14307D18B48109A98183F42D469F21CC229DB2BB9CD8F55E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:3bcf78a7"
-      }
-    },
-    {
-      "id": "task:9062df1c",
-      "timestamp": "2026-06-09T06:03:58.671Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Uploaded follow-up evidence for a deterministic Python gate for onboarding usage receipts.",
-      "summary": "Uploaded follow-up evidence for a deterministic Python gate for onboarding usage receipts.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "FEF417C329A3273770D30579C5A36C4D7FB3636324C6ED311ED2D99D11E28AF1",
-          "url": "https://explorer.testnet.postfiat.org/transactions/FEF417C329A3273770D30579C5A36C4D7FB3636324C6ED311ED2D99D11E28AF1/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "3A078302CE3BF3217AA6CF2DF67AEBBC7A55ED40F17774075D8807FB591EBD09",
-          "url": "https://explorer.testnet.postfiat.org/transactions/3A078302CE3BF3217AA6CF2DF67AEBBC7A55ED40F17774075D8807FB591EBD09/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "E42760338856587B14307D18B48109A98183F42D469F21CC229DB2BB9CD8F55E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E42760338856587B14307D18B48109A98183F42D469F21CC229DB2BB9CD8F55E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:9062df1c"
       }
     }
   ]
