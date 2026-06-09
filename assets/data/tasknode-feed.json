@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-09T18:26:03.853Z",
+  "generated_at": "2026-06-09T20:23:22.740Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:53c2df6c",
+      "timestamp": "2026-06-09T18:29:40.686Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:88ad000e",
+      "category": "network",
+      "title": "Planning a dependency-light Python receipt composer for a public-safe promotion receipt.",
+      "summary": "Planning a dependency-light Python receipt composer for a public-safe promotion receipt.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:53c2df6c"
+      }
+    },
     {
       "id": "task:6ad63e84",
       "timestamp": "2026-06-09T17:20:08.806Z",
@@ -959,48 +982,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:aab43cba"
-      }
-    },
-    {
-      "id": "task:e487e955",
-      "timestamp": "2026-06-09T06:05:54.919Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:2f99eb53",
-      "category": "network",
-      "title": "Recorded a verification response for a deterministic Task Node gate handling task-offer revis...",
-      "summary": "Recorded a verification response for a deterministic Task Node gate handling task-offer revision receipts on PFTL.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "CA9A9776CD36A24BB6E883655E34714C9C10E038940A8AF60197559D67E2A26F",
-          "url": "https://explorer.testnet.postfiat.org/transactions/CA9A9776CD36A24BB6E883655E34714C9C10E038940A8AF60197559D67E2A26F/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "C17878AD463C38C550190016A46213AC31B3CE36C146C1B5887E338C0B1D5E2C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/C17878AD463C38C550190016A46213AC31B3CE36C146C1B5887E338C0B1D5E2C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "E7931BF593BD917D6FCF0707D5927CEB339B38A71CFE872B518202310A09922E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/E7931BF593BD917D6FCF0707D5927CEB339B38A71CFE872B518202310A09922E/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:e487e955"
       }
     }
   ]
