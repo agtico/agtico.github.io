@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-10T06:46:25.612Z",
+  "generated_at": "2026-06-10T10:46:01.064Z",
   "source": "fly-postgres",
   "model": "tasknode-activity-channel",
   "privacy": {
@@ -9,6 +9,29 @@
     "actor_ids": "hmac"
   },
   "items": [
+    {
+      "id": "task:21b3a87d",
+      "timestamp": "2026-06-10T07:55:12.776Z",
+      "type": "task_published",
+      "status": "in_progress",
+      "actor": "node:2f99eb53",
+      "category": "network",
+      "title": "Starting a Python composer for example promotion receipts in the Hive Mind matrix workflow.",
+      "summary": "Starting a Python composer for example promotion receipts in the Hive Mind matrix workflow.",
+      "tickers": [
+        "PFT"
+      ],
+      "tags": [
+        "network",
+        "task-node",
+        "$PFT"
+      ],
+      "links": [],
+      "source": {
+        "system": "pftasks",
+        "source_id": "task:21b3a87d"
+      }
+    },
     {
       "id": "task:f0a58267",
       "timestamp": "2026-06-10T05:20:37.854Z",
@@ -954,48 +977,6 @@
       "source": {
         "system": "pftasks",
         "source_id": "task:a62760dc"
-      }
-    },
-    {
-      "id": "task:40b46ede",
-      "timestamp": "2026-06-09T23:06:38.629Z",
-      "type": "task_completed",
-      "status": "rewarded",
-      "actor": "node:a53e54bc",
-      "category": "network",
-      "title": "Submitted evidence for the unattended validator scoring sidecar loop.",
-      "summary": "Submitted evidence for the unattended validator scoring sidecar loop.",
-      "tickers": [
-        "PFT"
-      ],
-      "tags": [
-        "network",
-        "task-node",
-        "$PFT"
-      ],
-      "links": [
-        {
-          "type": "pftl_tx",
-          "label": "PFTL proof",
-          "hash": "0C2A64E90400DD1210C4A198867C9198CA269EE4ED1C56E59A1DEAFEF92DFB6E",
-          "url": "https://explorer.testnet.postfiat.org/transactions/0C2A64E90400DD1210C4A198867C9198CA269EE4ED1C56E59A1DEAFEF92DFB6E/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL reward",
-          "hash": "99949AE3B6015872D811188C955AD4DA7A8A765553398309A1E1ECEC4C3BE28C",
-          "url": "https://explorer.testnet.postfiat.org/transactions/99949AE3B6015872D811188C955AD4DA7A8A765553398309A1E1ECEC4C3BE28C/detailed"
-        },
-        {
-          "type": "pftl_tx",
-          "label": "PFTL verification",
-          "hash": "AD2BA1289D5596194AFFA713AF1A460016115CF8FA4FB33F7FDA00703DB16B81",
-          "url": "https://explorer.testnet.postfiat.org/transactions/AD2BA1289D5596194AFFA713AF1A460016115CF8FA4FB33F7FDA00703DB16B81/detailed"
-        }
-      ],
-      "source": {
-        "system": "pftasks",
-        "source_id": "task:40b46ede"
       }
     }
   ]
