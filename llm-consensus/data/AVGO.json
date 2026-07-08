@@ -1,0 +1,877 @@
+{
+  "asset_id": "AVGO",
+  "aggregate_row": {
+    "asset_id": "AVGO",
+    "name": "BROADCOM INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 1764015.6,
+    "std_pct_of_mean": 0.4945827630907799,
+    "models": {
+      "Fable": {
+        "forward_mc": 2114721.0,
+        "pct_upside": 0.19881082684302775,
+        "bullishness": 0.4019768614672411,
+        "n_samples": 3,
+        "forward_mc_iqr": 141000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 2124801.0,
+        "pct_upside": 0.20452506202326104,
+        "bullishness": 0.41353050952509796,
+        "n_samples": 3,
+        "forward_mc_iqr": 46540.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 2390721.0,
+        "pct_upside": 0.3552720282065531,
+        "bullishness": 0.7183267487656934,
+        "n_samples": 3,
+        "forward_mc_iqr": 187500.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 2204721.0,
+        "pct_upside": 0.24983078380939472,
+        "bullishness": 0.5051344334123886,
+        "n_samples": 3,
+        "forward_mc_iqr": 90000.0
+      }
+    },
+    "consensus_bullishness": 0.4593324714687433,
+    "consensus_bullishness_mean": 0.5097421382926053,
+    "consensus_pct_upside": 0.22717792291632788,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nBroadcom Inc. is a large infrastructure-technology company spanning **semiconductors** and **infrastructure software**. Its chip businesses serve AI/data centers, networking, broadband, wireless, storage, industrial and other connectivity markets, while software includes VMware/private cloud, mainframe, cybersecurity, enterprise software and Fibre Channel management. ([broadcom.com](https://www.broadcom.com/?utm_source=openai)) The company\u2019s portfolio has been assembled through major combinations including legacy Broadcom/Avago, LSI, Brocade, CA Technologies, Symantec enterprise security and VMware. ([broadcom.com](https://www.broadcom.com/company/about-us/company-history?utm_source=openai))\n\n## What It Does\n\nBroadcom designs and supplies custom and merchant silicon: AI accelerators/XPUs, Ethernet switching and routing silicon, SerDes, optical/DSP components, wireless connectivity, broadband access chips, storage adapters/controllers and industrial components. Its software segment centers on VMware Cloud Foundation and related private-cloud infrastructure, plus CA/Symantec/Brocade software assets. ([broadcom.com](https://www.broadcom.com/products?utm_source=openai)) In the June 3, 2026 transcript excerpt, management emphasized that AI revenue is being driven by custom XPUs/TPUs and AI networking for a small group of hyperscale and frontier-AI customers, while VMware Cloud Foundation is positioned for private cloud and enterprise AI inferencing workloads.\n\n## Recent Highlights (Positive)\n\nBroadcom reported **record fiscal Q2 2026 revenue of $22.2 billion**, up **48% year over year**, with record adjusted EBITDA and free cash flow; management attributed the beat primarily to accelerating AI semiconductor demand. ([broadcom.com](https://www.broadcom.com/company/news/financial-releases/64371?utm_source=openai)) AI semiconductor revenue was **$10.8 billion**, up **143% year over year**, and the company guided fiscal Q3 revenue to **$29.4 billion**, with AI semiconductor revenue expected at **$16 billion**, up more than 200% year over year. ([investors.broadcom.com](https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial?utm_source=openai))  \n\nThe transcript excerpt adds significant order-visibility claims: management said Q2 AI semiconductor bookings exceeded **$30 billion**, reiterated fiscal 2026 AI semiconductor revenue of about **$56 billion**, and said fiscal 2027 AI semiconductor revenue should exceed **$100 billion**. It also cited long-term AI relationships with Google, Anthropic, OpenAI and Meta, including multi-generation TPU/XPU and networking arrangements, plus planned deployments measured in gigawatts. In software, Broadcom said infrastructure software revenue was **$7.2 billion** in Q2, up 9% year over year, with ARR growth of 17%, and guided Q3 software revenue to **$8.9 billion**, up 31%.\n\n## Recent Highlights (Negative)\n\nThe biggest recent overhang remains VMware customer and regulatory friction. In March 2026, CISPE filed an antitrust complaint with the European Commission alleging Broadcom\u2019s VMware licensing and cloud-service-provider program changes were unfair; Broadcom disputed the complaint and argued CISPE misrepresented the market. ([itpro.com](https://www.itpro.com/cloud/virtualisation/cispe-files-antitrust-complaint-over-broadcom-vmware-partner-program-changes?utm_source=openai)) Customer pushback has continued: recent reporting says T-Mobile is moving tens of thousands of virtual machines off VMware amid litigation over support obligations, while Tesco reportedly removed about 40,000 servers from VMware infrastructure after a separate dispute. ([arstechnica.com](https://arstechnica.com/information-technology/2026/07/t-mobile-moving-tens-of-thousands-of-virtual-machines-off-vmware-amid-lawsuit/?utm_source=openai))  \n\nThere are also operating and mix risks embedded in the otherwise strong AI ramp. In the transcript excerpt, Broadcom said consolidated gross margin would fall to roughly **74%** in fiscal Q3 from **77.1%** in Q2 as lower-margin AI semiconductor revenue becomes a larger share of mix, though management argued operating margin should remain around 67%. The AI outlook is also customer-concentrated and supply-dependent: management described six core AI customers and said it was securing wafer/HBM-type supply for 2026\u20132027 while working on 2028\u20132029, leaving execution, capacity and customer-ramp timing as key variables.\n",
+  "primer_meta": {
+    "asset_id": "AVGO",
+    "created_at_utc": "2026-07-08T15:02:32+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "cc905edc4a7ad81a4f50ca5d3388f0522793f11e1b095b1588fa9f7c93f172af",
+    "sources": [
+      {
+        "url": "https://www.broadcom.com/?utm_source=openai",
+        "title": "Broadcom Inc. | Connecting Everything"
+      },
+      {
+        "url": "https://www.broadcom.com/company/about-us/company-history?utm_source=openai",
+        "title": "Company History"
+      },
+      {
+        "url": "https://www.broadcom.com/products?utm_source=openai",
+        "title": "Products"
+      },
+      {
+        "url": "https://www.broadcom.com/company/news/financial-releases/64371?utm_source=openai",
+        "title": "Broadcom Inc. Announces Second Quarter Fiscal Year 2026 Financial Results and Quarterly Dividend"
+      },
+      {
+        "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial?utm_source=openai",
+        "title": "Broadcom Inc. Announces Second Quarter Fiscal Year 2026 Financial Results and Quarterly Dividend | Broadcom Inc."
+      },
+      {
+        "url": "https://www.itpro.com/cloud/virtualisation/cispe-files-antitrust-complaint-over-broadcom-vmware-partner-program-changes?utm_source=openai",
+        "title": "CISPE files antitrust complaint over Broadcom VMware partner program changes"
+      },
+      {
+        "url": "https://arstechnica.com/information-technology/2026/07/t-mobile-moving-tens-of-thousands-of-virtual-machines-off-vmware-amid-lawsuit/?utm_source=openai",
+        "title": "T-Mobile moving tens of thousands of virtual machines off VMware amid lawsuit - Ars Technica"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "AVGO__earnings_call_transcript__2026-06-03__2__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-06-03",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_03905330b715d33e016a4e666d32f4819f96513c7ce546fb85",
+    "usage": {
+      "input_tokens": 20884,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1064,
+      "output_tokens_details": {
+        "reasoning_tokens": 195
+      },
+      "total_tokens": 21948
+    }
+  },
+  "details": {
+    "asset_id": "AVGO",
+    "detail_source_ticker": "AVGO",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "BROADCOM INC",
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "market_cap_musd": 1764015.6,
+    "ev_musd": 1809294.6,
+    "ttm_revenue_musd": 75465.0,
+    "ttm_fcf_musd": 32762.0,
+    "ttm_netinc_musd": 29317.0,
+    "fcf_ev": {
+      "current": 0.018107609451771978,
+      "avg_1y": 0.015642678493521422,
+      "std_1y": 0.0015332454697657922,
+      "avg_3y": 0.023717438381280254,
+      "std_3y": 0.009729230500751838
+    },
+    "ni_mc": {
+      "current": 0.01661946753758867,
+      "avg_1y": 0.012665078079802751,
+      "std_1y": 0.002433687094579672,
+      "avg_3y": 0.016720880733962242,
+      "std_3y": 0.010230128595207996
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-06-09",
+        "ttm_revenue_musd": 75465.0,
+        "ttm_fcf_musd": 32762.0,
+        "ttm_netinc_musd": 29317.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-06-11",
+        "ttm_revenue_musd": 57046.0,
+        "ttm_fcf_musd": 22697.0,
+        "ttm_netinc_musd": 12917.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-06-13",
+        "ttm_revenue_musd": 42619.0,
+        "ttm_fcf_musd": 18461.0,
+        "ttm_netinc_musd": 10273.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 1024295.1131824234,
+      "std_musd": 506598.7072981461,
+      "std_pct_of_mean": 0.4945827630907799,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AVGO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:53+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 1424,
+        "total_tokens": 4136,
+        "cost": 0.09832,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09832,
+          "upstream_inference_prompt_cost": 0.02712,
+          "upstream_inference_completions_cost": 0.0712
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 185,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI semiconductor revenue is exploding: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guided to $16B, with $30B+ in quarterly AI bookings and management guiding FY26 AI revenue to ~$56B and FY27 to >$100B.\n- Customer base includes Google, Anthropic, OpenAI and Meta on multi-generation XPU/networking programs with gigawatt-scale deployments \u2014 providing unusual multi-year visibility for a semiconductor business.\n- Infrastructure software (VMware Cloud Foundation) is compounding: Q2 software revenue $7.2B (+9%), ARR +17%, Q3 guided to $8.9B (+31%), providing a sticky, high-margin recurring base.\n- TTM FCF grew from $22.7B to $32.8B (+44% y/y); if the AI ramp lands, forward FCF of $45B+ is achievable, supporting continued premium multiples and a market cap well above $2T.\n\n## Bear Case\n- Customer concentration: roughly six core AI customers; any ramp delay, in-house silicon shift, or hyperscaler capex pause would hit revenue hard.\n- Mix-driven margin erosion: gross margin guided down from 77.1% to ~74% as lower-margin AI silicon grows \u2014 FCF conversion may lag revenue growth.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile migrating tens of thousands of VMs off VMware, Tesco pulling ~40,000 servers \u2014 churn risk to the software annuity.\n- Valuation is rich: current EV/FCF ~55x vs. a 3-year average FCF/EV yield of 2.4% (implying ~42x); any AI-sentiment de-rating compresses the multiple faster than FCF grows. Supply (wafer/HBM) constraints are an execution risk for 2027 targets.\n\n## Logic\n- **Forward FCF:** TTM FCF is $32,762M, up 44% y/y. Given guided AI acceleration (Q3 revenue guide of $29.4B vs. quarterly run-rate ~$18.9B TTM) partially offset by gross-margin mix compression and VMware churn, I project ~37% FCF growth over the next 12 months \u2192 **forward FCF \u2248 $45,000M**.\n- **Multiple:** Current EV/FCF = 1,809,295 / 32,762 \u2248 55.2x. On forward numbers with strong but decelerating growth and margin mix pressure, I apply modest compression to **48x forward EV/FCF** (still above the 3-year average yield-implied ~42x, justified by FY27 AI visibility).\n- **EV:** 45,000 \u00d7 48 = **$2,160,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding this constant: 2,160,000 \u2212 45,279 \u2248 **$2,114,721M** forward market cap.\n\n```json\n{\"forward_market_cap_musd\": 2114721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 48.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2114721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 45000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 48.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI semiconductor revenue is exploding: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guided to $16B, with $30B+ in quarterly AI bookings and management guiding FY26 AI revenue to ~$56B and FY27 to >$100B.\n- Customer base includes Google, Anthropic, OpenAI and Meta on multi-generation XPU/networking programs with gigawatt-scale deployments \u2014 providing unusual multi-year visibility for a semiconductor business.\n- Infrastructure software (VMware Cloud Foundation) is compounding: Q2 software revenue $7.2B (+9%), ARR +17%, Q3 guided to $8.9B (+31%), providing a sticky, high-margin recurring base.\n- TTM FCF grew from $22.7B to $32.8B (+44% y/y); if the AI ramp lands, forward FCF of $45B+ is achievable, supporting continued premium multiples and a market cap well above $2T.\n\n## Bear Case\n- Customer concentration: roughly six core AI customers; any ramp delay, in-house silicon shift, or hyperscaler capex pause would hit revenue hard.\n- Mix-driven margin erosion: gross margin guided down from 77.1% to ~74% as lower-margin AI silicon grows \u2014 FCF conversion may lag revenue growth.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile migrating tens of thousands of VMs off VMware, Tesco pulling ~40,000 servers \u2014 churn risk to the software annuity.\n- Valuation is rich: current EV/FCF ~55x vs. a 3-year average FCF/EV yield of 2.4% (implying ~42x); any AI-sentiment de-rating compresses the multiple faster than FCF grows. Supply (wafer/HBM) constraints are an execution risk for 2027 targets.\n\n## Logic\n- **Forward FCF:** TTM FCF is $32,762M, up 44% y/y. Given guided AI acceleration (Q3 revenue guide of $29.4B vs. quarterly run-rate ~$18.9B TTM) partially offset by gross-margin mix compression and VMware churn, I project ~37% FCF growth over the next 12 months \u2192 **forward FCF \u2248 $45,000M**.\n- **Multiple:** Current EV/FCF = 1,809,295 / 32,762 \u2248 55.2x. On forward numbers with strong but decelerating growth and margin mix pressure, I apply modest compression to **48x forward EV/FCF** (still above the 3-year average yield-implied ~42x, justified by FY27 AI visibility).\n- **EV:** 45,000 \u00d7 48 = **$2,160,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding this constant: 2,160,000 \u2212 45,279 \u2248 **$2,114,721M** forward market cap.\n\n```json\n{\"forward_market_cap_musd\": 2114721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 48.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI semiconductor revenue is exploding: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guided to $16B, with $30B+ in quarterly AI bookings and management guiding FY26 AI revenue to ~$56B and FY27 to >$100B.\n- Customer base includes Google, Anthropic, OpenAI and Meta on multi-generation XPU/networking programs with gigawatt-scale deployments \u2014 providing unusual multi-year visibility for a semiconductor business.\n- Infrastructure software (VMware Cloud Foundation) is compounding: Q2 software revenue $7.2B (+9%), ARR +17%, Q3 guided to $8.9B (+31%), providing a sticky, high-margin recurring base.\n- TTM FCF grew from $22.7B to $32.8B (+44% y/y); if the AI ramp lands, forward FCF of $45B+ is achievable, supporting continued premium multiples and a market cap well above $2T.",
+        "Bear Case": "- Customer concentration: roughly six core AI customers; any ramp delay, in-house silicon shift, or hyperscaler capex pause would hit revenue hard.\n- Mix-driven margin erosion: gross margin guided down from 77.1% to ~74% as lower-margin AI silicon grows \u2014 FCF conversion may lag revenue growth.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile migrating tens of thousands of VMs off VMware, Tesco pulling ~40,000 servers \u2014 churn risk to the software annuity.\n- Valuation is rich: current EV/FCF ~55x vs. a 3-year average FCF/EV yield of 2.4% (implying ~42x); any AI-sentiment de-rating compresses the multiple faster than FCF grows. Supply (wafer/HBM) constraints are an execution risk for 2027 targets.",
+        "Logic": "- **Forward FCF:** TTM FCF is $32,762M, up 44% y/y. Given guided AI acceleration (Q3 revenue guide of $29.4B vs. quarterly run-rate ~$18.9B TTM) partially offset by gross-margin mix compression and VMware churn, I project ~37% FCF growth over the next 12 months \u2192 **forward FCF \u2248 $45,000M**.\n- **Multiple:** Current EV/FCF = 1,809,295 / 32,762 \u2248 55.2x. On forward numbers with strong but decelerating growth and margin mix pressure, I apply modest compression to **48x forward EV/FCF** (still above the 3-year average yield-implied ~42x, justified by FY27 AI visibility).\n- **EV:** 45,000 \u00d7 48 = **$2,160,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding this constant: 2,160,000 \u2212 45,279 \u2248 **$2,114,721M** forward market cap."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AVGO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:25:08+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 1395,
+        "total_tokens": 4107,
+        "cost": 0.09687,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09687,
+          "upstream_inference_prompt_cost": 0.02712,
+          "upstream_inference_completions_cost": 0.06975
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 220,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI semiconductor revenue is inflecting hard: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26 and management guiding >$100B for FY27, with $30B+ quarterly bookings and multi-year XPU/networking commitments from Google, Anthropic, OpenAI and Meta.\n- Software provides a steady, high-margin ballast: $7.2B in Q2 (+9% y/y), 17% ARR growth, Q3 guided to $8.9B (+31%).\n- FCF has compounded ~34% CAGR over two years (18.5B \u2192 22.7B \u2192 32.8B TTM); the AI ramp plus VMware ARR suggests forward FCF could approach $50B, supporting a materially higher EV even at a compressed multiple.\n\n## Bear Case\n- Gross margin is guided down (77.1% \u2192 ~74%) as lower-margin custom AI silicon grows in mix, so FCF conversion per revenue dollar declines.\n- Extreme customer concentration (six core AI customers) and wafer/HBM supply dependence create ramp-timing and cancellation risk on the >$100B FY27 AI outlook.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile and Tesco migrating off VMware \u2014 potential erosion of the software renewal base.\n- Current EV/FCF is ~55x TTM; any AI capex digestion by hyperscalers could compress the multiple sharply on a $1.8T EV base.\n\n## Logic\n- **Forward FCF:** TTM FCF is $32,762M on $75,465M revenue. With AI revenue roughly doubling into FY27, software growing ~20-30%, but ~300bps of gross-margin mix compression, I model forward 12-month FCF growth of ~43%, in line with (slightly below) last year's 44% FCF growth: **forward FCF \u2248 $47,000M**.\n- **Multiple:** Current EV/TTM FCF \u2248 55x; the market is already pricing the ramp, so on realized forward FCF the fair multiple compresses. I apply **42x EV/forward FCF** \u2014 a premium to typical large-cap semis reflecting booked AI backlog, but below today's TTM multiple to account for concentration and VMware risk.\n- **EV:** 47,000 \u00d7 42 = **$1,974,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M net debt. Forward market cap = 1,974,000 \u2212 45,279 \u2248 **$1,928,721M**.\n\n```json\n{\"forward_market_cap_musd\": 1928721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 47000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 1928721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 47000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 42.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI semiconductor revenue is inflecting hard: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26 and management guiding >$100B for FY27, with $30B+ quarterly bookings and multi-year XPU/networking commitments from Google, Anthropic, OpenAI and Meta.\n- Software provides a steady, high-margin ballast: $7.2B in Q2 (+9% y/y), 17% ARR growth, Q3 guided to $8.9B (+31%).\n- FCF has compounded ~34% CAGR over two years (18.5B \u2192 22.7B \u2192 32.8B TTM); the AI ramp plus VMware ARR suggests forward FCF could approach $50B, supporting a materially higher EV even at a compressed multiple.\n\n## Bear Case\n- Gross margin is guided down (77.1% \u2192 ~74%) as lower-margin custom AI silicon grows in mix, so FCF conversion per revenue dollar declines.\n- Extreme customer concentration (six core AI customers) and wafer/HBM supply dependence create ramp-timing and cancellation risk on the >$100B FY27 AI outlook.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile and Tesco migrating off VMware \u2014 potential erosion of the software renewal base.\n- Current EV/FCF is ~55x TTM; any AI capex digestion by hyperscalers could compress the multiple sharply on a $1.8T EV base.\n\n## Logic\n- **Forward FCF:** TTM FCF is $32,762M on $75,465M revenue. With AI revenue roughly doubling into FY27, software growing ~20-30%, but ~300bps of gross-margin mix compression, I model forward 12-month FCF growth of ~43%, in line with (slightly below) last year's 44% FCF growth: **forward FCF \u2248 $47,000M**.\n- **Multiple:** Current EV/TTM FCF \u2248 55x; the market is already pricing the ramp, so on realized forward FCF the fair multiple compresses. I apply **42x EV/forward FCF** \u2014 a premium to typical large-cap semis reflecting booked AI backlog, but below today's TTM multiple to account for concentration and VMware risk.\n- **EV:** 47,000 \u00d7 42 = **$1,974,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M net debt. Forward market cap = 1,974,000 \u2212 45,279 \u2248 **$1,928,721M**.\n\n```json\n{\"forward_market_cap_musd\": 1928721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 47000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI semiconductor revenue is inflecting hard: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26 and management guiding >$100B for FY27, with $30B+ quarterly bookings and multi-year XPU/networking commitments from Google, Anthropic, OpenAI and Meta.\n- Software provides a steady, high-margin ballast: $7.2B in Q2 (+9% y/y), 17% ARR growth, Q3 guided to $8.9B (+31%).\n- FCF has compounded ~34% CAGR over two years (18.5B \u2192 22.7B \u2192 32.8B TTM); the AI ramp plus VMware ARR suggests forward FCF could approach $50B, supporting a materially higher EV even at a compressed multiple.",
+        "Bear Case": "- Gross margin is guided down (77.1% \u2192 ~74%) as lower-margin custom AI silicon grows in mix, so FCF conversion per revenue dollar declines.\n- Extreme customer concentration (six core AI customers) and wafer/HBM supply dependence create ramp-timing and cancellation risk on the >$100B FY27 AI outlook.\n- VMware friction is real: EU antitrust complaint (CISPE), T-Mobile and Tesco migrating off VMware \u2014 potential erosion of the software renewal base.\n- Current EV/FCF is ~55x TTM; any AI capex digestion by hyperscalers could compress the multiple sharply on a $1.8T EV base.",
+        "Logic": "- **Forward FCF:** TTM FCF is $32,762M on $75,465M revenue. With AI revenue roughly doubling into FY27, software growing ~20-30%, but ~300bps of gross-margin mix compression, I model forward 12-month FCF growth of ~43%, in line with (slightly below) last year's 44% FCF growth: **forward FCF \u2248 $47,000M**.\n- **Multiple:** Current EV/TTM FCF \u2248 55x; the market is already pricing the ramp, so on realized forward FCF the fair multiple compresses. I apply **42x EV/forward FCF** \u2014 a premium to typical large-cap semis reflecting booked AI backlog, but below today's TTM multiple to account for concentration and VMware risk.\n- **EV:** 47,000 \u00d7 42 = **$1,974,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 1,809,294.6 \u2212 1,764,015.6 = $45,279M net debt. Forward market cap = 1,974,000 \u2212 45,279 \u2248 **$1,928,721M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AVGO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:25:16+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 1557,
+        "total_tokens": 4269,
+        "cost": 0.10497,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.10497,
+          "upstream_inference_prompt_cost": 0.02712,
+          "upstream_inference_completions_cost": 0.07785
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 230,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI semiconductor revenue is inflecting: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26, and management guiding FY27 AI revenue above $100B with >$30B quarterly bookings and multi-year commitments from Google, Anthropic, OpenAI and Meta.\n- Total revenue guide of $29.4B for Q3 (vs. $22.2B in Q2) implies NTM revenue plausibly in the $115\u2013125B range vs. $75.5B TTM \u2014 a ~55%+ growth rate.\n- FCF conversion is elite (~43% of revenue TTM), and software ARR growth of 17% with Q3 software revenue guided +31% adds durable, high-margin recurring cash flow.\n- If FCF scales to ~$50B+ and the market maintains a mid-50s EV/FCF multiple (in line with current ~55x), EV could exceed $2.6T.\n\n## Bear Case\n- Customer concentration: six core AI customers; any deployment delay or in-housing decision could puncture the FY27 $100B+ AI target.\n- Mix-driven margin compression: gross margin guided down from 77.1% to ~74% as lower-margin XPUs grow; FCF margin could drift below 43%.\n- VMware friction (CISPE antitrust complaint, T-Mobile and Tesco migrations) risks software attrition and regulatory remedies.\n- Supply chain (wafer/HBM) constraints and execution risk on gigawatt-scale ramps; multiple could de-rate to 35\u201340x if AI capex sentiment cools, implying EV nearer $1.7\u20131.9T (flat to down).\n\n## Logic\n- Forward FCF: TTM FCF is $32.76B on $75.5B revenue (~43.4% margin). With Q3 guided at $29.4B revenue and AI accelerating, NTM revenue of ~$115B is reasonable. Applying a slightly compressed ~42% FCF margin (mix shift to lower-margin AI silicon) gives forward FCF \u2248 **$48,000M**.\n- Multiple: current EV/FCF is ~55x on trailing FCF (fcf_ev current = 1.81%). On a much larger forward FCF base, I apply a modestly compressed **47x** forward EV/FCF \u2014 still a premium multiple justified by 40%+ FCF growth and FY27 AI visibility, but haircut for concentration, margin mix and VMware risk.\n- EV = 48,000 \u00d7 47 = **$2,256,000M**.\n- EV-to-market-cap bridge: current gap = EV \u2212 MC = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding the gap constant: forward market cap = 2,256,000 \u2212 45,279 \u2248 **$2,210,721M**.\n\n```json\n{\"forward_market_cap_musd\": 2210721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 48000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 47.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2210721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 48000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 47.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI semiconductor revenue is inflecting: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26, and management guiding FY27 AI revenue above $100B with >$30B quarterly bookings and multi-year commitments from Google, Anthropic, OpenAI and Meta.\n- Total revenue guide of $29.4B for Q3 (vs. $22.2B in Q2) implies NTM revenue plausibly in the $115\u2013125B range vs. $75.5B TTM \u2014 a ~55%+ growth rate.\n- FCF conversion is elite (~43% of revenue TTM), and software ARR growth of 17% with Q3 software revenue guided +31% adds durable, high-margin recurring cash flow.\n- If FCF scales to ~$50B+ and the market maintains a mid-50s EV/FCF multiple (in line with current ~55x), EV could exceed $2.6T.\n\n## Bear Case\n- Customer concentration: six core AI customers; any deployment delay or in-housing decision could puncture the FY27 $100B+ AI target.\n- Mix-driven margin compression: gross margin guided down from 77.1% to ~74% as lower-margin XPUs grow; FCF margin could drift below 43%.\n- VMware friction (CISPE antitrust complaint, T-Mobile and Tesco migrations) risks software attrition and regulatory remedies.\n- Supply chain (wafer/HBM) constraints and execution risk on gigawatt-scale ramps; multiple could de-rate to 35\u201340x if AI capex sentiment cools, implying EV nearer $1.7\u20131.9T (flat to down).\n\n## Logic\n- Forward FCF: TTM FCF is $32.76B on $75.5B revenue (~43.4% margin). With Q3 guided at $29.4B revenue and AI accelerating, NTM revenue of ~$115B is reasonable. Applying a slightly compressed ~42% FCF margin (mix shift to lower-margin AI silicon) gives forward FCF \u2248 **$48,000M**.\n- Multiple: current EV/FCF is ~55x on trailing FCF (fcf_ev current = 1.81%). On a much larger forward FCF base, I apply a modestly compressed **47x** forward EV/FCF \u2014 still a premium multiple justified by 40%+ FCF growth and FY27 AI visibility, but haircut for concentration, margin mix and VMware risk.\n- EV = 48,000 \u00d7 47 = **$2,256,000M**.\n- EV-to-market-cap bridge: current gap = EV \u2212 MC = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding the gap constant: forward market cap = 2,256,000 \u2212 45,279 \u2248 **$2,210,721M**.\n\n```json\n{\"forward_market_cap_musd\": 2210721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 48000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 47.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI semiconductor revenue is inflecting: Q2 FY26 AI revenue of $10.8B (+143% y/y), Q3 guide of $16B, ~$56B for FY26, and management guiding FY27 AI revenue above $100B with >$30B quarterly bookings and multi-year commitments from Google, Anthropic, OpenAI and Meta.\n- Total revenue guide of $29.4B for Q3 (vs. $22.2B in Q2) implies NTM revenue plausibly in the $115\u2013125B range vs. $75.5B TTM \u2014 a ~55%+ growth rate.\n- FCF conversion is elite (~43% of revenue TTM), and software ARR growth of 17% with Q3 software revenue guided +31% adds durable, high-margin recurring cash flow.\n- If FCF scales to ~$50B+ and the market maintains a mid-50s EV/FCF multiple (in line with current ~55x), EV could exceed $2.6T.",
+        "Bear Case": "- Customer concentration: six core AI customers; any deployment delay or in-housing decision could puncture the FY27 $100B+ AI target.\n- Mix-driven margin compression: gross margin guided down from 77.1% to ~74% as lower-margin XPUs grow; FCF margin could drift below 43%.\n- VMware friction (CISPE antitrust complaint, T-Mobile and Tesco migrations) risks software attrition and regulatory remedies.\n- Supply chain (wafer/HBM) constraints and execution risk on gigawatt-scale ramps; multiple could de-rate to 35\u201340x if AI capex sentiment cools, implying EV nearer $1.7\u20131.9T (flat to down).",
+        "Logic": "- Forward FCF: TTM FCF is $32.76B on $75.5B revenue (~43.4% margin). With Q3 guided at $29.4B revenue and AI accelerating, NTM revenue of ~$115B is reasonable. Applying a slightly compressed ~42% FCF margin (mix shift to lower-margin AI silicon) gives forward FCF \u2248 **$48,000M**.\n- Multiple: current EV/FCF is ~55x on trailing FCF (fcf_ev current = 1.81%). On a much larger forward FCF base, I apply a modestly compressed **47x** forward EV/FCF \u2014 still a premium multiple justified by 40%+ FCF growth and FY27 AI visibility, but haircut for concentration, margin mix and VMware risk.\n- EV = 48,000 \u00d7 47 = **$2,256,000M**.\n- EV-to-market-cap bridge: current gap = EV \u2212 MC = 1,809,294.6 \u2212 1,764,015.6 = $45,279M (net debt). Holding the gap constant: forward market cap = 2,256,000 \u2212 45,279 \u2248 **$2,210,721M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AVGO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:21+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 792,
+        "total_tokens": 3504,
+        "cost": 0.03336,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03336,
+          "upstream_inference_prompt_cost": 0.01356,
+          "upstream_inference_completions_cost": 0.0198
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI semiconductor revenue ramps as guided (~$56B FY26, >$100B FY27), driving consolidated revenue growth well above 40%. TTM FCF has grown from $18.5B \u2192 $22.7B \u2192 $32.8B over three years (~+44% YoY most recent). Booking backlog >$30B and multi-generation hyperscaler commitments support durability. Forward FCF could reach ~$45B+. The market has historically awarded a premium EV/FCF multiple (current ~55x); sustained AI leadership justifies holding a rich ~55\u201358x multiple.\n\n## Bear Case\nVMware customer defections (T-Mobile, Tesco), EU antitrust scrutiny, and gross margin compression (77.1% \u2192 ~74%) from lower-margin AI mix pressure profitability. Extreme customer concentration (six AI customers) and supply constraints create execution risk. Multiple compression from a lofty ~55x toward the 3-year average (~42x on FCF/EV of 2.37%) would offset FCF growth. Forward FCF nearer $40B at a de-rated ~45x multiple.\n\n## Logic\n- TTM FCF = $32,762M; recent YoY FCF growth ~44%. Given AI revenue guided to grow >200% near-term but blended with slower software and margin mix headwinds, apply a moderated forward FCF growth of ~35% \u2192 forward FCF \u2248 $44,200M.\n- Current EV/FCF = 1/0.018108 \u2248 55.2x. Blending bull (premium retained) and bear (partial de-rate toward 3y norms), apply a forward multiple of ~48x, reflecting some multiple normalization as growth is priced in.\n- Forward EV = 44,200 \u00d7 48 \u2248 $2,121,600M.\n- EV-to-market-cap gap = current MC \u2212 current EV = 1,764,015.6 \u2212 1,809,294.6 = \u221245,279M (net debt-like gap of $45,279M).\n- Forward MC = Forward EV \u2212 gap adjustment = 2,121,600 \u2212 45,279 \u2248 $2,076,321M.\n\n```json\n{\"forward_market_cap_musd\": 2076321.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 44200.0, \"forward_netinc_musd\": 39500.0, \"applied_multiple\": 48.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2076321.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 44200.0,
+        "forward_netinc_musd": 39500.0,
+        "applied_multiple": 48.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI semiconductor revenue ramps as guided (~$56B FY26, >$100B FY27), driving consolidated revenue growth well above 40%. TTM FCF has grown from $18.5B \u2192 $22.7B \u2192 $32.8B over three years (~+44% YoY most recent). Booking backlog >$30B and multi-generation hyperscaler commitments support durability. Forward FCF could reach ~$45B+. The market has historically awarded a premium EV/FCF multiple (current ~55x); sustained AI leadership justifies holding a rich ~55\u201358x multiple.\n\n## Bear Case\nVMware customer defections (T-Mobile, Tesco), EU antitrust scrutiny, and gross margin compression (77.1% \u2192 ~74%) from lower-margin AI mix pressure profitability. Extreme customer concentration (six AI customers) and supply constraints create execution risk. Multiple compression from a lofty ~55x toward the 3-year average (~42x on FCF/EV of 2.37%) would offset FCF growth. Forward FCF nearer $40B at a de-rated ~45x multiple.\n\n## Logic\n- TTM FCF = $32,762M; recent YoY FCF growth ~44%. Given AI revenue guided to grow >200% near-term but blended with slower software and margin mix headwinds, apply a moderated forward FCF growth of ~35% \u2192 forward FCF \u2248 $44,200M.\n- Current EV/FCF = 1/0.018108 \u2248 55.2x. Blending bull (premium retained) and bear (partial de-rate toward 3y norms), apply a forward multiple of ~48x, reflecting some multiple normalization as growth is priced in.\n- Forward EV = 44,200 \u00d7 48 \u2248 $2,121,600M.\n- EV-to-market-cap gap = current MC \u2212 current EV = 1,764,015.6 \u2212 1,809,294.6 = \u221245,279M (net debt-like gap of $45,279M).\n- Forward MC = Forward EV \u2212 gap adjustment = 2,121,600 \u2212 45,279 \u2248 $2,076,321M.\n\n```json\n{\"forward_market_cap_musd\": 2076321.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 44200.0, \"forward_netinc_musd\": 39500.0, \"applied_multiple\": 48.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI semiconductor revenue ramps as guided (~$56B FY26, >$100B FY27), driving consolidated revenue growth well above 40%. TTM FCF has grown from $18.5B \u2192 $22.7B \u2192 $32.8B over three years (~+44% YoY most recent). Booking backlog >$30B and multi-generation hyperscaler commitments support durability. Forward FCF could reach ~$45B+. The market has historically awarded a premium EV/FCF multiple (current ~55x); sustained AI leadership justifies holding a rich ~55\u201358x multiple.",
+        "Bear Case": "VMware customer defections (T-Mobile, Tesco), EU antitrust scrutiny, and gross margin compression (77.1% \u2192 ~74%) from lower-margin AI mix pressure profitability. Extreme customer concentration (six AI customers) and supply constraints create execution risk. Multiple compression from a lofty ~55x toward the 3-year average (~42x on FCF/EV of 2.37%) would offset FCF growth. Forward FCF nearer $40B at a de-rated ~45x multiple.",
+        "Logic": "- TTM FCF = $32,762M; recent YoY FCF growth ~44%. Given AI revenue guided to grow >200% near-term but blended with slower software and margin mix headwinds, apply a moderated forward FCF growth of ~35% \u2192 forward FCF \u2248 $44,200M.\n- Current EV/FCF = 1/0.018108 \u2248 55.2x. Blending bull (premium retained) and bear (partial de-rate toward 3y norms), apply a forward multiple of ~48x, reflecting some multiple normalization as growth is priced in.\n- Forward EV = 44,200 \u00d7 48 \u2248 $2,121,600M.\n- EV-to-market-cap gap = current MC \u2212 current EV = 1,764,015.6 \u2212 1,809,294.6 = \u221245,279M (net debt-like gap of $45,279M).\n- Forward MC = Forward EV \u2212 gap adjustment = 2,121,600 \u2212 45,279 \u2248 $2,076,321M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AVGO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:33+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 802,
+        "total_tokens": 3514,
+        "cost": 0.03361,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03361,
+          "upstream_inference_prompt_cost": 0.01356,
+          "upstream_inference_completions_cost": 0.02005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI semiconductor revenue is guided to ~$56B in FY2026 and >$100B in FY2027, driving explosive top-line growth. TTM revenue already grew from $57B to $75B (+32% YoY), with FCF up from $22.7B to $32.8B (+44%). If FCF continues scaling with AI ramp, forward FCF could reach ~$45\u201348B. A premium multiple (~55\u201360x EV/FCF, matching current ~55x) on strong secular AI demand supports meaningful EV expansion.\n\n## Bear Case\nGross margin compression (77.1% \u2192 74%) from lower-margin AI mix, plus VMware customer attrition (T-Mobile, Tesco) and EU antitrust risk, could cap FCF growth. Customer concentration (six core AI buyers) and supply constraints add execution risk. If FCF grows only modestly to ~$38B and the multiple compresses toward the 3-year average FCF/EV (~2.37%, i.e. ~42x), EV would contract materially.\n\n## Logic\n- **Current EV/FCF multiple:** EV $1,809,294.6M / TTM FCF $32,762M \u2248 **55.2x** (FCF/EV = 1.81%).\n- **EV\u2013market-cap gap:** $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M** (net debt bridge).\n- **Forward FCF:** FCF growth trailing 2 years averaged ~+44% and +34%. Given AI ramp (guided revenue growth substantial into FY2027) but tempered by margin compression, I apply a moderated ~30% forward FCF growth: $32,762M \u00d7 1.30 \u2248 **$42,590M**.\n- **Applied multiple:** I anchor near the current 55.2x but modestly discount for margin mix and VMware/regulatory overhang, applying **52x** EV/FCF.\n- **Forward EV:** $42,590M \u00d7 52 \u2248 **$2,214,680M**.\n- **Forward market cap:** Forward EV \u2212 EV/MC gap = $2,214,680M \u2212 $45,279M \u2248 **$2,169,401M**.\n\n```json\n{\"forward_market_cap_musd\": 2169401.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 42590.0, \"forward_netinc_musd\": null, \"applied_multiple\": 52.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2169401.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 42590.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 52.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI semiconductor revenue is guided to ~$56B in FY2026 and >$100B in FY2027, driving explosive top-line growth. TTM revenue already grew from $57B to $75B (+32% YoY), with FCF up from $22.7B to $32.8B (+44%). If FCF continues scaling with AI ramp, forward FCF could reach ~$45\u201348B. A premium multiple (~55\u201360x EV/FCF, matching current ~55x) on strong secular AI demand supports meaningful EV expansion.\n\n## Bear Case\nGross margin compression (77.1% \u2192 74%) from lower-margin AI mix, plus VMware customer attrition (T-Mobile, Tesco) and EU antitrust risk, could cap FCF growth. Customer concentration (six core AI buyers) and supply constraints add execution risk. If FCF grows only modestly to ~$38B and the multiple compresses toward the 3-year average FCF/EV (~2.37%, i.e. ~42x), EV would contract materially.\n\n## Logic\n- **Current EV/FCF multiple:** EV $1,809,294.6M / TTM FCF $32,762M \u2248 **55.2x** (FCF/EV = 1.81%).\n- **EV\u2013market-cap gap:** $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M** (net debt bridge).\n- **Forward FCF:** FCF growth trailing 2 years averaged ~+44% and +34%. Given AI ramp (guided revenue growth substantial into FY2027) but tempered by margin compression, I apply a moderated ~30% forward FCF growth: $32,762M \u00d7 1.30 \u2248 **$42,590M**.\n- **Applied multiple:** I anchor near the current 55.2x but modestly discount for margin mix and VMware/regulatory overhang, applying **52x** EV/FCF.\n- **Forward EV:** $42,590M \u00d7 52 \u2248 **$2,214,680M**.\n- **Forward market cap:** Forward EV \u2212 EV/MC gap = $2,214,680M \u2212 $45,279M \u2248 **$2,169,401M**.\n\n```json\n{\"forward_market_cap_musd\": 2169401.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 42590.0, \"forward_netinc_musd\": null, \"applied_multiple\": 52.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI semiconductor revenue is guided to ~$56B in FY2026 and >$100B in FY2027, driving explosive top-line growth. TTM revenue already grew from $57B to $75B (+32% YoY), with FCF up from $22.7B to $32.8B (+44%). If FCF continues scaling with AI ramp, forward FCF could reach ~$45\u201348B. A premium multiple (~55\u201360x EV/FCF, matching current ~55x) on strong secular AI demand supports meaningful EV expansion.",
+        "Bear Case": "Gross margin compression (77.1% \u2192 74%) from lower-margin AI mix, plus VMware customer attrition (T-Mobile, Tesco) and EU antitrust risk, could cap FCF growth. Customer concentration (six core AI buyers) and supply constraints add execution risk. If FCF grows only modestly to ~$38B and the multiple compresses toward the 3-year average FCF/EV (~2.37%, i.e. ~42x), EV would contract materially.",
+        "Logic": "- **Current EV/FCF multiple:** EV $1,809,294.6M / TTM FCF $32,762M \u2248 **55.2x** (FCF/EV = 1.81%).\n- **EV\u2013market-cap gap:** $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M** (net debt bridge).\n- **Forward FCF:** FCF growth trailing 2 years averaged ~+44% and +34%. Given AI ramp (guided revenue growth substantial into FY2027) but tempered by margin compression, I apply a moderated ~30% forward FCF growth: $32,762M \u00d7 1.30 \u2248 **$42,590M**.\n- **Applied multiple:** I anchor near the current 55.2x but modestly discount for margin mix and VMware/regulatory overhang, applying **52x** EV/FCF.\n- **Forward EV:** $42,590M \u00d7 52 \u2248 **$2,214,680M**.\n- **Forward market cap:** Forward EV \u2212 EV/MC gap = $2,214,680M \u2212 $45,279M \u2248 **$2,169,401M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AVGO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:46+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 821,
+        "total_tokens": 3533,
+        "cost": 0.034085,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.034085,
+          "upstream_inference_prompt_cost": 0.01356,
+          "upstream_inference_completions_cost": 0.020525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI semiconductor revenue is exploding: TTM revenue grew 32% YoY ($57B\u2192$75.5B) and TTM FCF grew 44% ($22.7B\u2192$32.8B). Management guides FY2026 AI semi revenue ~$56B and FY2027 >$100B, with $30B+ in Q2 AI bookings and multi-year hyperscaler commitments (Google, Anthropic, OpenAI, Meta). If FCF grows ~40% to ~$46B and the market sustains a premium EV/FCF multiple (~50x) given the AI runway, EV could exceed $2.3T.\n\n## Bear Case\nGrowth-driven margin compression is a real risk: gross margin declining from 77.1% to ~74% as lower-margin AI silicon dominates mix. VMware friction (CISPE EU antitrust, T-Mobile and Tesco defections) threatens the high-margin software cash cow. Customer concentration (six core AI customers) and supply/capacity dependence introduce execution risk. A multiple de-rate toward the 3-year average FCF/EV yield (~2.37% \u2192 ~42x) or slower FCF growth would cap EV near current levels.\n\n## Logic\n- **Forward FCF**: TTM FCF is $32,762M, growing 44% YoY. Given continued AI ramp but moderating margins, I apply ~38% forward growth \u2192 forward FCF \u2248 $45,210M.\n- **Applied multiple**: Current FCF/EV yield is 1.81% (~55x EV/FCF). The 1y avg yield is 1.56% (~64x) and 3y avg 2.37% (~42x). Blending toward the current-to-1y range but tempering for margin/mix risk, I apply ~48x EV/FCF (yield ~2.08%).\n- **Forward EV**: $45,210M \u00d7 48 \u2248 $2,170,080M.\n- **EV\u2192MC bridge**: Current EV ($1,809,294.6M) exceeds market cap ($1,764,015.6M) by $45,279M (net debt/other). Subtracting this gap: forward market cap \u2248 $2,170,080M \u2212 $45,279M \u2248 $2,124,801M.\n\n```json\n{\"forward_market_cap_musd\": 2124801.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45210.0, \"forward_netinc_musd\": 40400.0, \"applied_multiple\": 48.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2124801.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 45210.0,
+        "forward_netinc_musd": 40400.0,
+        "applied_multiple": 48.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI semiconductor revenue is exploding: TTM revenue grew 32% YoY ($57B\u2192$75.5B) and TTM FCF grew 44% ($22.7B\u2192$32.8B). Management guides FY2026 AI semi revenue ~$56B and FY2027 >$100B, with $30B+ in Q2 AI bookings and multi-year hyperscaler commitments (Google, Anthropic, OpenAI, Meta). If FCF grows ~40% to ~$46B and the market sustains a premium EV/FCF multiple (~50x) given the AI runway, EV could exceed $2.3T.\n\n## Bear Case\nGrowth-driven margin compression is a real risk: gross margin declining from 77.1% to ~74% as lower-margin AI silicon dominates mix. VMware friction (CISPE EU antitrust, T-Mobile and Tesco defections) threatens the high-margin software cash cow. Customer concentration (six core AI customers) and supply/capacity dependence introduce execution risk. A multiple de-rate toward the 3-year average FCF/EV yield (~2.37% \u2192 ~42x) or slower FCF growth would cap EV near current levels.\n\n## Logic\n- **Forward FCF**: TTM FCF is $32,762M, growing 44% YoY. Given continued AI ramp but moderating margins, I apply ~38% forward growth \u2192 forward FCF \u2248 $45,210M.\n- **Applied multiple**: Current FCF/EV yield is 1.81% (~55x EV/FCF). The 1y avg yield is 1.56% (~64x) and 3y avg 2.37% (~42x). Blending toward the current-to-1y range but tempering for margin/mix risk, I apply ~48x EV/FCF (yield ~2.08%).\n- **Forward EV**: $45,210M \u00d7 48 \u2248 $2,170,080M.\n- **EV\u2192MC bridge**: Current EV ($1,809,294.6M) exceeds market cap ($1,764,015.6M) by $45,279M (net debt/other). Subtracting this gap: forward market cap \u2248 $2,170,080M \u2212 $45,279M \u2248 $2,124,801M.\n\n```json\n{\"forward_market_cap_musd\": 2124801.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45210.0, \"forward_netinc_musd\": 40400.0, \"applied_multiple\": 48.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI semiconductor revenue is exploding: TTM revenue grew 32% YoY ($57B\u2192$75.5B) and TTM FCF grew 44% ($22.7B\u2192$32.8B). Management guides FY2026 AI semi revenue ~$56B and FY2027 >$100B, with $30B+ in Q2 AI bookings and multi-year hyperscaler commitments (Google, Anthropic, OpenAI, Meta). If FCF grows ~40% to ~$46B and the market sustains a premium EV/FCF multiple (~50x) given the AI runway, EV could exceed $2.3T.",
+        "Bear Case": "Growth-driven margin compression is a real risk: gross margin declining from 77.1% to ~74% as lower-margin AI silicon dominates mix. VMware friction (CISPE EU antitrust, T-Mobile and Tesco defections) threatens the high-margin software cash cow. Customer concentration (six core AI customers) and supply/capacity dependence introduce execution risk. A multiple de-rate toward the 3-year average FCF/EV yield (~2.37% \u2192 ~42x) or slower FCF growth would cap EV near current levels.",
+        "Logic": "- **Forward FCF**: TTM FCF is $32,762M, growing 44% YoY. Given continued AI ramp but moderating margins, I apply ~38% forward growth \u2192 forward FCF \u2248 $45,210M.\n- **Applied multiple**: Current FCF/EV yield is 1.81% (~55x EV/FCF). The 1y avg yield is 1.56% (~64x) and 3y avg 2.37% (~42x). Blending toward the current-to-1y range but tempering for margin/mix risk, I apply ~48x EV/FCF (yield ~2.08%).\n- **Forward EV**: $45,210M \u00d7 48 \u2248 $2,170,080M.\n- **EV\u2192MC bridge**: Current EV ($1,809,294.6M) exceeds market cap ($1,764,015.6M) by $45,279M (net debt/other). Subtracting this gap: forward market cap \u2248 $2,170,080M \u2212 $45,279M \u2248 $2,124,801M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AVGO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:23:48+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1726,
+        "completion_tokens": 1084,
+        "total_tokens": 2810,
+        "cost": 0.04115,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.04115,
+          "upstream_inference_prompt_cost": 0.00863,
+          "upstream_inference_completions_cost": 0.03252
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 516,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI semiconductor revenue ramps toward management\u2019s fiscal 2027 expectation of more than $100 billion, while VMware/software ARR remains durable despite customer friction. If forward FCF reaches about $60,000 million and the market sustains a premium 50x EV/FCF multiple, forward EV would be about $3,000,000 million. Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be roughly $2,954,721 million.\n\n## Bear Case\nAI growth remains strong but is delayed by supply, customer concentration, or margin mix pressure, while VMware disputes create higher churn or regulatory costs. If forward FCF is closer to $45,000 million and the market de-rates to 35x EV/FCF, forward EV would be about $1,575,000 million. After subtracting the same $45,279 million EV-to-equity gap, bear-case market cap would be roughly $1,529,721 million.\n\n## Logic\nCurrent TTM FCF is $32,762 million. Given the Q2/Q3 revenue acceleration, management\u2019s fiscal 2026 AI semiconductor revenue target of about $56 billion, and the statement that fiscal 2027 AI semiconductor revenue should exceed $100 billion, I estimate 12-month forward FCF at $55,000 million. This implies roughly 68% growth from TTM FCF, reflecting the AI ramp, high software profitability, and continued strong cash conversion, partly offset by lower AI mix gross margin and VMware/customer concentration risk.\n\nThe current EV/FCF multiple is approximately 55.2x, calculated as current EV of $1,809,294.6 million divided by TTM FCF of $32,762 million. For a 12-month forward view, I apply a 45.0x EV/FCF multiple: still a premium infrastructure-AI valuation, but modestly below the current trailing multiple to reflect execution risk, customer concentration, supply dependency, and software/regulatory friction.\n\nForward EV = $55,000 million forward FCF \u00d7 45.0x = $2,475,000 million.\n\nCurrent EV minus market cap gap = $1,809,294.6 million \u2212 $1,764,015.6 million = $45,279.0 million.\n\nForward market cap = $2,475,000 million \u2212 $45,279 million = $2,429,721 million.\n\n```json\n{\"forward_market_cap_musd\": 2429721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 55000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2429721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 55000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 45.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI semiconductor revenue ramps toward management\u2019s fiscal 2027 expectation of more than $100 billion, while VMware/software ARR remains durable despite customer friction. If forward FCF reaches about $60,000 million and the market sustains a premium 50x EV/FCF multiple, forward EV would be about $3,000,000 million. Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be roughly $2,954,721 million.\n\n## Bear Case\nAI growth remains strong but is delayed by supply, customer concentration, or margin mix pressure, while VMware disputes create higher churn or regulatory costs. If forward FCF is closer to $45,000 million and the market de-rates to 35x EV/FCF, forward EV would be about $1,575,000 million. After subtracting the same $45,279 million EV-to-equity gap, bear-case market cap would be roughly $1,529,721 million.\n\n## Logic\nCurrent TTM FCF is $32,762 million. Given the Q2/Q3 revenue acceleration, management\u2019s fiscal 2026 AI semiconductor revenue target of about $56 billion, and the statement that fiscal 2027 AI semiconductor revenue should exceed $100 billion, I estimate 12-month forward FCF at $55,000 million. This implies roughly 68% growth from TTM FCF, reflecting the AI ramp, high software profitability, and continued strong cash conversion, partly offset by lower AI mix gross margin and VMware/customer concentration risk.\n\nThe current EV/FCF multiple is approximately 55.2x, calculated as current EV of $1,809,294.6 million divided by TTM FCF of $32,762 million. For a 12-month forward view, I apply a 45.0x EV/FCF multiple: still a premium infrastructure-AI valuation, but modestly below the current trailing multiple to reflect execution risk, customer concentration, supply dependency, and software/regulatory friction.\n\nForward EV = $55,000 million forward FCF \u00d7 45.0x = $2,475,000 million.\n\nCurrent EV minus market cap gap = $1,809,294.6 million \u2212 $1,764,015.6 million = $45,279.0 million.\n\nForward market cap = $2,475,000 million \u2212 $45,279 million = $2,429,721 million.\n\n```json\n{\"forward_market_cap_musd\": 2429721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 55000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI semiconductor revenue ramps toward management\u2019s fiscal 2027 expectation of more than $100 billion, while VMware/software ARR remains durable despite customer friction. If forward FCF reaches about $60,000 million and the market sustains a premium 50x EV/FCF multiple, forward EV would be about $3,000,000 million. Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be roughly $2,954,721 million.",
+        "Bear Case": "AI growth remains strong but is delayed by supply, customer concentration, or margin mix pressure, while VMware disputes create higher churn or regulatory costs. If forward FCF is closer to $45,000 million and the market de-rates to 35x EV/FCF, forward EV would be about $1,575,000 million. After subtracting the same $45,279 million EV-to-equity gap, bear-case market cap would be roughly $1,529,721 million.",
+        "Logic": "Current TTM FCF is $32,762 million. Given the Q2/Q3 revenue acceleration, management\u2019s fiscal 2026 AI semiconductor revenue target of about $56 billion, and the statement that fiscal 2027 AI semiconductor revenue should exceed $100 billion, I estimate 12-month forward FCF at $55,000 million. This implies roughly 68% growth from TTM FCF, reflecting the AI ramp, high software profitability, and continued strong cash conversion, partly offset by lower AI mix gross margin and VMware/customer concentration risk.\n\nThe current EV/FCF multiple is approximately 55.2x, calculated as current EV of $1,809,294.6 million divided by TTM FCF of $32,762 million. For a 12-month forward view, I apply a 45.0x EV/FCF multiple: still a premium infrastructure-AI valuation, but modestly below the current trailing multiple to reflect execution risk, customer concentration, supply dependency, and software/regulatory friction.\n\nForward EV = $55,000 million forward FCF \u00d7 45.0x = $2,475,000 million.\n\nCurrent EV minus market cap gap = $1,809,294.6 million \u2212 $1,764,015.6 million = $45,279.0 million.\n\nForward market cap = $2,475,000 million \u2212 $45,279 million = $2,429,721 million."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AVGO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:07+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1726,
+        "completion_tokens": 1162,
+        "total_tokens": 2888,
+        "cost": 0.03773,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03773,
+          "upstream_inference_prompt_cost": 0.00287,
+          "upstream_inference_completions_cost": 0.03486
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 516,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI semiconductor revenue ramps cleanly from the stated FY2026 level of about $56,000 million toward FY2027 revenue exceeding $100,000 million.\n- VMware/private-cloud software growth and ARR expansion help offset semiconductor mix pressure.\n- Forward FCF could reach roughly $65,000\u2013$70,000 million.\n- At a premium 45x\u201350x EV/FCF multiple, implied EV would be about $2,925,000\u2013$3,500,000 million.\n- Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be about $2,880,000\u2013$3,455,000 million.\n\n## Bear Case\n- AI demand remains strong but customer concentration, supply constraints, and timing of hyperscale deployments limit the ramp.\n- Lower-margin AI semiconductor mix compresses FCF conversion, while VMware customer/regulatory friction weighs on software durability.\n- Forward FCF could be closer to $42,000\u2013$48,000 million.\n- At a lower 30x\u201335x EV/FCF multiple, implied EV would be about $1,260,000\u2013$1,680,000 million.\n- After subtracting the $45,279 million EV/market-cap gap, bear-case market cap would be about $1,215,000\u2013$1,635,000 million.\n\n## Logic\n- Current TTM FCF: $32,762 million.\n- Recent FCF growth is strong: TTM FCF rose from $22,697 million to $32,762 million year over year, up about 44%.\n- The primer indicates further acceleration: Q2 revenue was $22,200 million, Q3 guided revenue is $29,400 million, FY2026 AI semiconductor revenue is expected around $56,000 million, and FY2027 AI semiconductor revenue is expected to exceed $100,000 million.\n- I estimate 12-month forward FCF at $58,000 million, reflecting a major AI-driven revenue step-up but some moderation from lower AI gross margin mix and VMware execution risk.\n- Current EV/FCF is approximately 55.2x, while the 3-year average FCF/EV implies about 42.2x EV/FCF. Given high AI growth but also concentration and regulatory risks, I apply a 42.0x forward EV/FCF multiple.\n- Forward EV = $58,000 million \u00d7 42.0 = $2,436,000 million.\n- Current EV minus market-cap gap = $1,809,294.6 million - $1,764,015.6 million = $45,279.0 million.\n- Forward market cap = $2,436,000 million - $45,279 million = $2,390,721 million.\n\n```json\n{\"forward_market_cap_musd\": 2390721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 58000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2390721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 58000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 42.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI semiconductor revenue ramps cleanly from the stated FY2026 level of about $56,000 million toward FY2027 revenue exceeding $100,000 million.\n- VMware/private-cloud software growth and ARR expansion help offset semiconductor mix pressure.\n- Forward FCF could reach roughly $65,000\u2013$70,000 million.\n- At a premium 45x\u201350x EV/FCF multiple, implied EV would be about $2,925,000\u2013$3,500,000 million.\n- Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be about $2,880,000\u2013$3,455,000 million.\n\n## Bear Case\n- AI demand remains strong but customer concentration, supply constraints, and timing of hyperscale deployments limit the ramp.\n- Lower-margin AI semiconductor mix compresses FCF conversion, while VMware customer/regulatory friction weighs on software durability.\n- Forward FCF could be closer to $42,000\u2013$48,000 million.\n- At a lower 30x\u201335x EV/FCF multiple, implied EV would be about $1,260,000\u2013$1,680,000 million.\n- After subtracting the $45,279 million EV/market-cap gap, bear-case market cap would be about $1,215,000\u2013$1,635,000 million.\n\n## Logic\n- Current TTM FCF: $32,762 million.\n- Recent FCF growth is strong: TTM FCF rose from $22,697 million to $32,762 million year over year, up about 44%.\n- The primer indicates further acceleration: Q2 revenue was $22,200 million, Q3 guided revenue is $29,400 million, FY2026 AI semiconductor revenue is expected around $56,000 million, and FY2027 AI semiconductor revenue is expected to exceed $100,000 million.\n- I estimate 12-month forward FCF at $58,000 million, reflecting a major AI-driven revenue step-up but some moderation from lower AI gross margin mix and VMware execution risk.\n- Current EV/FCF is approximately 55.2x, while the 3-year average FCF/EV implies about 42.2x EV/FCF. Given high AI growth but also concentration and regulatory risks, I apply a 42.0x forward EV/FCF multiple.\n- Forward EV = $58,000 million \u00d7 42.0 = $2,436,000 million.\n- Current EV minus market-cap gap = $1,809,294.6 million - $1,764,015.6 million = $45,279.0 million.\n- Forward market cap = $2,436,000 million - $45,279 million = $2,390,721 million.\n\n```json\n{\"forward_market_cap_musd\": 2390721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 58000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI semiconductor revenue ramps cleanly from the stated FY2026 level of about $56,000 million toward FY2027 revenue exceeding $100,000 million.\n- VMware/private-cloud software growth and ARR expansion help offset semiconductor mix pressure.\n- Forward FCF could reach roughly $65,000\u2013$70,000 million.\n- At a premium 45x\u201350x EV/FCF multiple, implied EV would be about $2,925,000\u2013$3,500,000 million.\n- Using the current EV minus market-cap gap of $45,279 million, bull-case market cap would be about $2,880,000\u2013$3,455,000 million.",
+        "Bear Case": "- AI demand remains strong but customer concentration, supply constraints, and timing of hyperscale deployments limit the ramp.\n- Lower-margin AI semiconductor mix compresses FCF conversion, while VMware customer/regulatory friction weighs on software durability.\n- Forward FCF could be closer to $42,000\u2013$48,000 million.\n- At a lower 30x\u201335x EV/FCF multiple, implied EV would be about $1,260,000\u2013$1,680,000 million.\n- After subtracting the $45,279 million EV/market-cap gap, bear-case market cap would be about $1,215,000\u2013$1,635,000 million.",
+        "Logic": "- Current TTM FCF: $32,762 million.\n- Recent FCF growth is strong: TTM FCF rose from $22,697 million to $32,762 million year over year, up about 44%.\n- The primer indicates further acceleration: Q2 revenue was $22,200 million, Q3 guided revenue is $29,400 million, FY2026 AI semiconductor revenue is expected around $56,000 million, and FY2027 AI semiconductor revenue is expected to exceed $100,000 million.\n- I estimate 12-month forward FCF at $58,000 million, reflecting a major AI-driven revenue step-up but some moderation from lower AI gross margin mix and VMware execution risk.\n- Current EV/FCF is approximately 55.2x, while the 3-year average FCF/EV implies about 42.2x EV/FCF. Given high AI growth but also concentration and regulatory risks, I apply a 42.0x forward EV/FCF multiple.\n- Forward EV = $58,000 million \u00d7 42.0 = $2,436,000 million.\n- Current EV minus market-cap gap = $1,809,294.6 million - $1,764,015.6 million = $45,279.0 million.\n- Forward market cap = $2,436,000 million - $45,279 million = $2,390,721 million."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AVGO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:24:33+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1726,
+        "completion_tokens": 1485,
+        "total_tokens": 3211,
+        "cost": 0.05318,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05318,
+          "upstream_inference_prompt_cost": 0.00863,
+          "upstream_inference_completions_cost": 0.04455
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 940,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI semiconductor revenue ramps faster than expected toward management\u2019s FY2027 \u201c>$100B\u201d indication, VMware/software ARR growth holds despite customer friction, and operating margins remain near management\u2019s ~67% target. In that case, forward FCF could reach ~$56B\u2013$60B and the market could sustain a ~45x\u201350x EV/FCF multiple, implying a materially higher market cap above ~$2.5T after the EV-to-equity bridge.\n\n## Bear Case\nAI demand is delayed, concentrated customer ramps slip, lower-margin AI mix pressures FCF conversion, and VMware regulatory/customer churn weighs on software durability. If forward FCF is closer to ~$40B\u2013$43B and the multiple compresses to ~30x\u201335x, forward market cap could fall toward roughly ~$1.2T\u2013$1.5T.\n\n## Logic\nTTM FCF is $32,762M on TTM revenue of $75,465M, or a ~43.4% FCF margin. The primer shows a sharp acceleration: Q2 revenue of $22.2B, Q3 revenue guide of $29.4B, FY2026 AI semiconductor revenue around $56B, and FY2027 AI semiconductor revenue expected to exceed $100B. I therefore model forward FCF at $50,000M, about +53% versus TTM, reflecting strong AI growth but some margin dilution from lower-margin AI semiconductor mix.\n\nCurrent EV/FCF is ~55.2x based on EV of $1,809,294.6M and TTM FCF of $32,762M. Given the high AI growth but also customer concentration, supply execution, and VMware friction, I apply a lower forward EV/FCF multiple of 42.0x, roughly aligned with the 3-year average FCF yield/multiple context rather than the richer current trailing multiple.\n\nForward EV = $50,000M \u00d7 42.0 = $2,100,000M.  \nCurrent EV minus market cap gap = $1,809,294.6M \u2212 $1,764,015.6M = $45,279.0M.  \nForward market cap = $2,100,000M \u2212 $45,279.0M = $2,054,721M.\n\n```json\n{\"forward_market_cap_musd\": 2054721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2054721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 50000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 42.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI semiconductor revenue ramps faster than expected toward management\u2019s FY2027 \u201c>$100B\u201d indication, VMware/software ARR growth holds despite customer friction, and operating margins remain near management\u2019s ~67% target. In that case, forward FCF could reach ~$56B\u2013$60B and the market could sustain a ~45x\u201350x EV/FCF multiple, implying a materially higher market cap above ~$2.5T after the EV-to-equity bridge.\n\n## Bear Case\nAI demand is delayed, concentrated customer ramps slip, lower-margin AI mix pressures FCF conversion, and VMware regulatory/customer churn weighs on software durability. If forward FCF is closer to ~$40B\u2013$43B and the multiple compresses to ~30x\u201335x, forward market cap could fall toward roughly ~$1.2T\u2013$1.5T.\n\n## Logic\nTTM FCF is $32,762M on TTM revenue of $75,465M, or a ~43.4% FCF margin. The primer shows a sharp acceleration: Q2 revenue of $22.2B, Q3 revenue guide of $29.4B, FY2026 AI semiconductor revenue around $56B, and FY2027 AI semiconductor revenue expected to exceed $100B. I therefore model forward FCF at $50,000M, about +53% versus TTM, reflecting strong AI growth but some margin dilution from lower-margin AI semiconductor mix.\n\nCurrent EV/FCF is ~55.2x based on EV of $1,809,294.6M and TTM FCF of $32,762M. Given the high AI growth but also customer concentration, supply execution, and VMware friction, I apply a lower forward EV/FCF multiple of 42.0x, roughly aligned with the 3-year average FCF yield/multiple context rather than the richer current trailing multiple.\n\nForward EV = $50,000M \u00d7 42.0 = $2,100,000M.  \nCurrent EV minus market cap gap = $1,809,294.6M \u2212 $1,764,015.6M = $45,279.0M.  \nForward market cap = $2,100,000M \u2212 $45,279.0M = $2,054,721M.\n\n```json\n{\"forward_market_cap_musd\": 2054721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 42.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI semiconductor revenue ramps faster than expected toward management\u2019s FY2027 \u201c>$100B\u201d indication, VMware/software ARR growth holds despite customer friction, and operating margins remain near management\u2019s ~67% target. In that case, forward FCF could reach ~$56B\u2013$60B and the market could sustain a ~45x\u201350x EV/FCF multiple, implying a materially higher market cap above ~$2.5T after the EV-to-equity bridge.",
+        "Bear Case": "AI demand is delayed, concentrated customer ramps slip, lower-margin AI mix pressures FCF conversion, and VMware regulatory/customer churn weighs on software durability. If forward FCF is closer to ~$40B\u2013$43B and the multiple compresses to ~30x\u201335x, forward market cap could fall toward roughly ~$1.2T\u2013$1.5T.",
+        "Logic": "TTM FCF is $32,762M on TTM revenue of $75,465M, or a ~43.4% FCF margin. The primer shows a sharp acceleration: Q2 revenue of $22.2B, Q3 revenue guide of $29.4B, FY2026 AI semiconductor revenue around $56B, and FY2027 AI semiconductor revenue expected to exceed $100B. I therefore model forward FCF at $50,000M, about +53% versus TTM, reflecting strong AI growth but some margin dilution from lower-margin AI semiconductor mix.\n\nCurrent EV/FCF is ~55.2x based on EV of $1,809,294.6M and TTM FCF of $32,762M. Given the high AI growth but also customer concentration, supply execution, and VMware friction, I apply a lower forward EV/FCF multiple of 42.0x, roughly aligned with the 3-year average FCF yield/multiple context rather than the richer current trailing multiple.\n\nForward EV = $50,000M \u00d7 42.0 = $2,100,000M.  \nCurrent EV minus market cap gap = $1,809,294.6M \u2212 $1,764,015.6M = $45,279.0M.  \nForward market cap = $2,100,000M \u2212 $45,279.0M = $2,054,721M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AVGO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:25:32+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1805,
+        "completion_tokens": 2909,
+        "total_tokens": 4714,
+        "cost": 0.0153266,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0153266,
+          "upstream_inference_prompt_cost": 0.002527,
+          "upstream_inference_completions_cost": 0.0127996
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2236,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBroadcom's AI semiconductor revenue is scaling explosively \u2014 Q2 FY26 AI revenue of $10.8B (+143% YoY), Q3 guided to $16B (+200% YoY), with management projecting ~$56B for FY26 and >$100B for FY27. This hyperscale-driven ramp, backed by multi-generation agreements with Google, OpenAI, Anthropic, and Meta, could push forward-12M revenue well above $130B. FCF should scale materially even with some margin compression, as operating leverage from VMware Cloud Foundation and AI networking adds incremental high-cashflow revenue. The current EV/FCF of ~55x may be partially justified by this growth velocity.\n\n## Bear Case\nSignificant risks constrain the multiple. VMware integration friction is intensifying \u2014 CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. AI semiconductor mix is compressing gross margin from 77.1% to ~74%, and customer concentration (six core AI customers) plus wafer/HBM supply constraints create execution risk. FCF conversion may decline as capex rises for AI capacity build-out. The 3-year average EV/FCF of ~42x suggests the current ~55x multiple embeds aggressive expectations that could de-rate on any stumble.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $32,762M on $75,465M revenue (43.4% FCF margin). Q3 FY26 revenue is guided to $29.4B, with AI semi revenue stepping from ~$56B FY26 to >$100B FY27. A forward-12M revenue trajectory of ~$135-145B is plausible, but gross margin compression to ~74% and higher AI-related capex should reduce FCF margin to ~37-39%. Applying ~38% to an estimated ~$137B forward revenue yields **forward FCF \u2248 $52,000M**.\n\n**Applied EV/FCF multiple:** Current EV/FCF is ~55x; 3-year average is ~42x. Given the exceptional AI growth narrative but meaningful VMware, margin, and concentration risks, I apply a **45x multiple** \u2014 a moderate de-rate from current but above the 3-year average, reflecting growth visibility against execution risk.\n\n**EV-to-MC bridge:** Current EV \u2212 market cap gap (net debt + minorities) = $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M**. This gap is held constant for the forward bridge.\n\nForward EV = $52,000M \u00d7 45.0 = $2,340,000M\nForward Market Cap = $2,340,000M \u2212 $45,279M = **$2,294,721M**\n\n```json\n{\"forward_market_cap_musd\": 2294721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 52000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2294721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 52000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 45.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBroadcom's AI semiconductor revenue is scaling explosively \u2014 Q2 FY26 AI revenue of $10.8B (+143% YoY), Q3 guided to $16B (+200% YoY), with management projecting ~$56B for FY26 and >$100B for FY27. This hyperscale-driven ramp, backed by multi-generation agreements with Google, OpenAI, Anthropic, and Meta, could push forward-12M revenue well above $130B. FCF should scale materially even with some margin compression, as operating leverage from VMware Cloud Foundation and AI networking adds incremental high-cashflow revenue. The current EV/FCF of ~55x may be partially justified by this growth velocity.\n\n## Bear Case\nSignificant risks constrain the multiple. VMware integration friction is intensifying \u2014 CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. AI semiconductor mix is compressing gross margin from 77.1% to ~74%, and customer concentration (six core AI customers) plus wafer/HBM supply constraints create execution risk. FCF conversion may decline as capex rises for AI capacity build-out. The 3-year average EV/FCF of ~42x suggests the current ~55x multiple embeds aggressive expectations that could de-rate on any stumble.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $32,762M on $75,465M revenue (43.4% FCF margin). Q3 FY26 revenue is guided to $29.4B, with AI semi revenue stepping from ~$56B FY26 to >$100B FY27. A forward-12M revenue trajectory of ~$135-145B is plausible, but gross margin compression to ~74% and higher AI-related capex should reduce FCF margin to ~37-39%. Applying ~38% to an estimated ~$137B forward revenue yields **forward FCF \u2248 $52,000M**.\n\n**Applied EV/FCF multiple:** Current EV/FCF is ~55x; 3-year average is ~42x. Given the exceptional AI growth narrative but meaningful VMware, margin, and concentration risks, I apply a **45x multiple** \u2014 a moderate de-rate from current but above the 3-year average, reflecting growth visibility against execution risk.\n\n**EV-to-MC bridge:** Current EV \u2212 market cap gap (net debt + minorities) = $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M**. This gap is held constant for the forward bridge.\n\nForward EV = $52,000M \u00d7 45.0 = $2,340,000M\nForward Market Cap = $2,340,000M \u2212 $45,279M = **$2,294,721M**\n\n```json\n{\"forward_market_cap_musd\": 2294721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 52000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Broadcom's AI semiconductor revenue is scaling explosively \u2014 Q2 FY26 AI revenue of $10.8B (+143% YoY), Q3 guided to $16B (+200% YoY), with management projecting ~$56B for FY26 and >$100B for FY27. This hyperscale-driven ramp, backed by multi-generation agreements with Google, OpenAI, Anthropic, and Meta, could push forward-12M revenue well above $130B. FCF should scale materially even with some margin compression, as operating leverage from VMware Cloud Foundation and AI networking adds incremental high-cashflow revenue. The current EV/FCF of ~55x may be partially justified by this growth velocity.",
+        "Bear Case": "Significant risks constrain the multiple. VMware integration friction is intensifying \u2014 CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. AI semiconductor mix is compressing gross margin from 77.1% to ~74%, and customer concentration (six core AI customers) plus wafer/HBM supply constraints create execution risk. FCF conversion may decline as capex rises for AI capacity build-out. The 3-year average EV/FCF of ~42x suggests the current ~55x multiple embeds aggressive expectations that could de-rate on any stumble.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $32,762M on $75,465M revenue (43.4% FCF margin). Q3 FY26 revenue is guided to $29.4B, with AI semi revenue stepping from ~$56B FY26 to >$100B FY27. A forward-12M revenue trajectory of ~$135-145B is plausible, but gross margin compression to ~74% and higher AI-related capex should reduce FCF margin to ~37-39%. Applying ~38% to an estimated ~$137B forward revenue yields **forward FCF \u2248 $52,000M**.\n\n**Applied EV/FCF multiple:** Current EV/FCF is ~55x; 3-year average is ~42x. Given the exceptional AI growth narrative but meaningful VMware, margin, and concentration risks, I apply a **45x multiple** \u2014 a moderate de-rate from current but above the 3-year average, reflecting growth visibility against execution risk.\n\n**EV-to-MC bridge:** Current EV \u2212 market cap gap (net debt + minorities) = $1,809,294.6M \u2212 $1,764,015.6M = **$45,279M**. This gap is held constant for the forward bridge.\n\nForward EV = $52,000M \u00d7 45.0 = $2,340,000M\nForward Market Cap = $2,340,000M \u2212 $45,279M = **$2,294,721M**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AVGO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:28:39+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1831,
+        "completion_tokens": 3936,
+        "total_tokens": 5767,
+        "cost": 0.0181517,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0181517,
+          "upstream_inference_prompt_cost": 0.0020141,
+          "upstream_inference_completions_cost": 0.0161376
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2407,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBroadcom's AI semiconductor revenue is inflecting dramatically, with management guiding FY2027 AI revenue above $100B versus ~$56B in FY2026. Q2 2026 AI revenue of $10.8B (+143% YoY) and Q3 guidance of $16B (+200%+) suggest the forward 12-month FCF could grow 45-50% above the current TTM of $32.8B. Custom XPU/TPU relationships with Google, OpenAI, Anthropic, and Meta provide multi-year visibility, while VMware ARR growth of 17% adds a stable software base. If FCF reaches ~$50B and the market sustains a premium multiple near 50x (close to the 1y average FCF/EV of 64x), the forward market cap could exceed $2.4T.\n\n## Bear Case\nVMware friction is escalating: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers all threaten software revenue durability and could trigger regulatory action. AI gross margin dilution is real\u2014consolidated gross margin is guided down to ~74% from 77.1% as lower-margin AI silicon mix grows. Customer concentration in six core AI customers creates ramp-timing and supply risk. If FCF growth disappoints to ~30% (~$42.6B) and the multiple compresses toward the 3y average of ~42x, forward market cap could fall below $1.8T.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $32,762M with accelerating growth (+44% YoY vs. +23% prior year). Given FY2026 AI revenue of ~$56B and FY2027 guidance above $100B, I project 12-month forward FCF of $48,000M, reflecting ~46% growth tempered by gross margin compression (74% vs. 77.1%) and continued VMware-related churn costs. This implies a forward FCF margin of ~37-38% on estimated forward revenue of ~$125-130B, down from the current 43.4%.\n\n**Applied EV/FCF multiple:** I apply 45.0x, positioned between the 3y average implied multiple of ~42x (1/0.0237) and the current TTM multiple of ~55x. This reflects an AI growth premium over historical norms but acknowledges margin compression, customer concentration, and VMware execution risk that justify a discount to the current spot multiple.\n\n**EV-to-MC bridge:** Forward EV = $48,000M \u00d7 45.0 = $2,160,000M. The current EV-minus-market-cap gap is $1,809,294.6M \u2212 $1,764,015.6M = $45,279M (net debt and other claims). Holding this gap constant: Forward Market Cap = $2,160,000M \u2212 $45,279M = $2,114,721M.\n\n```json\n{\"forward_market_cap_musd\": 2114721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 48000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2114721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 48000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 45.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\nBroadcom's AI semiconductor revenue is inflecting dramatically, with management guiding FY2027 AI revenue above $100B versus ~$56B in FY2026. Q2 2026 AI revenue of $10.8B (+143% YoY) and Q3 guidance of $16B (+200%+) suggest the forward 12-month FCF could grow 45-50% above the current TTM of $32.8B. Custom XPU/TPU relationships with Google, OpenAI, Anthropic, and Meta provide multi-year visibility, while VMware ARR growth of 17% adds a stable software base. If FCF reaches ~$50B and the market sustains a premium multiple near 50x (close to the 1y average FCF/EV of 64x), the forward market cap could exceed $2.4T.\n\n## Bear Case\nVMware friction is escalating: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers all threaten software revenue durability and could trigger regulatory action. AI gross margin dilution is real\u2014consolidated gross margin is guided down to ~74% from 77.1% as lower-margin AI silicon mix grows. Customer concentration in six core AI customers creates ramp-timing and supply risk. If FCF growth disappoints to ~30% (~$42.6B) and the multiple compresses toward the 3y average of ~42x, forward market cap could fall below $1.8T.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $32,762M with accelerating growth (+44% YoY vs. +23% prior year). Given FY2026 AI revenue of ~$56B and FY2027 guidance above $100B, I project 12-month forward FCF of $48,000M, reflecting ~46% growth tempered by gross margin compression (74% vs. 77.1%) and continued VMware-related churn costs. This implies a forward FCF margin of ~37-38% on estimated forward revenue of ~$125-130B, down from the current 43.4%.\n\n**Applied EV/FCF multiple:** I apply 45.0x, positioned between the 3y average implied multiple of ~42x (1/0.0237) and the current TTM multiple of ~55x. This reflects an AI growth premium over historical norms but acknowledges margin compression, customer concentration, and VMware execution risk that justify a discount to the current spot multiple.\n\n**EV-to-MC bridge:** Forward EV = $48,000M \u00d7 45.0 = $2,160,000M. The current EV-minus-market-cap gap is $1,809,294.6M \u2212 $1,764,015.6M = $45,279M (net debt and other claims). Holding this gap constant: Forward Market Cap = $2,160,000M \u2212 $45,279M = $2,114,721M.\n\n```json\n{\"forward_market_cap_musd\": 2114721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 48000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Broadcom's AI semiconductor revenue is inflecting dramatically, with management guiding FY2027 AI revenue above $100B versus ~$56B in FY2026. Q2 2026 AI revenue of $10.8B (+143% YoY) and Q3 guidance of $16B (+200%+) suggest the forward 12-month FCF could grow 45-50% above the current TTM of $32.8B. Custom XPU/TPU relationships with Google, OpenAI, Anthropic, and Meta provide multi-year visibility, while VMware ARR growth of 17% adds a stable software base. If FCF reaches ~$50B and the market sustains a premium multiple near 50x (close to the 1y average FCF/EV of 64x), the forward market cap could exceed $2.4T.",
+        "Bear Case": "VMware friction is escalating: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers all threaten software revenue durability and could trigger regulatory action. AI gross margin dilution is real\u2014consolidated gross margin is guided down to ~74% from 77.1% as lower-margin AI silicon mix grows. Customer concentration in six core AI customers creates ramp-timing and supply risk. If FCF growth disappoints to ~30% (~$42.6B) and the multiple compresses toward the 3y average of ~42x, forward market cap could fall below $1.8T.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $32,762M with accelerating growth (+44% YoY vs. +23% prior year). Given FY2026 AI revenue of ~$56B and FY2027 guidance above $100B, I project 12-month forward FCF of $48,000M, reflecting ~46% growth tempered by gross margin compression (74% vs. 77.1%) and continued VMware-related churn costs. This implies a forward FCF margin of ~37-38% on estimated forward revenue of ~$125-130B, down from the current 43.4%.\n\n**Applied EV/FCF multiple:** I apply 45.0x, positioned between the 3y average implied multiple of ~42x (1/0.0237) and the current TTM multiple of ~55x. This reflects an AI growth premium over historical norms but acknowledges margin compression, customer concentration, and VMware execution risk that justify a discount to the current spot multiple.\n\n**EV-to-MC bridge:** Forward EV = $48,000M \u00d7 45.0 = $2,160,000M. The current EV-minus-market-cap gap is $1,809,294.6M \u2212 $1,764,015.6M = $45,279M (net debt and other claims). Holding this gap constant: Forward Market Cap = $2,160,000M \u2212 $45,279M = $2,114,721M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AVGO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:27:00+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f33c7f93429b4890b8f9c4861161733e55809e00536d8f97b0b2583854e9f83c",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1805,
+        "completion_tokens": 4401,
+        "total_tokens": 6206,
+        "cost": 0.01532398,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01532398,
+          "upstream_inference_prompt_cost": 0.0017689,
+          "upstream_inference_completions_cost": 0.01355508
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3674,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBroadcom's AI semiconductor revenue is inflecting dramatically: Q2 FY2026 AI revenue was $10.8B (+143% YoY), Q3 guidance is $16B (+200%+), FY2026 is ~$56B, and management projects FY2027 AI revenue exceeding $100B. With $30B in Q2 AI bookings, multi-generational contracts with Google, Anthropic, OpenAI, and Meta, and gigawatt-scale deployments, the forward 12-month revenue could exceed $130B (vs. $75.5B TTM). Software is re-accelerating (Q3 guide +31%), and operating margins remain ~67% despite AI mix pressure. If FCF scales toward $52\u201355B and the market sustains a growth-premium multiple (50x+), forward market cap could approach $2.6T+.\n\n## Bear Case\nVMware integration risks are materializing: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. Gross margins are compressing (77.1% \u2192 ~74%) as lower-margin AI revenue grows as a share of mix. AI revenue is concentrated among six customers, creating execution and timing risk. Capex for wafer/HBM supply is escalating. If AI ramps disappoint or VMware attrition accelerates, forward FCF could be closer to $42\u201345B, and multiple compression toward 35\u201340x would imply a market cap of ~$1.5\u20131.8T.\n\n## Logic\n**Forward FCF estimation:** TTM FCF is $32.8B on $75.5B revenue (43.4% margin). The forward 12-month period captures Q3 FY2026 (guided $29.4B revenue) through Q2 FY2027, with sequential growth suggesting ~$130B forward revenue. Applying a compressed FCF margin of ~38.5% (reflecting AI mix gross-margin pressure from 77% to 74%, partially offset by operating leverage at ~67% opex margin) yields forward FCF of ~$50,000M.\n\n**Applied multiple:** The current EV/FCF is 55.2x; the 1-year average is 63.9x and 3-year average is 42.2x. Given the exceptional AI growth trajectory (FY2027 AI revenue >$100B) but balancing against customer concentration, margin compression, and VMware attrition risk, I apply a forward EV/FCF multiple of 45x \u2014 between the 3-year and 1-year averages, reflecting a growth premium tempered by scaling and risk factors.\n\n**EV \u2192 MC bridge:** Current EV\u2013MC gap is $1,809,295M \u2212 $1,764,016M = $45,279M (net debt and minority interests). Assuming this gap holds roughly stable:\n- Forward EV = $50,000M \u00d7 45 = $2,250,000M\n- Forward MC = $2,250,000M \u2212 $45,279M = $2,204,721M\n\n```json\n{\"forward_market_cap_musd\": 2204721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2204721.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 50000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 45.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBroadcom's AI semiconductor revenue is inflecting dramatically: Q2 FY2026 AI revenue was $10.8B (+143% YoY), Q3 guidance is $16B (+200%+), FY2026 is ~$56B, and management projects FY2027 AI revenue exceeding $100B. With $30B in Q2 AI bookings, multi-generational contracts with Google, Anthropic, OpenAI, and Meta, and gigawatt-scale deployments, the forward 12-month revenue could exceed $130B (vs. $75.5B TTM). Software is re-accelerating (Q3 guide +31%), and operating margins remain ~67% despite AI mix pressure. If FCF scales toward $52\u201355B and the market sustains a growth-premium multiple (50x+), forward market cap could approach $2.6T+.\n\n## Bear Case\nVMware integration risks are materializing: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. Gross margins are compressing (77.1% \u2192 ~74%) as lower-margin AI revenue grows as a share of mix. AI revenue is concentrated among six customers, creating execution and timing risk. Capex for wafer/HBM supply is escalating. If AI ramps disappoint or VMware attrition accelerates, forward FCF could be closer to $42\u201345B, and multiple compression toward 35\u201340x would imply a market cap of ~$1.5\u20131.8T.\n\n## Logic\n**Forward FCF estimation:** TTM FCF is $32.8B on $75.5B revenue (43.4% margin). The forward 12-month period captures Q3 FY2026 (guided $29.4B revenue) through Q2 FY2027, with sequential growth suggesting ~$130B forward revenue. Applying a compressed FCF margin of ~38.5% (reflecting AI mix gross-margin pressure from 77% to 74%, partially offset by operating leverage at ~67% opex margin) yields forward FCF of ~$50,000M.\n\n**Applied multiple:** The current EV/FCF is 55.2x; the 1-year average is 63.9x and 3-year average is 42.2x. Given the exceptional AI growth trajectory (FY2027 AI revenue >$100B) but balancing against customer concentration, margin compression, and VMware attrition risk, I apply a forward EV/FCF multiple of 45x \u2014 between the 3-year and 1-year averages, reflecting a growth premium tempered by scaling and risk factors.\n\n**EV \u2192 MC bridge:** Current EV\u2013MC gap is $1,809,295M \u2212 $1,764,016M = $45,279M (net debt and minority interests). Assuming this gap holds roughly stable:\n- Forward EV = $50,000M \u00d7 45 = $2,250,000M\n- Forward MC = $2,250,000M \u2212 $45,279M = $2,204,721M\n\n```json\n{\"forward_market_cap_musd\": 2204721.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Broadcom's AI semiconductor revenue is inflecting dramatically: Q2 FY2026 AI revenue was $10.8B (+143% YoY), Q3 guidance is $16B (+200%+), FY2026 is ~$56B, and management projects FY2027 AI revenue exceeding $100B. With $30B in Q2 AI bookings, multi-generational contracts with Google, Anthropic, OpenAI, and Meta, and gigawatt-scale deployments, the forward 12-month revenue could exceed $130B (vs. $75.5B TTM). Software is re-accelerating (Q3 guide +31%), and operating margins remain ~67% despite AI mix pressure. If FCF scales toward $52\u201355B and the market sustains a growth-premium multiple (50x+), forward market cap could approach $2.6T+.",
+        "Bear Case": "VMware integration risks are materializing: CISPE antitrust complaint, T-Mobile migrating tens of thousands of VMs off VMware, and Tesco removing ~40,000 servers. Gross margins are compressing (77.1% \u2192 ~74%) as lower-margin AI revenue grows as a share of mix. AI revenue is concentrated among six customers, creating execution and timing risk. Capex for wafer/HBM supply is escalating. If AI ramps disappoint or VMware attrition accelerates, forward FCF could be closer to $42\u201345B, and multiple compression toward 35\u201340x would imply a market cap of ~$1.5\u20131.8T.",
+        "Logic": "**Forward FCF estimation:** TTM FCF is $32.8B on $75.5B revenue (43.4% margin). The forward 12-month period captures Q3 FY2026 (guided $29.4B revenue) through Q2 FY2027, with sequential growth suggesting ~$130B forward revenue. Applying a compressed FCF margin of ~38.5% (reflecting AI mix gross-margin pressure from 77% to 74%, partially offset by operating leverage at ~67% opex margin) yields forward FCF of ~$50,000M.\n\n**Applied multiple:** The current EV/FCF is 55.2x; the 1-year average is 63.9x and 3-year average is 42.2x. Given the exceptional AI growth trajectory (FY2027 AI revenue >$100B) but balancing against customer concentration, margin compression, and VMware attrition risk, I apply a forward EV/FCF multiple of 45x \u2014 between the 3-year and 1-year averages, reflecting a growth premium tempered by scaling and risk factors.\n\n**EV \u2192 MC bridge:** Current EV\u2013MC gap is $1,809,295M \u2212 $1,764,016M = $45,279M (net debt and minority interests). Assuming this gap holds roughly stable:\n- Forward EV = $50,000M \u00d7 45 = $2,250,000M\n- Forward MC = $2,250,000M \u2212 $45,279M = $2,204,721M"
+      }
+    }
+  ]
+}

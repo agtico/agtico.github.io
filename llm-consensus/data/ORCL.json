@@ -1,0 +1,892 @@
+{
+  "asset_id": "ORCL",
+  "aggregate_row": {
+    "asset_id": "ORCL",
+    "name": "ORACLE CORP",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 407874.7,
+    "std_pct_of_mean": 0.31268091170468804,
+    "models": {
+      "Fable": {
+        "forward_mc": 491100.0,
+        "pct_upside": 0.20404624263284776,
+        "bullishness": 0.6525701921502632,
+        "n_samples": 3,
+        "forward_mc_iqr": 7000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 408000.0,
+        "pct_upside": 0.0003072021873384845,
+        "bullishness": 0.0009824782256891399,
+        "n_samples": 3,
+        "forward_mc_iqr": 35000.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 435100.0,
+        "pct_upside": 0.06674917566595817,
+        "bullishness": 0.2134737784345452,
+        "n_samples": 3,
+        "forward_mc_iqr": 19500.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 395000.0,
+        "pct_upside": -0.03156533121568961,
+        "bullishness": -0.10095061781546016,
+        "n_samples": 3,
+        "forward_mc_iqr": 16112.650000000023
+      }
+    },
+    "consensus_bullishness": 0.10722812833011718,
+    "consensus_bullishness_mean": 0.19151895774875932,
+    "consensus_pct_upside": 0.03352818892664833,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nOracle Corp. is a global enterprise technology company centered on databases, cloud infrastructure, enterprise applications, and industry software. It is now led by co-CEOs Clay Magouyrk and Mike Sicilia, with Safra Catz having moved to executive vice chair in September 2025. ([investor.oracle.com](https://investor.oracle.com/investor-news/news-details/2025/Oracle-Corporation-Announces-Promotion-of-Clay-Magouyrk-and-Mike-Sicilia-to-CEOs-Safra-Catz-Appointed-Executive-Vice-Chair-of-the-Board-of-Directors/default.aspx?utm_source=openai)) Oracle\u2019s current strategic identity is increasingly \u201cfull stack\u201d: OCI cloud infrastructure for AI and enterprise workloads, Oracle Database and related data services, and SaaS applications such as Fusion ERP/HCM/SCM/CX, NetSuite, and Oracle Health.\n\n## What It Does\n\nOracle sells cloud and license support, cloud infrastructure, database services, enterprise applications, hardware, and services. OCI competes with hyperscale clouds while emphasizing high-performance networking, database-native workloads, sovereign/dedicated regions, and large AI clusters. Oracle also embeds AI into applications: in the Q4 FY2026 transcript, management said it had delivered more than 1,000 AI agents across application suites and is testing token and outcome-based pricing for more advanced agentic use cases. Recent product news included Fusion Agentic Applications for CX and a builder in Oracle AI Agent Studio for connecting Oracle, partner, and external agents. ([prnewswire.com](https://www.prnewswire.com/news-releases/oracle-introduces-fusion-agentic-applications-for-customer-experience-302737686.html?utm_source=openai)) Oracle also continues to push multicloud database access through offerings with AWS, Azure, and Google Cloud; in April, Oracle and AWS announced plans to expand private multicloud networking between OCI and AWS. ([prnewswire.com](https://www.prnewswire.com/news-releases/oracle-and-aws-collaborate-to-expand-multicloud-networking-302743862.html?utm_source=openai))\n\n## Recent Highlights (Positive)\n\nOracle\u2019s June 10 FY2026 results showed accelerating cloud demand: Q4 revenue was $19.2 billion, up 21% year over year, cloud infrastructure revenue rose 93%, cloud applications revenue rose 10%, and remaining performance obligations reached $638 billion, up 363%. ([investor.oracle.com](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/?utm_source=openai)) Management said full-year FY2026 revenue exceeded $67 billion, non-GAAP operating income was $29 billion, and operating cash flow rose 54% to $32 billion; it also guided FY2027 total revenue growth of about 34% in constant currency, with cloud revenue expected to grow 58%\u201364% in Q1 FY2027. ([investor.oracle.com](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/?utm_source=openai))  \n\nAI infrastructure momentum was the key narrative in the transcript: management said Oracle signed $67 billion of AI infrastructure contracts in Q4, had 97.5% global GPU utilization, and delivered more than 1.2 gigawatts of capacity to customers in FY2026. Oracle also highlighted large sites in Texas, New Mexico, Michigan, and Wisconsin, plus FY2027 Q1 delivery approaching 1 gigawatt. Separately, Bloom Energy announced an expanded strategic partnership to deploy up to 2.8 GW to support Oracle\u2019s AI and cloud infrastructure buildout. ([nasdaq.com](https://www.nasdaq.com/press-release/bloom-energy-and-oracle-expand-strategic-partnership-deploy-28-gw-accelerate-ai?utm_source=openai))  \n\nOracle Health also showed deployment progress: VA reported the federal EHR went live at four more medical centers in Southern Ohio/Kentucky on June 6, following four Michigan deployments earlier in 2026. ([news.va.gov](https://news.va.gov/147501/vas-federal-ehr-rollout-success-continues-in-southern-ohio/?utm_source=openai))\n\n## Recent Highlights (Negative)\n\nThe same AI buildout is pressuring cash flow, margins, and the balance sheet. Oracle said FY2026 net cash outlay for capex was $48 billion and guided FY2027 net capex outlay to around $70 billion, supported by customer prepayments but also requiring about $40 billion of debt and equity, including a $20 billion at-the-market equity issuance. ([investor.oracle.com](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/?utm_source=openai)) The Register noted that despite strong Q4 revenue, Oracle\u2019s shares fell as investors focused on data-center capex and funding needs. ([theregister.com](https://www.theregister.com/paas-and-iaas/2026/06/11/oracles-ai-datacenter-splurge-gives-investors-the-capex-jitters/5254035?utm_source=openai))  \n\nGross margin is also under near-term pressure from OCI/data-center mix and ramp timing; management said FY2026 gross margin stepped down about five points and expects another FY2027 step-down before infrastructure margins improve as contracted capacity converts to revenue. Execution risk is high because the AI backlog depends on timely delivery of power, GPUs, networking, construction, and customer workloads. Prior reporting also pointed to delays at some Oracle/OpenAI data-center projects due to tight materials and skilled-labor supply, underscoring supply-chain and buildout risk even if demand remains intact. ([tomshardware.com](https://www.tomshardware.com/tech-industry/artificial-intelligence/oracle-reportedly-delays-several-new-openai-data-centers-because-of-shortages-tight-material-and-labor-supply-frustrate-expansion-plans-possibly-by-a-year-or-more?utm_source=openai))  \n\nOracle Health remains a reputational and operational watch item. While VA rollouts resumed, Federal News Network cited prior GAO findings that only 13% of surveyed VA staff using the Oracle-Cerner EHR believed it made VA as efficient as possible, and 58% believed it increased patient-safety risks. ([federalnewsnetwork.com](https://federalnewsnetwork.com/it-modernization/2026/06/va-ehr-rollout-continues-with-4-more-deployments/?utm_source=openai))\n",
+  "primer_meta": {
+    "asset_id": "ORCL",
+    "created_at_utc": "2026-07-08T15:03:02+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "b4e019bfa98a07f9000a48c925d7f5cdf2c125c147a93bb2b3ac86cd05e6d6c2",
+    "sources": [
+      {
+        "url": "https://investor.oracle.com/investor-news/news-details/2025/Oracle-Corporation-Announces-Promotion-of-Clay-Magouyrk-and-Mike-Sicilia-to-CEOs-Safra-Catz-Appointed-Executive-Vice-Chair-of-the-Board-of-Directors/default.aspx?utm_source=openai",
+        "title": "Oracle - Oracle Corporation Announces Promotion of Clay Magouyrk and Mike Sicilia to CEOs; Safra Catz Appointed Executive Vice Chair of the Board of Directors"
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/oracle-introduces-fusion-agentic-applications-for-customer-experience-302737686.html?utm_source=openai",
+        "title": "Oracle Introduces Fusion Agentic Applications for Customer Experience"
+      },
+      {
+        "url": "https://www.prnewswire.com/news-releases/oracle-and-aws-collaborate-to-expand-multicloud-networking-302743862.html?utm_source=openai",
+        "title": "Oracle and AWS Collaborate to Expand Multicloud Networking"
+      },
+      {
+        "url": "https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/?utm_source=openai",
+        "title": "Oracle - Oracle Announces Record Q4 and FY 2026 Results Driven by Cloud Infrastructure & Cloud Applications"
+      },
+      {
+        "url": "https://www.nasdaq.com/press-release/bloom-energy-and-oracle-expand-strategic-partnership-deploy-28-gw-accelerate-ai?utm_source=openai",
+        "title": "Bloom Energy and Oracle Expand Strategic Partnership to Deploy up to 2.8 GW to Accelerate AI Infrastructure Build-Out | Nasdaq"
+      },
+      {
+        "url": "https://news.va.gov/147501/vas-federal-ehr-rollout-success-continues-in-southern-ohio/?utm_source=openai",
+        "title": "VA\u2019s Federal EHR rollout success continues in Southern Ohio - VA News"
+      },
+      {
+        "url": "https://www.theregister.com/paas-and-iaas/2026/06/11/oracles-ai-datacenter-splurge-gives-investors-the-capex-jitters/5254035?utm_source=openai",
+        "title": "Oracle's AI datacenter splurge gives investors the capex jitters"
+      },
+      {
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/oracle-reportedly-delays-several-new-openai-data-centers-because-of-shortages-tight-material-and-labor-supply-frustrate-expansion-plans-possibly-by-a-year-or-more?utm_source=openai",
+        "title": "Oracle reportedly delays several new OpenAI data centers because of shortages - tight material and labor supply frustrate expansion plans, possibly by a year or more"
+      },
+      {
+        "url": "https://federalnewsnetwork.com/it-modernization/2026/06/va-ehr-rollout-continues-with-4-more-deployments/?utm_source=openai",
+        "title": "VA EHR rollout continues with 4 more deployments | Federal News Network"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "ORCL__earnings_call_transcript__2026-06-10__4__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-06-10",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0960c132ffda05e4016a4e6688add081a39b98e7ef9a500316",
+    "usage": {
+      "input_tokens": 22440,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1254,
+      "output_tokens_details": {
+        "reasoning_tokens": 225
+      },
+      "total_tokens": 23694
+    }
+  },
+  "details": {
+    "asset_id": "ORCL",
+    "detail_source_ticker": "ORCL",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "ORACLE CORP",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "market_cap_musd": 407874.7,
+    "ev_musd": 532774.7,
+    "ttm_revenue_musd": 67357.0,
+    "ttm_fcf_musd": -23686.0,
+    "ttm_netinc_musd": 17087.0,
+    "fcf_ev": {
+      "current": -0.04445781678446818,
+      "avg_1y": -0.02021577635366009,
+      "std_1y": 0.016026873015292337,
+      "avg_3y": 0.007548849679760415,
+      "std_3y": 0.022456118592771433
+    },
+    "ni_mc": {
+      "current": 0.04189276755827218,
+      "avg_1y": 0.0260226405462069,
+      "std_1y": 0.008361641769560937,
+      "avg_3y": 0.027498367177897266,
+      "std_3y": 0.005948192009142689
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-06-22",
+        "ttm_revenue_musd": 67357.0,
+        "ttm_fcf_musd": -23686.0,
+        "ttm_netinc_musd": 17087.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-06-18",
+        "ttm_revenue_musd": 57399.0,
+        "ttm_fcf_musd": -394.0,
+        "ttm_netinc_musd": 12443.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-06-20",
+        "ttm_revenue_musd": 52961.0,
+        "ttm_fcf_musd": 11807.0,
+        "ttm_netinc_musd": 10467.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 456019.24687083886,
+      "std_musd": 142588.5138664591,
+      "std_pct_of_mean": 0.31268091170468804,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "ORCL",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:34+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 2241,
+        "total_tokens": 5737,
+        "cost": 0.14701,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.14701,
+          "upstream_inference_prompt_cost": 0.03496,
+          "upstream_inference_completions_cost": 0.11205
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 379,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- FY2027 revenue guided to grow ~34% CC (to ~$90B), with cloud revenue +58\u201364% in Q1 FY2027 and RPO at a staggering $638B (+363%), giving unusually high revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and 1.2GW delivered in FY2026 (approaching another 1GW in Q1 FY2027) suggest the backlog is converting.\n- Operating cash flow rose 54% to $32B in FY2026; as contracted capacity turns on, infrastructure margins should inflect and reported FCF should swing sharply positive post-FY2027.\n- Multicloud (AWS/Azure/GCP), agentic AI in Fusion apps, and VA/Oracle Health deployments broaden the growth base beyond raw GPU capacity.\n\n## Bear Case\n- TTM FCF is -$23.7B and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM) \u2014 dilution plus rising net debt.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down guided; the market has already punished the stock on capex jitters.\n- Execution risk is high: power, GPU, construction, and labor constraints have reportedly delayed OpenAI-related data centers by a year or more; RPO monetization timing is uncertain.\n- Oracle Health carries reputational risk (GAO: 58% of surveyed VA staff believed the EHR increased patient-safety risk).\n- Concentrated AI customer exposure means any pullback in AI spend hits both backlog value and the capex payback math.\n\n## Logic\n- **Forward FCF (reported):** FY2027 OCF plausibly grows from $32B toward ~$45B (revenue +34%, prepayment support), but net capex of ~$70B implies reported FCF of roughly **-$25,000M**. Negative reported FCF cannot anchor a multiple, so I value on **normalized FCF**: OCF ~$45B less maintenance-level capex (~15% of ~$90B revenue \u2248 $13.5\u201315B) \u2192 normalized forward FCF \u2248 **$30,000M**.\n- **Applied multiple:** For an infrastructure software/cloud leader with 30%+ growth but heavy dilution, leverage, and margin pressure, I apply **21x EV/normalized FCF** \u2014 a discount to pure-play high-growth software, a premium to mature enterprise IT.\n- **EV:** 21 \u00d7 30,000 = **$630,000M**.\n- **Bridge to market cap:** Packet EV\u2013MC gap = 532,774.7 \u2212 407,874.7 = **$124,900M** (net debt proxy; likely grows with the buildout, partly offset by equity issuance). Forward MC = 630,000 \u2212 124,900 \u2248 **$505,100M**.\n- This implies ~24% upside from the current $407.9B cap \u2014 within the 3-year MC volatility band (mean $456B, \u00b131%) and consistent with backlog-driven re-rating if execution holds.\n\n```json\n{\"forward_market_cap_musd\": 505100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 30000.0, \"forward_netinc_musd\": 21000.0, \"applied_multiple\": 21.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 505100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 30000.0,
+        "forward_netinc_musd": 21000.0,
+        "applied_multiple": 21.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- FY2027 revenue guided to grow ~34% CC (to ~$90B), with cloud revenue +58\u201364% in Q1 FY2027 and RPO at a staggering $638B (+363%), giving unusually high revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and 1.2GW delivered in FY2026 (approaching another 1GW in Q1 FY2027) suggest the backlog is converting.\n- Operating cash flow rose 54% to $32B in FY2026; as contracted capacity turns on, infrastructure margins should inflect and reported FCF should swing sharply positive post-FY2027.\n- Multicloud (AWS/Azure/GCP), agentic AI in Fusion apps, and VA/Oracle Health deployments broaden the growth base beyond raw GPU capacity.\n\n## Bear Case\n- TTM FCF is -$23.7B and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM) \u2014 dilution plus rising net debt.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down guided; the market has already punished the stock on capex jitters.\n- Execution risk is high: power, GPU, construction, and labor constraints have reportedly delayed OpenAI-related data centers by a year or more; RPO monetization timing is uncertain.\n- Oracle Health carries reputational risk (GAO: 58% of surveyed VA staff believed the EHR increased patient-safety risk).\n- Concentrated AI customer exposure means any pullback in AI spend hits both backlog value and the capex payback math.\n\n## Logic\n- **Forward FCF (reported):** FY2027 OCF plausibly grows from $32B toward ~$45B (revenue +34%, prepayment support), but net capex of ~$70B implies reported FCF of roughly **-$25,000M**. Negative reported FCF cannot anchor a multiple, so I value on **normalized FCF**: OCF ~$45B less maintenance-level capex (~15% of ~$90B revenue \u2248 $13.5\u201315B) \u2192 normalized forward FCF \u2248 **$30,000M**.\n- **Applied multiple:** For an infrastructure software/cloud leader with 30%+ growth but heavy dilution, leverage, and margin pressure, I apply **21x EV/normalized FCF** \u2014 a discount to pure-play high-growth software, a premium to mature enterprise IT.\n- **EV:** 21 \u00d7 30,000 = **$630,000M**.\n- **Bridge to market cap:** Packet EV\u2013MC gap = 532,774.7 \u2212 407,874.7 = **$124,900M** (net debt proxy; likely grows with the buildout, partly offset by equity issuance). Forward MC = 630,000 \u2212 124,900 \u2248 **$505,100M**.\n- This implies ~24% upside from the current $407.9B cap \u2014 within the 3-year MC volatility band (mean $456B, \u00b131%) and consistent with backlog-driven re-rating if execution holds.\n\n```json\n{\"forward_market_cap_musd\": 505100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 30000.0, \"forward_netinc_musd\": 21000.0, \"applied_multiple\": 21.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- FY2027 revenue guided to grow ~34% CC (to ~$90B), with cloud revenue +58\u201364% in Q1 FY2027 and RPO at a staggering $638B (+363%), giving unusually high revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and 1.2GW delivered in FY2026 (approaching another 1GW in Q1 FY2027) suggest the backlog is converting.\n- Operating cash flow rose 54% to $32B in FY2026; as contracted capacity turns on, infrastructure margins should inflect and reported FCF should swing sharply positive post-FY2027.\n- Multicloud (AWS/Azure/GCP), agentic AI in Fusion apps, and VA/Oracle Health deployments broaden the growth base beyond raw GPU capacity.",
+        "Bear Case": "- TTM FCF is -$23.7B and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM) \u2014 dilution plus rising net debt.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down guided; the market has already punished the stock on capex jitters.\n- Execution risk is high: power, GPU, construction, and labor constraints have reportedly delayed OpenAI-related data centers by a year or more; RPO monetization timing is uncertain.\n- Oracle Health carries reputational risk (GAO: 58% of surveyed VA staff believed the EHR increased patient-safety risk).\n- Concentrated AI customer exposure means any pullback in AI spend hits both backlog value and the capex payback math.",
+        "Logic": "- **Forward FCF (reported):** FY2027 OCF plausibly grows from $32B toward ~$45B (revenue +34%, prepayment support), but net capex of ~$70B implies reported FCF of roughly **-$25,000M**. Negative reported FCF cannot anchor a multiple, so I value on **normalized FCF**: OCF ~$45B less maintenance-level capex (~15% of ~$90B revenue \u2248 $13.5\u201315B) \u2192 normalized forward FCF \u2248 **$30,000M**.\n- **Applied multiple:** For an infrastructure software/cloud leader with 30%+ growth but heavy dilution, leverage, and margin pressure, I apply **21x EV/normalized FCF** \u2014 a discount to pure-play high-growth software, a premium to mature enterprise IT.\n- **EV:** 21 \u00d7 30,000 = **$630,000M**.\n- **Bridge to market cap:** Packet EV\u2013MC gap = 532,774.7 \u2212 407,874.7 = **$124,900M** (net debt proxy; likely grows with the buildout, partly offset by equity issuance). Forward MC = 630,000 \u2212 124,900 \u2248 **$505,100M**.\n- This implies ~24% upside from the current $407.9B cap \u2014 within the 3-year MC volatility band (mean $456B, \u00b131%) and consistent with backlog-driven re-rating if execution holds."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "ORCL",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:29+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 2110,
+        "total_tokens": 5606,
+        "cost": 0.14046,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.14046,
+          "upstream_inference_prompt_cost": 0.03496,
+          "upstream_inference_completions_cost": 0.1055
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 290,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- FY2027 guidance of ~34% CC revenue growth implies ~$90B revenue; RPO of $638B (+363%) gives exceptional visibility as AI backlog converts.\n- OCI grew 93% with 97.5% GPU utilization; $67B of AI contracts signed in Q4 alone. Operating cash flow of $32B (+54%) shows the core engine is highly cash-generative before growth capex.\n- Once contracted capacity converts to revenue, infrastructure gross margins inflect upward and reported FCF normalizes sharply positive, supporting a premium multiple re-rating.\n\n## Bear Case\n- Reported TTM FCF is deeply negative (-$23.7B) and FY2027 net capex guidance of ~$70B implies another year of negative FCF, funded by ~$40B of debt and equity (including a $20B dilutive ATM).\n- Gross margin stepped down ~5 points in FY2026 with another step-down guided; execution risk on power, GPUs, construction, and reported OpenAI data-center delays could push revenue recognition to the right while spend is front-loaded.\n- Shares already sold off on capex jitters; rising net debt widens the EV\u2013market cap gap, and Oracle Health remains a reputational drag.\n\n## Logic\n- Forward reported FCF: OCF ~48% margin on ~$90B FY2027 revenue \u2192 ~$43B OCF, minus ~$70B net capex \u2192 roughly **-$27B reported forward FCF**. A multiple cannot be applied to negative FCF, so I value on normalized (ex-growth-capex) FCF.\n- Normalized forward FCF: ~$43B OCF minus ~$15B maintenance-level capex \u2248 **$28B**.\n- Applied multiple: **22x EV/FCF** \u2014 a discount to pure-play hyperscaler multiples, reflecting funding needs, dilution, and buildout execution risk, but crediting the RPO-backed growth.\n- Forward EV: 28,000 \u00d7 22 = **$616,000M**.\n- Bridge to market cap using the packet's current EV\u2212MC gap: 532,774.7 \u2212 407,874.7 = **$124,900M** net debt/other.\n- Forward market cap: 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% above the current $407.9B), within one standard deviation of the 3-year market-cap history.\n- Forward net income: ~$22B, extrapolating FY2026's $17.1B with ~30% growth on operating leverage, partially offset by depreciation and interest.\n\n```json\n{\"forward_market_cap_musd\": 491100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": 22000.0, \"applied_multiple\": 22.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 491100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 28000.0,
+        "forward_netinc_musd": 22000.0,
+        "applied_multiple": 22.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- FY2027 guidance of ~34% CC revenue growth implies ~$90B revenue; RPO of $638B (+363%) gives exceptional visibility as AI backlog converts.\n- OCI grew 93% with 97.5% GPU utilization; $67B of AI contracts signed in Q4 alone. Operating cash flow of $32B (+54%) shows the core engine is highly cash-generative before growth capex.\n- Once contracted capacity converts to revenue, infrastructure gross margins inflect upward and reported FCF normalizes sharply positive, supporting a premium multiple re-rating.\n\n## Bear Case\n- Reported TTM FCF is deeply negative (-$23.7B) and FY2027 net capex guidance of ~$70B implies another year of negative FCF, funded by ~$40B of debt and equity (including a $20B dilutive ATM).\n- Gross margin stepped down ~5 points in FY2026 with another step-down guided; execution risk on power, GPUs, construction, and reported OpenAI data-center delays could push revenue recognition to the right while spend is front-loaded.\n- Shares already sold off on capex jitters; rising net debt widens the EV\u2013market cap gap, and Oracle Health remains a reputational drag.\n\n## Logic\n- Forward reported FCF: OCF ~48% margin on ~$90B FY2027 revenue \u2192 ~$43B OCF, minus ~$70B net capex \u2192 roughly **-$27B reported forward FCF**. A multiple cannot be applied to negative FCF, so I value on normalized (ex-growth-capex) FCF.\n- Normalized forward FCF: ~$43B OCF minus ~$15B maintenance-level capex \u2248 **$28B**.\n- Applied multiple: **22x EV/FCF** \u2014 a discount to pure-play hyperscaler multiples, reflecting funding needs, dilution, and buildout execution risk, but crediting the RPO-backed growth.\n- Forward EV: 28,000 \u00d7 22 = **$616,000M**.\n- Bridge to market cap using the packet's current EV\u2212MC gap: 532,774.7 \u2212 407,874.7 = **$124,900M** net debt/other.\n- Forward market cap: 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% above the current $407.9B), within one standard deviation of the 3-year market-cap history.\n- Forward net income: ~$22B, extrapolating FY2026's $17.1B with ~30% growth on operating leverage, partially offset by depreciation and interest.\n\n```json\n{\"forward_market_cap_musd\": 491100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": 22000.0, \"applied_multiple\": 22.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- FY2027 guidance of ~34% CC revenue growth implies ~$90B revenue; RPO of $638B (+363%) gives exceptional visibility as AI backlog converts.\n- OCI grew 93% with 97.5% GPU utilization; $67B of AI contracts signed in Q4 alone. Operating cash flow of $32B (+54%) shows the core engine is highly cash-generative before growth capex.\n- Once contracted capacity converts to revenue, infrastructure gross margins inflect upward and reported FCF normalizes sharply positive, supporting a premium multiple re-rating.",
+        "Bear Case": "- Reported TTM FCF is deeply negative (-$23.7B) and FY2027 net capex guidance of ~$70B implies another year of negative FCF, funded by ~$40B of debt and equity (including a $20B dilutive ATM).\n- Gross margin stepped down ~5 points in FY2026 with another step-down guided; execution risk on power, GPUs, construction, and reported OpenAI data-center delays could push revenue recognition to the right while spend is front-loaded.\n- Shares already sold off on capex jitters; rising net debt widens the EV\u2013market cap gap, and Oracle Health remains a reputational drag.",
+        "Logic": "- Forward reported FCF: OCF ~48% margin on ~$90B FY2027 revenue \u2192 ~$43B OCF, minus ~$70B net capex \u2192 roughly **-$27B reported forward FCF**. A multiple cannot be applied to negative FCF, so I value on normalized (ex-growth-capex) FCF.\n- Normalized forward FCF: ~$43B OCF minus ~$15B maintenance-level capex \u2248 **$28B**.\n- Applied multiple: **22x EV/FCF** \u2014 a discount to pure-play hyperscaler multiples, reflecting funding needs, dilution, and buildout execution risk, but crediting the RPO-backed growth.\n- Forward EV: 28,000 \u00d7 22 = **$616,000M**.\n- Bridge to market cap using the packet's current EV\u2212MC gap: 532,774.7 \u2212 407,874.7 = **$124,900M** net debt/other.\n- Forward market cap: 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% above the current $407.9B), within one standard deviation of the 3-year market-cap history.\n- Forward net income: ~$22B, extrapolating FY2026's $17.1B with ~30% growth on operating leverage, partially offset by depreciation and interest."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "ORCL",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:27+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 2075,
+        "total_tokens": 5571,
+        "cost": 0.13871,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.13871,
+          "upstream_inference_prompt_cost": 0.03496,
+          "upstream_inference_completions_cost": 0.10375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 532,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- FY2027 revenue guided +34% CC (~$90B), with cloud infrastructure growing 58\u201364% and $638B RPO (+363%) providing exceptional revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and multicloud partnerships (AWS, Azure, GCP) expanding the addressable demand.\n- Operating cash flow grew 54% to $32B; as contracted capacity converts to revenue, infrastructure margins are guided to recover after FY2027, unlocking large future FCF.\n- 1,000+ AI agents embedded in Fusion/NetSuite apps and outcome-based pricing pilots add a SaaS monetization layer on top of the OCI story.\n\n## Bear Case\n- TTM FCF is deeply negative (-$23.7B), and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM issuance) \u2014 dilution and leverage risk are material.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down expected before recovery.\n- Execution risk on the backlog is high: power, GPU, construction, and labor bottlenecks have already delayed some OpenAI-related data centers by up to a year.\n- Oracle Health remains a reputational drag (GAO: 58% of surveyed VA staff believe the EHR increased patient-safety risk); AI capex sentiment has already hit the stock post-earnings.\n\n## Logic\n- Reported forward FCF will remain deeply negative (~-$25B to -$30B) given $70B capex vs. ~$42\u201345B operating cash flow, so a multiple on reported FCF is meaningless. I therefore value on **normalized forward FCF**: FY2027 OCF of ~$44B (from $32B, growing with 34% revenue growth and prepayments) less ~$16B steady-state/maintenance capex \u2248 **$28B normalized forward FCF**.\n- Applied multiple: **22x EV/FCF**, reflecting 30%+ revenue growth and massive contracted backlog, discounted for capital intensity, dilution, and execution risk (a pure hyperscaler-growth multiple would be higher; a mature software multiple lower).\n- Forward EV = 28,000 \u00d7 22 = **$616,000M** (~16% above current EV of $532,775M).\n- Bridge to market cap using the packet's current EV-minus-market-cap gap: 532,774.7 \u2212 407,874.7 = **$124,900M**.\n- Forward market cap = 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% upside vs. current $407,875M).\n\n```json\n{\"forward_market_cap_musd\": 491100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 22.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 491100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 28000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 22.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- FY2027 revenue guided +34% CC (~$90B), with cloud infrastructure growing 58\u201364% and $638B RPO (+363%) providing exceptional revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and multicloud partnerships (AWS, Azure, GCP) expanding the addressable demand.\n- Operating cash flow grew 54% to $32B; as contracted capacity converts to revenue, infrastructure margins are guided to recover after FY2027, unlocking large future FCF.\n- 1,000+ AI agents embedded in Fusion/NetSuite apps and outcome-based pricing pilots add a SaaS monetization layer on top of the OCI story.\n\n## Bear Case\n- TTM FCF is deeply negative (-$23.7B), and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM issuance) \u2014 dilution and leverage risk are material.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down expected before recovery.\n- Execution risk on the backlog is high: power, GPU, construction, and labor bottlenecks have already delayed some OpenAI-related data centers by up to a year.\n- Oracle Health remains a reputational drag (GAO: 58% of surveyed VA staff believe the EHR increased patient-safety risk); AI capex sentiment has already hit the stock post-earnings.\n\n## Logic\n- Reported forward FCF will remain deeply negative (~-$25B to -$30B) given $70B capex vs. ~$42\u201345B operating cash flow, so a multiple on reported FCF is meaningless. I therefore value on **normalized forward FCF**: FY2027 OCF of ~$44B (from $32B, growing with 34% revenue growth and prepayments) less ~$16B steady-state/maintenance capex \u2248 **$28B normalized forward FCF**.\n- Applied multiple: **22x EV/FCF**, reflecting 30%+ revenue growth and massive contracted backlog, discounted for capital intensity, dilution, and execution risk (a pure hyperscaler-growth multiple would be higher; a mature software multiple lower).\n- Forward EV = 28,000 \u00d7 22 = **$616,000M** (~16% above current EV of $532,775M).\n- Bridge to market cap using the packet's current EV-minus-market-cap gap: 532,774.7 \u2212 407,874.7 = **$124,900M**.\n- Forward market cap = 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% upside vs. current $407,875M).\n\n```json\n{\"forward_market_cap_musd\": 491100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 22.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- FY2027 revenue guided +34% CC (~$90B), with cloud infrastructure growing 58\u201364% and $638B RPO (+363%) providing exceptional revenue visibility.\n- $67B of AI infrastructure contracts signed in Q4 alone, 97.5% GPU utilization, and multicloud partnerships (AWS, Azure, GCP) expanding the addressable demand.\n- Operating cash flow grew 54% to $32B; as contracted capacity converts to revenue, infrastructure margins are guided to recover after FY2027, unlocking large future FCF.\n- 1,000+ AI agents embedded in Fusion/NetSuite apps and outcome-based pricing pilots add a SaaS monetization layer on top of the OCI story.",
+        "Bear Case": "- TTM FCF is deeply negative (-$23.7B), and FY2027 net capex is guided to ~$70B, requiring ~$40B of new debt and equity (including a $20B ATM issuance) \u2014 dilution and leverage risk are material.\n- Gross margin stepped down ~5 points in FY2026 with another FY2027 step-down expected before recovery.\n- Execution risk on the backlog is high: power, GPU, construction, and labor bottlenecks have already delayed some OpenAI-related data centers by up to a year.\n- Oracle Health remains a reputational drag (GAO: 58% of surveyed VA staff believe the EHR increased patient-safety risk); AI capex sentiment has already hit the stock post-earnings.",
+        "Logic": "- Reported forward FCF will remain deeply negative (~-$25B to -$30B) given $70B capex vs. ~$42\u201345B operating cash flow, so a multiple on reported FCF is meaningless. I therefore value on **normalized forward FCF**: FY2027 OCF of ~$44B (from $32B, growing with 34% revenue growth and prepayments) less ~$16B steady-state/maintenance capex \u2248 **$28B normalized forward FCF**.\n- Applied multiple: **22x EV/FCF**, reflecting 30%+ revenue growth and massive contracted backlog, discounted for capital intensity, dilution, and execution risk (a pure hyperscaler-growth multiple would be higher; a mature software multiple lower).\n- Forward EV = 28,000 \u00d7 22 = **$616,000M** (~16% above current EV of $532,775M).\n- Bridge to market cap using the packet's current EV-minus-market-cap gap: 532,774.7 \u2212 407,874.7 = **$124,900M**.\n- Forward market cap = 616,000 \u2212 124,900 \u2248 **$491,100M** (~20% upside vs. current $407,875M)."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "ORCL",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:33:24+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 1086,
+        "total_tokens": 4582,
+        "cost": 0.04463,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.04463,
+          "upstream_inference_prompt_cost": 0.01748,
+          "upstream_inference_completions_cost": 0.02715
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle's RPO of $638B (+363%) and FY2027 guided revenue growth of ~34% cc validate that the massive AI capex is contracted, not speculative. As contracted capacity converts to revenue, OCI utilization stays near 98%, and customer prepayments offset spend, the deeply negative TTM FCF (-$23.7B) is a peak-investment artifact. In a normalized world, Oracle's ~$29B non-GAAP operating income and $32B operating cash flow imply strong underlying cash generation once capex intensity moderates. A recovery toward mid-single-digit positive FCF/EV (closer to the 3y avg of +0.75%) on a growing EV base would justify a rich forward multiple, pushing market cap back toward its 3y mean (~$456B) or higher.\n\n## Bear Case\nFY2027 net capex outlay guided to ~$70B (up from $48B), requiring ~$40B of debt and equity including a $20B ATM raise. This means FCF stays deeply negative for another year, dilutes shareholders, and levers the balance sheet. Gross margin steps down again in FY2027 before any recovery. Execution risk is acute: power, GPU, construction, and labor shortages have already delayed OpenAI-linked data centers. If demand conversion lags the spend, forward FCF remains negative and the market re-rates on funding/margin fears \u2014 the stock already fell on capex jitters. Downside toward the low end of the 3y band (~$313B, mean minus 1 std) is plausible.\n\n## Logic\n- **Current EV\u2013MC gap:** EV $532,774.7M \u2212 MC $407,874.7M = $124,900M net debt/other. Hold constant for the bridge.\n- **Forward FCF:** TTM FCF is -$23,686M with FY2027 net capex rising ~$22B. Prepayments and rising operating cash flow ($32B, +54%) partially offset, but FCF stays negative near-term. I estimate forward 12m FCF improves modestly from the trough but remains negative as capex peaks: ~-$18,000M (partial improvement as contracted revenue begins converting and prepayments cushion, but $70B capex dominates).\n- **Multiple:** Negative FCF makes EV/FCF meaningless as a positive multiplier; instead I anchor forward EV to the fcf_ev normalization. Using a forward FCF/EV yield modestly less negative than current (-4.45%), toward -3.0% (between current and 1y avg), implies forward EV \u2248 -18,000 / -0.030 = $600,000M. This reflects the market crediting contracted RPO/growth despite negative FCF. Applied \"multiple\" recorded as EV/FCF = 600,000 / -18,000 = -33.3x.\n- **Bridge to market cap:** Forward EV $600,000M \u2212 EV/MC gap $124,900M = $475,100M forward market cap, near the 3y mean and consistent with growth optionality offsetting funding dilution risk.\n\n```json\n{\"forward_market_cap_musd\": 475100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -18000.0, \"forward_netinc_musd\": 19500.0, \"applied_multiple\": -33.3}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 475100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -18000.0,
+        "forward_netinc_musd": 19500.0,
+        "applied_multiple": -33.3
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle's RPO of $638B (+363%) and FY2027 guided revenue growth of ~34% cc validate that the massive AI capex is contracted, not speculative. As contracted capacity converts to revenue, OCI utilization stays near 98%, and customer prepayments offset spend, the deeply negative TTM FCF (-$23.7B) is a peak-investment artifact. In a normalized world, Oracle's ~$29B non-GAAP operating income and $32B operating cash flow imply strong underlying cash generation once capex intensity moderates. A recovery toward mid-single-digit positive FCF/EV (closer to the 3y avg of +0.75%) on a growing EV base would justify a rich forward multiple, pushing market cap back toward its 3y mean (~$456B) or higher.\n\n## Bear Case\nFY2027 net capex outlay guided to ~$70B (up from $48B), requiring ~$40B of debt and equity including a $20B ATM raise. This means FCF stays deeply negative for another year, dilutes shareholders, and levers the balance sheet. Gross margin steps down again in FY2027 before any recovery. Execution risk is acute: power, GPU, construction, and labor shortages have already delayed OpenAI-linked data centers. If demand conversion lags the spend, forward FCF remains negative and the market re-rates on funding/margin fears \u2014 the stock already fell on capex jitters. Downside toward the low end of the 3y band (~$313B, mean minus 1 std) is plausible.\n\n## Logic\n- **Current EV\u2013MC gap:** EV $532,774.7M \u2212 MC $407,874.7M = $124,900M net debt/other. Hold constant for the bridge.\n- **Forward FCF:** TTM FCF is -$23,686M with FY2027 net capex rising ~$22B. Prepayments and rising operating cash flow ($32B, +54%) partially offset, but FCF stays negative near-term. I estimate forward 12m FCF improves modestly from the trough but remains negative as capex peaks: ~-$18,000M (partial improvement as contracted revenue begins converting and prepayments cushion, but $70B capex dominates).\n- **Multiple:** Negative FCF makes EV/FCF meaningless as a positive multiplier; instead I anchor forward EV to the fcf_ev normalization. Using a forward FCF/EV yield modestly less negative than current (-4.45%), toward -3.0% (between current and 1y avg), implies forward EV \u2248 -18,000 / -0.030 = $600,000M. This reflects the market crediting contracted RPO/growth despite negative FCF. Applied \"multiple\" recorded as EV/FCF = 600,000 / -18,000 = -33.3x.\n- **Bridge to market cap:** Forward EV $600,000M \u2212 EV/MC gap $124,900M = $475,100M forward market cap, near the 3y mean and consistent with growth optionality offsetting funding dilution risk.\n\n```json\n{\"forward_market_cap_musd\": 475100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -18000.0, \"forward_netinc_musd\": 19500.0, \"applied_multiple\": -33.3}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle's RPO of $638B (+363%) and FY2027 guided revenue growth of ~34% cc validate that the massive AI capex is contracted, not speculative. As contracted capacity converts to revenue, OCI utilization stays near 98%, and customer prepayments offset spend, the deeply negative TTM FCF (-$23.7B) is a peak-investment artifact. In a normalized world, Oracle's ~$29B non-GAAP operating income and $32B operating cash flow imply strong underlying cash generation once capex intensity moderates. A recovery toward mid-single-digit positive FCF/EV (closer to the 3y avg of +0.75%) on a growing EV base would justify a rich forward multiple, pushing market cap back toward its 3y mean (~$456B) or higher.",
+        "Bear Case": "FY2027 net capex outlay guided to ~$70B (up from $48B), requiring ~$40B of debt and equity including a $20B ATM raise. This means FCF stays deeply negative for another year, dilutes shareholders, and levers the balance sheet. Gross margin steps down again in FY2027 before any recovery. Execution risk is acute: power, GPU, construction, and labor shortages have already delayed OpenAI-linked data centers. If demand conversion lags the spend, forward FCF remains negative and the market re-rates on funding/margin fears \u2014 the stock already fell on capex jitters. Downside toward the low end of the 3y band (~$313B, mean minus 1 std) is plausible.",
+        "Logic": "- **Current EV\u2013MC gap:** EV $532,774.7M \u2212 MC $407,874.7M = $124,900M net debt/other. Hold constant for the bridge.\n- **Forward FCF:** TTM FCF is -$23,686M with FY2027 net capex rising ~$22B. Prepayments and rising operating cash flow ($32B, +54%) partially offset, but FCF stays negative near-term. I estimate forward 12m FCF improves modestly from the trough but remains negative as capex peaks: ~-$18,000M (partial improvement as contracted revenue begins converting and prepayments cushion, but $70B capex dominates).\n- **Multiple:** Negative FCF makes EV/FCF meaningless as a positive multiplier; instead I anchor forward EV to the fcf_ev normalization. Using a forward FCF/EV yield modestly less negative than current (-4.45%), toward -3.0% (between current and 1y avg), implies forward EV \u2248 -18,000 / -0.030 = $600,000M. This reflects the market crediting contracted RPO/growth despite negative FCF. Applied \"multiple\" recorded as EV/FCF = 600,000 / -18,000 = -33.3x.\n- **Bridge to market cap:** Forward EV $600,000M \u2212 EV/MC gap $124,900M = $475,100M forward market cap, near the 3y mean and consistent with growth optionality offsetting funding dilution risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "ORCL",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:17+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 1135,
+        "total_tokens": 4631,
+        "cost": 0.045855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.045855,
+          "upstream_inference_prompt_cost": 0.01748,
+          "upstream_inference_completions_cost": 0.028375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI infrastructure demand is validated by $638B RPO (+363%) and $67B Q4 bookings. FY2027 guidance implies ~34% revenue growth. As contracted capacity converts to revenue, OCI margins recover and the massive capex (which is currently driving deeply negative FCF) begins to be offset by customer prepayments. If revenue scales toward ~$90B and capex intensity eventually normalizes, forward FCF turns modestly positive, and the market rewards the growth story with a premium multiple. EV/FCF re-rates on the expectation of a multi-year FCF inflection, pushing market cap back toward its 3-year mean (~$456B) or higher.\n\n## Bear Case\nFCF is deeply negative (-$23.7B TTM) and guided FY2027 net capex of ~$70B with ~$40B of debt/equity issuance (including a $20B ATM) means dilution and rising leverage. Gross margin steps down again in FY2027. Execution risk on power/GPU/construction is high, with reported OpenAI data-center delays. Forward FCF stays negative through the horizon, funding needs pressure the equity, and the market cap contracts as investors focus on capex burn rather than backlog.\n\n## Logic\n- TTM FCF is -$23,686M, driven by ~$48B FY2026 capex. FY2027 guidance points to ~$70B net capex, so near-term FCF remains negative. Over a 12m horizon, revenue grows ~34% (~$90B) with operating cash flow scaling from $32B, but capex escalation keeps FCF negative, though improving modestly as prepayments arrive.\n- Forward FCF estimate: operating cash flow ~$42B less ~$62B net capex (partly prepayment-funded) \u2192 still negative, but I model a moderated burn as prepayments offset. Estimate forward FCF \u2248 -$15,000M (improvement from -$23.7B as revenue ramps and prepayments flow).\n- With negative FCF, a positive EV/FCF multiple is not meaningful. The 3y avg FCF/EV yield is +0.75% (near breakeven), reflecting the transitional nature. I apply a normalized-through-cycle EV/FCF framing but, given negative forward FCF, anchor valuation to the EV level implied by the growth narrative rather than a literal FCF multiple.\n- EV\u2192MC bridge: current gap = EV $532,775M \u2212 MC $407,875M = $124,900M net debt/adjustment. I hold this gap roughly constant (slightly higher given ~$40B new financing, offset by equity issuance).\n- Blending bull re-rating potential against bear funding pressure, I center forward EV near the historical mean EV region. Forward EV \u2248 $555,000M; subtract the ~$147,000M net-debt gap (widened for new debt net of $20B equity) \u2192 forward market cap \u2248 $408,000M, essentially flat, reflecting offsetting growth optimism and capex/dilution drag.\n- Applied multiple is expressed as EV/FCF but is negative given negative forward FCF; reported as the implied EV/forward-FCF ratio.\n\n```json\n{\"forward_market_cap_musd\": 408000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -15000.0, \"forward_netinc_musd\": 19500.0, \"applied_multiple\": -37.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 408000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -15000.0,
+        "forward_netinc_musd": 19500.0,
+        "applied_multiple": -37.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI infrastructure demand is validated by $638B RPO (+363%) and $67B Q4 bookings. FY2027 guidance implies ~34% revenue growth. As contracted capacity converts to revenue, OCI margins recover and the massive capex (which is currently driving deeply negative FCF) begins to be offset by customer prepayments. If revenue scales toward ~$90B and capex intensity eventually normalizes, forward FCF turns modestly positive, and the market rewards the growth story with a premium multiple. EV/FCF re-rates on the expectation of a multi-year FCF inflection, pushing market cap back toward its 3-year mean (~$456B) or higher.\n\n## Bear Case\nFCF is deeply negative (-$23.7B TTM) and guided FY2027 net capex of ~$70B with ~$40B of debt/equity issuance (including a $20B ATM) means dilution and rising leverage. Gross margin steps down again in FY2027. Execution risk on power/GPU/construction is high, with reported OpenAI data-center delays. Forward FCF stays negative through the horizon, funding needs pressure the equity, and the market cap contracts as investors focus on capex burn rather than backlog.\n\n## Logic\n- TTM FCF is -$23,686M, driven by ~$48B FY2026 capex. FY2027 guidance points to ~$70B net capex, so near-term FCF remains negative. Over a 12m horizon, revenue grows ~34% (~$90B) with operating cash flow scaling from $32B, but capex escalation keeps FCF negative, though improving modestly as prepayments arrive.\n- Forward FCF estimate: operating cash flow ~$42B less ~$62B net capex (partly prepayment-funded) \u2192 still negative, but I model a moderated burn as prepayments offset. Estimate forward FCF \u2248 -$15,000M (improvement from -$23.7B as revenue ramps and prepayments flow).\n- With negative FCF, a positive EV/FCF multiple is not meaningful. The 3y avg FCF/EV yield is +0.75% (near breakeven), reflecting the transitional nature. I apply a normalized-through-cycle EV/FCF framing but, given negative forward FCF, anchor valuation to the EV level implied by the growth narrative rather than a literal FCF multiple.\n- EV\u2192MC bridge: current gap = EV $532,775M \u2212 MC $407,875M = $124,900M net debt/adjustment. I hold this gap roughly constant (slightly higher given ~$40B new financing, offset by equity issuance).\n- Blending bull re-rating potential against bear funding pressure, I center forward EV near the historical mean EV region. Forward EV \u2248 $555,000M; subtract the ~$147,000M net-debt gap (widened for new debt net of $20B equity) \u2192 forward market cap \u2248 $408,000M, essentially flat, reflecting offsetting growth optimism and capex/dilution drag.\n- Applied multiple is expressed as EV/FCF but is negative given negative forward FCF; reported as the implied EV/forward-FCF ratio.\n\n```json\n{\"forward_market_cap_musd\": 408000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -15000.0, \"forward_netinc_musd\": 19500.0, \"applied_multiple\": -37.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI infrastructure demand is validated by $638B RPO (+363%) and $67B Q4 bookings. FY2027 guidance implies ~34% revenue growth. As contracted capacity converts to revenue, OCI margins recover and the massive capex (which is currently driving deeply negative FCF) begins to be offset by customer prepayments. If revenue scales toward ~$90B and capex intensity eventually normalizes, forward FCF turns modestly positive, and the market rewards the growth story with a premium multiple. EV/FCF re-rates on the expectation of a multi-year FCF inflection, pushing market cap back toward its 3-year mean (~$456B) or higher.",
+        "Bear Case": "FCF is deeply negative (-$23.7B TTM) and guided FY2027 net capex of ~$70B with ~$40B of debt/equity issuance (including a $20B ATM) means dilution and rising leverage. Gross margin steps down again in FY2027. Execution risk on power/GPU/construction is high, with reported OpenAI data-center delays. Forward FCF stays negative through the horizon, funding needs pressure the equity, and the market cap contracts as investors focus on capex burn rather than backlog.",
+        "Logic": "- TTM FCF is -$23,686M, driven by ~$48B FY2026 capex. FY2027 guidance points to ~$70B net capex, so near-term FCF remains negative. Over a 12m horizon, revenue grows ~34% (~$90B) with operating cash flow scaling from $32B, but capex escalation keeps FCF negative, though improving modestly as prepayments arrive.\n- Forward FCF estimate: operating cash flow ~$42B less ~$62B net capex (partly prepayment-funded) \u2192 still negative, but I model a moderated burn as prepayments offset. Estimate forward FCF \u2248 -$15,000M (improvement from -$23.7B as revenue ramps and prepayments flow).\n- With negative FCF, a positive EV/FCF multiple is not meaningful. The 3y avg FCF/EV yield is +0.75% (near breakeven), reflecting the transitional nature. I apply a normalized-through-cycle EV/FCF framing but, given negative forward FCF, anchor valuation to the EV level implied by the growth narrative rather than a literal FCF multiple.\n- EV\u2192MC bridge: current gap = EV $532,775M \u2212 MC $407,875M = $124,900M net debt/adjustment. I hold this gap roughly constant (slightly higher given ~$40B new financing, offset by equity issuance).\n- Blending bull re-rating potential against bear funding pressure, I center forward EV near the historical mean EV region. Forward EV \u2248 $555,000M; subtract the ~$147,000M net-debt gap (widened for new debt net of $20B equity) \u2192 forward market cap \u2248 $408,000M, essentially flat, reflecting offsetting growth optimism and capex/dilution drag.\n- Applied multiple is expressed as EV/FCF but is negative given negative forward FCF; reported as the implied EV/forward-FCF ratio."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "ORCL",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:16+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 1013,
+        "total_tokens": 4509,
+        "cost": 0.042805,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.042805,
+          "upstream_inference_prompt_cost": 0.01748,
+          "upstream_inference_completions_cost": 0.025325
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle's RPO of $638B (up 363%) and FY2027 revenue guidance of ~34% CC growth signal enormous contracted demand. As contracted AI capacity converts to revenue and capex intensity plateaus, FCF can swing sharply positive. If Oracle grows revenue toward ~$90B and normalizes capex, FCF could recover to positive $8\u201312B territory, and a premium infrastructure/AI multiple (30\u201340x) applies. This supports an EV meaningfully above the current $533B, pushing market cap well above $500B.\n\n## Bear Case\nThe AI buildout is a cash incinerator: FY2026 FCF was -$23.7B, FY2027 net capex guided to ~$70B, funded by ~$40B of new debt and equity (including $20B ATM dilution). Gross margins step down again in FY2027. If deliveries slip (power/GPU/labor shortages) and prepayments lag, FCF stays deeply negative through the 12-month horizon. Persistent negative FCF makes an EV/FCF multiple meaningless and pressures the equity via dilution and rising net debt, driving market cap back toward the low end of its 3y range (~$313B).\n\n## Logic\n- Current TTM FCF is -$23.7B, driven by AI capex. FY2027 net capex guided even higher (~$70B), so trailing FCF likely remains negative near-term.\n- However, the 12-month forward window captures early conversion of RPO to revenue plus customer prepayments cushioning cash outlays. I model forward FCF recovering to a modestly negative-to-breakeven level: roughly -$5,000M (improved from -$23.7B as prepayments and revenue ramp offset capex growth).\n- With negative forward FCF, a positive EV/FCF multiple is not applicable; the primary valuation anchor is net income. Forward net income scales with ~34% revenue growth and margin pressure: ~$21,000M (from $17.1B TTM). I do not apply a P/E as the requested framework is EV/FCF, but I use net income only as a sanity check on the EV.\n- EV bridge: current EV = $532,774.7M; current market cap = $407,874.7M; EV\u2212MC gap (net debt/adjustments) = $124,900M.\n- Given negative forward FCF, I peg forward EV near the current level (demand/RPO supports EV, but funding needs and dilution cap upside), estimating forward EV \u2248 $530,000M.\n- Forward market cap = forward EV \u2212 gap = $530,000M \u2212 $124,900M = ~$405,100M, roughly flat, reflecting offsetting bull (backlog) and bear (dilution/cash burn) forces. The applied_multiple is reported as the implied EV/FCF, which is negative given negative FCF.\n\n```json\n{\"forward_market_cap_musd\": 405100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -5000.0, \"forward_netinc_musd\": 21000.0, \"applied_multiple\": -106.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 405100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -5000.0,
+        "forward_netinc_musd": 21000.0,
+        "applied_multiple": -106.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle's RPO of $638B (up 363%) and FY2027 revenue guidance of ~34% CC growth signal enormous contracted demand. As contracted AI capacity converts to revenue and capex intensity plateaus, FCF can swing sharply positive. If Oracle grows revenue toward ~$90B and normalizes capex, FCF could recover to positive $8\u201312B territory, and a premium infrastructure/AI multiple (30\u201340x) applies. This supports an EV meaningfully above the current $533B, pushing market cap well above $500B.\n\n## Bear Case\nThe AI buildout is a cash incinerator: FY2026 FCF was -$23.7B, FY2027 net capex guided to ~$70B, funded by ~$40B of new debt and equity (including $20B ATM dilution). Gross margins step down again in FY2027. If deliveries slip (power/GPU/labor shortages) and prepayments lag, FCF stays deeply negative through the 12-month horizon. Persistent negative FCF makes an EV/FCF multiple meaningless and pressures the equity via dilution and rising net debt, driving market cap back toward the low end of its 3y range (~$313B).\n\n## Logic\n- Current TTM FCF is -$23.7B, driven by AI capex. FY2027 net capex guided even higher (~$70B), so trailing FCF likely remains negative near-term.\n- However, the 12-month forward window captures early conversion of RPO to revenue plus customer prepayments cushioning cash outlays. I model forward FCF recovering to a modestly negative-to-breakeven level: roughly -$5,000M (improved from -$23.7B as prepayments and revenue ramp offset capex growth).\n- With negative forward FCF, a positive EV/FCF multiple is not applicable; the primary valuation anchor is net income. Forward net income scales with ~34% revenue growth and margin pressure: ~$21,000M (from $17.1B TTM). I do not apply a P/E as the requested framework is EV/FCF, but I use net income only as a sanity check on the EV.\n- EV bridge: current EV = $532,774.7M; current market cap = $407,874.7M; EV\u2212MC gap (net debt/adjustments) = $124,900M.\n- Given negative forward FCF, I peg forward EV near the current level (demand/RPO supports EV, but funding needs and dilution cap upside), estimating forward EV \u2248 $530,000M.\n- Forward market cap = forward EV \u2212 gap = $530,000M \u2212 $124,900M = ~$405,100M, roughly flat, reflecting offsetting bull (backlog) and bear (dilution/cash burn) forces. The applied_multiple is reported as the implied EV/FCF, which is negative given negative FCF.\n\n```json\n{\"forward_market_cap_musd\": 405100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -5000.0, \"forward_netinc_musd\": 21000.0, \"applied_multiple\": -106.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle's RPO of $638B (up 363%) and FY2027 revenue guidance of ~34% CC growth signal enormous contracted demand. As contracted AI capacity converts to revenue and capex intensity plateaus, FCF can swing sharply positive. If Oracle grows revenue toward ~$90B and normalizes capex, FCF could recover to positive $8\u201312B territory, and a premium infrastructure/AI multiple (30\u201340x) applies. This supports an EV meaningfully above the current $533B, pushing market cap well above $500B.",
+        "Bear Case": "The AI buildout is a cash incinerator: FY2026 FCF was -$23.7B, FY2027 net capex guided to ~$70B, funded by ~$40B of new debt and equity (including $20B ATM dilution). Gross margins step down again in FY2027. If deliveries slip (power/GPU/labor shortages) and prepayments lag, FCF stays deeply negative through the 12-month horizon. Persistent negative FCF makes an EV/FCF multiple meaningless and pressures the equity via dilution and rising net debt, driving market cap back toward the low end of its 3y range (~$313B).",
+        "Logic": "- Current TTM FCF is -$23.7B, driven by AI capex. FY2027 net capex guided even higher (~$70B), so trailing FCF likely remains negative near-term.\n- However, the 12-month forward window captures early conversion of RPO to revenue plus customer prepayments cushioning cash outlays. I model forward FCF recovering to a modestly negative-to-breakeven level: roughly -$5,000M (improved from -$23.7B as prepayments and revenue ramp offset capex growth).\n- With negative forward FCF, a positive EV/FCF multiple is not applicable; the primary valuation anchor is net income. Forward net income scales with ~34% revenue growth and margin pressure: ~$21,000M (from $17.1B TTM). I do not apply a P/E as the requested framework is EV/FCF, but I use net income only as a sanity check on the EV.\n- EV bridge: current EV = $532,774.7M; current market cap = $407,874.7M; EV\u2212MC gap (net debt/adjustments) = $124,900M.\n- Given negative forward FCF, I peg forward EV near the current level (demand/RPO supports EV, but funding needs and dilution cap upside), estimating forward EV \u2248 $530,000M.\n- Forward market cap = forward EV \u2212 gap = $530,000M \u2212 $124,900M = ~$405,100M, roughly flat, reflecting offsetting bull (backlog) and bear (dilution/cash burn) forces. The applied_multiple is reported as the implied EV/FCF, which is negative given negative FCF."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "ORCL",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:33:35+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 2250,
+        "total_tokens": 4452,
+        "cost": 0.07851,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.07851,
+          "upstream_inference_prompt_cost": 0.01101,
+          "upstream_inference_completions_cost": 0.0675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1786,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle\u2019s AI/OCI backlog and FY2027 revenue guide support a higher forward EV if capacity comes online on time. Customer prepayments and revenue conversion could lift operating cash flow enough to partially offset the guided ~$70B capex outlay, keeping forward FCF loss contained despite heavy investment.\n\n## Bear Case\nThe main risk is that AI infrastructure capex, debt/equity funding, and lower gross margins persist longer than expected. If power/GPU/construction delays slow revenue conversion, the market may penalize Oracle for negative FCF and funding dilution despite strong RPO growth.\n\n## Logic\n- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- EV minus market-cap gap: **$124,900.0M**\n\nForward FCF estimate:\n- FY2026 operating cash flow was cited at about **$32B**.\n- FY2027 revenue growth is guided around **34%**, but gross margin is expected to step down again.\n- FY2027 net capex outlay is guided around **$70B**.\n- I estimate forward operating cash flow around **$40B**, implying forward FCF of roughly **$40B - $70B = -$30B**.\n\nApplied EV/FCF multiple:\n- Current EV/TTM FCF is approximately **$532,774.7M / -$23,686M = -22.5x**.\n- Because forward FCF is likely more negative due to the capex ramp, but demand/RPO growth remains unusually strong, I apply a modestly de-rated mechanical negative EV/FCF multiple of **-18.5x**.\n- Forward EV = **-$30,000M \u00d7 -18.5 = $555,000M**.\n- Forward market cap = **$555,000M - $124,900M = $430,100M**.\n\n```json\n{\"forward_market_cap_musd\": 430100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -30000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -18.5}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 430100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -30000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": -18.5
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle\u2019s AI/OCI backlog and FY2027 revenue guide support a higher forward EV if capacity comes online on time. Customer prepayments and revenue conversion could lift operating cash flow enough to partially offset the guided ~$70B capex outlay, keeping forward FCF loss contained despite heavy investment.\n\n## Bear Case\nThe main risk is that AI infrastructure capex, debt/equity funding, and lower gross margins persist longer than expected. If power/GPU/construction delays slow revenue conversion, the market may penalize Oracle for negative FCF and funding dilution despite strong RPO growth.\n\n## Logic\n- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- EV minus market-cap gap: **$124,900.0M**\n\nForward FCF estimate:\n- FY2026 operating cash flow was cited at about **$32B**.\n- FY2027 revenue growth is guided around **34%**, but gross margin is expected to step down again.\n- FY2027 net capex outlay is guided around **$70B**.\n- I estimate forward operating cash flow around **$40B**, implying forward FCF of roughly **$40B - $70B = -$30B**.\n\nApplied EV/FCF multiple:\n- Current EV/TTM FCF is approximately **$532,774.7M / -$23,686M = -22.5x**.\n- Because forward FCF is likely more negative due to the capex ramp, but demand/RPO growth remains unusually strong, I apply a modestly de-rated mechanical negative EV/FCF multiple of **-18.5x**.\n- Forward EV = **-$30,000M \u00d7 -18.5 = $555,000M**.\n- Forward market cap = **$555,000M - $124,900M = $430,100M**.\n\n```json\n{\"forward_market_cap_musd\": 430100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -30000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -18.5}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle\u2019s AI/OCI backlog and FY2027 revenue guide support a higher forward EV if capacity comes online on time. Customer prepayments and revenue conversion could lift operating cash flow enough to partially offset the guided ~$70B capex outlay, keeping forward FCF loss contained despite heavy investment.",
+        "Bear Case": "The main risk is that AI infrastructure capex, debt/equity funding, and lower gross margins persist longer than expected. If power/GPU/construction delays slow revenue conversion, the market may penalize Oracle for negative FCF and funding dilution despite strong RPO growth.",
+        "Logic": "- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- EV minus market-cap gap: **$124,900.0M**\n\nForward FCF estimate:\n- FY2026 operating cash flow was cited at about **$32B**.\n- FY2027 revenue growth is guided around **34%**, but gross margin is expected to step down again.\n- FY2027 net capex outlay is guided around **$70B**.\n- I estimate forward operating cash flow around **$40B**, implying forward FCF of roughly **$40B - $70B = -$30B**.\n\nApplied EV/FCF multiple:\n- Current EV/TTM FCF is approximately **$532,774.7M / -$23,686M = -22.5x**.\n- Because forward FCF is likely more negative due to the capex ramp, but demand/RPO growth remains unusually strong, I apply a modestly de-rated mechanical negative EV/FCF multiple of **-18.5x**.\n- Forward EV = **-$30,000M \u00d7 -18.5 = $555,000M**.\n- Forward market cap = **$555,000M - $124,900M = $430,100M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "ORCL",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:33:23+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 2250,
+        "total_tokens": 4452,
+        "cost": 0.07851,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.07851,
+          "upstream_inference_prompt_cost": 0.01101,
+          "upstream_inference_completions_cost": 0.0675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1552,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- FY2027 revenue guide of ~34% growth implies revenue around **$90,000M** versus TTM revenue of **$67,357M**.\n- If AI infrastructure capacity converts smoothly into revenue, customer prepayments continue to support operating cash flow, and OCI margin pressure is viewed as temporary, forward FCF could improve versus the severe capex burden expected for FY2027.\n- Bull valuation: forward FCF around **-$20,000M** and a market-implied **EV/FCF multiple of -30x** would imply EV of **$600,000M**.\n- Bridging with the current EV less market-cap gap of **$124,900M**, bull forward market cap would be about **$475,100M**.\n\n## Bear Case\n- The bear case is that FY2027 capex near **$70,000M**, gross-margin step-down, project delays, and debt/equity funding needs dominate the revenue-growth narrative.\n- If operating cash flow scales less than revenue while capex remains elevated, forward FCF could deteriorate toward **-$35,000M**.\n- Bear valuation: applying a less supportive negative-cash-flow multiple of **-12x EV/FCF** gives EV of **$420,000M**.\n- Less the same **$124,900M** EV-to-market-cap gap, bear forward market cap would be about **$295,100M**.\n\n## Logic\n- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- Current EV minus market-cap gap: **$124,900.0M**\n- TTM FCF: **-$23,686M**\n- FY2026 operating cash flow cited in the packet: **$32,000M**\n- FY2027 revenue growth guide: about **34%**, implying revenue around **$90,000M**\n- FY2027 net capex guide: around **$70,000M**\n\nBase forward FCF logic:\n- Assume operating cash flow scales roughly with guided revenue growth but is partly constrained by OCI/data-center margin pressure.\n- FY2026 OCF of **$32,000M \u00d7 1.34 \u2248 $42,900M**\n- Less FY2027 capex of about **$70,000M**\n- Base forward FCF estimate: **$42,900M - $70,000M \u2248 -$27,000M**\n\nBase multiple logic:\n- Current mechanical EV/FCF multiple is **$532,774.7M / -$23,686M \u2248 -22.5x**.\n- Given strong RPO/cloud demand but severe capex and funding risk, apply a near-current but slightly rounded **-22.0x EV/FCF**.\n- Forward EV = **-$27,000M \u00d7 -22.0 = $594,000M**\n- Forward market cap = **$594,000M - $124,900M = $469,100M**\n\n```json\n{\"forward_market_cap_musd\": 469100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -27000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -22.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 469100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -27000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": -22.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- FY2027 revenue guide of ~34% growth implies revenue around **$90,000M** versus TTM revenue of **$67,357M**.\n- If AI infrastructure capacity converts smoothly into revenue, customer prepayments continue to support operating cash flow, and OCI margin pressure is viewed as temporary, forward FCF could improve versus the severe capex burden expected for FY2027.\n- Bull valuation: forward FCF around **-$20,000M** and a market-implied **EV/FCF multiple of -30x** would imply EV of **$600,000M**.\n- Bridging with the current EV less market-cap gap of **$124,900M**, bull forward market cap would be about **$475,100M**.\n\n## Bear Case\n- The bear case is that FY2027 capex near **$70,000M**, gross-margin step-down, project delays, and debt/equity funding needs dominate the revenue-growth narrative.\n- If operating cash flow scales less than revenue while capex remains elevated, forward FCF could deteriorate toward **-$35,000M**.\n- Bear valuation: applying a less supportive negative-cash-flow multiple of **-12x EV/FCF** gives EV of **$420,000M**.\n- Less the same **$124,900M** EV-to-market-cap gap, bear forward market cap would be about **$295,100M**.\n\n## Logic\n- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- Current EV minus market-cap gap: **$124,900.0M**\n- TTM FCF: **-$23,686M**\n- FY2026 operating cash flow cited in the packet: **$32,000M**\n- FY2027 revenue growth guide: about **34%**, implying revenue around **$90,000M**\n- FY2027 net capex guide: around **$70,000M**\n\nBase forward FCF logic:\n- Assume operating cash flow scales roughly with guided revenue growth but is partly constrained by OCI/data-center margin pressure.\n- FY2026 OCF of **$32,000M \u00d7 1.34 \u2248 $42,900M**\n- Less FY2027 capex of about **$70,000M**\n- Base forward FCF estimate: **$42,900M - $70,000M \u2248 -$27,000M**\n\nBase multiple logic:\n- Current mechanical EV/FCF multiple is **$532,774.7M / -$23,686M \u2248 -22.5x**.\n- Given strong RPO/cloud demand but severe capex and funding risk, apply a near-current but slightly rounded **-22.0x EV/FCF**.\n- Forward EV = **-$27,000M \u00d7 -22.0 = $594,000M**\n- Forward market cap = **$594,000M - $124,900M = $469,100M**\n\n```json\n{\"forward_market_cap_musd\": 469100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -27000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -22.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- FY2027 revenue guide of ~34% growth implies revenue around **$90,000M** versus TTM revenue of **$67,357M**.\n- If AI infrastructure capacity converts smoothly into revenue, customer prepayments continue to support operating cash flow, and OCI margin pressure is viewed as temporary, forward FCF could improve versus the severe capex burden expected for FY2027.\n- Bull valuation: forward FCF around **-$20,000M** and a market-implied **EV/FCF multiple of -30x** would imply EV of **$600,000M**.\n- Bridging with the current EV less market-cap gap of **$124,900M**, bull forward market cap would be about **$475,100M**.",
+        "Bear Case": "- The bear case is that FY2027 capex near **$70,000M**, gross-margin step-down, project delays, and debt/equity funding needs dominate the revenue-growth narrative.\n- If operating cash flow scales less than revenue while capex remains elevated, forward FCF could deteriorate toward **-$35,000M**.\n- Bear valuation: applying a less supportive negative-cash-flow multiple of **-12x EV/FCF** gives EV of **$420,000M**.\n- Less the same **$124,900M** EV-to-market-cap gap, bear forward market cap would be about **$295,100M**.",
+        "Logic": "- Current EV: **$532,774.7M**\n- Current market cap: **$407,874.7M**\n- Current EV minus market-cap gap: **$124,900.0M**\n- TTM FCF: **-$23,686M**\n- FY2026 operating cash flow cited in the packet: **$32,000M**\n- FY2027 revenue growth guide: about **34%**, implying revenue around **$90,000M**\n- FY2027 net capex guide: around **$70,000M**\n\nBase forward FCF logic:\n- Assume operating cash flow scales roughly with guided revenue growth but is partly constrained by OCI/data-center margin pressure.\n- FY2026 OCF of **$32,000M \u00d7 1.34 \u2248 $42,900M**\n- Less FY2027 capex of about **$70,000M**\n- Base forward FCF estimate: **$42,900M - $70,000M \u2248 -$27,000M**\n\nBase multiple logic:\n- Current mechanical EV/FCF multiple is **$532,774.7M / -$23,686M \u2248 -22.5x**.\n- Given strong RPO/cloud demand but severe capex and funding risk, apply a near-current but slightly rounded **-22.0x EV/FCF**.\n- Forward EV = **-$27,000M \u00d7 -22.0 = $594,000M**\n- Forward market cap = **$594,000M - $124,900M = $469,100M**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "ORCL",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:58+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2202,
+        "completion_tokens": 2538,
+        "total_tokens": 4740,
+        "cost": 0.08715,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.08715,
+          "upstream_inference_prompt_cost": 0.01101,
+          "upstream_inference_completions_cost": 0.07614
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2070,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle\u2019s 12-month setup is supported by very large contracted demand: FY2026 RPO of $638,000 million, OCI revenue growth of 93%, and management\u2019s FY2027 revenue-growth guide of about 34% constant currency. If AI infrastructure delivery stays on schedule and customer prepayments support working capital, the market can continue looking through near-term negative FCF and value Oracle on future cloud capacity monetization.\n\n## Bear Case\nThe bear case is that FY2027 net capex of about $70,000 million overwhelms operating cash flow, keeping FCF materially negative while gross margin steps down again. Execution risk around power, GPUs, data-center construction, and the planned funding package could drive a lower EV/FCF tolerance despite strong backlog.\n\n## Logic\n- Current EV: $532,774.7 million  \n- Current market cap: $407,874.7 million  \n- Current EV minus market-cap gap: $124,900.0 million  \n\nForward FCF estimate:\n- FY2026 operating cash flow was about $32,000 million.\n- FY2027 revenue growth guidance is about 34%, but margins are expected to step down and capex is guided to about $70,000 million.\n- I estimate forward operating cash flow around $42,000 million, less $70,000 million of capex, giving forward FCF of **-$28,000 million**.\n\nApplied EV/FCF multiple:\n- Current EV / TTM FCF is about **-22.5x**.\n- I apply a slightly lower **-20.0x** forward EV/FCF multiple to reflect continued AI growth optionality but also funding, dilution, margin, and execution risk.\n- Forward EV = -$28,000 million \u00d7 -20.0x = **$560,000 million**.\n- Forward market cap = $560,000 million - $124,900 million = **$435,100 million**.\n\n```json\n{\"forward_market_cap_musd\": 435100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -28000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -20.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 435100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -28000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": -20.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle\u2019s 12-month setup is supported by very large contracted demand: FY2026 RPO of $638,000 million, OCI revenue growth of 93%, and management\u2019s FY2027 revenue-growth guide of about 34% constant currency. If AI infrastructure delivery stays on schedule and customer prepayments support working capital, the market can continue looking through near-term negative FCF and value Oracle on future cloud capacity monetization.\n\n## Bear Case\nThe bear case is that FY2027 net capex of about $70,000 million overwhelms operating cash flow, keeping FCF materially negative while gross margin steps down again. Execution risk around power, GPUs, data-center construction, and the planned funding package could drive a lower EV/FCF tolerance despite strong backlog.\n\n## Logic\n- Current EV: $532,774.7 million  \n- Current market cap: $407,874.7 million  \n- Current EV minus market-cap gap: $124,900.0 million  \n\nForward FCF estimate:\n- FY2026 operating cash flow was about $32,000 million.\n- FY2027 revenue growth guidance is about 34%, but margins are expected to step down and capex is guided to about $70,000 million.\n- I estimate forward operating cash flow around $42,000 million, less $70,000 million of capex, giving forward FCF of **-$28,000 million**.\n\nApplied EV/FCF multiple:\n- Current EV / TTM FCF is about **-22.5x**.\n- I apply a slightly lower **-20.0x** forward EV/FCF multiple to reflect continued AI growth optionality but also funding, dilution, margin, and execution risk.\n- Forward EV = -$28,000 million \u00d7 -20.0x = **$560,000 million**.\n- Forward market cap = $560,000 million - $124,900 million = **$435,100 million**.\n\n```json\n{\"forward_market_cap_musd\": 435100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -28000.0, \"forward_netinc_musd\": null, \"applied_multiple\": -20.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle\u2019s 12-month setup is supported by very large contracted demand: FY2026 RPO of $638,000 million, OCI revenue growth of 93%, and management\u2019s FY2027 revenue-growth guide of about 34% constant currency. If AI infrastructure delivery stays on schedule and customer prepayments support working capital, the market can continue looking through near-term negative FCF and value Oracle on future cloud capacity monetization.",
+        "Bear Case": "The bear case is that FY2027 net capex of about $70,000 million overwhelms operating cash flow, keeping FCF materially negative while gross margin steps down again. Execution risk around power, GPUs, data-center construction, and the planned funding package could drive a lower EV/FCF tolerance despite strong backlog.",
+        "Logic": "- Current EV: $532,774.7 million  \n- Current market cap: $407,874.7 million  \n- Current EV minus market-cap gap: $124,900.0 million  \n\nForward FCF estimate:\n- FY2026 operating cash flow was about $32,000 million.\n- FY2027 revenue growth guidance is about 34%, but margins are expected to step down and capex is guided to about $70,000 million.\n- I estimate forward operating cash flow around $42,000 million, less $70,000 million of capex, giving forward FCF of **-$28,000 million**.\n\nApplied EV/FCF multiple:\n- Current EV / TTM FCF is about **-22.5x**.\n- I apply a slightly lower **-20.0x** forward EV/FCF multiple to reflect continued AI growth optionality but also funding, dilution, margin, and execution risk.\n- Forward EV = -$28,000 million \u00d7 -20.0x = **$560,000 million**.\n- Forward market cap = $560,000 million - $124,900 million = **$435,100 million**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "ORCL",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:34:48+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2303,
+        "completion_tokens": 3245,
+        "total_tokens": 5548,
+        "cost": 0.01747917,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01747917,
+          "upstream_inference_prompt_cost": 0.00320117,
+          "upstream_inference_completions_cost": 0.014278
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2209,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle's unprecedented $638 billion in remaining performance obligations provides massive long-term revenue visibility. The FY2027 guidance of 34% constant-currency revenue growth underscores surging demand for AI infrastructure, evidenced by 97.5% global GPU utilization and $67 billion in new Q4 AI contracts. Once the current aggressive capacity buildout matures, the capitalized infrastructure will likely drive a steep inflection in operating cash flow and free cash flow, rewarding shareholders who tolerate the near-term capital expenditure cycle.\n\n## Bear Case\nThe aggressive AI infrastructure buildout is severely punishing near-term cash flow and the balance sheet. FY2027 net capex is guided to roughly $70 billion, up from $48 billion in FY2026, which will keep forward free cash flow deeply negative. To fund this, Oracle plans to raise $40 billion in debt and equity\u2014including a $20 billion ATM equity offering\u2014directly diluting shareholders and widening the EV-to-market-cap gap. Additionally, gross margins are under pressure from OCI mix and ramp timing, and execution risks remain high regarding power delivery, GPU supply, and labor constraints.\n\n## Logic\n1. **Forward FCF:** TTM FCF is -$23.7B. With FY27 guided net capex of ~$70B (up from $48B in FY26) and assuming operating cash flow grows from $32B to roughly $40B, 12-month forward FCF is estimated at -$30,000M.\n2. **Applied EV/FCF Multiple:** Because the forward FCF is deeply negative, applying a standard EV/FCF multiple is mathematically inapplicable and would yield a nonsensical negative enterprise value. Therefore, a 0.0x multiple is applied to the negative forward FCF, and we instead anchor the Forward EV to the current EV of $532,774.7M. This reflects the market pricing in normalized future cash flows beyond the current capex cycle.\n3. **EV to Market Cap Bridge:** The current gap between EV ($532,774.7M) and Market Cap ($407,874.7M) is $124,900M. The primer states Oracle will fund its capex needs with ~$40 billion of new debt and equity. This increases the EV-to-Market Cap gap by $40,000M, bringing the forward gap to $164,900M.\n4. **Forward Market Cap:** Forward EV ($532,774.7M) - Forward Gap ($164,900M) = $367,874.7M.\n\n```json\n{\"forward_market_cap_musd\": 367874.7, \"horizon\": \"12m\", \"forward_fcf_musd\": -30000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 0.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 367874.7,
+        "horizon": "12m",
+        "forward_fcf_musd": -30000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 0.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle's unprecedented $638 billion in remaining performance obligations provides massive long-term revenue visibility. The FY2027 guidance of 34% constant-currency revenue growth underscores surging demand for AI infrastructure, evidenced by 97.5% global GPU utilization and $67 billion in new Q4 AI contracts. Once the current aggressive capacity buildout matures, the capitalized infrastructure will likely drive a steep inflection in operating cash flow and free cash flow, rewarding shareholders who tolerate the near-term capital expenditure cycle.\n\n## Bear Case\nThe aggressive AI infrastructure buildout is severely punishing near-term cash flow and the balance sheet. FY2027 net capex is guided to roughly $70 billion, up from $48 billion in FY2026, which will keep forward free cash flow deeply negative. To fund this, Oracle plans to raise $40 billion in debt and equity\u2014including a $20 billion ATM equity offering\u2014directly diluting shareholders and widening the EV-to-market-cap gap. Additionally, gross margins are under pressure from OCI mix and ramp timing, and execution risks remain high regarding power delivery, GPU supply, and labor constraints.\n\n## Logic\n1. **Forward FCF:** TTM FCF is -$23.7B. With FY27 guided net capex of ~$70B (up from $48B in FY26) and assuming operating cash flow grows from $32B to roughly $40B, 12-month forward FCF is estimated at -$30,000M.\n2. **Applied EV/FCF Multiple:** Because the forward FCF is deeply negative, applying a standard EV/FCF multiple is mathematically inapplicable and would yield a nonsensical negative enterprise value. Therefore, a 0.0x multiple is applied to the negative forward FCF, and we instead anchor the Forward EV to the current EV of $532,774.7M. This reflects the market pricing in normalized future cash flows beyond the current capex cycle.\n3. **EV to Market Cap Bridge:** The current gap between EV ($532,774.7M) and Market Cap ($407,874.7M) is $124,900M. The primer states Oracle will fund its capex needs with ~$40 billion of new debt and equity. This increases the EV-to-Market Cap gap by $40,000M, bringing the forward gap to $164,900M.\n4. **Forward Market Cap:** Forward EV ($532,774.7M) - Forward Gap ($164,900M) = $367,874.7M.\n\n```json\n{\"forward_market_cap_musd\": 367874.7, \"horizon\": \"12m\", \"forward_fcf_musd\": -30000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 0.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle's unprecedented $638 billion in remaining performance obligations provides massive long-term revenue visibility. The FY2027 guidance of 34% constant-currency revenue growth underscores surging demand for AI infrastructure, evidenced by 97.5% global GPU utilization and $67 billion in new Q4 AI contracts. Once the current aggressive capacity buildout matures, the capitalized infrastructure will likely drive a steep inflection in operating cash flow and free cash flow, rewarding shareholders who tolerate the near-term capital expenditure cycle.",
+        "Bear Case": "The aggressive AI infrastructure buildout is severely punishing near-term cash flow and the balance sheet. FY2027 net capex is guided to roughly $70 billion, up from $48 billion in FY2026, which will keep forward free cash flow deeply negative. To fund this, Oracle plans to raise $40 billion in debt and equity\u2014including a $20 billion ATM equity offering\u2014directly diluting shareholders and widening the EV-to-market-cap gap. Additionally, gross margins are under pressure from OCI mix and ramp timing, and execution risks remain high regarding power delivery, GPU supply, and labor constraints.",
+        "Logic": "1. **Forward FCF:** TTM FCF is -$23.7B. With FY27 guided net capex of ~$70B (up from $48B in FY26) and assuming operating cash flow grows from $32B to roughly $40B, 12-month forward FCF is estimated at -$30,000M.\n2. **Applied EV/FCF Multiple:** Because the forward FCF is deeply negative, applying a standard EV/FCF multiple is mathematically inapplicable and would yield a nonsensical negative enterprise value. Therefore, a 0.0x multiple is applied to the negative forward FCF, and we instead anchor the Forward EV to the current EV of $532,774.7M. This reflects the market pricing in normalized future cash flows beyond the current capex cycle.\n3. **EV to Market Cap Bridge:** The current gap between EV ($532,774.7M) and Market Cap ($407,874.7M) is $124,900M. The primer states Oracle will fund its capex needs with ~$40 billion of new debt and equity. This increases the EV-to-Market Cap gap by $40,000M, bringing the forward gap to $164,900M.\n4. **Forward Market Cap:** Forward EV ($532,774.7M) - Forward Gap ($164,900M) = $367,874.7M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "ORCL",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:36:18+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2329,
+        "completion_tokens": 2514,
+        "total_tokens": 4843,
+        "cost": 0.01002554,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01002554,
+          "upstream_inference_prompt_cost": 0.00228242,
+          "upstream_inference_completions_cost": 0.00774312
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1547,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOracle's massive $638 billion remaining performance obligation provides exceptional revenue visibility. As cloud infrastructure capacity comes online, the high fixed-cost AI data center investments could drive significant operating leverage. If FY2027 revenue grows 34% as guided and OCI margins scale, operating cash flow could surge past $45 billion. Once the capex cycle normalizes, FCF could rapidly inflect positive, supporting a re-rating where the market applies a premium multiple (e.g., 40x-45x) to a normalized FCF of $20B+, pushing EV toward $800B-$900B and market cap substantially higher.\n\n## Bear Case\nThe FY2027 capex guidance of $70 billion heavily pressures near-term free cash flow, pushing it deeply negative (estimated -$25B). If power, GPU, and labor constraints delay the AI infrastructure buildout and RPO conversion, revenue growth could fall short of the 34% target. Furthermore, gross margins are expected to step down again in FY2027 due to data center ramp costs. If FCF remains negative longer than expected, the market may derate the stock, applying a lower multiple (e.g., 25x) to a much smaller normalized FCF (~$10B), compressing EV and market cap. \n\n## Logic\n1. **Forward FCF Estimation**: TTM FCF is -$23.7B. With FY2027 guided net capex of $70B (up from $48B) and operating cash flow potentially growing to ~$45B (from $32B), the 12-month forward FCF remains deeply negative at roughly -$25B. Because applying an EV/FCF multiple to negative FCF yields a nonsensical negative valuation, we must use a normalized forward FCF figure. We estimate normalized FCF of $15B to represent the mid-cycle earning power once the current AI buildout subsides.\n2. **Applied EV/FCF Multiple**: Given the current EV of $532.8B and a normalized FCF of $15B, the market is currently pricing ORCL at ~35.5x normalized FCF. We apply a 35.0x multiple to our $15B normalized forward FCF.\n3. **EV to Market Cap Bridge**: $15B * 35.0 = $525,000M Forward EV. The current EV-to-Market-Cap gap is $124,900M ($532,774.7M EV - $407,874.7M Market Cap), reflecting substantial debt and lease obligations used to fund the capex surge. Subtracting this gap from the Forward EV yields the Forward Market Cap: $525,000M - $124,900M = $400,100M.\n\n```json\n{\"forward_market_cap_musd\": 400100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": 22500.0, \"applied_multiple\": 35.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 400100.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 15000.0,
+        "forward_netinc_musd": 22500.0,
+        "applied_multiple": 35.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ],
+          "text": "## Bull Case\n\nOracle's $638B remaining performance obligations (up 363% YoY) provides exceptional revenue visibility, and management's FY2027 guidance of ~34% constant-currency revenue growth with cloud revenue growth of 58\u201364% suggests the AI infrastructure buildout is translating into contracted demand. Q4 FY2026 cloud infrastructure revenue grew 93%, 97.5% GPU utilization indicates efficient deployment, and customer prepayments partially offset the $70B capex outlay. Once the current buildout cycle matures and contracted RPO converts to recognized revenue, FCF could normalize at a materially higher level given the scale of the backlog. The multicloud database strategy (AWS, Azure, Google) and Fusion agentic AI applications add optionality. The market may apply a richer multiple to the negative FCF, reflecting confidence in future cash generation from the RPO conversion.\n\n## Bear Case\n\nForward FCF is deeply negative and worsening: TTM FCF of -$23.7B is set to deteriorate further with FY2027 net capex guided to ~$70B, requiring ~$40B in debt and equity (including a $20B ATM equity issuance that dilutes shareholders). Gross margin stepped down ~5 points in FY2026 with another expected decline in FY2027 before infrastructure margins improve. Execution risk is high\u2014buildout depends on power, GPUs, networking, and construction, with prior reported delays at OpenAI data-center projects. Oracle Health remains a reputational drag (only 13% of VA staff believe the EHR improves efficiency). The negative FCF trajectory could pressure the multiple if investors lose patience with the capex cycle.\n\n## Logic\n\n**Forward FCF estimation:** TTM FCF is -$23,686M. FY2026 OCF was $32B against $48B capex. For the 12-month forward window, management guided FY2027 net capex to ~$70B. With revenue growth of ~34% (to ~$90B), OCF could rise to ~$40\u201345B, but against $70B capex this yields forward FCF of approximately -$28,000M. Customer prepayments reduce the external funding need but do not change the FCF accounting.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF multiple is $532,774.7M / -$23,686M \u2248 -22.5x. For the forward period, I apply -20.0x, slightly less negative than current, reflecting: (a) the market giving partial credit for the $638B RPO and 34% revenue growth, but (b) some caution from escalating capex, margin pressure, and dilution risk. A more negative multiple (e.g., -25x) would imply stronger confidence in future FCF recovery; a less negative one (e.g., -18x) would reflect capex fatigue.\n\n**"
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\nOracle's massive $638 billion remaining performance obligation provides exceptional revenue visibility. As cloud infrastructure capacity comes online, the high fixed-cost AI data center investments could drive significant operating leverage. If FY2027 revenue grows 34% as guided and OCI margins scale, operating cash flow could surge past $45 billion. Once the capex cycle normalizes, FCF could rapidly inflect positive, supporting a re-rating where the market applies a premium multiple (e.g., 40x-45x) to a normalized FCF of $20B+, pushing EV toward $800B-$900B and market cap substantially higher.\n\n## Bear Case\nThe FY2027 capex guidance of $70 billion heavily pressures near-term free cash flow, pushing it deeply negative (estimated -$25B). If power, GPU, and labor constraints delay the AI infrastructure buildout and RPO conversion, revenue growth could fall short of the 34% target. Furthermore, gross margins are expected to step down again in FY2027 due to data center ramp costs. If FCF remains negative longer than expected, the market may derate the stock, applying a lower multiple (e.g., 25x) to a much smaller normalized FCF (~$10B), compressing EV and market cap. \n\n## Logic\n1. **Forward FCF Estimation**: TTM FCF is -$23.7B. With FY2027 guided net capex of $70B (up from $48B) and operating cash flow potentially growing to ~$45B (from $32B), the 12-month forward FCF remains deeply negative at roughly -$25B. Because applying an EV/FCF multiple to negative FCF yields a nonsensical negative valuation, we must use a normalized forward FCF figure. We estimate normalized FCF of $15B to represent the mid-cycle earning power once the current AI buildout subsides.\n2. **Applied EV/FCF Multiple**: Given the current EV of $532.8B and a normalized FCF of $15B, the market is currently pricing ORCL at ~35.5x normalized FCF. We apply a 35.0x multiple to our $15B normalized forward FCF.\n3. **EV to Market Cap Bridge**: $15B * 35.0 = $525,000M Forward EV. The current EV-to-Market-Cap gap is $124,900M ($532,774.7M EV - $407,874.7M Market Cap), reflecting substantial debt and lease obligations used to fund the capex surge. Subtracting this gap from the Forward EV yields the Forward Market Cap: $525,000M - $124,900M = $400,100M.\n\n```json\n{\"forward_market_cap_musd\": 400100.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": 22500.0, \"applied_multiple\": 35.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle's massive $638 billion remaining performance obligation provides exceptional revenue visibility. As cloud infrastructure capacity comes online, the high fixed-cost AI data center investments could drive significant operating leverage. If FY2027 revenue grows 34% as guided and OCI margins scale, operating cash flow could surge past $45 billion. Once the capex cycle normalizes, FCF could rapidly inflect positive, supporting a re-rating where the market applies a premium multiple (e.g., 40x-45x) to a normalized FCF of $20B+, pushing EV toward $800B-$900B and market cap substantially higher.",
+        "Bear Case": "The FY2027 capex guidance of $70 billion heavily pressures near-term free cash flow, pushing it deeply negative (estimated -$25B). If power, GPU, and labor constraints delay the AI infrastructure buildout and RPO conversion, revenue growth could fall short of the 34% target. Furthermore, gross margins are expected to step down again in FY2027 due to data center ramp costs. If FCF remains negative longer than expected, the market may derate the stock, applying a lower multiple (e.g., 25x) to a much smaller normalized FCF (~$10B), compressing EV and market cap.",
+        "Logic": "1. **Forward FCF Estimation**: TTM FCF is -$23.7B. With FY2027 guided net capex of $70B (up from $48B) and operating cash flow potentially growing to ~$45B (from $32B), the 12-month forward FCF remains deeply negative at roughly -$25B. Because applying an EV/FCF multiple to negative FCF yields a nonsensical negative valuation, we must use a normalized forward FCF figure. We estimate normalized FCF of $15B to represent the mid-cycle earning power once the current AI buildout subsides.\n2. **Applied EV/FCF Multiple**: Given the current EV of $532.8B and a normalized FCF of $15B, the market is currently pricing ORCL at ~35.5x normalized FCF. We apply a 35.0x multiple to our $15B normalized forward FCF.\n3. **EV to Market Cap Bridge**: $15B * 35.0 = $525,000M Forward EV. The current EV-to-Market-Cap gap is $124,900M ($532,774.7M EV - $407,874.7M Market Cap), reflecting substantial debt and lease obligations used to fund the capex surge. Subtracting this gap from the Forward EV yields the Forward Market Cap: $525,000M - $124,900M = $400,100M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "ORCL",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:39:24+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "223f64cfe2fb49cdcb74c3463a2193ae05640cffcaea65efee82353f84418018",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2329,
+        "completion_tokens": 4487,
+        "total_tokens": 6816,
+        "cost": 0.01548297,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 192,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01548297,
+          "upstream_inference_prompt_cost": 0.00202197,
+          "upstream_inference_completions_cost": 0.013461
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3441,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nOracle's $638B remaining performance obligation (up 363% YoY) represents one of the largest contracted revenue backlogs in enterprise software. FY2027 revenue guidance of ~34% constant-currency growth to ~$90B, driven by 93% cloud infrastructure growth, positions Oracle as a primary AI infrastructure beneficiary. Once the extraordinary AI data-center buildout matures and capex normalizes from ~$70B toward maintenance levels (~$15\u201320B), operating cash flow of $40\u201350B+ could translate to normalized FCF of $25\u201335B. At a 20\u201325x multiple, that supports an EV of $500\u2013875B, with significant upside if GPU capacity delivery and power availability keep pace with contracted demand.\n\n## Bear Case\n\nTTM FCF is deeply negative at -$23.7B, and FY2027 net capex guidance of ~$70B (up from $48B) will likely keep FCF negative through the next 12 months. The $40B funding plan ($20B debt + $20B ATM equity) directly dilutes shareholders and increases the EV-to-market-cap gap. Gross margins have stepped down ~5 points in FY2026 with another step-down expected in FY2027, compressing near-term profitability. Execution risk is high: data-center delays (materials, labor, power), 97.5% GPU utilization leaving little room for slippage, and Oracle Health reputational overhang. If AI workload demand disappoints or delivery timelines slip, the massive fixed-cost base could weigh on returns for years.\n\n## Logic\n\n**Forward FCF estimate:** FY2027 OCF is likely to grow from $32B to ~$42B (34% revenue growth, improving cloud mix). Against guided capex of ~$70B, reported 12-month forward FCF \u2248 -$20,000M. However, using a through-cycle normalized FCF of ~$30,000M (OCF ~$48B less maintenance capex ~$18B) for valuation, reflecting the $638B RPO conversion once buildout matures.\n\n**Applied multiple:** 18x normalized forward FCF. This is below Oracle's historical 20\u201325x range, reflecting near-term capex intensity, dilution risk, and gross-margin compression, but above pure infrastructure peers given the contracted AI backlog.\n\n**Forward EV:** $30,000M \u00d7 18 = $540,000M\n\n**EV-to-MC bridge:** Current gap (EV \u2212 MC) = $532,774.7M \u2212 $407,874.7M = $124,900M. FY2027 funding includes ~$20B new debt (widens gap) and ~$20B ATM equity (neutral to gap). Adjusted forward gap \u2248 $145,000M.\n\n**Forward market cap:** $540,000M \u2212 $145,000M = $395,000M\n\n```json\n{\"forward_market_cap_musd\": 395000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -20000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 18.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 395000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -20000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 18.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nOracle's $638B remaining performance obligation (up 363% YoY) represents one of the largest contracted revenue backlogs in enterprise software. FY2027 revenue guidance of ~34% constant-currency growth to ~$90B, driven by 93% cloud infrastructure growth, positions Oracle as a primary AI infrastructure beneficiary. Once the extraordinary AI data-center buildout matures and capex normalizes from ~$70B toward maintenance levels (~$15\u201320B), operating cash flow of $40\u201350B+ could translate to normalized FCF of $25\u201335B. At a 20\u201325x multiple, that supports an EV of $500\u2013875B, with significant upside if GPU capacity delivery and power availability keep pace with contracted demand.\n\n## Bear Case\n\nTTM FCF is deeply negative at -$23.7B, and FY2027 net capex guidance of ~$70B (up from $48B) will likely keep FCF negative through the next 12 months. The $40B funding plan ($20B debt + $20B ATM equity) directly dilutes shareholders and increases the EV-to-market-cap gap. Gross margins have stepped down ~5 points in FY2026 with another step-down expected in FY2027, compressing near-term profitability. Execution risk is high: data-center delays (materials, labor, power), 97.5% GPU utilization leaving little room for slippage, and Oracle Health reputational overhang. If AI workload demand disappoints or delivery timelines slip, the massive fixed-cost base could weigh on returns for years.\n\n## Logic\n\n**Forward FCF estimate:** FY2027 OCF is likely to grow from $32B to ~$42B (34% revenue growth, improving cloud mix). Against guided capex of ~$70B, reported 12-month forward FCF \u2248 -$20,000M. However, using a through-cycle normalized FCF of ~$30,000M (OCF ~$48B less maintenance capex ~$18B) for valuation, reflecting the $638B RPO conversion once buildout matures.\n\n**Applied multiple:** 18x normalized forward FCF. This is below Oracle's historical 20\u201325x range, reflecting near-term capex intensity, dilution risk, and gross-margin compression, but above pure infrastructure peers given the contracted AI backlog.\n\n**Forward EV:** $30,000M \u00d7 18 = $540,000M\n\n**EV-to-MC bridge:** Current gap (EV \u2212 MC) = $532,774.7M \u2212 $407,874.7M = $124,900M. FY2027 funding includes ~$20B new debt (widens gap) and ~$20B ATM equity (neutral to gap). Adjusted forward gap \u2248 $145,000M.\n\n**Forward market cap:** $540,000M \u2212 $145,000M = $395,000M\n\n```json\n{\"forward_market_cap_musd\": 395000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -20000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 18.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Oracle's $638B remaining performance obligation (up 363% YoY) represents one of the largest contracted revenue backlogs in enterprise software. FY2027 revenue guidance of ~34% constant-currency growth to ~$90B, driven by 93% cloud infrastructure growth, positions Oracle as a primary AI infrastructure beneficiary. Once the extraordinary AI data-center buildout matures and capex normalizes from ~$70B toward maintenance levels (~$15\u201320B), operating cash flow of $40\u201350B+ could translate to normalized FCF of $25\u201335B. At a 20\u201325x multiple, that supports an EV of $500\u2013875B, with significant upside if GPU capacity delivery and power availability keep pace with contracted demand.",
+        "Bear Case": "TTM FCF is deeply negative at -$23.7B, and FY2027 net capex guidance of ~$70B (up from $48B) will likely keep FCF negative through the next 12 months. The $40B funding plan ($20B debt + $20B ATM equity) directly dilutes shareholders and increases the EV-to-market-cap gap. Gross margins have stepped down ~5 points in FY2026 with another step-down expected in FY2027, compressing near-term profitability. Execution risk is high: data-center delays (materials, labor, power), 97.5% GPU utilization leaving little room for slippage, and Oracle Health reputational overhang. If AI workload demand disappoints or delivery timelines slip, the massive fixed-cost base could weigh on returns for years.",
+        "Logic": "**Forward FCF estimate:** FY2027 OCF is likely to grow from $32B to ~$42B (34% revenue growth, improving cloud mix). Against guided capex of ~$70B, reported 12-month forward FCF \u2248 -$20,000M. However, using a through-cycle normalized FCF of ~$30,000M (OCF ~$48B less maintenance capex ~$18B) for valuation, reflecting the $638B RPO conversion once buildout matures.\n\n**Applied multiple:** 18x normalized forward FCF. This is below Oracle's historical 20\u201325x range, reflecting near-term capex intensity, dilution risk, and gross-margin compression, but above pure infrastructure peers given the contracted AI backlog.\n\n**Forward EV:** $30,000M \u00d7 18 = $540,000M\n\n**EV-to-MC bridge:** Current gap (EV \u2212 MC) = $532,774.7M \u2212 $407,874.7M = $124,900M. FY2027 funding includes ~$20B new debt (widens gap) and ~$20B ATM equity (neutral to gap). Adjusted forward gap \u2248 $145,000M.\n\n**Forward market cap:** $540,000M \u2212 $145,000M = $395,000M"
+      }
+    }
+  ]
+}

@@ -1,0 +1,871 @@
+{
+  "asset_id": "CSCO",
+  "aggregate_row": {
+    "asset_id": "CSCO",
+    "name": "CISCO SYSTEMS INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 440613.0,
+    "std_pct_of_mean": 0.2596110236710721,
+    "models": {
+      "Fable": {
+        "forward_mc": 417780.0,
+        "pct_upside": -0.051820985763016525,
+        "bullishness": -0.19961011296913903,
+        "n_samples": 3,
+        "forward_mc_iqr": 14700.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 438280.0,
+        "pct_upside": -0.005294895974471969,
+        "bullishness": -0.020395497462313533,
+        "n_samples": 3,
+        "forward_mc_iqr": 8790.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 385380.0,
+        "pct_upside": -0.12535490328247234,
+        "bullishness": -0.4828566272335853,
+        "n_samples": 3,
+        "forward_mc_iqr": 23000.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 378380.0,
+        "pct_upside": -0.14124186077124368,
+        "bullishness": -0.5440518617968917,
+        "n_samples": 3,
+        "forward_mc_iqr": 33750.0
+      }
+    },
+    "consensus_bullishness": -0.3412333701013622,
+    "consensus_bullishness_mean": -0.3117285248654824,
+    "consensus_pct_upside": -0.08858794452274443,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nCisco Systems is a large enterprise technology vendor centered on networking infrastructure, with adjacent security, observability, collaboration, cloud-management, compute, and services offerings. It sells hardware, software, subscriptions, and support to enterprises, public-sector customers, telecom/service providers, cloud providers, and partners; since the Splunk acquisition, its story is increasingly framed around secure networking plus data/observability for AI-era operations. ([cisco.com](https://www.cisco.com/site/us/en/about/index.html))\n\n## What It Does\n\nCisco\u2019s core products connect and secure digital infrastructure: campus and data-center switching, routing, wireless, optical networking via Acacia, Silicon One-based systems, industrial IoT, firewalls/SASE/XDR, collaboration devices/Webex, and Splunk-led observability/security analytics. In the May 13, 2026 quarter, product revenue was $12.1B and services revenue was $3.7B; Networking revenue grew 25% year over year, Observability grew 3%, Collaboration declined 1%, and Security was flat. ([newsroom.cisco.com](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html?source=rss))\n\n## Recent Highlights (Positive)\n\nCisco\u2019s Q3 FY2026 results, reported May 13 for the quarter ended April 25, showed record revenue of $15.8B, up 12% year over year, with GAAP EPS up 37% and non-GAAP EPS up 10%; total product orders rose 35%, or 19% excluding hyperscalers. Management also lifted FY2026 guidance to $62.8B\u2013$63.0B of revenue and non-GAAP EPS of $4.27\u2013$4.29. ([newsroom.cisco.com](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html?source=rss))\n\nAI infrastructure demand was the clearest upside theme in the transcript and release: Cisco said hyperscaler AI infrastructure orders reached $5.3B year-to-date and raised expected FY2026 AI infrastructure orders to $9B, while raising expected FY2026 AI infrastructure revenue to $4B. Campus networking orders grew more than 25%, and data-center switching orders grew more than 40%, supporting management\u2019s claim that enterprise AI and campus refresh are driving a multi-year demand cycle. ([newsroom.cisco.com](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html?source=rss))\n\nCisco continued adding product and M&A pieces around AI security and observability. It announced intent to acquire Galileo on April 9, 2026 for AI observability/trust tooling, and Astrix Security on May 4, 2026 for securing non-human identities such as API keys, service accounts, OAuth tokens, and AI agents. ([cisco.com](https://www.cisco.com/c/en/us/about/corporate-strategy-office/acquisitions/acquisitions-list-names.html))\n\nAt Cisco Live U.S. in June, Cisco emphasized AI-ready data centers, resilient infrastructure, future workplaces, Cisco Cloud Control, Cisco Live Protect, Cisco IQ, agentic security, and next-generation Silicon One capabilities, positioning these as a unified platform response to AI-driven operational complexity. ([newsroom.cisco.com](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/cisco-live-u-s-leading-in-the-agentic-ai-age.html))\n\nCisco also announced the Universal Quantum Switch on April 23, a working research prototype designed to route and preserve quantum information over standard telecom fiber at room temperature; this is early-stage, but it reinforces Cisco\u2019s long-horizon networking R&D narrative. ([newsroom.cisco.com](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m04/cisco-introduces-universal-quantum-switch-advancing-the-path-to-a-quantum-network.html))\n\n## Recent Highlights (Negative)\n\nMargins and mix\n",
+  "primer_meta": {
+    "asset_id": "CSCO",
+    "created_at_utc": "2026-07-08T14:52:21+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "8827c92adac4eb75ccce14622615c92038fd354e9681d7d1ff8b68ee18755a56",
+    "sources": [
+      {
+        "url": "https://investor.cisco.com/financials/quarterly-results/default.aspx",
+        "title": ""
+      },
+      {
+        "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html?source=rss",
+        "title": ""
+      },
+      {
+        "url": "https://www.cisco.com/site/us/en/about/index.html",
+        "title": "About Us - Cisco"
+      },
+      {
+        "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m05/cisco-reports-third-quarter-earnings.html?source=rss",
+        "title": "Cisco Reports Third Quarter Earnings"
+      },
+      {
+        "url": "https://www.cisco.com/c/en/us/about/corporate-strategy-office/acquisitions/acquisitions-list-names.html",
+        "title": "Acquisitions by Company Name - Cisco"
+      },
+      {
+        "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/cisco-live-u-s-leading-in-the-agentic-ai-age.html",
+        "title": "Cisco Live U.S.: Leading in the agentic AI age"
+      },
+      {
+        "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m04/cisco-introduces-universal-quantum-switch-advancing-the-path-to-a-quantum-network.html",
+        "title": "Cisco Introduces Universal Quantum Switch, Advancing the Path to a Quantum Network"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "CSCO__earnings_call_transcript__2026-05-13__3__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-05-13",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_09ec2283c02f1280016a4e63f2e310819e92c80db3addcde4b",
+    "usage": {
+      "input_tokens": 53674,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1800,
+      "output_tokens_details": {
+        "reasoning_tokens": 1083
+      },
+      "total_tokens": 55474
+    }
+  },
+  "details": {
+    "asset_id": "CSCO",
+    "detail_source_ticker": "CSCO",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "CISCO SYSTEMS INC",
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "market_cap_musd": 440613.0,
+    "ev_musd": 464833.0,
+    "ttm_revenue_musd": 60746.0,
+    "ttm_fcf_musd": 11788.0,
+    "ttm_netinc_musd": 11958.0,
+    "fcf_ev": {
+      "current": 0.02535964529196507,
+      "avg_1y": 0.03794354234434159,
+      "std_1y": 0.0070256192811105215,
+      "avg_3y": 0.05438712969033644,
+      "std_3y": 0.018832489817485906
+    },
+    "ni_mc": {
+      "current": 0.0271394625215325,
+      "avg_1y": 0.03361643692210532,
+      "std_1y": 0.003964830198592578,
+      "avg_3y": 0.04701524918557451,
+      "std_3y": 0.01380981102100367
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-05-19",
+        "ttm_revenue_musd": 60746.0,
+        "ttm_fcf_musd": 11788.0,
+        "ttm_netinc_musd": 11958.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-05-20",
+        "ttm_revenue_musd": 55623.0,
+        "ttm_fcf_musd": 12803.0,
+        "ttm_netinc_musd": 9792.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-05-21",
+        "ttm_revenue_musd": 55364.0,
+        "ttm_fcf_musd": 12412.0,
+        "ttm_netinc_musd": 12116.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 252562.88402130493,
+      "std_musd": 65568.10886208923,
+      "std_pct_of_mean": 0.2596110236710721,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "CSCO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:48+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 1586,
+        "total_tokens": 4097,
+        "cost": 0.10441,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.10441,
+          "upstream_inference_prompt_cost": 0.02511,
+          "upstream_inference_completions_cost": 0.0793
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 235,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Q3 FY2026 revenue hit a record $15.8B (+12% YoY), with total product orders up 35% and FY2026 guidance raised to $62.8\u201363.0B revenue and $4.27\u20134.29 non-GAAP EPS.\n- AI infrastructure is a genuine growth engine: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B and AI revenue to $4B; campus orders +25%, data-center switching +40% signal a multi-year refresh cycle.\n- Splunk integration plus Galileo/Astrix acquisitions deepen the security/observability platform, supporting higher-multiple recurring revenue mix.\n- If AI momentum sustains, FCF could rebound toward $14B+ and the market could hold a ~35x EV/FCF multiple, implying EV near $490B and market cap around $465B.\n\n## Bear Case\n- TTM FCF actually declined YoY ($11.8B vs $12.8B), and the primer flags margin/mix pressure \u2014 AI hardware revenue is dilutive to margins.\n- Valuation is stretched: current FCF/EV yield of 2.5% versus a 3-year average of 5.4% implies the stock trades at roughly double its historical multiple (~39x vs ~18x EV/FCF). Any order slowdown risks severe multiple compression.\n- Security flat, Collaboration down, Observability +3% \u2014 growth is narrowly concentrated in networking/hyperscaler AI, a lumpy, competitive segment (Arista, Nvidia).\n- Reversion to a 22x multiple on ~$12.5B FCF would imply EV ~$275B and market cap near $250B \u2014 closer to the 3-year mean market cap of ~$253B.\n\n## Logic\n1. **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue (~19.4% FCF margin), temporarily depressed. With guided revenue of ~$63B growing high-single-digits into FY2027 (~$66\u201367B forward revenue) and modest margin normalization to ~20%, forward 12-month FCF \u2248 **$13,300M** (~+13% vs TTM, still below implied prior-cycle margins).\n2. **Applied multiple:** Current EV/FCF is ~39x (2.5% yield), well above the 3-year norm of ~18x. AI order momentum justifies a premium, but hardware-heavy mix and margin pressure argue for partial compression. I apply **32x** forward FCF \u2014 between the frothy current print and historical norms, weighted toward the current regime given raised guidance.\n3. **EV:** 13,300 \u00d7 32 = **$425,600M**.\n4. **Bridge to market cap:** Current EV ($464,833M) minus market cap ($440,613M) = $24,220M net-debt gap. Forward market cap = 425,600 \u2212 24,220 = **$401,380M**.\n\nThis implies modest (~9%) downside from the current $440.6B market cap, reflecting multiple compression partially offset by FCF recovery.\n\n```json\n{\"forward_market_cap_musd\": 401380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 32.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 401380.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13300.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 32.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Q3 FY2026 revenue hit a record $15.8B (+12% YoY), with total product orders up 35% and FY2026 guidance raised to $62.8\u201363.0B revenue and $4.27\u20134.29 non-GAAP EPS.\n- AI infrastructure is a genuine growth engine: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B and AI revenue to $4B; campus orders +25%, data-center switching +40% signal a multi-year refresh cycle.\n- Splunk integration plus Galileo/Astrix acquisitions deepen the security/observability platform, supporting higher-multiple recurring revenue mix.\n- If AI momentum sustains, FCF could rebound toward $14B+ and the market could hold a ~35x EV/FCF multiple, implying EV near $490B and market cap around $465B.\n\n## Bear Case\n- TTM FCF actually declined YoY ($11.8B vs $12.8B), and the primer flags margin/mix pressure \u2014 AI hardware revenue is dilutive to margins.\n- Valuation is stretched: current FCF/EV yield of 2.5% versus a 3-year average of 5.4% implies the stock trades at roughly double its historical multiple (~39x vs ~18x EV/FCF). Any order slowdown risks severe multiple compression.\n- Security flat, Collaboration down, Observability +3% \u2014 growth is narrowly concentrated in networking/hyperscaler AI, a lumpy, competitive segment (Arista, Nvidia).\n- Reversion to a 22x multiple on ~$12.5B FCF would imply EV ~$275B and market cap near $250B \u2014 closer to the 3-year mean market cap of ~$253B.\n\n## Logic\n1. **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue (~19.4% FCF margin), temporarily depressed. With guided revenue of ~$63B growing high-single-digits into FY2027 (~$66\u201367B forward revenue) and modest margin normalization to ~20%, forward 12-month FCF \u2248 **$13,300M** (~+13% vs TTM, still below implied prior-cycle margins).\n2. **Applied multiple:** Current EV/FCF is ~39x (2.5% yield), well above the 3-year norm of ~18x. AI order momentum justifies a premium, but hardware-heavy mix and margin pressure argue for partial compression. I apply **32x** forward FCF \u2014 between the frothy current print and historical norms, weighted toward the current regime given raised guidance.\n3. **EV:** 13,300 \u00d7 32 = **$425,600M**.\n4. **Bridge to market cap:** Current EV ($464,833M) minus market cap ($440,613M) = $24,220M net-debt gap. Forward market cap = 425,600 \u2212 24,220 = **$401,380M**.\n\nThis implies modest (~9%) downside from the current $440.6B market cap, reflecting multiple compression partially offset by FCF recovery.\n\n```json\n{\"forward_market_cap_musd\": 401380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 32.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Q3 FY2026 revenue hit a record $15.8B (+12% YoY), with total product orders up 35% and FY2026 guidance raised to $62.8\u201363.0B revenue and $4.27\u20134.29 non-GAAP EPS.\n- AI infrastructure is a genuine growth engine: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B and AI revenue to $4B; campus orders +25%, data-center switching +40% signal a multi-year refresh cycle.\n- Splunk integration plus Galileo/Astrix acquisitions deepen the security/observability platform, supporting higher-multiple recurring revenue mix.\n- If AI momentum sustains, FCF could rebound toward $14B+ and the market could hold a ~35x EV/FCF multiple, implying EV near $490B and market cap around $465B.",
+        "Bear Case": "- TTM FCF actually declined YoY ($11.8B vs $12.8B), and the primer flags margin/mix pressure \u2014 AI hardware revenue is dilutive to margins.\n- Valuation is stretched: current FCF/EV yield of 2.5% versus a 3-year average of 5.4% implies the stock trades at roughly double its historical multiple (~39x vs ~18x EV/FCF). Any order slowdown risks severe multiple compression.\n- Security flat, Collaboration down, Observability +3% \u2014 growth is narrowly concentrated in networking/hyperscaler AI, a lumpy, competitive segment (Arista, Nvidia).\n- Reversion to a 22x multiple on ~$12.5B FCF would imply EV ~$275B and market cap near $250B \u2014 closer to the 3-year mean market cap of ~$253B.",
+        "Logic": "1. **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue (~19.4% FCF margin), temporarily depressed. With guided revenue of ~$63B growing high-single-digits into FY2027 (~$66\u201367B forward revenue) and modest margin normalization to ~20%, forward 12-month FCF \u2248 **$13,300M** (~+13% vs TTM, still below implied prior-cycle margins).\n2. **Applied multiple:** Current EV/FCF is ~39x (2.5% yield), well above the 3-year norm of ~18x. AI order momentum justifies a premium, but hardware-heavy mix and margin pressure argue for partial compression. I apply **32x** forward FCF \u2014 between the frothy current print and historical norms, weighted toward the current regime given raised guidance.\n3. **EV:** 13,300 \u00d7 32 = **$425,600M**.\n4. **Bridge to market cap:** Current EV ($464,833M) minus market cap ($440,613M) = $24,220M net-debt gap. Forward market cap = 425,600 \u2212 24,220 = **$401,380M**.\n\nThis implies modest (~9%) downside from the current $440.6B market cap, reflecting multiple compression partially offset by FCF recovery."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "CSCO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:46+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 1394,
+        "total_tokens": 3905,
+        "cost": 0.09481,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09481,
+          "upstream_inference_prompt_cost": 0.02511,
+          "upstream_inference_completions_cost": 0.0697
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 246,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nCisco is in a genuine demand upcycle: Q3 FY2026 revenue hit a record $15.8B (+12% y/y), total product orders rose 35%, and management raised FY2026 guidance to ~$63B revenue. AI infrastructure orders were lifted to $9B for FY2026 with $4B in AI revenue, campus orders grew >25%, and data-center switching orders grew >40%. Splunk, security M&A (Galileo, Astrix), and the Cisco Live agentic-AI platform push give Cisco a credible multi-year growth narrative beyond legacy networking. If FCF converts on revenue growth (~$13.5B+ forward FCF) and the market sustains a premium ~38\u201340x EV/FCF multiple as an \"AI infrastructure\" name, EV could exceed $520B and market cap approach $500B.\n\n## Bear Case\nFCF has actually declined y/y ($12.8B \u2192 $11.8B) despite 12% revenue growth, and margins/mix are flagged as deteriorating. The stock has re-rated dramatically: market cap of $441B versus a 3-year mean of $253B, and the current FCF/EV yield of 2.5% is roughly half the 3-year average of 5.4%. Cisco is historically a mid-teens-to-20x FCF business; any order slowdown, hyperscaler concentration hiccup, or margin pressure could trigger mean reversion toward a ~20\u201325x multiple, implying EV of $260\u2013330B and market cap of $240\u2013300B \u2014 a 30\u201345% drawdown.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M on $60.7B revenue. With FY2026 guidance of ~$63B and continued AI-driven growth into FY2027, assume ~10% FCF growth as working-capital and margin pressure partially offset revenue gains: forward FCF \u2248 **$13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.54%), well above the 1-year average implied ~26x and 3-year average ~18x. I assume modest multiple compression as the AI narrative matures but earnings catch up, applying **34x** forward FCF \u2014 a premium to history justified by order momentum, but below the current peak multiple.\n- **EV:** 13,000 \u00d7 34 = **$442,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 464,833 \u2212 440,613 = $24,220M (net debt). Forward market cap = 442,000 \u2212 24,220 = **$417,780M**.\n\n```json\n{\"forward_market_cap_musd\": 417780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 34.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 417780.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 34.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nCisco is in a genuine demand upcycle: Q3 FY2026 revenue hit a record $15.8B (+12% y/y), total product orders rose 35%, and management raised FY2026 guidance to ~$63B revenue. AI infrastructure orders were lifted to $9B for FY2026 with $4B in AI revenue, campus orders grew >25%, and data-center switching orders grew >40%. Splunk, security M&A (Galileo, Astrix), and the Cisco Live agentic-AI platform push give Cisco a credible multi-year growth narrative beyond legacy networking. If FCF converts on revenue growth (~$13.5B+ forward FCF) and the market sustains a premium ~38\u201340x EV/FCF multiple as an \"AI infrastructure\" name, EV could exceed $520B and market cap approach $500B.\n\n## Bear Case\nFCF has actually declined y/y ($12.8B \u2192 $11.8B) despite 12% revenue growth, and margins/mix are flagged as deteriorating. The stock has re-rated dramatically: market cap of $441B versus a 3-year mean of $253B, and the current FCF/EV yield of 2.5% is roughly half the 3-year average of 5.4%. Cisco is historically a mid-teens-to-20x FCF business; any order slowdown, hyperscaler concentration hiccup, or margin pressure could trigger mean reversion toward a ~20\u201325x multiple, implying EV of $260\u2013330B and market cap of $240\u2013300B \u2014 a 30\u201345% drawdown.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M on $60.7B revenue. With FY2026 guidance of ~$63B and continued AI-driven growth into FY2027, assume ~10% FCF growth as working-capital and margin pressure partially offset revenue gains: forward FCF \u2248 **$13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.54%), well above the 1-year average implied ~26x and 3-year average ~18x. I assume modest multiple compression as the AI narrative matures but earnings catch up, applying **34x** forward FCF \u2014 a premium to history justified by order momentum, but below the current peak multiple.\n- **EV:** 13,000 \u00d7 34 = **$442,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 464,833 \u2212 440,613 = $24,220M (net debt). Forward market cap = 442,000 \u2212 24,220 = **$417,780M**.\n\n```json\n{\"forward_market_cap_musd\": 417780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 34.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Cisco is in a genuine demand upcycle: Q3 FY2026 revenue hit a record $15.8B (+12% y/y), total product orders rose 35%, and management raised FY2026 guidance to ~$63B revenue. AI infrastructure orders were lifted to $9B for FY2026 with $4B in AI revenue, campus orders grew >25%, and data-center switching orders grew >40%. Splunk, security M&A (Galileo, Astrix), and the Cisco Live agentic-AI platform push give Cisco a credible multi-year growth narrative beyond legacy networking. If FCF converts on revenue growth (~$13.5B+ forward FCF) and the market sustains a premium ~38\u201340x EV/FCF multiple as an \"AI infrastructure\" name, EV could exceed $520B and market cap approach $500B.",
+        "Bear Case": "FCF has actually declined y/y ($12.8B \u2192 $11.8B) despite 12% revenue growth, and margins/mix are flagged as deteriorating. The stock has re-rated dramatically: market cap of $441B versus a 3-year mean of $253B, and the current FCF/EV yield of 2.5% is roughly half the 3-year average of 5.4%. Cisco is historically a mid-teens-to-20x FCF business; any order slowdown, hyperscaler concentration hiccup, or margin pressure could trigger mean reversion toward a ~20\u201325x multiple, implying EV of $260\u2013330B and market cap of $240\u2013300B \u2014 a 30\u201345% drawdown.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,788M on $60.7B revenue. With FY2026 guidance of ~$63B and continued AI-driven growth into FY2027, assume ~10% FCF growth as working-capital and margin pressure partially offset revenue gains: forward FCF \u2248 **$13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.54%), well above the 1-year average implied ~26x and 3-year average ~18x. I assume modest multiple compression as the AI narrative matures but earnings catch up, applying **34x** forward FCF \u2014 a premium to history justified by order momentum, but below the current peak multiple.\n- **EV:** 13,000 \u00d7 34 = **$442,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 464,833 \u2212 440,613 = $24,220M (net debt). Forward market cap = 442,000 \u2212 24,220 = **$417,780M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "CSCO",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:48+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 1396,
+        "total_tokens": 3907,
+        "cost": 0.09491,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09491,
+          "upstream_inference_prompt_cost": 0.02511,
+          "upstream_inference_completions_cost": 0.0698
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 295,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nCisco's Q3 FY2026 showed record revenue ($15.8B, +12% YoY), product orders up 35%, and raised FY2026 guidance ($62.8\u201363.0B revenue). The AI infrastructure cycle is real and accelerating: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B, campus orders +25%, data-center switching orders +40%. Splunk-driven recurring revenue, security/observability M&A (Galileo, Astrix), and Silicon One positioning support a multi-year demand cycle. If FCF conversion catches up to revenue growth, forward FCF could reach $13.5\u201314B, and the market may sustain or expand the current ~39x EV/FCF multiple, pushing market cap toward $500B+.\n\n## Bear Case\nFCF has actually *declined* \u2014 TTM FCF of $11.8B is below both FY2024 ($12.4B) and FY2025 ($12.8B) despite 12% revenue growth, signaling margin/mix pressure (AI hardware is lower margin) and rising working-capital/inventory needs. The current EV/FCF of ~39x (FCF yield 2.5%) is far above the 3-year average yield of 5.4% (~18x) and 1-year average of 3.8% (~26x). The stock has nearly doubled versus its 3-year mean market cap of ~$253B. Any order deceleration, hyperscaler concentration risk, or multiple mean-reversion toward 25\u201328x implies market cap in the $310\u2013360B range.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue. With revenue guided to ~$63B and growing double digits, plus some normalization of working-capital drag, I model ~10% FCF growth \u2192 **forward FCF \u2248 $13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.5%); 1-year average implies ~26x; 3-year average ~18x. The AI order momentum justifies a premium to history but the current multiple embeds significant compression risk. I apply a modestly compressed **35x EV/FCF**, blending current momentum with partial mean-reversion.\n- **EV:** 13,000 \u00d7 35 = **$455,000M**.\n- **EV \u2192 market cap bridge:** Current EV ($464,833M) minus current market cap ($440,613M) = $24,220M gap (net debt). Forward market cap = 455,000 \u2212 24,220 = **$430,780M**, a mild ~2% downside from today's $440.6B, reflecting strong fundamentals offset by a stretched starting multiple.\n\n```json\n{\"forward_market_cap_musd\": 430780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 35.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 430780.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 35.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nCisco's Q3 FY2026 showed record revenue ($15.8B, +12% YoY), product orders up 35%, and raised FY2026 guidance ($62.8\u201363.0B revenue). The AI infrastructure cycle is real and accelerating: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B, campus orders +25%, data-center switching orders +40%. Splunk-driven recurring revenue, security/observability M&A (Galileo, Astrix), and Silicon One positioning support a multi-year demand cycle. If FCF conversion catches up to revenue growth, forward FCF could reach $13.5\u201314B, and the market may sustain or expand the current ~39x EV/FCF multiple, pushing market cap toward $500B+.\n\n## Bear Case\nFCF has actually *declined* \u2014 TTM FCF of $11.8B is below both FY2024 ($12.4B) and FY2025 ($12.8B) despite 12% revenue growth, signaling margin/mix pressure (AI hardware is lower margin) and rising working-capital/inventory needs. The current EV/FCF of ~39x (FCF yield 2.5%) is far above the 3-year average yield of 5.4% (~18x) and 1-year average of 3.8% (~26x). The stock has nearly doubled versus its 3-year mean market cap of ~$253B. Any order deceleration, hyperscaler concentration risk, or multiple mean-reversion toward 25\u201328x implies market cap in the $310\u2013360B range.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue. With revenue guided to ~$63B and growing double digits, plus some normalization of working-capital drag, I model ~10% FCF growth \u2192 **forward FCF \u2248 $13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.5%); 1-year average implies ~26x; 3-year average ~18x. The AI order momentum justifies a premium to history but the current multiple embeds significant compression risk. I apply a modestly compressed **35x EV/FCF**, blending current momentum with partial mean-reversion.\n- **EV:** 13,000 \u00d7 35 = **$455,000M**.\n- **EV \u2192 market cap bridge:** Current EV ($464,833M) minus current market cap ($440,613M) = $24,220M gap (net debt). Forward market cap = 455,000 \u2212 24,220 = **$430,780M**, a mild ~2% downside from today's $440.6B, reflecting strong fundamentals offset by a stretched starting multiple.\n\n```json\n{\"forward_market_cap_musd\": 430780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 35.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Cisco's Q3 FY2026 showed record revenue ($15.8B, +12% YoY), product orders up 35%, and raised FY2026 guidance ($62.8\u201363.0B revenue). The AI infrastructure cycle is real and accelerating: $5.3B hyperscaler AI orders YTD, FY2026 AI order target raised to $9B, campus orders +25%, data-center switching orders +40%. Splunk-driven recurring revenue, security/observability M&A (Galileo, Astrix), and Silicon One positioning support a multi-year demand cycle. If FCF conversion catches up to revenue growth, forward FCF could reach $13.5\u201314B, and the market may sustain or expand the current ~39x EV/FCF multiple, pushing market cap toward $500B+.",
+        "Bear Case": "FCF has actually *declined* \u2014 TTM FCF of $11.8B is below both FY2024 ($12.4B) and FY2025 ($12.8B) despite 12% revenue growth, signaling margin/mix pressure (AI hardware is lower margin) and rising working-capital/inventory needs. The current EV/FCF of ~39x (FCF yield 2.5%) is far above the 3-year average yield of 5.4% (~18x) and 1-year average of 3.8% (~26x). The stock has nearly doubled versus its 3-year mean market cap of ~$253B. Any order deceleration, hyperscaler concentration risk, or multiple mean-reversion toward 25\u201328x implies market cap in the $310\u2013360B range.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,788M on $60,746M revenue. With revenue guided to ~$63B and growing double digits, plus some normalization of working-capital drag, I model ~10% FCF growth \u2192 **forward FCF \u2248 $13,000M**.\n- **Applied multiple:** Current EV/FCF is ~39.4x (yield 2.5%); 1-year average implies ~26x; 3-year average ~18x. The AI order momentum justifies a premium to history but the current multiple embeds significant compression risk. I apply a modestly compressed **35x EV/FCF**, blending current momentum with partial mean-reversion.\n- **EV:** 13,000 \u00d7 35 = **$455,000M**.\n- **EV \u2192 market cap bridge:** Current EV ($464,833M) minus current market cap ($440,613M) = $24,220M gap (net debt). Forward market cap = 455,000 \u2212 24,220 = **$430,780M**, a mild ~2% downside from today's $440.6B, reflecting strong fundamentals offset by a stretched starting multiple."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "CSCO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:33+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 749,
+        "total_tokens": 3260,
+        "cost": 0.03128,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03128,
+          "upstream_inference_prompt_cost": 0.012555,
+          "upstream_inference_completions_cost": 0.018725
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI infrastructure demand is accelerating (FY2026 AI orders raised to $9B, revenue to $4B), networking orders grew 35%, and management lifted FY2026 revenue/EPS guidance. Revenue growth of ~12% and a multi-year enterprise AI/campus refresh cycle support FCF recovery back toward the ~$12.8B prior peak. A premium EV/FCF multiple (~38-40x) reflects renewed growth narrative and AI leverage, driving forward market cap meaningfully higher.\n\n## Bear Case\nTTM FCF fell to $11,788M from $12,803M a year ago despite revenue growth, signaling margin/mix pressure and working-capital drag. Splunk integration, dilutive M&A (Galileo, Astrix), and rich hardware mix compress FCF conversion. Current FCF/EV yield (2.54%) is well below the 3-year average (5.4%), implying the stock is already richly valued; multiple compression toward ~30x would pull market cap down.\n\n## Logic\n- TTM FCF = $11,788M. Given AI-driven order growth (~19% ex-hyperscaler) but offsetting margin/WC pressure, apply modest ~4% forward FCF growth \u2192 forward FCF \u2248 $12,260M.\n- Applied multiple: current EV/FCF \u2248 39.4x (1/0.02536); 3y-avg yield implies ~18x. Blending toward current given growth momentum but allowing slight normalization, apply ~37x EV/FCF.\n- Forward EV = 12,260 \u00d7 37 \u2248 $453,620M.\n- EV-to-market-cap gap = current EV ($464,833M) \u2212 market cap ($440,613M) = $24,220M net debt/adjustment.\n- Forward market cap = 453,620 \u2212 24,220 \u2248 $429,400M.\n- Forward net income: growth roughly tracks FCF; ~$12,400M estimate (not central to EV bridge).\n\n```json\n{\"forward_market_cap_musd\": 429400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12260.0, \"forward_netinc_musd\": 12400.0, \"applied_multiple\": 37.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 429400.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12260.0,
+        "forward_netinc_musd": 12400.0,
+        "applied_multiple": 37.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI infrastructure demand is accelerating (FY2026 AI orders raised to $9B, revenue to $4B), networking orders grew 35%, and management lifted FY2026 revenue/EPS guidance. Revenue growth of ~12% and a multi-year enterprise AI/campus refresh cycle support FCF recovery back toward the ~$12.8B prior peak. A premium EV/FCF multiple (~38-40x) reflects renewed growth narrative and AI leverage, driving forward market cap meaningfully higher.\n\n## Bear Case\nTTM FCF fell to $11,788M from $12,803M a year ago despite revenue growth, signaling margin/mix pressure and working-capital drag. Splunk integration, dilutive M&A (Galileo, Astrix), and rich hardware mix compress FCF conversion. Current FCF/EV yield (2.54%) is well below the 3-year average (5.4%), implying the stock is already richly valued; multiple compression toward ~30x would pull market cap down.\n\n## Logic\n- TTM FCF = $11,788M. Given AI-driven order growth (~19% ex-hyperscaler) but offsetting margin/WC pressure, apply modest ~4% forward FCF growth \u2192 forward FCF \u2248 $12,260M.\n- Applied multiple: current EV/FCF \u2248 39.4x (1/0.02536); 3y-avg yield implies ~18x. Blending toward current given growth momentum but allowing slight normalization, apply ~37x EV/FCF.\n- Forward EV = 12,260 \u00d7 37 \u2248 $453,620M.\n- EV-to-market-cap gap = current EV ($464,833M) \u2212 market cap ($440,613M) = $24,220M net debt/adjustment.\n- Forward market cap = 453,620 \u2212 24,220 \u2248 $429,400M.\n- Forward net income: growth roughly tracks FCF; ~$12,400M estimate (not central to EV bridge).\n\n```json\n{\"forward_market_cap_musd\": 429400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12260.0, \"forward_netinc_musd\": 12400.0, \"applied_multiple\": 37.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI infrastructure demand is accelerating (FY2026 AI orders raised to $9B, revenue to $4B), networking orders grew 35%, and management lifted FY2026 revenue/EPS guidance. Revenue growth of ~12% and a multi-year enterprise AI/campus refresh cycle support FCF recovery back toward the ~$12.8B prior peak. A premium EV/FCF multiple (~38-40x) reflects renewed growth narrative and AI leverage, driving forward market cap meaningfully higher.",
+        "Bear Case": "TTM FCF fell to $11,788M from $12,803M a year ago despite revenue growth, signaling margin/mix pressure and working-capital drag. Splunk integration, dilutive M&A (Galileo, Astrix), and rich hardware mix compress FCF conversion. Current FCF/EV yield (2.54%) is well below the 3-year average (5.4%), implying the stock is already richly valued; multiple compression toward ~30x would pull market cap down.",
+        "Logic": "- TTM FCF = $11,788M. Given AI-driven order growth (~19% ex-hyperscaler) but offsetting margin/WC pressure, apply modest ~4% forward FCF growth \u2192 forward FCF \u2248 $12,260M.\n- Applied multiple: current EV/FCF \u2248 39.4x (1/0.02536); 3y-avg yield implies ~18x. Blending toward current given growth momentum but allowing slight normalization, apply ~37x EV/FCF.\n- Forward EV = 12,260 \u00d7 37 \u2248 $453,620M.\n- EV-to-market-cap gap = current EV ($464,833M) \u2212 market cap ($440,613M) = $24,220M net debt/adjustment.\n- Forward market cap = 453,620 \u2212 24,220 \u2248 $429,400M.\n- Forward net income: growth roughly tracks FCF; ~$12,400M estimate (not central to EV bridge)."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "CSCO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:35+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 789,
+        "total_tokens": 3300,
+        "cost": 0.03228,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03228,
+          "upstream_inference_prompt_cost": 0.012555,
+          "upstream_inference_completions_cost": 0.019725
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI infrastructure demand is inflecting: hyperscaler AI orders raised to $9B FY2026 and campus/data-center refresh cycles drive double-digit revenue growth. FY2026 guidance implies ~$63B revenue with EPS accelerating. Splunk integration lifts high-margin software/subscription mix. Forward FCF recovers toward ~$13.5B as working-capital drag from the order surge normalizes. Market rewards secular AI networking exposure with a premium ~40x EV/FCF, pushing EV toward $540B+.\n\n## Bear Case\nTTM FCF fell YoY ($12.8B \u2192 $11.8B) despite revenue growth, signaling margin/mix pressure and cash-conversion deterioration flagged in the packet. Hyperscaler orders are lumpy and lower-margin; Security flat, Collaboration declining, Observability barely growing. FCF could stagnate near $11B. Multiple compresses toward the historical ~26x current level, implying EV closer to $300\u2013330B and material market-cap downside.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M. Revenue growing ~12% but FCF declined YoY on margin/mix and working-capital drag. I assume modest recovery as AI revenue scales, projecting forward FCF ~$12,500M (between depressed current and prior-year $12.8B).\n- **Applied multiple:** Current EV/FCF \u2248 39.4x (464,833/11,788), yield 2.54%. The 1y avg yield (3.79%) reflects a richer FCF base; 3y avg (5.44%) reflects older lower valuation. Given AI-driven re-rating but elevated current level, I apply a slightly moderated **37.0x** EV/FCF.\n- **EV:** 12,500 \u00d7 37.0 = $462,500M.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 440,613 \u2212 464,833 = \u2212$24,220M (net cash/leverage adjustment). Forward MC = 462,500 \u2212 24,220 = **$438,280M**.\n\n```json\n{\"forward_market_cap_musd\": 438280.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": 12300.0, \"applied_multiple\": 37.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 438280.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12500.0,
+        "forward_netinc_musd": 12300.0,
+        "applied_multiple": 37.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI infrastructure demand is inflecting: hyperscaler AI orders raised to $9B FY2026 and campus/data-center refresh cycles drive double-digit revenue growth. FY2026 guidance implies ~$63B revenue with EPS accelerating. Splunk integration lifts high-margin software/subscription mix. Forward FCF recovers toward ~$13.5B as working-capital drag from the order surge normalizes. Market rewards secular AI networking exposure with a premium ~40x EV/FCF, pushing EV toward $540B+.\n\n## Bear Case\nTTM FCF fell YoY ($12.8B \u2192 $11.8B) despite revenue growth, signaling margin/mix pressure and cash-conversion deterioration flagged in the packet. Hyperscaler orders are lumpy and lower-margin; Security flat, Collaboration declining, Observability barely growing. FCF could stagnate near $11B. Multiple compresses toward the historical ~26x current level, implying EV closer to $300\u2013330B and material market-cap downside.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,788M. Revenue growing ~12% but FCF declined YoY on margin/mix and working-capital drag. I assume modest recovery as AI revenue scales, projecting forward FCF ~$12,500M (between depressed current and prior-year $12.8B).\n- **Applied multiple:** Current EV/FCF \u2248 39.4x (464,833/11,788), yield 2.54%. The 1y avg yield (3.79%) reflects a richer FCF base; 3y avg (5.44%) reflects older lower valuation. Given AI-driven re-rating but elevated current level, I apply a slightly moderated **37.0x** EV/FCF.\n- **EV:** 12,500 \u00d7 37.0 = $462,500M.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 440,613 \u2212 464,833 = \u2212$24,220M (net cash/leverage adjustment). Forward MC = 462,500 \u2212 24,220 = **$438,280M**.\n\n```json\n{\"forward_market_cap_musd\": 438280.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": 12300.0, \"applied_multiple\": 37.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI infrastructure demand is inflecting: hyperscaler AI orders raised to $9B FY2026 and campus/data-center refresh cycles drive double-digit revenue growth. FY2026 guidance implies ~$63B revenue with EPS accelerating. Splunk integration lifts high-margin software/subscription mix. Forward FCF recovers toward ~$13.5B as working-capital drag from the order surge normalizes. Market rewards secular AI networking exposure with a premium ~40x EV/FCF, pushing EV toward $540B+.",
+        "Bear Case": "TTM FCF fell YoY ($12.8B \u2192 $11.8B) despite revenue growth, signaling margin/mix pressure and cash-conversion deterioration flagged in the packet. Hyperscaler orders are lumpy and lower-margin; Security flat, Collaboration declining, Observability barely growing. FCF could stagnate near $11B. Multiple compresses toward the historical ~26x current level, implying EV closer to $300\u2013330B and material market-cap downside.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,788M. Revenue growing ~12% but FCF declined YoY on margin/mix and working-capital drag. I assume modest recovery as AI revenue scales, projecting forward FCF ~$12,500M (between depressed current and prior-year $12.8B).\n- **Applied multiple:** Current EV/FCF \u2248 39.4x (464,833/11,788), yield 2.54%. The 1y avg yield (3.79%) reflects a richer FCF base; 3y avg (5.44%) reflects older lower valuation. Given AI-driven re-rating but elevated current level, I apply a slightly moderated **37.0x** EV/FCF.\n- **EV:** 12,500 \u00d7 37.0 = $462,500M.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 440,613 \u2212 464,833 = \u2212$24,220M (net cash/leverage adjustment). Forward MC = 462,500 \u2212 24,220 = **$438,280M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "CSCO",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:38+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2511,
+        "completion_tokens": 819,
+        "total_tokens": 3330,
+        "cost": 0.03303,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03303,
+          "upstream_inference_prompt_cost": 0.012555,
+          "upstream_inference_completions_cost": 0.020475
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI infrastructure orders ($9B FY26 target, $4B revenue) plus campus refresh and data-center switching (+40% orders) drive sustained double-digit networking growth. Revenue reaccelerates past $63B, and FCF recovers toward the ~$12.8B prior peak as mix normalizes and Splunk software/subscription margins expand. Forward FCF ~$13,000M; market rewards the AI-cycle narrative with a premium ~40x EV/FCF multiple, expanding EV meaningfully above current.\n\n## Bear Case\nTTM FCF already declined (~$11.8B vs. $12.8B a year ago) despite record revenue, signaling margin/mix pressure and working-capital drag from hardware-heavy AI builds. Hyperscaler order concentration is lumpy; excluding them, order growth is far softer (19% vs. 35%). Acquisitions dilute FCF conversion. Forward FCF slips toward ~$11,500M and the multiple compresses to a mature-hardware ~33x, leaving market cap roughly flat to down.\n\n## Logic\n- TTM FCF = $11,788M. Given AI-driven revenue momentum offset by margin/mix and WC pressure, I model modest FCF growth to ~$12,400M (mid of bull/bear, ~5% growth reflecting revenue reaccel tempered by conversion drag).\n- Current EV/FCF \u2248 464,833 / 11,788 = 39.4x. The 3y avg FCF/EV yield (5.4%) implies ~18.5x historically, but current market prices Cisco at ~39x on depressed FCF. I apply a slightly moderated forward multiple of 38x, balancing AI optimism against normalizing FCF.\n- Forward EV = 12,400 \u00d7 38 = $471,200M.\n- EV-to-market-cap gap (net debt/other) = 464,833 \u2212 440,613 = $24,220M. Holding gap constant.\n- Forward market cap = 471,200 \u2212 24,220 = $446,980M.\n- Forward net income: with GAAP EPS momentum, estimate ~$12,500M (informational; not driving the EV/FCF valuation).\n\n```json\n{\"forward_market_cap_musd\": 446980.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12400.0, \"forward_netinc_musd\": 12500.0, \"applied_multiple\": 38.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 446980.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12400.0,
+        "forward_netinc_musd": 12500.0,
+        "applied_multiple": 38.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI infrastructure orders ($9B FY26 target, $4B revenue) plus campus refresh and data-center switching (+40% orders) drive sustained double-digit networking growth. Revenue reaccelerates past $63B, and FCF recovers toward the ~$12.8B prior peak as mix normalizes and Splunk software/subscription margins expand. Forward FCF ~$13,000M; market rewards the AI-cycle narrative with a premium ~40x EV/FCF multiple, expanding EV meaningfully above current.\n\n## Bear Case\nTTM FCF already declined (~$11.8B vs. $12.8B a year ago) despite record revenue, signaling margin/mix pressure and working-capital drag from hardware-heavy AI builds. Hyperscaler order concentration is lumpy; excluding them, order growth is far softer (19% vs. 35%). Acquisitions dilute FCF conversion. Forward FCF slips toward ~$11,500M and the multiple compresses to a mature-hardware ~33x, leaving market cap roughly flat to down.\n\n## Logic\n- TTM FCF = $11,788M. Given AI-driven revenue momentum offset by margin/mix and WC pressure, I model modest FCF growth to ~$12,400M (mid of bull/bear, ~5% growth reflecting revenue reaccel tempered by conversion drag).\n- Current EV/FCF \u2248 464,833 / 11,788 = 39.4x. The 3y avg FCF/EV yield (5.4%) implies ~18.5x historically, but current market prices Cisco at ~39x on depressed FCF. I apply a slightly moderated forward multiple of 38x, balancing AI optimism against normalizing FCF.\n- Forward EV = 12,400 \u00d7 38 = $471,200M.\n- EV-to-market-cap gap (net debt/other) = 464,833 \u2212 440,613 = $24,220M. Holding gap constant.\n- Forward market cap = 471,200 \u2212 24,220 = $446,980M.\n- Forward net income: with GAAP EPS momentum, estimate ~$12,500M (informational; not driving the EV/FCF valuation).\n\n```json\n{\"forward_market_cap_musd\": 446980.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12400.0, \"forward_netinc_musd\": 12500.0, \"applied_multiple\": 38.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI infrastructure orders ($9B FY26 target, $4B revenue) plus campus refresh and data-center switching (+40% orders) drive sustained double-digit networking growth. Revenue reaccelerates past $63B, and FCF recovers toward the ~$12.8B prior peak as mix normalizes and Splunk software/subscription margins expand. Forward FCF ~$13,000M; market rewards the AI-cycle narrative with a premium ~40x EV/FCF multiple, expanding EV meaningfully above current.",
+        "Bear Case": "TTM FCF already declined (~$11.8B vs. $12.8B a year ago) despite record revenue, signaling margin/mix pressure and working-capital drag from hardware-heavy AI builds. Hyperscaler order concentration is lumpy; excluding them, order growth is far softer (19% vs. 35%). Acquisitions dilute FCF conversion. Forward FCF slips toward ~$11,500M and the multiple compresses to a mature-hardware ~33x, leaving market cap roughly flat to down.",
+        "Logic": "- TTM FCF = $11,788M. Given AI-driven revenue momentum offset by margin/mix and WC pressure, I model modest FCF growth to ~$12,400M (mid of bull/bear, ~5% growth reflecting revenue reaccel tempered by conversion drag).\n- Current EV/FCF \u2248 464,833 / 11,788 = 39.4x. The 3y avg FCF/EV yield (5.4%) implies ~18.5x historically, but current market prices Cisco at ~39x on depressed FCF. I apply a slightly moderated forward multiple of 38x, balancing AI optimism against normalizing FCF.\n- Forward EV = 12,400 \u00d7 38 = $471,200M.\n- EV-to-market-cap gap (net debt/other) = 464,833 \u2212 440,613 = $24,220M. Holding gap constant.\n- Forward market cap = 471,200 \u2212 24,220 = $446,980M.\n- Forward net income: with GAAP EPS momentum, estimate ~$12,500M (informational; not driving the EV/FCF valuation)."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "CSCO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:05+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1626,
+        "completion_tokens": 1963,
+        "total_tokens": 3589,
+        "cost": 0.06702,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.06702,
+          "upstream_inference_prompt_cost": 0.00813,
+          "upstream_inference_completions_cost": 0.05889
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1355,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nCisco converts the strong order cycle into higher cash generation: AI infrastructure, campus refresh, and data-center switching demand support revenue above the FY2026 guide run-rate, while Splunk integration and mix do not materially pressure cash margins.\n\n- Forward FCF: ~$14,000\n- Bull EV/FCF multiple: ~38x\u201339x, near the current trailing EV/FCF of ~39.4x\n- Implied bull EV: ~$532,000\u2013$546,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bull market cap: ~$508,000\u2013$522,000\n\n## Bear Case\n\nCisco\u2019s current valuation multiple compresses toward its recent average as AI orders prove lumpy, networking refresh normalizes, and margin/mix pressure limits FCF recovery.\n\n- Forward FCF: ~$11,500\u2013$12,000\n- Bear EV/FCF multiple: ~24x\u201326x, around the 1-year average implied multiple of ~26.4x\n- Implied bear EV: ~$276,000\u2013$312,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bear market cap: ~$252,000\u2013$288,000\n\n## Logic\n\nTTM FCF is $11,788 on TTM revenue of $60,746, implying a current FCF margin of ~19.4%. Management\u2019s FY2026 revenue guide is ~$62,900 at the midpoint, about 3.5% above TTM revenue. Given strong orders, AI infrastructure momentum, and networking growth, but also allowing for mix/integration pressure, I use forward FCF of $13,000, equal to ~20.7% of guided revenue.\n\nFor the valuation multiple, the current EV/FCF is elevated at ~39.4x, while the 1-year average is ~26.4x and the 3-year average is ~18.4x. I apply a 34.0x forward EV/FCF multiple: below the current stretched trailing multiple, but above historical averages to reflect stronger AI/networking demand and Cisco\u2019s broader security/observability platform positioning.\n\n- Forward FCF: $13,000\n- Applied EV/FCF multiple: 34.0x\n- Forward EV: $13,000 \u00d7 34.0 = $442,000\n- Current EV minus market cap gap: $464,833 \u2212 $440,613 = $24,220\n- Forward market cap: $442,000 \u2212 $24,220 = $417,780\n\n```json\n{\"forward_market_cap_musd\": 417780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 34.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 417780.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 34.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nCisco converts the strong order cycle into higher cash generation: AI infrastructure, campus refresh, and data-center switching demand support revenue above the FY2026 guide run-rate, while Splunk integration and mix do not materially pressure cash margins.\n\n- Forward FCF: ~$14,000\n- Bull EV/FCF multiple: ~38x\u201339x, near the current trailing EV/FCF of ~39.4x\n- Implied bull EV: ~$532,000\u2013$546,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bull market cap: ~$508,000\u2013$522,000\n\n## Bear Case\n\nCisco\u2019s current valuation multiple compresses toward its recent average as AI orders prove lumpy, networking refresh normalizes, and margin/mix pressure limits FCF recovery.\n\n- Forward FCF: ~$11,500\u2013$12,000\n- Bear EV/FCF multiple: ~24x\u201326x, around the 1-year average implied multiple of ~26.4x\n- Implied bear EV: ~$276,000\u2013$312,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bear market cap: ~$252,000\u2013$288,000\n\n## Logic\n\nTTM FCF is $11,788 on TTM revenue of $60,746, implying a current FCF margin of ~19.4%. Management\u2019s FY2026 revenue guide is ~$62,900 at the midpoint, about 3.5% above TTM revenue. Given strong orders, AI infrastructure momentum, and networking growth, but also allowing for mix/integration pressure, I use forward FCF of $13,000, equal to ~20.7% of guided revenue.\n\nFor the valuation multiple, the current EV/FCF is elevated at ~39.4x, while the 1-year average is ~26.4x and the 3-year average is ~18.4x. I apply a 34.0x forward EV/FCF multiple: below the current stretched trailing multiple, but above historical averages to reflect stronger AI/networking demand and Cisco\u2019s broader security/observability platform positioning.\n\n- Forward FCF: $13,000\n- Applied EV/FCF multiple: 34.0x\n- Forward EV: $13,000 \u00d7 34.0 = $442,000\n- Current EV minus market cap gap: $464,833 \u2212 $440,613 = $24,220\n- Forward market cap: $442,000 \u2212 $24,220 = $417,780\n\n```json\n{\"forward_market_cap_musd\": 417780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 34.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Cisco converts the strong order cycle into higher cash generation: AI infrastructure, campus refresh, and data-center switching demand support revenue above the FY2026 guide run-rate, while Splunk integration and mix do not materially pressure cash margins.\n\n- Forward FCF: ~$14,000\n- Bull EV/FCF multiple: ~38x\u201339x, near the current trailing EV/FCF of ~39.4x\n- Implied bull EV: ~$532,000\u2013$546,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bull market cap: ~$508,000\u2013$522,000",
+        "Bear Case": "Cisco\u2019s current valuation multiple compresses toward its recent average as AI orders prove lumpy, networking refresh normalizes, and margin/mix pressure limits FCF recovery.\n\n- Forward FCF: ~$11,500\u2013$12,000\n- Bear EV/FCF multiple: ~24x\u201326x, around the 1-year average implied multiple of ~26.4x\n- Implied bear EV: ~$276,000\u2013$312,000\n- Less current EV minus market-cap gap: $24,220\n- Implied bear market cap: ~$252,000\u2013$288,000",
+        "Logic": "TTM FCF is $11,788 on TTM revenue of $60,746, implying a current FCF margin of ~19.4%. Management\u2019s FY2026 revenue guide is ~$62,900 at the midpoint, about 3.5% above TTM revenue. Given strong orders, AI infrastructure momentum, and networking growth, but also allowing for mix/integration pressure, I use forward FCF of $13,000, equal to ~20.7% of guided revenue.\n\nFor the valuation multiple, the current EV/FCF is elevated at ~39.4x, while the 1-year average is ~26.4x and the 3-year average is ~18.4x. I apply a 34.0x forward EV/FCF multiple: below the current stretched trailing multiple, but above historical averages to reflect stronger AI/networking demand and Cisco\u2019s broader security/observability platform positioning.\n\n- Forward FCF: $13,000\n- Applied EV/FCF multiple: 34.0x\n- Forward EV: $13,000 \u00d7 34.0 = $442,000\n- Current EV minus market cap gap: $464,833 \u2212 $440,613 = $24,220\n- Forward market cap: $442,000 \u2212 $24,220 = $417,780"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "CSCO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:53+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1626,
+        "completion_tokens": 1488,
+        "total_tokens": 3114,
+        "cost": 0.05277,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05277,
+          "upstream_inference_prompt_cost": 0.00813,
+          "upstream_inference_completions_cost": 0.04464
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 901,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Strong product orders, AI infrastructure demand, campus refresh, and Splunk-led observability/security positioning support revenue growth and better FCF conversion.\n- If forward FCF reaches roughly **$14,000M** and the market sustains a premium **35x EV/FCF** multiple, forward EV would be **$490,000M**.\n- Bridging with the current EV less market-cap gap of **$24,220M**, bull-case market cap would be about **$465,780M**.\n\n## Bear Case\n- Current valuation is rich versus Cisco\u2019s own FCF-yield history: current EV/FCF is about **39.4x**, versus roughly **26.4x** on the 1-year average yield and **18.4x** on the 3-year average yield.\n- If AI/order strength fades into normal hardware cyclicality or margin/mix pressure persists, forward FCF could stay near **$11,500M** and the multiple could compress to **22x EV/FCF**.\n- Bear-case EV would be **$253,000M**, implying market cap of about **$228,780M** after subtracting the same **$24,220M** gap.\n\n## Logic\n- TTM FCF is **$11,788M** on TTM revenue of **$60,746M**.\n- FY2026 revenue guidance of about **$62,800M\u2013$63,000M** implies modest revenue growth, while strong orders and AI infrastructure demand support some FCF improvement.\n- I estimate 12-month forward FCF at **$13,200M**, modestly above TTM and prior annual samples, reflecting growth but not assuming a full step-change.\n- Current EV/FCF is elevated at about **39.4x**. The 1-year average FCF yield implies about **26.4x**, and the 3-year average implies about **18.4x**.\n- I apply a **30.0x EV/FCF** multiple: above historical averages due to AI/networking momentum and Splunk optionality, but below the current stretched multiple.\n- Forward EV = **$13,200M \u00d7 30.0 = $396,000M**.\n- Current EV minus market cap gap = **$464,833M \u2212 $440,613M = $24,220M**.\n- Forward market cap = **$396,000M \u2212 $24,220M = $371,780M**.\n\n```json\n{\"forward_market_cap_musd\": 371780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 371780.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13200.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Strong product orders, AI infrastructure demand, campus refresh, and Splunk-led observability/security positioning support revenue growth and better FCF conversion.\n- If forward FCF reaches roughly **$14,000M** and the market sustains a premium **35x EV/FCF** multiple, forward EV would be **$490,000M**.\n- Bridging with the current EV less market-cap gap of **$24,220M**, bull-case market cap would be about **$465,780M**.\n\n## Bear Case\n- Current valuation is rich versus Cisco\u2019s own FCF-yield history: current EV/FCF is about **39.4x**, versus roughly **26.4x** on the 1-year average yield and **18.4x** on the 3-year average yield.\n- If AI/order strength fades into normal hardware cyclicality or margin/mix pressure persists, forward FCF could stay near **$11,500M** and the multiple could compress to **22x EV/FCF**.\n- Bear-case EV would be **$253,000M**, implying market cap of about **$228,780M** after subtracting the same **$24,220M** gap.\n\n## Logic\n- TTM FCF is **$11,788M** on TTM revenue of **$60,746M**.\n- FY2026 revenue guidance of about **$62,800M\u2013$63,000M** implies modest revenue growth, while strong orders and AI infrastructure demand support some FCF improvement.\n- I estimate 12-month forward FCF at **$13,200M**, modestly above TTM and prior annual samples, reflecting growth but not assuming a full step-change.\n- Current EV/FCF is elevated at about **39.4x**. The 1-year average FCF yield implies about **26.4x**, and the 3-year average implies about **18.4x**.\n- I apply a **30.0x EV/FCF** multiple: above historical averages due to AI/networking momentum and Splunk optionality, but below the current stretched multiple.\n- Forward EV = **$13,200M \u00d7 30.0 = $396,000M**.\n- Current EV minus market cap gap = **$464,833M \u2212 $440,613M = $24,220M**.\n- Forward market cap = **$396,000M \u2212 $24,220M = $371,780M**.\n\n```json\n{\"forward_market_cap_musd\": 371780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Strong product orders, AI infrastructure demand, campus refresh, and Splunk-led observability/security positioning support revenue growth and better FCF conversion.\n- If forward FCF reaches roughly **$14,000M** and the market sustains a premium **35x EV/FCF** multiple, forward EV would be **$490,000M**.\n- Bridging with the current EV less market-cap gap of **$24,220M**, bull-case market cap would be about **$465,780M**.",
+        "Bear Case": "- Current valuation is rich versus Cisco\u2019s own FCF-yield history: current EV/FCF is about **39.4x**, versus roughly **26.4x** on the 1-year average yield and **18.4x** on the 3-year average yield.\n- If AI/order strength fades into normal hardware cyclicality or margin/mix pressure persists, forward FCF could stay near **$11,500M** and the multiple could compress to **22x EV/FCF**.\n- Bear-case EV would be **$253,000M**, implying market cap of about **$228,780M** after subtracting the same **$24,220M** gap.",
+        "Logic": "- TTM FCF is **$11,788M** on TTM revenue of **$60,746M**.\n- FY2026 revenue guidance of about **$62,800M\u2013$63,000M** implies modest revenue growth, while strong orders and AI infrastructure demand support some FCF improvement.\n- I estimate 12-month forward FCF at **$13,200M**, modestly above TTM and prior annual samples, reflecting growth but not assuming a full step-change.\n- Current EV/FCF is elevated at about **39.4x**. The 1-year average FCF yield implies about **26.4x**, and the 3-year average implies about **18.4x**.\n- I apply a **30.0x EV/FCF** multiple: above historical averages due to AI/networking momentum and Splunk optionality, but below the current stretched multiple.\n- Forward EV = **$13,200M \u00d7 30.0 = $396,000M**.\n- Current EV minus market cap gap = **$464,833M \u2212 $440,613M = $24,220M**.\n- Forward market cap = **$396,000M \u2212 $24,220M = $371,780M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "CSCO",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:44+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1626,
+        "completion_tokens": 1494,
+        "total_tokens": 3120,
+        "cost": 0.04719,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.04719,
+          "upstream_inference_prompt_cost": 0.00237,
+          "upstream_inference_completions_cost": 0.04482
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1034,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nForward FCF could rise to ~$14,000 if Cisco converts strong orders into revenue, AI infrastructure demand continues, and campus/data-center refresh offsets mix pressure. Applying a still-premium but slightly moderated 36.0x EV/FCF gives forward EV of ~$504,000; less the current EV-minus-market-cap gap of $24,220 implies bull forward market cap of ~$479,780.\n\n## Bear Case\nForward FCF could remain near or below TTM at ~$11,500 if margins, mix, Splunk integration, or hardware cyclicality weigh on conversion. A de-rating toward the 1-year historical range, at ~24.0x EV/FCF, gives forward EV of ~$276,000; less the $24,220 bridge implies bear forward market cap of ~$251,780.\n\n## Logic\nTTM FCF is $11,788. FY2026 revenue guidance of ~$62.9B versus TTM revenue of $60,746, plus strong product orders and AI infrastructure momentum, supports modest FCF growth, but Cisco\u2019s mature profile and margin/mix risks argue against assuming a full growth-stock conversion. I estimate 12-month forward FCF at $12,800.\n\nCurrent EV/FCF is ~39.4x, while the packet\u2019s 1-year average FCF/EV yield implies ~26.4x and the 3-year average implies ~18.4x. I apply a 32.0x EV/FCF multiple: above historical averages due to AI/networking momentum and Splunk-led observability/security positioning, but below the current elevated multiple.\n\nForward EV = $12,800 \u00d7 32.0 = $409,600.  \nCurrent EV \u2212 market cap gap = $464,833 \u2212 $440,613 = $24,220.  \nForward market cap = $409,600 \u2212 $24,220 = $385,380.\n\n```json\n{\"forward_market_cap_musd\": 385380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 32.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 385380.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12800.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 32.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nForward FCF could rise to ~$14,000 if Cisco converts strong orders into revenue, AI infrastructure demand continues, and campus/data-center refresh offsets mix pressure. Applying a still-premium but slightly moderated 36.0x EV/FCF gives forward EV of ~$504,000; less the current EV-minus-market-cap gap of $24,220 implies bull forward market cap of ~$479,780.\n\n## Bear Case\nForward FCF could remain near or below TTM at ~$11,500 if margins, mix, Splunk integration, or hardware cyclicality weigh on conversion. A de-rating toward the 1-year historical range, at ~24.0x EV/FCF, gives forward EV of ~$276,000; less the $24,220 bridge implies bear forward market cap of ~$251,780.\n\n## Logic\nTTM FCF is $11,788. FY2026 revenue guidance of ~$62.9B versus TTM revenue of $60,746, plus strong product orders and AI infrastructure momentum, supports modest FCF growth, but Cisco\u2019s mature profile and margin/mix risks argue against assuming a full growth-stock conversion. I estimate 12-month forward FCF at $12,800.\n\nCurrent EV/FCF is ~39.4x, while the packet\u2019s 1-year average FCF/EV yield implies ~26.4x and the 3-year average implies ~18.4x. I apply a 32.0x EV/FCF multiple: above historical averages due to AI/networking momentum and Splunk-led observability/security positioning, but below the current elevated multiple.\n\nForward EV = $12,800 \u00d7 32.0 = $409,600.  \nCurrent EV \u2212 market cap gap = $464,833 \u2212 $440,613 = $24,220.  \nForward market cap = $409,600 \u2212 $24,220 = $385,380.\n\n```json\n{\"forward_market_cap_musd\": 385380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 32.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Forward FCF could rise to ~$14,000 if Cisco converts strong orders into revenue, AI infrastructure demand continues, and campus/data-center refresh offsets mix pressure. Applying a still-premium but slightly moderated 36.0x EV/FCF gives forward EV of ~$504,000; less the current EV-minus-market-cap gap of $24,220 implies bull forward market cap of ~$479,780.",
+        "Bear Case": "Forward FCF could remain near or below TTM at ~$11,500 if margins, mix, Splunk integration, or hardware cyclicality weigh on conversion. A de-rating toward the 1-year historical range, at ~24.0x EV/FCF, gives forward EV of ~$276,000; less the $24,220 bridge implies bear forward market cap of ~$251,780.",
+        "Logic": "TTM FCF is $11,788. FY2026 revenue guidance of ~$62.9B versus TTM revenue of $60,746, plus strong product orders and AI infrastructure momentum, supports modest FCF growth, but Cisco\u2019s mature profile and margin/mix risks argue against assuming a full growth-stock conversion. I estimate 12-month forward FCF at $12,800.\n\nCurrent EV/FCF is ~39.4x, while the packet\u2019s 1-year average FCF/EV yield implies ~26.4x and the 3-year average implies ~18.4x. I apply a 32.0x EV/FCF multiple: above historical averages due to AI/networking momentum and Splunk-led observability/security positioning, but below the current elevated multiple.\n\nForward EV = $12,800 \u00d7 32.0 = $409,600.  \nCurrent EV \u2212 market cap gap = $464,833 \u2212 $440,613 = $24,220.  \nForward market cap = $409,600 \u2212 $24,220 = $385,380."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "CSCO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:47:34+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1695,
+        "completion_tokens": 1925,
+        "total_tokens": 3620,
+        "cost": 0.00757315,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00757315,
+          "upstream_inference_prompt_cost": 0.00164415,
+          "upstream_inference_completions_cost": 0.005929
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1051,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAI infrastructure demand is driving a multi-year demand cycle, with hyperscaler AI infrastructure orders expected to reach $9B in FY2026. Revenue guidance has been raised to $62.8B\u2013$63.0B, indicating strong top-line momentum. Splunk integration and recent M&A (Galileo, Astrix Security) enhance the observability and security portfolio, potentially supporting margin expansion and FCF recovery from the TTM dip.\n\n## Bear Case\nTTM free cash flow has actually declined from $12.8B to $11.8B despite rising net income, pointing to working capital headwinds or cash conversion issues. The current EV/FCF multiple of 39.4x is rich relative to the 1-year (26.3x) and 3-year (18.4x) averages. Integration risks from multiple recent acquisitions and potential hardware margin pressures could weigh on future FCF growth.\n\n## Logic\nTTM FCF is $11.8B, but with revenue accelerating and AI infrastructure demand robust, I estimate forward 12-month FCF to recover and grow to $13.0B. Applying a 35.0x EV/FCF multiple\u2014which is a discount to the current 39.4x multiple but reflects a premium to the 1-year historical average to account for AI-driven growth\u2014yields a forward EV of $455.0B. Bridging to market cap by subtracting the current EV-to-market-cap gap of $24.22B results in a forward market cap of $430.78B.\n\n```json\n{\"forward_market_cap_musd\": 430780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 35.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 430780.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 35.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAI infrastructure demand is driving a multi-year demand cycle, with hyperscaler AI infrastructure orders expected to reach $9B in FY2026. Revenue guidance has been raised to $62.8B\u2013$63.0B, indicating strong top-line momentum. Splunk integration and recent M&A (Galileo, Astrix Security) enhance the observability and security portfolio, potentially supporting margin expansion and FCF recovery from the TTM dip.\n\n## Bear Case\nTTM free cash flow has actually declined from $12.8B to $11.8B despite rising net income, pointing to working capital headwinds or cash conversion issues. The current EV/FCF multiple of 39.4x is rich relative to the 1-year (26.3x) and 3-year (18.4x) averages. Integration risks from multiple recent acquisitions and potential hardware margin pressures could weigh on future FCF growth.\n\n## Logic\nTTM FCF is $11.8B, but with revenue accelerating and AI infrastructure demand robust, I estimate forward 12-month FCF to recover and grow to $13.0B. Applying a 35.0x EV/FCF multiple\u2014which is a discount to the current 39.4x multiple but reflects a premium to the 1-year historical average to account for AI-driven growth\u2014yields a forward EV of $455.0B. Bridging to market cap by subtracting the current EV-to-market-cap gap of $24.22B results in a forward market cap of $430.78B.\n\n```json\n{\"forward_market_cap_musd\": 430780.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 35.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI infrastructure demand is driving a multi-year demand cycle, with hyperscaler AI infrastructure orders expected to reach $9B in FY2026. Revenue guidance has been raised to $62.8B\u2013$63.0B, indicating strong top-line momentum. Splunk integration and recent M&A (Galileo, Astrix Security) enhance the observability and security portfolio, potentially supporting margin expansion and FCF recovery from the TTM dip.",
+        "Bear Case": "TTM free cash flow has actually declined from $12.8B to $11.8B despite rising net income, pointing to working capital headwinds or cash conversion issues. The current EV/FCF multiple of 39.4x is rich relative to the 1-year (26.3x) and 3-year (18.4x) averages. Integration risks from multiple recent acquisitions and potential hardware margin pressures could weigh on future FCF growth.",
+        "Logic": "TTM FCF is $11.8B, but with revenue accelerating and AI infrastructure demand robust, I estimate forward 12-month FCF to recover and grow to $13.0B. Applying a 35.0x EV/FCF multiple\u2014which is a discount to the current 39.4x multiple but reflects a premium to the 1-year historical average to account for AI-driven growth\u2014yields a forward EV of $455.0B. Bridging to market cap by subtracting the current EV-to-market-cap gap of $24.22B results in a forward market cap of $430.78B."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "CSCO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:13+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1695,
+        "completion_tokens": 3314,
+        "total_tokens": 5009,
+        "cost": 0.017498415,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.017498415,
+          "upstream_inference_prompt_cost": 0.00246114,
+          "upstream_inference_completions_cost": 0.015037275
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2142,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nCisco's AI infrastructure narrative is accelerating meaningfully: hyperscaler AI orders reached $5.3B YTD with FY2026 expected at $9B, and AI infrastructure revenue raised to $4B. Total product orders grew 35% (19% ex-hyperscalers), data-center switching orders grew 40%+, and campus networking grew 25%+. Raised FY2026 guidance to $62.8\u201363.0B revenue with non-GAAP EPS of $4.27\u20134.29 signals confidence in a multi-year demand cycle. Strategic M&A (Galileo, Astrix) and platform integration (Splunk observability, Silicon One) strengthen the AI-era positioning. If FCF recovers toward prior-year levels (~$12.8B) as Splunk integration matures and AI revenue scales, the current EV/FCF compression would reverse, supporting multiple expansion or at least maintenance.\n\n## Bear Case\nTTM FCF declined ~8% YoY ($12.8B \u2192 $11.8B) despite 9% revenue growth, signaling margin pressure, elevated capex for AI infrastructure, or working capital drag from Splunk integration. The current EV/FCF multiple of ~39x is well above the 1y average of ~26x and the 3y average of ~18x, meaning the market has already priced in significant FCF recovery. If AI infrastructure revenue is lower-margin or requires sustained capex, FCF conversion may remain depressed, compressing the multiple back toward historical norms. The $24.2B EV-to-market-cap gap (net debt from Splunk) further limits equity upside if EV stagnates.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M the prior year. Revenue is guided to ~$63B for FY2026 with strong 35% order growth, suggesting forward revenue of ~$65\u201367B. However, FCF conversion is pressured by AI-related capex and integration costs. I assume a modest recovery to **$12,500M**, roughly splitting the difference between current and prior-year FCF, reflecting revenue growth partially offset by continued investment intensity.\n\n**Applied EV/FCF multiple:** The current multiple is ~39.4x (1/2.54%), the 1y average is ~26.4x (1/3.79%), and the 3y average is ~18.4x (1/5.44%). I apply **31.0x**, below the stretched current multiple (reflecting that depressed FCF inflates it) but above the 1y and 3y averages (reflecting the genuine AI-driven demand acceleration and platform strategy). This multiple implies a forward FCF yield of ~3.2%, between the current 2.5% and the 1y average of 3.8%.\n\n**EV \u2192 Market cap bridge:** Forward EV = $12,500M \u00d7 31.0 = $387,500M. The current EV-minus-market-cap gap is $464,833M \u2212 $440,613M = $24,220M (net debt, preferred, minority interests). Applying this gap: Forward market cap = $387,500M \u2212 $24,220M = **$363,280M**.\n\n```json\n{\"forward_market_cap_musd\": 363280.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 31.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 363280.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 31.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nCisco's AI infrastructure narrative is accelerating meaningfully: hyperscaler AI orders reached $5.3B YTD with FY2026 expected at $9B, and AI infrastructure revenue raised to $4B. Total product orders grew 35% (19% ex-hyperscalers), data-center switching orders grew 40%+, and campus networking grew 25%+. Raised FY2026 guidance to $62.8\u201363.0B revenue with non-GAAP EPS of $4.27\u20134.29 signals confidence in a multi-year demand cycle. Strategic M&A (Galileo, Astrix) and platform integration (Splunk observability, Silicon One) strengthen the AI-era positioning. If FCF recovers toward prior-year levels (~$12.8B) as Splunk integration matures and AI revenue scales, the current EV/FCF compression would reverse, supporting multiple expansion or at least maintenance.\n\n## Bear Case\nTTM FCF declined ~8% YoY ($12.8B \u2192 $11.8B) despite 9% revenue growth, signaling margin pressure, elevated capex for AI infrastructure, or working capital drag from Splunk integration. The current EV/FCF multiple of ~39x is well above the 1y average of ~26x and the 3y average of ~18x, meaning the market has already priced in significant FCF recovery. If AI infrastructure revenue is lower-margin or requires sustained capex, FCF conversion may remain depressed, compressing the multiple back toward historical norms. The $24.2B EV-to-market-cap gap (net debt from Splunk) further limits equity upside if EV stagnates.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M the prior year. Revenue is guided to ~$63B for FY2026 with strong 35% order growth, suggesting forward revenue of ~$65\u201367B. However, FCF conversion is pressured by AI-related capex and integration costs. I assume a modest recovery to **$12,500M**, roughly splitting the difference between current and prior-year FCF, reflecting revenue growth partially offset by continued investment intensity.\n\n**Applied EV/FCF multiple:** The current multiple is ~39.4x (1/2.54%), the 1y average is ~26.4x (1/3.79%), and the 3y average is ~18.4x (1/5.44%). I apply **31.0x**, below the stretched current multiple (reflecting that depressed FCF inflates it) but above the 1y and 3y averages (reflecting the genuine AI-driven demand acceleration and platform strategy). This multiple implies a forward FCF yield of ~3.2%, between the current 2.5% and the 1y average of 3.8%.\n\n**EV \u2192 Market cap bridge:** Forward EV = $12,500M \u00d7 31.0 = $387,500M. The current EV-minus-market-cap gap is $464,833M \u2212 $440,613M = $24,220M (net debt, preferred, minority interests). Applying this gap: Forward market cap = $387,500M \u2212 $24,220M = **$363,280M**.\n\n```json\n{\"forward_market_cap_musd\": 363280.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 31.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Cisco's AI infrastructure narrative is accelerating meaningfully: hyperscaler AI orders reached $5.3B YTD with FY2026 expected at $9B, and AI infrastructure revenue raised to $4B. Total product orders grew 35% (19% ex-hyperscalers), data-center switching orders grew 40%+, and campus networking grew 25%+. Raised FY2026 guidance to $62.8\u201363.0B revenue with non-GAAP EPS of $4.27\u20134.29 signals confidence in a multi-year demand cycle. Strategic M&A (Galileo, Astrix) and platform integration (Splunk observability, Silicon One) strengthen the AI-era positioning. If FCF recovers toward prior-year levels (~$12.8B) as Splunk integration matures and AI revenue scales, the current EV/FCF compression would reverse, supporting multiple expansion or at least maintenance.",
+        "Bear Case": "TTM FCF declined ~8% YoY ($12.8B \u2192 $11.8B) despite 9% revenue growth, signaling margin pressure, elevated capex for AI infrastructure, or working capital drag from Splunk integration. The current EV/FCF multiple of ~39x is well above the 1y average of ~26x and the 3y average of ~18x, meaning the market has already priced in significant FCF recovery. If AI infrastructure revenue is lower-margin or requires sustained capex, FCF conversion may remain depressed, compressing the multiple back toward historical norms. The $24.2B EV-to-market-cap gap (net debt from Splunk) further limits equity upside if EV stagnates.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M the prior year. Revenue is guided to ~$63B for FY2026 with strong 35% order growth, suggesting forward revenue of ~$65\u201367B. However, FCF conversion is pressured by AI-related capex and integration costs. I assume a modest recovery to **$12,500M**, roughly splitting the difference between current and prior-year FCF, reflecting revenue growth partially offset by continued investment intensity.\n\n**Applied EV/FCF multiple:** The current multiple is ~39.4x (1/2.54%), the 1y average is ~26.4x (1/3.79%), and the 3y average is ~18.4x (1/5.44%). I apply **31.0x**, below the stretched current multiple (reflecting that depressed FCF inflates it) but above the 1y and 3y averages (reflecting the genuine AI-driven demand acceleration and platform strategy). This multiple implies a forward FCF yield of ~3.2%, between the current 2.5% and the 1y average of 3.8%.\n\n**EV \u2192 Market cap bridge:** Forward EV = $12,500M \u00d7 31.0 = $387,500M. The current EV-minus-market-cap gap is $464,833M \u2212 $440,613M = $24,220M (net debt, preferred, minority interests). Applying this gap: Forward market cap = $387,500M \u2212 $24,220M = **$363,280M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "CSCO",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:40:58+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "9674ea6653e2811a214e8719c079c3bd4a661c3de3ecb9b11757bd8cb54e0a24",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1695,
+        "completion_tokens": 1848,
+        "total_tokens": 3543,
+        "cost": 0.0105042,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0105042,
+          "upstream_inference_prompt_cost": 0.002373,
+          "upstream_inference_completions_cost": 0.0081312
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 935,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI infrastructure orders tracking to $9B for FY2026 with raised revenue expectation of $4B, signaling a multi-year demand cycle. Hyperscaler and enterprise AI spend could sustain revenue growth above the guided ~$62.9B.\n- Product orders up 35% (19% ex-hyperscalers), campus networking >25%, data-center switching >40% \u2014 broad-based demand reduces single-segment risk.\n- FCF decline from $12.8B to $11.8B may be transitory (Splunk integration, working-capital drag). As integration synergies materialize and revenue scales, FCF could recover toward $12\u201313B, compressing the elevated EV/FCF multiple.\n- Strategic M&A (Galileo, Astrix) and quantum networking R&D extend optionality in AI observability and next-gen infrastructure.\n\n## Bear Case\n- TTM FCF has declined two years in a row ($12.4B \u2192 $12.8B \u2192 $11.8B), and the current EV/FCF multiple of ~39x is well above the 1-year average of ~26x and 3-year average of ~18x. If FCF fails to recover, the multiple contracts sharply.\n- Margin pressure from Splunk integration, AI-infrastructure build costs, and M&A could keep FCF below $12B even as revenue grows.\n- Market cap ($440.6B) is already ~75% above its 3-year mean ($252.6B), limiting upside absent FCF acceleration.\n\n## Logic\n1. **Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M. FY2026 revenue guidance is $62.8\u201363.0B versus TTM $60.7B (~3.6% incremental growth). Assuming FCF margin stabilizes near ~18.9% as Splunk integration synergies and AI revenue scale partially offset investment costs, forward 12m FCF \u2248 **$12,200M**.\n2. **Applied EV/FCF multiple:** Current implied multiple is ~39.4x; 1-year average is ~26.4x; 3-year average is ~18.4x. Given strong AI demand and raised guidance, a premium to the 1-year average is justified, but the current 39x level assumes sustained FCF recovery. Applying a blended **33.0x** forward EV/FCF multiple balances growth optimism against FCF normalization risk.\n3. **Forward EV:** 33.0 \u00d7 $12,200M = **$402,600M**.\n4. **Bridge to market cap:** Current EV \u2212 MC gap = $464,833M \u2212 $440,613M = **$24,220M** (net debt / other EV adjustments). Forward market cap = Forward EV \u2212 gap = $402,600M \u2212 $24,220M = **$378,380M**.\n\n```json\n{\"forward_market_cap_musd\": 378380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 33.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 378380.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12200.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 33.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI infrastructure orders tracking to $9B for FY2026 with raised revenue expectation of $4B, signaling a multi-year demand cycle. Hyperscaler and enterprise AI spend could sustain revenue growth above the guided ~$62.9B.\n- Product orders up 35% (19% ex-hyperscalers), campus networking >25%, data-center switching >40% \u2014 broad-based demand reduces single-segment risk.\n- FCF decline from $12.8B to $11.8B may be transitory (Splunk integration, working-capital drag). As integration synergies materialize and revenue scales, FCF could recover toward $12\u201313B, compressing the elevated EV/FCF multiple.\n- Strategic M&A (Galileo, Astrix) and quantum networking R&D extend optionality in AI observability and next-gen infrastructure.\n\n## Bear Case\n- TTM FCF has declined two years in a row ($12.4B \u2192 $12.8B \u2192 $11.8B), and the current EV/FCF multiple of ~39x is well above the 1-year average of ~26x and 3-year average of ~18x. If FCF fails to recover, the multiple contracts sharply.\n- Margin pressure from Splunk integration, AI-infrastructure build costs, and M&A could keep FCF below $12B even as revenue grows.\n- Market cap ($440.6B) is already ~75% above its 3-year mean ($252.6B), limiting upside absent FCF acceleration.\n\n## Logic\n1. **Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M. FY2026 revenue guidance is $62.8\u201363.0B versus TTM $60.7B (~3.6% incremental growth). Assuming FCF margin stabilizes near ~18.9% as Splunk integration synergies and AI revenue scale partially offset investment costs, forward 12m FCF \u2248 **$12,200M**.\n2. **Applied EV/FCF multiple:** Current implied multiple is ~39.4x; 1-year average is ~26.4x; 3-year average is ~18.4x. Given strong AI demand and raised guidance, a premium to the 1-year average is justified, but the current 39x level assumes sustained FCF recovery. Applying a blended **33.0x** forward EV/FCF multiple balances growth optimism against FCF normalization risk.\n3. **Forward EV:** 33.0 \u00d7 $12,200M = **$402,600M**.\n4. **Bridge to market cap:** Current EV \u2212 MC gap = $464,833M \u2212 $440,613M = **$24,220M** (net debt / other EV adjustments). Forward market cap = Forward EV \u2212 gap = $402,600M \u2212 $24,220M = **$378,380M**.\n\n```json\n{\"forward_market_cap_musd\": 378380.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 33.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI infrastructure orders tracking to $9B for FY2026 with raised revenue expectation of $4B, signaling a multi-year demand cycle. Hyperscaler and enterprise AI spend could sustain revenue growth above the guided ~$62.9B.\n- Product orders up 35% (19% ex-hyperscalers), campus networking >25%, data-center switching >40% \u2014 broad-based demand reduces single-segment risk.\n- FCF decline from $12.8B to $11.8B may be transitory (Splunk integration, working-capital drag). As integration synergies materialize and revenue scales, FCF could recover toward $12\u201313B, compressing the elevated EV/FCF multiple.\n- Strategic M&A (Galileo, Astrix) and quantum networking R&D extend optionality in AI observability and next-gen infrastructure.",
+        "Bear Case": "- TTM FCF has declined two years in a row ($12.4B \u2192 $12.8B \u2192 $11.8B), and the current EV/FCF multiple of ~39x is well above the 1-year average of ~26x and 3-year average of ~18x. If FCF fails to recover, the multiple contracts sharply.\n- Margin pressure from Splunk integration, AI-infrastructure build costs, and M&A could keep FCF below $12B even as revenue grows.\n- Market cap ($440.6B) is already ~75% above its 3-year mean ($252.6B), limiting upside absent FCF acceleration.",
+        "Logic": "1. **Forward FCF estimate:** TTM FCF is $11,788M, down from $12,803M. FY2026 revenue guidance is $62.8\u201363.0B versus TTM $60.7B (~3.6% incremental growth). Assuming FCF margin stabilizes near ~18.9% as Splunk integration synergies and AI revenue scale partially offset investment costs, forward 12m FCF \u2248 **$12,200M**.\n2. **Applied EV/FCF multiple:** Current implied multiple is ~39.4x; 1-year average is ~26.4x; 3-year average is ~18.4x. Given strong AI demand and raised guidance, a premium to the 1-year average is justified, but the current 39x level assumes sustained FCF recovery. Applying a blended **33.0x** forward EV/FCF multiple balances growth optimism against FCF normalization risk.\n3. **Forward EV:** 33.0 \u00d7 $12,200M = **$402,600M**.\n4. **Bridge to market cap:** Current EV \u2212 MC gap = $464,833M \u2212 $440,613M = **$24,220M** (net debt / other EV adjustments). Forward market cap = Forward EV \u2212 gap = $402,600M \u2212 $24,220M = **$378,380M**."
+      }
+    }
+  ]
+}

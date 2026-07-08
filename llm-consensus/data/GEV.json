@@ -1,0 +1,879 @@
+{
+  "asset_id": "GEV",
+  "aggregate_row": {
+    "asset_id": "GEV",
+    "name": "GE VERNOVA INC",
+    "kind": "stock",
+    "bucket": "fin_ute",
+    "current_market_cap": 289432.9,
+    "std_pct_of_mean": 0.5489906491639798,
+    "models": {
+      "Fable": {
+        "forward_mc": 300000.0,
+        "pct_upside": 0.03650967115348669,
+        "bullishness": 0.06650326596470225,
+        "n_samples": 3,
+        "forward_mc_iqr": 8000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 298700.0,
+        "pct_upside": 0.0320181292451549,
+        "bullishness": 0.058321811662754394,
+        "n_samples": 3,
+        "forward_mc_iqr": 10150.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 299150.0,
+        "pct_upside": 0.0335728937518851,
+        "bullishness": 0.061153853536505515,
+        "n_samples": 3,
+        "forward_mc_iqr": 7700.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 262500.0,
+        "pct_upside": -0.0930540377406992,
+        "bullishness": -0.16950022351456226,
+        "n_samples": 3,
+        "forward_mc_iqr": 42000.0
+      }
+    },
+    "consensus_bullishness": 0.059737832599629954,
+    "consensus_bullishness_mean": 0.004119676912349976,
+    "consensus_pct_upside": 0.03279551149852,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nGE Vernova is a global energy-equipment and services company, not a regulated electric utility: it sells power-generation, grid, electrification, software, and wind technologies to utilities, developers, industrials, governments, and data-center-linked customers. The company describes itself as a \u201cpurpose-built global energy company\u201d organized around **Power, Electrification, and Wind**, with roughly 85,000 employees across about 100 countries. ([gevernova.com](https://www.gevernova.com/news/taxonomy/term/9211))\n\n## What It Does\n\nThe **Power** segment includes gas, nuclear, and hydro equipment and services; in Q1 2026, Power revenue was $5.0B, with Gas Power the largest contributor. **Electrification** sells grid infrastructure such as transformers, switchgear, HVDC, substations, power conversion/storage, and grid software; Q1 Electrification backlog reached $42.4B. **Wind** sells and services onshore/offshore turbines, but remains the weakest segment financially. ([gevernova.com](https://www.gevernova.com/sites/default/files/gev_webcast_10-q_04222026.pdf))\n\n## Recent Highlights (Positive)\n\nQ1 2026 was a strong demand/cash quarter: orders were **$18.3B**, up **71% organically**, backlog rose **$13.0B sequentially** to about **$163B**, free cash flow was **$4.8B**, and management raised 2026 guidance to revenue of **$44.5B\u2013$45.5B**, adjusted EBITDA margin of **12%\u201314%**, and free cash flow of **$6.5B\u2013$7.5B**. The transcript also emphasized that total backlog is now expected to reach **$200B in 2027**, a year earlier than prior expectations. ([gevernova.com](https://www.gevernova.com/sites/default/files/gev_webcast_pressrelease_04222026.pdf))\n\nPower demand remained a central positive. GE Vernova said Gas Power backlog plus slot-reservation agreements rose to **100 GW** in Q1, and in June it booked a Q2 order to supply **two 9HA.02 gas turbines and two H78 generators** for EVN\u2019s Quang Trach II LNG plant in Vietnam, a project expected to produce more than **1.6 GW** by 2030. ([gevernova.com](https://www.gevernova.com/sites/default/files/gev_webcast_pressrelease_04222026.pdf))\n\nElectrification momentum also strengthened. Management said Q1 Electrification equipment orders for data centers were **$2.4B**, more than full-year 2025, while the Prolec GE transformer acquisition added scale and backlog. GE Vernova also launched **GridOS for Transmission** in June, positioning grid software as a response to surging load, renewable integration, and faster grid operations. ([gevernova.com](https://www.gevernova.com/sites/default/files/gev_webcast_pressrelease_04222026.pdf))\n\nNuclear/SMR optionality remains a visible growth theme: the U.S. and Japan announced up to **$40B** for GE Vernova Hitachi BWRX-300 SMRs in Tennessee and Alabama, with a stated **3 GW** capacity target. GE Vernova Hitachi also expanded a European BWRX-300 supplier collaboration with Velan in June. ([commerce.gov](https://www.commerce.gov/news/fact-sheets/2026/03/fact-sheet-new-energy-projects-us-japan-trade-deal))\n\n## Recent Highlights (Negative)\n\nWind remains the main operational drag. In Q1 2026, Wind revenue fell **25% organically**, segment EBITDA loss widened to **$(382)M**, and management attributed the decline to lower onshore equipment deliveries, tariff impacts, and higher offshore contract losses; 2026 Wind guidance still called for about **$400M** of segment EBITDA losses. ([gevernova.com](https://www.gevernova.com/sites/default/files/gev_webcast_presentation_04222026.pdf))\n\nOffshore Wind legal/project risk stayed in focus. In April, Vineyard Wind sued GE Renewables/GE Vernova-related entities after a contract-payment dispute tied to the 2024 blade failure; AP reported GE\n",
+  "primer_meta": {
+    "asset_id": "GEV",
+    "created_at_utc": "2026-07-08T14:51:25+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "38b95c6bc61fb0426cd794fb929fe660547246b25b1c0b9c96ab3e671c8d5876",
+    "sources": [
+      {
+        "url": "https://www.gevernova.com/sites/default/files/gev_webcast_pressrelease_04222026.pdf",
+        "title": ""
+      },
+      {
+        "url": "https://www.gevernova.com/news/taxonomy/term/9211",
+        "title": ""
+      },
+      {
+        "url": "https://www.gevernova.com/news/media-hub?page=0&type%5Bpress_release%5D=press_release",
+        "title": ""
+      },
+      {
+        "url": "https://www.gevernova.com/sites/default/files/gev_webcast_10-q_04222026.pdf",
+        "title": ""
+      },
+      {
+        "url": "https://www.gevernova.com/news/taxonomy/term/9211",
+        "title": "GE Vernova | GE Vernova News"
+      },
+      {
+        "url": "https://www.gevernova.com/sites/default/files/gev_webcast_10-q_04222026.pdf",
+        "title": "GE Vernova 1Q'26 10-Q Filing"
+      },
+      {
+        "url": "https://www.gevernova.com/sites/default/files/gev_webcast_pressrelease_04222026.pdf",
+        "title": "GE Vernova 1Q'26 Earnings Press Release"
+      },
+      {
+        "url": "https://www.commerce.gov/news/fact-sheets/2026/03/fact-sheet-new-energy-projects-us-japan-trade-deal",
+        "title": "Fact Sheet: New Energy Projects from U.S. - Japan Trade Deal | U.S. Department of Commerce"
+      },
+      {
+        "url": "https://www.gevernova.com/sites/default/files/gev_webcast_presentation_04222026.pdf",
+        "title": "GE Vernova 1Q'26 Earnings Presentation"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "GEV__earnings_call_transcript__2026-04-22__1__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-04-22",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0671890744d493e2016a4e63c29ae88192b0afce80adf6094b",
+    "usage": {
+      "input_tokens": 59771,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1800,
+      "output_tokens_details": {
+        "reasoning_tokens": 943
+      },
+      "total_tokens": 61571
+    }
+  },
+  "details": {
+    "asset_id": "GEV",
+    "detail_source_ticker": "GEV",
+    "kind": "stock",
+    "bucket": "fin_ute",
+    "as_of": "2026-07-07",
+    "name": "GE VERNOVA INC",
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "market_cap_musd": 289432.9,
+    "ev_musd": 282066.9,
+    "ttm_revenue_musd": 39375.0,
+    "ttm_fcf_musd": 7708.0,
+    "ttm_netinc_musd": 9375.0,
+    "fcf_ev": {
+      "current": 0.027326850474125107,
+      "avg_1y": 0.01932494539143869,
+      "std_1y": 0.005077424886583916,
+      "avg_3y": 0.020717176663345285,
+      "std_3y": 0.005890200966168334
+    },
+    "ni_mc": {
+      "current": 0.03239092722354646,
+      "avg_1y": 0.016761737224291202,
+      "std_1y": 0.010122259378646067,
+      "avg_3y": 0.015206825786016677,
+      "std_3y": 0.010536175560460674
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-04-22",
+        "ttm_revenue_musd": 39375.0,
+        "ttm_fcf_musd": 7708.0,
+        "ttm_netinc_musd": 9375.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-04-23",
+        "ttm_revenue_musd": 35708.0,
+        "ttm_fcf_musd": 3391.0,
+        "ttm_netinc_musd": 1936.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-04-30",
+        "ttm_revenue_musd": null,
+        "ttm_fcf_musd": null,
+        "ttm_netinc_musd": null
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 135134.69700176368,
+      "std_musd": 74187.68503157595,
+      "std_pct_of_mean": 0.5489906491639798,
+      "window_days": 567
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "GEV",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:43+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 1732,
+        "total_tokens": 4167,
+        "cost": 0.11095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11095,
+          "upstream_inference_prompt_cost": 0.02435,
+          "upstream_inference_completions_cost": 0.0866
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 256,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Record demand: Q1 orders of $18.3B (+71% organic), backlog ~$163B and tracking toward $200B in 2027 \u2014 a year early. Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility.\n- Electrification is inflecting: $2.4B of data-center equipment orders in Q1 alone (more than all of 2025), $42.4B segment backlog, Prolec GE transformer scale, and the GridOS software launch add margin-rich growth.\n- Raised 2026 guidance: revenue $44.5\u201345.5B, adjusted EBITDA margin 12\u201314%, FCF $6.5\u20137.5B; Q1 FCF was already $4.8B.\n- Nuclear/SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 program, 3 GW target) is essentially free upside at current earnings.\n- If margins expand toward the high end of guidance and Wind losses shrink, the market can sustain a premium growth multiple (45\u201355x forward), pushing market cap toward $320\u2013350B.\n\n## Bear Case\n- TTM net income of $9.4B (23.8% net margin) looks inflated versus guided adjusted EBITDA of only ~$5.4\u20136.3B, implying large one-time gains. Normalized forward earnings are materially lower, and the stock is effectively trading well above 30x clean earnings.\n- Wind remains a structural drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year losses guided, plus Vineyard Wind litigation and offshore contract-loss risk.\n- Cyclical order books can decelerate; data-center capex is a crowded, sentiment-driven trade. Any order slowdown compresses the premium multiple quickly (mc history 3y std is 55% of mean \u2014 extreme volatility).\n- Tariffs, supply-chain cost inflation in turbines/transformers, and execution risk on a backlog doubling in three years could pressure margins.\n- At 40x a normalized $5B of net income, market cap would be ~$200B, ~30% below current levels.\n\n## Logic\n- Forward revenue: ~$45B (guidance midpoint), growing into 2027 on backlog conversion.\n- Forward net income: TTM NI of $9,375M appears boosted by non-recurring items (it exceeds guided adjusted EBITDA). I normalize toward a ~13\u201314% net margin on ~$46B of forward revenue as margins expand and Wind losses moderate \u2192 **forward NI \u2248 $6,200M**. Forward FCF anchored to guidance \u2248 $7,000M.\n- Applied multiple: GEV commands a premium growth multiple given backlog visibility, electrification/data-center exposure, and SMR optionality, but volatility and Wind risk cap it. I apply **~48x forward earnings** (vs. ~31x optically on inflated TTM NI, and consistent with market pricing of secular power-demand winners).\n- Forward market cap: 6,200 \u00d7 48 \u2248 **$297,600M**, modest upside (~3%) from the current $289.4B \u2014 strong fundamentals largely priced in.\n\n```json\n{\"forward_market_cap_musd\": 297600.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 48.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 297600.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 6200.0,
+        "applied_multiple": 48.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Record demand: Q1 orders of $18.3B (+71% organic), backlog ~$163B and tracking toward $200B in 2027 \u2014 a year early. Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility.\n- Electrification is inflecting: $2.4B of data-center equipment orders in Q1 alone (more than all of 2025), $42.4B segment backlog, Prolec GE transformer scale, and the GridOS software launch add margin-rich growth.\n- Raised 2026 guidance: revenue $44.5\u201345.5B, adjusted EBITDA margin 12\u201314%, FCF $6.5\u20137.5B; Q1 FCF was already $4.8B.\n- Nuclear/SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 program, 3 GW target) is essentially free upside at current earnings.\n- If margins expand toward the high end of guidance and Wind losses shrink, the market can sustain a premium growth multiple (45\u201355x forward), pushing market cap toward $320\u2013350B.\n\n## Bear Case\n- TTM net income of $9.4B (23.8% net margin) looks inflated versus guided adjusted EBITDA of only ~$5.4\u20136.3B, implying large one-time gains. Normalized forward earnings are materially lower, and the stock is effectively trading well above 30x clean earnings.\n- Wind remains a structural drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year losses guided, plus Vineyard Wind litigation and offshore contract-loss risk.\n- Cyclical order books can decelerate; data-center capex is a crowded, sentiment-driven trade. Any order slowdown compresses the premium multiple quickly (mc history 3y std is 55% of mean \u2014 extreme volatility).\n- Tariffs, supply-chain cost inflation in turbines/transformers, and execution risk on a backlog doubling in three years could pressure margins.\n- At 40x a normalized $5B of net income, market cap would be ~$200B, ~30% below current levels.\n\n## Logic\n- Forward revenue: ~$45B (guidance midpoint), growing into 2027 on backlog conversion.\n- Forward net income: TTM NI of $9,375M appears boosted by non-recurring items (it exceeds guided adjusted EBITDA). I normalize toward a ~13\u201314% net margin on ~$46B of forward revenue as margins expand and Wind losses moderate \u2192 **forward NI \u2248 $6,200M**. Forward FCF anchored to guidance \u2248 $7,000M.\n- Applied multiple: GEV commands a premium growth multiple given backlog visibility, electrification/data-center exposure, and SMR optionality, but volatility and Wind risk cap it. I apply **~48x forward earnings** (vs. ~31x optically on inflated TTM NI, and consistent with market pricing of secular power-demand winners).\n- Forward market cap: 6,200 \u00d7 48 \u2248 **$297,600M**, modest upside (~3%) from the current $289.4B \u2014 strong fundamentals largely priced in.\n\n```json\n{\"forward_market_cap_musd\": 297600.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 48.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Record demand: Q1 orders of $18.3B (+71% organic), backlog ~$163B and tracking toward $200B in 2027 \u2014 a year early. Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility.\n- Electrification is inflecting: $2.4B of data-center equipment orders in Q1 alone (more than all of 2025), $42.4B segment backlog, Prolec GE transformer scale, and the GridOS software launch add margin-rich growth.\n- Raised 2026 guidance: revenue $44.5\u201345.5B, adjusted EBITDA margin 12\u201314%, FCF $6.5\u20137.5B; Q1 FCF was already $4.8B.\n- Nuclear/SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 program, 3 GW target) is essentially free upside at current earnings.\n- If margins expand toward the high end of guidance and Wind losses shrink, the market can sustain a premium growth multiple (45\u201355x forward), pushing market cap toward $320\u2013350B.",
+        "Bear Case": "- TTM net income of $9.4B (23.8% net margin) looks inflated versus guided adjusted EBITDA of only ~$5.4\u20136.3B, implying large one-time gains. Normalized forward earnings are materially lower, and the stock is effectively trading well above 30x clean earnings.\n- Wind remains a structural drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year losses guided, plus Vineyard Wind litigation and offshore contract-loss risk.\n- Cyclical order books can decelerate; data-center capex is a crowded, sentiment-driven trade. Any order slowdown compresses the premium multiple quickly (mc history 3y std is 55% of mean \u2014 extreme volatility).\n- Tariffs, supply-chain cost inflation in turbines/transformers, and execution risk on a backlog doubling in three years could pressure margins.\n- At 40x a normalized $5B of net income, market cap would be ~$200B, ~30% below current levels.",
+        "Logic": "- Forward revenue: ~$45B (guidance midpoint), growing into 2027 on backlog conversion.\n- Forward net income: TTM NI of $9,375M appears boosted by non-recurring items (it exceeds guided adjusted EBITDA). I normalize toward a ~13\u201314% net margin on ~$46B of forward revenue as margins expand and Wind losses moderate \u2192 **forward NI \u2248 $6,200M**. Forward FCF anchored to guidance \u2248 $7,000M.\n- Applied multiple: GEV commands a premium growth multiple given backlog visibility, electrification/data-center exposure, and SMR optionality, but volatility and Wind risk cap it. I apply **~48x forward earnings** (vs. ~31x optically on inflated TTM NI, and consistent with market pricing of secular power-demand winners).\n- Forward market cap: 6,200 \u00d7 48 \u2248 **$297,600M**, modest upside (~3%) from the current $289.4B \u2014 strong fundamentals largely priced in."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "GEV",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:34+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 1344,
+        "total_tokens": 3779,
+        "cost": 0.09155,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09155,
+          "upstream_inference_prompt_cost": 0.02435,
+          "upstream_inference_completions_cost": 0.0672
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 244,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Demand is exceptional: Q1 orders of $18.3B (+71% organically), backlog ~$163B heading to $200B in 2027, and Gas Power backlog + slot reservations at 100 GW give multi-year revenue visibility.\n- Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% adj. EBITDA margin, $6.5\u20137.5B FCF) plus data-center-driven Electrification orders ($2.4B in Q1 alone) and SMR/nuclear optionality (up to $40B U.S.\u2013Japan BWRX-300 program) support a premium multiple.\n- TTM net income of $9.4B and FCF of $7.7B show operating leverage is arriving faster than expected; a 32\u201335x multiple on $10.5B+ forward NI implies $340\u2013370B market cap.\n\n## Bear Case\n- TTM net margin (~24%) looks flattered by one-time items relative to a 12\u201314% adjusted EBITDA margin guide; normalized net income may be closer to $6\u20137B, and a de-rating to 25x would imply ~$150\u2013175B.\n- Wind remains a drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year segment losses, tariff headwinds, and offshore legal exposure (Vineyard Wind litigation).\n- The stock has more than doubled its 3-year average market cap (~$135B mean); any order slowdown in data-center/gas turbine demand could compress the ~31x TTM P/E sharply.\n\n## Logic\n- Revenue base: take ~$45B (guidance midpoint) growing toward ~$47\u201348B over the next 12 months given backlog conversion.\n- Forward net income: TTM NI of $9,375M likely includes some non-recurring benefit, but improving Power/Electrification margins, shrinking Wind losses, and revenue growth offset normalization. I estimate forward NI of ~$10,000M (net margin ~21%, modest expansion in core segments partly moderated).\n- Multiple: current NI/MC of 3.24% implies ~30.9x. Given backlog momentum but already-rich valuation and Wind risk, I hold the multiple roughly flat at 30x.\n- Forward market cap: 10,000 \u00d7 30 = $300,000M, modestly above the current ~$289B. Forward FCF anchored near the top of guidance plus growth: ~$7,800M.\n\n```json\n{\"forward_market_cap_musd\": 300000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7800.0, \"forward_netinc_musd\": 10000.0, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 300000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7800.0,
+        "forward_netinc_musd": 10000.0,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Demand is exceptional: Q1 orders of $18.3B (+71% organically), backlog ~$163B heading to $200B in 2027, and Gas Power backlog + slot reservations at 100 GW give multi-year revenue visibility.\n- Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% adj. EBITDA margin, $6.5\u20137.5B FCF) plus data-center-driven Electrification orders ($2.4B in Q1 alone) and SMR/nuclear optionality (up to $40B U.S.\u2013Japan BWRX-300 program) support a premium multiple.\n- TTM net income of $9.4B and FCF of $7.7B show operating leverage is arriving faster than expected; a 32\u201335x multiple on $10.5B+ forward NI implies $340\u2013370B market cap.\n\n## Bear Case\n- TTM net margin (~24%) looks flattered by one-time items relative to a 12\u201314% adjusted EBITDA margin guide; normalized net income may be closer to $6\u20137B, and a de-rating to 25x would imply ~$150\u2013175B.\n- Wind remains a drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year segment losses, tariff headwinds, and offshore legal exposure (Vineyard Wind litigation).\n- The stock has more than doubled its 3-year average market cap (~$135B mean); any order slowdown in data-center/gas turbine demand could compress the ~31x TTM P/E sharply.\n\n## Logic\n- Revenue base: take ~$45B (guidance midpoint) growing toward ~$47\u201348B over the next 12 months given backlog conversion.\n- Forward net income: TTM NI of $9,375M likely includes some non-recurring benefit, but improving Power/Electrification margins, shrinking Wind losses, and revenue growth offset normalization. I estimate forward NI of ~$10,000M (net margin ~21%, modest expansion in core segments partly moderated).\n- Multiple: current NI/MC of 3.24% implies ~30.9x. Given backlog momentum but already-rich valuation and Wind risk, I hold the multiple roughly flat at 30x.\n- Forward market cap: 10,000 \u00d7 30 = $300,000M, modestly above the current ~$289B. Forward FCF anchored near the top of guidance plus growth: ~$7,800M.\n\n```json\n{\"forward_market_cap_musd\": 300000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7800.0, \"forward_netinc_musd\": 10000.0, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Demand is exceptional: Q1 orders of $18.3B (+71% organically), backlog ~$163B heading to $200B in 2027, and Gas Power backlog + slot reservations at 100 GW give multi-year revenue visibility.\n- Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% adj. EBITDA margin, $6.5\u20137.5B FCF) plus data-center-driven Electrification orders ($2.4B in Q1 alone) and SMR/nuclear optionality (up to $40B U.S.\u2013Japan BWRX-300 program) support a premium multiple.\n- TTM net income of $9.4B and FCF of $7.7B show operating leverage is arriving faster than expected; a 32\u201335x multiple on $10.5B+ forward NI implies $340\u2013370B market cap.",
+        "Bear Case": "- TTM net margin (~24%) looks flattered by one-time items relative to a 12\u201314% adjusted EBITDA margin guide; normalized net income may be closer to $6\u20137B, and a de-rating to 25x would imply ~$150\u2013175B.\n- Wind remains a drag: revenue -25% organically, Q1 EBITDA loss of $(382)M, ~$400M full-year segment losses, tariff headwinds, and offshore legal exposure (Vineyard Wind litigation).\n- The stock has more than doubled its 3-year average market cap (~$135B mean); any order slowdown in data-center/gas turbine demand could compress the ~31x TTM P/E sharply.",
+        "Logic": "- Revenue base: take ~$45B (guidance midpoint) growing toward ~$47\u201348B over the next 12 months given backlog conversion.\n- Forward net income: TTM NI of $9,375M likely includes some non-recurring benefit, but improving Power/Electrification margins, shrinking Wind losses, and revenue growth offset normalization. I estimate forward NI of ~$10,000M (net margin ~21%, modest expansion in core segments partly moderated).\n- Multiple: current NI/MC of 3.24% implies ~30.9x. Given backlog momentum but already-rich valuation and Wind risk, I hold the multiple roughly flat at 30x.\n- Forward market cap: 10,000 \u00d7 30 = $300,000M, modestly above the current ~$289B. Forward FCF anchored near the top of guidance plus growth: ~$7,800M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "GEV",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:42+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 1872,
+        "total_tokens": 4307,
+        "cost": 0.11795,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11795,
+          "upstream_inference_prompt_cost": 0.02435,
+          "upstream_inference_completions_cost": 0.0936
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 301,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Demand is exceptional: Q1 2026 orders of $18.3B (+71% organic), backlog of ~$163B heading toward $200B in 2027 \u2014 a year early.\n- Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility with pricing power; data-center-driven Electrification orders ($2.4B in Q1 alone, above all of 2025) add a second growth engine.\n- SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 framework, 3 GW target) and GridOS software provide upside not yet in earnings.\n- Raised 2026 guidance (revenue $44.5\u201345.5B, adj. EBITDA margin 12\u201314%, FCF $6.5\u20137.5B) and Wind losses capped near $400M imply expanding margins into 2027.\n\n## Bear Case\n- TTM net income of $9.4B looks inflated by one-offs \u2014 it far exceeds what a 12\u201314% EBITDA margin on ~$45B revenue can support (~$5.5\u20136.3B EBITDA). Normalized earnings power is materially lower, making the current ~31x reported / ~55x+ normalized P/E vulnerable.\n- Wind remains a bleed: revenue -25% organic, $(382)M Q1 EBITDA loss, offshore litigation (Vineyard Wind) and tariff exposure.\n- Market cap has tripled vs. the 3-year mean ($135B) with 55% volatility; any slowdown in data-center capex or gas turbine slot conversions could trigger sharp multiple compression.\n- Execution risk on scaling transformer/turbine capacity and Prolec GE integration.\n\n## Logic\n- Forward revenue: guidance midpoint ~$45B, growing to ~$46\u201347B over the next 12 months on backlog conversion.\n- Forward normalized net income: ~13.5% adj. EBITDA margin on ~$46.5B revenue \u2248 $6.3B EBITDA; less ~$1.0B D&A, minimal net interest (net cash), ~20% tax \u2192 ~$4.2B; add margin upside, Wind loss narrowing, and one-time items still flowing through \u2192 **forward net income \u2248 $5,600M**.\n- Applied multiple: GEV commands a scarcity/growth premium as the primary levered play on gas power, grid, and nuclear buildout. Current price implies ~55\u201360x normalized earnings; strong momentum and guidance raises support holding a premium multiple with slight compression: **applied P/E = 56x**.\n- Forward market cap: 5,600 \u00d7 56 \u2248 **$313,600M** (~+8% vs. current $289.4B).\n- Forward FCF: guidance $6.5\u20137.5B growing \u2192 ~$7,500M.\n\n```json\n{\"forward_market_cap_musd\": 313600.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7500.0, \"forward_netinc_musd\": 5600.0, \"applied_multiple\": 56.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 313600.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7500.0,
+        "forward_netinc_musd": 5600.0,
+        "applied_multiple": 56.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Demand is exceptional: Q1 2026 orders of $18.3B (+71% organic), backlog of ~$163B heading toward $200B in 2027 \u2014 a year early.\n- Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility with pricing power; data-center-driven Electrification orders ($2.4B in Q1 alone, above all of 2025) add a second growth engine.\n- SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 framework, 3 GW target) and GridOS software provide upside not yet in earnings.\n- Raised 2026 guidance (revenue $44.5\u201345.5B, adj. EBITDA margin 12\u201314%, FCF $6.5\u20137.5B) and Wind losses capped near $400M imply expanding margins into 2027.\n\n## Bear Case\n- TTM net income of $9.4B looks inflated by one-offs \u2014 it far exceeds what a 12\u201314% EBITDA margin on ~$45B revenue can support (~$5.5\u20136.3B EBITDA). Normalized earnings power is materially lower, making the current ~31x reported / ~55x+ normalized P/E vulnerable.\n- Wind remains a bleed: revenue -25% organic, $(382)M Q1 EBITDA loss, offshore litigation (Vineyard Wind) and tariff exposure.\n- Market cap has tripled vs. the 3-year mean ($135B) with 55% volatility; any slowdown in data-center capex or gas turbine slot conversions could trigger sharp multiple compression.\n- Execution risk on scaling transformer/turbine capacity and Prolec GE integration.\n\n## Logic\n- Forward revenue: guidance midpoint ~$45B, growing to ~$46\u201347B over the next 12 months on backlog conversion.\n- Forward normalized net income: ~13.5% adj. EBITDA margin on ~$46.5B revenue \u2248 $6.3B EBITDA; less ~$1.0B D&A, minimal net interest (net cash), ~20% tax \u2192 ~$4.2B; add margin upside, Wind loss narrowing, and one-time items still flowing through \u2192 **forward net income \u2248 $5,600M**.\n- Applied multiple: GEV commands a scarcity/growth premium as the primary levered play on gas power, grid, and nuclear buildout. Current price implies ~55\u201360x normalized earnings; strong momentum and guidance raises support holding a premium multiple with slight compression: **applied P/E = 56x**.\n- Forward market cap: 5,600 \u00d7 56 \u2248 **$313,600M** (~+8% vs. current $289.4B).\n- Forward FCF: guidance $6.5\u20137.5B growing \u2192 ~$7,500M.\n\n```json\n{\"forward_market_cap_musd\": 313600.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7500.0, \"forward_netinc_musd\": 5600.0, \"applied_multiple\": 56.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Demand is exceptional: Q1 2026 orders of $18.3B (+71% organic), backlog of ~$163B heading toward $200B in 2027 \u2014 a year early.\n- Gas Power backlog plus slot reservations at 100 GW gives multi-year revenue visibility with pricing power; data-center-driven Electrification orders ($2.4B in Q1 alone, above all of 2025) add a second growth engine.\n- SMR optionality (up to $40B U.S.\u2013Japan BWRX-300 framework, 3 GW target) and GridOS software provide upside not yet in earnings.\n- Raised 2026 guidance (revenue $44.5\u201345.5B, adj. EBITDA margin 12\u201314%, FCF $6.5\u20137.5B) and Wind losses capped near $400M imply expanding margins into 2027.",
+        "Bear Case": "- TTM net income of $9.4B looks inflated by one-offs \u2014 it far exceeds what a 12\u201314% EBITDA margin on ~$45B revenue can support (~$5.5\u20136.3B EBITDA). Normalized earnings power is materially lower, making the current ~31x reported / ~55x+ normalized P/E vulnerable.\n- Wind remains a bleed: revenue -25% organic, $(382)M Q1 EBITDA loss, offshore litigation (Vineyard Wind) and tariff exposure.\n- Market cap has tripled vs. the 3-year mean ($135B) with 55% volatility; any slowdown in data-center capex or gas turbine slot conversions could trigger sharp multiple compression.\n- Execution risk on scaling transformer/turbine capacity and Prolec GE integration.",
+        "Logic": "- Forward revenue: guidance midpoint ~$45B, growing to ~$46\u201347B over the next 12 months on backlog conversion.\n- Forward normalized net income: ~13.5% adj. EBITDA margin on ~$46.5B revenue \u2248 $6.3B EBITDA; less ~$1.0B D&A, minimal net interest (net cash), ~20% tax \u2192 ~$4.2B; add margin upside, Wind loss narrowing, and one-time items still flowing through \u2192 **forward net income \u2248 $5,600M**.\n- Applied multiple: GEV commands a scarcity/growth premium as the primary levered play on gas power, grid, and nuclear buildout. Current price implies ~55\u201360x normalized earnings; strong momentum and guidance raises support holding a premium multiple with slight compression: **applied P/E = 56x**.\n- Forward market cap: 5,600 \u00d7 56 \u2248 **$313,600M** (~+8% vs. current $289.4B).\n- Forward FCF: guidance $6.5\u20137.5B growing \u2192 ~$7,500M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "GEV",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:19+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 953,
+        "total_tokens": 3388,
+        "cost": 0.036,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.036,
+          "upstream_inference_prompt_cost": 0.012175,
+          "upstream_inference_completions_cost": 0.023825
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nGE Vernova's demand backdrop is exceptional: Q1 2026 orders up 71% organically, backlog ~$163B heading to $200B by 2027, and FCF guidance of $6.5B\u2013$7.5B. Power (gas turbine slot reservations at 100 GW) and Electrification (data-center transformer/grid demand) are structurally accelerating, driven by AI load growth. TTM net income already reached $9,375M vs. $1,936M a year prior\u2014an inflection in profitability as margins scale. Forward net income could grow toward ~$11.5B on revenue guidance of $44.5B\u2013$45.5B and margin expansion. A premium growth multiple (~30x) reflecting secular energy tailwinds pushes market cap above $340B.\n\n## Bear Case\nWind remains a persistent drag (Q1 EBITDA loss of $(382)M, ~$400M FY loss guided), and offshore litigation (Vineyard Wind) adds tail risk. TTM net income of $9,375M likely includes non-recurring items; the ni/mc ratio jump to 3.24% (vs. 1.5\u20131.7% historical average) suggests current earnings may be elevated or the market is pricing in normalization. Tariff impacts and execution risk on long-cycle equipment could compress margins. A more sober forward net income of ~$9B with a de-rated multiple (~22x) would put market cap near ~$200B, below current levels.\n\n## Logic\n- **TTM net income:** $9,375M, up sharply from $1,936M, signaling a genuine earnings inflection but possibly containing tax/one-time benefits.\n- **Forward net income:** Revenue guidance midpoint ~$45B with 13% adjusted EBITDA margin implies ~$5.85B EBITDA at segment level, but reported net income benefits from services mix, backlog conversion, and reduced Wind losses. I normalize forward net income modestly above TTM to ~$10,000M, reflecting continued growth tempered by Wind losses and non-recurring TTM items.\n- **Applied multiple:** Current market cap ($289.4B) implies ~30.9x TTM net income. Given strong secular growth but rich valuation and normalization risk, I apply a slightly compressed ~29x to forward net income.\n- **Forward market cap:** $10,000M \u00d7 29 = ~$290,000M, roughly in line with current cap\u2014implying the market has largely priced in near-term growth, with upside contingent on backlog execution.\n- **Forward FCF:** guidance midpoint ~$7,000M, consistent with strong cash conversion.\n\n```json\n{\"forward_market_cap_musd\": 290000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10000.0, \"applied_multiple\": 29.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 290000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 10000.0,
+        "applied_multiple": 29.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nGE Vernova's demand backdrop is exceptional: Q1 2026 orders up 71% organically, backlog ~$163B heading to $200B by 2027, and FCF guidance of $6.5B\u2013$7.5B. Power (gas turbine slot reservations at 100 GW) and Electrification (data-center transformer/grid demand) are structurally accelerating, driven by AI load growth. TTM net income already reached $9,375M vs. $1,936M a year prior\u2014an inflection in profitability as margins scale. Forward net income could grow toward ~$11.5B on revenue guidance of $44.5B\u2013$45.5B and margin expansion. A premium growth multiple (~30x) reflecting secular energy tailwinds pushes market cap above $340B.\n\n## Bear Case\nWind remains a persistent drag (Q1 EBITDA loss of $(382)M, ~$400M FY loss guided), and offshore litigation (Vineyard Wind) adds tail risk. TTM net income of $9,375M likely includes non-recurring items; the ni/mc ratio jump to 3.24% (vs. 1.5\u20131.7% historical average) suggests current earnings may be elevated or the market is pricing in normalization. Tariff impacts and execution risk on long-cycle equipment could compress margins. A more sober forward net income of ~$9B with a de-rated multiple (~22x) would put market cap near ~$200B, below current levels.\n\n## Logic\n- **TTM net income:** $9,375M, up sharply from $1,936M, signaling a genuine earnings inflection but possibly containing tax/one-time benefits.\n- **Forward net income:** Revenue guidance midpoint ~$45B with 13% adjusted EBITDA margin implies ~$5.85B EBITDA at segment level, but reported net income benefits from services mix, backlog conversion, and reduced Wind losses. I normalize forward net income modestly above TTM to ~$10,000M, reflecting continued growth tempered by Wind losses and non-recurring TTM items.\n- **Applied multiple:** Current market cap ($289.4B) implies ~30.9x TTM net income. Given strong secular growth but rich valuation and normalization risk, I apply a slightly compressed ~29x to forward net income.\n- **Forward market cap:** $10,000M \u00d7 29 = ~$290,000M, roughly in line with current cap\u2014implying the market has largely priced in near-term growth, with upside contingent on backlog execution.\n- **Forward FCF:** guidance midpoint ~$7,000M, consistent with strong cash conversion.\n\n```json\n{\"forward_market_cap_musd\": 290000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10000.0, \"applied_multiple\": 29.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "GE Vernova's demand backdrop is exceptional: Q1 2026 orders up 71% organically, backlog ~$163B heading to $200B by 2027, and FCF guidance of $6.5B\u2013$7.5B. Power (gas turbine slot reservations at 100 GW) and Electrification (data-center transformer/grid demand) are structurally accelerating, driven by AI load growth. TTM net income already reached $9,375M vs. $1,936M a year prior\u2014an inflection in profitability as margins scale. Forward net income could grow toward ~$11.5B on revenue guidance of $44.5B\u2013$45.5B and margin expansion. A premium growth multiple (~30x) reflecting secular energy tailwinds pushes market cap above $340B.",
+        "Bear Case": "Wind remains a persistent drag (Q1 EBITDA loss of $(382)M, ~$400M FY loss guided), and offshore litigation (Vineyard Wind) adds tail risk. TTM net income of $9,375M likely includes non-recurring items; the ni/mc ratio jump to 3.24% (vs. 1.5\u20131.7% historical average) suggests current earnings may be elevated or the market is pricing in normalization. Tariff impacts and execution risk on long-cycle equipment could compress margins. A more sober forward net income of ~$9B with a de-rated multiple (~22x) would put market cap near ~$200B, below current levels.",
+        "Logic": "- **TTM net income:** $9,375M, up sharply from $1,936M, signaling a genuine earnings inflection but possibly containing tax/one-time benefits.\n- **Forward net income:** Revenue guidance midpoint ~$45B with 13% adjusted EBITDA margin implies ~$5.85B EBITDA at segment level, but reported net income benefits from services mix, backlog conversion, and reduced Wind losses. I normalize forward net income modestly above TTM to ~$10,000M, reflecting continued growth tempered by Wind losses and non-recurring TTM items.\n- **Applied multiple:** Current market cap ($289.4B) implies ~30.9x TTM net income. Given strong secular growth but rich valuation and normalization risk, I apply a slightly compressed ~29x to forward net income.\n- **Forward market cap:** $10,000M \u00d7 29 = ~$290,000M, roughly in line with current cap\u2014implying the market has largely priced in near-term growth, with upside contingent on backlog execution.\n- **Forward FCF:** guidance midpoint ~$7,000M, consistent with strong cash conversion."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "GEV",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:15+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 661,
+        "total_tokens": 3096,
+        "cost": 0.0287,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0287,
+          "upstream_inference_prompt_cost": 0.012175,
+          "upstream_inference_completions_cost": 0.016525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nOrders surged 71% organically with backlog near $163B heading to $200B by 2027. Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% EBITDA margin, $6.5\u20137.5B FCF), strong data-center-driven Electrification demand, 100 GW Gas Power pipeline, and SMR/nuclear optionality support continued net income expansion. Forward net income could reach ~$11,000M with a premium ~32\u201334x multiple as growth story stays intact, implying meaningful upside above current cap.\n\n## Bear Case\nWind remains a structural drag (segment EBITDA loss ~$400M in 2026, offshore legal/project risk from Vineyard Wind litigation). Current TTM net income of $9,375M implies an elevated ni/mc of 3.2% vs 3-yr avg ~1.5%, suggesting rich valuation. Margin compression, tariff impacts, and multiple normalization toward the mid-20s could pressure market cap lower even with modest earnings growth.\n\n## Logic\nTTM net income is $9,375M. Given raised guidance and backlog momentum, forward 12-month net income growth of ~10\u201312% is reasonable, yielding ~$10,400M. However, some of the TTM figure reflects favorable one-time items; a conservative-to-base forward net income of ~$10,300M is applied. The stock currently trades at ~30.9x TTM net income (289,433/9,375). Given high-growth positioning offset by Wind risk and multiple-normalization pressure, an applied multiple of ~29x is used\u2014slightly below current, reflecting balanced upside/downside. Forward market cap = $10,300M \u00d7 29 \u2248 $298,700M.\n\n```json\n{\"forward_market_cap_musd\": 298700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 8300.0, \"forward_netinc_musd\": 10300.0, \"applied_multiple\": 29.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 298700.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 8300.0,
+        "forward_netinc_musd": 10300.0,
+        "applied_multiple": 29.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nOrders surged 71% organically with backlog near $163B heading to $200B by 2027. Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% EBITDA margin, $6.5\u20137.5B FCF), strong data-center-driven Electrification demand, 100 GW Gas Power pipeline, and SMR/nuclear optionality support continued net income expansion. Forward net income could reach ~$11,000M with a premium ~32\u201334x multiple as growth story stays intact, implying meaningful upside above current cap.\n\n## Bear Case\nWind remains a structural drag (segment EBITDA loss ~$400M in 2026, offshore legal/project risk from Vineyard Wind litigation). Current TTM net income of $9,375M implies an elevated ni/mc of 3.2% vs 3-yr avg ~1.5%, suggesting rich valuation. Margin compression, tariff impacts, and multiple normalization toward the mid-20s could pressure market cap lower even with modest earnings growth.\n\n## Logic\nTTM net income is $9,375M. Given raised guidance and backlog momentum, forward 12-month net income growth of ~10\u201312% is reasonable, yielding ~$10,400M. However, some of the TTM figure reflects favorable one-time items; a conservative-to-base forward net income of ~$10,300M is applied. The stock currently trades at ~30.9x TTM net income (289,433/9,375). Given high-growth positioning offset by Wind risk and multiple-normalization pressure, an applied multiple of ~29x is used\u2014slightly below current, reflecting balanced upside/downside. Forward market cap = $10,300M \u00d7 29 \u2248 $298,700M.\n\n```json\n{\"forward_market_cap_musd\": 298700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 8300.0, \"forward_netinc_musd\": 10300.0, \"applied_multiple\": 29.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Orders surged 71% organically with backlog near $163B heading to $200B by 2027. Raised 2026 guidance ($44.5\u201345.5B revenue, 12\u201314% EBITDA margin, $6.5\u20137.5B FCF), strong data-center-driven Electrification demand, 100 GW Gas Power pipeline, and SMR/nuclear optionality support continued net income expansion. Forward net income could reach ~$11,000M with a premium ~32\u201334x multiple as growth story stays intact, implying meaningful upside above current cap.",
+        "Bear Case": "Wind remains a structural drag (segment EBITDA loss ~$400M in 2026, offshore legal/project risk from Vineyard Wind litigation). Current TTM net income of $9,375M implies an elevated ni/mc of 3.2% vs 3-yr avg ~1.5%, suggesting rich valuation. Margin compression, tariff impacts, and multiple normalization toward the mid-20s could pressure market cap lower even with modest earnings growth.",
+        "Logic": "TTM net income is $9,375M. Given raised guidance and backlog momentum, forward 12-month net income growth of ~10\u201312% is reasonable, yielding ~$10,400M. However, some of the TTM figure reflects favorable one-time items; a conservative-to-base forward net income of ~$10,300M is applied. The stock currently trades at ~30.9x TTM net income (289,433/9,375). Given high-growth positioning offset by Wind risk and multiple-normalization pressure, an applied multiple of ~29x is used\u2014slightly below current, reflecting balanced upside/downside. Forward market cap = $10,300M \u00d7 29 \u2248 $298,700M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "GEV",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:23+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2435,
+        "completion_tokens": 755,
+        "total_tokens": 3190,
+        "cost": 0.03105,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03105,
+          "upstream_inference_prompt_cost": 0.012175,
+          "upstream_inference_completions_cost": 0.018875
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nGE Vernova rides a historic energy-capex supercycle: orders up 71% organically, backlog ~$163B heading to $200B by 2027, and data-center-driven Electrification demand accelerating. Raised 2026 guidance ($44.5B\u2013$45.5B revenue, 12%\u201314% EBITDA margin, $6.5B\u2013$7.5B FCF) suggests margin expansion. With Wind losses narrowing and Power/Electrification scaling, forward net income could reach ~$11.5B. Investors continue awarding a premium growth multiple (~35x), pushing market cap toward ~$400B.\n\n## Bear Case\nWind remains a persistent drag (~$400M EBITDA loss in 2026, offshore legal risk from Vineyard Wind litigation, tariff pressure). TTM net income of $9.4B may be partly non-recurring/timing-driven, and current NI/MC yield of only 3.2% is well above the 3-yr average (~1.5%), signaling a stretched valuation. If growth decelerates or margins disappoint, multiple compresses toward ~25x on flatter net income (~$9.5B), implying market cap contraction toward ~$240B.\n\n## Logic\n- **Forward net income:** TTM net income is $9,375M. Guidance implies revenue growth (~13% YoY) plus margin expansion. Applying moderate growth on top of a strong base, forward NI \u2248 $10,700M (accounting for continued Power/Electrification strength, partly offset by Wind losses and normalization of the elevated TTM figure).\n- **Applied multiple:** Current implied P/E on market cap is $289,433M / $9,375M \u2248 30.9x. Given elevated valuation vs. 3-yr NI/MC history but strong growth/backlog visibility, I apply a slightly compressed ~29x, reflecting a balance between growth premium and mean-reversion risk.\n- **Forward market cap:** $10,700M \u00d7 29 \u2248 $310,300M.\n\n```json\n{\"forward_market_cap_musd\": 310300.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 8200.0, \"forward_netinc_musd\": 10700.0, \"applied_multiple\": 29.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 310300.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 8200.0,
+        "forward_netinc_musd": 10700.0,
+        "applied_multiple": 29.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nGE Vernova rides a historic energy-capex supercycle: orders up 71% organically, backlog ~$163B heading to $200B by 2027, and data-center-driven Electrification demand accelerating. Raised 2026 guidance ($44.5B\u2013$45.5B revenue, 12%\u201314% EBITDA margin, $6.5B\u2013$7.5B FCF) suggests margin expansion. With Wind losses narrowing and Power/Electrification scaling, forward net income could reach ~$11.5B. Investors continue awarding a premium growth multiple (~35x), pushing market cap toward ~$400B.\n\n## Bear Case\nWind remains a persistent drag (~$400M EBITDA loss in 2026, offshore legal risk from Vineyard Wind litigation, tariff pressure). TTM net income of $9.4B may be partly non-recurring/timing-driven, and current NI/MC yield of only 3.2% is well above the 3-yr average (~1.5%), signaling a stretched valuation. If growth decelerates or margins disappoint, multiple compresses toward ~25x on flatter net income (~$9.5B), implying market cap contraction toward ~$240B.\n\n## Logic\n- **Forward net income:** TTM net income is $9,375M. Guidance implies revenue growth (~13% YoY) plus margin expansion. Applying moderate growth on top of a strong base, forward NI \u2248 $10,700M (accounting for continued Power/Electrification strength, partly offset by Wind losses and normalization of the elevated TTM figure).\n- **Applied multiple:** Current implied P/E on market cap is $289,433M / $9,375M \u2248 30.9x. Given elevated valuation vs. 3-yr NI/MC history but strong growth/backlog visibility, I apply a slightly compressed ~29x, reflecting a balance between growth premium and mean-reversion risk.\n- **Forward market cap:** $10,700M \u00d7 29 \u2248 $310,300M.\n\n```json\n{\"forward_market_cap_musd\": 310300.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 8200.0, \"forward_netinc_musd\": 10700.0, \"applied_multiple\": 29.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "GE Vernova rides a historic energy-capex supercycle: orders up 71% organically, backlog ~$163B heading to $200B by 2027, and data-center-driven Electrification demand accelerating. Raised 2026 guidance ($44.5B\u2013$45.5B revenue, 12%\u201314% EBITDA margin, $6.5B\u2013$7.5B FCF) suggests margin expansion. With Wind losses narrowing and Power/Electrification scaling, forward net income could reach ~$11.5B. Investors continue awarding a premium growth multiple (~35x), pushing market cap toward ~$400B.",
+        "Bear Case": "Wind remains a persistent drag (~$400M EBITDA loss in 2026, offshore legal risk from Vineyard Wind litigation, tariff pressure). TTM net income of $9.4B may be partly non-recurring/timing-driven, and current NI/MC yield of only 3.2% is well above the 3-yr average (~1.5%), signaling a stretched valuation. If growth decelerates or margins disappoint, multiple compresses toward ~25x on flatter net income (~$9.5B), implying market cap contraction toward ~$240B.",
+        "Logic": "- **Forward net income:** TTM net income is $9,375M. Guidance implies revenue growth (~13% YoY) plus margin expansion. Applying moderate growth on top of a strong base, forward NI \u2248 $10,700M (accounting for continued Power/Electrification strength, partly offset by Wind losses and normalization of the elevated TTM figure).\n- **Applied multiple:** Current implied P/E on market cap is $289,433M / $9,375M \u2248 30.9x. Given elevated valuation vs. 3-yr NI/MC history but strong growth/backlog visibility, I apply a slightly compressed ~29x, reflecting a balance between growth premium and mean-reversion risk.\n- **Forward market cap:** $10,700M \u00d7 29 \u2248 $310,300M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "GEV",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:40+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1640,
+        "completion_tokens": 2260,
+        "total_tokens": 3900,
+        "cost": 0.076,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.076,
+          "upstream_inference_prompt_cost": 0.0082,
+          "upstream_inference_completions_cost": 0.0678
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1847,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- GE Vernova converts the $163B backlog into higher-margin Power and Electrification revenue, with data-center/grid demand and gas-turbine slot reservations supporting sustained growth.\n- Forward net income could reach about $6,500M if revenue tracks the high end of guidance and Wind losses narrow faster than expected.\n- Applying a premium 58x P/E, still consistent with a scarcity/growth infrastructure name, implies a bull market cap of roughly $377,000M.\n\n## Bear Case\n- Wind losses, offshore disputes, tariffs, and execution risk keep earnings below implied demand strength.\n- Forward net income could fall toward $4,500M if EBITDA margins land near the low end and backlog conversion is slower.\n- Applying a de-rated 38x P/E implies a bear market cap of roughly $171,000M.\n\n## Logic\n- 2026 revenue guidance midpoint: about $45,000M.\n- Adjusted EBITDA margin midpoint: 13%, implying about $5,850M of adjusted EBITDA.\n- Free cash flow guidance midpoint is $7,000M, but TTM net income of $9,375M looks high versus EBITDA guidance, so I normalize 12-month forward net income to $5,800M.\n- Current market cap is $289,433M, or about 30.9x TTM net income; however, the 1-year average net-income yield implies closer to a 60x P/E. Given strong backlog and electrification demand but ongoing Wind risk, I apply a 50x forward P/E.\n- Forward market cap = $5,800M forward net income \u00d7 50.0x P/E = $290,000M.\n\n```json\n{\"forward_market_cap_musd\": 290000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": 5800.0, \"applied_multiple\": 50.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 290000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": 5800.0,
+        "applied_multiple": 50.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- GE Vernova converts the $163B backlog into higher-margin Power and Electrification revenue, with data-center/grid demand and gas-turbine slot reservations supporting sustained growth.\n- Forward net income could reach about $6,500M if revenue tracks the high end of guidance and Wind losses narrow faster than expected.\n- Applying a premium 58x P/E, still consistent with a scarcity/growth infrastructure name, implies a bull market cap of roughly $377,000M.\n\n## Bear Case\n- Wind losses, offshore disputes, tariffs, and execution risk keep earnings below implied demand strength.\n- Forward net income could fall toward $4,500M if EBITDA margins land near the low end and backlog conversion is slower.\n- Applying a de-rated 38x P/E implies a bear market cap of roughly $171,000M.\n\n## Logic\n- 2026 revenue guidance midpoint: about $45,000M.\n- Adjusted EBITDA margin midpoint: 13%, implying about $5,850M of adjusted EBITDA.\n- Free cash flow guidance midpoint is $7,000M, but TTM net income of $9,375M looks high versus EBITDA guidance, so I normalize 12-month forward net income to $5,800M.\n- Current market cap is $289,433M, or about 30.9x TTM net income; however, the 1-year average net-income yield implies closer to a 60x P/E. Given strong backlog and electrification demand but ongoing Wind risk, I apply a 50x forward P/E.\n- Forward market cap = $5,800M forward net income \u00d7 50.0x P/E = $290,000M.\n\n```json\n{\"forward_market_cap_musd\": 290000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": 5800.0, \"applied_multiple\": 50.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- GE Vernova converts the $163B backlog into higher-margin Power and Electrification revenue, with data-center/grid demand and gas-turbine slot reservations supporting sustained growth.\n- Forward net income could reach about $6,500M if revenue tracks the high end of guidance and Wind losses narrow faster than expected.\n- Applying a premium 58x P/E, still consistent with a scarcity/growth infrastructure name, implies a bull market cap of roughly $377,000M.",
+        "Bear Case": "- Wind losses, offshore disputes, tariffs, and execution risk keep earnings below implied demand strength.\n- Forward net income could fall toward $4,500M if EBITDA margins land near the low end and backlog conversion is slower.\n- Applying a de-rated 38x P/E implies a bear market cap of roughly $171,000M.",
+        "Logic": "- 2026 revenue guidance midpoint: about $45,000M.\n- Adjusted EBITDA margin midpoint: 13%, implying about $5,850M of adjusted EBITDA.\n- Free cash flow guidance midpoint is $7,000M, but TTM net income of $9,375M looks high versus EBITDA guidance, so I normalize 12-month forward net income to $5,800M.\n- Current market cap is $289,433M, or about 30.9x TTM net income; however, the 1-year average net-income yield implies closer to a 60x P/E. Given strong backlog and electrification demand but ongoing Wind risk, I apply a 50x forward P/E.\n- Forward market cap = $5,800M forward net income \u00d7 50.0x P/E = $290,000M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "GEV",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:44+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1640,
+        "completion_tokens": 1960,
+        "total_tokens": 3600,
+        "cost": 0.067,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.067,
+          "upstream_inference_prompt_cost": 0.0082,
+          "upstream_inference_completions_cost": 0.0588
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1534,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nGE Vernova\u2019s backlog, Power demand, Electrification/data-center orders, and 2026 revenue guidance support a premium valuation. If forward net income grows to about $10.5B and the market applies a 35x\u201338x P/E for scarce grid/gas/nuclear growth exposure, market cap could be roughly $365B\u2013$400B.\n\n## Bear Case\nWind losses, offshore project/legal risk, tariff pressure, and the gap between very high TTM net income and lower guided FCF/EBITDA could force earnings normalization. If forward net income falls toward $7.0B\u2013$7.5B and the multiple compresses to 24x\u201327x, market cap could be roughly $170B\u2013$200B.\n\n## Logic\nBase forward revenue uses management\u2019s 2026 midpoint of about $45.0B versus TTM revenue of $39.375B, or about 14% growth. Starting from TTM net income of $9.375B, I apply that revenue growth but haircut margins by 10% to reflect Wind losses, tariff/project risk, and the fact that guided FCF is below TTM FCF.\n\nForward net income estimate:  \n$9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.90 \u2248 $9,650M.\n\nCurrent market cap / TTM net income implies a P/E of about 30.9x. I apply a rounded 31.0x P/E, keeping the current premium because of backlog and Electrification/Power momentum, but not expanding it due to Wind and normalization risk.\n\nForward market cap:  \n$9,650M \u00d7 31.0x = $299,150M.\n\n```json\n{\"forward_market_cap_musd\": 299150.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": 9650.0, \"applied_multiple\": 31.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 299150.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": 9650.0,
+        "applied_multiple": 31.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nGE Vernova\u2019s backlog, Power demand, Electrification/data-center orders, and 2026 revenue guidance support a premium valuation. If forward net income grows to about $10.5B and the market applies a 35x\u201338x P/E for scarce grid/gas/nuclear growth exposure, market cap could be roughly $365B\u2013$400B.\n\n## Bear Case\nWind losses, offshore project/legal risk, tariff pressure, and the gap between very high TTM net income and lower guided FCF/EBITDA could force earnings normalization. If forward net income falls toward $7.0B\u2013$7.5B and the multiple compresses to 24x\u201327x, market cap could be roughly $170B\u2013$200B.\n\n## Logic\nBase forward revenue uses management\u2019s 2026 midpoint of about $45.0B versus TTM revenue of $39.375B, or about 14% growth. Starting from TTM net income of $9.375B, I apply that revenue growth but haircut margins by 10% to reflect Wind losses, tariff/project risk, and the fact that guided FCF is below TTM FCF.\n\nForward net income estimate:  \n$9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.90 \u2248 $9,650M.\n\nCurrent market cap / TTM net income implies a P/E of about 30.9x. I apply a rounded 31.0x P/E, keeping the current premium because of backlog and Electrification/Power momentum, but not expanding it due to Wind and normalization risk.\n\nForward market cap:  \n$9,650M \u00d7 31.0x = $299,150M.\n\n```json\n{\"forward_market_cap_musd\": 299150.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": 9650.0, \"applied_multiple\": 31.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "GE Vernova\u2019s backlog, Power demand, Electrification/data-center orders, and 2026 revenue guidance support a premium valuation. If forward net income grows to about $10.5B and the market applies a 35x\u201338x P/E for scarce grid/gas/nuclear growth exposure, market cap could be roughly $365B\u2013$400B.",
+        "Bear Case": "Wind losses, offshore project/legal risk, tariff pressure, and the gap between very high TTM net income and lower guided FCF/EBITDA could force earnings normalization. If forward net income falls toward $7.0B\u2013$7.5B and the multiple compresses to 24x\u201327x, market cap could be roughly $170B\u2013$200B.",
+        "Logic": "Base forward revenue uses management\u2019s 2026 midpoint of about $45.0B versus TTM revenue of $39.375B, or about 14% growth. Starting from TTM net income of $9.375B, I apply that revenue growth but haircut margins by 10% to reflect Wind losses, tariff/project risk, and the fact that guided FCF is below TTM FCF.\n\nForward net income estimate:  \n$9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.90 \u2248 $9,650M.\n\nCurrent market cap / TTM net income implies a P/E of about 30.9x. I apply a rounded 31.0x P/E, keeping the current premium because of backlog and Electrification/Power momentum, but not expanding it due to Wind and normalization risk.\n\nForward market cap:  \n$9,650M \u00d7 31.0x = $299,150M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "GEV",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:39:07+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1640,
+        "completion_tokens": 3656,
+        "total_tokens": 5296,
+        "cost": 0.11212,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11212,
+          "upstream_inference_prompt_cost": 0.00244,
+          "upstream_inference_completions_cost": 0.10968
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3096,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Backlog conversion remains strong, with Power and Electrification benefiting from gas-turbine demand, grid upgrades, data-center load growth, and transformer/HVDC scarcity.\n- 2026 guidance midpoint revenue is about $45,000M versus TTM revenue of $39,375M, implying roughly 14% growth; if margins hold or improve and Wind losses narrow faster, forward net income could exceed $11,000M.\n- A premium P/E of 32x\u201335x could be justified by the $163,000M backlog, expected path toward $200,000M backlog in 2027, and visible grid/gas demand.\n- Bull-case market cap range: roughly $350,000M\u2013$385,000M.\n\n## Bear Case\n- Wind remains a material drag, with tariff impacts, offshore contract losses, and legal/project risk limiting consolidated margin expansion.\n- If the high TTM net income base normalizes lower despite revenue growth, forward net income could be closer to $8,000M\u2013$9,000M.\n- A derating to 24x\u201327x P/E is possible if investors focus on cyclical equipment risk, execution risk, or the gap between adjusted EBITDA guidance and reported TTM net income.\n- Bear-case market cap range: roughly $190,000M\u2013$240,000M.\n\n## Logic\n- Starting point: current market cap is $289,432.9M and TTM net income is $9,375M, implying a current P/E of about 30.9x.\n- Forward net income estimate: TTM net income of $9,375M is grown by the revenue guidance step-up from $39,375M TTM revenue to the 2026 guidance midpoint of $45,000M, then modestly haircut for Wind losses and normalization risk:  \n  $9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.95 \u2248 $10,180M.\n- Applied multiple: 30.0x forward P/E, slightly below the current 30.9x to reflect elevated valuation and Wind risk, but still premium due to backlog growth, Electrification demand, gas-power demand, and nuclear/SMR optionality.\n- Forward market cap: $10,180M \u00d7 30.0x = $305,400M.\n\n```json\n{\"forward_market_cap_musd\": 305400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10180.0, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 305400.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 10180.0,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Backlog conversion remains strong, with Power and Electrification benefiting from gas-turbine demand, grid upgrades, data-center load growth, and transformer/HVDC scarcity.\n- 2026 guidance midpoint revenue is about $45,000M versus TTM revenue of $39,375M, implying roughly 14% growth; if margins hold or improve and Wind losses narrow faster, forward net income could exceed $11,000M.\n- A premium P/E of 32x\u201335x could be justified by the $163,000M backlog, expected path toward $200,000M backlog in 2027, and visible grid/gas demand.\n- Bull-case market cap range: roughly $350,000M\u2013$385,000M.\n\n## Bear Case\n- Wind remains a material drag, with tariff impacts, offshore contract losses, and legal/project risk limiting consolidated margin expansion.\n- If the high TTM net income base normalizes lower despite revenue growth, forward net income could be closer to $8,000M\u2013$9,000M.\n- A derating to 24x\u201327x P/E is possible if investors focus on cyclical equipment risk, execution risk, or the gap between adjusted EBITDA guidance and reported TTM net income.\n- Bear-case market cap range: roughly $190,000M\u2013$240,000M.\n\n## Logic\n- Starting point: current market cap is $289,432.9M and TTM net income is $9,375M, implying a current P/E of about 30.9x.\n- Forward net income estimate: TTM net income of $9,375M is grown by the revenue guidance step-up from $39,375M TTM revenue to the 2026 guidance midpoint of $45,000M, then modestly haircut for Wind losses and normalization risk:  \n  $9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.95 \u2248 $10,180M.\n- Applied multiple: 30.0x forward P/E, slightly below the current 30.9x to reflect elevated valuation and Wind risk, but still premium due to backlog growth, Electrification demand, gas-power demand, and nuclear/SMR optionality.\n- Forward market cap: $10,180M \u00d7 30.0x = $305,400M.\n\n```json\n{\"forward_market_cap_musd\": 305400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10180.0, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Backlog conversion remains strong, with Power and Electrification benefiting from gas-turbine demand, grid upgrades, data-center load growth, and transformer/HVDC scarcity.\n- 2026 guidance midpoint revenue is about $45,000M versus TTM revenue of $39,375M, implying roughly 14% growth; if margins hold or improve and Wind losses narrow faster, forward net income could exceed $11,000M.\n- A premium P/E of 32x\u201335x could be justified by the $163,000M backlog, expected path toward $200,000M backlog in 2027, and visible grid/gas demand.\n- Bull-case market cap range: roughly $350,000M\u2013$385,000M.",
+        "Bear Case": "- Wind remains a material drag, with tariff impacts, offshore contract losses, and legal/project risk limiting consolidated margin expansion.\n- If the high TTM net income base normalizes lower despite revenue growth, forward net income could be closer to $8,000M\u2013$9,000M.\n- A derating to 24x\u201327x P/E is possible if investors focus on cyclical equipment risk, execution risk, or the gap between adjusted EBITDA guidance and reported TTM net income.\n- Bear-case market cap range: roughly $190,000M\u2013$240,000M.",
+        "Logic": "- Starting point: current market cap is $289,432.9M and TTM net income is $9,375M, implying a current P/E of about 30.9x.\n- Forward net income estimate: TTM net income of $9,375M is grown by the revenue guidance step-up from $39,375M TTM revenue to the 2026 guidance midpoint of $45,000M, then modestly haircut for Wind losses and normalization risk:  \n  $9,375M \u00d7 ($45,000M / $39,375M) \u00d7 0.95 \u2248 $10,180M.\n- Applied multiple: 30.0x forward P/E, slightly below the current 30.9x to reflect elevated valuation and Wind risk, but still premium due to backlog growth, Electrification demand, gas-power demand, and nuclear/SMR optionality.\n- Forward market cap: $10,180M \u00d7 30.0x = $305,400M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "GEV",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:39:15+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1727,
+        "completion_tokens": 3898,
+        "total_tokens": 5625,
+        "cost": 0.0176121,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0176121,
+          "upstream_inference_prompt_cost": 0.00217602,
+          "upstream_inference_completions_cost": 0.01543608
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3215,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nGE Vernova's $163B backlog (heading to $200B by 2027) provides exceptional revenue visibility at ~3.6x TTM revenue. Q1 2026 orders of $18.3B (+71% organic) signal demand acceleration driven by data-center electrification ($2.4B in Q1 alone, exceeding all of 2025), gas power (100 GW backlog), and nuclear/SMR optionality ($40B U.S.-Japan commitment). With 2026 revenue guidance of $44.5\u2013$45.5B (+13\u201316% YoY) and Power/Electrification margins expanding, forward net income could sustain or exceed TTM levels of $9.4B. Applying a growth-justified 32\u201335x P/E (given backlog conversion and secular tailwinds) yields a forward market cap of $300\u2013330B.\n\n## Bear Case\nTTM net income of $9,375M implies a 23.8% net margin, which appears elevated relative to adjusted EBITDA margin guidance of 12\u201314% \u2014 suggesting one-time or non-operating benefits that may not recur. Wind remains a persistent drag ($382M Q1 EBITDA loss; ~$400M full-year expected), with offshore legal risk (Vineyard Wind lawsuit) and tariff headwinds. Forward FCF guidance of $6.5\u20137.5B is actually below TTM FCF of $7.7B, signaling cash normalization. The stock has already rerated significantly (current market cap $289B vs. 3-year mean of $135B), limiting upside. If forward net income normalizes to $6\u20137B and the multiple compresses to 25\u201328x, fair value could be $150\u2013196B.\n\n## Logic\nTTM net income of $9,375M likely includes non-recurring gains given the disconnect with 12\u201314% adjusted EBITDA margins on ~$45B revenue (implying ~$5.5\u20136.3B EBITDA). I estimate forward 12-month net income at $8,000M, reflecting continued revenue growth (+14%) and strong Power/Electrification profitability, partially offset by Wind losses (~$400M EBITDA drag) and some normalization from potentially inflated TTM levels. This sits between the bear case ($6\u20137B) and bull case ($9\u201310B+). I apply a 30x P/E multiple, in line with the current TTM P/E of ~30.9x and justified by the secular growth profile (massive backlog, data-center demand, nuclear optionality) but tempered by Wind operational risk and earnings-quality uncertainty. Forward FCF is set at $7,000M (midpoint of $6.5\u20137.5B guidance). Forward market cap: $8,000M \u00d7 30 = $240,000M.\n\n```json\n{\"forward_market_cap_musd\": 240000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 8000.0, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 240000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 8000.0,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nGE Vernova's $163B backlog (heading to $200B by 2027) provides exceptional revenue visibility at ~3.6x TTM revenue. Q1 2026 orders of $18.3B (+71% organic) signal demand acceleration driven by data-center electrification ($2.4B in Q1 alone, exceeding all of 2025), gas power (100 GW backlog), and nuclear/SMR optionality ($40B U.S.-Japan commitment). With 2026 revenue guidance of $44.5\u2013$45.5B (+13\u201316% YoY) and Power/Electrification margins expanding, forward net income could sustain or exceed TTM levels of $9.4B. Applying a growth-justified 32\u201335x P/E (given backlog conversion and secular tailwinds) yields a forward market cap of $300\u2013330B.\n\n## Bear Case\nTTM net income of $9,375M implies a 23.8% net margin, which appears elevated relative to adjusted EBITDA margin guidance of 12\u201314% \u2014 suggesting one-time or non-operating benefits that may not recur. Wind remains a persistent drag ($382M Q1 EBITDA loss; ~$400M full-year expected), with offshore legal risk (Vineyard Wind lawsuit) and tariff headwinds. Forward FCF guidance of $6.5\u20137.5B is actually below TTM FCF of $7.7B, signaling cash normalization. The stock has already rerated significantly (current market cap $289B vs. 3-year mean of $135B), limiting upside. If forward net income normalizes to $6\u20137B and the multiple compresses to 25\u201328x, fair value could be $150\u2013196B.\n\n## Logic\nTTM net income of $9,375M likely includes non-recurring gains given the disconnect with 12\u201314% adjusted EBITDA margins on ~$45B revenue (implying ~$5.5\u20136.3B EBITDA). I estimate forward 12-month net income at $8,000M, reflecting continued revenue growth (+14%) and strong Power/Electrification profitability, partially offset by Wind losses (~$400M EBITDA drag) and some normalization from potentially inflated TTM levels. This sits between the bear case ($6\u20137B) and bull case ($9\u201310B+). I apply a 30x P/E multiple, in line with the current TTM P/E of ~30.9x and justified by the secular growth profile (massive backlog, data-center demand, nuclear optionality) but tempered by Wind operational risk and earnings-quality uncertainty. Forward FCF is set at $7,000M (midpoint of $6.5\u20137.5B guidance). Forward market cap: $8,000M \u00d7 30 = $240,000M.\n\n```json\n{\"forward_market_cap_musd\": 240000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 8000.0, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "GE Vernova's $163B backlog (heading to $200B by 2027) provides exceptional revenue visibility at ~3.6x TTM revenue. Q1 2026 orders of $18.3B (+71% organic) signal demand acceleration driven by data-center electrification ($2.4B in Q1 alone, exceeding all of 2025), gas power (100 GW backlog), and nuclear/SMR optionality ($40B U.S.-Japan commitment). With 2026 revenue guidance of $44.5\u2013$45.5B (+13\u201316% YoY) and Power/Electrification margins expanding, forward net income could sustain or exceed TTM levels of $9.4B. Applying a growth-justified 32\u201335x P/E (given backlog conversion and secular tailwinds) yields a forward market cap of $300\u2013330B.",
+        "Bear Case": "TTM net income of $9,375M implies a 23.8% net margin, which appears elevated relative to adjusted EBITDA margin guidance of 12\u201314% \u2014 suggesting one-time or non-operating benefits that may not recur. Wind remains a persistent drag ($382M Q1 EBITDA loss; ~$400M full-year expected), with offshore legal risk (Vineyard Wind lawsuit) and tariff headwinds. Forward FCF guidance of $6.5\u20137.5B is actually below TTM FCF of $7.7B, signaling cash normalization. The stock has already rerated significantly (current market cap $289B vs. 3-year mean of $135B), limiting upside. If forward net income normalizes to $6\u20137B and the multiple compresses to 25\u201328x, fair value could be $150\u2013196B.",
+        "Logic": "TTM net income of $9,375M likely includes non-recurring gains given the disconnect with 12\u201314% adjusted EBITDA margins on ~$45B revenue (implying ~$5.5\u20136.3B EBITDA). I estimate forward 12-month net income at $8,000M, reflecting continued revenue growth (+14%) and strong Power/Electrification profitability, partially offset by Wind losses (~$400M EBITDA drag) and some normalization from potentially inflated TTM levels. This sits between the bear case ($6\u20137B) and bull case ($9\u201310B+). I apply a 30x P/E multiple, in line with the current TTM P/E of ~30.9x and justified by the secular growth profile (massive backlog, data-center demand, nuclear optionality) but tempered by Wind operational risk and earnings-quality uncertainty. Forward FCF is set at $7,000M (midpoint of $6.5\u20137.5B guidance). Forward market cap: $8,000M \u00d7 30 = $240,000M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "GEV",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1727,
+        "completion_tokens": 1336,
+        "total_tokens": 3063,
+        "cost": 0.00746658,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00746658,
+          "upstream_inference_prompt_cost": 0.00217602,
+          "upstream_inference_completions_cost": 0.00529056
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 801,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nGE Vernova's $163B backlog (heading toward $200B in 2027) provides exceptional revenue visibility. Q1 2026 orders of $18.3B (+71% organic) and data-center electrification orders already exceeding full-year 2025 signal sustained demand. Gas Power backlog at 100 GW, nuclear/SMR optionality with up to $40B in government support, and GridOS software launch all support multiple expansion. If Wind losses narrow faster than guided, forward net income could exceed $11B, justifying a P/E above 35x and a market cap approaching $400B.\n\n## Bear Case\nWind remains a structural drag with ~$400M in guided 2026 EBITDA losses and offshore legal risk (Vineyard Wind lawsuit). TTM net income of $9.4B already represents a 5x jump from the prior year, raising the risk of normalization or one-time benefits not repeating. The current P/E of ~31x is well below the 3-year average of ~66x, but that average reflects a period of depressed earnings \u2014 the re-rating risk is to the downside if growth decelerates. At a more conservative 25-28x multiple on ~$10.5B forward net income, the market cap could stall around $260-295B.\n\n## Logic\n- **Forward net income:** TTM net income is $9,375M. 2026 revenue guidance midpoint is ~$45B vs. $39.4B TTM (~14% growth). Assuming net income grows ~15% (slight margin expansion from Electrification/Power scale, partially offset by Wind losses), forward net income \u2248 **$10,800M**.\n- **Applied P/E multiple:** Current trailing P/E is ~31x. The 1y and 3y averages (~60x, ~66x) are distorted by previously depressed earnings. Given strong backlog and demand but already-elevated market cap (~$289B), a forward P/E of ~30x is reasonable \u2014 modestly below trailing to reflect earnings catch-up.\n- **Forward market cap:** $10,800M \u00d7 30x \u2248 **$324,000M**.\n\n```json\n{\"forward_market_cap_musd\": 324000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10800.0, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 324000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 10800.0,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nGE Vernova's $163B backlog (heading toward $200B in 2027) provides exceptional revenue visibility. Q1 2026 orders of $18.3B (+71% organic) and data-center electrification orders already exceeding full-year 2025 signal sustained demand. Gas Power backlog at 100 GW, nuclear/SMR optionality with up to $40B in government support, and GridOS software launch all support multiple expansion. If Wind losses narrow faster than guided, forward net income could exceed $11B, justifying a P/E above 35x and a market cap approaching $400B.\n\n## Bear Case\nWind remains a structural drag with ~$400M in guided 2026 EBITDA losses and offshore legal risk (Vineyard Wind lawsuit). TTM net income of $9.4B already represents a 5x jump from the prior year, raising the risk of normalization or one-time benefits not repeating. The current P/E of ~31x is well below the 3-year average of ~66x, but that average reflects a period of depressed earnings \u2014 the re-rating risk is to the downside if growth decelerates. At a more conservative 25-28x multiple on ~$10.5B forward net income, the market cap could stall around $260-295B.\n\n## Logic\n- **Forward net income:** TTM net income is $9,375M. 2026 revenue guidance midpoint is ~$45B vs. $39.4B TTM (~14% growth). Assuming net income grows ~15% (slight margin expansion from Electrification/Power scale, partially offset by Wind losses), forward net income \u2248 **$10,800M**.\n- **Applied P/E multiple:** Current trailing P/E is ~31x. The 1y and 3y averages (~60x, ~66x) are distorted by previously depressed earnings. Given strong backlog and demand but already-elevated market cap (~$289B), a forward P/E of ~30x is reasonable \u2014 modestly below trailing to reflect earnings catch-up.\n- **Forward market cap:** $10,800M \u00d7 30x \u2248 **$324,000M**.\n\n```json\n{\"forward_market_cap_musd\": 324000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10800.0, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "GE Vernova's $163B backlog (heading toward $200B in 2027) provides exceptional revenue visibility. Q1 2026 orders of $18.3B (+71% organic) and data-center electrification orders already exceeding full-year 2025 signal sustained demand. Gas Power backlog at 100 GW, nuclear/SMR optionality with up to $40B in government support, and GridOS software launch all support multiple expansion. If Wind losses narrow faster than guided, forward net income could exceed $11B, justifying a P/E above 35x and a market cap approaching $400B.",
+        "Bear Case": "Wind remains a structural drag with ~$400M in guided 2026 EBITDA losses and offshore legal risk (Vineyard Wind lawsuit). TTM net income of $9.4B already represents a 5x jump from the prior year, raising the risk of normalization or one-time benefits not repeating. The current P/E of ~31x is well below the 3-year average of ~66x, but that average reflects a period of depressed earnings \u2014 the re-rating risk is to the downside if growth decelerates. At a more conservative 25-28x multiple on ~$10.5B forward net income, the market cap could stall around $260-295B.",
+        "Logic": "- **Forward net income:** TTM net income is $9,375M. 2026 revenue guidance midpoint is ~$45B vs. $39.4B TTM (~14% growth). Assuming net income grows ~15% (slight margin expansion from Electrification/Power scale, partially offset by Wind losses), forward net income \u2248 **$10,800M**.\n- **Applied P/E multiple:** Current trailing P/E is ~31x. The 1y and 3y averages (~60x, ~66x) are distorted by previously depressed earnings. Given strong backlog and demand but already-elevated market cap (~$289B), a forward P/E of ~30x is reasonable \u2014 modestly below trailing to reflect earnings catch-up.\n- **Forward market cap:** $10,800M \u00d7 30x \u2248 **$324,000M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "GEV",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:38:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f9953a13165136f18c8f45eaaecf59e5ef1b2ed96ed15e61a5b2ea79498c33e8",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1727,
+        "completion_tokens": 1491,
+        "total_tokens": 3218,
+        "cost": 0.006407623,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1263,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.006407623,
+          "upstream_inference_prompt_cost": 0.000831283,
+          "upstream_inference_completions_cost": 0.00557634
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 967,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBacklog of ~$163B (rising toward $200B by 2027), Q1 orders up 71% organically, data-center electrification demand accelerating, Gas Power backlog at 100 GW, and SMR optionality all support sustained double-digit revenue growth. 2026 revenue guidance of $44.5\u2013$45.5B implies ~13\u201316% growth. If margins hold near the TTM ~23.8% net income level despite Wind losses, forward net income could reach ~$11\u201312B. With a market that has already priced in ~31x P/E, sustained backlog conversion could justify holding a premium multiple (~28x), implying a forward market cap of ~$310\u2013$336B.\n\n## Bear Case\nWind segment EBITDA losses of ~$400M persist, offshore legal risk from Vineyard Wind adds uncertainty, and 2026 FCF guidance of $6.5\u2013$7.5B is actually below TTM FCF of $7.7B, suggesting cash conversion may weaken even as revenue grows. The current ~31x P/E is well above historical norms (3-yr mean market cap of ~$135B), and any disappointment in order execution, tariff impacts, or data-center demand realization could trigger multiple compression toward ~20\u201322x. With forward net income potentially flat-to-modestly-up at ~$10B, a compressed multiple yields ~$200\u2013$220B.\n\n## Logic\nForward net income is estimated by taking 2026 revenue guidance midpoint of ~$45B and applying a net margin assumption slightly below the TTM 23.8% (to account for continued Wind losses and tariff headwinds), yielding ~$10.5B forward net income. The applied P/E multiple of ~25x sits between the current ~31x and a more normalized industrial-level multiple, reflecting strong backlog and demand visibility but acknowledging stretched valuation and FCF guidance that doesn't grow. Forward market cap = $10,500M \u00d7 25x = ~$262,500M. Forward FCF is guided at $6.5\u2013$7.5B; midpoint ~$7.0B.\n\n```json\n{\"forward_market_cap_musd\": 262500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10500.0, \"applied_multiple\": 25.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 262500.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 10500.0,
+        "applied_multiple": 25.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBacklog of ~$163B (rising toward $200B by 2027), Q1 orders up 71% organically, data-center electrification demand accelerating, Gas Power backlog at 100 GW, and SMR optionality all support sustained double-digit revenue growth. 2026 revenue guidance of $44.5\u2013$45.5B implies ~13\u201316% growth. If margins hold near the TTM ~23.8% net income level despite Wind losses, forward net income could reach ~$11\u201312B. With a market that has already priced in ~31x P/E, sustained backlog conversion could justify holding a premium multiple (~28x), implying a forward market cap of ~$310\u2013$336B.\n\n## Bear Case\nWind segment EBITDA losses of ~$400M persist, offshore legal risk from Vineyard Wind adds uncertainty, and 2026 FCF guidance of $6.5\u2013$7.5B is actually below TTM FCF of $7.7B, suggesting cash conversion may weaken even as revenue grows. The current ~31x P/E is well above historical norms (3-yr mean market cap of ~$135B), and any disappointment in order execution, tariff impacts, or data-center demand realization could trigger multiple compression toward ~20\u201322x. With forward net income potentially flat-to-modestly-up at ~$10B, a compressed multiple yields ~$200\u2013$220B.\n\n## Logic\nForward net income is estimated by taking 2026 revenue guidance midpoint of ~$45B and applying a net margin assumption slightly below the TTM 23.8% (to account for continued Wind losses and tariff headwinds), yielding ~$10.5B forward net income. The applied P/E multiple of ~25x sits between the current ~31x and a more normalized industrial-level multiple, reflecting strong backlog and demand visibility but acknowledging stretched valuation and FCF guidance that doesn't grow. Forward market cap = $10,500M \u00d7 25x = ~$262,500M. Forward FCF is guided at $6.5\u2013$7.5B; midpoint ~$7.0B.\n\n```json\n{\"forward_market_cap_musd\": 262500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 10500.0, \"applied_multiple\": 25.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Backlog of ~$163B (rising toward $200B by 2027), Q1 orders up 71% organically, data-center electrification demand accelerating, Gas Power backlog at 100 GW, and SMR optionality all support sustained double-digit revenue growth. 2026 revenue guidance of $44.5\u2013$45.5B implies ~13\u201316% growth. If margins hold near the TTM ~23.8% net income level despite Wind losses, forward net income could reach ~$11\u201312B. With a market that has already priced in ~31x P/E, sustained backlog conversion could justify holding a premium multiple (~28x), implying a forward market cap of ~$310\u2013$336B.",
+        "Bear Case": "Wind segment EBITDA losses of ~$400M persist, offshore legal risk from Vineyard Wind adds uncertainty, and 2026 FCF guidance of $6.5\u2013$7.5B is actually below TTM FCF of $7.7B, suggesting cash conversion may weaken even as revenue grows. The current ~31x P/E is well above historical norms (3-yr mean market cap of ~$135B), and any disappointment in order execution, tariff impacts, or data-center demand realization could trigger multiple compression toward ~20\u201322x. With forward net income potentially flat-to-modestly-up at ~$10B, a compressed multiple yields ~$200\u2013$220B.",
+        "Logic": "Forward net income is estimated by taking 2026 revenue guidance midpoint of ~$45B and applying a net margin assumption slightly below the TTM 23.8% (to account for continued Wind losses and tariff headwinds), yielding ~$10.5B forward net income. The applied P/E multiple of ~25x sits between the current ~31x and a more normalized industrial-level multiple, reflecting strong backlog and demand visibility but acknowledging stretched valuation and FCF guidance that doesn't grow. Forward market cap = $10,500M \u00d7 25x = ~$262,500M. Forward FCF is guided at $6.5\u2013$7.5B; midpoint ~$7.0B."
+      }
+    }
+  ]
+}

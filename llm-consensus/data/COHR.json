@@ -1,0 +1,885 @@
+{
+  "asset_id": "COHR",
+  "aggregate_row": {
+    "asset_id": "COHR",
+    "name": "COHERENT CORP",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 61456.2,
+    "std_pct_of_mean": 0.9450108522398475,
+    "models": {
+      "Fable": {
+        "forward_mc": 64710.0,
+        "pct_upside": 0.052945024261181084,
+        "bullishness": 0.05602583730725605,
+        "n_samples": 3,
+        "forward_mc_iqr": 1250.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 52209.6,
+        "pct_upside": -0.1504583752330928,
+        "bullishness": -0.1592133835039874,
+        "n_samples": 3,
+        "forward_mc_iqr": 11000.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 61209.6,
+        "pct_upside": -0.004012613861579473,
+        "bullishness": -0.004246103472853088,
+        "n_samples": 3,
+        "forward_mc_iqr": 1875.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 33210.0,
+        "pct_upside": -0.4596151405391157,
+        "bullishness": -0.4863596428017141,
+        "n_samples": 3,
+        "forward_mc_iqr": 17500.2
+      }
+    },
+    "consensus_bullishness": -0.08172974348842024,
+    "consensus_bullishness_mean": -0.14844832311782463,
+    "consensus_pct_upside": -0.07723549454733614,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nCoherent Corp. is a global photonics and compound-semiconductor company serving communications, AI data centers, industrial lasers, instrumentation, electronics, and materials markets. The company describes itself as a \u201cglobal photonics leader\u201d with core capabilities in materials, optics, lasers, thermoelectrics, and networking products. ([coherent.com](https://www.coherent.com/company/about-us?utm_source=openai))\n\n## What It Does\n\nCoherent makes optical components, transceivers, lasers, engineered materials, thermoelectric products, and photonic subsystems used to move, generate, shape, and manage light. Its current growth center is Datacenter & Communications: 800G and 1.6T optical transceivers, ZR/ZR+ coherent modules, optical circuit switches, indium phosphide photonic devices, and co-packaged optics for AI data-center networks. It also sells industrial laser and materials products used in semiconductor equipment, manufacturing, medical, and scientific applications. ([coherent.com](https://www.coherent.com/?utm_source=openai))\n\n## Recent Highlights (Positive)\n\nCoherent\u2019s May 6, 2026 fiscal Q3 report showed record quarterly revenue of **$1.81 billion**, up **21% year over year**, with non-GAAP gross margin of **39.6%** and non-GAAP EPS of **$1.41**; management guided fiscal Q4 revenue to **$1.91 billion\u2013$2.05 billion**. ([coherent.com](https://www.coherent.com/content/dam/coherent/site/en/documents/investors/financial-releases/2026/may-6/earnings-release-fy26-q3.pdf?utm_source=openai)) In the call excerpt, management said Datacenter & Communications represented **75%** of revenue, data-center revenue rose **37% year over year**, communications rose **60%**, backlog reached a record level, and orders extended into calendar 2028.\n\nCapacity expansion is central to the bull case: management said 6-inch indium phosphide yields are exceeding legacy 3-inch lines and that internal InP capacity should double by calendar 2026, one quarter earlier than originally planned, then more than double again by the end of calendar 2027. On June 16, 2026, the U.S. Commerce Department announced a letter of intent for up to **$50 million** in CHIPS funding to expand Coherent\u2019s Sherman, Texas 6-inch InP facility; Coherent said the project would double manufacturing space and quadruple wafer capacity. ([nist.gov](https://www.nist.gov/news-events/news/2026/06/department-commerces-chips-program-announces-letter-intent-coherent-50?utm_source=openai))\n\nNVIDIA\u2019s recently announced strategic partnership remains a major validation signal. NVIDIA and Coherent announced a partnership to develop optics technology for next-generation data-center architecture, and the transcript notes a **$2 billion NVIDIA equity investment** plus a multiyear supply agreement extending through the end of the decade, covering CPO-related products including high-power continuous-wave lasers. ([nvidianews.nvidia.com](https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture?utm_source=openai))\n\n## Recent Highlights (Negative)\n\nExecution risk is high because the growth plan depends on rapid capacity ramps in constrained technologies. Management explicitly identified indium phosphide as an industry-wide bottleneck, and Reuters reported in June 2026 that China\u2019s export restrictions on InP threaten AI data-center rollouts; the report said average 6-inch InP wafer prices had risen **250% to $5,000** since restrictions began. ([m.investing.com](https://m.investing.com/news/stock-market-news/chinas-control-over-indium-phosphide-exports-threatens-ai-data-centre-rollout-4736446?ampMode=1&utm_source=openai))\n\nCapital intensity is rising. In fiscal Q3, Coherent\u2019s capex increased to **$290 million** from **$154 million** in the prior quarter and **$112 million** a year earlier, and management said capex would increase sequentially again in fiscal Q4 to support data-center and communications demand. ([coherent.com](https://www.coherent.com/content/dam/coherent/site/en/documents/investors/financial-releases/2026/may-6/earnings-release-fy26-q3.pdf?utm_source=openai))\n\nThe business mix is increasingly tied to AI optical-networking adoption timelines. The transcript frames CPO, OCS, multi-rail, and thermal solutions as future growth vectors, but several are still ramping or expected to begin revenue contribution later, including multi-rail in first-half calendar 2027 and thermal products in second-half calendar 2027. Industrial also remains soft: management said Industrial revenue declined modestly sequentially and year over year, reflecting weakness in parts of the broader industrial market.\n",
+  "primer_meta": {
+    "asset_id": "COHR",
+    "created_at_utc": "2026-07-08T15:05:58+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "47a02a06a05c0945e898a359e2303f097f661fdb0d1349684058d0a68c036a4a",
+    "sources": [
+      {
+        "url": "https://www.coherent.com/company/about-us?utm_source=openai",
+        "title": "About Us | Coherent"
+      },
+      {
+        "url": "https://www.coherent.com/?utm_source=openai",
+        "title": "Global Leader in Materials, Networking, and Lasers | Coherent"
+      },
+      {
+        "url": "https://www.coherent.com/content/dam/coherent/site/en/documents/investors/financial-releases/2026/may-6/earnings-release-fy26-q3.pdf?utm_source=openai",
+        "title": "Coherent Corp."
+      },
+      {
+        "url": "https://www.nist.gov/news-events/news/2026/06/department-commerces-chips-program-announces-letter-intent-coherent-50?utm_source=openai",
+        "title": "The Department of Commerce\u2019s CHIPS Program Announces a Letter of Intent with Coherent for up to $50 Million to Expand Indium Phosphide Production | NIST"
+      },
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture?utm_source=openai",
+        "title": "NVIDIA and Coherent Announce Strategic Partnership to Develop Optics Technology to Scale Next-Generation Data Center Architecture | NVIDIA Newsroom"
+      },
+      {
+        "url": "https://m.investing.com/news/stock-market-news/chinas-control-over-indium-phosphide-exports-threatens-ai-data-centre-rollout-4736446?ampMode=1&utm_source=openai",
+        "title": "China\u2019s control over indium phosphide exports threatens AI data centre rollout By Reuters"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "COHR__earnings_call_transcript__2026-05-06__3__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-05-06",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0bfe50c2cbe8072a016a4e673b9dd881a0b4eb3030ea2182a8",
+    "usage": {
+      "input_tokens": 24209,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1190,
+      "output_tokens_details": {
+        "reasoning_tokens": 264
+      },
+      "total_tokens": 25399
+    }
+  },
+  "details": {
+    "asset_id": "COHR",
+    "detail_source_ticker": "COHR",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "COHERENT CORP",
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "market_cap_musd": 61456.2,
+    "ev_musd": 63246.6,
+    "ttm_revenue_musd": 6602.084,
+    "ttm_fcf_musd": -538.236,
+    "ttm_netinc_musd": 468.849,
+    "fcf_ev": {
+      "current": -0.00851011753991519,
+      "avg_1y": 0.0026894656689053255,
+      "std_1y": 0.006893508785671433,
+      "avg_3y": 0.013446770607001264,
+      "std_3y": 0.011537419113084665
+    },
+    "ni_mc": {
+      "current": 0.007628994308141408,
+      "avg_1y": 0.006106620373574156,
+      "std_1y": 0.002238453113097645,
+      "avg_3y": -0.011369025647276421,
+      "std_3y": 0.021148320408899652
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-05-06",
+        "ttm_revenue_musd": 6602.084,
+        "ttm_fcf_musd": -538.236,
+        "ttm_netinc_musd": 468.849
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-05-07",
+        "ttm_revenue_musd": 5595.041,
+        "ttm_fcf_musd": 256.25,
+        "ttm_netinc_musd": 96.541
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-05-07",
+        "ttm_revenue_musd": 4598.377,
+        "ttm_fcf_musd": 224.966,
+        "ttm_netinc_musd": -285.946
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 19207.840878828225,
+      "std_musd": 18151.618078588843,
+      "std_pct_of_mean": 0.9450108522398475,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "COHR",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:58+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 1544,
+        "total_tokens": 4254,
+        "cost": 0.1043,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.1043,
+          "upstream_inference_prompt_cost": 0.0271,
+          "upstream_inference_completions_cost": 0.0772
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 237,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Datacenter & Communications (75% of revenue) growing 37\u201360% YoY, record backlog with orders into calendar 2028, and Q4 guide of $1.91\u20132.05B implies ~$8B+ forward revenue run-rate.\n- NVIDIA's $2B equity investment plus a multiyear CPO supply agreement through end of decade validates the technology roadmap and de-risks demand.\n- 6-inch InP capacity doubling by CY2026 and again by end-CY2027, aided by up to $50M CHIPS funding, positions COHR to capture the industry bottleneck economics (InP wafer prices up 250%).\n- Once the current capex surge peaks, operating cash flow (net income already at ~$469M TTM and accelerating) converts to strong FCF, supporting a premium AI-infrastructure multiple.\n\n## Bear Case\n- TTM FCF is negative (\u2212$538M) as capex tripled YoY to $290M/quarter and is guided higher again; the capex cycle may extend longer than expected, delaying FCF inflection.\n- China's InP export restrictions threaten input supply and could gate the very ramps the growth thesis requires.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) haven't yet contributed revenue; slippage would compress the multiple sharply.\n- Industrial segment remains soft; the stock's 3-year mean market cap is ~$19B versus $61B today\u2014massive re-rating already embedded, high drawdown risk on any AI-optics digestion.\n\n## Logic\n- **Forward revenue:** ~$8.2B (Q4 guide midpoint annualized plus continued datacenter growth).\n- **Forward FCF:** Operating cash flow should scale with non-GAAP earnings (~$1.4B+ annualized EPS run-rate implies ~$1.3\u20131.5B OCF), but capex likely runs ~$1.2\u20131.4B annually through the InP build-out. I model a return to positive FCF of ~**$650M** over the next 12 months as capex peaks and margins expand (~8% FCF margin, still capex-suppressed).\n- **Applied multiple:** AI-optics leaders with NVIDIA backing and multi-year backlog trade at rich EV/FCF during heavy investment phases since FCF is artificially depressed. I apply **100x EV/FCF** (equivalent to ~8x EV/sales, ~45\u201350x forward non-GAAP earnings\u2014consistent with the growth profile).\n- **EV:** 650 \u00d7 100 = **$65,000M**.\n- **EV \u2192 Market cap bridge:** Current gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 65,000 \u2212 1,790 \u2248 **$63,210M**, roughly +3% versus today\u2014reflecting strong fundamentals largely offset by an already-full valuation.\n\n```json\n{\"forward_market_cap_musd\": 63210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 650.0, \"forward_netinc_musd\": 950.0, \"applied_multiple\": 100.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 63210.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 650.0,
+        "forward_netinc_musd": 950.0,
+        "applied_multiple": 100.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Datacenter & Communications (75% of revenue) growing 37\u201360% YoY, record backlog with orders into calendar 2028, and Q4 guide of $1.91\u20132.05B implies ~$8B+ forward revenue run-rate.\n- NVIDIA's $2B equity investment plus a multiyear CPO supply agreement through end of decade validates the technology roadmap and de-risks demand.\n- 6-inch InP capacity doubling by CY2026 and again by end-CY2027, aided by up to $50M CHIPS funding, positions COHR to capture the industry bottleneck economics (InP wafer prices up 250%).\n- Once the current capex surge peaks, operating cash flow (net income already at ~$469M TTM and accelerating) converts to strong FCF, supporting a premium AI-infrastructure multiple.\n\n## Bear Case\n- TTM FCF is negative (\u2212$538M) as capex tripled YoY to $290M/quarter and is guided higher again; the capex cycle may extend longer than expected, delaying FCF inflection.\n- China's InP export restrictions threaten input supply and could gate the very ramps the growth thesis requires.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) haven't yet contributed revenue; slippage would compress the multiple sharply.\n- Industrial segment remains soft; the stock's 3-year mean market cap is ~$19B versus $61B today\u2014massive re-rating already embedded, high drawdown risk on any AI-optics digestion.\n\n## Logic\n- **Forward revenue:** ~$8.2B (Q4 guide midpoint annualized plus continued datacenter growth).\n- **Forward FCF:** Operating cash flow should scale with non-GAAP earnings (~$1.4B+ annualized EPS run-rate implies ~$1.3\u20131.5B OCF), but capex likely runs ~$1.2\u20131.4B annually through the InP build-out. I model a return to positive FCF of ~**$650M** over the next 12 months as capex peaks and margins expand (~8% FCF margin, still capex-suppressed).\n- **Applied multiple:** AI-optics leaders with NVIDIA backing and multi-year backlog trade at rich EV/FCF during heavy investment phases since FCF is artificially depressed. I apply **100x EV/FCF** (equivalent to ~8x EV/sales, ~45\u201350x forward non-GAAP earnings\u2014consistent with the growth profile).\n- **EV:** 650 \u00d7 100 = **$65,000M**.\n- **EV \u2192 Market cap bridge:** Current gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 65,000 \u2212 1,790 \u2248 **$63,210M**, roughly +3% versus today\u2014reflecting strong fundamentals largely offset by an already-full valuation.\n\n```json\n{\"forward_market_cap_musd\": 63210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 650.0, \"forward_netinc_musd\": 950.0, \"applied_multiple\": 100.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Datacenter & Communications (75% of revenue) growing 37\u201360% YoY, record backlog with orders into calendar 2028, and Q4 guide of $1.91\u20132.05B implies ~$8B+ forward revenue run-rate.\n- NVIDIA's $2B equity investment plus a multiyear CPO supply agreement through end of decade validates the technology roadmap and de-risks demand.\n- 6-inch InP capacity doubling by CY2026 and again by end-CY2027, aided by up to $50M CHIPS funding, positions COHR to capture the industry bottleneck economics (InP wafer prices up 250%).\n- Once the current capex surge peaks, operating cash flow (net income already at ~$469M TTM and accelerating) converts to strong FCF, supporting a premium AI-infrastructure multiple.",
+        "Bear Case": "- TTM FCF is negative (\u2212$538M) as capex tripled YoY to $290M/quarter and is guided higher again; the capex cycle may extend longer than expected, delaying FCF inflection.\n- China's InP export restrictions threaten input supply and could gate the very ramps the growth thesis requires.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) haven't yet contributed revenue; slippage would compress the multiple sharply.\n- Industrial segment remains soft; the stock's 3-year mean market cap is ~$19B versus $61B today\u2014massive re-rating already embedded, high drawdown risk on any AI-optics digestion.",
+        "Logic": "- **Forward revenue:** ~$8.2B (Q4 guide midpoint annualized plus continued datacenter growth).\n- **Forward FCF:** Operating cash flow should scale with non-GAAP earnings (~$1.4B+ annualized EPS run-rate implies ~$1.3\u20131.5B OCF), but capex likely runs ~$1.2\u20131.4B annually through the InP build-out. I model a return to positive FCF of ~**$650M** over the next 12 months as capex peaks and margins expand (~8% FCF margin, still capex-suppressed).\n- **Applied multiple:** AI-optics leaders with NVIDIA backing and multi-year backlog trade at rich EV/FCF during heavy investment phases since FCF is artificially depressed. I apply **100x EV/FCF** (equivalent to ~8x EV/sales, ~45\u201350x forward non-GAAP earnings\u2014consistent with the growth profile).\n- **EV:** 650 \u00d7 100 = **$65,000M**.\n- **EV \u2192 Market cap bridge:** Current gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 65,000 \u2212 1,790 \u2248 **$63,210M**, roughly +3% versus today\u2014reflecting strong fundamentals largely offset by an already-full valuation."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "COHR",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:59+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 1703,
+        "total_tokens": 4413,
+        "cost": 0.11225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11225,
+          "upstream_inference_prompt_cost": 0.0271,
+          "upstream_inference_completions_cost": 0.08515
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 235,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AI data-center optics demand is the engine: fiscal Q3 revenue hit a record $1.81B (+21% y/y), with Datacenter & Communications at 75% of revenue, data-center up 37% y/y, communications up 60%, and record backlog with orders stretching into calendar 2028.\n- The NVIDIA partnership ($2B equity investment plus a multiyear supply agreement through the end of the decade covering CPO, high-power CW lasers) is a powerful demand and validation anchor.\n- InP capacity is doubling by calendar 2026 (a quarter early) and more than doubling again by end-2027, supplemented by up to $50M in CHIPS funding for Sherman, TX \u2014 the current capex surge converts to revenue and cash flow within the forward window.\n- Non-GAAP gross margin of 39.6% and rising scale suggest strong operating leverage; new vectors (CPO, OCS, multi-rail in 1H CY27, thermal in 2H CY27) begin layering in.\n\n## Bear Case\n- TTM FCF is deeply negative (-$538M) as capex jumped to $290M in Q3 (from $112M a year earlier) with further sequential increases guided \u2014 free cash flow could stay depressed longer than expected.\n- InP is an industry-wide bottleneck; China export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening ramps and margins.\n- Concentration risk in AI optics adoption timelines; several growth vectors don't contribute revenue until CY2027. Industrial remains soft and declining.\n- The stock already discounts enormous success: EV of $63.2B on $6.6B revenue with negative FCF; 3-year market cap mean is only ~$19.2B, so multiple compression risk is severe if AI capex decelerates.\n\n## Logic\n1. **Forward revenue:** TTM revenue $6,602M growing ~21%+, with Q4 guidance of $1.91\u20132.05B annualizing near $8B. Assume ~$8,000M forward revenue.\n2. **Forward FCF:** TTM operating cash flow \u2248 $160M (FCF -$538M plus ~$700M capex), dragged by working capital and ramp costs. With ~$1.4B forward operating cash flow (improving margins/scale) against ~$1.3\u20131.5B capex, forward FCF turns modestly positive at ~**$700M**. Forward non-GAAP-flavored net income \u2248 $1,100M (~13\u201314% of revenue).\n3. **Applied multiple:** As an AI-optics growth leader still in a capex super-cycle where FCF materially understates earnings power, the market values COHR on future FCF trajectory. An EV/FCF of **95x** on trough-transition FCF (consistent with sustaining roughly current EV plus modest growth credit) is applied.\n4. **EV \u2192 market cap bridge:** EV = 700 \u00d7 95 = $66,500M. Current EV\u2212MC gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 66,500 \u2212 1,790 \u2248 **$64,710M**.\n\n```json\n{\"forward_market_cap_musd\": 64710.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 700.0, \"forward_netinc_musd\": 1100.0, \"applied_multiple\": 95.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 64710.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 700.0,
+        "forward_netinc_musd": 1100.0,
+        "applied_multiple": 95.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AI data-center optics demand is the engine: fiscal Q3 revenue hit a record $1.81B (+21% y/y), with Datacenter & Communications at 75% of revenue, data-center up 37% y/y, communications up 60%, and record backlog with orders stretching into calendar 2028.\n- The NVIDIA partnership ($2B equity investment plus a multiyear supply agreement through the end of the decade covering CPO, high-power CW lasers) is a powerful demand and validation anchor.\n- InP capacity is doubling by calendar 2026 (a quarter early) and more than doubling again by end-2027, supplemented by up to $50M in CHIPS funding for Sherman, TX \u2014 the current capex surge converts to revenue and cash flow within the forward window.\n- Non-GAAP gross margin of 39.6% and rising scale suggest strong operating leverage; new vectors (CPO, OCS, multi-rail in 1H CY27, thermal in 2H CY27) begin layering in.\n\n## Bear Case\n- TTM FCF is deeply negative (-$538M) as capex jumped to $290M in Q3 (from $112M a year earlier) with further sequential increases guided \u2014 free cash flow could stay depressed longer than expected.\n- InP is an industry-wide bottleneck; China export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening ramps and margins.\n- Concentration risk in AI optics adoption timelines; several growth vectors don't contribute revenue until CY2027. Industrial remains soft and declining.\n- The stock already discounts enormous success: EV of $63.2B on $6.6B revenue with negative FCF; 3-year market cap mean is only ~$19.2B, so multiple compression risk is severe if AI capex decelerates.\n\n## Logic\n1. **Forward revenue:** TTM revenue $6,602M growing ~21%+, with Q4 guidance of $1.91\u20132.05B annualizing near $8B. Assume ~$8,000M forward revenue.\n2. **Forward FCF:** TTM operating cash flow \u2248 $160M (FCF -$538M plus ~$700M capex), dragged by working capital and ramp costs. With ~$1.4B forward operating cash flow (improving margins/scale) against ~$1.3\u20131.5B capex, forward FCF turns modestly positive at ~**$700M**. Forward non-GAAP-flavored net income \u2248 $1,100M (~13\u201314% of revenue).\n3. **Applied multiple:** As an AI-optics growth leader still in a capex super-cycle where FCF materially understates earnings power, the market values COHR on future FCF trajectory. An EV/FCF of **95x** on trough-transition FCF (consistent with sustaining roughly current EV plus modest growth credit) is applied.\n4. **EV \u2192 market cap bridge:** EV = 700 \u00d7 95 = $66,500M. Current EV\u2212MC gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 66,500 \u2212 1,790 \u2248 **$64,710M**.\n\n```json\n{\"forward_market_cap_musd\": 64710.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 700.0, \"forward_netinc_musd\": 1100.0, \"applied_multiple\": 95.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AI data-center optics demand is the engine: fiscal Q3 revenue hit a record $1.81B (+21% y/y), with Datacenter & Communications at 75% of revenue, data-center up 37% y/y, communications up 60%, and record backlog with orders stretching into calendar 2028.\n- The NVIDIA partnership ($2B equity investment plus a multiyear supply agreement through the end of the decade covering CPO, high-power CW lasers) is a powerful demand and validation anchor.\n- InP capacity is doubling by calendar 2026 (a quarter early) and more than doubling again by end-2027, supplemented by up to $50M in CHIPS funding for Sherman, TX \u2014 the current capex surge converts to revenue and cash flow within the forward window.\n- Non-GAAP gross margin of 39.6% and rising scale suggest strong operating leverage; new vectors (CPO, OCS, multi-rail in 1H CY27, thermal in 2H CY27) begin layering in.",
+        "Bear Case": "- TTM FCF is deeply negative (-$538M) as capex jumped to $290M in Q3 (from $112M a year earlier) with further sequential increases guided \u2014 free cash flow could stay depressed longer than expected.\n- InP is an industry-wide bottleneck; China export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening ramps and margins.\n- Concentration risk in AI optics adoption timelines; several growth vectors don't contribute revenue until CY2027. Industrial remains soft and declining.\n- The stock already discounts enormous success: EV of $63.2B on $6.6B revenue with negative FCF; 3-year market cap mean is only ~$19.2B, so multiple compression risk is severe if AI capex decelerates.",
+        "Logic": "1. **Forward revenue:** TTM revenue $6,602M growing ~21%+, with Q4 guidance of $1.91\u20132.05B annualizing near $8B. Assume ~$8,000M forward revenue.\n2. **Forward FCF:** TTM operating cash flow \u2248 $160M (FCF -$538M plus ~$700M capex), dragged by working capital and ramp costs. With ~$1.4B forward operating cash flow (improving margins/scale) against ~$1.3\u20131.5B capex, forward FCF turns modestly positive at ~**$700M**. Forward non-GAAP-flavored net income \u2248 $1,100M (~13\u201314% of revenue).\n3. **Applied multiple:** As an AI-optics growth leader still in a capex super-cycle where FCF materially understates earnings power, the market values COHR on future FCF trajectory. An EV/FCF of **95x** on trough-transition FCF (consistent with sustaining roughly current EV plus modest growth credit) is applied.\n4. **EV \u2192 market cap bridge:** EV = 700 \u00d7 95 = $66,500M. Current EV\u2212MC gap = 63,246.6 \u2212 61,456.2 = $1,790.4M net debt. Forward market cap = 66,500 \u2212 1,790 \u2248 **$64,710M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "COHR",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:01+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 1643,
+        "total_tokens": 4353,
+        "cost": 0.10925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.10925,
+          "upstream_inference_prompt_cost": 0.0271,
+          "upstream_inference_completions_cost": 0.08215
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 272,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Record Q3 revenue of $1.81B (+21% y/y) with guided Q4 of $1.91\u20132.05B implies a forward revenue run-rate of ~$8.2\u20138.5B (+~25%).\n- Datacenter & Communications now 75% of revenue; data-center +37% y/y, comms +60% y/y, record backlog with orders into 2028.\n- $2B NVIDIA equity investment plus multiyear supply agreement through end of decade validates the CPO/optics roadmap.\n- InP capacity doubling by CY2026 (ahead of plan), doubling again by end CY2027, plus up to $50M CHIPS funding for Sherman, TX.\n- Once the capex peak passes (Q3 capex $290M, rising in Q4), FCF should inflect sharply positive on ~40% non-GAAP gross margins.\n\n## Bear Case\n- TTM FCF is deeply negative (\u2212$538M) as capex tripled y/y; management guided capex still higher, delaying any FCF harvest.\n- China InP export restrictions have driven 6\" wafer prices up 250% to ~$5,000 \u2014 a direct input-cost and supply risk on the core growth engine.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) are not yet shipping; execution risk in constrained technologies is high.\n- Industrial segment remains soft, declining sequentially and y/y.\n- Valuation is extreme: EV of $63.2B vs. mean market cap of ~$19.2B over the past 3 years; any AI capex digestion or NVIDIA architecture shift would compress the multiple hard.\n\n## Logic\n1. **Forward FCF:** Forward 12-month revenue ~$8.3B. Non-GAAP net income run-rate (Q3 EPS $1.41 annualizing toward ~$1.3B+) supports operating cash flow of ~$1.7\u20131.9B. Capex stays elevated (~$1.3\u20131.4B annualized peaking then flattening). Net forward FCF estimate: **~$500M** \u2014 a swing from \u2212$538M TTM as the ramp begins to monetize, but still capex-suppressed.\n2. **Applied multiple:** Because FCF is artificially depressed at the capex peak while backlog extends into 2028, the market prices through-cycle FCF. An EV/FCF of **135x** on near-trough forward FCF (equivalent to ~8x forward revenue, ~45\u201350x normalized forward earnings) is consistent with an AI-optics leader with an NVIDIA anchor and ~25% growth.\n3. **EV:** $500M \u00d7 135 = **$67,500M** EV.\n4. **Bridge to market cap:** Current EV \u2212 market cap gap = $63,246.6M \u2212 $61,456.2M = $1,790.4M net debt. Forward market cap = $67,500M \u2212 $1,790M \u2248 **$65,710M**, roughly +7% vs. today's $61.5B \u2014 upside from execution, tempered by capex intensity and InP supply risk.\n\n```json\n{\"forward_market_cap_musd\": 65710.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 500.0, \"forward_netinc_musd\": 1300.0, \"applied_multiple\": 135.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 65710.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 500.0,
+        "forward_netinc_musd": 1300.0,
+        "applied_multiple": 135.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Record Q3 revenue of $1.81B (+21% y/y) with guided Q4 of $1.91\u20132.05B implies a forward revenue run-rate of ~$8.2\u20138.5B (+~25%).\n- Datacenter & Communications now 75% of revenue; data-center +37% y/y, comms +60% y/y, record backlog with orders into 2028.\n- $2B NVIDIA equity investment plus multiyear supply agreement through end of decade validates the CPO/optics roadmap.\n- InP capacity doubling by CY2026 (ahead of plan), doubling again by end CY2027, plus up to $50M CHIPS funding for Sherman, TX.\n- Once the capex peak passes (Q3 capex $290M, rising in Q4), FCF should inflect sharply positive on ~40% non-GAAP gross margins.\n\n## Bear Case\n- TTM FCF is deeply negative (\u2212$538M) as capex tripled y/y; management guided capex still higher, delaying any FCF harvest.\n- China InP export restrictions have driven 6\" wafer prices up 250% to ~$5,000 \u2014 a direct input-cost and supply risk on the core growth engine.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) are not yet shipping; execution risk in constrained technologies is high.\n- Industrial segment remains soft, declining sequentially and y/y.\n- Valuation is extreme: EV of $63.2B vs. mean market cap of ~$19.2B over the past 3 years; any AI capex digestion or NVIDIA architecture shift would compress the multiple hard.\n\n## Logic\n1. **Forward FCF:** Forward 12-month revenue ~$8.3B. Non-GAAP net income run-rate (Q3 EPS $1.41 annualizing toward ~$1.3B+) supports operating cash flow of ~$1.7\u20131.9B. Capex stays elevated (~$1.3\u20131.4B annualized peaking then flattening). Net forward FCF estimate: **~$500M** \u2014 a swing from \u2212$538M TTM as the ramp begins to monetize, but still capex-suppressed.\n2. **Applied multiple:** Because FCF is artificially depressed at the capex peak while backlog extends into 2028, the market prices through-cycle FCF. An EV/FCF of **135x** on near-trough forward FCF (equivalent to ~8x forward revenue, ~45\u201350x normalized forward earnings) is consistent with an AI-optics leader with an NVIDIA anchor and ~25% growth.\n3. **EV:** $500M \u00d7 135 = **$67,500M** EV.\n4. **Bridge to market cap:** Current EV \u2212 market cap gap = $63,246.6M \u2212 $61,456.2M = $1,790.4M net debt. Forward market cap = $67,500M \u2212 $1,790M \u2248 **$65,710M**, roughly +7% vs. today's $61.5B \u2014 upside from execution, tempered by capex intensity and InP supply risk.\n\n```json\n{\"forward_market_cap_musd\": 65710.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 500.0, \"forward_netinc_musd\": 1300.0, \"applied_multiple\": 135.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Record Q3 revenue of $1.81B (+21% y/y) with guided Q4 of $1.91\u20132.05B implies a forward revenue run-rate of ~$8.2\u20138.5B (+~25%).\n- Datacenter & Communications now 75% of revenue; data-center +37% y/y, comms +60% y/y, record backlog with orders into 2028.\n- $2B NVIDIA equity investment plus multiyear supply agreement through end of decade validates the CPO/optics roadmap.\n- InP capacity doubling by CY2026 (ahead of plan), doubling again by end CY2027, plus up to $50M CHIPS funding for Sherman, TX.\n- Once the capex peak passes (Q3 capex $290M, rising in Q4), FCF should inflect sharply positive on ~40% non-GAAP gross margins.",
+        "Bear Case": "- TTM FCF is deeply negative (\u2212$538M) as capex tripled y/y; management guided capex still higher, delaying any FCF harvest.\n- China InP export restrictions have driven 6\" wafer prices up 250% to ~$5,000 \u2014 a direct input-cost and supply risk on the core growth engine.\n- Key growth vectors (multi-rail 1H CY2027, thermal 2H CY2027) are not yet shipping; execution risk in constrained technologies is high.\n- Industrial segment remains soft, declining sequentially and y/y.\n- Valuation is extreme: EV of $63.2B vs. mean market cap of ~$19.2B over the past 3 years; any AI capex digestion or NVIDIA architecture shift would compress the multiple hard.",
+        "Logic": "1. **Forward FCF:** Forward 12-month revenue ~$8.3B. Non-GAAP net income run-rate (Q3 EPS $1.41 annualizing toward ~$1.3B+) supports operating cash flow of ~$1.7\u20131.9B. Capex stays elevated (~$1.3\u20131.4B annualized peaking then flattening). Net forward FCF estimate: **~$500M** \u2014 a swing from \u2212$538M TTM as the ramp begins to monetize, but still capex-suppressed.\n2. **Applied multiple:** Because FCF is artificially depressed at the capex peak while backlog extends into 2028, the market prices through-cycle FCF. An EV/FCF of **135x** on near-trough forward FCF (equivalent to ~8x forward revenue, ~45\u201350x normalized forward earnings) is consistent with an AI-optics leader with an NVIDIA anchor and ~25% growth.\n3. **EV:** $500M \u00d7 135 = **$67,500M** EV.\n4. **Bridge to market cap:** Current EV \u2212 market cap gap = $63,246.6M \u2212 $61,456.2M = $1,790.4M net debt. Forward market cap = $67,500M \u2212 $1,790M \u2248 **$65,710M**, roughly +7% vs. today's $61.5B \u2014 upside from execution, tempered by capex intensity and InP supply risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "COHR",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:44+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 1031,
+        "total_tokens": 3741,
+        "cost": 0.039325,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.039325,
+          "upstream_inference_prompt_cost": 0.01355,
+          "upstream_inference_completions_cost": 0.025775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nRevenue is compounding rapidly (Q3 +21% YoY, DataCom +37-60%), with record backlog extending into 2028 and a validated NVIDIA supply/equity relationship. The current negative TTM FCF is a capex-driven investment phase, not structural. As InP capacity doubles and margins expand (39.6% non-GAAP GM), FCF should inflect strongly positive within 12 months. Annualizing recent revenue (~$7.5-8B run-rate) at a mid-single-digit FCF margin yields ~$500-700M forward FCF. With AI optical demand and a scarcity premium, the market sustains a rich EV/FCF multiple, supporting an EV near or above current levels.\n\n## Bear Case\nFCF is deeply negative (-$538M TTM) and capex is still rising sequentially (Q3 $290M, up from $112M YoY). China's InP export restrictions (wafer prices +250%) threaten the core growth engine and margins. Several growth vectors (multi-rail, thermal) don't contribute revenue until 2027. If capex intensity persists and ramp slips, forward FCF stays modest or negative, and the current ~$61B market cap\u2014far above the 3-year mean of ~$19B\u2014compresses sharply toward historical norms.\n\n## Logic\n- **Forward FCF:** TTM FCF is -$538M, distorted by peak capex during capacity build. Revenue run-rate is climbing (~$1.9-2.0B/qtr guided \u2192 ~$7.8B annual). Assuming continued heavy but stabilizing capex and margin expansion, I model a normalization to a low positive FCF margin (~4% of forward revenue), yielding ~**$320M** forward FCF. This is conservative given ongoing capex intensity but reflects the growth-to-cash inflection.\n- **Applied multiple:** The current FCF/EV is negative and unusable. Using the 3-year avg FCF/EV of ~1.34% implies an EV/FCF of ~74x. Given the AI-optical growth premium, I apply an elevated but slightly tempered multiple of **~100x** EV/FCF, reflecting the market's willingness to pay for scarcity and growth while acknowledging execution risk.\n- **EV \u2192 Market cap bridge:** Current EV ($63,246.6M) minus current market cap ($61,456.2M) = net debt/EV gap of **$1,790.4M**. Forward market cap = forward EV \u2212 gap.\n- **Calculation:** Forward EV = $320M \u00d7 100 = $32,000M. Forward market cap = $32,000M \u2212 $1,790.4M = **~$30,210M**. This reflects a meaningful re-rating down from the current stretched multiple toward more defensible FCF-based valuation, though still well above the 3-year mean, honoring the strong growth trajectory.\n\n```json\n{\"forward_market_cap_musd\": 30209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 320.0, \"forward_netinc_musd\": 650.0, \"applied_multiple\": 100.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 30209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 320.0,
+        "forward_netinc_musd": 650.0,
+        "applied_multiple": 100.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nRevenue is compounding rapidly (Q3 +21% YoY, DataCom +37-60%), with record backlog extending into 2028 and a validated NVIDIA supply/equity relationship. The current negative TTM FCF is a capex-driven investment phase, not structural. As InP capacity doubles and margins expand (39.6% non-GAAP GM), FCF should inflect strongly positive within 12 months. Annualizing recent revenue (~$7.5-8B run-rate) at a mid-single-digit FCF margin yields ~$500-700M forward FCF. With AI optical demand and a scarcity premium, the market sustains a rich EV/FCF multiple, supporting an EV near or above current levels.\n\n## Bear Case\nFCF is deeply negative (-$538M TTM) and capex is still rising sequentially (Q3 $290M, up from $112M YoY). China's InP export restrictions (wafer prices +250%) threaten the core growth engine and margins. Several growth vectors (multi-rail, thermal) don't contribute revenue until 2027. If capex intensity persists and ramp slips, forward FCF stays modest or negative, and the current ~$61B market cap\u2014far above the 3-year mean of ~$19B\u2014compresses sharply toward historical norms.\n\n## Logic\n- **Forward FCF:** TTM FCF is -$538M, distorted by peak capex during capacity build. Revenue run-rate is climbing (~$1.9-2.0B/qtr guided \u2192 ~$7.8B annual). Assuming continued heavy but stabilizing capex and margin expansion, I model a normalization to a low positive FCF margin (~4% of forward revenue), yielding ~**$320M** forward FCF. This is conservative given ongoing capex intensity but reflects the growth-to-cash inflection.\n- **Applied multiple:** The current FCF/EV is negative and unusable. Using the 3-year avg FCF/EV of ~1.34% implies an EV/FCF of ~74x. Given the AI-optical growth premium, I apply an elevated but slightly tempered multiple of **~100x** EV/FCF, reflecting the market's willingness to pay for scarcity and growth while acknowledging execution risk.\n- **EV \u2192 Market cap bridge:** Current EV ($63,246.6M) minus current market cap ($61,456.2M) = net debt/EV gap of **$1,790.4M**. Forward market cap = forward EV \u2212 gap.\n- **Calculation:** Forward EV = $320M \u00d7 100 = $32,000M. Forward market cap = $32,000M \u2212 $1,790.4M = **~$30,210M**. This reflects a meaningful re-rating down from the current stretched multiple toward more defensible FCF-based valuation, though still well above the 3-year mean, honoring the strong growth trajectory.\n\n```json\n{\"forward_market_cap_musd\": 30209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 320.0, \"forward_netinc_musd\": 650.0, \"applied_multiple\": 100.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Revenue is compounding rapidly (Q3 +21% YoY, DataCom +37-60%), with record backlog extending into 2028 and a validated NVIDIA supply/equity relationship. The current negative TTM FCF is a capex-driven investment phase, not structural. As InP capacity doubles and margins expand (39.6% non-GAAP GM), FCF should inflect strongly positive within 12 months. Annualizing recent revenue (~$7.5-8B run-rate) at a mid-single-digit FCF margin yields ~$500-700M forward FCF. With AI optical demand and a scarcity premium, the market sustains a rich EV/FCF multiple, supporting an EV near or above current levels.",
+        "Bear Case": "FCF is deeply negative (-$538M TTM) and capex is still rising sequentially (Q3 $290M, up from $112M YoY). China's InP export restrictions (wafer prices +250%) threaten the core growth engine and margins. Several growth vectors (multi-rail, thermal) don't contribute revenue until 2027. If capex intensity persists and ramp slips, forward FCF stays modest or negative, and the current ~$61B market cap\u2014far above the 3-year mean of ~$19B\u2014compresses sharply toward historical norms.",
+        "Logic": "- **Forward FCF:** TTM FCF is -$538M, distorted by peak capex during capacity build. Revenue run-rate is climbing (~$1.9-2.0B/qtr guided \u2192 ~$7.8B annual). Assuming continued heavy but stabilizing capex and margin expansion, I model a normalization to a low positive FCF margin (~4% of forward revenue), yielding ~**$320M** forward FCF. This is conservative given ongoing capex intensity but reflects the growth-to-cash inflection.\n- **Applied multiple:** The current FCF/EV is negative and unusable. Using the 3-year avg FCF/EV of ~1.34% implies an EV/FCF of ~74x. Given the AI-optical growth premium, I apply an elevated but slightly tempered multiple of **~100x** EV/FCF, reflecting the market's willingness to pay for scarcity and growth while acknowledging execution risk.\n- **EV \u2192 Market cap bridge:** Current EV ($63,246.6M) minus current market cap ($61,456.2M) = net debt/EV gap of **$1,790.4M**. Forward market cap = forward EV \u2212 gap.\n- **Calculation:** Forward EV = $320M \u00d7 100 = $32,000M. Forward market cap = $32,000M \u2212 $1,790.4M = **~$30,210M**. This reflects a meaningful re-rating down from the current stretched multiple toward more defensible FCF-based valuation, though still well above the 3-year mean, honoring the strong growth trajectory."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "COHR",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:47+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 1081,
+        "total_tokens": 3791,
+        "cost": 0.040575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.040575,
+          "upstream_inference_prompt_cost": 0.01355,
+          "upstream_inference_completions_cost": 0.027025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nRevenue is compounding rapidly (Q3 up 21% YoY, Q4 guide midpoint ~$1.98B implies ~$7.9B annualized run-rate) driven by AI datacenter optics, NVIDIA's $2B investment and supply agreement, and InP capacity doubling. Current TTM FCF is negative (-$538M) purely because of a heavy capex investment cycle ($290M/quarter and rising). As transceiver/InP capacity ramps monetize, FCF should inflect sharply positive within 12 months. If revenue reaches ~$8.5B with normalized FCF margin recovering to ~8-10%, forward FCF could approach $700-850M. At a growth-tech EV/FCF multiple of ~70x (justified by AI-secular demand and record backlog into 2028), EV could exceed $50-60B, supporting a materially higher market cap.\n\n## Bear Case\nFCF is currently deeply negative and capex is still rising sequentially into fiscal Q4, so free cash flow may not turn meaningfully positive within the 12-month window. China's InP export restrictions (wafer prices up 250%) threaten margins and the ramp timeline; several growth vectors (multi-rail, thermal) don't contribute until 2027. Industrial remains soft. If capex intensity persists and FCF stays only modestly positive (~$150-250M), a normalized multiple applied to thin FCF yields an EV well below the current $63B, implying downside to market cap.\n\n## Logic\n- Current EV = $63,246.6M; Market cap = $61,456.2M \u2192 EV-to-MC gap = +$1,790.4M (net debt/other). Bridge: forward MC = forward EV \u2212 1,790.4.\n- TTM FCF is -$538M due to capex spike; TTM net income is positive ($469M) and revenue growing ~21%. FCF is depressed by an investment cycle, not structurally broken.\n- Forward FCF estimate: revenue grows toward ~$8.2B (blending Q4 guide run-rate + continued datacenter momentum, tempered by InP constraints). Capex peaks then eases as capacity comes online. I model FCF turning positive to a modest ~$450M over the forward 12m (net income roughly flat-to-up, capex still elevated but no longer accelerating). This reflects a partial inflection, not full normalization.\n- Applied multiple: 3y avg FCF/EV yield ~1.34% is not usable (near-zero/negative base). I instead apply a growth-adjusted EV/FCF of ~120x, appropriate for an early-inflection AI-optics compounder with heavy reinvestment but strong secular demand and NVIDIA backing.\n- Forward EV = 450 \u00d7 120 = $54,000M. Forward MC = 54,000 \u2212 1,790.4 \u2248 $52,210M. This sits below current MC, reflecting execution/capex risk offsetting growth, consistent with the FCF not yet fully monetizing.\n\n```json\n{\"forward_market_cap_musd\": 52209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 450.0, \"forward_netinc_musd\": 620.0, \"applied_multiple\": 120.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 52209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 450.0,
+        "forward_netinc_musd": 620.0,
+        "applied_multiple": 120.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nRevenue is compounding rapidly (Q3 up 21% YoY, Q4 guide midpoint ~$1.98B implies ~$7.9B annualized run-rate) driven by AI datacenter optics, NVIDIA's $2B investment and supply agreement, and InP capacity doubling. Current TTM FCF is negative (-$538M) purely because of a heavy capex investment cycle ($290M/quarter and rising). As transceiver/InP capacity ramps monetize, FCF should inflect sharply positive within 12 months. If revenue reaches ~$8.5B with normalized FCF margin recovering to ~8-10%, forward FCF could approach $700-850M. At a growth-tech EV/FCF multiple of ~70x (justified by AI-secular demand and record backlog into 2028), EV could exceed $50-60B, supporting a materially higher market cap.\n\n## Bear Case\nFCF is currently deeply negative and capex is still rising sequentially into fiscal Q4, so free cash flow may not turn meaningfully positive within the 12-month window. China's InP export restrictions (wafer prices up 250%) threaten margins and the ramp timeline; several growth vectors (multi-rail, thermal) don't contribute until 2027. Industrial remains soft. If capex intensity persists and FCF stays only modestly positive (~$150-250M), a normalized multiple applied to thin FCF yields an EV well below the current $63B, implying downside to market cap.\n\n## Logic\n- Current EV = $63,246.6M; Market cap = $61,456.2M \u2192 EV-to-MC gap = +$1,790.4M (net debt/other). Bridge: forward MC = forward EV \u2212 1,790.4.\n- TTM FCF is -$538M due to capex spike; TTM net income is positive ($469M) and revenue growing ~21%. FCF is depressed by an investment cycle, not structurally broken.\n- Forward FCF estimate: revenue grows toward ~$8.2B (blending Q4 guide run-rate + continued datacenter momentum, tempered by InP constraints). Capex peaks then eases as capacity comes online. I model FCF turning positive to a modest ~$450M over the forward 12m (net income roughly flat-to-up, capex still elevated but no longer accelerating). This reflects a partial inflection, not full normalization.\n- Applied multiple: 3y avg FCF/EV yield ~1.34% is not usable (near-zero/negative base). I instead apply a growth-adjusted EV/FCF of ~120x, appropriate for an early-inflection AI-optics compounder with heavy reinvestment but strong secular demand and NVIDIA backing.\n- Forward EV = 450 \u00d7 120 = $54,000M. Forward MC = 54,000 \u2212 1,790.4 \u2248 $52,210M. This sits below current MC, reflecting execution/capex risk offsetting growth, consistent with the FCF not yet fully monetizing.\n\n```json\n{\"forward_market_cap_musd\": 52209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 450.0, \"forward_netinc_musd\": 620.0, \"applied_multiple\": 120.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Revenue is compounding rapidly (Q3 up 21% YoY, Q4 guide midpoint ~$1.98B implies ~$7.9B annualized run-rate) driven by AI datacenter optics, NVIDIA's $2B investment and supply agreement, and InP capacity doubling. Current TTM FCF is negative (-$538M) purely because of a heavy capex investment cycle ($290M/quarter and rising). As transceiver/InP capacity ramps monetize, FCF should inflect sharply positive within 12 months. If revenue reaches ~$8.5B with normalized FCF margin recovering to ~8-10%, forward FCF could approach $700-850M. At a growth-tech EV/FCF multiple of ~70x (justified by AI-secular demand and record backlog into 2028), EV could exceed $50-60B, supporting a materially higher market cap.",
+        "Bear Case": "FCF is currently deeply negative and capex is still rising sequentially into fiscal Q4, so free cash flow may not turn meaningfully positive within the 12-month window. China's InP export restrictions (wafer prices up 250%) threaten margins and the ramp timeline; several growth vectors (multi-rail, thermal) don't contribute until 2027. Industrial remains soft. If capex intensity persists and FCF stays only modestly positive (~$150-250M), a normalized multiple applied to thin FCF yields an EV well below the current $63B, implying downside to market cap.",
+        "Logic": "- Current EV = $63,246.6M; Market cap = $61,456.2M \u2192 EV-to-MC gap = +$1,790.4M (net debt/other). Bridge: forward MC = forward EV \u2212 1,790.4.\n- TTM FCF is -$538M due to capex spike; TTM net income is positive ($469M) and revenue growing ~21%. FCF is depressed by an investment cycle, not structurally broken.\n- Forward FCF estimate: revenue grows toward ~$8.2B (blending Q4 guide run-rate + continued datacenter momentum, tempered by InP constraints). Capex peaks then eases as capacity comes online. I model FCF turning positive to a modest ~$450M over the forward 12m (net income roughly flat-to-up, capex still elevated but no longer accelerating). This reflects a partial inflection, not full normalization.\n- Applied multiple: 3y avg FCF/EV yield ~1.34% is not usable (near-zero/negative base). I instead apply a growth-adjusted EV/FCF of ~120x, appropriate for an early-inflection AI-optics compounder with heavy reinvestment but strong secular demand and NVIDIA backing.\n- Forward EV = 450 \u00d7 120 = $54,000M. Forward MC = 54,000 \u2212 1,790.4 \u2248 $52,210M. This sits below current MC, reflecting execution/capex risk offsetting growth, consistent with the FCF not yet fully monetizing."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "COHR",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:48+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2710,
+        "completion_tokens": 988,
+        "total_tokens": 3698,
+        "cost": 0.03825,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03825,
+          "upstream_inference_prompt_cost": 0.01355,
+          "upstream_inference_completions_cost": 0.0247
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nDatacenter & Communications is ~75% of revenue and growing rapidly (data-center +37%, communications +60% YoY), with record backlog extending into 2028. The NVIDIA partnership ($2B equity + multiyear supply through decade-end) validates the CPO/optics roadmap. InP capacity doubling by end-2026 and quadrupling by 2027 supports revenue scaling to ~$8B+ annualized. Current TTM FCF is negative purely from front-loaded capex; as capacity ramps convert to revenue, FCF should inflect strongly positive. On a normalized basis, forward FCF could reach $600\u2013800M, and premium AI-optics comps justify a rich EV/FCF multiple.\n\n## Bear Case\nTTM FCF is deeply negative (-$538M) driven by surging capex ($290M/quarter and rising). InP is an industry-wide bottleneck; China export restrictions drove 6-inch wafer prices up 250%, pressuring margins and threatening ramp timelines. Several growth vectors (multi-rail, thermal, CPO) don't contribute revenue until H1\u2013H2 2027, so FCF may stay suppressed through the horizon. Industrial remains soft. Current market cap already embeds enormous growth (EV/revenue ~9.6x), leaving little margin for execution slips. Continued capital intensity could keep FCF near breakeven or negative over the next 12 months.\n\n## Logic\nRevenue run-rate: FQ4 guide midpoint ~$1.98B implies ~$8B annualized; applying ~15% forward growth into the 12m horizon supports ~$8.3\u20138.5B forward revenue. FCF has been depressed by capex peaking in FY26. I assume capex moderates relative to the ramp and margin expansion (non-GAAP GM 39.6%) drives FCF recovery. Blending the depressed current FCF-yield with normalizing capital intensity, I estimate forward FCF of ~$300M \u2014 a swing from negative TTM as revenue-generating capacity comes online but still constrained by continued elevated investment.\n\nMultiple: fcf_ev history is noisy/negative; instead I apply a forward EV/FCF appropriate for a high-growth AI-optics leader. A ~180x EV/FCF reflects early-inflection FCF on a growth premium (comparable to current elevated valuation), yielding EV \u2248 $54,000M.\n\nEV-to-market-cap bridge: current EV ($63,246.6M) \u2212 current market cap ($61,456.2M) = net debt/other of ~$1,790.4M. Forward market cap = forward EV \u2212 gap = 54,000 \u2212 1,790.4 \u2248 $52,210M.\n\n```json\n{\"forward_market_cap_musd\": 52209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 300.0, \"forward_netinc_musd\": 620.0, \"applied_multiple\": 180.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 52209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 300.0,
+        "forward_netinc_musd": 620.0,
+        "applied_multiple": 180.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nDatacenter & Communications is ~75% of revenue and growing rapidly (data-center +37%, communications +60% YoY), with record backlog extending into 2028. The NVIDIA partnership ($2B equity + multiyear supply through decade-end) validates the CPO/optics roadmap. InP capacity doubling by end-2026 and quadrupling by 2027 supports revenue scaling to ~$8B+ annualized. Current TTM FCF is negative purely from front-loaded capex; as capacity ramps convert to revenue, FCF should inflect strongly positive. On a normalized basis, forward FCF could reach $600\u2013800M, and premium AI-optics comps justify a rich EV/FCF multiple.\n\n## Bear Case\nTTM FCF is deeply negative (-$538M) driven by surging capex ($290M/quarter and rising). InP is an industry-wide bottleneck; China export restrictions drove 6-inch wafer prices up 250%, pressuring margins and threatening ramp timelines. Several growth vectors (multi-rail, thermal, CPO) don't contribute revenue until H1\u2013H2 2027, so FCF may stay suppressed through the horizon. Industrial remains soft. Current market cap already embeds enormous growth (EV/revenue ~9.6x), leaving little margin for execution slips. Continued capital intensity could keep FCF near breakeven or negative over the next 12 months.\n\n## Logic\nRevenue run-rate: FQ4 guide midpoint ~$1.98B implies ~$8B annualized; applying ~15% forward growth into the 12m horizon supports ~$8.3\u20138.5B forward revenue. FCF has been depressed by capex peaking in FY26. I assume capex moderates relative to the ramp and margin expansion (non-GAAP GM 39.6%) drives FCF recovery. Blending the depressed current FCF-yield with normalizing capital intensity, I estimate forward FCF of ~$300M \u2014 a swing from negative TTM as revenue-generating capacity comes online but still constrained by continued elevated investment.\n\nMultiple: fcf_ev history is noisy/negative; instead I apply a forward EV/FCF appropriate for a high-growth AI-optics leader. A ~180x EV/FCF reflects early-inflection FCF on a growth premium (comparable to current elevated valuation), yielding EV \u2248 $54,000M.\n\nEV-to-market-cap bridge: current EV ($63,246.6M) \u2212 current market cap ($61,456.2M) = net debt/other of ~$1,790.4M. Forward market cap = forward EV \u2212 gap = 54,000 \u2212 1,790.4 \u2248 $52,210M.\n\n```json\n{\"forward_market_cap_musd\": 52209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 300.0, \"forward_netinc_musd\": 620.0, \"applied_multiple\": 180.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Datacenter & Communications is ~75% of revenue and growing rapidly (data-center +37%, communications +60% YoY), with record backlog extending into 2028. The NVIDIA partnership ($2B equity + multiyear supply through decade-end) validates the CPO/optics roadmap. InP capacity doubling by end-2026 and quadrupling by 2027 supports revenue scaling to ~$8B+ annualized. Current TTM FCF is negative purely from front-loaded capex; as capacity ramps convert to revenue, FCF should inflect strongly positive. On a normalized basis, forward FCF could reach $600\u2013800M, and premium AI-optics comps justify a rich EV/FCF multiple.",
+        "Bear Case": "TTM FCF is deeply negative (-$538M) driven by surging capex ($290M/quarter and rising). InP is an industry-wide bottleneck; China export restrictions drove 6-inch wafer prices up 250%, pressuring margins and threatening ramp timelines. Several growth vectors (multi-rail, thermal, CPO) don't contribute revenue until H1\u2013H2 2027, so FCF may stay suppressed through the horizon. Industrial remains soft. Current market cap already embeds enormous growth (EV/revenue ~9.6x), leaving little margin for execution slips. Continued capital intensity could keep FCF near breakeven or negative over the next 12 months.",
+        "Logic": "Revenue run-rate: FQ4 guide midpoint ~$1.98B implies ~$8B annualized; applying ~15% forward growth into the 12m horizon supports ~$8.3\u20138.5B forward revenue. FCF has been depressed by capex peaking in FY26. I assume capex moderates relative to the ramp and margin expansion (non-GAAP GM 39.6%) drives FCF recovery. Blending the depressed current FCF-yield with normalizing capital intensity, I estimate forward FCF of ~$300M \u2014 a swing from negative TTM as revenue-generating capacity comes online but still constrained by continued elevated investment.\n\nMultiple: fcf_ev history is noisy/negative; instead I apply a forward EV/FCF appropriate for a high-growth AI-optics leader. A ~180x EV/FCF reflects early-inflection FCF on a growth premium (comparable to current elevated valuation), yielding EV \u2248 $54,000M.\n\nEV-to-market-cap bridge: current EV ($63,246.6M) \u2212 current market cap ($61,456.2M) = net debt/other of ~$1,790.4M. Forward market cap = forward EV \u2212 gap = 54,000 \u2212 1,790.4 \u2248 $52,210M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "COHR",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:18+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1805,
+        "completion_tokens": 2308,
+        "total_tokens": 4113,
+        "cost": 0.078265,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.078265,
+          "upstream_inference_prompt_cost": 0.009025,
+          "upstream_inference_completions_cost": 0.06924
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1721,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nCoherent converts the AI/data-center optical backlog into revenue faster than expected, InP capacity ramps smoothly, and capex intensity starts translating into higher shipment volume. In that case, forward FCF could exceed **$1.2\u2013$1.3 billion**, and the market could justify a premium **65x\u201370x EV/FCF** multiple given 800G/1.6T, CPO, and NVIDIA validation. That would imply a forward market cap materially above today\u2019s level.\n\n## Bear Case\n\nThe bear case is that FCF remains structurally pressured by capex, InP constraints, working-capital needs, and execution risk. If forward FCF is only **$400\u2013$600 million**, the current valuation would require an aggressive multiple; applying a lower **35x\u201345x EV/FCF** would imply substantial downside versus the current market cap.\n\n## Logic\n\nCurrent EV is **$63,246.6 million** and current market cap is **$61,456.2 million**, so the EV minus market-cap gap is:\n\n**$63,246.6 - $61,456.2 = $1,790.4 million**\n\nTTM FCF is currently negative at **-$538.2 million**, mainly reflecting heavy capex during the AI/datacenter capacity ramp. However, revenue is scaling quickly: TTM revenue is **$6,602.1 million**, fiscal Q3 revenue was a record **$1.81 billion**, and fiscal Q4 guidance midpoint is about **$1.98 billion**, or roughly a **$7.9 billion annualized run rate**. With backlog extending into 2028 and data-center/communications now the dominant mix, I estimate 12-month forward revenue around the high-$8 billion range.\n\nI apply a normalized-but-still-capex-burdened forward FCF estimate of **$1,050 million**, implying meaningful recovery from depressed TTM FCF but not full maturity-level conversion. For the multiple, I use **60.0x EV/FCF**: below the packet\u2019s implied historical positive-FCF inverse yield of roughly **74x** from the 3-year average FCF/EV, but still elevated to reflect AI optical growth, NVIDIA validation, and backlog visibility.\n\nValuation bridge:\n\n**Forward EV = $1,050 million \u00d7 60.0 = $63,000 million**\n\n**Forward market cap = $63,000 million - $1,790.4 million = $61,209.6 million**\n\n```json\n{\"forward_market_cap_musd\": 61209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 1050.0, \"forward_netinc_musd\": null, \"applied_multiple\": 60.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 61209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 1050.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 60.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nCoherent converts the AI/data-center optical backlog into revenue faster than expected, InP capacity ramps smoothly, and capex intensity starts translating into higher shipment volume. In that case, forward FCF could exceed **$1.2\u2013$1.3 billion**, and the market could justify a premium **65x\u201370x EV/FCF** multiple given 800G/1.6T, CPO, and NVIDIA validation. That would imply a forward market cap materially above today\u2019s level.\n\n## Bear Case\n\nThe bear case is that FCF remains structurally pressured by capex, InP constraints, working-capital needs, and execution risk. If forward FCF is only **$400\u2013$600 million**, the current valuation would require an aggressive multiple; applying a lower **35x\u201345x EV/FCF** would imply substantial downside versus the current market cap.\n\n## Logic\n\nCurrent EV is **$63,246.6 million** and current market cap is **$61,456.2 million**, so the EV minus market-cap gap is:\n\n**$63,246.6 - $61,456.2 = $1,790.4 million**\n\nTTM FCF is currently negative at **-$538.2 million**, mainly reflecting heavy capex during the AI/datacenter capacity ramp. However, revenue is scaling quickly: TTM revenue is **$6,602.1 million**, fiscal Q3 revenue was a record **$1.81 billion**, and fiscal Q4 guidance midpoint is about **$1.98 billion**, or roughly a **$7.9 billion annualized run rate**. With backlog extending into 2028 and data-center/communications now the dominant mix, I estimate 12-month forward revenue around the high-$8 billion range.\n\nI apply a normalized-but-still-capex-burdened forward FCF estimate of **$1,050 million**, implying meaningful recovery from depressed TTM FCF but not full maturity-level conversion. For the multiple, I use **60.0x EV/FCF**: below the packet\u2019s implied historical positive-FCF inverse yield of roughly **74x** from the 3-year average FCF/EV, but still elevated to reflect AI optical growth, NVIDIA validation, and backlog visibility.\n\nValuation bridge:\n\n**Forward EV = $1,050 million \u00d7 60.0 = $63,000 million**\n\n**Forward market cap = $63,000 million - $1,790.4 million = $61,209.6 million**\n\n```json\n{\"forward_market_cap_musd\": 61209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 1050.0, \"forward_netinc_musd\": null, \"applied_multiple\": 60.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Coherent converts the AI/data-center optical backlog into revenue faster than expected, InP capacity ramps smoothly, and capex intensity starts translating into higher shipment volume. In that case, forward FCF could exceed **$1.2\u2013$1.3 billion**, and the market could justify a premium **65x\u201370x EV/FCF** multiple given 800G/1.6T, CPO, and NVIDIA validation. That would imply a forward market cap materially above today\u2019s level.",
+        "Bear Case": "The bear case is that FCF remains structurally pressured by capex, InP constraints, working-capital needs, and execution risk. If forward FCF is only **$400\u2013$600 million**, the current valuation would require an aggressive multiple; applying a lower **35x\u201345x EV/FCF** would imply substantial downside versus the current market cap.",
+        "Logic": "Current EV is **$63,246.6 million** and current market cap is **$61,456.2 million**, so the EV minus market-cap gap is:\n\n**$63,246.6 - $61,456.2 = $1,790.4 million**\n\nTTM FCF is currently negative at **-$538.2 million**, mainly reflecting heavy capex during the AI/datacenter capacity ramp. However, revenue is scaling quickly: TTM revenue is **$6,602.1 million**, fiscal Q3 revenue was a record **$1.81 billion**, and fiscal Q4 guidance midpoint is about **$1.98 billion**, or roughly a **$7.9 billion annualized run rate**. With backlog extending into 2028 and data-center/communications now the dominant mix, I estimate 12-month forward revenue around the high-$8 billion range.\n\nI apply a normalized-but-still-capex-burdened forward FCF estimate of **$1,050 million**, implying meaningful recovery from depressed TTM FCF but not full maturity-level conversion. For the multiple, I use **60.0x EV/FCF**: below the packet\u2019s implied historical positive-FCF inverse yield of roughly **74x** from the 3-year average FCF/EV, but still elevated to reflect AI optical growth, NVIDIA validation, and backlog visibility.\n\nValuation bridge:\n\n**Forward EV = $1,050 million \u00d7 60.0 = $63,000 million**\n\n**Forward market cap = $63,000 million - $1,790.4 million = $61,209.6 million**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "COHR",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:17+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1805,
+        "completion_tokens": 2881,
+        "total_tokens": 4686,
+        "cost": 0.089695,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.089695,
+          "upstream_inference_prompt_cost": 0.003265,
+          "upstream_inference_completions_cost": 0.08643
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2321,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nForward revenue scales above the current ~$7.9B annualized Q4 guide midpoint as AI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion convert into shipments. If forward FCF reaches ~$1,100M and the market applies an 85x EV/FCF multiple for scarce AI photonics capacity, forward EV would be ~$93,500M. Using the current EV minus market-cap gap of $1,790.4M, bull-case market cap would be ~$91,710M.\n\n## Bear Case\nExecution and supply-chain risk remain high: InP bottlenecks, China-related restrictions, rapidly rising capex, and soft industrial demand could keep FCF conversion weak. If forward FCF is only ~$500M and the multiple compresses to 50x, forward EV would be ~$25,000M. Less the $1,790.4M EV-to-market-cap gap, bear-case market cap would be ~$23,210M.\n\n## Logic\nBase forward FCF: I estimate ~$850M. TTM FCF is currently negative at -$538M, mainly reflecting heavy capex, but revenue momentum is strong: TTM revenue is $6,602M, fiscal Q3 revenue was $1,810M, and Q4 guidance midpoint is ~$1,980M, or ~$7,920M annualized. With data-center and communications at 75% of revenue, strong backlog, and capacity expansion, I assume next-12-month revenue around ~$8.5B and FCF margin near 10%, despite elevated capex.\n\nApplied EV/FCF multiple: 75x. The current FCF yield is not useful because FCF is negative. The 3-year average FCF yield of 1.3447% implies roughly a 74x EV/FCF multiple, so I round to 75x given high AI optical growth, while recognizing capex and execution risk.\n\nValuation bridge:\n- Forward FCF: $850M\n- Applied EV/FCF: 75x\n- Forward EV: $63,750M\n- Current EV minus market-cap gap: $63,246.6M - $61,456.2M = $1,790.4M\n- Forward market cap: $63,750M - $1,790.4M = $61,959.6M\n\n```json\n{\"forward_market_cap_musd\": 61959.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 850.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 61959.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 850.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 75.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nForward revenue scales above the current ~$7.9B annualized Q4 guide midpoint as AI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion convert into shipments. If forward FCF reaches ~$1,100M and the market applies an 85x EV/FCF multiple for scarce AI photonics capacity, forward EV would be ~$93,500M. Using the current EV minus market-cap gap of $1,790.4M, bull-case market cap would be ~$91,710M.\n\n## Bear Case\nExecution and supply-chain risk remain high: InP bottlenecks, China-related restrictions, rapidly rising capex, and soft industrial demand could keep FCF conversion weak. If forward FCF is only ~$500M and the multiple compresses to 50x, forward EV would be ~$25,000M. Less the $1,790.4M EV-to-market-cap gap, bear-case market cap would be ~$23,210M.\n\n## Logic\nBase forward FCF: I estimate ~$850M. TTM FCF is currently negative at -$538M, mainly reflecting heavy capex, but revenue momentum is strong: TTM revenue is $6,602M, fiscal Q3 revenue was $1,810M, and Q4 guidance midpoint is ~$1,980M, or ~$7,920M annualized. With data-center and communications at 75% of revenue, strong backlog, and capacity expansion, I assume next-12-month revenue around ~$8.5B and FCF margin near 10%, despite elevated capex.\n\nApplied EV/FCF multiple: 75x. The current FCF yield is not useful because FCF is negative. The 3-year average FCF yield of 1.3447% implies roughly a 74x EV/FCF multiple, so I round to 75x given high AI optical growth, while recognizing capex and execution risk.\n\nValuation bridge:\n- Forward FCF: $850M\n- Applied EV/FCF: 75x\n- Forward EV: $63,750M\n- Current EV minus market-cap gap: $63,246.6M - $61,456.2M = $1,790.4M\n- Forward market cap: $63,750M - $1,790.4M = $61,959.6M\n\n```json\n{\"forward_market_cap_musd\": 61959.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 850.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Forward revenue scales above the current ~$7.9B annualized Q4 guide midpoint as AI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion convert into shipments. If forward FCF reaches ~$1,100M and the market applies an 85x EV/FCF multiple for scarce AI photonics capacity, forward EV would be ~$93,500M. Using the current EV minus market-cap gap of $1,790.4M, bull-case market cap would be ~$91,710M.",
+        "Bear Case": "Execution and supply-chain risk remain high: InP bottlenecks, China-related restrictions, rapidly rising capex, and soft industrial demand could keep FCF conversion weak. If forward FCF is only ~$500M and the multiple compresses to 50x, forward EV would be ~$25,000M. Less the $1,790.4M EV-to-market-cap gap, bear-case market cap would be ~$23,210M.",
+        "Logic": "Base forward FCF: I estimate ~$850M. TTM FCF is currently negative at -$538M, mainly reflecting heavy capex, but revenue momentum is strong: TTM revenue is $6,602M, fiscal Q3 revenue was $1,810M, and Q4 guidance midpoint is ~$1,980M, or ~$7,920M annualized. With data-center and communications at 75% of revenue, strong backlog, and capacity expansion, I assume next-12-month revenue around ~$8.5B and FCF margin near 10%, despite elevated capex.\n\nApplied EV/FCF multiple: 75x. The current FCF yield is not useful because FCF is negative. The 3-year average FCF yield of 1.3447% implies roughly a 74x EV/FCF multiple, so I round to 75x given high AI optical growth, while recognizing capex and execution risk.\n\nValuation bridge:\n- Forward FCF: $850M\n- Applied EV/FCF: 75x\n- Forward EV: $63,750M\n- Current EV minus market-cap gap: $63,246.6M - $61,456.2M = $1,790.4M\n- Forward market cap: $63,750M - $1,790.4M = $61,959.6M"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "COHR",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:10+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1805,
+        "completion_tokens": 2528,
+        "total_tokens": 4333,
+        "cost": 0.084865,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.084865,
+          "upstream_inference_prompt_cost": 0.009025,
+          "upstream_inference_completions_cost": 0.07584
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1819,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nAI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion support a strong revenue step-up from TTM revenue of $6,602 million. If the Q4 guide midpoint near $1,980 million annualizes and growth continues, forward revenue can plausibly move into the low-$8 billion range. With gross margin already near 40% non-GAAP and scale improving, FCF can recover sharply from the current capex-depressed TTM FCF of -$538 million.\n\nA bull outcome would be forward FCF around $900\u2013$1,000 million. Applying an 85x\u201390x EV/FCF multiple would imply EV of roughly $76,500\u2013$90,000 million, or market cap of about $74,700\u2013$88,200 million after subtracting the current EV-to-market-cap gap of $1,790 million.\n\n## Bear Case\n\nThe main risk is that InP bottlenecks, China export restrictions, and accelerating capex keep FCF structurally weak even while revenue grows. Q3 capex was already $290 million and management guided another sequential increase, so earnings growth may not convert cleanly to cash over the next 12 months.\n\nA bear outcome would be forward FCF around $300\u2013$500 million. At a reduced 45x\u201355x EV/FCF multiple, implied EV would be roughly $13,500\u2013$27,500 million, or market cap of about $11,700\u2013$25,700 million after the same EV-to-market-cap bridge.\n\n## Logic\n\nBase forward revenue assumption is about $8.3\u2013$8.5 billion, based on TTM revenue of $6,602 million, Q3 revenue of $1,810 million, Q4 guidance midpoint near $1,980 million, record backlog, and strong datacenter/communications mix.\n\nI estimate forward FCF at **$750 million**, equal to roughly a 9% FCF margin on forward revenue. This assumes material improvement from the current negative TTM FCF as revenue and margins scale, but still reflects heavy capex for InP and data-center capacity.\n\nFor the EV/FCF multiple, I apply **80.0x**. The 3-year average FCF yield in the packet is 1.34%, implying about 74x EV/FCF; the 1-year average yield is much lower and distorted by current negative/capex-depressed FCF. An 80x multiple is a modest premium to the 3-year inverse yield, justified by AI optics growth and NVIDIA validation, but not as aggressive as the distorted recent valuation.\n\nValuation bridge:\n\n- Forward FCF: **$750 million**\n- Applied EV/FCF multiple: **80.0x**\n- Forward EV: **$60,000 million**\n- Current EV minus market cap gap: **$63,246.6 million - $61,456.2 million = $1,790.4 million**\n- Forward market cap: **$60,000 million - $1,790.4 million = $58,209.6 million**\n\n```json\n{\"forward_market_cap_musd\": 58209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 750.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 58209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 750.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 80.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nAI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion support a strong revenue step-up from TTM revenue of $6,602 million. If the Q4 guide midpoint near $1,980 million annualizes and growth continues, forward revenue can plausibly move into the low-$8 billion range. With gross margin already near 40% non-GAAP and scale improving, FCF can recover sharply from the current capex-depressed TTM FCF of -$538 million.\n\nA bull outcome would be forward FCF around $900\u2013$1,000 million. Applying an 85x\u201390x EV/FCF multiple would imply EV of roughly $76,500\u2013$90,000 million, or market cap of about $74,700\u2013$88,200 million after subtracting the current EV-to-market-cap gap of $1,790 million.\n\n## Bear Case\n\nThe main risk is that InP bottlenecks, China export restrictions, and accelerating capex keep FCF structurally weak even while revenue grows. Q3 capex was already $290 million and management guided another sequential increase, so earnings growth may not convert cleanly to cash over the next 12 months.\n\nA bear outcome would be forward FCF around $300\u2013$500 million. At a reduced 45x\u201355x EV/FCF multiple, implied EV would be roughly $13,500\u2013$27,500 million, or market cap of about $11,700\u2013$25,700 million after the same EV-to-market-cap bridge.\n\n## Logic\n\nBase forward revenue assumption is about $8.3\u2013$8.5 billion, based on TTM revenue of $6,602 million, Q3 revenue of $1,810 million, Q4 guidance midpoint near $1,980 million, record backlog, and strong datacenter/communications mix.\n\nI estimate forward FCF at **$750 million**, equal to roughly a 9% FCF margin on forward revenue. This assumes material improvement from the current negative TTM FCF as revenue and margins scale, but still reflects heavy capex for InP and data-center capacity.\n\nFor the EV/FCF multiple, I apply **80.0x**. The 3-year average FCF yield in the packet is 1.34%, implying about 74x EV/FCF; the 1-year average yield is much lower and distorted by current negative/capex-depressed FCF. An 80x multiple is a modest premium to the 3-year inverse yield, justified by AI optics growth and NVIDIA validation, but not as aggressive as the distorted recent valuation.\n\nValuation bridge:\n\n- Forward FCF: **$750 million**\n- Applied EV/FCF multiple: **80.0x**\n- Forward EV: **$60,000 million**\n- Current EV minus market cap gap: **$63,246.6 million - $61,456.2 million = $1,790.4 million**\n- Forward market cap: **$60,000 million - $1,790.4 million = $58,209.6 million**\n\n```json\n{\"forward_market_cap_musd\": 58209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 750.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AI data-center optics demand, record backlog, NVIDIA validation, and InP capacity expansion support a strong revenue step-up from TTM revenue of $6,602 million. If the Q4 guide midpoint near $1,980 million annualizes and growth continues, forward revenue can plausibly move into the low-$8 billion range. With gross margin already near 40% non-GAAP and scale improving, FCF can recover sharply from the current capex-depressed TTM FCF of -$538 million.\n\nA bull outcome would be forward FCF around $900\u2013$1,000 million. Applying an 85x\u201390x EV/FCF multiple would imply EV of roughly $76,500\u2013$90,000 million, or market cap of about $74,700\u2013$88,200 million after subtracting the current EV-to-market-cap gap of $1,790 million.",
+        "Bear Case": "The main risk is that InP bottlenecks, China export restrictions, and accelerating capex keep FCF structurally weak even while revenue grows. Q3 capex was already $290 million and management guided another sequential increase, so earnings growth may not convert cleanly to cash over the next 12 months.\n\nA bear outcome would be forward FCF around $300\u2013$500 million. At a reduced 45x\u201355x EV/FCF multiple, implied EV would be roughly $13,500\u2013$27,500 million, or market cap of about $11,700\u2013$25,700 million after the same EV-to-market-cap bridge.",
+        "Logic": "Base forward revenue assumption is about $8.3\u2013$8.5 billion, based on TTM revenue of $6,602 million, Q3 revenue of $1,810 million, Q4 guidance midpoint near $1,980 million, record backlog, and strong datacenter/communications mix.\n\nI estimate forward FCF at **$750 million**, equal to roughly a 9% FCF margin on forward revenue. This assumes material improvement from the current negative TTM FCF as revenue and margins scale, but still reflects heavy capex for InP and data-center capacity.\n\nFor the EV/FCF multiple, I apply **80.0x**. The 3-year average FCF yield in the packet is 1.34%, implying about 74x EV/FCF; the 1-year average yield is much lower and distorted by current negative/capex-depressed FCF. An 80x multiple is a modest premium to the 3-year inverse yield, justified by AI optics growth and NVIDIA validation, but not as aggressive as the distorted recent valuation.\n\nValuation bridge:\n\n- Forward FCF: **$750 million**\n- Applied EV/FCF multiple: **80.0x**\n- Forward EV: **$60,000 million**\n- Current EV minus market cap gap: **$63,246.6 million - $61,456.2 million = $1,790.4 million**\n- Forward market cap: **$60,000 million - $1,790.4 million = $58,209.6 million**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "COHR",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:32+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1888,
+        "completion_tokens": 2865,
+        "total_tokens": 4753,
+        "cost": 0.01496948,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 222,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01496948,
+          "upstream_inference_prompt_cost": 0.00236348,
+          "upstream_inference_completions_cost": 0.012606
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1824,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nRevenue is accelerating at 21% YoY with Q4 guidance of $1.91\u20132.05B, putting the forward revenue run-rate near $8.5B+. Datacenter & Communications at 75% of revenue and growing 37\u201360% YoY, backed by a record backlog extending into calendar 2028, provides strong revenue visibility. The NVIDIA strategic partnership ($2B equity investment, multiyear supply agreement through end of decade) validates Coherent's CPO and optical technology positioning. CHIPS funding of $50M for the Sherman InP facility and accelerated 6-inch InP capacity ramp (doubling by end of 2026, then doubling again by end of 2027) could alleviate the InP bottleneck and restore FCF as capex normalizes. If capex peaks in fiscal Q4 and begins tapering in calendar 2027, forward FCF could recover toward $300\u2013400M from the current -$538M trough, with a path to $700M+ normalized FCF on ~$9B revenue at 40% gross margins.\n\n## Bear Case\nTTM FCF is deeply negative at -$538M and capex is still rising sequentially ($112M \u2192 $154M \u2192 $290M per quarter), with management guiding another increase in fiscal Q4. China's InP export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening margins and capacity ramps. Several growth vectors (multi-rail, thermal products) won't contribute revenue until H1/H2 calendar 2027, meaning the 12-month forward window captures mostly the high-capex, low-FCF phase. Industrial remains soft. Current EV of $63B against negative FCF implies the market is pricing in near-perfect execution on capacity, demand, and supply constraints\u2014a precarious setup if any ramp slips.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is -$538M due to capex surging to ~$290M/quarter (~$1.16B annualized). Over the next 12 months, revenue should reach ~$8.5B (Q4 guide midpoint ~$1.98B quarterly, growing). At ~40% gross margin, gross profit approaches $3.4B. Operating cash flow could reach ~$1.1\u20131.3B. Assuming capex remains elevated but begins moderating in the back half as InP capacity comes online, I estimate full-year forward capex of ~$950M, yielding forward FCF of approximately **$250M**\u2014a meaningful recovery from the trough but still well below the $256M generated two years ago on lower revenue.\n\n**Applied EV/FCF multiple:** Forward FCF is at a cyclical trough, so applying a static multiple understates the business. The market is effectively pricing normalized FCF (~$700M) at ~85\u201390x. I apply **120x** on the depressed $250M forward FCF, which implies ~$42\u201343x on a normalized $700M FCF\u2014reasonable for an AI-infrastructure growth company with NVIDIA validation but tempered by InP supply risk and execution uncertainty. This yields a forward EV of $30,000M.\n\n**EV-to-market-cap bridge:** Current EV minus market cap gap = $63,246.6M \u2013 $61,456.2M = **$1,790.4M** (net cash/debt equivalent). Applying this gap: forward market cap = $30,000M \u2013 $1,790.4M = **$28,209.6M**.\n\n```json\n{\"forward_market_cap_musd\": 28209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 120.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 28209.6,
+        "horizon": "12m",
+        "forward_fcf_musd": 250.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 120.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nRevenue is accelerating at 21% YoY with Q4 guidance of $1.91\u20132.05B, putting the forward revenue run-rate near $8.5B+. Datacenter & Communications at 75% of revenue and growing 37\u201360% YoY, backed by a record backlog extending into calendar 2028, provides strong revenue visibility. The NVIDIA strategic partnership ($2B equity investment, multiyear supply agreement through end of decade) validates Coherent's CPO and optical technology positioning. CHIPS funding of $50M for the Sherman InP facility and accelerated 6-inch InP capacity ramp (doubling by end of 2026, then doubling again by end of 2027) could alleviate the InP bottleneck and restore FCF as capex normalizes. If capex peaks in fiscal Q4 and begins tapering in calendar 2027, forward FCF could recover toward $300\u2013400M from the current -$538M trough, with a path to $700M+ normalized FCF on ~$9B revenue at 40% gross margins.\n\n## Bear Case\nTTM FCF is deeply negative at -$538M and capex is still rising sequentially ($112M \u2192 $154M \u2192 $290M per quarter), with management guiding another increase in fiscal Q4. China's InP export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening margins and capacity ramps. Several growth vectors (multi-rail, thermal products) won't contribute revenue until H1/H2 calendar 2027, meaning the 12-month forward window captures mostly the high-capex, low-FCF phase. Industrial remains soft. Current EV of $63B against negative FCF implies the market is pricing in near-perfect execution on capacity, demand, and supply constraints\u2014a precarious setup if any ramp slips.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is -$538M due to capex surging to ~$290M/quarter (~$1.16B annualized). Over the next 12 months, revenue should reach ~$8.5B (Q4 guide midpoint ~$1.98B quarterly, growing). At ~40% gross margin, gross profit approaches $3.4B. Operating cash flow could reach ~$1.1\u20131.3B. Assuming capex remains elevated but begins moderating in the back half as InP capacity comes online, I estimate full-year forward capex of ~$950M, yielding forward FCF of approximately **$250M**\u2014a meaningful recovery from the trough but still well below the $256M generated two years ago on lower revenue.\n\n**Applied EV/FCF multiple:** Forward FCF is at a cyclical trough, so applying a static multiple understates the business. The market is effectively pricing normalized FCF (~$700M) at ~85\u201390x. I apply **120x** on the depressed $250M forward FCF, which implies ~$42\u201343x on a normalized $700M FCF\u2014reasonable for an AI-infrastructure growth company with NVIDIA validation but tempered by InP supply risk and execution uncertainty. This yields a forward EV of $30,000M.\n\n**EV-to-market-cap bridge:** Current EV minus market cap gap = $63,246.6M \u2013 $61,456.2M = **$1,790.4M** (net cash/debt equivalent). Applying this gap: forward market cap = $30,000M \u2013 $1,790.4M = **$28,209.6M**.\n\n```json\n{\"forward_market_cap_musd\": 28209.6, \"horizon\": \"12m\", \"forward_fcf_musd\": 250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 120.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Revenue is accelerating at 21% YoY with Q4 guidance of $1.91\u20132.05B, putting the forward revenue run-rate near $8.5B+. Datacenter & Communications at 75% of revenue and growing 37\u201360% YoY, backed by a record backlog extending into calendar 2028, provides strong revenue visibility. The NVIDIA strategic partnership ($2B equity investment, multiyear supply agreement through end of decade) validates Coherent's CPO and optical technology positioning. CHIPS funding of $50M for the Sherman InP facility and accelerated 6-inch InP capacity ramp (doubling by end of 2026, then doubling again by end of 2027) could alleviate the InP bottleneck and restore FCF as capex normalizes. If capex peaks in fiscal Q4 and begins tapering in calendar 2027, forward FCF could recover toward $300\u2013400M from the current -$538M trough, with a path to $700M+ normalized FCF on ~$9B revenue at 40% gross margins.",
+        "Bear Case": "TTM FCF is deeply negative at -$538M and capex is still rising sequentially ($112M \u2192 $154M \u2192 $290M per quarter), with management guiding another increase in fiscal Q4. China's InP export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening margins and capacity ramps. Several growth vectors (multi-rail, thermal products) won't contribute revenue until H1/H2 calendar 2027, meaning the 12-month forward window captures mostly the high-capex, low-FCF phase. Industrial remains soft. Current EV of $63B against negative FCF implies the market is pricing in near-perfect execution on capacity, demand, and supply constraints\u2014a precarious setup if any ramp slips.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is -$538M due to capex surging to ~$290M/quarter (~$1.16B annualized). Over the next 12 months, revenue should reach ~$8.5B (Q4 guide midpoint ~$1.98B quarterly, growing). At ~40% gross margin, gross profit approaches $3.4B. Operating cash flow could reach ~$1.1\u20131.3B. Assuming capex remains elevated but begins moderating in the back half as InP capacity comes online, I estimate full-year forward capex of ~$950M, yielding forward FCF of approximately **$250M**\u2014a meaningful recovery from the trough but still well below the $256M generated two years ago on lower revenue.\n\n**Applied EV/FCF multiple:** Forward FCF is at a cyclical trough, so applying a static multiple understates the business. The market is effectively pricing normalized FCF (~$700M) at ~85\u201390x. I apply **120x** on the depressed $250M forward FCF, which implies ~$42\u201343x on a normalized $700M FCF\u2014reasonable for an AI-infrastructure growth company with NVIDIA validation but tempered by InP supply risk and execution uncertainty. This yields a forward EV of $30,000M.\n\n**EV-to-market-cap bridge:** Current EV minus market cap gap = $63,246.6M \u2013 $61,456.2M = **$1,790.4M** (net cash/debt equivalent). Applying this gap: forward market cap = $30,000M \u2013 $1,790.4M = **$28,209.6M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "COHR",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:44:58+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1914,
+        "completion_tokens": 4536,
+        "total_tokens": 6450,
+        "cost": 0.02052216,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1856,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02052216,
+          "upstream_inference_prompt_cost": 0.00056376,
+          "upstream_inference_completions_cost": 0.0199584
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3264,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nRevenue is accelerating at 20%+ YoY with Datacenter & Communications at 75% of revenue and growing 37-60%. The NVIDIA partnership ($2B equity investment, multiyear supply agreement through end of decade) provides demand visibility into calendar 2028, and record backlog confirms this. 6-inch InP yields are exceeding legacy 3-inch lines, and capacity is set to more than double by end of 2027 with CHIPS funding support. If capex plateaus by mid-FY27 while revenue scales toward $8.5-9B, operating cash flow could reach ~$1.1B against ~$1.3B capex, narrowing FCF losses to ~-$200M. The market could ascribe a premium multiple (70-80x) to a normalized ~$1.0-1.2B FCF stream expected 2-3 years out, pushing EV toward $70-85B. With the current EV-MC gap of ~$1.8B, market cap could reach $68-83B.\n\n## Bear Case\n\nInP is an industry-wide bottleneck, and China's export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening gross margins and production timelines. Capex has tripled YoY to ~$290M/quarter and is still rising, keeping FCF deeply negative (-$538M TTM). Several growth vectors (multi-rail, thermal) don't contribute until 2H 2027. If capex remains elevated for longer than expected and InP costs compress margins, FCF could stay at -$400M to -$600M for the next 12 months. Multiple compression to 50-55x on a normalized $800-900M FCF would imply EV of $40-50B and market cap of $38-48B.\n\n## Logic\n\n**Forward FCF estimate:** -$250M. TTM FCF is -$538M driven by a capex jump from ~$112M/quarter to ~$290M+/quarter. Over the next 12 months, revenue should scale toward ~$8.5B (blending Q4 guidance midpoint of ~$1.98B with continued 20%+ growth), improving operating cash flow to ~$1.0-1.1B. However, capex remains elevated at ~$1.3-1.4B annually as the InP capacity ramp and Texas facility expansion continue. The net result is FCF improving to roughly -$250M, still negative but narrowing meaningfully.\n\n**Applied EV/FCF multiple:** 65.0x, applied to a normalized through-cycle FCF of $1,000M (post-capex ramp, expected ~FY28-29). This reflects Coherent's AI data-center exposure, NVIDIA partnership validation, and 20%+ revenue growth trajectory. The 65x multiple is above the 3-year average EV/FCF of ~74x (1/0.0134) but below peak growth-stock multiples, accounting for execution risk on InP supply and capex intensity.\n\n**EV-to-MC bridge:** Forward EV = 65.0 \u00d7 $1,000M normalized FCF = $65,000M. Current EV-MC gap is $63,246.6M - $61,456.2M = $1,790.4M (net cash position). Applying the same gap forward: Forward MC = $65,000M - $1,790.4M = $63,209.6M \u2248 $63,210M. This is roughly flat versus the current $61,456M market cap, reflecting a balance between strong top-line momentum and continued FCF pressure from elevated capex.\n\n```json\n{\"forward_market_cap_musd\": 63210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 63210.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -250.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 65.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nRevenue is accelerating at 20%+ YoY with Datacenter & Communications at 75% of revenue and growing 37-60%. The NVIDIA partnership ($2B equity investment, multiyear supply agreement through end of decade) provides demand visibility into calendar 2028, and record backlog confirms this. 6-inch InP yields are exceeding legacy 3-inch lines, and capacity is set to more than double by end of 2027 with CHIPS funding support. If capex plateaus by mid-FY27 while revenue scales toward $8.5-9B, operating cash flow could reach ~$1.1B against ~$1.3B capex, narrowing FCF losses to ~-$200M. The market could ascribe a premium multiple (70-80x) to a normalized ~$1.0-1.2B FCF stream expected 2-3 years out, pushing EV toward $70-85B. With the current EV-MC gap of ~$1.8B, market cap could reach $68-83B.\n\n## Bear Case\n\nInP is an industry-wide bottleneck, and China's export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening gross margins and production timelines. Capex has tripled YoY to ~$290M/quarter and is still rising, keeping FCF deeply negative (-$538M TTM). Several growth vectors (multi-rail, thermal) don't contribute until 2H 2027. If capex remains elevated for longer than expected and InP costs compress margins, FCF could stay at -$400M to -$600M for the next 12 months. Multiple compression to 50-55x on a normalized $800-900M FCF would imply EV of $40-50B and market cap of $38-48B.\n\n## Logic\n\n**Forward FCF estimate:** -$250M. TTM FCF is -$538M driven by a capex jump from ~$112M/quarter to ~$290M+/quarter. Over the next 12 months, revenue should scale toward ~$8.5B (blending Q4 guidance midpoint of ~$1.98B with continued 20%+ growth), improving operating cash flow to ~$1.0-1.1B. However, capex remains elevated at ~$1.3-1.4B annually as the InP capacity ramp and Texas facility expansion continue. The net result is FCF improving to roughly -$250M, still negative but narrowing meaningfully.\n\n**Applied EV/FCF multiple:** 65.0x, applied to a normalized through-cycle FCF of $1,000M (post-capex ramp, expected ~FY28-29). This reflects Coherent's AI data-center exposure, NVIDIA partnership validation, and 20%+ revenue growth trajectory. The 65x multiple is above the 3-year average EV/FCF of ~74x (1/0.0134) but below peak growth-stock multiples, accounting for execution risk on InP supply and capex intensity.\n\n**EV-to-MC bridge:** Forward EV = 65.0 \u00d7 $1,000M normalized FCF = $65,000M. Current EV-MC gap is $63,246.6M - $61,456.2M = $1,790.4M (net cash position). Applying the same gap forward: Forward MC = $65,000M - $1,790.4M = $63,209.6M \u2248 $63,210M. This is roughly flat versus the current $61,456M market cap, reflecting a balance between strong top-line momentum and continued FCF pressure from elevated capex.\n\n```json\n{\"forward_market_cap_musd\": 63210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Revenue is accelerating at 20%+ YoY with Datacenter & Communications at 75% of revenue and growing 37-60%. The NVIDIA partnership ($2B equity investment, multiyear supply agreement through end of decade) provides demand visibility into calendar 2028, and record backlog confirms this. 6-inch InP yields are exceeding legacy 3-inch lines, and capacity is set to more than double by end of 2027 with CHIPS funding support. If capex plateaus by mid-FY27 while revenue scales toward $8.5-9B, operating cash flow could reach ~$1.1B against ~$1.3B capex, narrowing FCF losses to ~-$200M. The market could ascribe a premium multiple (70-80x) to a normalized ~$1.0-1.2B FCF stream expected 2-3 years out, pushing EV toward $70-85B. With the current EV-MC gap of ~$1.8B, market cap could reach $68-83B.",
+        "Bear Case": "InP is an industry-wide bottleneck, and China's export restrictions have driven 6-inch wafer prices up 250% to $5,000, threatening gross margins and production timelines. Capex has tripled YoY to ~$290M/quarter and is still rising, keeping FCF deeply negative (-$538M TTM). Several growth vectors (multi-rail, thermal) don't contribute until 2H 2027. If capex remains elevated for longer than expected and InP costs compress margins, FCF could stay at -$400M to -$600M for the next 12 months. Multiple compression to 50-55x on a normalized $800-900M FCF would imply EV of $40-50B and market cap of $38-48B.",
+        "Logic": "**Forward FCF estimate:** -$250M. TTM FCF is -$538M driven by a capex jump from ~$112M/quarter to ~$290M+/quarter. Over the next 12 months, revenue should scale toward ~$8.5B (blending Q4 guidance midpoint of ~$1.98B with continued 20%+ growth), improving operating cash flow to ~$1.0-1.1B. However, capex remains elevated at ~$1.3-1.4B annually as the InP capacity ramp and Texas facility expansion continue. The net result is FCF improving to roughly -$250M, still negative but narrowing meaningfully.\n\n**Applied EV/FCF multiple:** 65.0x, applied to a normalized through-cycle FCF of $1,000M (post-capex ramp, expected ~FY28-29). This reflects Coherent's AI data-center exposure, NVIDIA partnership validation, and 20%+ revenue growth trajectory. The 65x multiple is above the 3-year average EV/FCF of ~74x (1/0.0134) but below peak growth-stock multiples, accounting for execution risk on InP supply and capex intensity.\n\n**EV-to-MC bridge:** Forward EV = 65.0 \u00d7 $1,000M normalized FCF = $65,000M. Current EV-MC gap is $63,246.6M - $61,456.2M = $1,790.4M (net cash position). Applying the same gap forward: Forward MC = $65,000M - $1,790.4M = $63,209.6M \u2248 $63,210M. This is roughly flat versus the current $61,456M market cap, reflecting a balance between strong top-line momentum and continued FCF pressure from elevated capex."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "COHR",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:46:09+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "ffb856730e65dd416820e534c4f9463c89f38da94dcfce9c0b8caf1380cfd1b6",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1914,
+        "completion_tokens": 4339,
+        "total_tokens": 6253,
+        "cost": 0.016804925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1755,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.016804925,
+          "upstream_inference_prompt_cost": 0.000577065,
+          "upstream_inference_completions_cost": 0.01622786
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3472,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nCoherent's positioning at the center of AI data-center optical networking is exceptional. Fiscal Q3 revenue of $1.81B (+21% YoY) with Datacenter & Communications at 75% of revenue and growing 37%+ validates the AI tailwind. Record backlog extending into calendar 2028, the $2B NVIDIA equity investment, and a multiyear supply agreement provide extraordinary revenue visibility. The 6-inch InP capacity doubling by calendar 2026\u2014accelerated by one quarter\u2014and the $50M CHIPS funding for the Sherman, Texas facility position Coherent to alleviate a critical industry bottleneck. 800G/1.6T transceiver ramps, CPO co-development with NVIDIA, and optical circuit switch adoption create a multi-year growth runway. If capex normalizes even modestly while revenue scales toward $8B+, FCF could recover toward historical levels of $225\u2013256M or higher, supporting a premium multiple on normalized earnings power.\n\n## Bear Case\n\nTTM free cash flow is deeply negative at \u2013$538M, driven by a capex ramp from $112M/year-ago to $290M in Q3 alone, with further sequential increases guided. China's export restrictions on InP (wafer prices up 250% to $5,000) threaten margins and supply continuity for the very products driving growth. The current market cap of $61.5B is 3.2x the 3-year mean of $19.2B, implying aggressive growth expectations already priced in. Industrial remains soft, and several future growth vectors (multi-rail, thermal) won't contribute revenue until 2H 2027. Execution risk is high: if capacity ramps slip or AI optical adoption timelines extend, the elevated capital base becomes a significant drag. At current EV/revenue of ~9.6x and EV/net income of ~135x, any disappointment could trigger sharp de-rating.\n\n## Logic\n\n**Forward FCF estimate (\u2013$150M):** TTM FCF is \u2013$538M due to surging capex ($290M in Q3, up from $112M a year earlier). Over the next 12 months, revenue should scale toward ~$8B (Q4 guide midpoint $1.98B annualized run-rate), but capex remains elevated given the InP capacity doubling and Sherman, Texas expansion. I estimate operating cash flow improves to ~$1.0\u20131.2B while capex stays ~$1.2\u20131.3B, yielding forward FCF of approximately \u2013$150M\u2014still negative but improving materially from \u2013$538M.\n\n**Normalized FCF for valuation ($350M):** Because forward FCF remains negative, I apply a normalized FCF estimate reflecting revenue scaling to ~$8B with eventual capex moderation post-capacity build-out. This sits above historical FCF of $225\u2013256M (pre-ramp) but below peak potential given the larger revenue base.\n\n**Applied EV/FCF multiple (100x):** This reflects the 3-year average EV/FCF of ~74x adjusted upward for the NVIDIA partnership, record backlog through 2028, and AI optical exposure\u2014justifying a growth premium. It implies forward EV/revenue of ~4.4x and EV/net income of ~54x on ~$650M forward net income, which are reasonable for a high-growth AI infrastructure supplier.\n\n**Forward EV:** $350M normalized FCF \u00d7 100x = $35,000M\n\n**Bridge to market cap:** Current EV \u2013 market cap gap = $63,246.6M \u2013 $61,456.2M = $1,790.4M (net debt and minority interests). Forward market cap = $35,000M \u2013 $1,790M = **$33,210M**.\n\n```json\n{\"forward_market_cap_musd\": 33210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -150.0, \"forward_netinc_musd\": null, \"applied_multiple\": 100.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 33210.0,
+        "horizon": "12m",
+        "forward_fcf_musd": -150.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 100.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 2,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nCoherent's positioning at the center of AI data-center optical networking is exceptional. Fiscal Q3 revenue of $1.81B (+21% YoY) with Datacenter & Communications at 75% of revenue and growing 37%+ validates the AI tailwind. Record backlog extending into calendar 2028, the $2B NVIDIA equity investment, and a multiyear supply agreement provide extraordinary revenue visibility. The 6-inch InP capacity doubling by calendar 2026\u2014accelerated by one quarter\u2014and the $50M CHIPS funding for the Sherman, Texas facility position Coherent to alleviate a critical industry bottleneck. 800G/1.6T transceiver ramps, CPO co-development with NVIDIA, and optical circuit switch adoption create a multi-year growth runway. If capex normalizes even modestly while revenue scales toward $8B+, FCF could recover toward historical levels of $225\u2013256M or higher, supporting a premium multiple on normalized earnings power.\n\n## Bear Case\n\nTTM free cash flow is deeply negative at \u2013$538M, driven by a capex ramp from $112M/year-ago to $290M in Q3 alone, with further sequential increases guided. China's export restrictions on InP (wafer prices up 250% to $5,000) threaten margins and supply continuity for the very products driving growth. The current market cap of $61.5B is 3.2x the 3-year mean of $19.2B, implying aggressive growth expectations already priced in. Industrial remains soft, and several future growth vectors (multi-rail, thermal) won't contribute revenue until 2H 2027. Execution risk is high: if capacity ramps slip or AI optical adoption timelines extend, the elevated capital base becomes a significant drag. At current EV/revenue of ~9.6x and EV/net income of ~135x, any disappointment could trigger sharp de-rating.\n\n## Logic\n\n**Forward FCF estimate (\u2013$150M):** TTM FCF is \u2013$538M due to surging capex ($290M in Q3, up from $112M a year earlier). Over the next 12 months, revenue should scale toward ~$8B (Q4 guide midpoint $1.98B annualized run-rate), but capex remains elevated given the InP capacity doubling and Sherman, Texas expansion. I estimate operating cash flow improves to ~$1.0\u20131.2B while capex stays ~$1.2\u20131.3B, yielding forward FCF of approximately \u2013$150M\u2014still negative but improving materially from \u2013$538M.\n\n**Normalized FCF for valuation ($350M):** Because forward FCF remains negative, I apply a normalized FCF estimate reflecting revenue scaling to ~$8B with eventual capex moderation post-capacity build-out. This sits above historical FCF of $225\u2013256M (pre-ramp) but below peak potential given the larger revenue base.\n\n**Applied EV/FCF multiple (100x):** This reflects the 3-year average EV/FCF of ~74x adjusted upward for the NVIDIA partnership, record backlog through 2028, and AI optical exposure\u2014justifying a growth premium. It implies forward EV/revenue of ~4.4x and EV/net income of ~54x on ~$650M forward net income, which are reasonable for a high-growth AI infrastructure supplier.\n\n**Forward EV:** $350M normalized FCF \u00d7 100x = $35,000M\n\n**Bridge to market cap:** Current EV \u2013 market cap gap = $63,246.6M \u2013 $61,456.2M = $1,790.4M (net debt and minority interests). Forward market cap = $35,000M \u2013 $1,790M = **$33,210M**.\n\n```json\n{\"forward_market_cap_musd\": 33210.0, \"horizon\": \"12m\", \"forward_fcf_musd\": -150.0, \"forward_netinc_musd\": null, \"applied_multiple\": 100.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Coherent's positioning at the center of AI data-center optical networking is exceptional. Fiscal Q3 revenue of $1.81B (+21% YoY) with Datacenter & Communications at 75% of revenue and growing 37%+ validates the AI tailwind. Record backlog extending into calendar 2028, the $2B NVIDIA equity investment, and a multiyear supply agreement provide extraordinary revenue visibility. The 6-inch InP capacity doubling by calendar 2026\u2014accelerated by one quarter\u2014and the $50M CHIPS funding for the Sherman, Texas facility position Coherent to alleviate a critical industry bottleneck. 800G/1.6T transceiver ramps, CPO co-development with NVIDIA, and optical circuit switch adoption create a multi-year growth runway. If capex normalizes even modestly while revenue scales toward $8B+, FCF could recover toward historical levels of $225\u2013256M or higher, supporting a premium multiple on normalized earnings power.",
+        "Bear Case": "TTM free cash flow is deeply negative at \u2013$538M, driven by a capex ramp from $112M/year-ago to $290M in Q3 alone, with further sequential increases guided. China's export restrictions on InP (wafer prices up 250% to $5,000) threaten margins and supply continuity for the very products driving growth. The current market cap of $61.5B is 3.2x the 3-year mean of $19.2B, implying aggressive growth expectations already priced in. Industrial remains soft, and several future growth vectors (multi-rail, thermal) won't contribute revenue until 2H 2027. Execution risk is high: if capacity ramps slip or AI optical adoption timelines extend, the elevated capital base becomes a significant drag. At current EV/revenue of ~9.6x and EV/net income of ~135x, any disappointment could trigger sharp de-rating.",
+        "Logic": "**Forward FCF estimate (\u2013$150M):** TTM FCF is \u2013$538M due to surging capex ($290M in Q3, up from $112M a year earlier). Over the next 12 months, revenue should scale toward ~$8B (Q4 guide midpoint $1.98B annualized run-rate), but capex remains elevated given the InP capacity doubling and Sherman, Texas expansion. I estimate operating cash flow improves to ~$1.0\u20131.2B while capex stays ~$1.2\u20131.3B, yielding forward FCF of approximately \u2013$150M\u2014still negative but improving materially from \u2013$538M.\n\n**Normalized FCF for valuation ($350M):** Because forward FCF remains negative, I apply a normalized FCF estimate reflecting revenue scaling to ~$8B with eventual capex moderation post-capacity build-out. This sits above historical FCF of $225\u2013256M (pre-ramp) but below peak potential given the larger revenue base.\n\n**Applied EV/FCF multiple (100x):** This reflects the 3-year average EV/FCF of ~74x adjusted upward for the NVIDIA partnership, record backlog through 2028, and AI optical exposure\u2014justifying a growth premium. It implies forward EV/revenue of ~4.4x and EV/net income of ~54x on ~$650M forward net income, which are reasonable for a high-growth AI infrastructure supplier.\n\n**Forward EV:** $350M normalized FCF \u00d7 100x = $35,000M\n\n**Bridge to market cap:** Current EV \u2013 market cap gap = $63,246.6M \u2013 $61,456.2M = $1,790.4M (net debt and minority interests). Forward market cap = $35,000M \u2013 $1,790M = **$33,210M**."
+      }
+    }
+  ]
+}

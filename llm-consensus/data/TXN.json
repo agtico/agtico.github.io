@@ -1,0 +1,886 @@
+{
+  "asset_id": "TXN",
+  "aggregate_row": {
+    "asset_id": "TXN",
+    "name": "TEXAS INSTRUMENTS INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 266930.2,
+    "std_pct_of_mean": 0.17955084472177837,
+    "models": {
+      "Fable": {
+        "forward_mc": 274700.0,
+        "pct_upside": 0.029107984034777656,
+        "bullishness": 0.16211555049981363,
+        "n_samples": 3,
+        "forward_mc_iqr": 3500.5
+      },
+      "Opus 4.8": {
+        "forward_mc": 277499.0,
+        "pct_upside": 0.03959387135663173,
+        "bullishness": 0.22051620764014843,
+        "n_samples": 3,
+        "forward_mc_iqr": 18050.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 275699.0,
+        "pct_upside": 0.032850535458333274,
+        "bullishness": 0.18295951494539928,
+        "n_samples": 3,
+        "forward_mc_iqr": 9600.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 264199.0,
+        "pct_upside": -0.010231888336351691,
+        "bullishness": -0.05698602171550034,
+        "n_samples": 3,
+        "forward_mc_iqr": 18499.5
+      }
+    },
+    "consensus_bullishness": 0.17253753272260647,
+    "consensus_bullishness_mean": 0.12715131284246525,
+    "consensus_pct_upside": 0.030979259746555465,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nTexas Instruments is a Dallas-based semiconductor company focused on **analog** and **embedded processing** chips. Its strategy centers on in-house manufacturing/technology, a broad catalog, direct market channels, and long-lived customer/product positions; in 2025, embedded processing was about 15% of revenue, with the broader business focused on analog and embedded products. ([sec.gov](https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm?utm_source=openai))\n\n## What It Does\n\nTI\u2019s chips help electronic systems **manage power, sense and transmit real-world signals, and provide control/processing** in customer designs. The company serves industrial, automotive, personal electronics, communications equipment, and enterprise/data-center-related markets, with a portfolio of 80,000+ products. ([ti.com](https://www.ti.com/about-ti.html?utm_source=openai)) Its model emphasizes internal 300mm manufacturing, which management says supports competitive lead times, cycle flexibility, and long-term cost structure.\n\n## Recent Highlights (Positive)\n\nIn Q1 2026, TI reported **$4.83 billion revenue**, **$1.55 billion net income**, and **$1.68 EPS**; the transcript excerpt says revenue rose **9% sequentially** and **19% year over year**, with Analog up **22% YoY** and Embedded Processing up **12% YoY**. ([ti.gcs-web.com](https://ti.gcs-web.com/static-files/b6565bf6-eef3-4a50-a12a-cce6cc24611b?utm_source=openai)) Management highlighted broad recovery signals: industrial revenue increased more than **30% YoY** and more than **20% sequentially**, data center grew about **90% YoY**, and communications equipment grew about **25% YoY**. The company guided Q2 2026 revenue to **$5.0 billion\u2013$5.4 billion** and EPS to **$1.77\u2013$2.05**, implying continued sequential growth from Q1. ([simplywall.st](https://simplywall.st/stocks/us/semiconductors/nasdaq-txn/texas-instruments/news/texas-instruments-txn-is-up-75-after-strong-q2-ai-demand-gui/amp?utm_source=openai))\n\nTI also continued to benefit from U.S. manufacturing investments: the transcript says trailing-12-month free cash flow rose to **$4.4 billion**, including **$965 million of CHIPS Act incentives**, with a **$555 million** payment tied to start of production at its newest Sherman, Texas 300mm wafer fab. The Sherman fab began production before the 90-day window but remains relevant because Q1 cash flow included the incentive payment and management described capacity/inventory as supporting a wide range of upturn scenarios. ([tomshardware.com](https://www.tomshardware.com/tech-industry/semiconductors/new-texas-instruments-fab-will-pump-out-tens-of-millions-of-chips-per-day-first-300mm-fab-starts-production-after-usd60-billion-investment?utm_source=openai)) Silicon Labs shareholders also approved TI\u2019s proposed acquisition in late April, moving the $7.5 billion embedded wireless connectivity deal one step forward. ([investing.com](https://www.investing.com/news/sec-filings/silicon-laboratories-shareholders-approve-merger-with-texas-instruments-93CH-4650286?utm_source=openai))\n\n## Recent Highlights (Negative)\n\nManagement repeatedly cautioned that the strong industrial recovery may not yet be fully proven: the transcript notes macro/geopolitical uncertainty, a prior \u201chead-fake\u201d analog recovery pattern, and the need to see whether Q2 demand is sustainable. Automotive was comparatively less robust: Q1 automotive was only mid-single-digit YoY and roughly flat sequentially, with China down while the rest of world was up.\n\nThe Silicon Labs transaction adds execution, financing, and regulatory risk. TI\u2019s own deal announcement lists risks including failure to obtain required approvals, disruption to operations and relationships, retention issues, litigation, unexpected costs, and potential deal delays or termination. ([ti.com](https://www.ti.com/about-ti/newsroom/news-releases/2026/2026-02-04-texas-instruments-to-acquire-silicon-labs.html?HQS=corp-dbwti-ep-tisi-bhp-news-null-wwe&utm_source=openai)) Recent merger-control reporting also said China\u2019s regulator had not yet formally accepted the merger filing as of June 11, 2026, indicating a remaining regulatory gating item. ([mlex.com](https://www.mlex.com/mlex/mergers-acquisitions/articles/2488396/texas-instruments-silicon-labs-merger-filing-not-yet-accepted-in-china?utm_source=openai)) S&P affirmed TI\u2019s rating but framed the deal as debt-funded and noted deleveraging expectations after the Silicon Labs acquisition, highlighting balance-sheet considerations around the $7.5 billion purchase. ([spglobal.com](https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3517729?utm_source=openai))\n",
+  "primer_meta": {
+    "asset_id": "TXN",
+    "created_at_utc": "2026-07-08T15:04:45+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "0f6ee17f01b26243169e1f049cd23a6cfe27dabb089ff02308e4f259b5d87ff2",
+    "sources": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000059/txn-20251231.htm?utm_source=openai",
+        "title": "txn-20251231"
+      },
+      {
+        "url": "https://www.ti.com/about-ti.html?utm_source=openai",
+        "title": "About TI | TI.com"
+      },
+      {
+        "url": "https://ti.gcs-web.com/static-files/b6565bf6-eef3-4a50-a12a-cce6cc24611b?utm_source=openai",
+        "title": "Q1 2026 TXN EX99 - ER"
+      },
+      {
+        "url": "https://simplywall.st/stocks/us/semiconductors/nasdaq-txn/texas-instruments/news/texas-instruments-txn-is-up-75-after-strong-q2-ai-demand-gui/amp?utm_source=openai",
+        "title": "Texas Instruments (TXN) Is Up 7.5% After Strong Q2 AI Demand Guidance And Insider Stock Sales - Simply Wall St News"
+      },
+      {
+        "url": "https://www.tomshardware.com/tech-industry/semiconductors/new-texas-instruments-fab-will-pump-out-tens-of-millions-of-chips-per-day-first-300mm-fab-starts-production-after-usd60-billion-investment?utm_source=openai",
+        "title": "New Texas Instruments fab will pump out tens of millions of chips per day - first 300mm fab starts production after $60 billion investment"
+      },
+      {
+        "url": "https://www.investing.com/news/sec-filings/silicon-laboratories-shareholders-approve-merger-with-texas-instruments-93CH-4650286?utm_source=openai",
+        "title": "Silicon Laboratories shareholders approve merger with Texas Instruments By Investing.com"
+      },
+      {
+        "url": "https://www.ti.com/about-ti/newsroom/news-releases/2026/2026-02-04-texas-instruments-to-acquire-silicon-labs.html?HQS=corp-dbwti-ep-tisi-bhp-news-null-wwe&utm_source=openai",
+        "title": "Texas Instruments to acquire Silicon Labs | TI.com"
+      },
+      {
+        "url": "https://www.mlex.com/mlex/mergers-acquisitions/articles/2488396/texas-instruments-silicon-labs-merger-filing-not-yet-accepted-in-china?utm_source=openai",
+        "title": "Texas Instruments, Silicon Labs merger filing not yet accepted in China | MLex | Specialist news and analysis on legal risk and regulation"
+      },
+      {
+        "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3517729?utm_source=openai",
+        "title": "Texas Instruments Inc. 'A+' Ratings Affirmed On D | S&P Global Ratings"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "TXN__earnings_call_transcript__2026-04-22__1__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-04-22",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0509a1c8cc0310a3016a4e66f3f9e481a2b72a512150636de3",
+    "usage": {
+      "input_tokens": 20638,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1036,
+      "output_tokens_details": {
+        "reasoning_tokens": 185
+      },
+      "total_tokens": 21674
+    }
+  },
+  "details": {
+    "asset_id": "TXN",
+    "detail_source_ticker": "TXN",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "TEXAS INSTRUMENTS INC",
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "market_cap_musd": 266930.2,
+    "ev_musd": 277431.2,
+    "ttm_revenue_musd": 18438.0,
+    "ttm_fcf_musd": 3721.0,
+    "ttm_netinc_musd": 5367.0,
+    "fcf_ev": {
+      "current": 0.013412334301260997,
+      "avg_1y": 0.01131308935266738,
+      "std_1y": 0.002316201290366666,
+      "avg_3y": 0.010502064862606098,
+      "std_3y": 0.004366045561172696
+    },
+    "ni_mc": {
+      "current": 0.02010637987009338,
+      "avg_1y": 0.027310515143694692,
+      "std_1y": 0.004648663372037631,
+      "avg_3y": 0.03393664227736501,
+      "std_3y": 0.00960460401441997
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-04-24",
+        "ttm_revenue_musd": 18438.0,
+        "ttm_fcf_musd": 3721.0,
+        "ttm_netinc_musd": 5367.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-04-24",
+        "ttm_revenue_musd": 16049.0,
+        "ttm_fcf_musd": 1455.0,
+        "ttm_netinc_musd": 4873.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-04-24",
+        "ttm_revenue_musd": 16801.0,
+        "ttm_fcf_musd": 940.0,
+        "ttm_netinc_musd": 5907.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 174091.62809587215,
+      "std_musd": 31258.29888360353,
+      "std_pct_of_mean": 0.17955084472177837,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "TXN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:26+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 1322,
+        "total_tokens": 4158,
+        "cost": 0.09446,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09446,
+          "upstream_inference_prompt_cost": 0.02836,
+          "upstream_inference_completions_cost": 0.0661
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 208,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Broad cyclical recovery is underway: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance ($5.0\u20135.4B) implying continued sequential growth.\n- Free cash flow is inflecting sharply: TTM FCF rose from $940M (2024) \u2192 $1,455M (2025) \u2192 $3,721M (current), and the transcript cites $4.4B TTM including CHIPS incentives. As the heavy 300mm capex cycle (Sherman fab now in production) rolls off, FCF conversion should keep improving.\n- CHIPS Act incentives ($965M TTM, including a $555M Sherman payment) plus depreciation-heavy capex tapering support a path to $6B+ forward FCF.\n- Silicon Labs deal ($7.5B) adds embedded wireless connectivity scale if approved.\n\n## Bear Case\n- Management flags the recovery may be a \"head-fake\" \u2014 a prior analog false-start pattern; automotive is soft (mid-single-digit YoY, China down).\n- Current EV/FCF is ~75x, priced for a strong upcycle; any demand stall compresses the multiple sharply.\n- Silicon Labs deal carries regulatory risk (China filing not yet accepted as of June 2026), is debt-funded (S&P flagged deleveraging needs), and adds net debt to the EV bridge.\n- Part of the FCF ramp is one-time CHIPS incentive payments, overstating organic run-rate FCF.\n\n## Logic\n1. **Forward FCF:** TTM FCF is $3,721M and rising fast (transcript already at ~$4.4B including incentives). With revenue growing ~15% toward ~$21B, capex tapering post-Sherman ramp, and continued incentive receipts, I estimate 12-month forward FCF of **~$6,500M** (roughly a 31% FCF margin, still below TI's historical 35%+ peak conversion).\n2. **Multiple:** Current EV/FCF is ~74.6x on depressed FCF. As FCF normalizes, the multiple should compress toward TI's typical premium-analog range. I apply **44x EV/FCF** to forward FCF \u2014 a premium to peers reflecting quality/moat, but well below the current cyclically inflated multiple.\n3. **EV:** 6,500 \u00d7 44 = **$286,000M** enterprise value.\n4. **Bridge to market cap:** Current EV ($277,431M) minus market cap ($266,930M) = **$10,501M** net debt gap. Forward market cap = 286,000 \u2212 10,501 \u2248 **$275,500M**, modest (~3%) upside from today, balancing recovery momentum against multiple compression and deal/regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 275500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 44.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 275500.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 6500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 44.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Broad cyclical recovery is underway: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance ($5.0\u20135.4B) implying continued sequential growth.\n- Free cash flow is inflecting sharply: TTM FCF rose from $940M (2024) \u2192 $1,455M (2025) \u2192 $3,721M (current), and the transcript cites $4.4B TTM including CHIPS incentives. As the heavy 300mm capex cycle (Sherman fab now in production) rolls off, FCF conversion should keep improving.\n- CHIPS Act incentives ($965M TTM, including a $555M Sherman payment) plus depreciation-heavy capex tapering support a path to $6B+ forward FCF.\n- Silicon Labs deal ($7.5B) adds embedded wireless connectivity scale if approved.\n\n## Bear Case\n- Management flags the recovery may be a \"head-fake\" \u2014 a prior analog false-start pattern; automotive is soft (mid-single-digit YoY, China down).\n- Current EV/FCF is ~75x, priced for a strong upcycle; any demand stall compresses the multiple sharply.\n- Silicon Labs deal carries regulatory risk (China filing not yet accepted as of June 2026), is debt-funded (S&P flagged deleveraging needs), and adds net debt to the EV bridge.\n- Part of the FCF ramp is one-time CHIPS incentive payments, overstating organic run-rate FCF.\n\n## Logic\n1. **Forward FCF:** TTM FCF is $3,721M and rising fast (transcript already at ~$4.4B including incentives). With revenue growing ~15% toward ~$21B, capex tapering post-Sherman ramp, and continued incentive receipts, I estimate 12-month forward FCF of **~$6,500M** (roughly a 31% FCF margin, still below TI's historical 35%+ peak conversion).\n2. **Multiple:** Current EV/FCF is ~74.6x on depressed FCF. As FCF normalizes, the multiple should compress toward TI's typical premium-analog range. I apply **44x EV/FCF** to forward FCF \u2014 a premium to peers reflecting quality/moat, but well below the current cyclically inflated multiple.\n3. **EV:** 6,500 \u00d7 44 = **$286,000M** enterprise value.\n4. **Bridge to market cap:** Current EV ($277,431M) minus market cap ($266,930M) = **$10,501M** net debt gap. Forward market cap = 286,000 \u2212 10,501 \u2248 **$275,500M**, modest (~3%) upside from today, balancing recovery momentum against multiple compression and deal/regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 275500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 44.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Broad cyclical recovery is underway: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance ($5.0\u20135.4B) implying continued sequential growth.\n- Free cash flow is inflecting sharply: TTM FCF rose from $940M (2024) \u2192 $1,455M (2025) \u2192 $3,721M (current), and the transcript cites $4.4B TTM including CHIPS incentives. As the heavy 300mm capex cycle (Sherman fab now in production) rolls off, FCF conversion should keep improving.\n- CHIPS Act incentives ($965M TTM, including a $555M Sherman payment) plus depreciation-heavy capex tapering support a path to $6B+ forward FCF.\n- Silicon Labs deal ($7.5B) adds embedded wireless connectivity scale if approved.",
+        "Bear Case": "- Management flags the recovery may be a \"head-fake\" \u2014 a prior analog false-start pattern; automotive is soft (mid-single-digit YoY, China down).\n- Current EV/FCF is ~75x, priced for a strong upcycle; any demand stall compresses the multiple sharply.\n- Silicon Labs deal carries regulatory risk (China filing not yet accepted as of June 2026), is debt-funded (S&P flagged deleveraging needs), and adds net debt to the EV bridge.\n- Part of the FCF ramp is one-time CHIPS incentive payments, overstating organic run-rate FCF.",
+        "Logic": "1. **Forward FCF:** TTM FCF is $3,721M and rising fast (transcript already at ~$4.4B including incentives). With revenue growing ~15% toward ~$21B, capex tapering post-Sherman ramp, and continued incentive receipts, I estimate 12-month forward FCF of **~$6,500M** (roughly a 31% FCF margin, still below TI's historical 35%+ peak conversion).\n2. **Multiple:** Current EV/FCF is ~74.6x on depressed FCF. As FCF normalizes, the multiple should compress toward TI's typical premium-analog range. I apply **44x EV/FCF** to forward FCF \u2014 a premium to peers reflecting quality/moat, but well below the current cyclically inflated multiple.\n3. **EV:** 6,500 \u00d7 44 = **$286,000M** enterprise value.\n4. **Bridge to market cap:** Current EV ($277,431M) minus market cap ($266,930M) = **$10,501M** net debt gap. Forward market cap = 286,000 \u2212 10,501 \u2248 **$275,500M**, modest (~3%) upside from today, balancing recovery momentum against multiple compression and deal/regulatory risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "TXN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:32+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 1643,
+        "total_tokens": 4479,
+        "cost": 0.11051,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11051,
+          "upstream_inference_prompt_cost": 0.02836,
+          "upstream_inference_completions_cost": 0.08215
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 258,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Cyclical recovery is broadening: Q1 2026 revenue of $4.83B grew 19% YoY, with industrial +30% YoY, data center +90% YoY, and Q2 guidance of $5.0\u20135.4B implying further sequential gains.\n- FCF is inflecting hard: TTM FCF rose from $940M (2024) to $1,455M (2025) to $3,721M currently, aided by ~$965M in CHIPS Act incentives and the heavy capex cycle rolling off as Sherman ramps.\n- Internal 300mm capacity gives structural cost/lead-time advantages into the upturn; Silicon Labs adds embedded connectivity breadth.\n- Bull scenario: forward revenue ~$21.5B, FCF margin recovering toward 32\u201335% \u2192 forward FCF ~$7B, at 50x EV/FCF \u2192 EV ~$350B, market cap ~$340B.\n\n## Bear Case\n- Management itself flags \"head-fake\" recovery risk; prior analog upturns have fizzled, and automotive (China down) remains soft.\n- Silicon Labs deal ($7.5B, debt-funded) carries regulatory risk \u2014 China's SAMR had not accepted the filing as of June 2026 \u2014 plus integration and balance-sheet costs.\n- The stock already discounts recovery: current EV/FCF is ~75x, well above what mature analog names sustain mid-cycle; any FCF disappointment compresses the multiple sharply.\n- Bear scenario: FCF recovery stalls at ~$5B and the multiple de-rates to ~35x \u2192 EV ~$175B, market cap ~$165B (near the 3-year mean of ~$174B).\n\n## Logic\n- **Forward FCF:** Q2 guide midpoint (~$5.2B) annualizes to ~$21B forward revenue. With capex peaking (Sherman in production) and continued CHIPS incentives, FCF margin should improve from the current ~20% toward ~29\u201330%. Forward 12m FCF \u2248 **$6,200M** (roughly consistent with the $4.4B TTM figure cited in the transcript continuing its steep ramp).\n- **Multiple:** Current EV/FCF is ~75x on depressed FCF. As FCF normalizes upward, a re-rating to a still-premium but lower **46x** EV/FCF is appropriate for a high-quality analog franchise mid-recovery with deal/regulatory overhang.\n- **EV:** 6,200 \u00d7 46 = **$285,200M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 277,431.2 \u2212 266,930.2 = $10,501M net debt. Forward market cap = 285,200 \u2212 10,501 \u2248 **$274,700M** (~3% above current).\n- **Forward net income:** Q2 EPS guide (~$1.91 midpoint) implies ~$1.75B/quarter scaling up \u2192 forward NI \u2248 **$7,000M**.\n\n```json\n{\"forward_market_cap_musd\": 274700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6200.0, \"forward_netinc_musd\": 7000.0, \"applied_multiple\": 46.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 274700.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 6200.0,
+        "forward_netinc_musd": 7000.0,
+        "applied_multiple": 46.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Cyclical recovery is broadening: Q1 2026 revenue of $4.83B grew 19% YoY, with industrial +30% YoY, data center +90% YoY, and Q2 guidance of $5.0\u20135.4B implying further sequential gains.\n- FCF is inflecting hard: TTM FCF rose from $940M (2024) to $1,455M (2025) to $3,721M currently, aided by ~$965M in CHIPS Act incentives and the heavy capex cycle rolling off as Sherman ramps.\n- Internal 300mm capacity gives structural cost/lead-time advantages into the upturn; Silicon Labs adds embedded connectivity breadth.\n- Bull scenario: forward revenue ~$21.5B, FCF margin recovering toward 32\u201335% \u2192 forward FCF ~$7B, at 50x EV/FCF \u2192 EV ~$350B, market cap ~$340B.\n\n## Bear Case\n- Management itself flags \"head-fake\" recovery risk; prior analog upturns have fizzled, and automotive (China down) remains soft.\n- Silicon Labs deal ($7.5B, debt-funded) carries regulatory risk \u2014 China's SAMR had not accepted the filing as of June 2026 \u2014 plus integration and balance-sheet costs.\n- The stock already discounts recovery: current EV/FCF is ~75x, well above what mature analog names sustain mid-cycle; any FCF disappointment compresses the multiple sharply.\n- Bear scenario: FCF recovery stalls at ~$5B and the multiple de-rates to ~35x \u2192 EV ~$175B, market cap ~$165B (near the 3-year mean of ~$174B).\n\n## Logic\n- **Forward FCF:** Q2 guide midpoint (~$5.2B) annualizes to ~$21B forward revenue. With capex peaking (Sherman in production) and continued CHIPS incentives, FCF margin should improve from the current ~20% toward ~29\u201330%. Forward 12m FCF \u2248 **$6,200M** (roughly consistent with the $4.4B TTM figure cited in the transcript continuing its steep ramp).\n- **Multiple:** Current EV/FCF is ~75x on depressed FCF. As FCF normalizes upward, a re-rating to a still-premium but lower **46x** EV/FCF is appropriate for a high-quality analog franchise mid-recovery with deal/regulatory overhang.\n- **EV:** 6,200 \u00d7 46 = **$285,200M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 277,431.2 \u2212 266,930.2 = $10,501M net debt. Forward market cap = 285,200 \u2212 10,501 \u2248 **$274,700M** (~3% above current).\n- **Forward net income:** Q2 EPS guide (~$1.91 midpoint) implies ~$1.75B/quarter scaling up \u2192 forward NI \u2248 **$7,000M**.\n\n```json\n{\"forward_market_cap_musd\": 274700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6200.0, \"forward_netinc_musd\": 7000.0, \"applied_multiple\": 46.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Cyclical recovery is broadening: Q1 2026 revenue of $4.83B grew 19% YoY, with industrial +30% YoY, data center +90% YoY, and Q2 guidance of $5.0\u20135.4B implying further sequential gains.\n- FCF is inflecting hard: TTM FCF rose from $940M (2024) to $1,455M (2025) to $3,721M currently, aided by ~$965M in CHIPS Act incentives and the heavy capex cycle rolling off as Sherman ramps.\n- Internal 300mm capacity gives structural cost/lead-time advantages into the upturn; Silicon Labs adds embedded connectivity breadth.\n- Bull scenario: forward revenue ~$21.5B, FCF margin recovering toward 32\u201335% \u2192 forward FCF ~$7B, at 50x EV/FCF \u2192 EV ~$350B, market cap ~$340B.",
+        "Bear Case": "- Management itself flags \"head-fake\" recovery risk; prior analog upturns have fizzled, and automotive (China down) remains soft.\n- Silicon Labs deal ($7.5B, debt-funded) carries regulatory risk \u2014 China's SAMR had not accepted the filing as of June 2026 \u2014 plus integration and balance-sheet costs.\n- The stock already discounts recovery: current EV/FCF is ~75x, well above what mature analog names sustain mid-cycle; any FCF disappointment compresses the multiple sharply.\n- Bear scenario: FCF recovery stalls at ~$5B and the multiple de-rates to ~35x \u2192 EV ~$175B, market cap ~$165B (near the 3-year mean of ~$174B).",
+        "Logic": "- **Forward FCF:** Q2 guide midpoint (~$5.2B) annualizes to ~$21B forward revenue. With capex peaking (Sherman in production) and continued CHIPS incentives, FCF margin should improve from the current ~20% toward ~29\u201330%. Forward 12m FCF \u2248 **$6,200M** (roughly consistent with the $4.4B TTM figure cited in the transcript continuing its steep ramp).\n- **Multiple:** Current EV/FCF is ~75x on depressed FCF. As FCF normalizes upward, a re-rating to a still-premium but lower **46x** EV/FCF is appropriate for a high-quality analog franchise mid-recovery with deal/regulatory overhang.\n- **EV:** 6,200 \u00d7 46 = **$285,200M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 277,431.2 \u2212 266,930.2 = $10,501M net debt. Forward market cap = 285,200 \u2212 10,501 \u2248 **$274,700M** (~3% above current).\n- **Forward net income:** Q2 EPS guide (~$1.91 midpoint) implies ~$1.75B/quarter scaling up \u2192 forward NI \u2248 **$7,000M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "TXN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:35+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 1651,
+        "total_tokens": 4487,
+        "cost": 0.11091,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11091,
+          "upstream_inference_prompt_cost": 0.02836,
+          "upstream_inference_completions_cost": 0.08255
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 284,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Q1 2026 showed a broad cyclical upturn: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance of $5.0\u20135.4B implying continued sequential growth.\n- Capex intensity is past peak: the Sherman 300mm fab has begun production, and CHIPS Act incentives ($965M in TTM FCF, incl. $555M Sherman payment) further boost cash flow. TTM FCF already jumped from $1.5B to $3.7\u20134.4B.\n- Silicon Labs deal adds embedded wireless connectivity scale; internal 300mm capacity supports margin expansion into the upcycle.\n- If revenue runs ~$21B forward with FCF margin recovering toward TI's historical ~30%, forward FCF could exceed $6.5B, and the market may sustain a premium multiple for the analog leader.\n\n## Bear Case\n- Management itself flags \"head-fake\" recovery risk; automotive remains soft (mid-single-digit YoY, China down), and macro/geopolitical uncertainty could truncate the upcycle.\n- Silicon Labs is a $7.5B debt-funded deal with China regulatory approval still not accepted as of June 2026 \u2014 execution, financing, and deleveraging risks weigh on the equity.\n- Current valuation is rich: EV/TTM-FCF \u2248 75x (current FCF/EV 1.34%), well above what a normalized-cash-flow semi typically commands. As FCF normalizes, the multiple should compress materially, capping upside.\n- Market cap of ~$267B is ~53% above the 3-year mean ($174B), leaving little margin for disappointment.\n\n## Logic\n- **Forward FCF:** Q1 revenue $4.83B and Q2 guide ~$5.2B midpoint imply forward-12M revenue of roughly $21B. With capex rolling off post-Sherman, continued CHIPS incentives, and FCF margin recovering toward ~30%, I estimate forward FCF \u2248 **$6,200M** (up from $3,721M TTM, consistent with the $4.4B TTM figure already in hand and its trajectory).\n- **Applied multiple:** The current 75x EV/TTM-FCF reflects depressed cyclical FCF. On normalized forward FCF, a quality analog leader with the cycle turning warrants roughly **45x EV/FCF** \u2014 a premium to typical semis given TI's franchise, but well below the trough-FCF optics.\n- **EV:** 45 \u00d7 6,200 = **$279,000M**.\n- **Bridge to market cap:** Packet EV ($277,431M) minus market cap ($266,930M) = net gap of $10,501M (net debt). Forward market cap = 279,000 \u2212 10,501 \u2248 **$268,499M** \u2014 essentially flat-to-slightly-up over 12 months, as FCF growth is largely offset by multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 268499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 268499.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 6200.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 45.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Q1 2026 showed a broad cyclical upturn: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance of $5.0\u20135.4B implying continued sequential growth.\n- Capex intensity is past peak: the Sherman 300mm fab has begun production, and CHIPS Act incentives ($965M in TTM FCF, incl. $555M Sherman payment) further boost cash flow. TTM FCF already jumped from $1.5B to $3.7\u20134.4B.\n- Silicon Labs deal adds embedded wireless connectivity scale; internal 300mm capacity supports margin expansion into the upcycle.\n- If revenue runs ~$21B forward with FCF margin recovering toward TI's historical ~30%, forward FCF could exceed $6.5B, and the market may sustain a premium multiple for the analog leader.\n\n## Bear Case\n- Management itself flags \"head-fake\" recovery risk; automotive remains soft (mid-single-digit YoY, China down), and macro/geopolitical uncertainty could truncate the upcycle.\n- Silicon Labs is a $7.5B debt-funded deal with China regulatory approval still not accepted as of June 2026 \u2014 execution, financing, and deleveraging risks weigh on the equity.\n- Current valuation is rich: EV/TTM-FCF \u2248 75x (current FCF/EV 1.34%), well above what a normalized-cash-flow semi typically commands. As FCF normalizes, the multiple should compress materially, capping upside.\n- Market cap of ~$267B is ~53% above the 3-year mean ($174B), leaving little margin for disappointment.\n\n## Logic\n- **Forward FCF:** Q1 revenue $4.83B and Q2 guide ~$5.2B midpoint imply forward-12M revenue of roughly $21B. With capex rolling off post-Sherman, continued CHIPS incentives, and FCF margin recovering toward ~30%, I estimate forward FCF \u2248 **$6,200M** (up from $3,721M TTM, consistent with the $4.4B TTM figure already in hand and its trajectory).\n- **Applied multiple:** The current 75x EV/TTM-FCF reflects depressed cyclical FCF. On normalized forward FCF, a quality analog leader with the cycle turning warrants roughly **45x EV/FCF** \u2014 a premium to typical semis given TI's franchise, but well below the trough-FCF optics.\n- **EV:** 45 \u00d7 6,200 = **$279,000M**.\n- **Bridge to market cap:** Packet EV ($277,431M) minus market cap ($266,930M) = net gap of $10,501M (net debt). Forward market cap = 279,000 \u2212 10,501 \u2248 **$268,499M** \u2014 essentially flat-to-slightly-up over 12 months, as FCF growth is largely offset by multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 268499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 6200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 45.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Q1 2026 showed a broad cyclical upturn: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, with Q2 guidance of $5.0\u20135.4B implying continued sequential growth.\n- Capex intensity is past peak: the Sherman 300mm fab has begun production, and CHIPS Act incentives ($965M in TTM FCF, incl. $555M Sherman payment) further boost cash flow. TTM FCF already jumped from $1.5B to $3.7\u20134.4B.\n- Silicon Labs deal adds embedded wireless connectivity scale; internal 300mm capacity supports margin expansion into the upcycle.\n- If revenue runs ~$21B forward with FCF margin recovering toward TI's historical ~30%, forward FCF could exceed $6.5B, and the market may sustain a premium multiple for the analog leader.",
+        "Bear Case": "- Management itself flags \"head-fake\" recovery risk; automotive remains soft (mid-single-digit YoY, China down), and macro/geopolitical uncertainty could truncate the upcycle.\n- Silicon Labs is a $7.5B debt-funded deal with China regulatory approval still not accepted as of June 2026 \u2014 execution, financing, and deleveraging risks weigh on the equity.\n- Current valuation is rich: EV/TTM-FCF \u2248 75x (current FCF/EV 1.34%), well above what a normalized-cash-flow semi typically commands. As FCF normalizes, the multiple should compress materially, capping upside.\n- Market cap of ~$267B is ~53% above the 3-year mean ($174B), leaving little margin for disappointment.",
+        "Logic": "- **Forward FCF:** Q1 revenue $4.83B and Q2 guide ~$5.2B midpoint imply forward-12M revenue of roughly $21B. With capex rolling off post-Sherman, continued CHIPS incentives, and FCF margin recovering toward ~30%, I estimate forward FCF \u2248 **$6,200M** (up from $3,721M TTM, consistent with the $4.4B TTM figure already in hand and its trajectory).\n- **Applied multiple:** The current 75x EV/TTM-FCF reflects depressed cyclical FCF. On normalized forward FCF, a quality analog leader with the cycle turning warrants roughly **45x EV/FCF** \u2014 a premium to typical semis given TI's franchise, but well below the trough-FCF optics.\n- **EV:** 45 \u00d7 6,200 = **$279,000M**.\n- **Bridge to market cap:** Packet EV ($277,431M) minus market cap ($266,930M) = net gap of $10,501M (net debt). Forward market cap = 279,000 \u2212 10,501 \u2248 **$268,499M** \u2014 essentially flat-to-slightly-up over 12 months, as FCF growth is largely offset by multiple compression."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "TXN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:12+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 864,
+        "total_tokens": 3700,
+        "cost": 0.03578,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03578,
+          "upstream_inference_prompt_cost": 0.01418,
+          "upstream_inference_completions_cost": 0.0216
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nCyclical recovery is accelerating: industrial +30% YoY, data center +90% YoY, comms +25% YoY, with Q2 guidance implying continued sequential growth. FCF is rebounding sharply as CHIPS Act incentives flow and 300mm capacity scales, driving operating leverage. TTM FCF grew from $1.46B to $3.72B in one year. A sustained upturn could push forward FCF toward $5.5\u20136.0B, and the market rewards TI with premium EV/FCF multiples (75\u201390x) given secular analog/embedded demand and AI-linked data-center growth. Silicon Labs adds connectivity revenue.\n\n## Bear Case\nManagement flags a possible \"head-fake\" recovery echoing prior false starts. Automotive is weak (mid-single-digit YoY, China down). FCF is inflated by one-time CHIPS incentives (~$965M TTM) that will not recur at the same magnitude, so normalized FCF is lower. Silicon Labs is debt-funded with unresolved China regulatory approval, pressuring the balance sheet and adding execution risk. Elevated capex from fab buildout continues to weigh on FCF. Multiple compression toward long-run ~60x is plausible if the upturn stalls.\n\n## Logic\n- TTM FCF = $3,721M; strong recovery trajectory (FCF roughly doubled YoY). Adjusting for continued cyclical improvement but discounting non-recurring CHIPS incentives, I project forward 12m FCF of ~$4,600M (moderate growth off TTM, net of incentive normalization).\n- Applied EV/FCF multiple: current fcf/ev ~1.34% implies ~74.6x. Given elevated but cooling multiple, apply ~68x (between current premium and 3y-average-implied range), reflecting recovery optimism tempered by cyclicality/deal risk.\n- Forward EV = $4,600M \u00d7 68 \u2248 $312,800M.\n- EV-to-market-cap gap (current): EV $277,431M \u2212 MC $266,930M = $10,501M net (debt/other). Bridge: forward MC = forward EV \u2212 gap = $312,800M \u2212 $10,501M \u2248 $302,299M. Deal-related debt would widen this gap, so a modest haircut applied \u2192 ~$300,000M.\n\n```json\n{\"forward_market_cap_musd\": 300000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4600.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 68.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 300000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4600.0,
+        "forward_netinc_musd": 6200.0,
+        "applied_multiple": 68.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nCyclical recovery is accelerating: industrial +30% YoY, data center +90% YoY, comms +25% YoY, with Q2 guidance implying continued sequential growth. FCF is rebounding sharply as CHIPS Act incentives flow and 300mm capacity scales, driving operating leverage. TTM FCF grew from $1.46B to $3.72B in one year. A sustained upturn could push forward FCF toward $5.5\u20136.0B, and the market rewards TI with premium EV/FCF multiples (75\u201390x) given secular analog/embedded demand and AI-linked data-center growth. Silicon Labs adds connectivity revenue.\n\n## Bear Case\nManagement flags a possible \"head-fake\" recovery echoing prior false starts. Automotive is weak (mid-single-digit YoY, China down). FCF is inflated by one-time CHIPS incentives (~$965M TTM) that will not recur at the same magnitude, so normalized FCF is lower. Silicon Labs is debt-funded with unresolved China regulatory approval, pressuring the balance sheet and adding execution risk. Elevated capex from fab buildout continues to weigh on FCF. Multiple compression toward long-run ~60x is plausible if the upturn stalls.\n\n## Logic\n- TTM FCF = $3,721M; strong recovery trajectory (FCF roughly doubled YoY). Adjusting for continued cyclical improvement but discounting non-recurring CHIPS incentives, I project forward 12m FCF of ~$4,600M (moderate growth off TTM, net of incentive normalization).\n- Applied EV/FCF multiple: current fcf/ev ~1.34% implies ~74.6x. Given elevated but cooling multiple, apply ~68x (between current premium and 3y-average-implied range), reflecting recovery optimism tempered by cyclicality/deal risk.\n- Forward EV = $4,600M \u00d7 68 \u2248 $312,800M.\n- EV-to-market-cap gap (current): EV $277,431M \u2212 MC $266,930M = $10,501M net (debt/other). Bridge: forward MC = forward EV \u2212 gap = $312,800M \u2212 $10,501M \u2248 $302,299M. Deal-related debt would widen this gap, so a modest haircut applied \u2192 ~$300,000M.\n\n```json\n{\"forward_market_cap_musd\": 300000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4600.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 68.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Cyclical recovery is accelerating: industrial +30% YoY, data center +90% YoY, comms +25% YoY, with Q2 guidance implying continued sequential growth. FCF is rebounding sharply as CHIPS Act incentives flow and 300mm capacity scales, driving operating leverage. TTM FCF grew from $1.46B to $3.72B in one year. A sustained upturn could push forward FCF toward $5.5\u20136.0B, and the market rewards TI with premium EV/FCF multiples (75\u201390x) given secular analog/embedded demand and AI-linked data-center growth. Silicon Labs adds connectivity revenue.",
+        "Bear Case": "Management flags a possible \"head-fake\" recovery echoing prior false starts. Automotive is weak (mid-single-digit YoY, China down). FCF is inflated by one-time CHIPS incentives (~$965M TTM) that will not recur at the same magnitude, so normalized FCF is lower. Silicon Labs is debt-funded with unresolved China regulatory approval, pressuring the balance sheet and adding execution risk. Elevated capex from fab buildout continues to weigh on FCF. Multiple compression toward long-run ~60x is plausible if the upturn stalls.",
+        "Logic": "- TTM FCF = $3,721M; strong recovery trajectory (FCF roughly doubled YoY). Adjusting for continued cyclical improvement but discounting non-recurring CHIPS incentives, I project forward 12m FCF of ~$4,600M (moderate growth off TTM, net of incentive normalization).\n- Applied EV/FCF multiple: current fcf/ev ~1.34% implies ~74.6x. Given elevated but cooling multiple, apply ~68x (between current premium and 3y-average-implied range), reflecting recovery optimism tempered by cyclicality/deal risk.\n- Forward EV = $4,600M \u00d7 68 \u2248 $312,800M.\n- EV-to-market-cap gap (current): EV $277,431M \u2212 MC $266,930M = $10,501M net (debt/other). Bridge: forward MC = forward EV \u2212 gap = $312,800M \u2212 $10,501M \u2248 $302,299M. Deal-related debt would widen this gap, so a modest haircut applied \u2192 ~$300,000M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "TXN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:18+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 947,
+        "total_tokens": 3783,
+        "cost": 0.037855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.037855,
+          "upstream_inference_prompt_cost": 0.01418,
+          "upstream_inference_completions_cost": 0.023675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nTI's cyclical upturn is accelerating: TTM FCF recovered sharply from $1.46B (2025) to $3.72B (2026), and Q1/Q2 guidance implies continued double-digit growth. Industrial (+30% YoY), data center (+90% YoY), and comms (+25% YoY) are inflecting. As Sherman 300mm capacity ramps and CHIPS incentives continue flowing, FCF could scale toward $5.5\u20136.0B over 12 months as revenue passes a ~$21\u201322B annualized run-rate with improving margins. A premium EV/FCF multiple (~55\u201360x) reflects normalized-earnings optics during a recovery.\n\n## Bear Case\nManagement explicitly warns of a possible \"head-fake\" recovery; automotive remains weak (mid-single-digit YoY, China declining). The Silicon Labs deal adds debt, regulatory (China not yet accepted), and integration risk. Heavy capex depresses near-term FCF and CHIPS incentives are non-recurring/lumpy. If demand stalls, FCF could plateau near $4.0B and the multiple compresses toward the 3y average (~1.05% FCF/EV \u2192 ~95x is unstable; use lower absolute FCF with a normalized ~50x).\n\n## Logic\n- **Forward FCF:** TTM FCF is $3,721M with strong recovery momentum. Guidance and segment growth support ~30\u201340% FCF growth, but capex intensity and non-recurring CHIPS payments temper this. I estimate forward FCF \u2248 **$4,900M**.\n- **Applied multiple:** Current FCF/EV yield is 1.34% (~74.6x EV/FCF); 1y avg 1.13% (~88x); 3y avg 1.05% (~95x). These are elevated because FCF is cyclically depressed. As FCF normalizes upward, the multiple should compress. I apply a blended **~56x EV/FCF**, reflecting mid-cycle normalization.\n- **Forward EV:** $4,900M \u00d7 56 = **$274,400M**.\n- **EV\u2192MC bridge:** Current EV ($277,431M) \u2212 current MC ($266,930M) = **$10,501M** net debt/gap. Note the pending debt-funded $7.5B Silicon Labs deal widens this gap; I hold the bridge near the current ~$10.5B (deal-driven debt roughly offset by acquired assets/FCF not yet in numbers).\n- **Forward MC:** $274,400M \u2212 $10,501M \u2248 **$263,900M**.\n\n```json\n{\"forward_market_cap_musd\": 263900.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4900.0, \"forward_netinc_musd\": 6400.0, \"applied_multiple\": 56.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 263900.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4900.0,
+        "forward_netinc_musd": 6400.0,
+        "applied_multiple": 56.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nTI's cyclical upturn is accelerating: TTM FCF recovered sharply from $1.46B (2025) to $3.72B (2026), and Q1/Q2 guidance implies continued double-digit growth. Industrial (+30% YoY), data center (+90% YoY), and comms (+25% YoY) are inflecting. As Sherman 300mm capacity ramps and CHIPS incentives continue flowing, FCF could scale toward $5.5\u20136.0B over 12 months as revenue passes a ~$21\u201322B annualized run-rate with improving margins. A premium EV/FCF multiple (~55\u201360x) reflects normalized-earnings optics during a recovery.\n\n## Bear Case\nManagement explicitly warns of a possible \"head-fake\" recovery; automotive remains weak (mid-single-digit YoY, China declining). The Silicon Labs deal adds debt, regulatory (China not yet accepted), and integration risk. Heavy capex depresses near-term FCF and CHIPS incentives are non-recurring/lumpy. If demand stalls, FCF could plateau near $4.0B and the multiple compresses toward the 3y average (~1.05% FCF/EV \u2192 ~95x is unstable; use lower absolute FCF with a normalized ~50x).\n\n## Logic\n- **Forward FCF:** TTM FCF is $3,721M with strong recovery momentum. Guidance and segment growth support ~30\u201340% FCF growth, but capex intensity and non-recurring CHIPS payments temper this. I estimate forward FCF \u2248 **$4,900M**.\n- **Applied multiple:** Current FCF/EV yield is 1.34% (~74.6x EV/FCF); 1y avg 1.13% (~88x); 3y avg 1.05% (~95x). These are elevated because FCF is cyclically depressed. As FCF normalizes upward, the multiple should compress. I apply a blended **~56x EV/FCF**, reflecting mid-cycle normalization.\n- **Forward EV:** $4,900M \u00d7 56 = **$274,400M**.\n- **EV\u2192MC bridge:** Current EV ($277,431M) \u2212 current MC ($266,930M) = **$10,501M** net debt/gap. Note the pending debt-funded $7.5B Silicon Labs deal widens this gap; I hold the bridge near the current ~$10.5B (deal-driven debt roughly offset by acquired assets/FCF not yet in numbers).\n- **Forward MC:** $274,400M \u2212 $10,501M \u2248 **$263,900M**.\n\n```json\n{\"forward_market_cap_musd\": 263900.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4900.0, \"forward_netinc_musd\": 6400.0, \"applied_multiple\": 56.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "TI's cyclical upturn is accelerating: TTM FCF recovered sharply from $1.46B (2025) to $3.72B (2026), and Q1/Q2 guidance implies continued double-digit growth. Industrial (+30% YoY), data center (+90% YoY), and comms (+25% YoY) are inflecting. As Sherman 300mm capacity ramps and CHIPS incentives continue flowing, FCF could scale toward $5.5\u20136.0B over 12 months as revenue passes a ~$21\u201322B annualized run-rate with improving margins. A premium EV/FCF multiple (~55\u201360x) reflects normalized-earnings optics during a recovery.",
+        "Bear Case": "Management explicitly warns of a possible \"head-fake\" recovery; automotive remains weak (mid-single-digit YoY, China declining). The Silicon Labs deal adds debt, regulatory (China not yet accepted), and integration risk. Heavy capex depresses near-term FCF and CHIPS incentives are non-recurring/lumpy. If demand stalls, FCF could plateau near $4.0B and the multiple compresses toward the 3y average (~1.05% FCF/EV \u2192 ~95x is unstable; use lower absolute FCF with a normalized ~50x).",
+        "Logic": "- **Forward FCF:** TTM FCF is $3,721M with strong recovery momentum. Guidance and segment growth support ~30\u201340% FCF growth, but capex intensity and non-recurring CHIPS payments temper this. I estimate forward FCF \u2248 **$4,900M**.\n- **Applied multiple:** Current FCF/EV yield is 1.34% (~74.6x EV/FCF); 1y avg 1.13% (~88x); 3y avg 1.05% (~95x). These are elevated because FCF is cyclically depressed. As FCF normalizes upward, the multiple should compress. I apply a blended **~56x EV/FCF**, reflecting mid-cycle normalization.\n- **Forward EV:** $4,900M \u00d7 56 = **$274,400M**.\n- **EV\u2192MC bridge:** Current EV ($277,431M) \u2212 current MC ($266,930M) = **$10,501M** net debt/gap. Note the pending debt-funded $7.5B Silicon Labs deal widens this gap; I hold the bridge near the current ~$10.5B (deal-driven debt roughly offset by acquired assets/FCF not yet in numbers).\n- **Forward MC:** $274,400M \u2212 $10,501M \u2248 **$263,900M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "TXN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:18+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2836,
+        "completion_tokens": 810,
+        "total_tokens": 3646,
+        "cost": 0.03443,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03443,
+          "upstream_inference_prompt_cost": 0.01418,
+          "upstream_inference_completions_cost": 0.02025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nTI is in a strong cyclical upturn: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY. TTM FCF has more than doubled YoY ($1,455M \u2192 $3,721M) as the 300mm capex cycle peaks and Sherman fab ramps. With continued sequential growth (Q2 guide $5.0\u20135.4B) and CHIPS Act incentives, forward FCF could reach ~$5,500M as capex normalizes and revenue climbs toward $20B+. A premium EV/FCF multiple (~65x) reflects secular analog demand and margin recovery.\n\n## Bear Case\nManagement flags a possible \"head-fake\" recovery; automotive is weak (mid-single-digit YoY, China down). Elevated capex continues to depress FCF, and the debt-funded $7.5B Silicon Labs deal adds financing risk plus a China regulatory gate. FCF conversion remains structurally low (fcf/ev ~1.3%). Forward FCF may only hold ~$4,000M with multiple compression toward the 3-year avg (~55x) as the cycle proves choppy.\n\n## Logic\n- **Forward FCF**: TTM FCF $3,721M is recovering sharply off a depressed base. Given continued revenue growth (Q2 guide implies double-digit YoY) but persistent high capex on new fabs, I project 12-month forward FCF of ~$4,800M \u2014 meaningful growth but discounted for capex drag and automotive softness.\n- **Applied multiple**: Current EV/FCF = 1/0.01341 \u2248 74.6x. This is elevated due to trough-cycle FCF. As FCF grows, the multiple normalizes downward. I apply ~60x, between the current rich level and a normalized mid-cycle range, reflecting quality but capex-heavy conversion.\n- **EV**: 4,800 \u00d7 60 = $288,000M.\n- **EV\u2192MC bridge**: Current EV ($277,431M) \u2212 current MC ($266,930M) = $10,501M net debt/gap. Forward MC = 288,000 \u2212 10,501 \u2248 $277,499M.\n\n```json\n{\"forward_market_cap_musd\": 277499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4800.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 60.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 277499.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4800.0,
+        "forward_netinc_musd": 6200.0,
+        "applied_multiple": 60.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nTI is in a strong cyclical upturn: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY. TTM FCF has more than doubled YoY ($1,455M \u2192 $3,721M) as the 300mm capex cycle peaks and Sherman fab ramps. With continued sequential growth (Q2 guide $5.0\u20135.4B) and CHIPS Act incentives, forward FCF could reach ~$5,500M as capex normalizes and revenue climbs toward $20B+. A premium EV/FCF multiple (~65x) reflects secular analog demand and margin recovery.\n\n## Bear Case\nManagement flags a possible \"head-fake\" recovery; automotive is weak (mid-single-digit YoY, China down). Elevated capex continues to depress FCF, and the debt-funded $7.5B Silicon Labs deal adds financing risk plus a China regulatory gate. FCF conversion remains structurally low (fcf/ev ~1.3%). Forward FCF may only hold ~$4,000M with multiple compression toward the 3-year avg (~55x) as the cycle proves choppy.\n\n## Logic\n- **Forward FCF**: TTM FCF $3,721M is recovering sharply off a depressed base. Given continued revenue growth (Q2 guide implies double-digit YoY) but persistent high capex on new fabs, I project 12-month forward FCF of ~$4,800M \u2014 meaningful growth but discounted for capex drag and automotive softness.\n- **Applied multiple**: Current EV/FCF = 1/0.01341 \u2248 74.6x. This is elevated due to trough-cycle FCF. As FCF grows, the multiple normalizes downward. I apply ~60x, between the current rich level and a normalized mid-cycle range, reflecting quality but capex-heavy conversion.\n- **EV**: 4,800 \u00d7 60 = $288,000M.\n- **EV\u2192MC bridge**: Current EV ($277,431M) \u2212 current MC ($266,930M) = $10,501M net debt/gap. Forward MC = 288,000 \u2212 10,501 \u2248 $277,499M.\n\n```json\n{\"forward_market_cap_musd\": 277499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4800.0, \"forward_netinc_musd\": 6200.0, \"applied_multiple\": 60.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "TI is in a strong cyclical upturn: Q1 2026 revenue +19% YoY, industrial +30% YoY, data center +90% YoY. TTM FCF has more than doubled YoY ($1,455M \u2192 $3,721M) as the 300mm capex cycle peaks and Sherman fab ramps. With continued sequential growth (Q2 guide $5.0\u20135.4B) and CHIPS Act incentives, forward FCF could reach ~$5,500M as capex normalizes and revenue climbs toward $20B+. A premium EV/FCF multiple (~65x) reflects secular analog demand and margin recovery.",
+        "Bear Case": "Management flags a possible \"head-fake\" recovery; automotive is weak (mid-single-digit YoY, China down). Elevated capex continues to depress FCF, and the debt-funded $7.5B Silicon Labs deal adds financing risk plus a China regulatory gate. FCF conversion remains structurally low (fcf/ev ~1.3%). Forward FCF may only hold ~$4,000M with multiple compression toward the 3-year avg (~55x) as the cycle proves choppy.",
+        "Logic": "- **Forward FCF**: TTM FCF $3,721M is recovering sharply off a depressed base. Given continued revenue growth (Q2 guide implies double-digit YoY) but persistent high capex on new fabs, I project 12-month forward FCF of ~$4,800M \u2014 meaningful growth but discounted for capex drag and automotive softness.\n- **Applied multiple**: Current EV/FCF = 1/0.01341 \u2248 74.6x. This is elevated due to trough-cycle FCF. As FCF grows, the multiple normalizes downward. I apply ~60x, between the current rich level and a normalized mid-cycle range, reflecting quality but capex-heavy conversion.\n- **EV**: 4,800 \u00d7 60 = $288,000M.\n- **EV\u2192MC bridge**: Current EV ($277,431M) \u2212 current MC ($266,930M) = $10,501M net debt/gap. Forward MC = 288,000 \u2212 10,501 \u2248 $277,499M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "TXN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:19+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1867,
+        "completion_tokens": 1658,
+        "total_tokens": 3525,
+        "cost": 0.059075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.059075,
+          "upstream_inference_prompt_cost": 0.009335,
+          "upstream_inference_completions_cost": 0.04974
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1034,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Recovery in industrial, data center, and communications equipment sustains through the next 12 months.\n- Q2 2026 guidance implies revenue momentum above the TTM base, and higher utilization supports FCF conversion.\n- Forward FCF could reach roughly **$6,300\u2013$6,800 million** if revenue annualizes above $21 billion and margins improve.\n- A premium analog/embedded valuation of **55x\u201360x EV/FCF** would imply a market cap well above today\u2019s level, potentially **$335,000\u2013$395,000 million** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\n- The industrial rebound proves to be another \u201chead-fake,\u201d automotive remains soft, and geopolitical/customer caution limits order momentum.\n- Elevated capex, Silicon Labs deal costs, debt funding, and regulatory uncertainty weigh on FCF and valuation.\n- Forward FCF could remain closer to **$4,000\u2013$4,500 million**.\n- At a de-rated **38x\u201342x EV/FCF**, market cap could fall toward **$145,000\u2013$180,000 million** after the EV-to-market-cap bridge.\n\n## Logic\n- Current TTM FCF from the packet is **$3,721 million**, while the primer notes trailing FCF improved to about **$4,400 million** including CHIPS Act incentives.\n- Q1 2026 revenue was **$4.83 billion**, Q2 guidance midpoint is **$5.2 billion**, and broad analog/industrial recovery suggests a forward revenue base above the current TTM **$18,438 million**.\n- I estimate 12-month forward FCF at **$5,400 million**, reflecting:\n  - cyclical revenue recovery,\n  - better manufacturing utilization,\n  - partial but not full normalization of FCF conversion,\n  - continued capex and acquisition/debt-related conservatism.\n- Current EV/FCF using packet data is approximately **74.6x**:  \n  - **$277,431.2 / $3,721 = 74.6x**\n- Because TTM FCF is still depressed by the capex cycle and the recovery is not fully proven, I apply a lower normalized forward multiple of **52.0x EV/FCF**.\n- Forward EV estimate:\n  - **$5,400 \u00d7 52.0 = $280,800 million**\n- Current EV minus market-cap gap:\n  - **$277,431.2 \u2212 $266,930.2 = $10,501.0 million**\n- Forward market cap:\n  - **$280,800 \u2212 $10,501 = $270,299 million**\n\n```json\n{\"forward_market_cap_musd\": 270299.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5400.0, \"forward_netinc_musd\": null, \"applied_multiple\": 52.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 270299.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 5400.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 52.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Recovery in industrial, data center, and communications equipment sustains through the next 12 months.\n- Q2 2026 guidance implies revenue momentum above the TTM base, and higher utilization supports FCF conversion.\n- Forward FCF could reach roughly **$6,300\u2013$6,800 million** if revenue annualizes above $21 billion and margins improve.\n- A premium analog/embedded valuation of **55x\u201360x EV/FCF** would imply a market cap well above today\u2019s level, potentially **$335,000\u2013$395,000 million** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\n- The industrial rebound proves to be another \u201chead-fake,\u201d automotive remains soft, and geopolitical/customer caution limits order momentum.\n- Elevated capex, Silicon Labs deal costs, debt funding, and regulatory uncertainty weigh on FCF and valuation.\n- Forward FCF could remain closer to **$4,000\u2013$4,500 million**.\n- At a de-rated **38x\u201342x EV/FCF**, market cap could fall toward **$145,000\u2013$180,000 million** after the EV-to-market-cap bridge.\n\n## Logic\n- Current TTM FCF from the packet is **$3,721 million**, while the primer notes trailing FCF improved to about **$4,400 million** including CHIPS Act incentives.\n- Q1 2026 revenue was **$4.83 billion**, Q2 guidance midpoint is **$5.2 billion**, and broad analog/industrial recovery suggests a forward revenue base above the current TTM **$18,438 million**.\n- I estimate 12-month forward FCF at **$5,400 million**, reflecting:\n  - cyclical revenue recovery,\n  - better manufacturing utilization,\n  - partial but not full normalization of FCF conversion,\n  - continued capex and acquisition/debt-related conservatism.\n- Current EV/FCF using packet data is approximately **74.6x**:  \n  - **$277,431.2 / $3,721 = 74.6x**\n- Because TTM FCF is still depressed by the capex cycle and the recovery is not fully proven, I apply a lower normalized forward multiple of **52.0x EV/FCF**.\n- Forward EV estimate:\n  - **$5,400 \u00d7 52.0 = $280,800 million**\n- Current EV minus market-cap gap:\n  - **$277,431.2 \u2212 $266,930.2 = $10,501.0 million**\n- Forward market cap:\n  - **$280,800 \u2212 $10,501 = $270,299 million**\n\n```json\n{\"forward_market_cap_musd\": 270299.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5400.0, \"forward_netinc_musd\": null, \"applied_multiple\": 52.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Recovery in industrial, data center, and communications equipment sustains through the next 12 months.\n- Q2 2026 guidance implies revenue momentum above the TTM base, and higher utilization supports FCF conversion.\n- Forward FCF could reach roughly **$6,300\u2013$6,800 million** if revenue annualizes above $21 billion and margins improve.\n- A premium analog/embedded valuation of **55x\u201360x EV/FCF** would imply a market cap well above today\u2019s level, potentially **$335,000\u2013$395,000 million** after subtracting the current EV-to-market-cap gap.",
+        "Bear Case": "- The industrial rebound proves to be another \u201chead-fake,\u201d automotive remains soft, and geopolitical/customer caution limits order momentum.\n- Elevated capex, Silicon Labs deal costs, debt funding, and regulatory uncertainty weigh on FCF and valuation.\n- Forward FCF could remain closer to **$4,000\u2013$4,500 million**.\n- At a de-rated **38x\u201342x EV/FCF**, market cap could fall toward **$145,000\u2013$180,000 million** after the EV-to-market-cap bridge.",
+        "Logic": "- Current TTM FCF from the packet is **$3,721 million**, while the primer notes trailing FCF improved to about **$4,400 million** including CHIPS Act incentives.\n- Q1 2026 revenue was **$4.83 billion**, Q2 guidance midpoint is **$5.2 billion**, and broad analog/industrial recovery suggests a forward revenue base above the current TTM **$18,438 million**.\n- I estimate 12-month forward FCF at **$5,400 million**, reflecting:\n  - cyclical revenue recovery,\n  - better manufacturing utilization,\n  - partial but not full normalization of FCF conversion,\n  - continued capex and acquisition/debt-related conservatism.\n- Current EV/FCF using packet data is approximately **74.6x**:  \n  - **$277,431.2 / $3,721 = 74.6x**\n- Because TTM FCF is still depressed by the capex cycle and the recovery is not fully proven, I apply a lower normalized forward multiple of **52.0x EV/FCF**.\n- Forward EV estimate:\n  - **$5,400 \u00d7 52.0 = $280,800 million**\n- Current EV minus market-cap gap:\n  - **$277,431.2 \u2212 $266,930.2 = $10,501.0 million**\n- Forward market cap:\n  - **$280,800 \u2212 $10,501 = $270,299 million**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "TXN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:44+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1867,
+        "completion_tokens": 2108,
+        "total_tokens": 3975,
+        "cost": 0.072575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.072575,
+          "upstream_inference_prompt_cost": 0.009335,
+          "upstream_inference_completions_cost": 0.06324
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1540,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nIndustrial recovery proves durable, Q2 strength continues, and 300mm capacity improves operating leverage. Forward FCF could move above $5.5B despite elevated fab spending, and TI could sustain a premium EV/FCF multiple near the current depressed-FCF valuation framework. A $5.8B FCF case at ~65x EV/FCF implies EV of ~$377B and market cap of ~$366B after the current EV-to-market-cap bridge.\n\n## Bear Case\n\nThe analog recovery is another \u201chead-fake,\u201d automotive remains muted, CHIPS incentives are not recurring at the same level, and the Silicon Labs deal adds debt/execution pressure. Forward FCF could stay closer to $4.0B\u2013$4.3B, while the multiple compresses materially. A $4.2B FCF case at ~45x EV/FCF implies EV of ~$189B and market cap of ~$178B after the same bridge.\n\n## Logic\n\nCurrent TTM FCF is $3,721M in the asset details, while the primer notes a more recent TTM FCF figure of about $4,400M including $965M of CHIPS Act incentives. I use $5,000M as 12-month forward FCF: above current TTM because revenue is recovering sharply, Q1 revenue was up 19% YoY, Q2 guidance implies continued sequential growth, and industrial/data-center demand improved; but not much higher because incentives are partly non-recurring and fab capex remains heavy.\n\nCurrent EV/FCF is:\n\n$277,431.2M / $3,721M = ~74.6x EV/FCF.\n\nThe 1-year and 3-year FCF/EV averages imply even higher historical EV/FCF multiples, but those are inflated by depressed FCF during the investment cycle. I apply a lower 60.0x EV/FCF multiple to normalized forward FCF, reflecting TI\u2019s high-quality analog franchise and recovery, offset by cyclical uncertainty, acquisition/regulatory risk, and balance-sheet considerations.\n\nForward EV:\n\n$5,000M \u00d7 60.0x = $300,000M.\n\nCurrent EV minus market cap gap:\n\n$277,431.2M - $266,930.2M = $10,501.0M.\n\nForward market cap:\n\n$300,000M - $10,501.0M = $289,499M.\n\n```json\n{\"forward_market_cap_musd\": 289499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 60.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 289499.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 5000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 60.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nIndustrial recovery proves durable, Q2 strength continues, and 300mm capacity improves operating leverage. Forward FCF could move above $5.5B despite elevated fab spending, and TI could sustain a premium EV/FCF multiple near the current depressed-FCF valuation framework. A $5.8B FCF case at ~65x EV/FCF implies EV of ~$377B and market cap of ~$366B after the current EV-to-market-cap bridge.\n\n## Bear Case\n\nThe analog recovery is another \u201chead-fake,\u201d automotive remains muted, CHIPS incentives are not recurring at the same level, and the Silicon Labs deal adds debt/execution pressure. Forward FCF could stay closer to $4.0B\u2013$4.3B, while the multiple compresses materially. A $4.2B FCF case at ~45x EV/FCF implies EV of ~$189B and market cap of ~$178B after the same bridge.\n\n## Logic\n\nCurrent TTM FCF is $3,721M in the asset details, while the primer notes a more recent TTM FCF figure of about $4,400M including $965M of CHIPS Act incentives. I use $5,000M as 12-month forward FCF: above current TTM because revenue is recovering sharply, Q1 revenue was up 19% YoY, Q2 guidance implies continued sequential growth, and industrial/data-center demand improved; but not much higher because incentives are partly non-recurring and fab capex remains heavy.\n\nCurrent EV/FCF is:\n\n$277,431.2M / $3,721M = ~74.6x EV/FCF.\n\nThe 1-year and 3-year FCF/EV averages imply even higher historical EV/FCF multiples, but those are inflated by depressed FCF during the investment cycle. I apply a lower 60.0x EV/FCF multiple to normalized forward FCF, reflecting TI\u2019s high-quality analog franchise and recovery, offset by cyclical uncertainty, acquisition/regulatory risk, and balance-sheet considerations.\n\nForward EV:\n\n$5,000M \u00d7 60.0x = $300,000M.\n\nCurrent EV minus market cap gap:\n\n$277,431.2M - $266,930.2M = $10,501.0M.\n\nForward market cap:\n\n$300,000M - $10,501.0M = $289,499M.\n\n```json\n{\"forward_market_cap_musd\": 289499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 60.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Industrial recovery proves durable, Q2 strength continues, and 300mm capacity improves operating leverage. Forward FCF could move above $5.5B despite elevated fab spending, and TI could sustain a premium EV/FCF multiple near the current depressed-FCF valuation framework. A $5.8B FCF case at ~65x EV/FCF implies EV of ~$377B and market cap of ~$366B after the current EV-to-market-cap bridge.",
+        "Bear Case": "The analog recovery is another \u201chead-fake,\u201d automotive remains muted, CHIPS incentives are not recurring at the same level, and the Silicon Labs deal adds debt/execution pressure. Forward FCF could stay closer to $4.0B\u2013$4.3B, while the multiple compresses materially. A $4.2B FCF case at ~45x EV/FCF implies EV of ~$189B and market cap of ~$178B after the same bridge.",
+        "Logic": "Current TTM FCF is $3,721M in the asset details, while the primer notes a more recent TTM FCF figure of about $4,400M including $965M of CHIPS Act incentives. I use $5,000M as 12-month forward FCF: above current TTM because revenue is recovering sharply, Q1 revenue was up 19% YoY, Q2 guidance implies continued sequential growth, and industrial/data-center demand improved; but not much higher because incentives are partly non-recurring and fab capex remains heavy.\n\nCurrent EV/FCF is:\n\n$277,431.2M / $3,721M = ~74.6x EV/FCF.\n\nThe 1-year and 3-year FCF/EV averages imply even higher historical EV/FCF multiples, but those are inflated by depressed FCF during the investment cycle. I apply a lower 60.0x EV/FCF multiple to normalized forward FCF, reflecting TI\u2019s high-quality analog franchise and recovery, offset by cyclical uncertainty, acquisition/regulatory risk, and balance-sheet considerations.\n\nForward EV:\n\n$5,000M \u00d7 60.0x = $300,000M.\n\nCurrent EV minus market cap gap:\n\n$277,431.2M - $266,930.2M = $10,501.0M.\n\nForward market cap:\n\n$300,000M - $10,501.0M = $289,499M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "TXN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:28+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1867,
+        "completion_tokens": 2096,
+        "total_tokens": 3963,
+        "cost": 0.066455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.066455,
+          "upstream_inference_prompt_cost": 0.003575,
+          "upstream_inference_completions_cost": 0.06288
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1550,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nForward FCF could reach roughly **$6,300m** if the Q1/Q2 2026 recovery broadens, industrial demand proves durable, data-center strength continues, and 300mm manufacturing leverage improves cash conversion. Applying a premium but still recovery-adjusted **60x EV/FCF** multiple implies forward EV of **$378,000m**. Using the current EV less market-cap gap of **$10,501m**, bull-case forward market cap is about **$367,499m**.\n\n## Bear Case\nForward FCF could stay near **$4,000m** if the analog recovery is another \u201chead-fake,\u201d automotive remains sluggish, CHIPS-related cash benefits are not repeatable, and the Silicon Labs deal adds debt/execution/regulatory overhang. At a compressed **45x EV/FCF** multiple, forward EV is **$180,000m**. Less the same **$10,501m** EV-to-equity bridge, bear-case forward market cap is about **$169,499m**.\n\n## Logic\nBase case starts from packet TTM FCF of **$3,721m**, with the primer noting stronger recent momentum and TTM FCF of **$4,400m** including CHIPS incentives. I do not fully capitalize the incentive benefit, but Q1 revenue of **$4.83bn**, Q2 guide midpoint near **$5.2bn**, and broad industrial/data-center recovery support higher 12-month forward FCF. I estimate forward FCF at **$5,300m**.\n\nCurrent EV is **$277,431.2m** and market cap is **$266,930.2m**, so the current EV minus market-cap gap is **$10,501.0m**. I apply a **54.0x EV/FCF** multiple: below the current TTM EV/FCF of roughly **74.6x** because forward FCF is recovering and deal/regulatory risks remain, but still high given TI\u2019s quality analog franchise, long product lives, and manufacturing advantages.\n\nBase forward EV = **$5,300m \u00d7 54.0 = $286,200m**.  \nForward market cap = **$286,200m \u2212 $10,501m = $275,699m**.\n\n```json\n{\"forward_market_cap_musd\": 275699.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 54.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 275699.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 5300.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 54.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nForward FCF could reach roughly **$6,300m** if the Q1/Q2 2026 recovery broadens, industrial demand proves durable, data-center strength continues, and 300mm manufacturing leverage improves cash conversion. Applying a premium but still recovery-adjusted **60x EV/FCF** multiple implies forward EV of **$378,000m**. Using the current EV less market-cap gap of **$10,501m**, bull-case forward market cap is about **$367,499m**.\n\n## Bear Case\nForward FCF could stay near **$4,000m** if the analog recovery is another \u201chead-fake,\u201d automotive remains sluggish, CHIPS-related cash benefits are not repeatable, and the Silicon Labs deal adds debt/execution/regulatory overhang. At a compressed **45x EV/FCF** multiple, forward EV is **$180,000m**. Less the same **$10,501m** EV-to-equity bridge, bear-case forward market cap is about **$169,499m**.\n\n## Logic\nBase case starts from packet TTM FCF of **$3,721m**, with the primer noting stronger recent momentum and TTM FCF of **$4,400m** including CHIPS incentives. I do not fully capitalize the incentive benefit, but Q1 revenue of **$4.83bn**, Q2 guide midpoint near **$5.2bn**, and broad industrial/data-center recovery support higher 12-month forward FCF. I estimate forward FCF at **$5,300m**.\n\nCurrent EV is **$277,431.2m** and market cap is **$266,930.2m**, so the current EV minus market-cap gap is **$10,501.0m**. I apply a **54.0x EV/FCF** multiple: below the current TTM EV/FCF of roughly **74.6x** because forward FCF is recovering and deal/regulatory risks remain, but still high given TI\u2019s quality analog franchise, long product lives, and manufacturing advantages.\n\nBase forward EV = **$5,300m \u00d7 54.0 = $286,200m**.  \nForward market cap = **$286,200m \u2212 $10,501m = $275,699m**.\n\n```json\n{\"forward_market_cap_musd\": 275699.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 5300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 54.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Forward FCF could reach roughly **$6,300m** if the Q1/Q2 2026 recovery broadens, industrial demand proves durable, data-center strength continues, and 300mm manufacturing leverage improves cash conversion. Applying a premium but still recovery-adjusted **60x EV/FCF** multiple implies forward EV of **$378,000m**. Using the current EV less market-cap gap of **$10,501m**, bull-case forward market cap is about **$367,499m**.",
+        "Bear Case": "Forward FCF could stay near **$4,000m** if the analog recovery is another \u201chead-fake,\u201d automotive remains sluggish, CHIPS-related cash benefits are not repeatable, and the Silicon Labs deal adds debt/execution/regulatory overhang. At a compressed **45x EV/FCF** multiple, forward EV is **$180,000m**. Less the same **$10,501m** EV-to-equity bridge, bear-case forward market cap is about **$169,499m**.",
+        "Logic": "Base case starts from packet TTM FCF of **$3,721m**, with the primer noting stronger recent momentum and TTM FCF of **$4,400m** including CHIPS incentives. I do not fully capitalize the incentive benefit, but Q1 revenue of **$4.83bn**, Q2 guide midpoint near **$5.2bn**, and broad industrial/data-center recovery support higher 12-month forward FCF. I estimate forward FCF at **$5,300m**.\n\nCurrent EV is **$277,431.2m** and market cap is **$266,930.2m**, so the current EV minus market-cap gap is **$10,501.0m**. I apply a **54.0x EV/FCF** multiple: below the current TTM EV/FCF of roughly **74.6x** because forward FCF is recovering and deal/regulatory risks remain, but still high given TI\u2019s quality analog franchise, long product lives, and manufacturing advantages.\n\nBase forward EV = **$5,300m \u00d7 54.0 = $286,200m**.  \nForward market cap = **$286,200m \u2212 $10,501m = $275,699m**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "TXN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:42:07+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1976,
+        "completion_tokens": 3636,
+        "total_tokens": 5612,
+        "cost": 0.0187648,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0187648,
+          "upstream_inference_prompt_cost": 0.0027664,
+          "upstream_inference_completions_cost": 0.0159984
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2317,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nThe Q1 2026 results show a credible, broad-based recovery: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, and a Q2 guide of $5.0\u20135.4B. If this trajectory holds, 12-month-forward revenue could approach $21\u201322B, and as the Sherman fab ramps to volume production, capex intensity should moderate while CHIPS Act incentives continue to support FCF. The primer's $4.4B trailing FCF figure (including $965M in CHIPS incentives) suggests FCF is already inflecting sharply from the $3.7B in the asset details. A forward FCF of $5,000M is plausible, and if the market maintains a growth-premium multiple of ~76x EV/FCF (near current levels), forward EV reaches ~$380,000M. Bridging with the current $10,501M EV-minus-MC gap yields a forward market cap of ~$369,500M. The Silicon Labs deal, if it closes, adds embedded/wireless revenue and could accelerate FCF further.\n\n## Bear Case\n\nManagement explicitly warned of a prior \"head-fake\" analog recovery and lingering macro/geopolitical uncertainty. Automotive remains weak (mid-single-digit YoY, flat sequentially, China declining). The $7.5B debt-funded Silicon Labs acquisition adds execution risk, and China's regulator had not yet accepted the merger filing as of June 11, 2026\u2014if the deal is delayed or blocked, TI loses embedded wireless connectivity optionality; if it closes, near-term debt rises and FCF is pressured by integration costs. CHIPS Act incentive payments ($965M TTM) may not fully recur at the same run-rate. If the recovery stalls, forward FCF could stagnate near $3,500M and the market could de-rate to ~62x EV/FCF (below the 1y average of ~88x but reflecting a normalized cyclical semiconductor multiple), yielding a forward EV of ~$217,000M and a market cap of ~$206,500M after the gap bridge.\n\n## Logic\n\nThe base case balances the strong cyclical recovery signals against management caution and the pending Silicon Labs transaction. The asset details show TTM FCF of $3,721M as of April 2026, but the primer's more recent commentary indicates TTM FCF has risen to $4.4B including CHIPS incentives. For the 12-month forward period, I model continued revenue growth (Q2 guide implies ~$20.5B annualized run-rate rising further) and moderating capex as Sherman ramps, but I haircut for partial non-recurrence of one-time CHIPS payments and integration costs from Silicon Labs. This produces a forward FCF estimate of $4,300M. The current EV/FCF multiple is ~74.6x (1/0.01341), compressed from the 1y average of ~88.4x as FCF has inflected upward. I apply 70x EV/FCF\u2014slightly below current, reflecting expected continued FCF normalization but still elevated given semiconductor cyclicality and high prior capex. Forward EV = $4,300M \u00d7 70 = $301,000M. The current EV-minus-market-cap gap from the packet is $277,431.2M \u2212 $266,930.2M = $10,501M, which I use as the bridge (the Silicon Labs deal has not yet closed and its financing impact is uncertain). Forward market cap = $301,000M \u2212 $10,501M = $290,499M.\n\n```json\n{\"forward_market_cap_musd\": 290499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 290499.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4300.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 70.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ],
+          "text": "## Bull Case\n\nStrong cyclical recovery is underway: Q1 2026 revenue grew 19% YoY with industrial +30% YoY and data center +90% YoY, and Q2 guidance of $5.0\u2013$5.4B implies continued sequential acceleration. TTM FCF has already inflected from $940M (mid-2024) to $3.7B (mid-2026), and the primer cites $4.4B TTM FCF including $965M of CHIPS Act incentives. Sherman fab capacity coming online supports volume upside across multiple end markets. The Silicon Labs acquisition expands embedded/wireless connectivity, a strategic adjacency. If FCF reaches $4.4B+ and the market maintains a premium multiple (~65x) given AI/data-center exposure and manufacturing cost advantage, forward EV could approach $286B, yielding a market cap of ~$275B.\n\n## Bear Case\n\nCurrent valuation is already rich: EV/TTM FCF is ~74x, well above historical semiconductor norms, pricing in substantial FCF recovery that may not materialize sustainably. Management explicitly warned of prior"
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nThe Q1 2026 results show a credible, broad-based recovery: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, and a Q2 guide of $5.0\u20135.4B. If this trajectory holds, 12-month-forward revenue could approach $21\u201322B, and as the Sherman fab ramps to volume production, capex intensity should moderate while CHIPS Act incentives continue to support FCF. The primer's $4.4B trailing FCF figure (including $965M in CHIPS incentives) suggests FCF is already inflecting sharply from the $3.7B in the asset details. A forward FCF of $5,000M is plausible, and if the market maintains a growth-premium multiple of ~76x EV/FCF (near current levels), forward EV reaches ~$380,000M. Bridging with the current $10,501M EV-minus-MC gap yields a forward market cap of ~$369,500M. The Silicon Labs deal, if it closes, adds embedded/wireless revenue and could accelerate FCF further.\n\n## Bear Case\n\nManagement explicitly warned of a prior \"head-fake\" analog recovery and lingering macro/geopolitical uncertainty. Automotive remains weak (mid-single-digit YoY, flat sequentially, China declining). The $7.5B debt-funded Silicon Labs acquisition adds execution risk, and China's regulator had not yet accepted the merger filing as of June 11, 2026\u2014if the deal is delayed or blocked, TI loses embedded wireless connectivity optionality; if it closes, near-term debt rises and FCF is pressured by integration costs. CHIPS Act incentive payments ($965M TTM) may not fully recur at the same run-rate. If the recovery stalls, forward FCF could stagnate near $3,500M and the market could de-rate to ~62x EV/FCF (below the 1y average of ~88x but reflecting a normalized cyclical semiconductor multiple), yielding a forward EV of ~$217,000M and a market cap of ~$206,500M after the gap bridge.\n\n## Logic\n\nThe base case balances the strong cyclical recovery signals against management caution and the pending Silicon Labs transaction. The asset details show TTM FCF of $3,721M as of April 2026, but the primer's more recent commentary indicates TTM FCF has risen to $4.4B including CHIPS incentives. For the 12-month forward period, I model continued revenue growth (Q2 guide implies ~$20.5B annualized run-rate rising further) and moderating capex as Sherman ramps, but I haircut for partial non-recurrence of one-time CHIPS payments and integration costs from Silicon Labs. This produces a forward FCF estimate of $4,300M. The current EV/FCF multiple is ~74.6x (1/0.01341), compressed from the 1y average of ~88.4x as FCF has inflected upward. I apply 70x EV/FCF\u2014slightly below current, reflecting expected continued FCF normalization but still elevated given semiconductor cyclicality and high prior capex. Forward EV = $4,300M \u00d7 70 = $301,000M. The current EV-minus-market-cap gap from the packet is $277,431.2M \u2212 $266,930.2M = $10,501M, which I use as the bridge (the Silicon Labs deal has not yet closed and its financing impact is uncertain). Forward market cap = $301,000M \u2212 $10,501M = $290,499M.\n\n```json\n{\"forward_market_cap_musd\": 290499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "The Q1 2026 results show a credible, broad-based recovery: revenue +19% YoY, industrial +30% YoY, data center +90% YoY, and a Q2 guide of $5.0\u20135.4B. If this trajectory holds, 12-month-forward revenue could approach $21\u201322B, and as the Sherman fab ramps to volume production, capex intensity should moderate while CHIPS Act incentives continue to support FCF. The primer's $4.4B trailing FCF figure (including $965M in CHIPS incentives) suggests FCF is already inflecting sharply from the $3.7B in the asset details. A forward FCF of $5,000M is plausible, and if the market maintains a growth-premium multiple of ~76x EV/FCF (near current levels), forward EV reaches ~$380,000M. Bridging with the current $10,501M EV-minus-MC gap yields a forward market cap of ~$369,500M. The Silicon Labs deal, if it closes, adds embedded/wireless revenue and could accelerate FCF further.",
+        "Bear Case": "Management explicitly warned of a prior \"head-fake\" analog recovery and lingering macro/geopolitical uncertainty. Automotive remains weak (mid-single-digit YoY, flat sequentially, China declining). The $7.5B debt-funded Silicon Labs acquisition adds execution risk, and China's regulator had not yet accepted the merger filing as of June 11, 2026\u2014if the deal is delayed or blocked, TI loses embedded wireless connectivity optionality; if it closes, near-term debt rises and FCF is pressured by integration costs. CHIPS Act incentive payments ($965M TTM) may not fully recur at the same run-rate. If the recovery stalls, forward FCF could stagnate near $3,500M and the market could de-rate to ~62x EV/FCF (below the 1y average of ~88x but reflecting a normalized cyclical semiconductor multiple), yielding a forward EV of ~$217,000M and a market cap of ~$206,500M after the gap bridge.",
+        "Logic": "The base case balances the strong cyclical recovery signals against management caution and the pending Silicon Labs transaction. The asset details show TTM FCF of $3,721M as of April 2026, but the primer's more recent commentary indicates TTM FCF has risen to $4.4B including CHIPS incentives. For the 12-month forward period, I model continued revenue growth (Q2 guide implies ~$20.5B annualized run-rate rising further) and moderating capex as Sherman ramps, but I haircut for partial non-recurrence of one-time CHIPS payments and integration costs from Silicon Labs. This produces a forward FCF estimate of $4,300M. The current EV/FCF multiple is ~74.6x (1/0.01341), compressed from the 1y average of ~88.4x as FCF has inflected upward. I apply 70x EV/FCF\u2014slightly below current, reflecting expected continued FCF normalization but still elevated given semiconductor cyclicality and high prior capex. Forward EV = $4,300M \u00d7 70 = $301,000M. The current EV-minus-market-cap gap from the packet is $277,431.2M \u2212 $266,930.2M = $10,501M, which I use as the bridge (the Silicon Labs deal has not yet closed and its financing impact is uncertain). Forward market cap = $301,000M \u2212 $10,501M = $290,499M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "TXN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:41:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1950,
+        "completion_tokens": 2699,
+        "total_tokens": 4649,
+        "cost": 0.0146056,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0146056,
+          "upstream_inference_prompt_cost": 0.00273,
+          "upstream_inference_completions_cost": 0.0118756
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1925,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nTI's Q1 2026 results show a strong cyclical recovery: revenue up 19% YoY, industrial up 30%+ YoY, data center up ~90% YoY, and Q2 guidance of $5.0\u2013$5.4B implying continued momentum. TTM FCF has already inflected from $940M (mid-2024) to $3,721M (mid-2026), and management cited $4.4B TTM FCF including CHIPS Act incentives. As the Sherman fab ramps and capacity supports upturn volumes, operating leverage could push forward FCF toward $4.2\u20134.5B. If the market maintains the current ~75x EV/FCF multiple on a recovery narrative, forward EV could reach ~$315B, translating to a market cap near ~$304B after the ~$10.5B EV-to-MC gap.\n\n## Bear Case\nThe recovery may prove premature: management itself warned of prior \"head-fake\" patterns, macro/geopolitical uncertainty, and unsustained demand. The $7.5B Silicon Labs acquisition adds debt, dilution, and regulatory risk (China has not yet accepted the merger filing as of June 2026). Heavy capex for the Sherman fab and integration costs could constrain FCF growth even as revenue rises. The current EV/FCF multiple of ~75x is high relative to the 3-year average FCF yield context, and multiple compression toward ~60x is plausible if FCF growth disappoints. A bear-case forward FCF of ~$3,800M at 60x yields ~$228B EV and ~$218B market cap.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF stands at $3,721M as of the latest sample (April 2026 filing). Revenue is growing ~19% YoY with Q2 guidance implying continued sequential gains. However, capex remains elevated for the Sherman fab ramp, and the Silicon Labs deal will add integration costs and debt service. I estimate forward 12-month FCF at **$4,100M**, a ~10% improvement from current TTM, balancing revenue growth against higher capital intensity and deal-related drag.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF is ~74.6x ($277,431M / $3,721M). The 1-year average FCF/EV yield implies ~88x, and the 3-year average implies ~95x, but those elevated averages reflect the depressed FCF base during the downturn. As FCF normalizes upward, the multiple should compress. I apply **67.0x**, slightly below the current level, reflecting continued recovery confidence tempered by cyclical risk, deal execution uncertainty, and balance-sheet expansion.\n\n**EV-to-MC bridge:** Current EV is $277,431.2M and current market cap is $266,930.2M, yielding an EV-minus-MC gap of **$10,501M** (net debt + minority interests + preferred). I hold this gap constant for the 12-month horizon.\n\n**Forward EV** = $4,100M \u00d7 67.0 = $274,700M\n**Forward Market Cap** = $274,700M \u2212 $10,501M = **$264,199M**\n\n```json\n{\"forward_market_cap_musd\": 264199.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4100.0, \"forward_netinc_musd\": null, \"applied_multiple\": 67.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 264199.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4100.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 67.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nTI's Q1 2026 results show a strong cyclical recovery: revenue up 19% YoY, industrial up 30%+ YoY, data center up ~90% YoY, and Q2 guidance of $5.0\u2013$5.4B implying continued momentum. TTM FCF has already inflected from $940M (mid-2024) to $3,721M (mid-2026), and management cited $4.4B TTM FCF including CHIPS Act incentives. As the Sherman fab ramps and capacity supports upturn volumes, operating leverage could push forward FCF toward $4.2\u20134.5B. If the market maintains the current ~75x EV/FCF multiple on a recovery narrative, forward EV could reach ~$315B, translating to a market cap near ~$304B after the ~$10.5B EV-to-MC gap.\n\n## Bear Case\nThe recovery may prove premature: management itself warned of prior \"head-fake\" patterns, macro/geopolitical uncertainty, and unsustained demand. The $7.5B Silicon Labs acquisition adds debt, dilution, and regulatory risk (China has not yet accepted the merger filing as of June 2026). Heavy capex for the Sherman fab and integration costs could constrain FCF growth even as revenue rises. The current EV/FCF multiple of ~75x is high relative to the 3-year average FCF yield context, and multiple compression toward ~60x is plausible if FCF growth disappoints. A bear-case forward FCF of ~$3,800M at 60x yields ~$228B EV and ~$218B market cap.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF stands at $3,721M as of the latest sample (April 2026 filing). Revenue is growing ~19% YoY with Q2 guidance implying continued sequential gains. However, capex remains elevated for the Sherman fab ramp, and the Silicon Labs deal will add integration costs and debt service. I estimate forward 12-month FCF at **$4,100M**, a ~10% improvement from current TTM, balancing revenue growth against higher capital intensity and deal-related drag.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF is ~74.6x ($277,431M / $3,721M). The 1-year average FCF/EV yield implies ~88x, and the 3-year average implies ~95x, but those elevated averages reflect the depressed FCF base during the downturn. As FCF normalizes upward, the multiple should compress. I apply **67.0x**, slightly below the current level, reflecting continued recovery confidence tempered by cyclical risk, deal execution uncertainty, and balance-sheet expansion.\n\n**EV-to-MC bridge:** Current EV is $277,431.2M and current market cap is $266,930.2M, yielding an EV-minus-MC gap of **$10,501M** (net debt + minority interests + preferred). I hold this gap constant for the 12-month horizon.\n\n**Forward EV** = $4,100M \u00d7 67.0 = $274,700M\n**Forward Market Cap** = $274,700M \u2212 $10,501M = **$264,199M**\n\n```json\n{\"forward_market_cap_musd\": 264199.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4100.0, \"forward_netinc_musd\": null, \"applied_multiple\": 67.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "TI's Q1 2026 results show a strong cyclical recovery: revenue up 19% YoY, industrial up 30%+ YoY, data center up ~90% YoY, and Q2 guidance of $5.0\u2013$5.4B implying continued momentum. TTM FCF has already inflected from $940M (mid-2024) to $3,721M (mid-2026), and management cited $4.4B TTM FCF including CHIPS Act incentives. As the Sherman fab ramps and capacity supports upturn volumes, operating leverage could push forward FCF toward $4.2\u20134.5B. If the market maintains the current ~75x EV/FCF multiple on a recovery narrative, forward EV could reach ~$315B, translating to a market cap near ~$304B after the ~$10.5B EV-to-MC gap.",
+        "Bear Case": "The recovery may prove premature: management itself warned of prior \"head-fake\" patterns, macro/geopolitical uncertainty, and unsustained demand. The $7.5B Silicon Labs acquisition adds debt, dilution, and regulatory risk (China has not yet accepted the merger filing as of June 2026). Heavy capex for the Sherman fab and integration costs could constrain FCF growth even as revenue rises. The current EV/FCF multiple of ~75x is high relative to the 3-year average FCF yield context, and multiple compression toward ~60x is plausible if FCF growth disappoints. A bear-case forward FCF of ~$3,800M at 60x yields ~$228B EV and ~$218B market cap.",
+        "Logic": "**Forward FCF estimate:** TTM FCF stands at $3,721M as of the latest sample (April 2026 filing). Revenue is growing ~19% YoY with Q2 guidance implying continued sequential gains. However, capex remains elevated for the Sherman fab ramp, and the Silicon Labs deal will add integration costs and debt service. I estimate forward 12-month FCF at **$4,100M**, a ~10% improvement from current TTM, balancing revenue growth against higher capital intensity and deal-related drag.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF is ~74.6x ($277,431M / $3,721M). The 1-year average FCF/EV yield implies ~88x, and the 3-year average implies ~95x, but those elevated averages reflect the depressed FCF base during the downturn. As FCF normalizes upward, the multiple should compress. I apply **67.0x**, slightly below the current level, reflecting continued recovery confidence tempered by cyclical risk, deal execution uncertainty, and balance-sheet expansion.\n\n**EV-to-MC bridge:** Current EV is $277,431.2M and current market cap is $266,930.2M, yielding an EV-minus-MC gap of **$10,501M** (net debt + minority interests + preferred). I hold this gap constant for the 12-month horizon.\n\n**Forward EV** = $4,100M \u00d7 67.0 = $274,700M\n**Forward Market Cap** = $274,700M \u2212 $10,501M = **$264,199M**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "TXN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:43:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "dd6644989f3dfb98deb97d3bdc4012c499c4616dc342cdee64bdf4345024a632",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1950,
+        "completion_tokens": 4789,
+        "total_tokens": 6739,
+        "cost": 0.01666112,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01666112,
+          "upstream_inference_prompt_cost": 0.001911,
+          "upstream_inference_completions_cost": 0.01475012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3190,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Q1 2026 revenue of $4.83B grew 19% YoY with broad-based recovery: industrial +30% YoY, data center ~+90% YoY, communications ~+25% YoY. Q2 guidance midpoint of $5.2B implies continued sequential acceleration.\n- Sherman 300mm fab is now in production, meaning the heavy capex cycle is peaking; FCF should expand faster than revenue as depreciation catches up and incremental capex moderates. CHIPS Act incentives ($965M TTM) provide additional cash tailwind.\n- TTM FCF of $3.72B is up sharply from $940M two years ago, confirming operating leverage as revenue recovers. A forward FCF in the $4.3\u20134.5B range is achievable with ~11\u201314% revenue growth and improving FCF margins.\n- TXN's 300mm manufacturing advantage, broad 80,000+ product catalog, and long-lived customer designs justify a premium EV/FCF multiple relative to the semiconductor group.\n\n## Bear Case\n- Current EV/FCF of ~74.5x is historically elevated; the 3-year average FCF yield is only ~1.05%, suggesting the market has already priced in significant recovery. Multiple compression is a risk if growth disappoints.\n- Management explicitly cautioned about a possible \"head-fake\" recovery and macro/geopolitical uncertainty; sustainability of Q2 demand is unproven.\n- Automotive was only mid-single-digit YoY and flat sequentially, with China weakness. Automotive is a major end market for TXN, so a continued soft patch caps upside.\n- Silicon Labs acquisition ($7.5B, debt-funded) adds execution risk, balance-sheet pressure, and regulatory uncertainty (China merger filing not yet accepted as of June 2026). S&P noted deleveraging expectations, implying near-term balance-sheet drag.\n- CHIPS Act incentive payments are lumpy and may not repeat at the same run rate, meaning reported FCF could overstate sustainable FCF.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $3,721M. Revenue grew 19% YoY in Q1 2026 with Q2 guidance implying ~$20.5B+ forward 12-month revenue (vs. $18.4B TTM). As the Sherman fab ramps to production and capex intensity moderates, FCF conversion should improve. However, CHIPS Act payments are lumpy and automotive remains soft, so I apply a conservative ~18% FCF growth rate. **Forward FCF \u2248 $4,400M.**\n\n**Applied EV/FCF multiple:** The current EV/FCF is ~74.5x (1.34% FCF yield). The 1-year and 3-year average yields are 1.13% and 1.05%, respectively\u2014elevated because FCF was depressed during the capex cycle. As FCF normalizes upward, the multiple should compress. I apply **60.0x**, reflecting a premium for TXN's analog/embedded model, 300mm cost advantage, and product longevity, but below the current multiple to account for recovery already being priced in and deal/regulatory risk.\n\n**EV \u2192 Market Cap bridge:** Forward EV = 60.0 \u00d7 $4,400M = $264,000M. The current EV\u2013market cap gap is $277,431.2M \u2212 $266,930.2M = **$10,501.0M** (reflects net debt and minority interests). Forward market cap = $264,000M \u2212 $10,501M = **$253,499M**, rounded to **$253,500M**.\n\n```json\n{\"forward_market_cap_musd\": 253500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4400.0, \"forward_netinc_musd\": 6000.0, \"applied_multiple\": 60.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 253500.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 4400.0,
+        "forward_netinc_musd": 6000.0,
+        "applied_multiple": 60.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Q1 2026 revenue of $4.83B grew 19% YoY with broad-based recovery: industrial +30% YoY, data center ~+90% YoY, communications ~+25% YoY. Q2 guidance midpoint of $5.2B implies continued sequential acceleration.\n- Sherman 300mm fab is now in production, meaning the heavy capex cycle is peaking; FCF should expand faster than revenue as depreciation catches up and incremental capex moderates. CHIPS Act incentives ($965M TTM) provide additional cash tailwind.\n- TTM FCF of $3.72B is up sharply from $940M two years ago, confirming operating leverage as revenue recovers. A forward FCF in the $4.3\u20134.5B range is achievable with ~11\u201314% revenue growth and improving FCF margins.\n- TXN's 300mm manufacturing advantage, broad 80,000+ product catalog, and long-lived customer designs justify a premium EV/FCF multiple relative to the semiconductor group.\n\n## Bear Case\n- Current EV/FCF of ~74.5x is historically elevated; the 3-year average FCF yield is only ~1.05%, suggesting the market has already priced in significant recovery. Multiple compression is a risk if growth disappoints.\n- Management explicitly cautioned about a possible \"head-fake\" recovery and macro/geopolitical uncertainty; sustainability of Q2 demand is unproven.\n- Automotive was only mid-single-digit YoY and flat sequentially, with China weakness. Automotive is a major end market for TXN, so a continued soft patch caps upside.\n- Silicon Labs acquisition ($7.5B, debt-funded) adds execution risk, balance-sheet pressure, and regulatory uncertainty (China merger filing not yet accepted as of June 2026). S&P noted deleveraging expectations, implying near-term balance-sheet drag.\n- CHIPS Act incentive payments are lumpy and may not repeat at the same run rate, meaning reported FCF could overstate sustainable FCF.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $3,721M. Revenue grew 19% YoY in Q1 2026 with Q2 guidance implying ~$20.5B+ forward 12-month revenue (vs. $18.4B TTM). As the Sherman fab ramps to production and capex intensity moderates, FCF conversion should improve. However, CHIPS Act payments are lumpy and automotive remains soft, so I apply a conservative ~18% FCF growth rate. **Forward FCF \u2248 $4,400M.**\n\n**Applied EV/FCF multiple:** The current EV/FCF is ~74.5x (1.34% FCF yield). The 1-year and 3-year average yields are 1.13% and 1.05%, respectively\u2014elevated because FCF was depressed during the capex cycle. As FCF normalizes upward, the multiple should compress. I apply **60.0x**, reflecting a premium for TXN's analog/embedded model, 300mm cost advantage, and product longevity, but below the current multiple to account for recovery already being priced in and deal/regulatory risk.\n\n**EV \u2192 Market Cap bridge:** Forward EV = 60.0 \u00d7 $4,400M = $264,000M. The current EV\u2013market cap gap is $277,431.2M \u2212 $266,930.2M = **$10,501.0M** (reflects net debt and minority interests). Forward market cap = $264,000M \u2212 $10,501M = **$253,499M**, rounded to **$253,500M**.\n\n```json\n{\"forward_market_cap_musd\": 253500.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 4400.0, \"forward_netinc_musd\": 6000.0, \"applied_multiple\": 60.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Q1 2026 revenue of $4.83B grew 19% YoY with broad-based recovery: industrial +30% YoY, data center ~+90% YoY, communications ~+25% YoY. Q2 guidance midpoint of $5.2B implies continued sequential acceleration.\n- Sherman 300mm fab is now in production, meaning the heavy capex cycle is peaking; FCF should expand faster than revenue as depreciation catches up and incremental capex moderates. CHIPS Act incentives ($965M TTM) provide additional cash tailwind.\n- TTM FCF of $3.72B is up sharply from $940M two years ago, confirming operating leverage as revenue recovers. A forward FCF in the $4.3\u20134.5B range is achievable with ~11\u201314% revenue growth and improving FCF margins.\n- TXN's 300mm manufacturing advantage, broad 80,000+ product catalog, and long-lived customer designs justify a premium EV/FCF multiple relative to the semiconductor group.",
+        "Bear Case": "- Current EV/FCF of ~74.5x is historically elevated; the 3-year average FCF yield is only ~1.05%, suggesting the market has already priced in significant recovery. Multiple compression is a risk if growth disappoints.\n- Management explicitly cautioned about a possible \"head-fake\" recovery and macro/geopolitical uncertainty; sustainability of Q2 demand is unproven.\n- Automotive was only mid-single-digit YoY and flat sequentially, with China weakness. Automotive is a major end market for TXN, so a continued soft patch caps upside.\n- Silicon Labs acquisition ($7.5B, debt-funded) adds execution risk, balance-sheet pressure, and regulatory uncertainty (China merger filing not yet accepted as of June 2026). S&P noted deleveraging expectations, implying near-term balance-sheet drag.\n- CHIPS Act incentive payments are lumpy and may not repeat at the same run rate, meaning reported FCF could overstate sustainable FCF.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $3,721M. Revenue grew 19% YoY in Q1 2026 with Q2 guidance implying ~$20.5B+ forward 12-month revenue (vs. $18.4B TTM). As the Sherman fab ramps to production and capex intensity moderates, FCF conversion should improve. However, CHIPS Act payments are lumpy and automotive remains soft, so I apply a conservative ~18% FCF growth rate. **Forward FCF \u2248 $4,400M.**\n\n**Applied EV/FCF multiple:** The current EV/FCF is ~74.5x (1.34% FCF yield). The 1-year and 3-year average yields are 1.13% and 1.05%, respectively\u2014elevated because FCF was depressed during the capex cycle. As FCF normalizes upward, the multiple should compress. I apply **60.0x**, reflecting a premium for TXN's analog/embedded model, 300mm cost advantage, and product longevity, but below the current multiple to account for recovery already being priced in and deal/regulatory risk.\n\n**EV \u2192 Market Cap bridge:** Forward EV = 60.0 \u00d7 $4,400M = $264,000M. The current EV\u2013market cap gap is $277,431.2M \u2212 $266,930.2M = **$10,501.0M** (reflects net debt and minority interests). Forward market cap = $264,000M \u2212 $10,501M = **$253,499M**, rounded to **$253,500M**."
+      }
+    }
+  ]
+}

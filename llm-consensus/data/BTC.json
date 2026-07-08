@@ -1,0 +1,837 @@
+{
+  "asset_id": "BTC",
+  "aggregate_row": {
+    "asset_id": "BTC",
+    "name": "Bitcoin",
+    "kind": "spot",
+    "bucket": "spot",
+    "current_market_cap": 1258359530485.0,
+    "std_pct_of_mean": 0.3574579392462023,
+    "models": {
+      "Fable": {
+        "forward_mc": 1440000000000.0,
+        "pct_upside": 0.1443470368480395,
+        "bullishness": 0.40381544511903883,
+        "n_samples": 3,
+        "forward_mc_iqr": 40000000000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 1300000000000.0,
+        "pct_upside": 0.033091074932257936,
+        "bullishness": 0.09257333884383574,
+        "n_samples": 3,
+        "forward_mc_iqr": 35000000000.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 1450000000000.0,
+        "pct_upside": 0.15229389127059534,
+        "bullishness": 0.42604702413869616,
+        "n_samples": 3,
+        "forward_mc_iqr": 15000000000.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 1350000000000.0,
+        "pct_upside": 0.07282534704503707,
+        "bullishness": 0.20373123394212256,
+        "n_samples": 3,
+        "forward_mc_iqr": 35000000000.0
+      }
+    },
+    "consensus_bullishness": 0.3037733395305807,
+    "consensus_bullishness_mean": 0.2815417605109233,
+    "consensus_pct_upside": 0.10858619194653829,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nBitcoin is not a company; it is a decentralized monetary network and bearer digital asset. BTC is the native unit used to transfer value, pay transaction fees, and settle ownership on a public blockchain without a central issuer. As of July 8, 2026, BTC trades around **$61,807**, with an intraday range of roughly **$61,630\u2013$64,151**. \n\n## What It Does\n\nBitcoin provides scarce, programmable settlement: users broadcast transactions, miners order them into blocks, and the protocol issues new BTC according to a fixed schedule capped at 21 million coins. Demand now comes from several channels: direct holders, exchanges, miners, corporate/treasury users, derivatives markets, and U.S. spot Bitcoin ETFs. ETF creations/redemptions are a major observable demand channel because spot ETF inflows generally require issuers or authorized participants to source BTC, while outflows can release BTC back to market. Current ETF trackers show daily U.S. spot Bitcoin ETF flow data through July 7\u20138, 2026, with total historical net inflows still large but 2026 year-to-date flows negative on some aggregators. ([walletpilot.com](https://www.walletpilot.com/bitcoin-tracker/etfs?utm_source=openai))\n\n## Recent Highlights (Positive)\n\nETF demand showed signs of stabilization in early July after a weak June: U.S. spot Bitcoin ETFs reportedly took in about **$265.7 million** on July 6, led by BlackRock\u2019s IBIT at about **$209.4 million**, and daily trackers showed small positive net inflows around July 7. ([cryptotimes.io](https://www.cryptotimes.io/2026/07/07/blackrocks-ibit-leads-bitcoin-etf-rebound-with-209m-inflow/?utm_source=openai)) Regulatory clarity also improved: on March 17, 2026, the SEC issued an interpretation on how federal securities laws apply to crypto assets, with CFTC participation; the release was effective March 23 and aimed to clarify treatment of \u201cnon-security crypto assets\u201d and CFTC/SEC jurisdictional overlap. ([sec.gov](https://www.sec.gov/rules-regulations/2026/03/s7-2026-09?utm_source=openai)) Earlier in March, the SEC and CFTC announced an interagency MOU to coordinate market oversight and support a more harmonized framework for crypto assets and emerging technologies. ([cftc.gov](https://www.cftc.gov/PressRoom/PressReleases/9192-26?utm_source=openai)) On supply, Bitcoin\u2019s post-2024-halving issuance remains structurally low versus pre-halving cycles, so marginal demand from ETFs or long-term holders can matter more when liquid supply is tight.\n\n## Recent Highlights (Negative)\n\nThe biggest recent negative is flow volatility: several sources reported heavy U.S. spot Bitcoin ETF redemptions in May\u2013June 2026, including long outflow streaks and multi-billion-dollar cumulative withdrawals, with one tracker showing Bitcoin ETF YTD net flow around **-$5.46 billion** despite positive lifetime inflows. ([tftc.io](https://www.tftc.io/bitcoin-etf-outflows-2026-record-streaks?utm_source=openai)) Late June and early July also saw renewed outflow pressure, including reports of about **$526.6 million** withdrawn from Bitcoin ETFs from June 29 to July 3. ([incrypted.com](https://incrypted.com/en/bitcoin-etfs-see-over-526-million-outflows-over-four-days-eight-week-streak-continues/?utm_source=openai)) Macro remains a headwind: BTC has been trading like a high-beta liquidity asset, sensitive to the U.S. dollar, real yields, Federal Reserve rate expectations, and risk appetite; compressed volatility can precede sharp moves if macro data or policy expectations shift. ([reddit.com](https://www.reddit.com/r/u_Patient_Craft2195/comments/1uldu1k/bitcoin_price_rebounds_amid_persistent_etf/?utm_source=openai)) Regulatory progress is not the same as final certainty: the March SEC/CFTC interpretation clarifies categories and investment-contract analysis, but it still leaves room for future rulemaking, court challenges, and transaction-specific securities-law questions. ([sec.gov](https://www.sec.gov/rules-regulations/2026/03/s7-2026-09?utm_source=openai))\n",
+  "primer_meta": {
+    "asset_id": "BTC",
+    "created_at_utc": "2026-07-08T15:06:28+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "53e4c21c0738692dd8bdc755f1302fcfee449a3c55c5aedcbc982d85b89bf5e9",
+    "sources": [
+      {
+        "url": "https://www.walletpilot.com/bitcoin-tracker/etfs?utm_source=openai",
+        "title": "Bitcoin ETF Flows Today - Daily Flow Table, AUM & Holdings"
+      },
+      {
+        "url": "https://www.cryptotimes.io/2026/07/07/blackrocks-ibit-leads-bitcoin-etf-rebound-with-209m-inflow/?utm_source=openai",
+        "title": "BlackRock\u2019s IBIT Leads Bitcoin ETF Rebound With $209M Inflow"
+      },
+      {
+        "url": "https://www.sec.gov/rules-regulations/2026/03/s7-2026-09?utm_source=openai",
+        "title": "SEC.gov | Application of the Federal Securities Laws to Certain Types of Crypto Assets and Certain Transactions Involving Crypto Assets"
+      },
+      {
+        "url": "https://www.cftc.gov/PressRoom/PressReleases/9192-26?utm_source=openai",
+        "title": "CFTC and SEC Announce Historic Memorandum of Understanding Between Agencies | CFTC"
+      },
+      {
+        "url": "https://www.tftc.io/bitcoin-etf-outflows-2026-record-streaks?utm_source=openai",
+        "title": "Bitcoin ETF Outflows Hit $7B in 2026 Record Streaks \u00b7 TFTC"
+      },
+      {
+        "url": "https://incrypted.com/en/bitcoin-etfs-see-over-526-million-outflows-over-four-days-eight-week-streak-continues/?utm_source=openai",
+        "title": "Bitcoin ETFs See Over $526 Million in Outflows Over Four Days as Eight-Week Streak Continues"
+      },
+      {
+        "url": "https://www.reddit.com/r/u_Patient_Craft2195/comments/1uldu1k/bitcoin_price_rebounds_amid_persistent_etf/?utm_source=openai",
+        "title": "Bitcoin Price Rebounds Amid Persistent ETF Outflows and Compressed Volatility"
+      }
+    ],
+    "transcript_used": null,
+    "response_id": "resp_02740016d9ac5223016a4e6756a3f4819ea5b6206aa2a6d62f",
+    "usage": {
+      "input_tokens": 17298,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1074,
+      "output_tokens_details": {
+        "reasoning_tokens": 253
+      },
+      "total_tokens": 18372
+    }
+  },
+  "details": {
+    "asset_id": "BTC",
+    "kind": "spot",
+    "bucket": "spot",
+    "as_of": "2026-07-08",
+    "name": "Bitcoin",
+    "market_cap_current_usd": 1258359530485.0,
+    "market_cap_source": {
+      "method": "web_search",
+      "url": "https://coinmarketcap.com/currencies/bitcoin/",
+      "retrieved": "2026-07-08T14:27:48+00:00",
+      "basis": "CoinMarketCap live BTC market cap in USD",
+      "secondary_market_cap_current_usd": 1242294274175.0,
+      "secondary_url": "https://www.coingecko.com/en/coins/bitcoin",
+      "secondary_basis": "CoinGecko BTC market cap in USD, based on circulating supply times current price",
+      "cross_check_pct_diff": 0.012848844794159184,
+      "sources": []
+    },
+    "proxy": {
+      "ticker": "BTCUSD",
+      "source": "fmp",
+      "note": "mc_hist(t) = mc_now * px(t)/px(now)",
+      "window_days": 1096
+    },
+    "mc_history_3y": {
+      "mean_usd": 1499857604143.2637,
+      "std_usd": 536136008339.79724,
+      "std_pct_of_mean": 0.3574579392462023
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "BTC",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:25+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 1084,
+        "total_tokens": 3395,
+        "cost": 0.07731,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.07731,
+          "upstream_inference_prompt_cost": 0.02311,
+          "upstream_inference_completions_cost": 0.0542
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 189,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- ETF flow stabilization in early July ($265.7M inflow on July 6, IBIT-led) marks a durable inflection after the May\u2013June redemption streak; renewed institutional accumulation against post-halving issuance (~0.8%/yr supply growth) creates a supply squeeze.\n- March 2026 SEC/CFTC interpretive framework and MOU reduce regulatory tail risk, unlocking allocations from advisors, pensions, and corporate treasuries that had been sidelined.\n- A dovish Fed pivot / falling real yields reignites the high-beta liquidity trade; BTC retraces toward prior-cycle highs. Price $90k\u2013$100k \u2192 market cap **~$1.85\u20132.05T**.\n\n## Bear Case\n- 2026 YTD ETF net flows are already **-$5.46B**; continued redemption streaks (e.g., $526.6M out June 29\u2013July 3) show the marginal buyer has flipped to a marginal seller, and ETF plumbing works symmetrically on the way down.\n- Sticky inflation, firm real yields, and a strong dollar keep risk appetite suppressed; compressed volatility resolves downward.\n- Regulatory clarity is interpretive, not final \u2014 future rulemaking or litigation reintroduces uncertainty. Price $40k\u2013$45k \u2192 market cap **~$0.85\u20130.95T**.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61.8k/BTC; supply grows ~0.8% over 12 months, so market cap moves are almost entirely price-driven.\n- 3-year MC mean is ~$1.50T with ~36% std dev, so today's level sits below trend \u2014 historical distribution modestly favors mean reversion upward.\n- Base case: ETF flows normalize to roughly flat-to-mildly-positive as regulatory clarity matures and macro eases gradually, but no new bull-cycle catalyst. Price recovers to ~$68k\u2013$72k, near the 3-year mean.\n- Weighting: ~25% bull ($1.95T), ~50% base ($1.42T), ~25% bear ($0.90T) \u2192 probability-weighted \u2248 **$1.42T**.\n- No cash flows apply; FCF/net income multiples are not meaningful for a bearer monetary asset.\n\n```json\n{\"forward_market_cap_usd\": 1420000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1420000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- ETF flow stabilization in early July ($265.7M inflow on July 6, IBIT-led) marks a durable inflection after the May\u2013June redemption streak; renewed institutional accumulation against post-halving issuance (~0.8%/yr supply growth) creates a supply squeeze.\n- March 2026 SEC/CFTC interpretive framework and MOU reduce regulatory tail risk, unlocking allocations from advisors, pensions, and corporate treasuries that had been sidelined.\n- A dovish Fed pivot / falling real yields reignites the high-beta liquidity trade; BTC retraces toward prior-cycle highs. Price $90k\u2013$100k \u2192 market cap **~$1.85\u20132.05T**.\n\n## Bear Case\n- 2026 YTD ETF net flows are already **-$5.46B**; continued redemption streaks (e.g., $526.6M out June 29\u2013July 3) show the marginal buyer has flipped to a marginal seller, and ETF plumbing works symmetrically on the way down.\n- Sticky inflation, firm real yields, and a strong dollar keep risk appetite suppressed; compressed volatility resolves downward.\n- Regulatory clarity is interpretive, not final \u2014 future rulemaking or litigation reintroduces uncertainty. Price $40k\u2013$45k \u2192 market cap **~$0.85\u20130.95T**.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61.8k/BTC; supply grows ~0.8% over 12 months, so market cap moves are almost entirely price-driven.\n- 3-year MC mean is ~$1.50T with ~36% std dev, so today's level sits below trend \u2014 historical distribution modestly favors mean reversion upward.\n- Base case: ETF flows normalize to roughly flat-to-mildly-positive as regulatory clarity matures and macro eases gradually, but no new bull-cycle catalyst. Price recovers to ~$68k\u2013$72k, near the 3-year mean.\n- Weighting: ~25% bull ($1.95T), ~50% base ($1.42T), ~25% bear ($0.90T) \u2192 probability-weighted \u2248 **$1.42T**.\n- No cash flows apply; FCF/net income multiples are not meaningful for a bearer monetary asset.\n\n```json\n{\"forward_market_cap_usd\": 1420000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- ETF flow stabilization in early July ($265.7M inflow on July 6, IBIT-led) marks a durable inflection after the May\u2013June redemption streak; renewed institutional accumulation against post-halving issuance (~0.8%/yr supply growth) creates a supply squeeze.\n- March 2026 SEC/CFTC interpretive framework and MOU reduce regulatory tail risk, unlocking allocations from advisors, pensions, and corporate treasuries that had been sidelined.\n- A dovish Fed pivot / falling real yields reignites the high-beta liquidity trade; BTC retraces toward prior-cycle highs. Price $90k\u2013$100k \u2192 market cap **~$1.85\u20132.05T**.",
+        "Bear Case": "- 2026 YTD ETF net flows are already **-$5.46B**; continued redemption streaks (e.g., $526.6M out June 29\u2013July 3) show the marginal buyer has flipped to a marginal seller, and ETF plumbing works symmetrically on the way down.\n- Sticky inflation, firm real yields, and a strong dollar keep risk appetite suppressed; compressed volatility resolves downward.\n- Regulatory clarity is interpretive, not final \u2014 future rulemaking or litigation reintroduces uncertainty. Price $40k\u2013$45k \u2192 market cap **~$0.85\u20130.95T**.",
+        "Logic": "- Current market cap: ~$1.258T at ~$61.8k/BTC; supply grows ~0.8% over 12 months, so market cap moves are almost entirely price-driven.\n- 3-year MC mean is ~$1.50T with ~36% std dev, so today's level sits below trend \u2014 historical distribution modestly favors mean reversion upward.\n- Base case: ETF flows normalize to roughly flat-to-mildly-positive as regulatory clarity matures and macro eases gradually, but no new bull-cycle catalyst. Price recovers to ~$68k\u2013$72k, near the 3-year mean.\n- Weighting: ~25% bull ($1.95T), ~50% base ($1.42T), ~25% bear ($0.90T) \u2192 probability-weighted \u2248 **$1.42T**.\n- No cash flows apply; FCF/net income multiples are not meaningful for a bearer monetary asset."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "BTC",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:21+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 731,
+        "total_tokens": 3042,
+        "cost": 0.05966,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05966,
+          "upstream_inference_prompt_cost": 0.02311,
+          "upstream_inference_completions_cost": 0.03655
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nETF flows stabilize and turn positive again (early-July signs of $265M daily inflows), regulatory clarity from the March 2026 SEC/CFTC interpretation broadens institutional adoption, and post-halving low issuance meets renewed demand in a Fed easing cycle. BTC re-tests prior cycle highs (~$100K+), pushing market cap toward $1.9\u20132.1T.\n\n## Bear Case\nThe 2026 outflow trend continues (YTD -$5.5B, eight-week redemption streaks), macro stays hostile (strong dollar, elevated real yields), and BTC trades like a high-beta liquidity asset into a deeper drawdown toward $40\u201345K, implying a market cap of ~$0.8\u20130.9T.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply grows ~0.8%/yr post-2024 halving (~165K BTC), a minor tailwind to cap at flat price.\n- Flow picture is mixed: persistent 2026 ETF redemptions are a genuine demand-side deterioration versus 2024\u201325, but lifetime inflows remain large and July shows stabilization. Regulatory clarity is a structural positive that lowers adoption friction over 12 months.\n- BTC has historically mean-reverted upward after multi-month drawdowns when macro liquidity improves; 3-year mean market cap ($1.50T) sits above spot, suggesting current price is below trend.\n- Base case: modest recovery as ETF outflows exhaust, price ~$70\u201375K in 12 months. Weight bull ~30% ($2.0T), base ~45% ($1.5T), bear ~25% ($0.9T): \u2248 0.30\u00d72.0 + 0.45\u00d71.5 + 0.25\u00d70.9 = $1.5T.\n- No cash flows or earnings apply to a bearer asset; multiple fields are null.\n\n```json\n{\"forward_market_cap_usd\": 1500000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1500000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nETF flows stabilize and turn positive again (early-July signs of $265M daily inflows), regulatory clarity from the March 2026 SEC/CFTC interpretation broadens institutional adoption, and post-halving low issuance meets renewed demand in a Fed easing cycle. BTC re-tests prior cycle highs (~$100K+), pushing market cap toward $1.9\u20132.1T.\n\n## Bear Case\nThe 2026 outflow trend continues (YTD -$5.5B, eight-week redemption streaks), macro stays hostile (strong dollar, elevated real yields), and BTC trades like a high-beta liquidity asset into a deeper drawdown toward $40\u201345K, implying a market cap of ~$0.8\u20130.9T.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply grows ~0.8%/yr post-2024 halving (~165K BTC), a minor tailwind to cap at flat price.\n- Flow picture is mixed: persistent 2026 ETF redemptions are a genuine demand-side deterioration versus 2024\u201325, but lifetime inflows remain large and July shows stabilization. Regulatory clarity is a structural positive that lowers adoption friction over 12 months.\n- BTC has historically mean-reverted upward after multi-month drawdowns when macro liquidity improves; 3-year mean market cap ($1.50T) sits above spot, suggesting current price is below trend.\n- Base case: modest recovery as ETF outflows exhaust, price ~$70\u201375K in 12 months. Weight bull ~30% ($2.0T), base ~45% ($1.5T), bear ~25% ($0.9T): \u2248 0.30\u00d72.0 + 0.45\u00d71.5 + 0.25\u00d70.9 = $1.5T.\n- No cash flows or earnings apply to a bearer asset; multiple fields are null.\n\n```json\n{\"forward_market_cap_usd\": 1500000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "ETF flows stabilize and turn positive again (early-July signs of $265M daily inflows), regulatory clarity from the March 2026 SEC/CFTC interpretation broadens institutional adoption, and post-halving low issuance meets renewed demand in a Fed easing cycle. BTC re-tests prior cycle highs (~$100K+), pushing market cap toward $1.9\u20132.1T.",
+        "Bear Case": "The 2026 outflow trend continues (YTD -$5.5B, eight-week redemption streaks), macro stays hostile (strong dollar, elevated real yields), and BTC trades like a high-beta liquidity asset into a deeper drawdown toward $40\u201345K, implying a market cap of ~$0.8\u20130.9T.",
+        "Logic": "- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply grows ~0.8%/yr post-2024 halving (~165K BTC), a minor tailwind to cap at flat price.\n- Flow picture is mixed: persistent 2026 ETF redemptions are a genuine demand-side deterioration versus 2024\u201325, but lifetime inflows remain large and July shows stabilization. Regulatory clarity is a structural positive that lowers adoption friction over 12 months.\n- BTC has historically mean-reverted upward after multi-month drawdowns when macro liquidity improves; 3-year mean market cap ($1.50T) sits above spot, suggesting current price is below trend.\n- Base case: modest recovery as ETF outflows exhaust, price ~$70\u201375K in 12 months. Weight bull ~30% ($2.0T), base ~45% ($1.5T), bear ~25% ($0.9T): \u2248 0.30\u00d72.0 + 0.45\u00d71.5 + 0.25\u00d70.9 = $1.5T.\n- No cash flows or earnings apply to a bearer asset; multiple fields are null."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "BTC",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:26+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 1074,
+        "total_tokens": 3385,
+        "cost": 0.07681,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.07681,
+          "upstream_inference_prompt_cost": 0.02311,
+          "upstream_inference_completions_cost": 0.0537
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 149,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nETF flows stabilized in early July (+$265.7M on July 6, IBIT-led), suggesting the May\u2013June redemption cycle may have exhausted itself. The March 2026 SEC/CFTC interpretation and MOU materially reduce regulatory tail risk, potentially unlocking new institutional allocations (wirehouses, pensions). Post-2024-halving issuance (~450 BTC/day, ~0.8% annual supply growth) means even modest renewed ETF demand tightens liquid supply quickly. If the Fed eases and the dollar softens, BTC's high-beta liquidity character works in its favor. A recovery toward prior cycle highs ($90k\u2013$100k) implies a market cap of $1.8T\u2013$2.0T.\n\n## Bear Case\nYTD ETF net flows are roughly **-$5.46B**, with eight-week outflow streaks and $526.6M pulled in a single early-July week \u2014 the dominant marginal demand channel is currently a net seller. BTC trades like a levered risk asset; sticky real yields, a strong dollar, or a risk-off macro shock could push price to $40k\u2013$45k, implying a market cap of $0.80T\u2013$0.90T. Regulatory clarity is interpretive, not statutory \u2014 court challenges or adverse rulemaking remain possible. Compressed volatility can resolve downward.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply in 12 months: +~164k BTC (~0.8%), so supply growth adds ~1% to cap at flat price.\n- Base case blends: (a) flow stabilization with mild recovery as regulatory clarity converts to slow institutional re-accumulation, (b) persistent macro overhang capping upside. I weight a modest price recovery to ~$70k\u2013$72k as most likely (60%), bull at ~$95k (20%), bear at ~$43k (20%).\n- Probability-weighted price: 0.6\u00d7$71k + 0.2\u00d7$95k + 0.2\u00d7$43k \u2248 $70.2k.\n- Forward supply ~20.5M \u00d7 ~$70k \u2248 **$1.44T**, within one-third of a standard deviation of the 3-year mean cap ($1.50T \u00b1 $0.54T), consistent with mean reversion rather than extrapolating current weakness.\n- No earnings/FCF apply to a bearer asset; multiple fields are null.\n\n```json\n{\"forward_market_cap_usd\": 1440000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1440000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nETF flows stabilized in early July (+$265.7M on July 6, IBIT-led), suggesting the May\u2013June redemption cycle may have exhausted itself. The March 2026 SEC/CFTC interpretation and MOU materially reduce regulatory tail risk, potentially unlocking new institutional allocations (wirehouses, pensions). Post-2024-halving issuance (~450 BTC/day, ~0.8% annual supply growth) means even modest renewed ETF demand tightens liquid supply quickly. If the Fed eases and the dollar softens, BTC's high-beta liquidity character works in its favor. A recovery toward prior cycle highs ($90k\u2013$100k) implies a market cap of $1.8T\u2013$2.0T.\n\n## Bear Case\nYTD ETF net flows are roughly **-$5.46B**, with eight-week outflow streaks and $526.6M pulled in a single early-July week \u2014 the dominant marginal demand channel is currently a net seller. BTC trades like a levered risk asset; sticky real yields, a strong dollar, or a risk-off macro shock could push price to $40k\u2013$45k, implying a market cap of $0.80T\u2013$0.90T. Regulatory clarity is interpretive, not statutory \u2014 court challenges or adverse rulemaking remain possible. Compressed volatility can resolve downward.\n\n## Logic\n- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply in 12 months: +~164k BTC (~0.8%), so supply growth adds ~1% to cap at flat price.\n- Base case blends: (a) flow stabilization with mild recovery as regulatory clarity converts to slow institutional re-accumulation, (b) persistent macro overhang capping upside. I weight a modest price recovery to ~$70k\u2013$72k as most likely (60%), bull at ~$95k (20%), bear at ~$43k (20%).\n- Probability-weighted price: 0.6\u00d7$71k + 0.2\u00d7$95k + 0.2\u00d7$43k \u2248 $70.2k.\n- Forward supply ~20.5M \u00d7 ~$70k \u2248 **$1.44T**, within one-third of a standard deviation of the 3-year mean cap ($1.50T \u00b1 $0.54T), consistent with mean reversion rather than extrapolating current weakness.\n- No earnings/FCF apply to a bearer asset; multiple fields are null.\n\n```json\n{\"forward_market_cap_usd\": 1440000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "ETF flows stabilized in early July (+$265.7M on July 6, IBIT-led), suggesting the May\u2013June redemption cycle may have exhausted itself. The March 2026 SEC/CFTC interpretation and MOU materially reduce regulatory tail risk, potentially unlocking new institutional allocations (wirehouses, pensions). Post-2024-halving issuance (~450 BTC/day, ~0.8% annual supply growth) means even modest renewed ETF demand tightens liquid supply quickly. If the Fed eases and the dollar softens, BTC's high-beta liquidity character works in its favor. A recovery toward prior cycle highs ($90k\u2013$100k) implies a market cap of $1.8T\u2013$2.0T.",
+        "Bear Case": "YTD ETF net flows are roughly **-$5.46B**, with eight-week outflow streaks and $526.6M pulled in a single early-July week \u2014 the dominant marginal demand channel is currently a net seller. BTC trades like a levered risk asset; sticky real yields, a strong dollar, or a risk-off macro shock could push price to $40k\u2013$45k, implying a market cap of $0.80T\u2013$0.90T. Regulatory clarity is interpretive, not statutory \u2014 court challenges or adverse rulemaking remain possible. Compressed volatility can resolve downward.",
+        "Logic": "- Current market cap: ~$1.258T at ~$61,800/BTC (~20.35M circulating).\n- Supply in 12 months: +~164k BTC (~0.8%), so supply growth adds ~1% to cap at flat price.\n- Base case blends: (a) flow stabilization with mild recovery as regulatory clarity converts to slow institutional re-accumulation, (b) persistent macro overhang capping upside. I weight a modest price recovery to ~$70k\u2013$72k as most likely (60%), bull at ~$95k (20%), bear at ~$43k (20%).\n- Probability-weighted price: 0.6\u00d7$71k + 0.2\u00d7$95k + 0.2\u00d7$43k \u2248 $70.2k.\n- Forward supply ~20.5M \u00d7 ~$70k \u2248 **$1.44T**, within one-third of a standard deviation of the 3-year mean cap ($1.50T \u00b1 $0.54T), consistent with mean reversion rather than extrapolating current weakness.\n- No earnings/FCF apply to a bearer asset; multiple fields are null."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "BTC",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:09+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 745,
+        "total_tokens": 3056,
+        "cost": 0.03018,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03018,
+          "upstream_inference_prompt_cost": 0.011555,
+          "upstream_inference_completions_cost": 0.018625
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nImproving regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional allocation. ETF flows stabilizing in early July after a weak Q2, with IBIT leading rebounds, suggests demand recovery. Post-halving issuance remains structurally low, so renewed marginal demand against tight liquid supply can drive outsized price gains. A macro pivot (Fed easing, weaker dollar, lower real yields) would boost this high-beta liquidity asset. In this scenario BTC re-rates toward prior-cycle highs (~$95k\u2013$110k), pushing market cap toward ~$2.0T.\n\n## Bear Case\n2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks continuing into July. BTC trading as high-beta liquidity asset makes it vulnerable to any tightening in financial conditions, rising real yields, or risk-off shocks. Compressed volatility often precedes sharp downside moves. Regulatory clarity is incomplete, leaving litigation and rulemaking risk. Sustained redemptions plus macro stress could drag price toward ~$40k\u2013$45k, cutting market cap to ~$0.85T.\n\n## Logic\nCurrent market cap is ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with high volatility (std ~36% of mean). The narrative is mixed: negative YTD flows and macro sensitivity offset by improving regulation and low issuance. I weight the bear-leaning near-term flow data (persistent outflows) against the medium-term structural bull case, landing near the current level with modest upside skew given the 12-month horizon and mean-reversion toward the 3-year average. I center the forward estimate around ~$1.30T, slightly above spot and below the 3-year mean, reflecting balanced but slightly constructive expectations over 12 months. Spot asset: no earnings/FCF or multiple applies.\n\n```json\n{\"forward_market_cap_usd\": 1300000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1300000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nImproving regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional allocation. ETF flows stabilizing in early July after a weak Q2, with IBIT leading rebounds, suggests demand recovery. Post-halving issuance remains structurally low, so renewed marginal demand against tight liquid supply can drive outsized price gains. A macro pivot (Fed easing, weaker dollar, lower real yields) would boost this high-beta liquidity asset. In this scenario BTC re-rates toward prior-cycle highs (~$95k\u2013$110k), pushing market cap toward ~$2.0T.\n\n## Bear Case\n2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks continuing into July. BTC trading as high-beta liquidity asset makes it vulnerable to any tightening in financial conditions, rising real yields, or risk-off shocks. Compressed volatility often precedes sharp downside moves. Regulatory clarity is incomplete, leaving litigation and rulemaking risk. Sustained redemptions plus macro stress could drag price toward ~$40k\u2013$45k, cutting market cap to ~$0.85T.\n\n## Logic\nCurrent market cap is ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with high volatility (std ~36% of mean). The narrative is mixed: negative YTD flows and macro sensitivity offset by improving regulation and low issuance. I weight the bear-leaning near-term flow data (persistent outflows) against the medium-term structural bull case, landing near the current level with modest upside skew given the 12-month horizon and mean-reversion toward the 3-year average. I center the forward estimate around ~$1.30T, slightly above spot and below the 3-year mean, reflecting balanced but slightly constructive expectations over 12 months. Spot asset: no earnings/FCF or multiple applies.\n\n```json\n{\"forward_market_cap_usd\": 1300000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Improving regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional allocation. ETF flows stabilizing in early July after a weak Q2, with IBIT leading rebounds, suggests demand recovery. Post-halving issuance remains structurally low, so renewed marginal demand against tight liquid supply can drive outsized price gains. A macro pivot (Fed easing, weaker dollar, lower real yields) would boost this high-beta liquidity asset. In this scenario BTC re-rates toward prior-cycle highs (~$95k\u2013$110k), pushing market cap toward ~$2.0T.",
+        "Bear Case": "2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks continuing into July. BTC trading as high-beta liquidity asset makes it vulnerable to any tightening in financial conditions, rising real yields, or risk-off shocks. Compressed volatility often precedes sharp downside moves. Regulatory clarity is incomplete, leaving litigation and rulemaking risk. Sustained redemptions plus macro stress could drag price toward ~$40k\u2013$45k, cutting market cap to ~$0.85T.",
+        "Logic": "Current market cap is ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with high volatility (std ~36% of mean). The narrative is mixed: negative YTD flows and macro sensitivity offset by improving regulation and low issuance. I weight the bear-leaning near-term flow data (persistent outflows) against the medium-term structural bull case, landing near the current level with modest upside skew given the 12-month horizon and mean-reversion toward the 3-year average. I center the forward estimate around ~$1.30T, slightly above spot and below the 3-year mean, reflecting balanced but slightly constructive expectations over 12 months. Spot asset: no earnings/FCF or multiple applies."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "BTC",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:11+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 756,
+        "total_tokens": 3067,
+        "cost": 0.030455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.030455,
+          "upstream_inference_prompt_cost": 0.011555,
+          "upstream_inference_completions_cost": 0.0189
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nStructural supply constraints from the post-2024 halving mean marginal demand has outsized price impact. Improved regulatory clarity (SEC/CFTC interpretation, MOU) reduces institutional friction and could re-accelerate ETF inflows. Early July flow stabilization (IBIT +$209M) suggests the May\u2013June outflow streak may be exhausting. If macro shifts dovish (rate cuts, weaker dollar), BTC's high-beta profile drives a sharp repricing higher. Historical 3y mean market cap (~$1.50T) sits above current, implying mean-reversion upside toward ~$1.7\u20131.9T.\n\n## Bear Case\n2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks, signaling waning institutional appetite. BTC trades as a liquidity-sensitive risk asset; sticky real yields or a stronger dollar pressure it lower. Compressed volatility can precede sharp downside moves. Regulatory clarity is incomplete, leaving litigation/rulemaking risk. Current price (~$61.8k) is well below the 3y mean, and continued redemptions could push market cap toward ~$0.9\u20131.0T.\n\n## Logic\nCurrent market cap \u2248 $1.258T. The 3y mean is ~$1.50T with high volatility (std ~35.7% of mean). Given balanced signals\u2014negative YTD flows and macro headwinds offset by supply scarcity, regulatory progress, and early-July stabilization\u2014I anchor near the current level with a modest discount reflecting persistent outflow pressure over a 12-month horizon, but not full reversion to mean given weak flow momentum. I apply roughly flat-to-slightly-up (~+3%) to reflect the tension between structural scarcity upside and demonstrable demand weakness, landing near ~$1.30T. This sits between the bear (~$0.95T) and bull (~$1.8T) scenarios, weighted toward the current spot given no decisive catalyst.\n\n```json\n{\"forward_market_cap_usd\": 1300000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1300000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nStructural supply constraints from the post-2024 halving mean marginal demand has outsized price impact. Improved regulatory clarity (SEC/CFTC interpretation, MOU) reduces institutional friction and could re-accelerate ETF inflows. Early July flow stabilization (IBIT +$209M) suggests the May\u2013June outflow streak may be exhausting. If macro shifts dovish (rate cuts, weaker dollar), BTC's high-beta profile drives a sharp repricing higher. Historical 3y mean market cap (~$1.50T) sits above current, implying mean-reversion upside toward ~$1.7\u20131.9T.\n\n## Bear Case\n2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks, signaling waning institutional appetite. BTC trades as a liquidity-sensitive risk asset; sticky real yields or a stronger dollar pressure it lower. Compressed volatility can precede sharp downside moves. Regulatory clarity is incomplete, leaving litigation/rulemaking risk. Current price (~$61.8k) is well below the 3y mean, and continued redemptions could push market cap toward ~$0.9\u20131.0T.\n\n## Logic\nCurrent market cap \u2248 $1.258T. The 3y mean is ~$1.50T with high volatility (std ~35.7% of mean). Given balanced signals\u2014negative YTD flows and macro headwinds offset by supply scarcity, regulatory progress, and early-July stabilization\u2014I anchor near the current level with a modest discount reflecting persistent outflow pressure over a 12-month horizon, but not full reversion to mean given weak flow momentum. I apply roughly flat-to-slightly-up (~+3%) to reflect the tension between structural scarcity upside and demonstrable demand weakness, landing near ~$1.30T. This sits between the bear (~$0.95T) and bull (~$1.8T) scenarios, weighted toward the current spot given no decisive catalyst.\n\n```json\n{\"forward_market_cap_usd\": 1300000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Structural supply constraints from the post-2024 halving mean marginal demand has outsized price impact. Improved regulatory clarity (SEC/CFTC interpretation, MOU) reduces institutional friction and could re-accelerate ETF inflows. Early July flow stabilization (IBIT +$209M) suggests the May\u2013June outflow streak may be exhausting. If macro shifts dovish (rate cuts, weaker dollar), BTC's high-beta profile drives a sharp repricing higher. Historical 3y mean market cap (~$1.50T) sits above current, implying mean-reversion upside toward ~$1.7\u20131.9T.",
+        "Bear Case": "2026 YTD ETF flows are deeply negative (~-$5.46B) with multi-week outflow streaks, signaling waning institutional appetite. BTC trades as a liquidity-sensitive risk asset; sticky real yields or a stronger dollar pressure it lower. Compressed volatility can precede sharp downside moves. Regulatory clarity is incomplete, leaving litigation/rulemaking risk. Current price (~$61.8k) is well below the 3y mean, and continued redemptions could push market cap toward ~$0.9\u20131.0T.",
+        "Logic": "Current market cap \u2248 $1.258T. The 3y mean is ~$1.50T with high volatility (std ~35.7% of mean). Given balanced signals\u2014negative YTD flows and macro headwinds offset by supply scarcity, regulatory progress, and early-July stabilization\u2014I anchor near the current level with a modest discount reflecting persistent outflow pressure over a 12-month horizon, but not full reversion to mean given weak flow momentum. I apply roughly flat-to-slightly-up (~+3%) to reflect the tension between structural scarcity upside and demonstrable demand weakness, landing near ~$1.30T. This sits between the bear (~$0.95T) and bull (~$1.8T) scenarios, weighted toward the current spot given no decisive catalyst."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "BTC",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:12+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2311,
+        "completion_tokens": 656,
+        "total_tokens": 2967,
+        "cost": 0.027955,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.027955,
+          "upstream_inference_prompt_cost": 0.011555,
+          "upstream_inference_completions_cost": 0.0164
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nImproved US regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional inflows. If ETF flows swing back to net positive\u2014as hinted by early July stabilization\u2014and macro shifts toward Fed easing/lower real yields, BTC could re-rate toward the upper end of its 3-year range. Structurally low post-halving issuance means tight liquid supply amplifies marginal demand, potentially pushing price toward $85k\u2013$95k, a market cap of ~$1.7\u20131.9T.\n\n## Bear Case\n2026 YTD ETF flows are negative (~-$5.46B) with persistent multi-week outflow streaks and renewed late-June/early-July redemptions. BTC trades as a high-beta liquidity asset; if the dollar strengthens, real yields rise, or risk appetite deteriorates, compressed volatility could break to the downside. Regulatory clarity is not finality\u2014court challenges and further rulemaking loom. Price could revisit ~$45k, a market cap near $0.9T.\n\n## Logic\nCurrent market cap ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with std ~36% of mean, showing high volatility. Flow data leans net-negative YTD, but regulatory tailwinds and stabilizing recent flows offset the bear pressure. I center the 12-month forward estimate slightly below the 3-year mean given persistent outflows and macro sensitivity, but modestly above spot to reflect improved regulatory footing and tight supply. Weighting a balanced outcome (~+8\u201310% from spot), I arrive at roughly $1.37T. As a spot asset, no FCF/earnings multiple applies.\n\n```json\n{\"forward_market_cap_usd\": 1370000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1370000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nImproved US regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional inflows. If ETF flows swing back to net positive\u2014as hinted by early July stabilization\u2014and macro shifts toward Fed easing/lower real yields, BTC could re-rate toward the upper end of its 3-year range. Structurally low post-halving issuance means tight liquid supply amplifies marginal demand, potentially pushing price toward $85k\u2013$95k, a market cap of ~$1.7\u20131.9T.\n\n## Bear Case\n2026 YTD ETF flows are negative (~-$5.46B) with persistent multi-week outflow streaks and renewed late-June/early-July redemptions. BTC trades as a high-beta liquidity asset; if the dollar strengthens, real yields rise, or risk appetite deteriorates, compressed volatility could break to the downside. Regulatory clarity is not finality\u2014court challenges and further rulemaking loom. Price could revisit ~$45k, a market cap near $0.9T.\n\n## Logic\nCurrent market cap ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with std ~36% of mean, showing high volatility. Flow data leans net-negative YTD, but regulatory tailwinds and stabilizing recent flows offset the bear pressure. I center the 12-month forward estimate slightly below the 3-year mean given persistent outflows and macro sensitivity, but modestly above spot to reflect improved regulatory footing and tight supply. Weighting a balanced outcome (~+8\u201310% from spot), I arrive at roughly $1.37T. As a spot asset, no FCF/earnings multiple applies.\n\n```json\n{\"forward_market_cap_usd\": 1370000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Improved US regulatory clarity (SEC/CFTC interpretation and MOU) reduces structural risk and could reopen institutional inflows. If ETF flows swing back to net positive\u2014as hinted by early July stabilization\u2014and macro shifts toward Fed easing/lower real yields, BTC could re-rate toward the upper end of its 3-year range. Structurally low post-halving issuance means tight liquid supply amplifies marginal demand, potentially pushing price toward $85k\u2013$95k, a market cap of ~$1.7\u20131.9T.",
+        "Bear Case": "2026 YTD ETF flows are negative (~-$5.46B) with persistent multi-week outflow streaks and renewed late-June/early-July redemptions. BTC trades as a high-beta liquidity asset; if the dollar strengthens, real yields rise, or risk appetite deteriorates, compressed volatility could break to the downside. Regulatory clarity is not finality\u2014court challenges and further rulemaking loom. Price could revisit ~$45k, a market cap near $0.9T.",
+        "Logic": "Current market cap ~$1.258T at ~$61,807. The 3-year mean cap is ~$1.50T with std ~36% of mean, showing high volatility. Flow data leans net-negative YTD, but regulatory tailwinds and stabilizing recent flows offset the bear pressure. I center the 12-month forward estimate slightly below the 3-year mean given persistent outflows and macro sensitivity, but modestly above spot to reflect improved regulatory footing and tight supply. Weighting a balanced outcome (~+8\u201310% from spot), I arrive at roughly $1.37T. As a spot asset, no FCF/earnings multiple applies."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "BTC",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:11+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1440,
+        "completion_tokens": 714,
+        "total_tokens": 2154,
+        "cost": 0.02862,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02862,
+          "upstream_inference_prompt_cost": 0.0072,
+          "upstream_inference_completions_cost": 0.02142
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 401,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBitcoin\u2019s 12-month upside case is a return toward or above its 3-year average market cap as ETF flows stabilize, regulatory clarity improves institutional comfort, and post-halving supply growth remains low. If spot ETF inflows turn sustainably positive and macro liquidity improves, BTC could re-rate meaningfully above the current ~$1.26T market cap, plausibly into the ~$1.7T\u2013$2.0T range.\n\n## Bear Case\nThe downside case is continued ETF redemption pressure, tighter financial conditions, stronger USD/real yields, or renewed regulatory uncertainty. Given BTC\u2019s high-beta behavior and recent multi-billion-dollar ETF outflows, a drawdown toward ~$0.9T\u2013$1.1T remains plausible if risk appetite weakens.\n\n## Logic\nCurrent market cap is about $1.258T. The 3-year average market cap is about $1.50T, with high volatility. I would place the 12-month forward estimate modestly below the 3-year mean but above spot, reflecting low issuance and improving regulatory backdrop offset by unstable ETF flows and macro sensitivity. A reasonable base case is approximately **$1.45T**, implying moderate appreciation from current levels rather than a full bull-cycle breakout.\n\n```json\n{\"forward_market_cap_usd\": 1450000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1450000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBitcoin\u2019s 12-month upside case is a return toward or above its 3-year average market cap as ETF flows stabilize, regulatory clarity improves institutional comfort, and post-halving supply growth remains low. If spot ETF inflows turn sustainably positive and macro liquidity improves, BTC could re-rate meaningfully above the current ~$1.26T market cap, plausibly into the ~$1.7T\u2013$2.0T range.\n\n## Bear Case\nThe downside case is continued ETF redemption pressure, tighter financial conditions, stronger USD/real yields, or renewed regulatory uncertainty. Given BTC\u2019s high-beta behavior and recent multi-billion-dollar ETF outflows, a drawdown toward ~$0.9T\u2013$1.1T remains plausible if risk appetite weakens.\n\n## Logic\nCurrent market cap is about $1.258T. The 3-year average market cap is about $1.50T, with high volatility. I would place the 12-month forward estimate modestly below the 3-year mean but above spot, reflecting low issuance and improving regulatory backdrop offset by unstable ETF flows and macro sensitivity. A reasonable base case is approximately **$1.45T**, implying moderate appreciation from current levels rather than a full bull-cycle breakout.\n\n```json\n{\"forward_market_cap_usd\": 1450000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Bitcoin\u2019s 12-month upside case is a return toward or above its 3-year average market cap as ETF flows stabilize, regulatory clarity improves institutional comfort, and post-halving supply growth remains low. If spot ETF inflows turn sustainably positive and macro liquidity improves, BTC could re-rate meaningfully above the current ~$1.26T market cap, plausibly into the ~$1.7T\u2013$2.0T range.",
+        "Bear Case": "The downside case is continued ETF redemption pressure, tighter financial conditions, stronger USD/real yields, or renewed regulatory uncertainty. Given BTC\u2019s high-beta behavior and recent multi-billion-dollar ETF outflows, a drawdown toward ~$0.9T\u2013$1.1T remains plausible if risk appetite weakens.",
+        "Logic": "Current market cap is about $1.258T. The 3-year average market cap is about $1.50T, with high volatility. I would place the 12-month forward estimate modestly below the 3-year mean but above spot, reflecting low issuance and improving regulatory backdrop offset by unstable ETF flows and macro sensitivity. A reasonable base case is approximately **$1.45T**, implying moderate appreciation from current levels rather than a full bull-cycle breakout."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "BTC",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:09+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1440,
+        "completion_tokens": 729,
+        "total_tokens": 2169,
+        "cost": 0.02907,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02907,
+          "upstream_inference_prompt_cost": 0.0072,
+          "upstream_inference_completions_cost": 0.02187
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 369,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBitcoin\u2019s 12-month upside case is driven by renewed ETF inflows, improved regulatory clarity, structurally lower post-halving issuance, and a return of broader risk appetite. If U.S. spot ETF demand stabilizes after the May\u2013June outflow period, marginal buying can have an outsized price effect because new supply remains low. A move back toward the upper part of its recent historical valuation range could support a forward market cap around **$1.8T\u2013$2.0T**.\n\n## Bear Case\nThe bear case is continued ETF redemption pressure, tighter liquidity, higher real yields, stronger dollar conditions, or renewed regulatory uncertainty. Since BTC has recently traded like a high-beta macro asset, weak risk appetite could push it below its current market cap despite favorable long-term scarcity. A downside 12-month range could be roughly **$0.9T\u2013$1.1T**.\n\n## Logic\nCurrent market cap is about **$1.258T**. The 3-year average market cap is about **$1.500T**, with high volatility. Given mixed near-term ETF flows but improving regulatory clarity and constrained issuance, I would not underwrite a full bull-cycle rerating, but I would place the 12-month forward estimate modestly above current levels and close to the 3-year mean.\n\nMy base 12-month forward market cap estimate is **$1.48T**, implying moderate appreciation from today rather than a breakout scenario.\n\n```json\n{\"forward_market_cap_usd\": 1480000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1480000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBitcoin\u2019s 12-month upside case is driven by renewed ETF inflows, improved regulatory clarity, structurally lower post-halving issuance, and a return of broader risk appetite. If U.S. spot ETF demand stabilizes after the May\u2013June outflow period, marginal buying can have an outsized price effect because new supply remains low. A move back toward the upper part of its recent historical valuation range could support a forward market cap around **$1.8T\u2013$2.0T**.\n\n## Bear Case\nThe bear case is continued ETF redemption pressure, tighter liquidity, higher real yields, stronger dollar conditions, or renewed regulatory uncertainty. Since BTC has recently traded like a high-beta macro asset, weak risk appetite could push it below its current market cap despite favorable long-term scarcity. A downside 12-month range could be roughly **$0.9T\u2013$1.1T**.\n\n## Logic\nCurrent market cap is about **$1.258T**. The 3-year average market cap is about **$1.500T**, with high volatility. Given mixed near-term ETF flows but improving regulatory clarity and constrained issuance, I would not underwrite a full bull-cycle rerating, but I would place the 12-month forward estimate modestly above current levels and close to the 3-year mean.\n\nMy base 12-month forward market cap estimate is **$1.48T**, implying moderate appreciation from today rather than a breakout scenario.\n\n```json\n{\"forward_market_cap_usd\": 1480000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Bitcoin\u2019s 12-month upside case is driven by renewed ETF inflows, improved regulatory clarity, structurally lower post-halving issuance, and a return of broader risk appetite. If U.S. spot ETF demand stabilizes after the May\u2013June outflow period, marginal buying can have an outsized price effect because new supply remains low. A move back toward the upper part of its recent historical valuation range could support a forward market cap around **$1.8T\u2013$2.0T**.",
+        "Bear Case": "The bear case is continued ETF redemption pressure, tighter liquidity, higher real yields, stronger dollar conditions, or renewed regulatory uncertainty. Since BTC has recently traded like a high-beta macro asset, weak risk appetite could push it below its current market cap despite favorable long-term scarcity. A downside 12-month range could be roughly **$0.9T\u2013$1.1T**.",
+        "Logic": "Current market cap is about **$1.258T**. The 3-year average market cap is about **$1.500T**, with high volatility. Given mixed near-term ETF flows but improving regulatory clarity and constrained issuance, I would not underwrite a full bull-cycle rerating, but I would place the 12-month forward estimate modestly above current levels and close to the 3-year mean.\n\nMy base 12-month forward market cap estimate is **$1.48T**, implying moderate appreciation from today rather than a breakout scenario."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "BTC",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:08+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1440,
+        "completion_tokens": 531,
+        "total_tokens": 1971,
+        "cost": 0.01737,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01737,
+          "upstream_inference_prompt_cost": 0.00144,
+          "upstream_inference_completions_cost": 0.01593
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 229,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nBitcoin\u2019s 12-month forward above-ground value could move toward **$1.7T\u2013$1.9T** if ETF inflows stabilize, regulatory clarity supports institutional allocation, and post-halving supply tightness amplifies marginal demand. A move back toward or above the 3-year average market cap is plausible in a constructive liquidity environment.\n\n## Bear Case\nDownside could be **$0.9T\u2013$1.1T** if ETF outflows resume, macro conditions tighten, real yields rise, or risk appetite weakens. BTC remains highly sensitive to liquidity and positioning, and recent 2026 ETF outflows show demand can reverse quickly.\n\n## Logic\nCurrent market cap is about **$1.258T**. The 3-year average market cap is about **$1.50T**, with high volatility. Given mixed signals\u2014improving regulatory clarity and early-July ETF stabilization versus negative YTD ETF flows and macro sensitivity\u2014a reasonable 12-month central estimate is modestly above current value but near the historical mean. I estimate a forward market cap of **$1.45T**, implying moderate appreciation rather than a full bull-cycle re-rating.\n\n```json\n{\"forward_market_cap_usd\": 1450000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1450000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nBitcoin\u2019s 12-month forward above-ground value could move toward **$1.7T\u2013$1.9T** if ETF inflows stabilize, regulatory clarity supports institutional allocation, and post-halving supply tightness amplifies marginal demand. A move back toward or above the 3-year average market cap is plausible in a constructive liquidity environment.\n\n## Bear Case\nDownside could be **$0.9T\u2013$1.1T** if ETF outflows resume, macro conditions tighten, real yields rise, or risk appetite weakens. BTC remains highly sensitive to liquidity and positioning, and recent 2026 ETF outflows show demand can reverse quickly.\n\n## Logic\nCurrent market cap is about **$1.258T**. The 3-year average market cap is about **$1.50T**, with high volatility. Given mixed signals\u2014improving regulatory clarity and early-July ETF stabilization versus negative YTD ETF flows and macro sensitivity\u2014a reasonable 12-month central estimate is modestly above current value but near the historical mean. I estimate a forward market cap of **$1.45T**, implying moderate appreciation rather than a full bull-cycle re-rating.\n\n```json\n{\"forward_market_cap_usd\": 1450000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Bitcoin\u2019s 12-month forward above-ground value could move toward **$1.7T\u2013$1.9T** if ETF inflows stabilize, regulatory clarity supports institutional allocation, and post-halving supply tightness amplifies marginal demand. A move back toward or above the 3-year average market cap is plausible in a constructive liquidity environment.",
+        "Bear Case": "Downside could be **$0.9T\u2013$1.1T** if ETF outflows resume, macro conditions tighten, real yields rise, or risk appetite weakens. BTC remains highly sensitive to liquidity and positioning, and recent 2026 ETF outflows show demand can reverse quickly.",
+        "Logic": "Current market cap is about **$1.258T**. The 3-year average market cap is about **$1.50T**, with high volatility. Given mixed signals\u2014improving regulatory clarity and early-July ETF stabilization versus negative YTD ETF flows and macro sensitivity\u2014a reasonable 12-month central estimate is modestly above current value but near the historical mean. I estimate a forward market cap of **$1.45T**, implying moderate appreciation rather than a full bull-cycle re-rating."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "BTC",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:27+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1491,
+        "completion_tokens": 745,
+        "total_tokens": 2236,
+        "cost": 0.004989822,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.004989822,
+          "upstream_inference_prompt_cost": 0.001941282,
+          "upstream_inference_completions_cost": 0.00304854
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 314,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nPost-2024 halving issuance remains structurally low, tightening liquid supply. U.S. spot Bitcoin ETF flows showed stabilization in early July 2026 with ~$265.7M net inflow on July 6 led by IBIT. SEC/CFTC March 2026 interpretation and interagency MOU improve regulatory clarity, reducing jurisdictional uncertainty. Lifetime ETF inflows remain large, and long-term holder demand continues to absorb marginal supply. Current market cap (~$1.26T) sits below the 3-year mean of ~$1.50T, suggesting mean-reversion upside if macro conditions ease.\n\n## Bear Case\n\n2026 YTD ETF net flows are negative at approximately -$5.46B, with an eight-week outflow streak continuing into early July (~$526.6M withdrawn June 29\u2013July 3). BTC is trading as a high-beta liquidity asset sensitive to dollar strength, real yields, and Fed rate expectations\u2014compressed volatility could precede sharp downside. Regulatory progress is interpretive, not final; future rulemaking and litigation risk persist. The 3-year standard deviation of ~35.7% implies meaningful downside risk if macro or flow conditions deteriorate further.\n\n## Logic\n\nBalancing structural supply tightness and improving regulatory clarity against persistent ETF outflows and macro headwind risk. Current market cap (~$1.26T) is ~16% below the 3-year mean (~$1.50T), but the negative flow momentum and macro sensitivity warrant a conservative discount to the historical mean. A 12-month forward estimate of ~$1.35T reflects modest recovery expectations\u2014above current levels but well below the 3-year mean\u2014accounting for both the supply-side tailwinds and the demand-side uncertainty from ETF redemptions and macro fragility.\n\n```json\n{\"forward_market_cap_usd\": 1350000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1350000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nPost-2024 halving issuance remains structurally low, tightening liquid supply. U.S. spot Bitcoin ETF flows showed stabilization in early July 2026 with ~$265.7M net inflow on July 6 led by IBIT. SEC/CFTC March 2026 interpretation and interagency MOU improve regulatory clarity, reducing jurisdictional uncertainty. Lifetime ETF inflows remain large, and long-term holder demand continues to absorb marginal supply. Current market cap (~$1.26T) sits below the 3-year mean of ~$1.50T, suggesting mean-reversion upside if macro conditions ease.\n\n## Bear Case\n\n2026 YTD ETF net flows are negative at approximately -$5.46B, with an eight-week outflow streak continuing into early July (~$526.6M withdrawn June 29\u2013July 3). BTC is trading as a high-beta liquidity asset sensitive to dollar strength, real yields, and Fed rate expectations\u2014compressed volatility could precede sharp downside. Regulatory progress is interpretive, not final; future rulemaking and litigation risk persist. The 3-year standard deviation of ~35.7% implies meaningful downside risk if macro or flow conditions deteriorate further.\n\n## Logic\n\nBalancing structural supply tightness and improving regulatory clarity against persistent ETF outflows and macro headwind risk. Current market cap (~$1.26T) is ~16% below the 3-year mean (~$1.50T), but the negative flow momentum and macro sensitivity warrant a conservative discount to the historical mean. A 12-month forward estimate of ~$1.35T reflects modest recovery expectations\u2014above current levels but well below the 3-year mean\u2014accounting for both the supply-side tailwinds and the demand-side uncertainty from ETF redemptions and macro fragility.\n\n```json\n{\"forward_market_cap_usd\": 1350000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Post-2024 halving issuance remains structurally low, tightening liquid supply. U.S. spot Bitcoin ETF flows showed stabilization in early July 2026 with ~$265.7M net inflow on July 6 led by IBIT. SEC/CFTC March 2026 interpretation and interagency MOU improve regulatory clarity, reducing jurisdictional uncertainty. Lifetime ETF inflows remain large, and long-term holder demand continues to absorb marginal supply. Current market cap (~$1.26T) sits below the 3-year mean of ~$1.50T, suggesting mean-reversion upside if macro conditions ease.",
+        "Bear Case": "2026 YTD ETF net flows are negative at approximately -$5.46B, with an eight-week outflow streak continuing into early July (~$526.6M withdrawn June 29\u2013July 3). BTC is trading as a high-beta liquidity asset sensitive to dollar strength, real yields, and Fed rate expectations\u2014compressed volatility could precede sharp downside. Regulatory progress is interpretive, not final; future rulemaking and litigation risk persist. The 3-year standard deviation of ~35.7% implies meaningful downside risk if macro or flow conditions deteriorate further.",
+        "Logic": "Balancing structural supply tightness and improving regulatory clarity against persistent ETF outflows and macro headwind risk. Current market cap (~$1.26T) is ~16% below the 3-year mean (~$1.50T), but the negative flow momentum and macro sensitivity warrant a conservative discount to the historical mean. A 12-month forward estimate of ~$1.35T reflects modest recovery expectations\u2014above current levels but well below the 3-year mean\u2014accounting for both the supply-side tailwinds and the demand-side uncertainty from ETF redemptions and macro fragility."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "BTC",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:43+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1491,
+        "completion_tokens": 1270,
+        "total_tokens": 2761,
+        "cost": 0.00690786,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00690786,
+          "upstream_inference_prompt_cost": 0.00187866,
+          "upstream_inference_completions_cost": 0.0050292
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 875,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- ETF demand showed stabilization in early July after a weak June, with positive net inflows led by BlackRock's IBIT.\n- Regulatory clarity improved significantly with the SEC/CFTC MOU and March 2026 interpretation, reducing jurisdictional uncertainty.\n- Post-2024 halving issuance remains structurally low, making marginal demand from ETFs or long-term holders more impactful on price.\n- Current market cap (~$1.26T) is well below the 3-year mean (~$1.5T), suggesting room for mean reversion.\n\n## Bear Case\n- U.S. spot Bitcoin ETFs saw heavy redemptions in May\u2013June 2026, with YTD net flows around -$5.46 billion.\n- Macro headwinds persist: BTC is trading like a high-beta liquidity asset, sensitive to USD strength, real yields, and Fed rate expectations.\n- Regulatory progress does not equate to final certainty; future rulemaking and court challenges remain risks.\n- Compressed volatility may precede sharp downward moves if macro data disappoints.\n\n## Logic\nBitcoin is a spot asset with no cash flows, so the forward market cap is estimated as expected price times expected circulating supply in 12 months. The current market cap is ~$1.258T, below the 3-year mean of ~$1.5T. Balancing near-term ETF outflow and macro headwinds against structural supply tightness and regulatory clarity, I assume partial mean reversion. With ~1% supply growth from mining and a modest price recovery to roughly $67,000, the forward market cap lands near $1.35T.\n\n```json\n{\"forward_market_cap_usd\": 1350000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1350000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- ETF demand showed stabilization in early July after a weak June, with positive net inflows led by BlackRock's IBIT.\n- Regulatory clarity improved significantly with the SEC/CFTC MOU and March 2026 interpretation, reducing jurisdictional uncertainty.\n- Post-2024 halving issuance remains structurally low, making marginal demand from ETFs or long-term holders more impactful on price.\n- Current market cap (~$1.26T) is well below the 3-year mean (~$1.5T), suggesting room for mean reversion.\n\n## Bear Case\n- U.S. spot Bitcoin ETFs saw heavy redemptions in May\u2013June 2026, with YTD net flows around -$5.46 billion.\n- Macro headwinds persist: BTC is trading like a high-beta liquidity asset, sensitive to USD strength, real yields, and Fed rate expectations.\n- Regulatory progress does not equate to final certainty; future rulemaking and court challenges remain risks.\n- Compressed volatility may precede sharp downward moves if macro data disappoints.\n\n## Logic\nBitcoin is a spot asset with no cash flows, so the forward market cap is estimated as expected price times expected circulating supply in 12 months. The current market cap is ~$1.258T, below the 3-year mean of ~$1.5T. Balancing near-term ETF outflow and macro headwinds against structural supply tightness and regulatory clarity, I assume partial mean reversion. With ~1% supply growth from mining and a modest price recovery to roughly $67,000, the forward market cap lands near $1.35T.\n\n```json\n{\"forward_market_cap_usd\": 1350000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- ETF demand showed stabilization in early July after a weak June, with positive net inflows led by BlackRock's IBIT.\n- Regulatory clarity improved significantly with the SEC/CFTC MOU and March 2026 interpretation, reducing jurisdictional uncertainty.\n- Post-2024 halving issuance remains structurally low, making marginal demand from ETFs or long-term holders more impactful on price.\n- Current market cap (~$1.26T) is well below the 3-year mean (~$1.5T), suggesting room for mean reversion.",
+        "Bear Case": "- U.S. spot Bitcoin ETFs saw heavy redemptions in May\u2013June 2026, with YTD net flows around -$5.46 billion.\n- Macro headwinds persist: BTC is trading like a high-beta liquidity asset, sensitive to USD strength, real yields, and Fed rate expectations.\n- Regulatory progress does not equate to final certainty; future rulemaking and court challenges remain risks.\n- Compressed volatility may precede sharp downward moves if macro data disappoints.",
+        "Logic": "Bitcoin is a spot asset with no cash flows, so the forward market cap is estimated as expected price times expected circulating supply in 12 months. The current market cap is ~$1.258T, below the 3-year mean of ~$1.5T. Balancing near-term ETF outflow and macro headwinds against structural supply tightness and regulatory clarity, I assume partial mean reversion. With ~1% supply growth from mining and a modest price recovery to roughly $67,000, the forward market cap lands near $1.35T."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "BTC",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:45:27+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "968535ee4cc179eb000a84f08c742315380979b12c4745d4150c1a9a5e24a0c5",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1491,
+        "completion_tokens": 966,
+        "total_tokens": 2457,
+        "cost": 0.00443646,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00443646,
+          "upstream_inference_prompt_cost": 0.00146118,
+          "upstream_inference_completions_cost": 0.00297528
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 556,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nPost-halving issuance remains structurally tight, meaning marginal ETF or long-term holder demand has outsized price impact. ETF flows showed stabilization in early July 2026 with IBIT leading $209M inflows on July 6. Regulatory clarity improved materially with the March 2026 SEC/CFTC interpretation and interagency MOU, reducing jurisdictional uncertainty. Current market cap ($1.258T) sits below the 3-year mean ($1.500T), suggesting mean-reversion upside if macro conditions ease over the next 12 months.\n\n## Bear Case\nETF YTD net flows are deeply negative at approximately -$5.46 billion, with an 8-week outflow streak persisting through early July. Bitcoin is trading as a high-beta liquidity asset, sensitive to real yields, dollar strength, and Fed policy expectations\u2014all of which could remain headwinds. Regulatory progress is incremental, not final; future rulemaking and court challenges could reintroduce uncertainty. Volatility compression historically precedes sharp directional moves, and the direction is not guaranteed to be upward.\n\n## Logic\nThe forward estimate balances structural supply tightness and improving regulatory tailwinds against persistent ETF outflows and macro sensitivity. Current market cap of ~$1.258T is roughly 16% below the 3-year mean of ~$1.500T. Over a 12-month horizon, a modest recovery in ETF flows combined with post-halving supply constraints and regulatory clarity supports a drift toward\u2014but not reaching\u2014the historical mean. Macro uncertainty and negative YTD flow momentum cap the upside. I estimate a forward market cap of approximately $1.42T, reflecting ~13% upside from current levels with asymmetric risk from flow volatility.\n\n```json\n{\"forward_market_cap_usd\": 1420000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_usd": 1420000000000.0,
+        "horizon": "12m",
+        "forward_fcf_musd": null,
+        "forward_netinc_musd": null,
+        "applied_multiple": null
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nPost-halving issuance remains structurally tight, meaning marginal ETF or long-term holder demand has outsized price impact. ETF flows showed stabilization in early July 2026 with IBIT leading $209M inflows on July 6. Regulatory clarity improved materially with the March 2026 SEC/CFTC interpretation and interagency MOU, reducing jurisdictional uncertainty. Current market cap ($1.258T) sits below the 3-year mean ($1.500T), suggesting mean-reversion upside if macro conditions ease over the next 12 months.\n\n## Bear Case\nETF YTD net flows are deeply negative at approximately -$5.46 billion, with an 8-week outflow streak persisting through early July. Bitcoin is trading as a high-beta liquidity asset, sensitive to real yields, dollar strength, and Fed policy expectations\u2014all of which could remain headwinds. Regulatory progress is incremental, not final; future rulemaking and court challenges could reintroduce uncertainty. Volatility compression historically precedes sharp directional moves, and the direction is not guaranteed to be upward.\n\n## Logic\nThe forward estimate balances structural supply tightness and improving regulatory tailwinds against persistent ETF outflows and macro sensitivity. Current market cap of ~$1.258T is roughly 16% below the 3-year mean of ~$1.500T. Over a 12-month horizon, a modest recovery in ETF flows combined with post-halving supply constraints and regulatory clarity supports a drift toward\u2014but not reaching\u2014the historical mean. Macro uncertainty and negative YTD flow momentum cap the upside. I estimate a forward market cap of approximately $1.42T, reflecting ~13% upside from current levels with asymmetric risk from flow volatility.\n\n```json\n{\"forward_market_cap_usd\": 1420000000000.0, \"horizon\": \"12m\", \"forward_fcf_musd\": null, \"forward_netinc_musd\": null, \"applied_multiple\": null}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Post-halving issuance remains structurally tight, meaning marginal ETF or long-term holder demand has outsized price impact. ETF flows showed stabilization in early July 2026 with IBIT leading $209M inflows on July 6. Regulatory clarity improved materially with the March 2026 SEC/CFTC interpretation and interagency MOU, reducing jurisdictional uncertainty. Current market cap ($1.258T) sits below the 3-year mean ($1.500T), suggesting mean-reversion upside if macro conditions ease over the next 12 months.",
+        "Bear Case": "ETF YTD net flows are deeply negative at approximately -$5.46 billion, with an 8-week outflow streak persisting through early July. Bitcoin is trading as a high-beta liquidity asset, sensitive to real yields, dollar strength, and Fed policy expectations\u2014all of which could remain headwinds. Regulatory progress is incremental, not final; future rulemaking and court challenges could reintroduce uncertainty. Volatility compression historically precedes sharp directional moves, and the direction is not guaranteed to be upward.",
+        "Logic": "The forward estimate balances structural supply tightness and improving regulatory tailwinds against persistent ETF outflows and macro sensitivity. Current market cap of ~$1.258T is roughly 16% below the 3-year mean of ~$1.500T. Over a 12-month horizon, a modest recovery in ETF flows combined with post-halving supply constraints and regulatory clarity supports a drift toward\u2014but not reaching\u2014the historical mean. Macro uncertainty and negative YTD flow momentum cap the upside. I estimate a forward market cap of approximately $1.42T, reflecting ~13% upside from current levels with asymmetric risk from flow volatility."
+      }
+    }
+  ]
+}

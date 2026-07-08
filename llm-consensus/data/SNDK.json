@@ -1,0 +1,873 @@
+{
+  "asset_id": "SNDK",
+  "aggregate_row": {
+    "asset_id": "SNDK",
+    "name": "SANDISK CORP",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 239564.8,
+    "std_pct_of_mean": 1.298250485870053,
+    "models": {
+      "Fable": {
+        "forward_mc": 243735.0,
+        "pct_upside": 0.01740739874973296,
+        "bullishness": 0.01340835142308226,
+        "n_samples": 3,
+        "forward_mc_iqr": 9000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 199735.0,
+        "pct_upside": -0.1662589829557597,
+        "bullishness": -0.12806387115991513,
+        "n_samples": 3,
+        "forward_mc_iqr": 27000.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 238935.0,
+        "pct_upside": -0.0026289337999572115,
+        "bullishness": -0.002024981949608415,
+        "n_samples": 3,
+        "forward_mc_iqr": 3750.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 213735.0,
+        "pct_upside": -0.10781967968583028,
+        "bullishness": -0.0830499821562342,
+        "n_samples": 3,
+        "forward_mc_iqr": 28000.0
+      }
+    },
+    "consensus_bullishness": -0.04253748205292131,
+    "consensus_bullishness_mean": -0.049932620960668875,
+    "consensus_pct_upside": -0.05522430674289375,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nSandisk Corporation (SNDK) is a NAND flash storage company in Technology / Computer Hardware. It develops, manufactures and sells flash-based storage devices and solutions, including solid-state drives, embedded products, removable cards, USB drives, wafers and components, serving consumer, edge/client and data-center markets. ([investor.sandisk.com](https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-third-quarter-2026-financial-results))\n\n## What It Does\n\nSandisk\u2019s core products are NAND-based storage components and systems used to capture, preserve, access and process data across PCs, smartphones, enterprise servers, public cloud and AI infrastructure. Management\u2019s April 30, 2026 call emphasized a shift toward higher-value data-center SSDs, including TLC enterprise SSDs for performance-intensive workloads and planned QLC \u201cStargate\u201d revenue shipments in fiscal Q4. The company also relies on long-term manufacturing and technology collaboration with Kioxia and has added DRAM supply resiliency via a Nanya-related investment, per the transcript excerpt and 10-Q exhibit references. ([investor.sandisk.com](https://investor.sandisk.com/static-files/21ecbf29-74ac-4abd-9563-2afd618ddbba))\n\n## Recent Highlights (Positive)\n\nFiscal Q3 2026 was a major beat: revenue was **$5.95 billion**, up **97% sequentially** and above guidance, with GAAP net income of **$3.615 billion** and non-GAAP EPS of **$23.41**; data-center revenue rose **233% sequentially**, and fiscal Q4 guidance called for **$7.75 billion\u2013$8.25 billion** of revenue and non-GAAP EPS of **$30\u2013$33**. ([sandisk.com](https://www.sandisk.com/company/newsroom/press-releases/2026/2026-04-30-sandisk-reports-fiscal-third-quarter-2026-financial-results?utm_source=openai)) Management also disclosed five signed multiyear \u201cnew business model\u201d agreements by early fiscal Q4; the transcript says the first three contracts create about **$42 billion** of minimum contractual revenue, and all five include financial guarantees exceeding **$11 billion**, aimed at reducing NAND cyclicality.\n\nCapital returns also moved into focus: on the Q3 call, management said it had repaid the remaining term-loan balance, reached a net-cash target, and authorized a **$6 billion** share-repurchase program. Product-roadmap news followed: on **July 2, 2026**, Sandisk announced sampling of **BiCS10 1Tb TLC 3D NAND**, claiming over **29 Gb/mm\u00b2** density, **59%** better bit density versus BiCS8, up to **4.8 Gb/s** interface speed and improved I/O power efficiency. ([sandisk.com](https://www.sandisk.com/company/newsroom/press-releases/2026/2026-07-02-sandisk-announces-bics10-1tb-tlc))\n\n## Recent Highlights (Negative)\n\nThe same long-term agreements that improve visibility add execution risk. Sandisk\u2019s May 1, 2026 10-Q warns that failure to deliver required quantities, timing or specifications under multiyear contracts could trigger pricing or volume reductions, damages, penalties or termination; if customers fail to perform, financial guarantees may offset only part of lost revenue. ([investor.sandisk.com](https://investor.sandisk.com/static-files/21ecbf29-74ac-4abd-9563-2afd618ddbba))\n\nThe Q3 results also reflect unusually strong NAND pricing and mix: non-GAAP gross margin reached **78.4%** in the transcript, far above typical memory-cycle levels, making future results sensitive to NAND average selling prices, customer mix and AI/data-center demand durability. Company risk language also highlights volatile demand, ASP fluctuations, competitive pricing, supply-chain disruption, reliance on key partners including Kioxia, and customer relationship or customer-base consolidation risks. ([investor.sandisk.com](https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-third-quarter-2026-financial-results)) Consumer revenue was weaker sequentially in Q3, down **10%** per the transcript, which management described as seasonal but still shows not all end markets are accelerating at the same pace. Sandisk also publicly told holders on **May 14, 2026** to reject a \u201cmini-tender\u201d offer, indicating a shareholder-protection issue around third-party offer terms rather than an operating development. ([investor.sandisk.com](https://investor.sandisk.com/))\n",
+  "primer_meta": {
+    "asset_id": "SNDK",
+    "created_at_utc": "2026-07-08T15:01:36+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "600031690a232c3636ff6408ddcce626dcd56f88e736eef1561b58776e38646e",
+    "sources": [
+      {
+        "url": "https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-third-quarter-2026-financial-results",
+        "title": ""
+      },
+      {
+        "url": "https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-third-quarter-2026-financial-results",
+        "title": "Sandisk Reports Fiscal Third Quarter 2026 Financial Results | Thu, 04/30/2026 - 16:05"
+      },
+      {
+        "url": "https://investor.sandisk.com/static-files/21ecbf29-74ac-4abd-9563-2afd618ddbba",
+        "title": "Form 10-Q for Sandisk Corp filed 05/01/2026"
+      },
+      {
+        "url": "https://www.sandisk.com/company/newsroom/press-releases/2026/2026-04-30-sandisk-reports-fiscal-third-quarter-2026-financial-results?utm_source=openai",
+        "title": "Sandisk Reports Fiscal Third Quarter 2026 Financial Results | Sandisk"
+      },
+      {
+        "url": "https://www.sandisk.com/company/newsroom/press-releases/2026/2026-07-02-sandisk-announces-bics10-1tb-tlc",
+        "title": "Sandisk Announces Sampling of BiCS10 1Tb TLC 3D NAND Flash Memory Pushing Density, Power Efficiency and Performance to Support Data-Intensive Workloads | Sandisk"
+      },
+      {
+        "url": "https://investor.sandisk.com/",
+        "title": "Investor Relations | Sandisk Corporation"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "SNDK__earnings_call_transcript__2026-04-30__3__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-04-30",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0ae51024897722da016a4e66327a58819f93206f81503ea481",
+    "usage": {
+      "input_tokens": 28641,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1085,
+      "output_tokens_details": {
+        "reasoning_tokens": 246
+      },
+      "total_tokens": 29726
+    }
+  },
+  "details": {
+    "asset_id": "SNDK",
+    "detail_source_ticker": "SNDK",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "SANDISK CORP",
+    "sector": "Technology",
+    "industry": "Computer Hardware",
+    "market_cap_musd": 239564.8,
+    "ev_musd": 235829.8,
+    "ttm_revenue_musd": 13184.0,
+    "ttm_fcf_musd": 4460.0,
+    "ttm_netinc_musd": 4507.0,
+    "fcf_ev": {
+      "current": 0.018911944122413708,
+      "avg_1y": 0.009159713951806056,
+      "std_1y": 0.010873781859946493,
+      "avg_3y": 0.009159713951806056,
+      "std_3y": 0.010873781859946493
+    },
+    "ni_mc": {
+      "current": 0.01881328141696944,
+      "avg_1y": -0.04018702210536558,
+      "std_1y": 0.05825013469130413,
+      "avg_3y": -0.04018702210536558,
+      "std_3y": 0.05825013469130413
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-05-01",
+        "ttm_revenue_musd": 13184.0,
+        "ttm_fcf_musd": 4460.0,
+        "ttm_netinc_musd": 4507.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-06-04",
+        "ttm_revenue_musd": null,
+        "ttm_fcf_musd": null,
+        "ttm_netinc_musd": null
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": null,
+        "ttm_revenue_musd": null,
+        "ttm_fcf_musd": null,
+        "ttm_netinc_musd": null
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 64617.81457725947,
+      "std_musd": 83890.1091707881,
+      "std_pct_of_mean": 1.298250485870053,
+      "window_days": 343
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "SNDK",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:30+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 1731,
+        "total_tokens": 4337,
+        "cost": 0.11261,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11261,
+          "upstream_inference_prompt_cost": 0.02606,
+          "upstream_inference_completions_cost": 0.08655
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 299,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies a >$30B annualized revenue run-rate versus $13.2B TTM \u2014 the AI/data-center NAND supercycle is still accelerating (data-center revenue +233% q/q).\n- Five multiyear \"new business model\" contracts with ~$42B minimum contractual revenue (first three) and >$11B in financial guarantees materially de-risk the historically brutal NAND cycle and argue for a structurally higher multiple.\n- Balance sheet flipped to net cash (EV < market cap by ~$3.7B), term loan repaid, and a $6B buyback authorized \u2014 capital returns shrink the share count into an earnings ramp.\n- BiCS10 1Tb TLC sampling (59% bit-density gain vs. BiCS8) supports cost leadership and margin durability into FY2027.\n\n## Bear Case\n- 78.4% non-GAAP gross margin is far above any historical memory-cycle norm; NAND ASPs are notoriously mean-reverting, and even a partial normalization would crush FCF from peak levels.\n- The contractual guarantees only partially offset lost revenue if customers walk, and execution/penalty clauses cut both ways per the 10-Q risk language.\n- Consumer revenue was already down 10% q/q; demand breadth is narrow and concentrated in AI infrastructure.\n- The stock has re-rated violently (3-year mean market cap ~$65B vs. ~$240B today, std ~130% of mean) \u2014 the market is already paying peak-multiple-on-peak-earnings, leaving little margin of safety.\n\n## Logic\n- **Forward FCF:** TTM FCF is $4.46B, but heavily backward-weighted. Q4 guide implies ~$4.5\u20135B of quarterly non-GAAP net income (~$31.5 EPS \u00d7 ~150M shares). Assuming the ramp continues but capex rises with the Kioxia JV build-out and contract deliveries, I model forward-12m revenue of ~$32B with ~47% FCF conversion of net income after capex, yielding **forward FCF \u2248 $15,000M**.\n- **Applied multiple:** Current EV/TTM FCF is ~53x, which reflects the forward ramp. On peak-cycle forward FCF, a memory name \u2014 even with contractual visibility \u2014 deserves a discounted multiple. The contracts justify above-historical-trough valuation, so I apply **16x EV/forward FCF** (mid-cycle premium vs. the ~6\u201310x memory peaks historically get, but well below today's TTM multiple).\n- **EV \u2192 Market cap bridge:** EV = 15,000 \u00d7 16 = **$240,000M**. Packet gap: EV \u2212 MC = 235,829.8 \u2212 239,564.8 = \u2212$3,735M (net cash). Forward market cap = 240,000 \u2212 (\u22123,735) = **$243,735M**.\n- Net check: this is roughly +1.7% vs. today's $239.6B cap \u2014 the market has largely priced the ramp; upside requires cycle durability beyond 12 months.\n\n```json\n{\"forward_market_cap_musd\": 243735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": 18000.0, \"applied_multiple\": 16.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 243735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 15000.0,
+        "forward_netinc_musd": 18000.0,
+        "applied_multiple": 16.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies a >$30B annualized revenue run-rate versus $13.2B TTM \u2014 the AI/data-center NAND supercycle is still accelerating (data-center revenue +233% q/q).\n- Five multiyear \"new business model\" contracts with ~$42B minimum contractual revenue (first three) and >$11B in financial guarantees materially de-risk the historically brutal NAND cycle and argue for a structurally higher multiple.\n- Balance sheet flipped to net cash (EV < market cap by ~$3.7B), term loan repaid, and a $6B buyback authorized \u2014 capital returns shrink the share count into an earnings ramp.\n- BiCS10 1Tb TLC sampling (59% bit-density gain vs. BiCS8) supports cost leadership and margin durability into FY2027.\n\n## Bear Case\n- 78.4% non-GAAP gross margin is far above any historical memory-cycle norm; NAND ASPs are notoriously mean-reverting, and even a partial normalization would crush FCF from peak levels.\n- The contractual guarantees only partially offset lost revenue if customers walk, and execution/penalty clauses cut both ways per the 10-Q risk language.\n- Consumer revenue was already down 10% q/q; demand breadth is narrow and concentrated in AI infrastructure.\n- The stock has re-rated violently (3-year mean market cap ~$65B vs. ~$240B today, std ~130% of mean) \u2014 the market is already paying peak-multiple-on-peak-earnings, leaving little margin of safety.\n\n## Logic\n- **Forward FCF:** TTM FCF is $4.46B, but heavily backward-weighted. Q4 guide implies ~$4.5\u20135B of quarterly non-GAAP net income (~$31.5 EPS \u00d7 ~150M shares). Assuming the ramp continues but capex rises with the Kioxia JV build-out and contract deliveries, I model forward-12m revenue of ~$32B with ~47% FCF conversion of net income after capex, yielding **forward FCF \u2248 $15,000M**.\n- **Applied multiple:** Current EV/TTM FCF is ~53x, which reflects the forward ramp. On peak-cycle forward FCF, a memory name \u2014 even with contractual visibility \u2014 deserves a discounted multiple. The contracts justify above-historical-trough valuation, so I apply **16x EV/forward FCF** (mid-cycle premium vs. the ~6\u201310x memory peaks historically get, but well below today's TTM multiple).\n- **EV \u2192 Market cap bridge:** EV = 15,000 \u00d7 16 = **$240,000M**. Packet gap: EV \u2212 MC = 235,829.8 \u2212 239,564.8 = \u2212$3,735M (net cash). Forward market cap = 240,000 \u2212 (\u22123,735) = **$243,735M**.\n- Net check: this is roughly +1.7% vs. today's $239.6B cap \u2014 the market has largely priced the ramp; upside requires cycle durability beyond 12 months.\n\n```json\n{\"forward_market_cap_musd\": 243735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": 18000.0, \"applied_multiple\": 16.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies a >$30B annualized revenue run-rate versus $13.2B TTM \u2014 the AI/data-center NAND supercycle is still accelerating (data-center revenue +233% q/q).\n- Five multiyear \"new business model\" contracts with ~$42B minimum contractual revenue (first three) and >$11B in financial guarantees materially de-risk the historically brutal NAND cycle and argue for a structurally higher multiple.\n- Balance sheet flipped to net cash (EV < market cap by ~$3.7B), term loan repaid, and a $6B buyback authorized \u2014 capital returns shrink the share count into an earnings ramp.\n- BiCS10 1Tb TLC sampling (59% bit-density gain vs. BiCS8) supports cost leadership and margin durability into FY2027.",
+        "Bear Case": "- 78.4% non-GAAP gross margin is far above any historical memory-cycle norm; NAND ASPs are notoriously mean-reverting, and even a partial normalization would crush FCF from peak levels.\n- The contractual guarantees only partially offset lost revenue if customers walk, and execution/penalty clauses cut both ways per the 10-Q risk language.\n- Consumer revenue was already down 10% q/q; demand breadth is narrow and concentrated in AI infrastructure.\n- The stock has re-rated violently (3-year mean market cap ~$65B vs. ~$240B today, std ~130% of mean) \u2014 the market is already paying peak-multiple-on-peak-earnings, leaving little margin of safety.",
+        "Logic": "- **Forward FCF:** TTM FCF is $4.46B, but heavily backward-weighted. Q4 guide implies ~$4.5\u20135B of quarterly non-GAAP net income (~$31.5 EPS \u00d7 ~150M shares). Assuming the ramp continues but capex rises with the Kioxia JV build-out and contract deliveries, I model forward-12m revenue of ~$32B with ~47% FCF conversion of net income after capex, yielding **forward FCF \u2248 $15,000M**.\n- **Applied multiple:** Current EV/TTM FCF is ~53x, which reflects the forward ramp. On peak-cycle forward FCF, a memory name \u2014 even with contractual visibility \u2014 deserves a discounted multiple. The contracts justify above-historical-trough valuation, so I apply **16x EV/forward FCF** (mid-cycle premium vs. the ~6\u201310x memory peaks historically get, but well below today's TTM multiple).\n- **EV \u2192 Market cap bridge:** EV = 15,000 \u00d7 16 = **$240,000M**. Packet gap: EV \u2212 MC = 235,829.8 \u2212 239,564.8 = \u2212$3,735M (net cash). Forward market cap = 240,000 \u2212 (\u22123,735) = **$243,735M**.\n- Net check: this is roughly +1.7% vs. today's $239.6B cap \u2014 the market has largely priced the ramp; upside requires cycle durability beyond 12 months."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "SNDK",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:40+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 1956,
+        "total_tokens": 4562,
+        "cost": 0.12386,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.12386,
+          "upstream_inference_prompt_cost": 0.02606,
+          "upstream_inference_completions_cost": 0.0978
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 224,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies an annualized revenue run-rate near $32B \u2014 more than double the $13.2B TTM figure \u2014 driven by 233% sequential data-center growth and AI infrastructure demand.\n- Five multiyear \"new business model\" contracts (~$42B minimum revenue on the first three, >$11B in financial guarantees) meaningfully de-risk the NAND cycle and justify a multiple above historical memory-sector norms.\n- Net-cash balance sheet, $6B buyback authorization, and BiCS10 technology leadership (29 Gb/mm\u00b2, 59% density gain) support both per-share value and cost-curve advantage.\n- If 78%-type gross margins persist even partially, forward FCF could exceed $16\u201318B, implying substantial upside at even modest multiples.\n\n## Bear Case\n- Non-GAAP gross margin of 78.4% is far above any sustainable memory-cycle level; NAND ASP normalization could compress FCF sharply, as the sector has historically swung from feast to famine.\n- TTM FCF is only $4.46B against a $235.8B EV (~53x TTM EV/FCF) \u2014 the stock already prices in massive earnings growth; any demand or pricing wobble hits hard.\n- Contract execution risk cuts both ways: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer revenue fell 10% sequentially; concentration in AI/data-center demand and reliance on Kioxia add supply and customer-consolidation risks.\n- 3-year market-cap history (mean ~$64.6B, std ~130% of mean) shows extreme volatility \u2014 reversion risk is real.\n\n## Logic\n1. **Forward FCF:** Q4 guide implies ~$4.5\u20134.7B quarterly non-GAAP net income (~$18B annualized). Over the next 12 months I assume partial NAND pricing normalization and elevated capex for BiCS10 ramp, discounting to forward net income \u2248 $16,000M and FCF conversion of ~80%, yielding **forward FCF \u2248 $13,000M**.\n2. **Multiple:** Contracted revenue floors and AI-driven demand warrant a premium to typical memory-peak multiples (8\u201312x), but the cyclicality and margin-mean-reversion risk cap it well below the current 53x TTM. I apply **18.0x EV/FCF**.\n3. **EV:** 13,000 \u00d7 18.0 = **$234,000M**.\n4. **EV\u2192MC bridge:** Current market cap ($239,564.8M) exceeds EV ($235,829.8M) by **+$3,735M** (net cash). Forward market cap = 234,000 + 3,735 = **$237,735M** \u2014 roughly flat versus today, reflecting growth already largely priced in, offset by multiple compression on peak margins.\n\n```json\n{\"forward_market_cap_musd\": 237735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": 16000.0, \"applied_multiple\": 18.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 237735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": 16000.0,
+        "applied_multiple": 18.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies an annualized revenue run-rate near $32B \u2014 more than double the $13.2B TTM figure \u2014 driven by 233% sequential data-center growth and AI infrastructure demand.\n- Five multiyear \"new business model\" contracts (~$42B minimum revenue on the first three, >$11B in financial guarantees) meaningfully de-risk the NAND cycle and justify a multiple above historical memory-sector norms.\n- Net-cash balance sheet, $6B buyback authorization, and BiCS10 technology leadership (29 Gb/mm\u00b2, 59% density gain) support both per-share value and cost-curve advantage.\n- If 78%-type gross margins persist even partially, forward FCF could exceed $16\u201318B, implying substantial upside at even modest multiples.\n\n## Bear Case\n- Non-GAAP gross margin of 78.4% is far above any sustainable memory-cycle level; NAND ASP normalization could compress FCF sharply, as the sector has historically swung from feast to famine.\n- TTM FCF is only $4.46B against a $235.8B EV (~53x TTM EV/FCF) \u2014 the stock already prices in massive earnings growth; any demand or pricing wobble hits hard.\n- Contract execution risk cuts both ways: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer revenue fell 10% sequentially; concentration in AI/data-center demand and reliance on Kioxia add supply and customer-consolidation risks.\n- 3-year market-cap history (mean ~$64.6B, std ~130% of mean) shows extreme volatility \u2014 reversion risk is real.\n\n## Logic\n1. **Forward FCF:** Q4 guide implies ~$4.5\u20134.7B quarterly non-GAAP net income (~$18B annualized). Over the next 12 months I assume partial NAND pricing normalization and elevated capex for BiCS10 ramp, discounting to forward net income \u2248 $16,000M and FCF conversion of ~80%, yielding **forward FCF \u2248 $13,000M**.\n2. **Multiple:** Contracted revenue floors and AI-driven demand warrant a premium to typical memory-peak multiples (8\u201312x), but the cyclicality and margin-mean-reversion risk cap it well below the current 53x TTM. I apply **18.0x EV/FCF**.\n3. **EV:** 13,000 \u00d7 18.0 = **$234,000M**.\n4. **EV\u2192MC bridge:** Current market cap ($239,564.8M) exceeds EV ($235,829.8M) by **+$3,735M** (net cash). Forward market cap = 234,000 + 3,735 = **$237,735M** \u2014 roughly flat versus today, reflecting growth already largely priced in, offset by multiple compression on peak margins.\n\n```json\n{\"forward_market_cap_musd\": 237735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": 16000.0, \"applied_multiple\": 18.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Fiscal Q4 guidance ($7.75\u20138.25B revenue, $30\u201333 non-GAAP EPS) implies an annualized revenue run-rate near $32B \u2014 more than double the $13.2B TTM figure \u2014 driven by 233% sequential data-center growth and AI infrastructure demand.\n- Five multiyear \"new business model\" contracts (~$42B minimum revenue on the first three, >$11B in financial guarantees) meaningfully de-risk the NAND cycle and justify a multiple above historical memory-sector norms.\n- Net-cash balance sheet, $6B buyback authorization, and BiCS10 technology leadership (29 Gb/mm\u00b2, 59% density gain) support both per-share value and cost-curve advantage.\n- If 78%-type gross margins persist even partially, forward FCF could exceed $16\u201318B, implying substantial upside at even modest multiples.",
+        "Bear Case": "- Non-GAAP gross margin of 78.4% is far above any sustainable memory-cycle level; NAND ASP normalization could compress FCF sharply, as the sector has historically swung from feast to famine.\n- TTM FCF is only $4.46B against a $235.8B EV (~53x TTM EV/FCF) \u2014 the stock already prices in massive earnings growth; any demand or pricing wobble hits hard.\n- Contract execution risk cuts both ways: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer revenue fell 10% sequentially; concentration in AI/data-center demand and reliance on Kioxia add supply and customer-consolidation risks.\n- 3-year market-cap history (mean ~$64.6B, std ~130% of mean) shows extreme volatility \u2014 reversion risk is real.",
+        "Logic": "1. **Forward FCF:** Q4 guide implies ~$4.5\u20134.7B quarterly non-GAAP net income (~$18B annualized). Over the next 12 months I assume partial NAND pricing normalization and elevated capex for BiCS10 ramp, discounting to forward net income \u2248 $16,000M and FCF conversion of ~80%, yielding **forward FCF \u2248 $13,000M**.\n2. **Multiple:** Contracted revenue floors and AI-driven demand warrant a premium to typical memory-peak multiples (8\u201312x), but the cyclicality and margin-mean-reversion risk cap it well below the current 53x TTM. I apply **18.0x EV/FCF**.\n3. **EV:** 13,000 \u00d7 18.0 = **$234,000M**.\n4. **EV\u2192MC bridge:** Current market cap ($239,564.8M) exceeds EV ($235,829.8M) by **+$3,735M** (net cash). Forward market cap = 234,000 + 3,735 = **$237,735M** \u2014 roughly flat versus today, reflecting growth already largely priced in, offset by multiple compression on peak margins."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "SNDK",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 1731,
+        "total_tokens": 4337,
+        "cost": 0.11261,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11261,
+          "upstream_inference_prompt_cost": 0.02606,
+          "upstream_inference_completions_cost": 0.08655
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 225,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Explosive AI/data-center demand: Q3 FY26 revenue of $5.95B (+97% q/q) with data-center up 233% q/q, and Q4 guidance of $7.75\u20138.25B implies an annualized revenue run-rate above $30B vs. $13.2B TTM.\n- Structural de-risking of the NAND cycle: five multiyear \"new business model\" agreements, ~$42B minimum contractual revenue on the first three, and >$11B of financial guarantees.\n- Strong capital position: term loan repaid, net cash achieved, $6B buyback authorized; BiCS10 roadmap (59% better bit density vs. BiCS8) supports cost/technology leadership.\n- If Q4 non-GAAP EPS of $30\u201333 (~$4.5\u20134.8B quarterly net income) persists, forward net income of ~$18\u201319B with reasonable FCF conversion could support FCF of $15B+ and an EV well above today's $236B.\n\n## Bear Case\n- Peak-cycle economics: 78.4% non-GAAP gross margin is far above normalized memory-industry levels; NAND ASPs are historically volatile and mean-reverting.\n- Contract execution risk: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer segment already softening (-10% q/q); reliance on Kioxia JV and concentrated data-center customers adds supply and demand-concentration risk.\n- The stock has re-rated massively (3y mean market cap ~$65B vs. ~$240B today); any pricing normalization compresses both FCF and the multiple simultaneously.\n\n## Logic\n- **Forward FCF:** Q4 guidance implies quarterly non-GAAP net income of ~$4.5\u20134.8B (annualized ~$18.5B). Haircutting for capex ramp, working-capital build on surging revenue, and partial ASP normalization over the next 12 months, I apply ~75% FCF conversion on a slightly moderated run-rate \u2192 **forward FCF \u2248 $14,000M** (vs. $4,460M TTM, reflecting the massive ramp already in reported Q3/Q4 guidance).\n- **Applied multiple:** Current EV/TTM FCF is ~53x, but on forward peak-ish FCF a cyclical memory business warrants a discounted multiple. Given contract-backed revenue visibility offsetting cycle risk, I apply **18x EV/FCF** \u2014 above historical memory troughs (~8\u201312x) but well below the current trailing multiple.\n- **EV:** 14,000 \u00d7 18 = **$252,000M**.\n- **Bridge to market cap:** Current market cap ($239,564.8M) minus EV ($235,829.8M) = +$3,735M net cash gap. Forward market cap = 252,000 + 3,735 = **~$255,735M**.\n\n```json\n{\"forward_market_cap_musd\": 255735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": 18500.0, \"applied_multiple\": 18.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 255735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14000.0,
+        "forward_netinc_musd": 18500.0,
+        "applied_multiple": 18.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Explosive AI/data-center demand: Q3 FY26 revenue of $5.95B (+97% q/q) with data-center up 233% q/q, and Q4 guidance of $7.75\u20138.25B implies an annualized revenue run-rate above $30B vs. $13.2B TTM.\n- Structural de-risking of the NAND cycle: five multiyear \"new business model\" agreements, ~$42B minimum contractual revenue on the first three, and >$11B of financial guarantees.\n- Strong capital position: term loan repaid, net cash achieved, $6B buyback authorized; BiCS10 roadmap (59% better bit density vs. BiCS8) supports cost/technology leadership.\n- If Q4 non-GAAP EPS of $30\u201333 (~$4.5\u20134.8B quarterly net income) persists, forward net income of ~$18\u201319B with reasonable FCF conversion could support FCF of $15B+ and an EV well above today's $236B.\n\n## Bear Case\n- Peak-cycle economics: 78.4% non-GAAP gross margin is far above normalized memory-industry levels; NAND ASPs are historically volatile and mean-reverting.\n- Contract execution risk: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer segment already softening (-10% q/q); reliance on Kioxia JV and concentrated data-center customers adds supply and demand-concentration risk.\n- The stock has re-rated massively (3y mean market cap ~$65B vs. ~$240B today); any pricing normalization compresses both FCF and the multiple simultaneously.\n\n## Logic\n- **Forward FCF:** Q4 guidance implies quarterly non-GAAP net income of ~$4.5\u20134.8B (annualized ~$18.5B). Haircutting for capex ramp, working-capital build on surging revenue, and partial ASP normalization over the next 12 months, I apply ~75% FCF conversion on a slightly moderated run-rate \u2192 **forward FCF \u2248 $14,000M** (vs. $4,460M TTM, reflecting the massive ramp already in reported Q3/Q4 guidance).\n- **Applied multiple:** Current EV/TTM FCF is ~53x, but on forward peak-ish FCF a cyclical memory business warrants a discounted multiple. Given contract-backed revenue visibility offsetting cycle risk, I apply **18x EV/FCF** \u2014 above historical memory troughs (~8\u201312x) but well below the current trailing multiple.\n- **EV:** 14,000 \u00d7 18 = **$252,000M**.\n- **Bridge to market cap:** Current market cap ($239,564.8M) minus EV ($235,829.8M) = +$3,735M net cash gap. Forward market cap = 252,000 + 3,735 = **~$255,735M**.\n\n```json\n{\"forward_market_cap_musd\": 255735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": 18500.0, \"applied_multiple\": 18.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Explosive AI/data-center demand: Q3 FY26 revenue of $5.95B (+97% q/q) with data-center up 233% q/q, and Q4 guidance of $7.75\u20138.25B implies an annualized revenue run-rate above $30B vs. $13.2B TTM.\n- Structural de-risking of the NAND cycle: five multiyear \"new business model\" agreements, ~$42B minimum contractual revenue on the first three, and >$11B of financial guarantees.\n- Strong capital position: term loan repaid, net cash achieved, $6B buyback authorized; BiCS10 roadmap (59% better bit density vs. BiCS8) supports cost/technology leadership.\n- If Q4 non-GAAP EPS of $30\u201333 (~$4.5\u20134.8B quarterly net income) persists, forward net income of ~$18\u201319B with reasonable FCF conversion could support FCF of $15B+ and an EV well above today's $236B.",
+        "Bear Case": "- Peak-cycle economics: 78.4% non-GAAP gross margin is far above normalized memory-industry levels; NAND ASPs are historically volatile and mean-reverting.\n- Contract execution risk: failure to meet volume/spec obligations can trigger penalties or termination; guarantees only partially offset customer non-performance.\n- Consumer segment already softening (-10% q/q); reliance on Kioxia JV and concentrated data-center customers adds supply and demand-concentration risk.\n- The stock has re-rated massively (3y mean market cap ~$65B vs. ~$240B today); any pricing normalization compresses both FCF and the multiple simultaneously.",
+        "Logic": "- **Forward FCF:** Q4 guidance implies quarterly non-GAAP net income of ~$4.5\u20134.8B (annualized ~$18.5B). Haircutting for capex ramp, working-capital build on surging revenue, and partial ASP normalization over the next 12 months, I apply ~75% FCF conversion on a slightly moderated run-rate \u2192 **forward FCF \u2248 $14,000M** (vs. $4,460M TTM, reflecting the massive ramp already in reported Q3/Q4 guidance).\n- **Applied multiple:** Current EV/TTM FCF is ~53x, but on forward peak-ish FCF a cyclical memory business warrants a discounted multiple. Given contract-backed revenue visibility offsetting cycle risk, I apply **18x EV/FCF** \u2014 above historical memory troughs (~8\u201312x) but well below the current trailing multiple.\n- **EV:** 14,000 \u00d7 18 = **$252,000M**.\n- **Bridge to market cap:** Current market cap ($239,564.8M) minus EV ($235,829.8M) = +$3,735M net cash gap. Forward market cap = 252,000 + 3,735 = **~$255,735M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "SNDK",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:02+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 901,
+        "total_tokens": 3507,
+        "cost": 0.035555,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.035555,
+          "upstream_inference_prompt_cost": 0.01303,
+          "upstream_inference_completions_cost": 0.022525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nThe Q3 beat and Q4 guidance ($7.75B\u2013$8.25B revenue, $30\u2013$33 non-GAAP EPS) point to an annualized run-rate far above TTM. With multiyear contracts ($42B minimum revenue, >$11B guarantees) reducing cyclicality, sustained AI/data-center demand and 78% gross margins could push forward FCF toward $12,000\u201315,000M. A premium ~30x EV/FCF on de-risked earnings would justify an EV well above current, supporting a market cap north of $350B.\n\n## Bear Case\nCurrent gross margins (78.4%) are cycle-peak and mean-reverting; NAND ASPs and mix are volatile. Consumer revenue already softened (-10% sequential). Contract execution risk could trigger penalties. Normalized forward FCF may revert toward $5,000\u20136,000M, and a memory-cyclical multiple compresses to ~10\u201315x, implying an EV/market cap far below the current ~$239B.\n\n## Logic\n- TTM FCF = $4,460M; TTM net income = $4,507M. Current EV/FCF multiple \u2248 1/0.0189 = ~53x (inflated by low trailing FCF vs. peak-priced equity).\n- Forward FCF: The business is inflecting sharply. Q4 guidance midpoint implies ~$8B revenue/quarter and ~$31 EPS (~$4,500M net income in one quarter). Annualizing conservatively (accounting for eventual NAND normalization) yields a forward FCF estimate of ~$9,000M \u2014 well above TTM but discounted from peak run-rate to reflect cycle risk.\n- Applied multiple: Memory names deserve a mid-cycle multiple; given contracted revenue visibility but cyclical margin risk, apply ~22x EV/FCF (below current elevated implied multiple, above trough memory multiples).\n- Forward EV = 9,000 \u00d7 22 = $198,000M.\n- EV-to-market-cap bridge: current market cap ($239,564.8M) \u2212 current EV ($235,829.8M) = +$3,735M (net cash position, consistent with net-cash target/term-loan repayment).\n- Forward market cap = Forward EV + net-cash gap = 198,000 + 3,735 \u2248 $201,735M.\n- Forward net income \u2248 forward FCF given capex/working-capital normalization; estimate ~$9,200M.\n\n```json\n{\"forward_market_cap_musd\": 201735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9000.0, \"forward_netinc_musd\": 9200.0, \"applied_multiple\": 22.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 201735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 9000.0,
+        "forward_netinc_musd": 9200.0,
+        "applied_multiple": 22.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nThe Q3 beat and Q4 guidance ($7.75B\u2013$8.25B revenue, $30\u2013$33 non-GAAP EPS) point to an annualized run-rate far above TTM. With multiyear contracts ($42B minimum revenue, >$11B guarantees) reducing cyclicality, sustained AI/data-center demand and 78% gross margins could push forward FCF toward $12,000\u201315,000M. A premium ~30x EV/FCF on de-risked earnings would justify an EV well above current, supporting a market cap north of $350B.\n\n## Bear Case\nCurrent gross margins (78.4%) are cycle-peak and mean-reverting; NAND ASPs and mix are volatile. Consumer revenue already softened (-10% sequential). Contract execution risk could trigger penalties. Normalized forward FCF may revert toward $5,000\u20136,000M, and a memory-cyclical multiple compresses to ~10\u201315x, implying an EV/market cap far below the current ~$239B.\n\n## Logic\n- TTM FCF = $4,460M; TTM net income = $4,507M. Current EV/FCF multiple \u2248 1/0.0189 = ~53x (inflated by low trailing FCF vs. peak-priced equity).\n- Forward FCF: The business is inflecting sharply. Q4 guidance midpoint implies ~$8B revenue/quarter and ~$31 EPS (~$4,500M net income in one quarter). Annualizing conservatively (accounting for eventual NAND normalization) yields a forward FCF estimate of ~$9,000M \u2014 well above TTM but discounted from peak run-rate to reflect cycle risk.\n- Applied multiple: Memory names deserve a mid-cycle multiple; given contracted revenue visibility but cyclical margin risk, apply ~22x EV/FCF (below current elevated implied multiple, above trough memory multiples).\n- Forward EV = 9,000 \u00d7 22 = $198,000M.\n- EV-to-market-cap bridge: current market cap ($239,564.8M) \u2212 current EV ($235,829.8M) = +$3,735M (net cash position, consistent with net-cash target/term-loan repayment).\n- Forward market cap = Forward EV + net-cash gap = 198,000 + 3,735 \u2248 $201,735M.\n- Forward net income \u2248 forward FCF given capex/working-capital normalization; estimate ~$9,200M.\n\n```json\n{\"forward_market_cap_musd\": 201735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9000.0, \"forward_netinc_musd\": 9200.0, \"applied_multiple\": 22.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "The Q3 beat and Q4 guidance ($7.75B\u2013$8.25B revenue, $30\u2013$33 non-GAAP EPS) point to an annualized run-rate far above TTM. With multiyear contracts ($42B minimum revenue, >$11B guarantees) reducing cyclicality, sustained AI/data-center demand and 78% gross margins could push forward FCF toward $12,000\u201315,000M. A premium ~30x EV/FCF on de-risked earnings would justify an EV well above current, supporting a market cap north of $350B.",
+        "Bear Case": "Current gross margins (78.4%) are cycle-peak and mean-reverting; NAND ASPs and mix are volatile. Consumer revenue already softened (-10% sequential). Contract execution risk could trigger penalties. Normalized forward FCF may revert toward $5,000\u20136,000M, and a memory-cyclical multiple compresses to ~10\u201315x, implying an EV/market cap far below the current ~$239B.",
+        "Logic": "- TTM FCF = $4,460M; TTM net income = $4,507M. Current EV/FCF multiple \u2248 1/0.0189 = ~53x (inflated by low trailing FCF vs. peak-priced equity).\n- Forward FCF: The business is inflecting sharply. Q4 guidance midpoint implies ~$8B revenue/quarter and ~$31 EPS (~$4,500M net income in one quarter). Annualizing conservatively (accounting for eventual NAND normalization) yields a forward FCF estimate of ~$9,000M \u2014 well above TTM but discounted from peak run-rate to reflect cycle risk.\n- Applied multiple: Memory names deserve a mid-cycle multiple; given contracted revenue visibility but cyclical margin risk, apply ~22x EV/FCF (below current elevated implied multiple, above trough memory multiples).\n- Forward EV = 9,000 \u00d7 22 = $198,000M.\n- EV-to-market-cap bridge: current market cap ($239,564.8M) \u2212 current EV ($235,829.8M) = +$3,735M (net cash position, consistent with net-cash target/term-loan repayment).\n- Forward market cap = Forward EV + net-cash gap = 198,000 + 3,735 \u2248 $201,735M.\n- Forward net income \u2248 forward FCF given capex/working-capital normalization; estimate ~$9,200M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "SNDK",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:12+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 1076,
+        "total_tokens": 3682,
+        "cost": 0.03993,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03993,
+          "upstream_inference_prompt_cost": 0.01303,
+          "upstream_inference_completions_cost": 0.0269
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nSandisk is riding an exceptional NAND upcycle with data-center SSD demand exploding (Q3 data-center revenue +233% sequentially). Q4 guidance of $7.75B\u2013$8.25B revenue and $30\u2013$33 non-GAAP EPS implies an annualized revenue run-rate near $30B+. Multiyear contracts ($42B minimum revenue on first three, $11B+ financial guarantees) reduce cyclicality and lock in visibility. If margins hold near current elevated levels (78% non-GAAP gross margin) and the cycle persists, forward FCF could exceed $12\u201315B. A net-cash balance sheet plus $6B buyback support the equity. In this scenario forward FCF ~$13,000M at a 20x EV/FCF multiple gives EV ~$260B.\n\n## Bear Case\n\nCurrent TTM FCF is only $4,460M despite the huge Q3 beat \u2014 free cash conversion lags reported net income, and the results reflect peak NAND pricing and mix (78% gross margins are far above normalized memory-cycle levels of 25\u201335%). NAND is deeply cyclical; ASPs can collapse. The 3-year mean market cap is only ~$65B (vs. $239B now), showing how extreme the current valuation is. Execution/penalty risk on multiyear contracts and weak consumer segment (-10%) add downside. A reversion toward mid-cycle FCF (~$5\u20136B) at a conservative 12x multiple implies EV ~$65\u201372B \u2014 a fraction of today's value.\n\n## Logic\n\n- TTM FCF = $4,460M; current EV/FCF ratio = 4,460 / 235,829.8 \u2248 0.0189 (i.e., ~53x EV/FCF), reflecting depressed trailing FCF vs. surging forward earnings.\n- Forward FCF: The Q3 beat and Q4 guidance signal a step-change. Q4 non-GAAP EPS midpoint ~$31.50 on ~145M shares \u2248 $4.5B net income in a single quarter, but FCF conversion is weaker and the cycle is unlikely to sustain peak margins for a full 12 months. I take a blended forward FCF reflecting strong near-term but normalizing later quarters: ~$9,000M.\n- Applied multiple: Given peak-cycle risk offset by contracted revenue visibility, I apply a mid-cycle-adjusted 16x EV/FCF \u2014 below current implied ~53x but above deep-trough levels.\n- Forward EV = 9,000 \u00d7 16 = $144,000M.\n- EV\u2192MC bridge: current gap = MC \u2212 EV = 239,564.8 \u2212 235,829.8 = $3,735M (net cash / positive gap after debt repayment). Add to forward EV.\n- Forward market cap = 144,000 + 3,735 = $147,735M.\n- Forward net income: elevated near-term earnings normalizing; estimate ~$11,000M.\n\n```json\n{\"forward_market_cap_musd\": 147735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9000.0, \"forward_netinc_musd\": 11000.0, \"applied_multiple\": 16.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 147735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 9000.0,
+        "forward_netinc_musd": 11000.0,
+        "applied_multiple": 16.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nSandisk is riding an exceptional NAND upcycle with data-center SSD demand exploding (Q3 data-center revenue +233% sequentially). Q4 guidance of $7.75B\u2013$8.25B revenue and $30\u2013$33 non-GAAP EPS implies an annualized revenue run-rate near $30B+. Multiyear contracts ($42B minimum revenue on first three, $11B+ financial guarantees) reduce cyclicality and lock in visibility. If margins hold near current elevated levels (78% non-GAAP gross margin) and the cycle persists, forward FCF could exceed $12\u201315B. A net-cash balance sheet plus $6B buyback support the equity. In this scenario forward FCF ~$13,000M at a 20x EV/FCF multiple gives EV ~$260B.\n\n## Bear Case\n\nCurrent TTM FCF is only $4,460M despite the huge Q3 beat \u2014 free cash conversion lags reported net income, and the results reflect peak NAND pricing and mix (78% gross margins are far above normalized memory-cycle levels of 25\u201335%). NAND is deeply cyclical; ASPs can collapse. The 3-year mean market cap is only ~$65B (vs. $239B now), showing how extreme the current valuation is. Execution/penalty risk on multiyear contracts and weak consumer segment (-10%) add downside. A reversion toward mid-cycle FCF (~$5\u20136B) at a conservative 12x multiple implies EV ~$65\u201372B \u2014 a fraction of today's value.\n\n## Logic\n\n- TTM FCF = $4,460M; current EV/FCF ratio = 4,460 / 235,829.8 \u2248 0.0189 (i.e., ~53x EV/FCF), reflecting depressed trailing FCF vs. surging forward earnings.\n- Forward FCF: The Q3 beat and Q4 guidance signal a step-change. Q4 non-GAAP EPS midpoint ~$31.50 on ~145M shares \u2248 $4.5B net income in a single quarter, but FCF conversion is weaker and the cycle is unlikely to sustain peak margins for a full 12 months. I take a blended forward FCF reflecting strong near-term but normalizing later quarters: ~$9,000M.\n- Applied multiple: Given peak-cycle risk offset by contracted revenue visibility, I apply a mid-cycle-adjusted 16x EV/FCF \u2014 below current implied ~53x but above deep-trough levels.\n- Forward EV = 9,000 \u00d7 16 = $144,000M.\n- EV\u2192MC bridge: current gap = MC \u2212 EV = 239,564.8 \u2212 235,829.8 = $3,735M (net cash / positive gap after debt repayment). Add to forward EV.\n- Forward market cap = 144,000 + 3,735 = $147,735M.\n- Forward net income: elevated near-term earnings normalizing; estimate ~$11,000M.\n\n```json\n{\"forward_market_cap_musd\": 147735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9000.0, \"forward_netinc_musd\": 11000.0, \"applied_multiple\": 16.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Sandisk is riding an exceptional NAND upcycle with data-center SSD demand exploding (Q3 data-center revenue +233% sequentially). Q4 guidance of $7.75B\u2013$8.25B revenue and $30\u2013$33 non-GAAP EPS implies an annualized revenue run-rate near $30B+. Multiyear contracts ($42B minimum revenue on first three, $11B+ financial guarantees) reduce cyclicality and lock in visibility. If margins hold near current elevated levels (78% non-GAAP gross margin) and the cycle persists, forward FCF could exceed $12\u201315B. A net-cash balance sheet plus $6B buyback support the equity. In this scenario forward FCF ~$13,000M at a 20x EV/FCF multiple gives EV ~$260B.",
+        "Bear Case": "Current TTM FCF is only $4,460M despite the huge Q3 beat \u2014 free cash conversion lags reported net income, and the results reflect peak NAND pricing and mix (78% gross margins are far above normalized memory-cycle levels of 25\u201335%). NAND is deeply cyclical; ASPs can collapse. The 3-year mean market cap is only ~$65B (vs. $239B now), showing how extreme the current valuation is. Execution/penalty risk on multiyear contracts and weak consumer segment (-10%) add downside. A reversion toward mid-cycle FCF (~$5\u20136B) at a conservative 12x multiple implies EV ~$65\u201372B \u2014 a fraction of today's value.",
+        "Logic": "- TTM FCF = $4,460M; current EV/FCF ratio = 4,460 / 235,829.8 \u2248 0.0189 (i.e., ~53x EV/FCF), reflecting depressed trailing FCF vs. surging forward earnings.\n- Forward FCF: The Q3 beat and Q4 guidance signal a step-change. Q4 non-GAAP EPS midpoint ~$31.50 on ~145M shares \u2248 $4.5B net income in a single quarter, but FCF conversion is weaker and the cycle is unlikely to sustain peak margins for a full 12 months. I take a blended forward FCF reflecting strong near-term but normalizing later quarters: ~$9,000M.\n- Applied multiple: Given peak-cycle risk offset by contracted revenue visibility, I apply a mid-cycle-adjusted 16x EV/FCF \u2014 below current implied ~53x but above deep-trough levels.\n- Forward EV = 9,000 \u00d7 16 = $144,000M.\n- EV\u2192MC bridge: current gap = MC \u2212 EV = 239,564.8 \u2212 235,829.8 = $3,735M (net cash / positive gap after debt repayment). Add to forward EV.\n- Forward market cap = 144,000 + 3,735 = $147,735M.\n- Forward net income: elevated near-term earnings normalizing; estimate ~$11,000M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "SNDK",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:16+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2606,
+        "completion_tokens": 914,
+        "total_tokens": 3520,
+        "cost": 0.03588,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03588,
+          "upstream_inference_prompt_cost": 0.01303,
+          "upstream_inference_completions_cost": 0.02285
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nSandisk is in the middle of an extraordinary NAND up-cycle. Q3 revenue ($5.95B) and Q4 guidance ($7.75\u20138.25B) imply an annualized run-rate well above the $13.2B TTM figure. If AI/data-center demand and the $42B+ minimum-contract backlog hold, forward FCF could scale far beyond TTM as pricing (78.4% GM) and mix stay elevated. Annualizing Q4 guidance (~$32B revenue) at even a modest 20% FCF margin implies ~$6.4B+ FCF. Net-cash balance sheet and $6B buyback support valuation.\n\n## Bear Case\nMemory is deeply cyclical. The 78.4% gross margin and 233% sequential data-center growth are cycle-peak conditions unlikely to persist 12 months out. ASP normalization, consumer softness (-10% seq), and contract execution/penalty risk could compress FCF back toward or below TTM ($4.46B). The stock already trades at ~53x TTM FCF (fcf/EV current 1.89%), pricing in the boom; multiple compression toward historical norms (~1% fcf/EV = ~100x) is unlikely, so a mean-reversion of FCF with a still-rich multiple caps market cap.\n\n## Logic\n- Forward FCF: TTM FCF is $4,460M, but Q4 guidance points to a sharply higher near-term run-rate. Peak-cycle margins are unsustainable a full year out, so I take a blended view: elevated but discounted from peak. I estimate forward FCF \u2248 $7,000M (roughly midpoint between TTM and a full-throttle annualized peak, reflecting partial normalization).\n- Applied multiple: current EV/FCF \u2248 235,829.8 / 4,460 \u2248 52.9x. Given cyclical peak earnings ahead, the market should apply a lower multiple to higher forward FCF. I apply ~28x EV/FCF (fcf/EV \u2248 3.6%), above the depressed 1y average but well below the current stretched level, reflecting derating on peak FCF.\n- Forward EV = 7,000 \u00d7 28 = $196,000M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 239,564.8 \u2212 235,829.8 = +3,735M (net cash). Apply same bridge: forward market cap = 196,000 + 3,735 \u2248 $199,735M.\n\n```json\n{\"forward_market_cap_musd\": 199735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 7100.0, \"applied_multiple\": 28.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 199735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": 7100.0,
+        "applied_multiple": 28.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nSandisk is in the middle of an extraordinary NAND up-cycle. Q3 revenue ($5.95B) and Q4 guidance ($7.75\u20138.25B) imply an annualized run-rate well above the $13.2B TTM figure. If AI/data-center demand and the $42B+ minimum-contract backlog hold, forward FCF could scale far beyond TTM as pricing (78.4% GM) and mix stay elevated. Annualizing Q4 guidance (~$32B revenue) at even a modest 20% FCF margin implies ~$6.4B+ FCF. Net-cash balance sheet and $6B buyback support valuation.\n\n## Bear Case\nMemory is deeply cyclical. The 78.4% gross margin and 233% sequential data-center growth are cycle-peak conditions unlikely to persist 12 months out. ASP normalization, consumer softness (-10% seq), and contract execution/penalty risk could compress FCF back toward or below TTM ($4.46B). The stock already trades at ~53x TTM FCF (fcf/EV current 1.89%), pricing in the boom; multiple compression toward historical norms (~1% fcf/EV = ~100x) is unlikely, so a mean-reversion of FCF with a still-rich multiple caps market cap.\n\n## Logic\n- Forward FCF: TTM FCF is $4,460M, but Q4 guidance points to a sharply higher near-term run-rate. Peak-cycle margins are unsustainable a full year out, so I take a blended view: elevated but discounted from peak. I estimate forward FCF \u2248 $7,000M (roughly midpoint between TTM and a full-throttle annualized peak, reflecting partial normalization).\n- Applied multiple: current EV/FCF \u2248 235,829.8 / 4,460 \u2248 52.9x. Given cyclical peak earnings ahead, the market should apply a lower multiple to higher forward FCF. I apply ~28x EV/FCF (fcf/EV \u2248 3.6%), above the depressed 1y average but well below the current stretched level, reflecting derating on peak FCF.\n- Forward EV = 7,000 \u00d7 28 = $196,000M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 239,564.8 \u2212 235,829.8 = +3,735M (net cash). Apply same bridge: forward market cap = 196,000 + 3,735 \u2248 $199,735M.\n\n```json\n{\"forward_market_cap_musd\": 199735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": 7100.0, \"applied_multiple\": 28.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Sandisk is in the middle of an extraordinary NAND up-cycle. Q3 revenue ($5.95B) and Q4 guidance ($7.75\u20138.25B) imply an annualized run-rate well above the $13.2B TTM figure. If AI/data-center demand and the $42B+ minimum-contract backlog hold, forward FCF could scale far beyond TTM as pricing (78.4% GM) and mix stay elevated. Annualizing Q4 guidance (~$32B revenue) at even a modest 20% FCF margin implies ~$6.4B+ FCF. Net-cash balance sheet and $6B buyback support valuation.",
+        "Bear Case": "Memory is deeply cyclical. The 78.4% gross margin and 233% sequential data-center growth are cycle-peak conditions unlikely to persist 12 months out. ASP normalization, consumer softness (-10% seq), and contract execution/penalty risk could compress FCF back toward or below TTM ($4.46B). The stock already trades at ~53x TTM FCF (fcf/EV current 1.89%), pricing in the boom; multiple compression toward historical norms (~1% fcf/EV = ~100x) is unlikely, so a mean-reversion of FCF with a still-rich multiple caps market cap.",
+        "Logic": "- Forward FCF: TTM FCF is $4,460M, but Q4 guidance points to a sharply higher near-term run-rate. Peak-cycle margins are unsustainable a full year out, so I take a blended view: elevated but discounted from peak. I estimate forward FCF \u2248 $7,000M (roughly midpoint between TTM and a full-throttle annualized peak, reflecting partial normalization).\n- Applied multiple: current EV/FCF \u2248 235,829.8 / 4,460 \u2248 52.9x. Given cyclical peak earnings ahead, the market should apply a lower multiple to higher forward FCF. I apply ~28x EV/FCF (fcf/EV \u2248 3.6%), above the depressed 1y average but well below the current stretched level, reflecting derating on peak FCF.\n- Forward EV = 7,000 \u00d7 28 = $196,000M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 239,564.8 \u2212 235,829.8 = +3,735M (net cash). Apply same bridge: forward market cap = 196,000 + 3,735 \u2248 $199,735M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "SNDK",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:12:32+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1728,
+        "completion_tokens": 1629,
+        "total_tokens": 3357,
+        "cost": 0.05751,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05751,
+          "upstream_inference_prompt_cost": 0.00864,
+          "upstream_inference_completions_cost": 0.04887
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1119,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nSandisk sustains most of the Q3/Q4 step-up, with data-center SSD demand and multiyear contracts making earnings less cyclical than historical NAND. If forward FCF reaches ~$12,000 million and the market pays ~30x EV/FCF for AI/data-center visibility, forward EV would be ~$360,000 million; adding the current net-cash bridge of ~$3,735 million implies a bull-case market cap near **$363,735 million**.\n\n## Bear Case\nThe Q3 margin profile proves peak-cycle, NAND ASPs normalize, and contract execution/customer concentration risks reduce confidence. If forward FCF falls to ~$6,000 million and the market applies a more cyclical ~15x EV/FCF multiple, forward EV would be ~$90,000 million; adding the same bridge implies a bear-case market cap near **$93,735 million**.\n\n## Logic\nTTM FCF is **$4,460 million** on TTM revenue of **$13,184 million**, but Q3 revenue of **$5,950 million** and Q4 guidance of roughly **$8,000 million** indicate a much higher near-term run-rate. I estimate 12-month forward FCF at **$9,800 million**, reflecting materially higher revenue and data-center mix, but also discounting the unusually high Q3 gross margin and NAND cyclicality.\n\nCurrent EV/TTM FCF is about **52.9x**, which looks inflated because trailing FCF has not fully caught up to the revenue/margin step-change. I apply a lower but still premium **24.0x EV/FCF** multiple to forward FCF, balancing AI/data-center growth and contracted visibility against memory-cycle and execution risk.\n\nForward EV = **$9,800 million \u00d7 24.0 = $235,200 million**.  \nCurrent EV minus market cap gap = **$235,829.8 million - $239,564.8 million = -$3,735.0 million**.  \nForward market cap = **$235,200 million - (-$3,735.0 million) = $238,935 million**.\n\n```json\n{\"forward_market_cap_musd\": 238935.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 24.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 238935.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 9800.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 24.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nSandisk sustains most of the Q3/Q4 step-up, with data-center SSD demand and multiyear contracts making earnings less cyclical than historical NAND. If forward FCF reaches ~$12,000 million and the market pays ~30x EV/FCF for AI/data-center visibility, forward EV would be ~$360,000 million; adding the current net-cash bridge of ~$3,735 million implies a bull-case market cap near **$363,735 million**.\n\n## Bear Case\nThe Q3 margin profile proves peak-cycle, NAND ASPs normalize, and contract execution/customer concentration risks reduce confidence. If forward FCF falls to ~$6,000 million and the market applies a more cyclical ~15x EV/FCF multiple, forward EV would be ~$90,000 million; adding the same bridge implies a bear-case market cap near **$93,735 million**.\n\n## Logic\nTTM FCF is **$4,460 million** on TTM revenue of **$13,184 million**, but Q3 revenue of **$5,950 million** and Q4 guidance of roughly **$8,000 million** indicate a much higher near-term run-rate. I estimate 12-month forward FCF at **$9,800 million**, reflecting materially higher revenue and data-center mix, but also discounting the unusually high Q3 gross margin and NAND cyclicality.\n\nCurrent EV/TTM FCF is about **52.9x**, which looks inflated because trailing FCF has not fully caught up to the revenue/margin step-change. I apply a lower but still premium **24.0x EV/FCF** multiple to forward FCF, balancing AI/data-center growth and contracted visibility against memory-cycle and execution risk.\n\nForward EV = **$9,800 million \u00d7 24.0 = $235,200 million**.  \nCurrent EV minus market cap gap = **$235,829.8 million - $239,564.8 million = -$3,735.0 million**.  \nForward market cap = **$235,200 million - (-$3,735.0 million) = $238,935 million**.\n\n```json\n{\"forward_market_cap_musd\": 238935.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 24.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Sandisk sustains most of the Q3/Q4 step-up, with data-center SSD demand and multiyear contracts making earnings less cyclical than historical NAND. If forward FCF reaches ~$12,000 million and the market pays ~30x EV/FCF for AI/data-center visibility, forward EV would be ~$360,000 million; adding the current net-cash bridge of ~$3,735 million implies a bull-case market cap near **$363,735 million**.",
+        "Bear Case": "The Q3 margin profile proves peak-cycle, NAND ASPs normalize, and contract execution/customer concentration risks reduce confidence. If forward FCF falls to ~$6,000 million and the market applies a more cyclical ~15x EV/FCF multiple, forward EV would be ~$90,000 million; adding the same bridge implies a bear-case market cap near **$93,735 million**.",
+        "Logic": "TTM FCF is **$4,460 million** on TTM revenue of **$13,184 million**, but Q3 revenue of **$5,950 million** and Q4 guidance of roughly **$8,000 million** indicate a much higher near-term run-rate. I estimate 12-month forward FCF at **$9,800 million**, reflecting materially higher revenue and data-center mix, but also discounting the unusually high Q3 gross margin and NAND cyclicality.\n\nCurrent EV/TTM FCF is about **52.9x**, which looks inflated because trailing FCF has not fully caught up to the revenue/margin step-change. I apply a lower but still premium **24.0x EV/FCF** multiple to forward FCF, balancing AI/data-center growth and contracted visibility against memory-cycle and execution risk.\n\nForward EV = **$9,800 million \u00d7 24.0 = $235,200 million**.  \nCurrent EV minus market cap gap = **$235,829.8 million - $239,564.8 million = -$3,735.0 million**.  \nForward market cap = **$235,200 million - (-$3,735.0 million) = $238,935 million**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "SNDK",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:12:49+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1728,
+        "completion_tokens": 2007,
+        "total_tokens": 3735,
+        "cost": 0.06885,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.06885,
+          "upstream_inference_prompt_cost": 0.00864,
+          "upstream_inference_completions_cost": 0.06021
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1552,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nForward FCF could reach roughly $15,000 million if Q4-guided revenue strength persists, data-center SSD mix remains favorable, and multiyear agreements reduce NAND cyclicality. Applying a higher 24x EV/FCF multiple would imply forward EV of about $360,000 million and market cap of about $363,735 million after adding the current net-cash bridge.\n\n## Bear Case\nForward FCF could fall toward $6,500 million if NAND ASPs normalize, current gross margins prove peak-cycle, or contract execution/customer concentration risks pressure volumes and pricing. At a more cyclical 14x EV/FCF multiple, forward EV would be about $91,000 million and market cap about $94,735 million.\n\n## Logic\nBase case starts with TTM FCF of $4,460 million, but Q3 revenue of $5,950 million and Q4 revenue guidance around $8,000 million indicate the next 12 months should run materially above the trailing period. I estimate forward FCF at $11,500 million, reflecting a strong but partially normalized NAND cycle rather than fully annualizing peak margins.\n\nI apply a 20.0x EV/FCF multiple: below the current TTM EV/FCF of roughly 52.9x because trailing FCF is lagging the earnings ramp, but still premium to a typical cyclical hardware multiple due to AI/data-center demand, signed multiyear agreements, net cash, and the buyback authorization.\n\nForward EV = $11,500 million \u00d7 20.0 = $230,000 million.  \nCurrent EV minus market-cap gap = $235,829.8 million \u2212 $239,564.8 million = -$3,735.0 million.  \nForward market cap = forward EV \u2212 gap = $230,000 million \u2212 (-$3,735 million) = $233,735 million.\n\n```json\n{\"forward_market_cap_musd\": 233735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 20.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 233735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 20.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nForward FCF could reach roughly $15,000 million if Q4-guided revenue strength persists, data-center SSD mix remains favorable, and multiyear agreements reduce NAND cyclicality. Applying a higher 24x EV/FCF multiple would imply forward EV of about $360,000 million and market cap of about $363,735 million after adding the current net-cash bridge.\n\n## Bear Case\nForward FCF could fall toward $6,500 million if NAND ASPs normalize, current gross margins prove peak-cycle, or contract execution/customer concentration risks pressure volumes and pricing. At a more cyclical 14x EV/FCF multiple, forward EV would be about $91,000 million and market cap about $94,735 million.\n\n## Logic\nBase case starts with TTM FCF of $4,460 million, but Q3 revenue of $5,950 million and Q4 revenue guidance around $8,000 million indicate the next 12 months should run materially above the trailing period. I estimate forward FCF at $11,500 million, reflecting a strong but partially normalized NAND cycle rather than fully annualizing peak margins.\n\nI apply a 20.0x EV/FCF multiple: below the current TTM EV/FCF of roughly 52.9x because trailing FCF is lagging the earnings ramp, but still premium to a typical cyclical hardware multiple due to AI/data-center demand, signed multiyear agreements, net cash, and the buyback authorization.\n\nForward EV = $11,500 million \u00d7 20.0 = $230,000 million.  \nCurrent EV minus market-cap gap = $235,829.8 million \u2212 $239,564.8 million = -$3,735.0 million.  \nForward market cap = forward EV \u2212 gap = $230,000 million \u2212 (-$3,735 million) = $233,735 million.\n\n```json\n{\"forward_market_cap_musd\": 233735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 20.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Forward FCF could reach roughly $15,000 million if Q4-guided revenue strength persists, data-center SSD mix remains favorable, and multiyear agreements reduce NAND cyclicality. Applying a higher 24x EV/FCF multiple would imply forward EV of about $360,000 million and market cap of about $363,735 million after adding the current net-cash bridge.",
+        "Bear Case": "Forward FCF could fall toward $6,500 million if NAND ASPs normalize, current gross margins prove peak-cycle, or contract execution/customer concentration risks pressure volumes and pricing. At a more cyclical 14x EV/FCF multiple, forward EV would be about $91,000 million and market cap about $94,735 million.",
+        "Logic": "Base case starts with TTM FCF of $4,460 million, but Q3 revenue of $5,950 million and Q4 revenue guidance around $8,000 million indicate the next 12 months should run materially above the trailing period. I estimate forward FCF at $11,500 million, reflecting a strong but partially normalized NAND cycle rather than fully annualizing peak margins.\n\nI apply a 20.0x EV/FCF multiple: below the current TTM EV/FCF of roughly 52.9x because trailing FCF is lagging the earnings ramp, but still premium to a typical cyclical hardware multiple due to AI/data-center demand, signed multiyear agreements, net cash, and the buyback authorization.\n\nForward EV = $11,500 million \u00d7 20.0 = $230,000 million.  \nCurrent EV minus market-cap gap = $235,829.8 million \u2212 $239,564.8 million = -$3,735.0 million.  \nForward market cap = forward EV \u2212 gap = $230,000 million \u2212 (-$3,735 million) = $233,735 million."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "SNDK",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:05+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1728,
+        "completion_tokens": 2021,
+        "total_tokens": 3749,
+        "cost": 0.06351,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.06351,
+          "upstream_inference_prompt_cost": 0.00288,
+          "upstream_inference_completions_cost": 0.06063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1460,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- NAND pricing and data-center SSD mix stay strong, supported by signed multiyear agreements and AI/cloud demand.\n- Forward revenue tracks closer to the Q4 guide run-rate than the TTM base, lifting FCF materially above the current **$4,460m** TTM level.\n- A bull case could support roughly **$11,000m+** of forward FCF and a high-20s EV/FCF multiple, implying market cap above **$300bn**.\n\n## Bear Case\n- Current margins are cyclically elevated; NAND ASPs, mix, or customer demand could normalize faster than expected.\n- Contract execution risk, customer concentration, and reliance on manufacturing partners could reduce realized economics.\n- A bear case could see forward FCF closer to **$6,000m\u2013$7,000m** and a high-teens EV/FCF multiple, implying market cap closer to **$120bn\u2013$145bn**.\n\n## Logic\n- Current TTM FCF is **$4,460m** on TTM revenue of **$13,184m**, a **33.8% FCF margin**.\n- The latest operating trajectory is much stronger: Q3 revenue was **$5,950m**, and Q4 guidance midpoint is about **$8,000m**, suggesting a much higher forward revenue base than TTM.\n- I haircut the current peak profitability but still give credit for data-center mix, contractual visibility, net cash, and the buyback authorization.\n- Base forward FCF estimate: **$9,500m**, roughly a little over 2x TTM FCF, reflecting higher revenue run-rate but lower-than-peak margin assumptions.\n- Applied EV/FCF multiple: **25.0x**. This is far below the current TTM EV/FCF of about **52.9x**, because forward FCF captures the earnings surge, but still premium for visibility and AI/data-center exposure.\n- Forward EV = **$9,500m \u00d7 25.0 = $237,500m**.\n- Current EV minus market-cap gap = **$235,829.8m - $239,564.8m = -$3,735.0m**.\n- Bridging with the same gap: forward market cap = **$237,500m - (-$3,735m) = $241,235m**.\n\n```json\n{\"forward_market_cap_musd\": 241235.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 25.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 241235.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 9500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 25.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- NAND pricing and data-center SSD mix stay strong, supported by signed multiyear agreements and AI/cloud demand.\n- Forward revenue tracks closer to the Q4 guide run-rate than the TTM base, lifting FCF materially above the current **$4,460m** TTM level.\n- A bull case could support roughly **$11,000m+** of forward FCF and a high-20s EV/FCF multiple, implying market cap above **$300bn**.\n\n## Bear Case\n- Current margins are cyclically elevated; NAND ASPs, mix, or customer demand could normalize faster than expected.\n- Contract execution risk, customer concentration, and reliance on manufacturing partners could reduce realized economics.\n- A bear case could see forward FCF closer to **$6,000m\u2013$7,000m** and a high-teens EV/FCF multiple, implying market cap closer to **$120bn\u2013$145bn**.\n\n## Logic\n- Current TTM FCF is **$4,460m** on TTM revenue of **$13,184m**, a **33.8% FCF margin**.\n- The latest operating trajectory is much stronger: Q3 revenue was **$5,950m**, and Q4 guidance midpoint is about **$8,000m**, suggesting a much higher forward revenue base than TTM.\n- I haircut the current peak profitability but still give credit for data-center mix, contractual visibility, net cash, and the buyback authorization.\n- Base forward FCF estimate: **$9,500m**, roughly a little over 2x TTM FCF, reflecting higher revenue run-rate but lower-than-peak margin assumptions.\n- Applied EV/FCF multiple: **25.0x**. This is far below the current TTM EV/FCF of about **52.9x**, because forward FCF captures the earnings surge, but still premium for visibility and AI/data-center exposure.\n- Forward EV = **$9,500m \u00d7 25.0 = $237,500m**.\n- Current EV minus market-cap gap = **$235,829.8m - $239,564.8m = -$3,735.0m**.\n- Bridging with the same gap: forward market cap = **$237,500m - (-$3,735m) = $241,235m**.\n\n```json\n{\"forward_market_cap_musd\": 241235.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 9500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 25.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- NAND pricing and data-center SSD mix stay strong, supported by signed multiyear agreements and AI/cloud demand.\n- Forward revenue tracks closer to the Q4 guide run-rate than the TTM base, lifting FCF materially above the current **$4,460m** TTM level.\n- A bull case could support roughly **$11,000m+** of forward FCF and a high-20s EV/FCF multiple, implying market cap above **$300bn**.",
+        "Bear Case": "- Current margins are cyclically elevated; NAND ASPs, mix, or customer demand could normalize faster than expected.\n- Contract execution risk, customer concentration, and reliance on manufacturing partners could reduce realized economics.\n- A bear case could see forward FCF closer to **$6,000m\u2013$7,000m** and a high-teens EV/FCF multiple, implying market cap closer to **$120bn\u2013$145bn**.",
+        "Logic": "- Current TTM FCF is **$4,460m** on TTM revenue of **$13,184m**, a **33.8% FCF margin**.\n- The latest operating trajectory is much stronger: Q3 revenue was **$5,950m**, and Q4 guidance midpoint is about **$8,000m**, suggesting a much higher forward revenue base than TTM.\n- I haircut the current peak profitability but still give credit for data-center mix, contractual visibility, net cash, and the buyback authorization.\n- Base forward FCF estimate: **$9,500m**, roughly a little over 2x TTM FCF, reflecting higher revenue run-rate but lower-than-peak margin assumptions.\n- Applied EV/FCF multiple: **25.0x**. This is far below the current TTM EV/FCF of about **52.9x**, because forward FCF captures the earnings surge, but still premium for visibility and AI/data-center exposure.\n- Forward EV = **$9,500m \u00d7 25.0 = $237,500m**.\n- Current EV minus market-cap gap = **$235,829.8m - $239,564.8m = -$3,735.0m**.\n- Bridging with the same gap: forward market cap = **$237,500m - (-$3,735m) = $241,235m**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "SNDK",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:13:56+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1799,
+        "completion_tokens": 1615,
+        "total_tokens": 3414,
+        "cost": 0.008950878,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.008950878,
+          "upstream_inference_prompt_cost": 0.002342298,
+          "upstream_inference_completions_cost": 0.00660858
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1218,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNAND pricing and mix remain highly favorable due to AI/data-center demand, supporting sustained elevated gross margins. The shift to higher-value data-center SSDs (e.g., BiCS10 1Tb TLC) and multiyear \"new business model\" contracts ($42B minimum revenue) provide unprecedented revenue visibility and reduce cyclicality, potentially justifying a higher EV/FCF multiple through the cycle.\n\n## Bear Case\nThe 78.4% non-GAAP gross margin is highly unusual for memory and likely unsustainable as NAND supply ramps and ASPs normalize. Multiyear agreements carry heavy execution risk with potential penalties, and consumer revenue remains weak. If AI demand disappoints or NAND oversupply returns, FCF could compress sharply from peak levels.\n\n## Logic\nTTM FCF is $4.46B, heavily depressed by prior downcycle quarters. Given Q3 2026 revenue of $5.95B and Q4 guidance of ~$8B, an annualized forward revenue run-rate approaches $30B. Assuming normalized peak margins and capex requirements, I estimate forward 12m FCF at $12,000M. Applying a conservative peak-cycle EV/FCF multiple of 14.0x (reflecting memory cyclicality risks despite improved contracting) yields a forward EV of $168,000M. Bridging to market cap using the current EV-to-market-cap gap (EV of $235,829.8M vs Market Cap of $239,564.8M, indicating ~$3,735M net cash), the forward market cap is $171,735M.\n\n```json\n{\"forward_market_cap_musd\": 171735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 14.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 171735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 14.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNAND pricing and mix remain highly favorable due to AI/data-center demand, supporting sustained elevated gross margins. The shift to higher-value data-center SSDs (e.g., BiCS10 1Tb TLC) and multiyear \"new business model\" contracts ($42B minimum revenue) provide unprecedented revenue visibility and reduce cyclicality, potentially justifying a higher EV/FCF multiple through the cycle.\n\n## Bear Case\nThe 78.4% non-GAAP gross margin is highly unusual for memory and likely unsustainable as NAND supply ramps and ASPs normalize. Multiyear agreements carry heavy execution risk with potential penalties, and consumer revenue remains weak. If AI demand disappoints or NAND oversupply returns, FCF could compress sharply from peak levels.\n\n## Logic\nTTM FCF is $4.46B, heavily depressed by prior downcycle quarters. Given Q3 2026 revenue of $5.95B and Q4 guidance of ~$8B, an annualized forward revenue run-rate approaches $30B. Assuming normalized peak margins and capex requirements, I estimate forward 12m FCF at $12,000M. Applying a conservative peak-cycle EV/FCF multiple of 14.0x (reflecting memory cyclicality risks despite improved contracting) yields a forward EV of $168,000M. Bridging to market cap using the current EV-to-market-cap gap (EV of $235,829.8M vs Market Cap of $239,564.8M, indicating ~$3,735M net cash), the forward market cap is $171,735M.\n\n```json\n{\"forward_market_cap_musd\": 171735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 14.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "NAND pricing and mix remain highly favorable due to AI/data-center demand, supporting sustained elevated gross margins. The shift to higher-value data-center SSDs (e.g., BiCS10 1Tb TLC) and multiyear \"new business model\" contracts ($42B minimum revenue) provide unprecedented revenue visibility and reduce cyclicality, potentially justifying a higher EV/FCF multiple through the cycle.",
+        "Bear Case": "The 78.4% non-GAAP gross margin is highly unusual for memory and likely unsustainable as NAND supply ramps and ASPs normalize. Multiyear agreements carry heavy execution risk with potential penalties, and consumer revenue remains weak. If AI demand disappoints or NAND oversupply returns, FCF could compress sharply from peak levels.",
+        "Logic": "TTM FCF is $4.46B, heavily depressed by prior downcycle quarters. Given Q3 2026 revenue of $5.95B and Q4 guidance of ~$8B, an annualized forward revenue run-rate approaches $30B. Assuming normalized peak margins and capex requirements, I estimate forward 12m FCF at $12,000M. Applying a conservative peak-cycle EV/FCF multiple of 14.0x (reflecting memory cyclicality risks despite improved contracting) yields a forward EV of $168,000M. Bridging to market cap using the current EV-to-market-cap gap (EV of $235,829.8M vs Market Cap of $239,564.8M, indicating ~$3,735M net cash), the forward market cap is $171,735M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "SNDK",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:14:27+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1799,
+        "completion_tokens": 2613,
+        "total_tokens": 4412,
+        "cost": 0.01400668,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 8,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01400668,
+          "upstream_inference_prompt_cost": 0.00250948,
+          "upstream_inference_completions_cost": 0.0114972
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1453,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nSandisk's fiscal Q3 2026 results show explosive momentum: revenue of $5.95B (+97% q/q), data-center revenue up 233% sequentially, and Q4 guidance of $7.75\u2013$8.25B with non-GAAP EPS of $30\u2013$33. Five signed multiyear contracts representing ~$42B in minimum contractual revenue and >$11B in financial guarantees materially de-risk forward demand and reduce NAND cyclicality. The company has reached net cash, repaid its term loan, and authorized a $6B buyback. BiCS10 1Tb TLC sampling signals continued technology leadership. With quarterly revenue exiting FY2026 near an $8B run-rate (~$32B annualized) and gross margins at 78.4%, forward 12-month FCF could reach $14\u201316B, supporting a forward EV/FCF of 16\u201318x even after accounting for cyclical normalization.\n\n## Bear Case\nGross margins of 78.4% are far above historical memory-cycle norms and likely unsustainable; NAND ASPs remain volatile and any softening in AI/data-center demand could compress margins sharply. Consumer revenue declined 10% sequentially, showing not all end markets are participating. Multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination. Heavy reliance on Kioxia partnership and supply-chain concentration are ongoing risks. At a current market cap of ~$240B, the stock already prices in substantial FCF growth, leaving limited margin of safety if the cycle turns or contract execution falters.\n\n## Logic\n1. **Forward FCF estimate**: TTM FCF is $4,460M, but this includes pre-ramp quarters. Q3 FY2026 alone generated $3.615B GAAP net income; Q4 guidance implies even higher quarterly earnings. Using a forward 12-month revenue run-rate of ~$30B (blending Q4 guidance with some moderation) and a conservative FCF margin of ~45% (below the 78% gross margin but above TTM's 34% given elevated pricing), forward FCF \u2248 **$14,000M**.\n\n2. **Applied EV/FCF multiple**: The current TTM EV/FCF is ~52.9x ($235,830M / $4,460M), but this is distorted by backward-looking FCF. On forward FCF, the current implied multiple is ~16.8x. For a cyclical NAND company at peak margins with improved contract visibility, 16x is a reasonable forward multiple\u2014discounting some mean reversion while acknowledging structural improvements. Applied multiple = **16.0x**.\n\n3. **Forward EV**: 16.0 \u00d7 $14,000M = **$224,000M**.\n\n4. **EV-to-market-cap bridge**: Current EV \u2212 MC gap = $235,829.8M \u2212 $239,564.8M = **\u2212$3,735M** (net cash). Forward MC = Forward EV \u2212 (EV \u2212 MC gap) = $224,000M \u2212 (\u2212$3,735M) = **$227,735M**.\n\n```json\n{\"forward_market_cap_musd\": 227735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 16.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 227735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 16.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nSandisk's fiscal Q3 2026 results show explosive momentum: revenue of $5.95B (+97% q/q), data-center revenue up 233% sequentially, and Q4 guidance of $7.75\u2013$8.25B with non-GAAP EPS of $30\u2013$33. Five signed multiyear contracts representing ~$42B in minimum contractual revenue and >$11B in financial guarantees materially de-risk forward demand and reduce NAND cyclicality. The company has reached net cash, repaid its term loan, and authorized a $6B buyback. BiCS10 1Tb TLC sampling signals continued technology leadership. With quarterly revenue exiting FY2026 near an $8B run-rate (~$32B annualized) and gross margins at 78.4%, forward 12-month FCF could reach $14\u201316B, supporting a forward EV/FCF of 16\u201318x even after accounting for cyclical normalization.\n\n## Bear Case\nGross margins of 78.4% are far above historical memory-cycle norms and likely unsustainable; NAND ASPs remain volatile and any softening in AI/data-center demand could compress margins sharply. Consumer revenue declined 10% sequentially, showing not all end markets are participating. Multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination. Heavy reliance on Kioxia partnership and supply-chain concentration are ongoing risks. At a current market cap of ~$240B, the stock already prices in substantial FCF growth, leaving limited margin of safety if the cycle turns or contract execution falters.\n\n## Logic\n1. **Forward FCF estimate**: TTM FCF is $4,460M, but this includes pre-ramp quarters. Q3 FY2026 alone generated $3.615B GAAP net income; Q4 guidance implies even higher quarterly earnings. Using a forward 12-month revenue run-rate of ~$30B (blending Q4 guidance with some moderation) and a conservative FCF margin of ~45% (below the 78% gross margin but above TTM's 34% given elevated pricing), forward FCF \u2248 **$14,000M**.\n\n2. **Applied EV/FCF multiple**: The current TTM EV/FCF is ~52.9x ($235,830M / $4,460M), but this is distorted by backward-looking FCF. On forward FCF, the current implied multiple is ~16.8x. For a cyclical NAND company at peak margins with improved contract visibility, 16x is a reasonable forward multiple\u2014discounting some mean reversion while acknowledging structural improvements. Applied multiple = **16.0x**.\n\n3. **Forward EV**: 16.0 \u00d7 $14,000M = **$224,000M**.\n\n4. **EV-to-market-cap bridge**: Current EV \u2212 MC gap = $235,829.8M \u2212 $239,564.8M = **\u2212$3,735M** (net cash). Forward MC = Forward EV \u2212 (EV \u2212 MC gap) = $224,000M \u2212 (\u2212$3,735M) = **$227,735M**.\n\n```json\n{\"forward_market_cap_musd\": 227735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 16.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Sandisk's fiscal Q3 2026 results show explosive momentum: revenue of $5.95B (+97% q/q), data-center revenue up 233% sequentially, and Q4 guidance of $7.75\u2013$8.25B with non-GAAP EPS of $30\u2013$33. Five signed multiyear contracts representing ~$42B in minimum contractual revenue and >$11B in financial guarantees materially de-risk forward demand and reduce NAND cyclicality. The company has reached net cash, repaid its term loan, and authorized a $6B buyback. BiCS10 1Tb TLC sampling signals continued technology leadership. With quarterly revenue exiting FY2026 near an $8B run-rate (~$32B annualized) and gross margins at 78.4%, forward 12-month FCF could reach $14\u201316B, supporting a forward EV/FCF of 16\u201318x even after accounting for cyclical normalization.",
+        "Bear Case": "Gross margins of 78.4% are far above historical memory-cycle norms and likely unsustainable; NAND ASPs remain volatile and any softening in AI/data-center demand could compress margins sharply. Consumer revenue declined 10% sequentially, showing not all end markets are participating. Multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination. Heavy reliance on Kioxia partnership and supply-chain concentration are ongoing risks. At a current market cap of ~$240B, the stock already prices in substantial FCF growth, leaving limited margin of safety if the cycle turns or contract execution falters.",
+        "Logic": "1. **Forward FCF estimate**: TTM FCF is $4,460M, but this includes pre-ramp quarters. Q3 FY2026 alone generated $3.615B GAAP net income; Q4 guidance implies even higher quarterly earnings. Using a forward 12-month revenue run-rate of ~$30B (blending Q4 guidance with some moderation) and a conservative FCF margin of ~45% (below the 78% gross margin but above TTM's 34% given elevated pricing), forward FCF \u2248 **$14,000M**.\n\n2. **Applied EV/FCF multiple**: The current TTM EV/FCF is ~52.9x ($235,830M / $4,460M), but this is distorted by backward-looking FCF. On forward FCF, the current implied multiple is ~16.8x. For a cyclical NAND company at peak margins with improved contract visibility, 16x is a reasonable forward multiple\u2014discounting some mean reversion while acknowledging structural improvements. Applied multiple = **16.0x**.\n\n3. **Forward EV**: 16.0 \u00d7 $14,000M = **$224,000M**.\n\n4. **EV-to-market-cap bridge**: Current EV \u2212 MC gap = $235,829.8M \u2212 $239,564.8M = **\u2212$3,735M** (net cash). Forward MC = Forward EV \u2212 (EV \u2212 MC gap) = $224,000M \u2212 (\u2212$3,735M) = **$227,735M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "SNDK",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:15:42+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "301387af99f14b5c4b2cb5c0050a872956ff7efa8c1194ae9504855e54555a70",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1825,
+        "completion_tokens": 2404,
+        "total_tokens": 4229,
+        "cost": 0.0110863,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1795,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0110863,
+          "upstream_inference_prompt_cost": 0.0005087,
+          "upstream_inference_completions_cost": 0.0105776
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1406,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nSandisk's fiscal Q3 2026 results ($5.95B revenue, up 97% sequentially; 78.4% non-GAAP gross margin; $3.6B GAAP net income) demonstrate explosive demand for data-center NAND, particularly AI-driven SSDs. Q4 guidance of $7.75\u2013$8.25B implies a continued ramp, and the five signed multiyear contracts (~$42B minimum contractual revenue with >$11B in financial guarantees) fundamentally de-risk forward visibility versus a typical NAND cycle. The BiCS10 1Tb TLC sampling (announced July 2, 2026) reinforces a credible technology roadmap. Net-cash balance sheet and $6B buyback authorization provide capital-return support, while the Kioxia partnership and Nanya DRAM investment add supply resiliency.\n\n## Bear Case\nCurrent results reflect peak NAND pricing and mix; 78.4% gross margins are far above historical memory-cycle norms and vulnerable to ASP declines, demand normalization, or competitive pricing shifts. The multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination, and customer non-performance may only be partially offset by guarantees. Consumer revenue fell 10% sequentially in Q3, showing uneven end-market demand. NAND remains inherently cyclical, and reliance on Kioxia and concentrated customer relationships adds structural risk.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $4,460M, but this includes weaker quarters before the Q3 FY2026 inflection. Q3 revenue alone was $5.95B with net income of $3.6B; Q4 is guided to ~$8B. Annualizing the current run-rate suggests forward revenue of ~$28\u201332B. Applying a normalized FCF margin of ~22\u201325% (below current peak margins to account for NAND cyclicality) on ~$30B forward revenue yields forward FCF of approximately **$7,000M**.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF on TTM is ~52.9x ($235,830M / $4,460M), but that reflects backward-looking FCF depressed by earlier weak quarters. Historical avg 1y FCF/EV yield is 0.92% (~109x), distorted by near-zero FCF periods. Given improved visibility from $42B in multiyear contracts but retaining a cyclical-memory discount, I apply **30.0x** forward FCF\u2014above traditional memory multiples but below the current spot implied multiple.\n\n**Forward EV:** 30.0 \u00d7 $7,000M = **$210,000M**\n\n**Bridge to market cap:** Current EV \u2013 MC gap = $235,829.8M \u2013 $239,564.8M = **\u2013$3,735M** (net cash). Forward market cap = Forward EV \u2013 (EV \u2013 MC gap) = $210,000M \u2013 (\u2013$3,735M) = **$213,735M**.\n\n```json\n{\"forward_market_cap_musd\": 213735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 213735.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 7000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\nSandisk's fiscal Q3 2026 results ($5.95B revenue, up 97% sequentially; 78.4% non-GAAP gross margin; $3.6B GAAP net income) demonstrate explosive demand for data-center NAND, particularly AI-driven SSDs. Q4 guidance of $7.75\u2013$8.25B implies a continued ramp, and the five signed multiyear contracts (~$42B minimum contractual revenue with >$11B in financial guarantees) fundamentally de-risk forward visibility versus a typical NAND cycle. The BiCS10 1Tb TLC sampling (announced July 2, 2026) reinforces a credible technology roadmap. Net-cash balance sheet and $6B buyback authorization provide capital-return support, while the Kioxia partnership and Nanya DRAM investment add supply resiliency.\n\n## Bear Case\nCurrent results reflect peak NAND pricing and mix; 78.4% gross margins are far above historical memory-cycle norms and vulnerable to ASP declines, demand normalization, or competitive pricing shifts. The multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination, and customer non-performance may only be partially offset by guarantees. Consumer revenue fell 10% sequentially in Q3, showing uneven end-market demand. NAND remains inherently cyclical, and reliance on Kioxia and concentrated customer relationships adds structural risk.\n\n## Logic\n**Forward FCF estimate:** TTM FCF is $4,460M, but this includes weaker quarters before the Q3 FY2026 inflection. Q3 revenue alone was $5.95B with net income of $3.6B; Q4 is guided to ~$8B. Annualizing the current run-rate suggests forward revenue of ~$28\u201332B. Applying a normalized FCF margin of ~22\u201325% (below current peak margins to account for NAND cyclicality) on ~$30B forward revenue yields forward FCF of approximately **$7,000M**.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF on TTM is ~52.9x ($235,830M / $4,460M), but that reflects backward-looking FCF depressed by earlier weak quarters. Historical avg 1y FCF/EV yield is 0.92% (~109x), distorted by near-zero FCF periods. Given improved visibility from $42B in multiyear contracts but retaining a cyclical-memory discount, I apply **30.0x** forward FCF\u2014above traditional memory multiples but below the current spot implied multiple.\n\n**Forward EV:** 30.0 \u00d7 $7,000M = **$210,000M**\n\n**Bridge to market cap:** Current EV \u2013 MC gap = $235,829.8M \u2013 $239,564.8M = **\u2013$3,735M** (net cash). Forward market cap = Forward EV \u2013 (EV \u2013 MC gap) = $210,000M \u2013 (\u2013$3,735M) = **$213,735M**.\n\n```json\n{\"forward_market_cap_musd\": 213735.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 7000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Sandisk's fiscal Q3 2026 results ($5.95B revenue, up 97% sequentially; 78.4% non-GAAP gross margin; $3.6B GAAP net income) demonstrate explosive demand for data-center NAND, particularly AI-driven SSDs. Q4 guidance of $7.75\u2013$8.25B implies a continued ramp, and the five signed multiyear contracts (~$42B minimum contractual revenue with >$11B in financial guarantees) fundamentally de-risk forward visibility versus a typical NAND cycle. The BiCS10 1Tb TLC sampling (announced July 2, 2026) reinforces a credible technology roadmap. Net-cash balance sheet and $6B buyback authorization provide capital-return support, while the Kioxia partnership and Nanya DRAM investment add supply resiliency.",
+        "Bear Case": "Current results reflect peak NAND pricing and mix; 78.4% gross margins are far above historical memory-cycle norms and vulnerable to ASP declines, demand normalization, or competitive pricing shifts. The multiyear contracts introduce execution risk\u2014failure to meet quantity, timing, or spec requirements could trigger penalties or termination, and customer non-performance may only be partially offset by guarantees. Consumer revenue fell 10% sequentially in Q3, showing uneven end-market demand. NAND remains inherently cyclical, and reliance on Kioxia and concentrated customer relationships adds structural risk.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $4,460M, but this includes weaker quarters before the Q3 FY2026 inflection. Q3 revenue alone was $5.95B with net income of $3.6B; Q4 is guided to ~$8B. Annualizing the current run-rate suggests forward revenue of ~$28\u201332B. Applying a normalized FCF margin of ~22\u201325% (below current peak margins to account for NAND cyclicality) on ~$30B forward revenue yields forward FCF of approximately **$7,000M**.\n\n**Applied EV/FCF multiple:** The current implied EV/FCF on TTM is ~52.9x ($235,830M / $4,460M), but that reflects backward-looking FCF depressed by earlier weak quarters. Historical avg 1y FCF/EV yield is 0.92% (~109x), distorted by near-zero FCF periods. Given improved visibility from $42B in multiyear contracts but retaining a cyclical-memory discount, I apply **30.0x** forward FCF\u2014above traditional memory multiples but below the current spot implied multiple.\n\n**Forward EV:** 30.0 \u00d7 $7,000M = **$210,000M**\n\n**Bridge to market cap:** Current EV \u2013 MC gap = $235,829.8M \u2013 $239,564.8M = **\u2013$3,735M** (net cash). Forward market cap = Forward EV \u2013 (EV \u2013 MC gap) = $210,000M \u2013 (\u2013$3,735M) = **$213,735M**."
+      }
+    }
+  ]
+}

@@ -1,0 +1,865 @@
+{
+  "asset_id": "NFLX",
+  "aggregate_row": {
+    "asset_id": "NFLX",
+    "name": "NETFLIX INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 320930.7,
+    "std_pct_of_mean": 0.3173118391313151,
+    "models": {
+      "Fable": {
+        "forward_mc": 361900.0,
+        "pct_upside": 0.12765777783178733,
+        "bullishness": 0.40231016334363096,
+        "n_samples": 3,
+        "forward_mc_iqr": 19150.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 360950.0,
+        "pct_upside": 0.12469763721576022,
+        "bullishness": 0.392981357257697,
+        "n_samples": 3,
+        "forward_mc_iqr": 17030.5
+      },
+      "GPT 5.5": {
+        "forward_mc": 411899.3,
+        "pct_upside": 0.28345247120328465,
+        "bullishness": 0.8932930834830332,
+        "n_samples": 3,
+        "forward_mc_iqr": 14000.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 362399.3,
+        "pct_upside": 0.1292135654208213,
+        "bullishness": 0.40721318742648,
+        "n_samples": 3,
+        "forward_mc_iqr": 29112.350000000035
+      }
+    },
+    "consensus_bullishness": 0.4047616753850555,
+    "consensus_bullishness_mean": 0.5239494478777104,
+    "consensus_pct_upside": 0.12843567162630432,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nNetflix, Inc. is a global entertainment company in Communication Services / Entertainment. It operates one of the world\u2019s leading entertainment services, offering TV series, films, games and live programming across genres and languages, with member plans that can be changed over time. ([ir.netflix.net](https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-First-Quarter-2026-Financial-Results/default.aspx)) The company\u2019s core economic model is paid membership monetization, increasingly supplemented by advertising, pricing/plan optimization, live events, games, podcasts, licensing, and consumer-product extensions.\n\n## What It Does\n\nNetflix acquires, produces, licenses, localizes and distributes entertainment directly to consumers through its streaming platform. Management frames the strategy around: adding more entertainment value; using technology and AI to improve discovery, delivery and production; and improving monetization through pricing, distribution partnerships and a growing ad business. ([s22.q4cdn.com](https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf)) In Q1 2026, Netflix highlighted expansion beyond traditional series/films into video podcasts, regional live events, a standalone kids gaming app, vertical video on mobile, and GenAI tools via the InterPositive acquisition. ([s22.q4cdn.com](https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf))\n\n## Recent Highlights (Positive)\n\n- **Q1 execution was ahead of plan.** Netflix reported Q1 2026 revenue of $12.25B, up 16% year over year, with operating income of $3.96B and a 32.3% operating margin; management said revenue and operating income were ahead of guidance due to slightly higher-than-planned subscription revenue. ([s22.q4cdn.com](https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf))\n\n- **Full-year guide was maintained at a high-margin profile.** Management reaffirmed 2026 revenue guidance of $50.7B\u2013$51.7B, implying 12%\u201314% growth, and a 31.5% operating-margin target, supported by membership growth, pricing and an expected rough doubling of ad revenue. ([s22.q4cdn.com](https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf))\n\n- **Advertising scale is becoming more visible.** At its May 2026 Upfront, Netflix said its ad-supported offering reached more than 250M global monthly active viewers and that more than 80% of ad-plan members watch weekly; it also plans to expand the ads plan to 15 additional countries in 2027. ([about.netflix.com](https://about.netflix.com/en/news/netflix-upfront-2026-get-closer?pubDate=20260514))\n\n- **Live events are adding engagement and inventory.** The Q1 World Baseball Classic in Japan drew 31.4M viewers, became Netflix\u2019s most-watched program ever in Japan, and drove the country\u2019s largest sign-up day; the May Upfront also announced more 2026 NFL inventory, including games from Australia, Thanksgiving Eve, Christmas Day and Week 18. ([s22.q4cdn.com](https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf)) ([about.netflix.com](https://about.netflix.com/en/news/netflix-upfront-2026-get-closer?pubDate=20260514))\n\n## Recent Highlights (Negative)\n\n- **Q2 outlook and lack of a guide raise disappointed investors.** Reuters reported that Netflix shares fell more than 10% after Q1 results as investors weighed a tepid forecast, Reed Hastings\u2019 planned board exit, and questions about the next growth driver.\n",
+  "primer_meta": {
+    "asset_id": "NFLX",
+    "created_at_utc": "2026-07-08T14:49:53+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "54e69427e6269f6aec461e40b889609abfc5c268f76f78e14432e08439c962c1",
+    "sources": [
+      {
+        "url": "https://s22.q4cdn.com/959853165/files/doc_financials/2026/q1/FINAL-Q1-26-Shareholder-Letter.pdf",
+        "title": ""
+      },
+      {
+        "url": "https://about.netflix.com/en/news/netflix-upfront-2026-get-closer?pubDate=20260514",
+        "title": ""
+      },
+      {
+        "url": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-First-Quarter-2026-Financial-Results/default.aspx",
+        "title": "Netflix - Netflix to Announce First Quarter 2026 Financial Results"
+      },
+      {
+        "url": "https://about.netflix.com/en/news/netflix-upfront-2026-get-closer?pubDate=20260514",
+        "title": "Netflix Upfront 2026: Get Closer -  About Netflix"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "NFLX__earnings_call_transcript__2026-04-16__1__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-04-16",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0562043d3574d0e1016a4e636a18e8819d8931ea2d95b43f3a",
+    "usage": {
+      "input_tokens": 48255,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1800,
+      "output_tokens_details": {
+        "reasoning_tokens": 1115
+      },
+      "total_tokens": 50055
+    }
+  },
+  "details": {
+    "asset_id": "NFLX",
+    "detail_source_ticker": "NFLX",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "NETFLIX INC",
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "market_cap_musd": 320930.7,
+    "ev_musd": 323031.4,
+    "ttm_revenue_musd": 46889.992,
+    "ttm_fcf_musd": 11894.206,
+    "ttm_netinc_musd": 13373.641,
+    "fcf_ev": {
+      "current": 0.036820587719955396,
+      "avg_1y": 0.023053457904860335,
+      "std_1y": 0.006689040662315525,
+      "avg_3y": 0.02220426611988003,
+      "std_3y": 0.005352829530752271
+    },
+    "ni_mc": {
+      "current": 0.041671429377120976,
+      "avg_1y": 0.027035044425412325,
+      "std_1y": 0.007102025835522854,
+      "avg_3y": 0.023722314857254907,
+      "std_3y": 0.005080918688616503
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-04-17",
+        "ttm_revenue_musd": 46889.992,
+        "ttm_fcf_musd": 11894.206,
+        "ttm_netinc_musd": 13373.641
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-04-18",
+        "ttm_revenue_musd": 40173.327,
+        "ttm_fcf_musd": 7445.94,
+        "ttm_netinc_musd": 9269.773
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-04-22",
+        "ttm_revenue_musd": 34932.234,
+        "ttm_fcf_musd": 6945.836,
+        "ttm_netinc_musd": 6435.079
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 345980.9386151798,
+      "std_musd": 109783.84793636133,
+      "std_pct_of_mean": 0.3173118391313151,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "NFLX",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:19+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 1346,
+        "total_tokens": 3797,
+        "cost": 0.09181,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09181,
+          "upstream_inference_prompt_cost": 0.02451,
+          "upstream_inference_completions_cost": 0.0673
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 157,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix is executing ahead of plan: Q1 2026 revenue of $12.25B (+16% y/y) at a 32.3% operating margin, with full-year guidance of $50.7B\u2013$51.7B reaffirmed at a 31.5% margin. Ad revenue is expected to roughly double, ad-supported MAVs exceed 250M, and live events (WBC Japan, expanded NFL inventory) are broadening engagement and ad inventory. FCF has scaled rapidly \u2014 from ~$7.4B to ~$11.9B TTM in one year (+60%) \u2014 as content spend growth lags revenue growth. If FCF conversion keeps improving toward ~28\u201330% of revenue, forward FCF could exceed $15B, and a growth-premium multiple of 28\u201330x EV/FCF would imply an EV of $420B+ and a market cap well above $400B.\n\n## Bear Case\nThe stock fell >10% post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and questions about the next growth driver. Revenue growth is decelerating from 16% toward 12\u201314%, ad-scaling benefits may already be priced in, and live/sports content raises cost intensity. If FCF stalls near ~$12.5B and the market compresses the multiple to ~20x on slowing growth, EV would be ~$250B and market cap ~$248B \u2014 well below today's ~$321B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% FCF margin). Guidance implies ~$51.2B midpoint 2026 revenue; a 12-month forward revenue of ~$52B with modest margin expansion (~27% FCF conversion, consistent with the recent trajectory of margin gains and ad-revenue doubling) yields forward FCF \u2248 **$14,000M** (+18% vs. TTM).\n- **Applied multiple:** Current EV/FCF is ~27.2x (inverse of the 3.68% current FCF/EV yield). Given decelerating growth but durable margin expansion and ad optionality, I apply a slightly compressed **26x** EV/forward-FCF.\n- **EV:** 14,000 \u00d7 26 = **$364,000M**.\n- **EV \u2192 market cap bridge:** Packet gap = EV \u2212 MC = 323,031.4 \u2212 320,930.7 = $2,100.7M net debt. Forward market cap = 364,000 \u2212 2,101 \u2248 **$361,900M**.\n\n```json\n{\"forward_market_cap_musd\": 361900.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 361900.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 26.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix is executing ahead of plan: Q1 2026 revenue of $12.25B (+16% y/y) at a 32.3% operating margin, with full-year guidance of $50.7B\u2013$51.7B reaffirmed at a 31.5% margin. Ad revenue is expected to roughly double, ad-supported MAVs exceed 250M, and live events (WBC Japan, expanded NFL inventory) are broadening engagement and ad inventory. FCF has scaled rapidly \u2014 from ~$7.4B to ~$11.9B TTM in one year (+60%) \u2014 as content spend growth lags revenue growth. If FCF conversion keeps improving toward ~28\u201330% of revenue, forward FCF could exceed $15B, and a growth-premium multiple of 28\u201330x EV/FCF would imply an EV of $420B+ and a market cap well above $400B.\n\n## Bear Case\nThe stock fell >10% post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and questions about the next growth driver. Revenue growth is decelerating from 16% toward 12\u201314%, ad-scaling benefits may already be priced in, and live/sports content raises cost intensity. If FCF stalls near ~$12.5B and the market compresses the multiple to ~20x on slowing growth, EV would be ~$250B and market cap ~$248B \u2014 well below today's ~$321B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% FCF margin). Guidance implies ~$51.2B midpoint 2026 revenue; a 12-month forward revenue of ~$52B with modest margin expansion (~27% FCF conversion, consistent with the recent trajectory of margin gains and ad-revenue doubling) yields forward FCF \u2248 **$14,000M** (+18% vs. TTM).\n- **Applied multiple:** Current EV/FCF is ~27.2x (inverse of the 3.68% current FCF/EV yield). Given decelerating growth but durable margin expansion and ad optionality, I apply a slightly compressed **26x** EV/forward-FCF.\n- **EV:** 14,000 \u00d7 26 = **$364,000M**.\n- **EV \u2192 market cap bridge:** Packet gap = EV \u2212 MC = 323,031.4 \u2212 320,930.7 = $2,100.7M net debt. Forward market cap = 364,000 \u2212 2,101 \u2248 **$361,900M**.\n\n```json\n{\"forward_market_cap_musd\": 361900.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix is executing ahead of plan: Q1 2026 revenue of $12.25B (+16% y/y) at a 32.3% operating margin, with full-year guidance of $50.7B\u2013$51.7B reaffirmed at a 31.5% margin. Ad revenue is expected to roughly double, ad-supported MAVs exceed 250M, and live events (WBC Japan, expanded NFL inventory) are broadening engagement and ad inventory. FCF has scaled rapidly \u2014 from ~$7.4B to ~$11.9B TTM in one year (+60%) \u2014 as content spend growth lags revenue growth. If FCF conversion keeps improving toward ~28\u201330% of revenue, forward FCF could exceed $15B, and a growth-premium multiple of 28\u201330x EV/FCF would imply an EV of $420B+ and a market cap well above $400B.",
+        "Bear Case": "The stock fell >10% post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and questions about the next growth driver. Revenue growth is decelerating from 16% toward 12\u201314%, ad-scaling benefits may already be priced in, and live/sports content raises cost intensity. If FCF stalls near ~$12.5B and the market compresses the multiple to ~20x on slowing growth, EV would be ~$250B and market cap ~$248B \u2014 well below today's ~$321B.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% FCF margin). Guidance implies ~$51.2B midpoint 2026 revenue; a 12-month forward revenue of ~$52B with modest margin expansion (~27% FCF conversion, consistent with the recent trajectory of margin gains and ad-revenue doubling) yields forward FCF \u2248 **$14,000M** (+18% vs. TTM).\n- **Applied multiple:** Current EV/FCF is ~27.2x (inverse of the 3.68% current FCF/EV yield). Given decelerating growth but durable margin expansion and ad optionality, I apply a slightly compressed **26x** EV/forward-FCF.\n- **EV:** 14,000 \u00d7 26 = **$364,000M**.\n- **EV \u2192 market cap bridge:** Packet gap = EV \u2212 MC = 323,031.4 \u2212 320,930.7 = $2,100.7M net debt. Forward market cap = 364,000 \u2212 2,101 \u2248 **$361,900M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "NFLX",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:19+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 1145,
+        "total_tokens": 3596,
+        "cost": 0.08176,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.08176,
+          "upstream_inference_prompt_cost": 0.02451,
+          "upstream_inference_completions_cost": 0.05725
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 102,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Revenue guide of $50.7B\u2013$51.7B (12\u201314% growth) reaffirmed with a 31.5% operating margin, and ad revenue expected to roughly double \u2014 supporting continued FCF conversion improvement.\n- FCF momentum is strong: TTM FCF rose from $7.4B (2025) to $11.9B (2026), +60% y/y, driven by scale and margin expansion.\n- Advertising (250M+ MAVs), live sports (NFL, WBC), games and podcasts add new monetization vectors that can sustain a premium multiple (25x+ forward FCF), implying an EV toward $360B\u2013$375B and market cap of ~$360B+.\n\n## Bear Case\n- Post-Q1 stock fell >10% on a tepid Q2 outlook, Hastings' board exit, and \"next growth driver\" uncertainty \u2014 multiple compression risk is real.\n- FCF growth decelerates as content/live-sports spend (NFL rights, events) ramps; forward FCF could land closer to $13B\u2013$13.5B.\n- If the market re-rates to ~19\u201320x EV/FCF (still premium vs. media peers), EV falls to ~$255B\u2013$270B, implying a market cap of ~$255B\u2013$268B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M. With ~13% revenue growth guided, ad revenue doubling, and margin targets holding at 31.5%, I assume FCF grows ~22% (slower than last year's 60% given rising sports/content cash spend) \u2192 **~$14,500M** forward FCF.\n- **Multiple:** Current trailing EV/FCF is ~27.2x (FCF/EV = 3.68%). Applying a modestly compressed **23x** forward EV/FCF \u2014 reflecting decelerating growth and Q2 caution, but still a premium franchise with expanding FCF \u2014 gives EV \u2248 14,500 \u00d7 23 = **$333,500M**.\n- **EV \u2192 Market cap bridge:** Current EV ($323,031M) minus market cap ($320,931M) = $2,101M net-debt gap. Forward market cap = 333,500 \u2212 2,101 \u2248 **$331,400M**.\n\n```json\n{\"forward_market_cap_musd\": 331400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 23.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 331400.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 23.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Revenue guide of $50.7B\u2013$51.7B (12\u201314% growth) reaffirmed with a 31.5% operating margin, and ad revenue expected to roughly double \u2014 supporting continued FCF conversion improvement.\n- FCF momentum is strong: TTM FCF rose from $7.4B (2025) to $11.9B (2026), +60% y/y, driven by scale and margin expansion.\n- Advertising (250M+ MAVs), live sports (NFL, WBC), games and podcasts add new monetization vectors that can sustain a premium multiple (25x+ forward FCF), implying an EV toward $360B\u2013$375B and market cap of ~$360B+.\n\n## Bear Case\n- Post-Q1 stock fell >10% on a tepid Q2 outlook, Hastings' board exit, and \"next growth driver\" uncertainty \u2014 multiple compression risk is real.\n- FCF growth decelerates as content/live-sports spend (NFL rights, events) ramps; forward FCF could land closer to $13B\u2013$13.5B.\n- If the market re-rates to ~19\u201320x EV/FCF (still premium vs. media peers), EV falls to ~$255B\u2013$270B, implying a market cap of ~$255B\u2013$268B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M. With ~13% revenue growth guided, ad revenue doubling, and margin targets holding at 31.5%, I assume FCF grows ~22% (slower than last year's 60% given rising sports/content cash spend) \u2192 **~$14,500M** forward FCF.\n- **Multiple:** Current trailing EV/FCF is ~27.2x (FCF/EV = 3.68%). Applying a modestly compressed **23x** forward EV/FCF \u2014 reflecting decelerating growth and Q2 caution, but still a premium franchise with expanding FCF \u2014 gives EV \u2248 14,500 \u00d7 23 = **$333,500M**.\n- **EV \u2192 Market cap bridge:** Current EV ($323,031M) minus market cap ($320,931M) = $2,101M net-debt gap. Forward market cap = 333,500 \u2212 2,101 \u2248 **$331,400M**.\n\n```json\n{\"forward_market_cap_musd\": 331400.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 23.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Revenue guide of $50.7B\u2013$51.7B (12\u201314% growth) reaffirmed with a 31.5% operating margin, and ad revenue expected to roughly double \u2014 supporting continued FCF conversion improvement.\n- FCF momentum is strong: TTM FCF rose from $7.4B (2025) to $11.9B (2026), +60% y/y, driven by scale and margin expansion.\n- Advertising (250M+ MAVs), live sports (NFL, WBC), games and podcasts add new monetization vectors that can sustain a premium multiple (25x+ forward FCF), implying an EV toward $360B\u2013$375B and market cap of ~$360B+.",
+        "Bear Case": "- Post-Q1 stock fell >10% on a tepid Q2 outlook, Hastings' board exit, and \"next growth driver\" uncertainty \u2014 multiple compression risk is real.\n- FCF growth decelerates as content/live-sports spend (NFL rights, events) ramps; forward FCF could land closer to $13B\u2013$13.5B.\n- If the market re-rates to ~19\u201320x EV/FCF (still premium vs. media peers), EV falls to ~$255B\u2013$270B, implying a market cap of ~$255B\u2013$268B.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,894M. With ~13% revenue growth guided, ad revenue doubling, and margin targets holding at 31.5%, I assume FCF grows ~22% (slower than last year's 60% given rising sports/content cash spend) \u2192 **~$14,500M** forward FCF.\n- **Multiple:** Current trailing EV/FCF is ~27.2x (FCF/EV = 3.68%). Applying a modestly compressed **23x** forward EV/FCF \u2014 reflecting decelerating growth and Q2 caution, but still a premium franchise with expanding FCF \u2014 gives EV \u2248 14,500 \u00d7 23 = **$333,500M**.\n- **EV \u2192 Market cap bridge:** Current EV ($323,031M) minus market cap ($320,931M) = $2,101M net-debt gap. Forward market cap = 333,500 \u2212 2,101 \u2248 **$331,400M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "NFLX",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:26+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 1346,
+        "total_tokens": 3797,
+        "cost": 0.09181,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09181,
+          "upstream_inference_prompt_cost": 0.02451,
+          "upstream_inference_completions_cost": 0.0673
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 291,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- 2026 revenue guidance of $50.7B\u2013$51.7B (12\u201314% growth) is reaffirmed, with a 31.5% operating margin \u2014 FCF conversion has been rising sharply (TTM FCF up ~60% YoY to $11.9B).\n- Advertising is an emerging second engine: 250M+ MAVs on the ad tier, ad revenue expected to roughly double in 2026, with 15 new ad-plan countries in 2027.\n- Live events (WBC Japan record, expanded NFL slate) drive engagement, sign-ups, and premium ad inventory.\n- FCF could reach ~$15B+ over 12 months if margin expansion continues; a re-rating toward the 1-year average FCF yield (~2.3%, i.e., >40x EV/FCF) would imply substantial upside from today's ~27x.\n\n## Bear Case\n- Q2 outlook disappointed; shares fell 10%+ post-Q1 on a tepid forecast, Reed Hastings' board exit, and uncertainty about the next growth driver.\n- Growth is decelerating from 16% toward the 12\u201314% guided range; the market may compress the multiple further toward 20\u201322x FCF if ad-revenue doubling underwhelms or content/live-rights costs (NFL, live events) pressure FCF conversion.\n- At 20x on ~$13.5B forward FCF, EV would be ~$270B \u2014 meaningful downside from the current $323B EV.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% conversion). Guided revenue midpoint ~$51,200M with a stable-to-improving margin suggests forward-12m FCF of roughly **$14,300M** (~20% growth, slower than last year's 60% jump but consistent with revenue growth plus modest margin/conversion gains).\n- **Multiple:** Current EV/FCF is ~27.2x (FCF yield 3.68%). Given decelerating growth and post-Q1 sentiment, but offset by the ad ramp and high visibility of the guide, I apply a slightly conservative **26.0x** forward EV/FCF.\n- **EV:** 14,300 \u00d7 26.0 = **$371,800M**.\n- **Bridge to market cap:** Current EV ($323,031.4M) minus market cap ($320,930.7M) = $2,100.7M net-debt gap. Forward market cap = 371,800 \u2212 2,100.7 \u2248 **$369,700M**.\n\n```json\n{\"forward_market_cap_musd\": 369700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 369700.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14300.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 26.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- 2026 revenue guidance of $50.7B\u2013$51.7B (12\u201314% growth) is reaffirmed, with a 31.5% operating margin \u2014 FCF conversion has been rising sharply (TTM FCF up ~60% YoY to $11.9B).\n- Advertising is an emerging second engine: 250M+ MAVs on the ad tier, ad revenue expected to roughly double in 2026, with 15 new ad-plan countries in 2027.\n- Live events (WBC Japan record, expanded NFL slate) drive engagement, sign-ups, and premium ad inventory.\n- FCF could reach ~$15B+ over 12 months if margin expansion continues; a re-rating toward the 1-year average FCF yield (~2.3%, i.e., >40x EV/FCF) would imply substantial upside from today's ~27x.\n\n## Bear Case\n- Q2 outlook disappointed; shares fell 10%+ post-Q1 on a tepid forecast, Reed Hastings' board exit, and uncertainty about the next growth driver.\n- Growth is decelerating from 16% toward the 12\u201314% guided range; the market may compress the multiple further toward 20\u201322x FCF if ad-revenue doubling underwhelms or content/live-rights costs (NFL, live events) pressure FCF conversion.\n- At 20x on ~$13.5B forward FCF, EV would be ~$270B \u2014 meaningful downside from the current $323B EV.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% conversion). Guided revenue midpoint ~$51,200M with a stable-to-improving margin suggests forward-12m FCF of roughly **$14,300M** (~20% growth, slower than last year's 60% jump but consistent with revenue growth plus modest margin/conversion gains).\n- **Multiple:** Current EV/FCF is ~27.2x (FCF yield 3.68%). Given decelerating growth and post-Q1 sentiment, but offset by the ad ramp and high visibility of the guide, I apply a slightly conservative **26.0x** forward EV/FCF.\n- **EV:** 14,300 \u00d7 26.0 = **$371,800M**.\n- **Bridge to market cap:** Current EV ($323,031.4M) minus market cap ($320,930.7M) = $2,100.7M net-debt gap. Forward market cap = 371,800 \u2212 2,100.7 \u2248 **$369,700M**.\n\n```json\n{\"forward_market_cap_musd\": 369700.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14300.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- 2026 revenue guidance of $50.7B\u2013$51.7B (12\u201314% growth) is reaffirmed, with a 31.5% operating margin \u2014 FCF conversion has been rising sharply (TTM FCF up ~60% YoY to $11.9B).\n- Advertising is an emerging second engine: 250M+ MAVs on the ad tier, ad revenue expected to roughly double in 2026, with 15 new ad-plan countries in 2027.\n- Live events (WBC Japan record, expanded NFL slate) drive engagement, sign-ups, and premium ad inventory.\n- FCF could reach ~$15B+ over 12 months if margin expansion continues; a re-rating toward the 1-year average FCF yield (~2.3%, i.e., >40x EV/FCF) would imply substantial upside from today's ~27x.",
+        "Bear Case": "- Q2 outlook disappointed; shares fell 10%+ post-Q1 on a tepid forecast, Reed Hastings' board exit, and uncertainty about the next growth driver.\n- Growth is decelerating from 16% toward the 12\u201314% guided range; the market may compress the multiple further toward 20\u201322x FCF if ad-revenue doubling underwhelms or content/live-rights costs (NFL, live events) pressure FCF conversion.\n- At 20x on ~$13.5B forward FCF, EV would be ~$270B \u2014 meaningful downside from the current $323B EV.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,894M on $46,890M revenue (~25.4% conversion). Guided revenue midpoint ~$51,200M with a stable-to-improving margin suggests forward-12m FCF of roughly **$14,300M** (~20% growth, slower than last year's 60% jump but consistent with revenue growth plus modest margin/conversion gains).\n- **Multiple:** Current EV/FCF is ~27.2x (FCF yield 3.68%). Given decelerating growth and post-Q1 sentiment, but offset by the ad ramp and high visibility of the guide, I apply a slightly conservative **26.0x** forward EV/FCF.\n- **EV:** 14,300 \u00d7 26.0 = **$371,800M**.\n- **Bridge to market cap:** Current EV ($323,031.4M) minus market cap ($320,930.7M) = $2,100.7M net-debt gap. Forward market cap = 371,800 \u2212 2,100.7 \u2248 **$369,700M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "NFLX",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:09+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 759,
+        "total_tokens": 3210,
+        "cost": 0.03123,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03123,
+          "upstream_inference_prompt_cost": 0.012255,
+          "upstream_inference_completions_cost": 0.018975
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix continues ~13-14% revenue growth toward ~$51B for 2026 with a 31.5% operating margin. Ad revenue roughly doubling, live-events inventory (NFL, WBC), and pricing power expand FCF conversion. FCF grows ~20% off the $11.9B TTM base to ~$14.3B. Market re-rates toward a premium ~30x EV/FCF given durable growth, lifting EV materially above the current ~$323B.\n\n## Bear Case\nPost-Q1 selloff signals investor concern over decelerating growth, Hastings' board exit, and absence of a clear next growth driver. Content spend and GenAI investment pressure FCF; growth flattens. FCF grows only modestly to ~$12.5B and the multiple compresses toward the 3y-average FCF/EV (~2.2%, i.e. ~45x looks stretched)\u2014more realistically a discipline toward ~22-24x EV/FCF, pulling EV below current levels.\n\n## Logic\n- TTM FCF base: $11,894M. Guidance implies 12-14% revenue growth and stable ~31.5% margins, supporting continued FCF expansion. I apply ~11% forward FCF growth (midpoint of accelerating-then-normalizing scenarios) \u2192 forward FCF \u2248 $13,200M.\n- Multiple: Current EV/FCF = 1/0.0368 \u2248 27.2x. The 3y-avg FCF/EV (0.0222) implies ~45x (inflated by lower past FCF); current yield is more representative. Given post-Q1 sentiment caution offset by high-margin growth, I apply ~26x (slight compression from current 27.2x).\n- Forward EV = $13,200M \u00d7 26 \u2248 $343,200M.\n- EV\u2192MC bridge: current EV \u2212 MC gap = 323,031.4 \u2212 320,930.7 = $2,100.7M (net debt-like). Forward MC = 343,200 \u2212 2,100.7 \u2248 $341,099M.\n\n```json\n{\"forward_market_cap_musd\": 341099.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": 14800.0, \"applied_multiple\": 26.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 341099.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13200.0,
+        "forward_netinc_musd": 14800.0,
+        "applied_multiple": 26.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix continues ~13-14% revenue growth toward ~$51B for 2026 with a 31.5% operating margin. Ad revenue roughly doubling, live-events inventory (NFL, WBC), and pricing power expand FCF conversion. FCF grows ~20% off the $11.9B TTM base to ~$14.3B. Market re-rates toward a premium ~30x EV/FCF given durable growth, lifting EV materially above the current ~$323B.\n\n## Bear Case\nPost-Q1 selloff signals investor concern over decelerating growth, Hastings' board exit, and absence of a clear next growth driver. Content spend and GenAI investment pressure FCF; growth flattens. FCF grows only modestly to ~$12.5B and the multiple compresses toward the 3y-average FCF/EV (~2.2%, i.e. ~45x looks stretched)\u2014more realistically a discipline toward ~22-24x EV/FCF, pulling EV below current levels.\n\n## Logic\n- TTM FCF base: $11,894M. Guidance implies 12-14% revenue growth and stable ~31.5% margins, supporting continued FCF expansion. I apply ~11% forward FCF growth (midpoint of accelerating-then-normalizing scenarios) \u2192 forward FCF \u2248 $13,200M.\n- Multiple: Current EV/FCF = 1/0.0368 \u2248 27.2x. The 3y-avg FCF/EV (0.0222) implies ~45x (inflated by lower past FCF); current yield is more representative. Given post-Q1 sentiment caution offset by high-margin growth, I apply ~26x (slight compression from current 27.2x).\n- Forward EV = $13,200M \u00d7 26 \u2248 $343,200M.\n- EV\u2192MC bridge: current EV \u2212 MC gap = 323,031.4 \u2212 320,930.7 = $2,100.7M (net debt-like). Forward MC = 343,200 \u2212 2,100.7 \u2248 $341,099M.\n\n```json\n{\"forward_market_cap_musd\": 341099.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": 14800.0, \"applied_multiple\": 26.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix continues ~13-14% revenue growth toward ~$51B for 2026 with a 31.5% operating margin. Ad revenue roughly doubling, live-events inventory (NFL, WBC), and pricing power expand FCF conversion. FCF grows ~20% off the $11.9B TTM base to ~$14.3B. Market re-rates toward a premium ~30x EV/FCF given durable growth, lifting EV materially above the current ~$323B.",
+        "Bear Case": "Post-Q1 selloff signals investor concern over decelerating growth, Hastings' board exit, and absence of a clear next growth driver. Content spend and GenAI investment pressure FCF; growth flattens. FCF grows only modestly to ~$12.5B and the multiple compresses toward the 3y-average FCF/EV (~2.2%, i.e. ~45x looks stretched)\u2014more realistically a discipline toward ~22-24x EV/FCF, pulling EV below current levels.",
+        "Logic": "- TTM FCF base: $11,894M. Guidance implies 12-14% revenue growth and stable ~31.5% margins, supporting continued FCF expansion. I apply ~11% forward FCF growth (midpoint of accelerating-then-normalizing scenarios) \u2192 forward FCF \u2248 $13,200M.\n- Multiple: Current EV/FCF = 1/0.0368 \u2248 27.2x. The 3y-avg FCF/EV (0.0222) implies ~45x (inflated by lower past FCF); current yield is more representative. Given post-Q1 sentiment caution offset by high-margin growth, I apply ~26x (slight compression from current 27.2x).\n- Forward EV = $13,200M \u00d7 26 \u2248 $343,200M.\n- EV\u2192MC bridge: current EV \u2212 MC gap = 323,031.4 \u2212 320,930.7 = $2,100.7M (net debt-like). Forward MC = 343,200 \u2212 2,100.7 \u2248 $341,099M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "NFLX",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:10+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 844,
+        "total_tokens": 3295,
+        "cost": 0.033355,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.033355,
+          "upstream_inference_prompt_cost": 0.012255,
+          "upstream_inference_completions_cost": 0.0211
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix continues ~14% revenue growth toward the top of its $50.7B\u2013$51.7B 2026 guide, with ad revenue roughly doubling and live events (NFL, WBC) driving engagement and pricing power. FCF conversion improves as content spend stabilizes, pushing TTM FCF toward ~$14B. The market rewards durable margin expansion (31.5%+ operating margin) with a premium EV/FCF multiple near recent highs (~30x), lifting valuation well above the 3-year mean market cap.\n\n## Bear Case\nPost-Q1 selloff signals fading growth narrative: Hastings' board exit, no clear next growth driver, and a tepid Q2 forecast weigh on sentiment. Revenue growth decelerates toward the low end (~12%), ad monetization ramps slower than hoped, and FCF growth flattens near $12B. Multiple compresses toward the 3-year average FCF/EV yield (~2.2%, i.e., ~45x) but on softer sentiment the multiple contracts to ~23\u201324x, dragging market cap back toward the lower band of its historical range.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M, up ~60% YoY (from $7,446M). Growth is decelerating; applying a conservative but healthy ~15% growth given revenue guide (12\u201314%) and improving margins gives forward FCF \u2248 $13,700M.\n- **Applied multiple:** Current FCF/EV yield is 3.68% (~27.2x EV/FCF), well above the 3y avg yield of 2.22% (~45x). Given post-Q1 sentiment reset, I center the forward multiple near the current ~27x EV/FCF, slightly conservative at **26.5x**.\n- **EV:** 13,700 \u00d7 26.5 \u2248 $363,050M forward EV.\n- **EV\u2192MC bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = $2,100M net debt-like gap. Forward MC = 363,050 \u2212 2,100 \u2248 **$360,950M**.\n- This sits modestly above the 3y mean market cap ($345,981M) and within ~1 std, reflecting continued growth offset by multiple/sentiment risk.\n\n```json\n{\"forward_market_cap_musd\": 360950.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13700.0, \"forward_netinc_musd\": 15200.0, \"applied_multiple\": 26.5}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 360950.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13700.0,
+        "forward_netinc_musd": 15200.0,
+        "applied_multiple": 26.5
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix continues ~14% revenue growth toward the top of its $50.7B\u2013$51.7B 2026 guide, with ad revenue roughly doubling and live events (NFL, WBC) driving engagement and pricing power. FCF conversion improves as content spend stabilizes, pushing TTM FCF toward ~$14B. The market rewards durable margin expansion (31.5%+ operating margin) with a premium EV/FCF multiple near recent highs (~30x), lifting valuation well above the 3-year mean market cap.\n\n## Bear Case\nPost-Q1 selloff signals fading growth narrative: Hastings' board exit, no clear next growth driver, and a tepid Q2 forecast weigh on sentiment. Revenue growth decelerates toward the low end (~12%), ad monetization ramps slower than hoped, and FCF growth flattens near $12B. Multiple compresses toward the 3-year average FCF/EV yield (~2.2%, i.e., ~45x) but on softer sentiment the multiple contracts to ~23\u201324x, dragging market cap back toward the lower band of its historical range.\n\n## Logic\n- **Forward FCF:** TTM FCF is $11,894M, up ~60% YoY (from $7,446M). Growth is decelerating; applying a conservative but healthy ~15% growth given revenue guide (12\u201314%) and improving margins gives forward FCF \u2248 $13,700M.\n- **Applied multiple:** Current FCF/EV yield is 3.68% (~27.2x EV/FCF), well above the 3y avg yield of 2.22% (~45x). Given post-Q1 sentiment reset, I center the forward multiple near the current ~27x EV/FCF, slightly conservative at **26.5x**.\n- **EV:** 13,700 \u00d7 26.5 \u2248 $363,050M forward EV.\n- **EV\u2192MC bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = $2,100M net debt-like gap. Forward MC = 363,050 \u2212 2,100 \u2248 **$360,950M**.\n- This sits modestly above the 3y mean market cap ($345,981M) and within ~1 std, reflecting continued growth offset by multiple/sentiment risk.\n\n```json\n{\"forward_market_cap_musd\": 360950.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13700.0, \"forward_netinc_musd\": 15200.0, \"applied_multiple\": 26.5}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix continues ~14% revenue growth toward the top of its $50.7B\u2013$51.7B 2026 guide, with ad revenue roughly doubling and live events (NFL, WBC) driving engagement and pricing power. FCF conversion improves as content spend stabilizes, pushing TTM FCF toward ~$14B. The market rewards durable margin expansion (31.5%+ operating margin) with a premium EV/FCF multiple near recent highs (~30x), lifting valuation well above the 3-year mean market cap.",
+        "Bear Case": "Post-Q1 selloff signals fading growth narrative: Hastings' board exit, no clear next growth driver, and a tepid Q2 forecast weigh on sentiment. Revenue growth decelerates toward the low end (~12%), ad monetization ramps slower than hoped, and FCF growth flattens near $12B. Multiple compresses toward the 3-year average FCF/EV yield (~2.2%, i.e., ~45x) but on softer sentiment the multiple contracts to ~23\u201324x, dragging market cap back toward the lower band of its historical range.",
+        "Logic": "- **Forward FCF:** TTM FCF is $11,894M, up ~60% YoY (from $7,446M). Growth is decelerating; applying a conservative but healthy ~15% growth given revenue guide (12\u201314%) and improving margins gives forward FCF \u2248 $13,700M.\n- **Applied multiple:** Current FCF/EV yield is 3.68% (~27.2x EV/FCF), well above the 3y avg yield of 2.22% (~45x). Given post-Q1 sentiment reset, I center the forward multiple near the current ~27x EV/FCF, slightly conservative at **26.5x**.\n- **EV:** 13,700 \u00d7 26.5 \u2248 $363,050M forward EV.\n- **EV\u2192MC bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = $2,100M net debt-like gap. Forward MC = 363,050 \u2212 2,100 \u2248 **$360,950M**.\n- This sits modestly above the 3y mean market cap ($345,981M) and within ~1 std, reflecting continued growth offset by multiple/sentiment risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "NFLX",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:10+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2451,
+        "completion_tokens": 777,
+        "total_tokens": 3228,
+        "cost": 0.03168,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03168,
+          "upstream_inference_prompt_cost": 0.012255,
+          "upstream_inference_completions_cost": 0.019425
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix continues its 12\u201316% revenue trajectory with FCF growth outpacing revenue as content spend normalizes and ad revenue roughly doubles. TTM FCF grew ~60% YoY ($7.4B\u2192$11.9B); even a moderated ~25% growth pushes forward FCF near $14.9B. High-margin ad scale (250M+ MAU) and pricing power support a premium EV/FCF multiple (~28\u201330x), lifting EV toward $430B+.\n\n## Bear Case\nGrowth decelerates as guidance implies 12\u201314% revenue growth, board turnover (Hastings exit) and lack of near-term guide spook investors. FCF conversion flattens as content and GenAI investments rise; forward FCF stalls near $12.5\u201313B. Multiple compresses toward the 3y average FCF/EV (~2.2%, i.e. ~45x is unsustainable; market re-rates to ~22\u201324x FCF), pressuring EV lower.\n\n## Logic\n- **Forward FCF:** TTM FCF = $11,894M. YoY growth was ~60%, but management guides revenue growth of only 12\u201314%. Blending recent FCF momentum with a decelerating base, I apply ~22% FCF growth \u2192 forward FCF \u2248 $11,894 \u00d7 1.22 \u2248 **$14,510M**.\n- **Applied multiple:** Current FCF/EV yield = 3.68% (\u224827.2x EV/FCF). The 3y average yield is 2.22% (~45x), reflecting historically richer valuation. Given decelerating growth and sentiment risk balanced against strong FCF conversion, I apply a modestly compressed **26.0x EV/FCF**.\n- **EV:** $14,510M \u00d7 26.0 \u2248 **$377,260M**.\n- **EV\u2192Market cap bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = net debt/adjustment gap of $2,100M. Forward market cap = forward EV \u2212 gap = $377,260 \u2212 $2,100 \u2248 **$375,160M**.\n\n```json\n{\"forward_market_cap_musd\": 375160.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14510.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 375160.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 14510.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 26.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix continues its 12\u201316% revenue trajectory with FCF growth outpacing revenue as content spend normalizes and ad revenue roughly doubles. TTM FCF grew ~60% YoY ($7.4B\u2192$11.9B); even a moderated ~25% growth pushes forward FCF near $14.9B. High-margin ad scale (250M+ MAU) and pricing power support a premium EV/FCF multiple (~28\u201330x), lifting EV toward $430B+.\n\n## Bear Case\nGrowth decelerates as guidance implies 12\u201314% revenue growth, board turnover (Hastings exit) and lack of near-term guide spook investors. FCF conversion flattens as content and GenAI investments rise; forward FCF stalls near $12.5\u201313B. Multiple compresses toward the 3y average FCF/EV (~2.2%, i.e. ~45x is unsustainable; market re-rates to ~22\u201324x FCF), pressuring EV lower.\n\n## Logic\n- **Forward FCF:** TTM FCF = $11,894M. YoY growth was ~60%, but management guides revenue growth of only 12\u201314%. Blending recent FCF momentum with a decelerating base, I apply ~22% FCF growth \u2192 forward FCF \u2248 $11,894 \u00d7 1.22 \u2248 **$14,510M**.\n- **Applied multiple:** Current FCF/EV yield = 3.68% (\u224827.2x EV/FCF). The 3y average yield is 2.22% (~45x), reflecting historically richer valuation. Given decelerating growth and sentiment risk balanced against strong FCF conversion, I apply a modestly compressed **26.0x EV/FCF**.\n- **EV:** $14,510M \u00d7 26.0 \u2248 **$377,260M**.\n- **EV\u2192Market cap bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = net debt/adjustment gap of $2,100M. Forward market cap = forward EV \u2212 gap = $377,260 \u2212 $2,100 \u2248 **$375,160M**.\n\n```json\n{\"forward_market_cap_musd\": 375160.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 14510.0, \"forward_netinc_musd\": null, \"applied_multiple\": 26.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix continues its 12\u201316% revenue trajectory with FCF growth outpacing revenue as content spend normalizes and ad revenue roughly doubles. TTM FCF grew ~60% YoY ($7.4B\u2192$11.9B); even a moderated ~25% growth pushes forward FCF near $14.9B. High-margin ad scale (250M+ MAU) and pricing power support a premium EV/FCF multiple (~28\u201330x), lifting EV toward $430B+.",
+        "Bear Case": "Growth decelerates as guidance implies 12\u201314% revenue growth, board turnover (Hastings exit) and lack of near-term guide spook investors. FCF conversion flattens as content and GenAI investments rise; forward FCF stalls near $12.5\u201313B. Multiple compresses toward the 3y average FCF/EV (~2.2%, i.e. ~45x is unsustainable; market re-rates to ~22\u201324x FCF), pressuring EV lower.",
+        "Logic": "- **Forward FCF:** TTM FCF = $11,894M. YoY growth was ~60%, but management guides revenue growth of only 12\u201314%. Blending recent FCF momentum with a decelerating base, I apply ~22% FCF growth \u2192 forward FCF \u2248 $11,894 \u00d7 1.22 \u2248 **$14,510M**.\n- **Applied multiple:** Current FCF/EV yield = 3.68% (\u224827.2x EV/FCF). The 3y average yield is 2.22% (~45x), reflecting historically richer valuation. Given decelerating growth and sentiment risk balanced against strong FCF conversion, I apply a modestly compressed **26.0x EV/FCF**.\n- **EV:** $14,510M \u00d7 26.0 \u2248 **$377,260M**.\n- **EV\u2192Market cap bridge:** Current EV ($323,031M) \u2212 current market cap ($320,931M) = net debt/adjustment gap of $2,100M. Forward market cap = forward EV \u2212 gap = $377,260 \u2212 $2,100 \u2248 **$375,160M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "NFLX",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:35+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1637,
+        "completion_tokens": 1904,
+        "total_tokens": 3541,
+        "cost": 0.065305,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.065305,
+          "upstream_inference_prompt_cost": 0.008185,
+          "upstream_inference_completions_cost": 0.05712
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1279,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Forward FCF can reach roughly **$15.2B** if Netflix converts the 2026 revenue guide, pricing gains, ad growth, and live-event engagement into sustained high-20s FCF margins.\n- A premium **34x EV/FCF** could be justified by continued double-digit revenue growth, 31%+ operating margins, expanding ad inventory, and durable global scale.\n- Bull EV: **15,200 \u00d7 34 = $516,800M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bull forward market cap: **$514,699M**\n\n## Bear Case\n- Forward FCF could be closer to **$12.8B** if Q2 weakness, slower member growth, content/live-event spending, or ad monetization delays pressure conversion.\n- A lower **22x EV/FCF** would reflect slower growth visibility and investor skepticism after the post-Q1 selloff.\n- Bear EV: **12,800 \u00d7 22 = $281,600M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bear forward market cap: **$279,499M**\n\n## Logic\n- Current TTM FCF: **$11,894.2M**\n- Current TTM revenue: **$46,890.0M**\n- TTM FCF margin: **25.4%**\n- 2026 revenue guide midpoint: **$51,200M**, with management targeting **31.5% operating margin**.\n- For a 12-month forward view from 2026-07-08, I assume revenue rolls beyond the 2026 guide into early 2027 with continued pricing, membership, and ad growth, producing roughly **$54B** forward revenue.\n- Applying a roughly **26% forward FCF margin** gives estimated forward FCF of about **$14,000M**.\n- Current EV/TTM FCF is **323,031.4 / 11,894.2 = 27.2x**.\n- I apply a **30.0x forward EV/FCF multiple**, modestly above the current TTM multiple due to forward growth and margin durability, but below the much richer historical yield-implied averages given concerns around Q2 outlook and growth-driver uncertainty.\n- Forward EV: **14,000 \u00d7 30.0 = $420,000M**\n- Current EV minus market-cap gap: **323,031.4 - 320,930.7 = $2,100.7M**\n- Forward market cap: **420,000 - 2,100.7 = $417,899.3M**\n\n```json\n{\"forward_market_cap_musd\": 417899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 417899.3,
+        "horizon": "12m",
+        "forward_fcf_musd": 14000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Forward FCF can reach roughly **$15.2B** if Netflix converts the 2026 revenue guide, pricing gains, ad growth, and live-event engagement into sustained high-20s FCF margins.\n- A premium **34x EV/FCF** could be justified by continued double-digit revenue growth, 31%+ operating margins, expanding ad inventory, and durable global scale.\n- Bull EV: **15,200 \u00d7 34 = $516,800M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bull forward market cap: **$514,699M**\n\n## Bear Case\n- Forward FCF could be closer to **$12.8B** if Q2 weakness, slower member growth, content/live-event spending, or ad monetization delays pressure conversion.\n- A lower **22x EV/FCF** would reflect slower growth visibility and investor skepticism after the post-Q1 selloff.\n- Bear EV: **12,800 \u00d7 22 = $281,600M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bear forward market cap: **$279,499M**\n\n## Logic\n- Current TTM FCF: **$11,894.2M**\n- Current TTM revenue: **$46,890.0M**\n- TTM FCF margin: **25.4%**\n- 2026 revenue guide midpoint: **$51,200M**, with management targeting **31.5% operating margin**.\n- For a 12-month forward view from 2026-07-08, I assume revenue rolls beyond the 2026 guide into early 2027 with continued pricing, membership, and ad growth, producing roughly **$54B** forward revenue.\n- Applying a roughly **26% forward FCF margin** gives estimated forward FCF of about **$14,000M**.\n- Current EV/TTM FCF is **323,031.4 / 11,894.2 = 27.2x**.\n- I apply a **30.0x forward EV/FCF multiple**, modestly above the current TTM multiple due to forward growth and margin durability, but below the much richer historical yield-implied averages given concerns around Q2 outlook and growth-driver uncertainty.\n- Forward EV: **14,000 \u00d7 30.0 = $420,000M**\n- Current EV minus market-cap gap: **323,031.4 - 320,930.7 = $2,100.7M**\n- Forward market cap: **420,000 - 2,100.7 = $417,899.3M**\n\n```json\n{\"forward_market_cap_musd\": 417899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Forward FCF can reach roughly **$15.2B** if Netflix converts the 2026 revenue guide, pricing gains, ad growth, and live-event engagement into sustained high-20s FCF margins.\n- A premium **34x EV/FCF** could be justified by continued double-digit revenue growth, 31%+ operating margins, expanding ad inventory, and durable global scale.\n- Bull EV: **15,200 \u00d7 34 = $516,800M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bull forward market cap: **$514,699M**",
+        "Bear Case": "- Forward FCF could be closer to **$12.8B** if Q2 weakness, slower member growth, content/live-event spending, or ad monetization delays pressure conversion.\n- A lower **22x EV/FCF** would reflect slower growth visibility and investor skepticism after the post-Q1 selloff.\n- Bear EV: **12,800 \u00d7 22 = $281,600M**\n- Less current EV minus market-cap gap of **$2,100.7M**\n- Bear forward market cap: **$279,499M**",
+        "Logic": "- Current TTM FCF: **$11,894.2M**\n- Current TTM revenue: **$46,890.0M**\n- TTM FCF margin: **25.4%**\n- 2026 revenue guide midpoint: **$51,200M**, with management targeting **31.5% operating margin**.\n- For a 12-month forward view from 2026-07-08, I assume revenue rolls beyond the 2026 guide into early 2027 with continued pricing, membership, and ad growth, producing roughly **$54B** forward revenue.\n- Applying a roughly **26% forward FCF margin** gives estimated forward FCF of about **$14,000M**.\n- Current EV/TTM FCF is **323,031.4 / 11,894.2 = 27.2x**.\n- I apply a **30.0x forward EV/FCF multiple**, modestly above the current TTM multiple due to forward growth and margin durability, but below the much richer historical yield-implied averages given concerns around Q2 outlook and growth-driver uncertainty.\n- Forward EV: **14,000 \u00d7 30.0 = $420,000M**\n- Current EV minus market-cap gap: **323,031.4 - 320,930.7 = $2,100.7M**\n- Forward market cap: **420,000 - 2,100.7 = $417,899.3M**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "NFLX",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:23+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1637,
+        "completion_tokens": 1734,
+        "total_tokens": 3371,
+        "cost": 0.060205,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.060205,
+          "upstream_inference_prompt_cost": 0.008185,
+          "upstream_inference_completions_cost": 0.05202
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1175,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix sustains premium growth from pricing, membership expansion, live events, and advertising scale. Forward FCF could reach roughly **$15,000M** if the 31.5% operating-margin guide converts strongly into cash flow and ad revenue growth improves monetization. Applying a higher **34x EV/FCF** multiple would imply EV of about **$510,000M**, or market cap near **$507,899M** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\nGrowth slows after the Q1 disappointment/Q2 outlook concerns, advertising remains small relative to subscriptions, and investor appetite for high multiples compresses. Forward FCF could be closer to **$12,500M**. At a lower **24x EV/FCF** multiple, EV would be **$300,000M**, implying market cap of about **$297,899M** after the same bridge.\n\n## Logic\nTTM FCF is **$11,894.2M** on TTM revenue of **$46,890.0M**, a **25.4% FCF margin**. Management\u2019s 2026 revenue guide midpoint is about **$51,200M** with a **31.5% operating-margin target**, supported by pricing, membership growth, and roughly doubling ad revenue. For a 12-month forward view, I estimate FCF at **$13,800M**, roughly **16% above TTM FCF**, reflecting revenue growth plus modest cash-margin improvement.\n\nCurrent EV is **$323,031.4M** and market cap is **$320,930.7M**, so the EV minus market-cap gap is **$2,100.7M**.\n\nCurrent EV/FCF is approximately **27.2x** based on TTM FCF, while the 1-year and 3-year average FCF yields imply much higher historical multiples of roughly **43x\u201345x**. Given strong execution but also investor concern around the next growth driver, I apply a **30.0x EV/FCF** multiple, modestly above the current multiple but well below historical average valuation.\n\nForward EV = **$13,800M \u00d7 30.0 = $414,000M**.  \nForward market cap = **$414,000M \u2212 $2,100.7M = $411,899.3M**.\n\n```json\n{\"forward_market_cap_musd\": 411899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 411899.3,
+        "horizon": "12m",
+        "forward_fcf_musd": 13800.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 30.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix sustains premium growth from pricing, membership expansion, live events, and advertising scale. Forward FCF could reach roughly **$15,000M** if the 31.5% operating-margin guide converts strongly into cash flow and ad revenue growth improves monetization. Applying a higher **34x EV/FCF** multiple would imply EV of about **$510,000M**, or market cap near **$507,899M** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\nGrowth slows after the Q1 disappointment/Q2 outlook concerns, advertising remains small relative to subscriptions, and investor appetite for high multiples compresses. Forward FCF could be closer to **$12,500M**. At a lower **24x EV/FCF** multiple, EV would be **$300,000M**, implying market cap of about **$297,899M** after the same bridge.\n\n## Logic\nTTM FCF is **$11,894.2M** on TTM revenue of **$46,890.0M**, a **25.4% FCF margin**. Management\u2019s 2026 revenue guide midpoint is about **$51,200M** with a **31.5% operating-margin target**, supported by pricing, membership growth, and roughly doubling ad revenue. For a 12-month forward view, I estimate FCF at **$13,800M**, roughly **16% above TTM FCF**, reflecting revenue growth plus modest cash-margin improvement.\n\nCurrent EV is **$323,031.4M** and market cap is **$320,930.7M**, so the EV minus market-cap gap is **$2,100.7M**.\n\nCurrent EV/FCF is approximately **27.2x** based on TTM FCF, while the 1-year and 3-year average FCF yields imply much higher historical multiples of roughly **43x\u201345x**. Given strong execution but also investor concern around the next growth driver, I apply a **30.0x EV/FCF** multiple, modestly above the current multiple but well below historical average valuation.\n\nForward EV = **$13,800M \u00d7 30.0 = $414,000M**.  \nForward market cap = **$414,000M \u2212 $2,100.7M = $411,899.3M**.\n\n```json\n{\"forward_market_cap_musd\": 411899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13800.0, \"forward_netinc_musd\": null, \"applied_multiple\": 30.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix sustains premium growth from pricing, membership expansion, live events, and advertising scale. Forward FCF could reach roughly **$15,000M** if the 31.5% operating-margin guide converts strongly into cash flow and ad revenue growth improves monetization. Applying a higher **34x EV/FCF** multiple would imply EV of about **$510,000M**, or market cap near **$507,899M** after subtracting the current EV-to-market-cap gap.",
+        "Bear Case": "Growth slows after the Q1 disappointment/Q2 outlook concerns, advertising remains small relative to subscriptions, and investor appetite for high multiples compresses. Forward FCF could be closer to **$12,500M**. At a lower **24x EV/FCF** multiple, EV would be **$300,000M**, implying market cap of about **$297,899M** after the same bridge.",
+        "Logic": "TTM FCF is **$11,894.2M** on TTM revenue of **$46,890.0M**, a **25.4% FCF margin**. Management\u2019s 2026 revenue guide midpoint is about **$51,200M** with a **31.5% operating-margin target**, supported by pricing, membership growth, and roughly doubling ad revenue. For a 12-month forward view, I estimate FCF at **$13,800M**, roughly **16% above TTM FCF**, reflecting revenue growth plus modest cash-margin improvement.\n\nCurrent EV is **$323,031.4M** and market cap is **$320,930.7M**, so the EV minus market-cap gap is **$2,100.7M**.\n\nCurrent EV/FCF is approximately **27.2x** based on TTM FCF, while the 1-year and 3-year average FCF yields imply much higher historical multiples of roughly **43x\u201345x**. Given strong execution but also investor concern around the next growth driver, I apply a **30.0x EV/FCF** multiple, modestly above the current multiple but well below historical average valuation.\n\nForward EV = **$13,800M \u00d7 30.0 = $414,000M**.  \nForward market cap = **$414,000M \u2212 $2,100.7M = $411,899.3M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "NFLX",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:22+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1637,
+        "completion_tokens": 1563,
+        "total_tokens": 3200,
+        "cost": 0.049315,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.049315,
+          "upstream_inference_prompt_cost": 0.002425,
+          "upstream_inference_completions_cost": 0.04689
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 895,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Forward FCF: ~$15,500 million, driven by 2026 revenue guidance of ~$50.7B\u2013$51.7B, 31.5% operating margin, continued pricing power, ad growth, and live-event monetization.\n- Applied EV/FCF multiple: ~32x, above the current ~27.2x but still below the historical 1Y/3Y implied levels, reflecting durable global scale and improving monetization.\n- Bull EV: $15,500m \u00d7 32.0x = $496,000m.\n- EV-to-market-cap bridge: current EV less current market cap = $323,031.4m - $320,930.7m = $2,100.7m.\n- Bull market cap: ~$496,000m - $2,100.7m = ~$493,899m.\n\n## Bear Case\n- Forward FCF: ~$12,500 million, only modestly above current TTM FCF of $11,894m, assuming content/live-event investment and slower incremental subscription upside absorb much of the revenue growth.\n- Applied EV/FCF multiple: ~24x, below current ~27.2x due to investor concern over Q2 outlook, leadership/board transition, and uncertainty around the next growth driver.\n- Bear EV: $12,500m \u00d7 24.0x = $300,000m.\n- Bear market cap: ~$300,000m - $2,100.7m = ~$297,899m.\n\n## Logic\n- Base forward FCF estimate: $14,000 million.\n  - TTM FCF is $11,894m.\n  - 2026 revenue guidance midpoint of ~$51.2B is meaningfully above TTM revenue of $46,890m.\n  - Management\u2019s 31.5% operating-margin target, pricing actions, membership growth, and advertising scale support continued FCF expansion.\n  - I use ~18% FCF growth versus TTM, below the prior year\u2019s very high FCF growth rate to allow for ongoing content, live sports, games, and product investment.\n- Applied EV/FCF multiple: 28.0x.\n  - Current EV/FCF is approximately 27.2x.\n  - The selected 28.0x is a modest premium to current valuation for Netflix\u2019s scale, margin profile, and ad/live-event optionality.\n  - It remains well below the 1Y/3Y average implied EV/FCF multiples, reflecting growth-driver and guidance-risk concerns.\n- Base EV: $14,000m \u00d7 28.0x = $392,000m.\n- EV-to-market-cap bridge: current EV - current market cap = $2,100.7m.\n- Forward market cap: $392,000m - $2,100.7m = $389,899.3m.\n\n```json\n{\"forward_market_cap_musd\": 389899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 28.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 389899.3,
+        "horizon": "12m",
+        "forward_fcf_musd": 14000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 28.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Forward FCF: ~$15,500 million, driven by 2026 revenue guidance of ~$50.7B\u2013$51.7B, 31.5% operating margin, continued pricing power, ad growth, and live-event monetization.\n- Applied EV/FCF multiple: ~32x, above the current ~27.2x but still below the historical 1Y/3Y implied levels, reflecting durable global scale and improving monetization.\n- Bull EV: $15,500m \u00d7 32.0x = $496,000m.\n- EV-to-market-cap bridge: current EV less current market cap = $323,031.4m - $320,930.7m = $2,100.7m.\n- Bull market cap: ~$496,000m - $2,100.7m = ~$493,899m.\n\n## Bear Case\n- Forward FCF: ~$12,500 million, only modestly above current TTM FCF of $11,894m, assuming content/live-event investment and slower incremental subscription upside absorb much of the revenue growth.\n- Applied EV/FCF multiple: ~24x, below current ~27.2x due to investor concern over Q2 outlook, leadership/board transition, and uncertainty around the next growth driver.\n- Bear EV: $12,500m \u00d7 24.0x = $300,000m.\n- Bear market cap: ~$300,000m - $2,100.7m = ~$297,899m.\n\n## Logic\n- Base forward FCF estimate: $14,000 million.\n  - TTM FCF is $11,894m.\n  - 2026 revenue guidance midpoint of ~$51.2B is meaningfully above TTM revenue of $46,890m.\n  - Management\u2019s 31.5% operating-margin target, pricing actions, membership growth, and advertising scale support continued FCF expansion.\n  - I use ~18% FCF growth versus TTM, below the prior year\u2019s very high FCF growth rate to allow for ongoing content, live sports, games, and product investment.\n- Applied EV/FCF multiple: 28.0x.\n  - Current EV/FCF is approximately 27.2x.\n  - The selected 28.0x is a modest premium to current valuation for Netflix\u2019s scale, margin profile, and ad/live-event optionality.\n  - It remains well below the 1Y/3Y average implied EV/FCF multiples, reflecting growth-driver and guidance-risk concerns.\n- Base EV: $14,000m \u00d7 28.0x = $392,000m.\n- EV-to-market-cap bridge: current EV - current market cap = $2,100.7m.\n- Forward market cap: $392,000m - $2,100.7m = $389,899.3m.\n\n```json\n{\"forward_market_cap_musd\": 389899.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 14000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 28.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Forward FCF: ~$15,500 million, driven by 2026 revenue guidance of ~$50.7B\u2013$51.7B, 31.5% operating margin, continued pricing power, ad growth, and live-event monetization.\n- Applied EV/FCF multiple: ~32x, above the current ~27.2x but still below the historical 1Y/3Y implied levels, reflecting durable global scale and improving monetization.\n- Bull EV: $15,500m \u00d7 32.0x = $496,000m.\n- EV-to-market-cap bridge: current EV less current market cap = $323,031.4m - $320,930.7m = $2,100.7m.\n- Bull market cap: ~$496,000m - $2,100.7m = ~$493,899m.",
+        "Bear Case": "- Forward FCF: ~$12,500 million, only modestly above current TTM FCF of $11,894m, assuming content/live-event investment and slower incremental subscription upside absorb much of the revenue growth.\n- Applied EV/FCF multiple: ~24x, below current ~27.2x due to investor concern over Q2 outlook, leadership/board transition, and uncertainty around the next growth driver.\n- Bear EV: $12,500m \u00d7 24.0x = $300,000m.\n- Bear market cap: ~$300,000m - $2,100.7m = ~$297,899m.",
+        "Logic": "- Base forward FCF estimate: $14,000 million.\n  - TTM FCF is $11,894m.\n  - 2026 revenue guidance midpoint of ~$51.2B is meaningfully above TTM revenue of $46,890m.\n  - Management\u2019s 31.5% operating-margin target, pricing actions, membership growth, and advertising scale support continued FCF expansion.\n  - I use ~18% FCF growth versus TTM, below the prior year\u2019s very high FCF growth rate to allow for ongoing content, live sports, games, and product investment.\n- Applied EV/FCF multiple: 28.0x.\n  - Current EV/FCF is approximately 27.2x.\n  - The selected 28.0x is a modest premium to current valuation for Netflix\u2019s scale, margin profile, and ad/live-event optionality.\n  - It remains well below the 1Y/3Y average implied EV/FCF multiples, reflecting growth-driver and guidance-risk concerns.\n- Base EV: $14,000m \u00d7 28.0x = $392,000m.\n- EV-to-market-cap bridge: current EV - current market cap = $2,100.7m.\n- Forward market cap: $392,000m - $2,100.7m = $389,899.3m."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "NFLX",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:36:32+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1730,
+        "completion_tokens": 3385,
+        "total_tokens": 5115,
+        "cost": 0.0117639,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0117639,
+          "upstream_inference_prompt_cost": 0.0016089,
+          "upstream_inference_completions_cost": 0.010155
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2088,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nNetflix's FCF trajectory is accelerating sharply \u2014 TTM FCF jumped from $7.4B (mid-2025) to $11.9B (mid-2026), a ~60% increase, while revenue grew ~17%. Management's reaffirmed 2026 guide of $50.7\u2013$51.7B at a 31.5% operating margin, combined with a doubling of ad revenue and live-event momentum (World Baseball Classic, expanded NFL inventory), supports continued FCF margin expansion. If forward FCF reaches ~$14.5B and the multiple holds at 27x (current TTM level), forward EV would be ~$391.5B, implying a forward market cap of ~$389.4B.\n\n## Bear Case\nThe post-Q1 10%+ sell-off signals investor concern about decelerating growth, Reed Hastings' board exit, and the absence of a clear next growth driver beyond ads/live. The 3-year average FCF/EV yield of 2.2% (vs. current 3.7%) shows the multiple has compressed materially and could compress further if growth disappoints. If forward FCF moderates to ~$12.5B and the multiple de-rates to 20x, forward EV would be ~$250.0B, implying a forward market cap of ~$247.9B.\n\n## Logic\n**Forward FCF estimation:** TTM FCF is $11,894M on revenue of $46,890M (25.3% FCF margin). The full-year 2026 revenue guide of $50.7\u2013$51.7B implies ~12\u201314% growth; forward 12-month revenue (roughly Q3 2026\u2013Q2 2027) is estimated at ~$53B. Assuming FCF margin holds near 25%, forward FCF \u2248 $13,250M.\n\n**Applied multiple:** Current EV/FCF is 27.2x; the 3-year average was ~45x. Given the recent sell-off, growth deceleration concerns, and lack of an upward guide, I apply a forward EV/FCF multiple of 23.5x \u2014 a moderate compression from current, reflecting bearish sentiment but not a worst-case de-rating.\n\n**EV \u2192 Market cap bridge:**\n- Current EV \u2212 Market cap gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt position, minimal for this scale).\n- Forward EV = $13,250M \u00d7 23.5 = $311,375M.\n- Forward market cap = $311,375M \u2212 $2,100.7M = $309,274.3M.\n\nThis sits slightly below the current market cap of $320,930.7M, reflecting FCF growth partially offset by continued multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 309274.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 23.5}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 309274.3,
+        "horizon": "12m",
+        "forward_fcf_musd": 13250.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 23.5
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nNetflix's FCF trajectory is accelerating sharply \u2014 TTM FCF jumped from $7.4B (mid-2025) to $11.9B (mid-2026), a ~60% increase, while revenue grew ~17%. Management's reaffirmed 2026 guide of $50.7\u2013$51.7B at a 31.5% operating margin, combined with a doubling of ad revenue and live-event momentum (World Baseball Classic, expanded NFL inventory), supports continued FCF margin expansion. If forward FCF reaches ~$14.5B and the multiple holds at 27x (current TTM level), forward EV would be ~$391.5B, implying a forward market cap of ~$389.4B.\n\n## Bear Case\nThe post-Q1 10%+ sell-off signals investor concern about decelerating growth, Reed Hastings' board exit, and the absence of a clear next growth driver beyond ads/live. The 3-year average FCF/EV yield of 2.2% (vs. current 3.7%) shows the multiple has compressed materially and could compress further if growth disappoints. If forward FCF moderates to ~$12.5B and the multiple de-rates to 20x, forward EV would be ~$250.0B, implying a forward market cap of ~$247.9B.\n\n## Logic\n**Forward FCF estimation:** TTM FCF is $11,894M on revenue of $46,890M (25.3% FCF margin). The full-year 2026 revenue guide of $50.7\u2013$51.7B implies ~12\u201314% growth; forward 12-month revenue (roughly Q3 2026\u2013Q2 2027) is estimated at ~$53B. Assuming FCF margin holds near 25%, forward FCF \u2248 $13,250M.\n\n**Applied multiple:** Current EV/FCF is 27.2x; the 3-year average was ~45x. Given the recent sell-off, growth deceleration concerns, and lack of an upward guide, I apply a forward EV/FCF multiple of 23.5x \u2014 a moderate compression from current, reflecting bearish sentiment but not a worst-case de-rating.\n\n**EV \u2192 Market cap bridge:**\n- Current EV \u2212 Market cap gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt position, minimal for this scale).\n- Forward EV = $13,250M \u00d7 23.5 = $311,375M.\n- Forward market cap = $311,375M \u2212 $2,100.7M = $309,274.3M.\n\nThis sits slightly below the current market cap of $320,930.7M, reflecting FCF growth partially offset by continued multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 309274.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13250.0, \"forward_netinc_musd\": null, \"applied_multiple\": 23.5}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Netflix's FCF trajectory is accelerating sharply \u2014 TTM FCF jumped from $7.4B (mid-2025) to $11.9B (mid-2026), a ~60% increase, while revenue grew ~17%. Management's reaffirmed 2026 guide of $50.7\u2013$51.7B at a 31.5% operating margin, combined with a doubling of ad revenue and live-event momentum (World Baseball Classic, expanded NFL inventory), supports continued FCF margin expansion. If forward FCF reaches ~$14.5B and the multiple holds at 27x (current TTM level), forward EV would be ~$391.5B, implying a forward market cap of ~$389.4B.",
+        "Bear Case": "The post-Q1 10%+ sell-off signals investor concern about decelerating growth, Reed Hastings' board exit, and the absence of a clear next growth driver beyond ads/live. The 3-year average FCF/EV yield of 2.2% (vs. current 3.7%) shows the multiple has compressed materially and could compress further if growth disappoints. If forward FCF moderates to ~$12.5B and the multiple de-rates to 20x, forward EV would be ~$250.0B, implying a forward market cap of ~$247.9B.",
+        "Logic": "**Forward FCF estimation:** TTM FCF is $11,894M on revenue of $46,890M (25.3% FCF margin). The full-year 2026 revenue guide of $50.7\u2013$51.7B implies ~12\u201314% growth; forward 12-month revenue (roughly Q3 2026\u2013Q2 2027) is estimated at ~$53B. Assuming FCF margin holds near 25%, forward FCF \u2248 $13,250M.\n\n**Applied multiple:** Current EV/FCF is 27.2x; the 3-year average was ~45x. Given the recent sell-off, growth deceleration concerns, and lack of an upward guide, I apply a forward EV/FCF multiple of 23.5x \u2014 a moderate compression from current, reflecting bearish sentiment but not a worst-case de-rating.\n\n**EV \u2192 Market cap bridge:**\n- Current EV \u2212 Market cap gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt position, minimal for this scale).\n- Forward EV = $13,250M \u00d7 23.5 = $311,375M.\n- Forward market cap = $311,375M \u2212 $2,100.7M = $309,274.3M.\n\nThis sits slightly below the current market cap of $320,930.7M, reflecting FCF growth partially offset by continued multiple compression."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "NFLX",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:36:54+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1756,
+        "completion_tokens": 1863,
+        "total_tokens": 3619,
+        "cost": 0.007841165,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1255,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.007841165,
+          "upstream_inference_prompt_cost": 0.000873545,
+          "upstream_inference_completions_cost": 0.00696762
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1134,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- 2026 revenue guide of $50.7B\u2013$51.7B is reaffirmed with a 31.5% operating margin; ad revenue roughly doubling and live events (NFL, WBC) expanding engagement and inventory.\n- TTM FCF jumped ~60% YoY (from $7,446M to $11,894M); if margin holds near 25% on ~$55B forward revenue, 12m-forward FCF could reach ~$14,000M.\n- Strong FCF trajectory could justify a multiple near the current 27x or higher (up to ~30x), implying a forward EV of $378B\u2013$420B.\n- After subtracting the ~$2.1B EV-over-MC gap, bull-case forward market cap ranges ~$376B\u2013$418B.\n\n## Bear Case\n- Q2 outlook disappointed; stock fell >10% post-Q1 on tepid guidance, Reed Hastings' board exit, and questions about the next growth driver.\n- FCF growth of 60% YoY is unlikely to repeat; content costs, live-event investments, and ad-tech buildout could compress FCF margins back toward 22\u201323%.\n- Historical 1y/3y avg EV/FCF multiples (~43\u201345x) were anchored on much lower FCF; as FCF normalizes upward, the multiple may compress toward 22\u201324x.\n- Bear-case forward FCF ~$12,500M at ~24x yields EV ~$300B; minus $2.1B gap \u2192 forward market cap ~$298B.\n\n## Logic\n- **Forward FCF estimate:** TTM FCF is $11,894M on $46,890M revenue (25.4% FCF margin). The 2026 guide midpoint (~$51.2B) plus ~12% growth into 2027 implies a 12m-forward revenue base of ~$54\u201355B. Applying a slightly moderated FCF margin of ~24.5% (reflecting content/live-event investment scaling with revenue) yields forward FCF of ~$13,500M.\n- **Applied EV/FCF multiple:** The current EV/FCF is 27.2x ($323,031M / $11,894M), well below the 1y and 3y averages (~43\u201345x) because FCF surged. I apply 27x\u2014essentially holding the current multiple\u2014reflecting confidence in durable FCF but acknowledging multiple compression risk as the FCF base grows.\n- **EV-to-market-cap bridge:** Current EV ($323,031.4M) exceeds market cap ($320,930.7M) by $2,100.7M, indicating a small net-debt position. I carry this gap forward: Forward MC = (Forward FCF \u00d7 Applied Multiple) \u2212 $2,100.7M = ($13,500M \u00d7 27) \u2212 $2,100.7M = $364,500M \u2212 $2,100.7M = $362,399.3M.\n\n```json\n{\"forward_market_cap_musd\": 362399.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 27.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 362399.3,
+        "horizon": "12m",
+        "forward_fcf_musd": 13500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 27.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\n- 2026 revenue guide of $50.7B\u2013$51.7B is reaffirmed with a 31.5% operating margin; ad revenue roughly doubling and live events (NFL, WBC) expanding engagement and inventory.\n- TTM FCF jumped ~60% YoY (from $7,446M to $11,894M); if margin holds near 25% on ~$55B forward revenue, 12m-forward FCF could reach ~$14,000M.\n- Strong FCF trajectory could justify a multiple near the current 27x or higher (up to ~30x), implying a forward EV of $378B\u2013$420B.\n- After subtracting the ~$2.1B EV-over-MC gap, bull-case forward market cap ranges ~$376B\u2013$418B.\n\n## Bear Case\n- Q2 outlook disappointed; stock fell >10% post-Q1 on tepid guidance, Reed Hastings' board exit, and questions about the next growth driver.\n- FCF growth of 60% YoY is unlikely to repeat; content costs, live-event investments, and ad-tech buildout could compress FCF margins back toward 22\u201323%.\n- Historical 1y/3y avg EV/FCF multiples (~43\u201345x) were anchored on much lower FCF; as FCF normalizes upward, the multiple may compress toward 22\u201324x.\n- Bear-case forward FCF ~$12,500M at ~24x yields EV ~$300B; minus $2.1B gap \u2192 forward market cap ~$298B.\n\n## Logic\n- **Forward FCF estimate:** TTM FCF is $11,894M on $46,890M revenue (25.4% FCF margin). The 2026 guide midpoint (~$51.2B) plus ~12% growth into 2027 implies a 12m-forward revenue base of ~$54\u201355B. Applying a slightly moderated FCF margin of ~24.5% (reflecting content/live-event investment scaling with revenue) yields forward FCF of ~$13,500M.\n- **Applied EV/FCF multiple:** The current EV/FCF is 27.2x ($323,031M / $11,894M), well below the 1y and 3y averages (~43\u201345x) because FCF surged. I apply 27x\u2014essentially holding the current multiple\u2014reflecting confidence in durable FCF but acknowledging multiple compression risk as the FCF base grows.\n- **EV-to-market-cap bridge:** Current EV ($323,031.4M) exceeds market cap ($320,930.7M) by $2,100.7M, indicating a small net-debt position. I carry this gap forward: Forward MC = (Forward FCF \u00d7 Applied Multiple) \u2212 $2,100.7M = ($13,500M \u00d7 27) \u2212 $2,100.7M = $364,500M \u2212 $2,100.7M = $362,399.3M.\n\n```json\n{\"forward_market_cap_musd\": 362399.3, \"horizon\": \"12m\", \"forward_fcf_musd\": 13500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 27.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- 2026 revenue guide of $50.7B\u2013$51.7B is reaffirmed with a 31.5% operating margin; ad revenue roughly doubling and live events (NFL, WBC) expanding engagement and inventory.\n- TTM FCF jumped ~60% YoY (from $7,446M to $11,894M); if margin holds near 25% on ~$55B forward revenue, 12m-forward FCF could reach ~$14,000M.\n- Strong FCF trajectory could justify a multiple near the current 27x or higher (up to ~30x), implying a forward EV of $378B\u2013$420B.\n- After subtracting the ~$2.1B EV-over-MC gap, bull-case forward market cap ranges ~$376B\u2013$418B.",
+        "Bear Case": "- Q2 outlook disappointed; stock fell >10% post-Q1 on tepid guidance, Reed Hastings' board exit, and questions about the next growth driver.\n- FCF growth of 60% YoY is unlikely to repeat; content costs, live-event investments, and ad-tech buildout could compress FCF margins back toward 22\u201323%.\n- Historical 1y/3y avg EV/FCF multiples (~43\u201345x) were anchored on much lower FCF; as FCF normalizes upward, the multiple may compress toward 22\u201324x.\n- Bear-case forward FCF ~$12,500M at ~24x yields EV ~$300B; minus $2.1B gap \u2192 forward market cap ~$298B.",
+        "Logic": "- **Forward FCF estimate:** TTM FCF is $11,894M on $46,890M revenue (25.4% FCF margin). The 2026 guide midpoint (~$51.2B) plus ~12% growth into 2027 implies a 12m-forward revenue base of ~$54\u201355B. Applying a slightly moderated FCF margin of ~24.5% (reflecting content/live-event investment scaling with revenue) yields forward FCF of ~$13,500M.\n- **Applied EV/FCF multiple:** The current EV/FCF is 27.2x ($323,031M / $11,894M), well below the 1y and 3y averages (~43\u201345x) because FCF surged. I apply 27x\u2014essentially holding the current multiple\u2014reflecting confidence in durable FCF but acknowledging multiple compression risk as the FCF base grows.\n- **EV-to-market-cap bridge:** Current EV ($323,031.4M) exceeds market cap ($320,930.7M) by $2,100.7M, indicating a small net-debt position. I carry this gap forward: Forward MC = (Forward FCF \u00d7 Applied Multiple) \u2212 $2,100.7M = ($13,500M \u00d7 27) \u2212 $2,100.7M = $364,500M \u2212 $2,100.7M = $362,399.3M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "NFLX",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:35:51+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "f0ae11a77a13bed5343d1bc415304d193db2bd90a3584176688dc1996c664f76",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1730,
+        "completion_tokens": 2592,
+        "total_tokens": 4322,
+        "cost": 0.00967876,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00967876,
+          "upstream_inference_prompt_cost": 0.0016954,
+          "upstream_inference_completions_cost": 0.00798336
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1936,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- FCF surged ~60% YoY to $11,894M TTM, and with 2026 revenue guidance of $50.7B\u2013$51.7B at a 31.5% operating margin, forward FCF could exceed $13B+ as content cash spend normalizes and operating leverage compounds.\n- The ad business is scaling rapidly (250M+ global MAUs), with management expecting ad revenue to roughly double in 2026, creating a high-margin incremental revenue stream that could expand FCF conversion.\n- Current EV/FCF of ~27x is compressed relative to the 1y average (~43x) and 3y average (~45x), suggesting meaningful re-rating upside if FCF durability is confirmed.\n\n## Bear Case\n- Shares fell 10%+ post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and concerns about the next growth driver\u2014signaling investor skepticism about sustaining 16%+ revenue growth.\n- FCF growth of ~60% YoY is likely unsustainable; a reversion toward mid-teens growth would still be strong but would temper multiple expansion.\n- The 1y and 3y average FCF/EV yields (2.3% and 2.2%) were computed when FCF was materially lower ($6.9B\u2013$7.4B), so historical multiples may overstate the appropriate forward multiple; the market may be correctly pricing ~27x as the new normal for a maturing platform.\n\n## Logic\n1. **Forward FCF estimate:** TTM FCF is $11,894M. Revenue is guided to grow 12\u201314% in 2026 with margin expansion, but FCF growth should moderate from the anomalous ~60% YoY surge. I apply a conservative ~11% forward growth rate, yielding forward FCF of ~$13,200M.\n2. **Applied EV/FCF multiple:** Current EV/FCF is ~27.2x (post-selloff). The 1y avg (~43x) and 3y avg (~45x) reflect periods of much lower FCF and are likely not directly comparable. I apply 28x, modestly above the current compressed level, reflecting a partial recovery from the post-Q1 selloff while remaining disciplined given growth-driver uncertainty.\n3. **Forward EV:** $13,200M \u00d7 28.0 = $369,600M.\n4. **EV-to-MC bridge:** Current EV \u2212 MC gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt). I hold this constant and subtract it from forward EV: $369,600M \u2212 $2,100.7M = $367,499M.\n\n```json\n{\"forward_market_cap_musd\": 367499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 28.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 367499.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13200.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 28.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- FCF surged ~60% YoY to $11,894M TTM, and with 2026 revenue guidance of $50.7B\u2013$51.7B at a 31.5% operating margin, forward FCF could exceed $13B+ as content cash spend normalizes and operating leverage compounds.\n- The ad business is scaling rapidly (250M+ global MAUs), with management expecting ad revenue to roughly double in 2026, creating a high-margin incremental revenue stream that could expand FCF conversion.\n- Current EV/FCF of ~27x is compressed relative to the 1y average (~43x) and 3y average (~45x), suggesting meaningful re-rating upside if FCF durability is confirmed.\n\n## Bear Case\n- Shares fell 10%+ post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and concerns about the next growth driver\u2014signaling investor skepticism about sustaining 16%+ revenue growth.\n- FCF growth of ~60% YoY is likely unsustainable; a reversion toward mid-teens growth would still be strong but would temper multiple expansion.\n- The 1y and 3y average FCF/EV yields (2.3% and 2.2%) were computed when FCF was materially lower ($6.9B\u2013$7.4B), so historical multiples may overstate the appropriate forward multiple; the market may be correctly pricing ~27x as the new normal for a maturing platform.\n\n## Logic\n1. **Forward FCF estimate:** TTM FCF is $11,894M. Revenue is guided to grow 12\u201314% in 2026 with margin expansion, but FCF growth should moderate from the anomalous ~60% YoY surge. I apply a conservative ~11% forward growth rate, yielding forward FCF of ~$13,200M.\n2. **Applied EV/FCF multiple:** Current EV/FCF is ~27.2x (post-selloff). The 1y avg (~43x) and 3y avg (~45x) reflect periods of much lower FCF and are likely not directly comparable. I apply 28x, modestly above the current compressed level, reflecting a partial recovery from the post-Q1 selloff while remaining disciplined given growth-driver uncertainty.\n3. **Forward EV:** $13,200M \u00d7 28.0 = $369,600M.\n4. **EV-to-MC bridge:** Current EV \u2212 MC gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt). I hold this constant and subtract it from forward EV: $369,600M \u2212 $2,100.7M = $367,499M.\n\n```json\n{\"forward_market_cap_musd\": 367499.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13200.0, \"forward_netinc_musd\": null, \"applied_multiple\": 28.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- FCF surged ~60% YoY to $11,894M TTM, and with 2026 revenue guidance of $50.7B\u2013$51.7B at a 31.5% operating margin, forward FCF could exceed $13B+ as content cash spend normalizes and operating leverage compounds.\n- The ad business is scaling rapidly (250M+ global MAUs), with management expecting ad revenue to roughly double in 2026, creating a high-margin incremental revenue stream that could expand FCF conversion.\n- Current EV/FCF of ~27x is compressed relative to the 1y average (~43x) and 3y average (~45x), suggesting meaningful re-rating upside if FCF durability is confirmed.",
+        "Bear Case": "- Shares fell 10%+ post-Q1 on a tepid Q2 outlook, Reed Hastings' board exit, and concerns about the next growth driver\u2014signaling investor skepticism about sustaining 16%+ revenue growth.\n- FCF growth of ~60% YoY is likely unsustainable; a reversion toward mid-teens growth would still be strong but would temper multiple expansion.\n- The 1y and 3y average FCF/EV yields (2.3% and 2.2%) were computed when FCF was materially lower ($6.9B\u2013$7.4B), so historical multiples may overstate the appropriate forward multiple; the market may be correctly pricing ~27x as the new normal for a maturing platform.",
+        "Logic": "1. **Forward FCF estimate:** TTM FCF is $11,894M. Revenue is guided to grow 12\u201314% in 2026 with margin expansion, but FCF growth should moderate from the anomalous ~60% YoY surge. I apply a conservative ~11% forward growth rate, yielding forward FCF of ~$13,200M.\n2. **Applied EV/FCF multiple:** Current EV/FCF is ~27.2x (post-selloff). The 1y avg (~43x) and 3y avg (~45x) reflect periods of much lower FCF and are likely not directly comparable. I apply 28x, modestly above the current compressed level, reflecting a partial recovery from the post-Q1 selloff while remaining disciplined given growth-driver uncertainty.\n3. **Forward EV:** $13,200M \u00d7 28.0 = $369,600M.\n4. **EV-to-MC bridge:** Current EV \u2212 MC gap = $323,031.4M \u2212 $320,930.7M = $2,100.7M (net debt). I hold this constant and subtract it from forward EV: $369,600M \u2212 $2,100.7M = $367,499M."
+      }
+    }
+  ]
+}

@@ -1,0 +1,877 @@
+{
+  "asset_id": "AMD",
+  "aggregate_row": {
+    "asset_id": "AMD",
+    "name": "ADVANCED MICRO DEVICES INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 841569.3,
+    "std_pct_of_mean": 0.5193422368416839,
+    "models": {
+      "Fable": {
+        "forward_mc": 879214.0,
+        "pct_upside": 0.04473155092515846,
+        "bullishness": 0.08613116313663972,
+        "n_samples": 3,
+        "forward_mc_iqr": 17500.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 908714.0,
+        "pct_upside": 0.07978511098254182,
+        "bullishness": 0.1536272333013875,
+        "n_samples": 3,
+        "forward_mc_iqr": 23625.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 876714.0,
+        "pct_upside": 0.04176091024232931,
+        "bullishness": 0.08041115719047455,
+        "n_samples": 3,
+        "forward_mc_iqr": 12500.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 864214.0,
+        "pct_upside": 0.026907706828183997,
+        "bullishness": 0.05181112745964957,
+        "n_samples": 3,
+        "forward_mc_iqr": 20250.0
+      }
+    },
+    "consensus_bullishness": 0.08327116016355714,
+    "consensus_bullishness_mean": 0.09299517027203782,
+    "consensus_pct_upside": 0.04324623058374388,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\n\nAdvanced Micro Devices (AMD) is a fabless semiconductor company focused on high-performance computing. It designs CPUs, GPUs, adaptive SoCs/FPGAs, DPUs/networking silicon and related software, while relying on external foundries and packaging partners for manufacturing. Its core markets are data centers, PCs, gaming/console semi-custom chips, and embedded/adaptive computing; in the latest reported quarter, Data Center was the largest growth engine, with Q1 2026 revenue of $10.3B, up 38% year over year, and Data Center revenue of $5.8B, up 57%. ([amd.com](https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html?utm_source=openai))\n\n## What It Does\n\nAMD sells EPYC server CPUs, Instinct AI accelerators, Ryzen PC processors, Radeon graphics, semi-custom console chips, and embedded/adaptive products from the Xilinx portfolio. The transcript frames the company\u2019s strategy around AI infrastructure: EPYC CPUs for cloud, enterprise, accelerator \u201chead node\u201d and agentic/inference orchestration workloads; Instinct GPUs for training and inference; ROCm software; and Helios rack-scale systems combining MI450-series GPUs, EPYC \u201cVenice\u201d CPUs and Pensando networking. AMD also continues to serve consumer/commercial PCs through Ryzen and gaming graphics through Radeon, while embedded revenue comes from communications, aerospace/defense, industrial, test/measurement and FPGA-derived platforms. ([amd.com](https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html?utm_source=openai))\n\n## Recent Highlights (Positive)\n\nAMD\u2019s May 5 Q1 2026 report showed broad growth: revenue rose 38% YoY to $10.3B, non-GAAP EPS rose 43% to $1.37, free cash flow reached a record $2.6B, and Q2 revenue guidance was about $11.2B, implying roughly 46% YoY growth at the midpoint. ([amd.com](https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html?utm_source=openai))\n\nManagement raised its server CPU market view sharply, saying AI inference and agentic workloads are increasing CPU needs for orchestration, data movement and accelerator support; AMD now expects the server CPU TAM to exceed $120B by 2030 and guided server CPU revenue to grow more than 70% YoY in Q2. ([fool.com](https://www.fool.com/earnings/call-transcripts/2026/05/06/amd-amd-q1-2026-earnings-call-transcript/?utm_source=openai))\n\nAI platform momentum remains central: AMD cited expanded large-scale Instinct engagements including Meta deployments of up to 6 gigawatts across product generations, and said MI450/Helios shipments remain on track for the second half of 2026. Separately, AMD and Celestica announced collaboration on the Helios rack-scale AI platform, with customer availability targeted for late 2026. ([fool.com](https://www.fool.com/earnings/call-transcripts/2026/05/06/amd-amd-q1-2026-earnings-call-transcript/?utm_source=openai))\n\nAMD is also showing share momentum outside accelerators: Mercury Research data cited by Tom\u2019s Hardware showed AMD reached 46% of x86 server CPU revenue share in Q1 2026 and improved client CPU unit share to 29.6%, supporting the transcript\u2019s claim of continued EPYC and Ryzen gains. ([tomshardware.com](https://www.tomshardware.com/pc-components/cpus/amd-reaches-46-percent-of-server-x86-cpu-revenue-intel-still-controls-70-percent-of-the-consumer-pc-market-share?utm_source=openai))\n\n## Recent Highlights (Negative)\n\nConsumer-facing businesses face pressure from component inflation. In the Q1 call, AMD said higher memory and component costs are expected to weigh on second-half PC and gaming demand, and CFO Jean Hu said second-half gaming revenue is expected to decline more than 20% versus the first half; external reporting has also highlighted ongoing DRAM/NAND price increases into Q3 2026. ([techradar.com](https://www.techradar.com/computing/computing-components/amds-ceo-predicts-higher-memory-and-component-costs-later-this-year-so-brace-yourself-for-radeon-gpu-price-hikes?utm_source=openai))\n\nData Center AI still carries execution and competitive risk. While AMD is gaining visibility with MI450/Helios, Nvidia remains the dominant AI accelerator incumbent, and recent third-party commentary continues to describe AMD as a much smaller-share challenger in AI GPUs; that means ROCm maturity, customer qualification, supply, networking and rack-scale execution remain key dependencies. ([siliconanalysts.com](https://siliconanalysts.com/analysis/amd-vs-nvidia-ai-gpu-market-share-2026?utm_source=openai))\n\nGeopolitics remains a material overhang. AMD\u2019s filings discuss export restrictions affecting products such as Instinct MI308 for China and note that future U.S. trade-policy changes could adversely affect the ability to serve China and other markets. ([ir.amd.com](https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-129106/0001193125-26-129106.pdf?utm_source=openai))\n\nProfit mix is improving but not without cost: Q1 non-GAAP operating expenses rose 42% YoY to $3.1B as AMD increased R&D and go-to-market investment for AI, while operating margin declined sequentially from Q4 2025, leaving near-term earnings leverage dependent on sustained data-center scale and successful ramp of new products. ([fortune.com](https://fortune.com/company-assets/714/quartr/earnings-release-8-k-9a9ff-2026-05-05-20-32-15.pdf?utm_source=openai))\n",
+  "primer_meta": {
+    "asset_id": "AMD",
+    "created_at_utc": "2026-07-08T15:02:09+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "0e02fc6e91a2724798d9918d7bd475b4f15651248a53b1e051f36d6425c9324b",
+    "sources": [
+      {
+        "url": "https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html?utm_source=openai",
+        "title": "AMD Reports First Quarter 2026 Financial Results"
+      },
+      {
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/05/06/amd-amd-q1-2026-earnings-call-transcript/?utm_source=openai",
+        "title": "AMD (AMD) Q1 2026 Earnings Call Transcript | The Motley Fool"
+      },
+      {
+        "url": "https://www.tomshardware.com/pc-components/cpus/amd-reaches-46-percent-of-server-x86-cpu-revenue-intel-still-controls-70-percent-of-the-consumer-pc-market-share?utm_source=openai",
+        "title": "AMD reaches 46% of server x86 CPU revenue - Intel still controls 70% of the consumer PC market share"
+      },
+      {
+        "url": "https://www.techradar.com/computing/computing-components/amds-ceo-predicts-higher-memory-and-component-costs-later-this-year-so-brace-yourself-for-radeon-gpu-price-hikes?utm_source=openai",
+        "title": "AMD's CEO predicts 'higher memory and component costs' later this year - so brace yourself for Radeon GPU price hikes"
+      },
+      {
+        "url": "https://siliconanalysts.com/analysis/amd-vs-nvidia-ai-gpu-market-share-2026?utm_source=openai",
+        "title": "AMD vs NVIDIA AI GPU Market Share 2026: MI350X vs B200 \u2014 Performance, Price, TCO Comparison | Silicon Analysts"
+      },
+      {
+        "url": "https://ir.amd.com/financial-information/sec-filings/content/0001193125-26-129106/0001193125-26-129106.pdf?utm_source=openai",
+        "title": "2025 ANNUAL REPORT"
+      },
+      {
+        "url": "https://fortune.com/company-assets/714/quartr/earnings-release-8-k-9a9ff-2026-05-05-20-32-15.pdf?utm_source=openai",
+        "title": "May 5, 2026"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "AMD__earnings_call_transcript__2026-05-05__1__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-05-05",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0b8d70cf7042c1e2016a4e664f4cf081a382e0ca0e65d3345a",
+    "usage": {
+      "input_tokens": 21300,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1305,
+      "output_tokens_details": {
+        "reasoning_tokens": 267
+      },
+      "total_tokens": 22605
+    }
+  },
+  "details": {
+    "asset_id": "AMD",
+    "detail_source_ticker": "AMD",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "ADVANCED MICRO DEVICES INC",
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "market_cap_musd": 841569.3,
+    "ev_musd": 839855.3,
+    "ttm_revenue_musd": 37454.0,
+    "ttm_fcf_musd": 8536.0,
+    "ttm_netinc_musd": 5009.0,
+    "fcf_ev": {
+      "current": 0.010163655572573036,
+      "avg_1y": 0.014382951510672358,
+      "std_1y": 0.0034468864709445244,
+      "avg_3y": 0.01043507666383512,
+      "std_3y": 0.004799466693325871
+    },
+    "ni_mc": {
+      "current": 0.005951975672116366,
+      "avg_1y": 0.009362444532689664,
+      "std_1y": 0.002249065651577089,
+      "avg_3y": 0.006550736064553349,
+      "std_3y": 0.003956527129631122
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-05-06",
+        "ttm_revenue_musd": 37454.0,
+        "ttm_fcf_musd": 8536.0,
+        "ttm_netinc_musd": 5009.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-05-07",
+        "ttm_revenue_musd": 27750.0,
+        "ttm_fcf_musd": 2753.0,
+        "ttm_netinc_musd": 2227.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-05-01",
+        "ttm_revenue_musd": 22800.0,
+        "ttm_fcf_musd": 1172.0,
+        "ttm_netinc_musd": 1116.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 285741.36537949403,
+      "std_musd": 148397.55985438332,
+      "std_pct_of_mean": 0.5193422368416839,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMD",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:51+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 1289,
+        "total_tokens": 4469,
+        "cost": 0.09625,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09625,
+          "upstream_inference_prompt_cost": 0.0318,
+          "upstream_inference_completions_cost": 0.06445
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 186,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (~46% YoY). Server CPU revenue guided +70% YoY with 46% x86 server revenue share.\n- MI450/Helios rack-scale ramp in H2 2026 (incl. Meta engagements up to 6 GW) could open a second growth leg in AI accelerators, expanding TAM meaningfully.\n- FCF is inflecting hard: TTM FCF tripled YoY ($2.75B \u2192 $8.54B) as data-center scale drives operating leverage; record $2.6B quarterly FCF.\n- Net cash balance sheet (market cap ~$1.7B above EV) with rising margins supports premium multiple retention.\n\n## Bear Case\n- Valuation is extreme: current EV/FCF ~98x (FCF/EV yield ~1.0%); any ramp slip compresses the multiple sharply.\n- H2 gaming revenue guided down >20% HoH; memory/component cost inflation pressures consumer segments.\n- Nvidia remains dominant in AI GPUs; ROCm maturity, qualification, supply, and rack-scale execution are unproven at scale.\n- China export restrictions (MI308) and trade-policy risk are a material overhang; opex +42% YoY leaves earnings leverage dependent on sustained top-line delivery.\n- 3y market-cap volatility (~52% std/mean) signals large drawdown potential if AI narrative cools.\n\n## Logic\n- **Forward FCF:** TTM FCF is $8,536M after ~3x YoY growth. With revenue guided ~46% growth near-term, server CPU strength, and MI450/Helios ramping in H2 2026 (offset by gaming decline and rising opex), I model ~58% FCF growth over 12 months \u2192 **forward FCF \u2248 $13,500M**.\n- **Applied multiple:** Current EV/FCF is ~98x. As FCF scales, some multiple compression is warranted while still reflecting hypergrowth and AI optionality \u2192 apply **65x EV/FCF**.\n- **EV:** 13,500 \u00d7 65 = **$877,500M**.\n- **Bridge to market cap:** Packet shows market cap ($841,569M) exceeds EV ($839,855M) by +$1,714M (net cash). Forward market cap = 877,500 + 1,714 \u2248 **$879,214M**, roughly 4\u20135% above the current market cap \u2014 strong fundamentals largely offset by multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 879214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 879214.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 65.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (~46% YoY). Server CPU revenue guided +70% YoY with 46% x86 server revenue share.\n- MI450/Helios rack-scale ramp in H2 2026 (incl. Meta engagements up to 6 GW) could open a second growth leg in AI accelerators, expanding TAM meaningfully.\n- FCF is inflecting hard: TTM FCF tripled YoY ($2.75B \u2192 $8.54B) as data-center scale drives operating leverage; record $2.6B quarterly FCF.\n- Net cash balance sheet (market cap ~$1.7B above EV) with rising margins supports premium multiple retention.\n\n## Bear Case\n- Valuation is extreme: current EV/FCF ~98x (FCF/EV yield ~1.0%); any ramp slip compresses the multiple sharply.\n- H2 gaming revenue guided down >20% HoH; memory/component cost inflation pressures consumer segments.\n- Nvidia remains dominant in AI GPUs; ROCm maturity, qualification, supply, and rack-scale execution are unproven at scale.\n- China export restrictions (MI308) and trade-policy risk are a material overhang; opex +42% YoY leaves earnings leverage dependent on sustained top-line delivery.\n- 3y market-cap volatility (~52% std/mean) signals large drawdown potential if AI narrative cools.\n\n## Logic\n- **Forward FCF:** TTM FCF is $8,536M after ~3x YoY growth. With revenue guided ~46% growth near-term, server CPU strength, and MI450/Helios ramping in H2 2026 (offset by gaming decline and rising opex), I model ~58% FCF growth over 12 months \u2192 **forward FCF \u2248 $13,500M**.\n- **Applied multiple:** Current EV/FCF is ~98x. As FCF scales, some multiple compression is warranted while still reflecting hypergrowth and AI optionality \u2192 apply **65x EV/FCF**.\n- **EV:** 13,500 \u00d7 65 = **$877,500M**.\n- **Bridge to market cap:** Packet shows market cap ($841,569M) exceeds EV ($839,855M) by +$1,714M (net cash). Forward market cap = 877,500 + 1,714 \u2248 **$879,214M**, roughly 4\u20135% above the current market cap \u2014 strong fundamentals largely offset by multiple compression.\n\n```json\n{\"forward_market_cap_musd\": 879214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (~46% YoY). Server CPU revenue guided +70% YoY with 46% x86 server revenue share.\n- MI450/Helios rack-scale ramp in H2 2026 (incl. Meta engagements up to 6 GW) could open a second growth leg in AI accelerators, expanding TAM meaningfully.\n- FCF is inflecting hard: TTM FCF tripled YoY ($2.75B \u2192 $8.54B) as data-center scale drives operating leverage; record $2.6B quarterly FCF.\n- Net cash balance sheet (market cap ~$1.7B above EV) with rising margins supports premium multiple retention.",
+        "Bear Case": "- Valuation is extreme: current EV/FCF ~98x (FCF/EV yield ~1.0%); any ramp slip compresses the multiple sharply.\n- H2 gaming revenue guided down >20% HoH; memory/component cost inflation pressures consumer segments.\n- Nvidia remains dominant in AI GPUs; ROCm maturity, qualification, supply, and rack-scale execution are unproven at scale.\n- China export restrictions (MI308) and trade-policy risk are a material overhang; opex +42% YoY leaves earnings leverage dependent on sustained top-line delivery.\n- 3y market-cap volatility (~52% std/mean) signals large drawdown potential if AI narrative cools.",
+        "Logic": "- **Forward FCF:** TTM FCF is $8,536M after ~3x YoY growth. With revenue guided ~46% growth near-term, server CPU strength, and MI450/Helios ramping in H2 2026 (offset by gaming decline and rising opex), I model ~58% FCF growth over 12 months \u2192 **forward FCF \u2248 $13,500M**.\n- **Applied multiple:** Current EV/FCF is ~98x. As FCF scales, some multiple compression is warranted while still reflecting hypergrowth and AI optionality \u2192 apply **65x EV/FCF**.\n- **EV:** 13,500 \u00d7 65 = **$877,500M**.\n- **Bridge to market cap:** Packet shows market cap ($841,569M) exceeds EV ($839,855M) by +$1,714M (net cash). Forward market cap = 877,500 + 1,714 \u2248 **$879,214M**, roughly 4\u20135% above the current market cap \u2014 strong fundamentals largely offset by multiple compression."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMD",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:52+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 1182,
+        "total_tokens": 4362,
+        "cost": 0.0909,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0909,
+          "upstream_inference_prompt_cost": 0.0318,
+          "upstream_inference_completions_cost": 0.0591
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 129,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (+46% YoY at midpoint).\n- MI450/Helios rack-scale ramp in H2 2026 with hyperscale commitments (e.g., Meta up to 6 GW) could inflect AI GPU revenue.\n- Server CPU TAM raised to >$120B by 2030; AMD at 46% of x86 server CPU revenue share and gaining client share.\n- FCF is compounding rapidly: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests forward FCF of $14B+ is plausible if margins scale, supporting a market cap above $1T at a sustained premium multiple.\n\n## Bear Case\n- Valuation is stretched: ~98x TTM EV/FCF and a market cap ~3x its 3-year mean ($286B) leaves little room for execution slips.\n- H2 2026 headwinds: memory/component cost inflation pressuring PC and gaming; gaming revenue guided down >20% H2 vs H1.\n- Nvidia remains dominant in AI accelerators; ROCm maturity, supply, and rack-scale execution are unproven at scale.\n- Opex +42% YoY compresses near-term leverage; China export restrictions (MI308) are a persistent overhang. Multiple compression to ~45\u201350x on ~$11B FCF would imply a $500\u2013550B market cap.\n\n## Logic\n- Forward FCF: TTM FCF is $8,536M with revenue growing ~40%+ and FCF conversion improving. Assuming ~50% FCF growth over 12 months (below the recent 3x trajectory but consistent with data-center scale and the MI450 ramp, tempered by gaming/PC weakness and rising opex), forward FCF \u2248 $13,000M.\n- Applied multiple: current EV/FCF is ~98x. As growth is partially realized and comps normalize, I apply a compressed but still premium forward EV/FCF of 70x, reflecting AI-cycle leadership with execution/competitive risk.\n- Forward EV = 13,000 \u00d7 70 = $910,000M.\n- EV-to-market-cap bridge: current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 910,000 + 1,714 \u2248 $911,714M.\n\n```json\n{\"forward_market_cap_musd\": 911714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 911714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 13000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 70.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (+46% YoY at midpoint).\n- MI450/Helios rack-scale ramp in H2 2026 with hyperscale commitments (e.g., Meta up to 6 GW) could inflect AI GPU revenue.\n- Server CPU TAM raised to >$120B by 2030; AMD at 46% of x86 server CPU revenue share and gaining client share.\n- FCF is compounding rapidly: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests forward FCF of $14B+ is plausible if margins scale, supporting a market cap above $1T at a sustained premium multiple.\n\n## Bear Case\n- Valuation is stretched: ~98x TTM EV/FCF and a market cap ~3x its 3-year mean ($286B) leaves little room for execution slips.\n- H2 2026 headwinds: memory/component cost inflation pressuring PC and gaming; gaming revenue guided down >20% H2 vs H1.\n- Nvidia remains dominant in AI accelerators; ROCm maturity, supply, and rack-scale execution are unproven at scale.\n- Opex +42% YoY compresses near-term leverage; China export restrictions (MI308) are a persistent overhang. Multiple compression to ~45\u201350x on ~$11B FCF would imply a $500\u2013550B market cap.\n\n## Logic\n- Forward FCF: TTM FCF is $8,536M with revenue growing ~40%+ and FCF conversion improving. Assuming ~50% FCF growth over 12 months (below the recent 3x trajectory but consistent with data-center scale and the MI450 ramp, tempered by gaming/PC weakness and rising opex), forward FCF \u2248 $13,000M.\n- Applied multiple: current EV/FCF is ~98x. As growth is partially realized and comps normalize, I apply a compressed but still premium forward EV/FCF of 70x, reflecting AI-cycle leadership with execution/competitive risk.\n- Forward EV = 13,000 \u00d7 70 = $910,000M.\n- EV-to-market-cap bridge: current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 910,000 + 1,714 \u2248 $911,714M.\n\n```json\n{\"forward_market_cap_musd\": 911714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 13000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, Q2 guide ~$11.2B (+46% YoY at midpoint).\n- MI450/Helios rack-scale ramp in H2 2026 with hyperscale commitments (e.g., Meta up to 6 GW) could inflect AI GPU revenue.\n- Server CPU TAM raised to >$120B by 2030; AMD at 46% of x86 server CPU revenue share and gaining client share.\n- FCF is compounding rapidly: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests forward FCF of $14B+ is plausible if margins scale, supporting a market cap above $1T at a sustained premium multiple.",
+        "Bear Case": "- Valuation is stretched: ~98x TTM EV/FCF and a market cap ~3x its 3-year mean ($286B) leaves little room for execution slips.\n- H2 2026 headwinds: memory/component cost inflation pressuring PC and gaming; gaming revenue guided down >20% H2 vs H1.\n- Nvidia remains dominant in AI accelerators; ROCm maturity, supply, and rack-scale execution are unproven at scale.\n- Opex +42% YoY compresses near-term leverage; China export restrictions (MI308) are a persistent overhang. Multiple compression to ~45\u201350x on ~$11B FCF would imply a $500\u2013550B market cap.",
+        "Logic": "- Forward FCF: TTM FCF is $8,536M with revenue growing ~40%+ and FCF conversion improving. Assuming ~50% FCF growth over 12 months (below the recent 3x trajectory but consistent with data-center scale and the MI450 ramp, tempered by gaming/PC weakness and rising opex), forward FCF \u2248 $13,000M.\n- Applied multiple: current EV/FCF is ~98x. As growth is partially realized and comps normalize, I apply a compressed but still premium forward EV/FCF of 70x, reflecting AI-cycle leadership with execution/competitive risk.\n- Forward EV = 13,000 \u00d7 70 = $910,000M.\n- EV-to-market-cap bridge: current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 910,000 + 1,714 \u2248 $911,714M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMD",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:17:00+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 1383,
+        "total_tokens": 4563,
+        "cost": 0.10095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.10095,
+          "upstream_inference_prompt_cost": 0.0318,
+          "upstream_inference_completions_cost": 0.06915
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 86,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, and Q2 guidance of ~$11.2B (~+46% YoY midpoint).\n- Server CPU TAM raised to >$120B by 2030; server CPU revenue guided +70% YoY in Q2, with 46% x86 server revenue share already captured.\n- MI450/Helios rack-scale ramp in H2 2026 plus multi-gigawatt Instinct engagements (e.g., Meta up to 6 GW) could open a second major FCF engine.\n- FCF trajectory is steep: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests continued strong conversion as data center mix scales. A bull could see forward FCF of $14\u201315B and a sustained ~80x multiple, implying EV well above $1.1T.\n\n## Bear Case\n- Valuation is stretched: current EV/FCF \u2248 98x (FCF/EV yield ~1.0%), leaving little room for execution slippage; multiple compression alone could erase FCF growth.\n- Consumer headwinds: memory/component inflation pressures H2 PC and gaming demand; gaming revenue guided down >20% H2 vs. H1.\n- Nvidia remains the dominant AI accelerator; AMD is still a small-share challenger dependent on ROCm maturity, qualification, and rack-scale execution.\n- Export controls (MI308/China) and trade policy are material overhangs; opex +42% YoY compresses near-term operating leverage. A bear could see FCF at ~$10.5B and a 55x multiple, implying EV near $580B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $8,536M. Revenue guidance implies ~40\u201346% growth, but opex growth (+42%) and gaming/PC softness temper FCF conversion. I apply ~+46% FCF growth \u2192 **forward FCF \u2248 $12,500M**.\n- **Applied multiple:** Current EV/FCF \u2248 98x. As FCF scales rapidly, forward valuations typically compress; hypergrowth AI semis peers trade ~60\u201380x forward FCF. I apply a **70x EV/FCF** multiple, splitting the bull/bear range and reflecting sustained growth with moderate de-rating.\n- **EV:** 12,500 \u00d7 70 = **$875,000M**.\n- **EV-to-market-cap bridge:** Current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 875,000 + 1,714 \u2248 **$876,714M**.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 876714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 70.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, and Q2 guidance of ~$11.2B (~+46% YoY midpoint).\n- Server CPU TAM raised to >$120B by 2030; server CPU revenue guided +70% YoY in Q2, with 46% x86 server revenue share already captured.\n- MI450/Helios rack-scale ramp in H2 2026 plus multi-gigawatt Instinct engagements (e.g., Meta up to 6 GW) could open a second major FCF engine.\n- FCF trajectory is steep: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests continued strong conversion as data center mix scales. A bull could see forward FCF of $14\u201315B and a sustained ~80x multiple, implying EV well above $1.1T.\n\n## Bear Case\n- Valuation is stretched: current EV/FCF \u2248 98x (FCF/EV yield ~1.0%), leaving little room for execution slippage; multiple compression alone could erase FCF growth.\n- Consumer headwinds: memory/component inflation pressures H2 PC and gaming demand; gaming revenue guided down >20% H2 vs. H1.\n- Nvidia remains the dominant AI accelerator; AMD is still a small-share challenger dependent on ROCm maturity, qualification, and rack-scale execution.\n- Export controls (MI308/China) and trade policy are material overhangs; opex +42% YoY compresses near-term operating leverage. A bear could see FCF at ~$10.5B and a 55x multiple, implying EV near $580B.\n\n## Logic\n- **Forward FCF:** TTM FCF is $8,536M. Revenue guidance implies ~40\u201346% growth, but opex growth (+42%) and gaming/PC softness temper FCF conversion. I apply ~+46% FCF growth \u2192 **forward FCF \u2248 $12,500M**.\n- **Applied multiple:** Current EV/FCF \u2248 98x. As FCF scales rapidly, forward valuations typically compress; hypergrowth AI semis peers trade ~60\u201380x forward FCF. I apply a **70x EV/FCF** multiple, splitting the bull/bear range and reflecting sustained growth with moderate de-rating.\n- **EV:** 12,500 \u00d7 70 = **$875,000M**.\n- **EV-to-market-cap bridge:** Current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 875,000 + 1,714 \u2248 **$876,714M**.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Data Center momentum is exceptional: Q1 2026 revenue +38% YoY to $10.3B, Data Center +57%, and Q2 guidance of ~$11.2B (~+46% YoY midpoint).\n- Server CPU TAM raised to >$120B by 2030; server CPU revenue guided +70% YoY in Q2, with 46% x86 server revenue share already captured.\n- MI450/Helios rack-scale ramp in H2 2026 plus multi-gigawatt Instinct engagements (e.g., Meta up to 6 GW) could open a second major FCF engine.\n- FCF trajectory is steep: $1.2B \u2192 $2.8B \u2192 $8.5B TTM over three years; record $2.6B quarterly FCF suggests continued strong conversion as data center mix scales. A bull could see forward FCF of $14\u201315B and a sustained ~80x multiple, implying EV well above $1.1T.",
+        "Bear Case": "- Valuation is stretched: current EV/FCF \u2248 98x (FCF/EV yield ~1.0%), leaving little room for execution slippage; multiple compression alone could erase FCF growth.\n- Consumer headwinds: memory/component inflation pressures H2 PC and gaming demand; gaming revenue guided down >20% H2 vs. H1.\n- Nvidia remains the dominant AI accelerator; AMD is still a small-share challenger dependent on ROCm maturity, qualification, and rack-scale execution.\n- Export controls (MI308/China) and trade policy are material overhangs; opex +42% YoY compresses near-term operating leverage. A bear could see FCF at ~$10.5B and a 55x multiple, implying EV near $580B.",
+        "Logic": "- **Forward FCF:** TTM FCF is $8,536M. Revenue guidance implies ~40\u201346% growth, but opex growth (+42%) and gaming/PC softness temper FCF conversion. I apply ~+46% FCF growth \u2192 **forward FCF \u2248 $12,500M**.\n- **Applied multiple:** Current EV/FCF \u2248 98x. As FCF scales rapidly, forward valuations typically compress; hypergrowth AI semis peers trade ~60\u201380x forward FCF. I apply a **70x EV/FCF** multiple, splitting the bull/bear range and reflecting sustained growth with moderate de-rating.\n- **EV:** 12,500 \u00d7 70 = **$875,000M**.\n- **EV-to-market-cap bridge:** Current market cap ($841,569M) exceeds EV ($839,855M) by $1,714M (net cash). Forward market cap = 875,000 + 1,714 \u2248 **$876,714M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMD",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:34+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 682,
+        "total_tokens": 3862,
+        "cost": 0.03295,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03295,
+          "upstream_inference_prompt_cost": 0.0159,
+          "upstream_inference_completions_cost": 0.01705
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD's Data Center momentum (Q1 revenue +38% YoY, DC +57%) plus MI450/Helios ramp in H2 2026 and EPYC share gains (46% server revenue share) support strong FCF growth. TTM FCF tripled from $2.75B to $8.54B over one year. If FCF scales ~40% to ~$12B and the market sustains a premium multiple (~90x), EV expands materially, pushing forward market cap well above $1T.\n\n## Bear Case\nMemory/component inflation pressures H2 PC and gaming (gaming revenue down >20% H1-to-H2), Nvidia's AI dominance limits accelerator share, and China export restrictions cap TAM. OpEx rose 42% YoY, compressing margins. If FCF growth stalls near $9-10B and the elevated FCF/EV multiple compresses toward the 3-year norm (~100x\u219270x), forward market cap could contract sharply given the ~52% historical MC volatility.\n\n## Logic\n- TTM FCF = $8,536M; growth trajectory strong (3.1x YoY). Apply moderate forward growth of ~30% given DC ramp offset by consumer softness \u2192 forward FCF \u2248 $11,100M.\n- Current EV/FCF = 1/0.01016 \u2248 98.4x. This is elevated; blend current with a slight compression toward normalization \u2192 applied multiple \u2248 85x.\n- Forward EV = 11,100 \u00d7 85 \u2248 $943,500M.\n- EV-to-MC bridge: current MC ($841,569M) \u2212 current EV ($839,855M) = +$1,714M (net cash/adjustment). Add to forward EV.\n- Forward market cap \u2248 943,500 + 1,714 \u2248 $945,214M.\n\n```json\n{\"forward_market_cap_musd\": 945214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11100.0, \"forward_netinc_musd\": 7000.0, \"applied_multiple\": 85.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 945214.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11100.0,
+        "forward_netinc_musd": 7000.0,
+        "applied_multiple": 85.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD's Data Center momentum (Q1 revenue +38% YoY, DC +57%) plus MI450/Helios ramp in H2 2026 and EPYC share gains (46% server revenue share) support strong FCF growth. TTM FCF tripled from $2.75B to $8.54B over one year. If FCF scales ~40% to ~$12B and the market sustains a premium multiple (~90x), EV expands materially, pushing forward market cap well above $1T.\n\n## Bear Case\nMemory/component inflation pressures H2 PC and gaming (gaming revenue down >20% H1-to-H2), Nvidia's AI dominance limits accelerator share, and China export restrictions cap TAM. OpEx rose 42% YoY, compressing margins. If FCF growth stalls near $9-10B and the elevated FCF/EV multiple compresses toward the 3-year norm (~100x\u219270x), forward market cap could contract sharply given the ~52% historical MC volatility.\n\n## Logic\n- TTM FCF = $8,536M; growth trajectory strong (3.1x YoY). Apply moderate forward growth of ~30% given DC ramp offset by consumer softness \u2192 forward FCF \u2248 $11,100M.\n- Current EV/FCF = 1/0.01016 \u2248 98.4x. This is elevated; blend current with a slight compression toward normalization \u2192 applied multiple \u2248 85x.\n- Forward EV = 11,100 \u00d7 85 \u2248 $943,500M.\n- EV-to-MC bridge: current MC ($841,569M) \u2212 current EV ($839,855M) = +$1,714M (net cash/adjustment). Add to forward EV.\n- Forward market cap \u2248 943,500 + 1,714 \u2248 $945,214M.\n\n```json\n{\"forward_market_cap_musd\": 945214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11100.0, \"forward_netinc_musd\": 7000.0, \"applied_multiple\": 85.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD's Data Center momentum (Q1 revenue +38% YoY, DC +57%) plus MI450/Helios ramp in H2 2026 and EPYC share gains (46% server revenue share) support strong FCF growth. TTM FCF tripled from $2.75B to $8.54B over one year. If FCF scales ~40% to ~$12B and the market sustains a premium multiple (~90x), EV expands materially, pushing forward market cap well above $1T.",
+        "Bear Case": "Memory/component inflation pressures H2 PC and gaming (gaming revenue down >20% H1-to-H2), Nvidia's AI dominance limits accelerator share, and China export restrictions cap TAM. OpEx rose 42% YoY, compressing margins. If FCF growth stalls near $9-10B and the elevated FCF/EV multiple compresses toward the 3-year norm (~100x\u219270x), forward market cap could contract sharply given the ~52% historical MC volatility.",
+        "Logic": "- TTM FCF = $8,536M; growth trajectory strong (3.1x YoY). Apply moderate forward growth of ~30% given DC ramp offset by consumer softness \u2192 forward FCF \u2248 $11,100M.\n- Current EV/FCF = 1/0.01016 \u2248 98.4x. This is elevated; blend current with a slight compression toward normalization \u2192 applied multiple \u2248 85x.\n- Forward EV = 11,100 \u00d7 85 \u2248 $943,500M.\n- EV-to-MC bridge: current MC ($841,569M) \u2212 current EV ($839,855M) = +$1,714M (net cash/adjustment). Add to forward EV.\n- Forward market cap \u2248 943,500 + 1,714 \u2248 $945,214M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMD",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:39+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 718,
+        "total_tokens": 3898,
+        "cost": 0.03385,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03385,
+          "upstream_inference_prompt_cost": 0.0159,
+          "upstream_inference_completions_cost": 0.01795
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD's data-center AI ramp (MI450/Helios in H2 2026, EPYC share gains to 46% of server CPU revenue) sustains ~35-40% revenue growth. TTM FCF grew from $2.75B to $8.54B YoY (+210%); even normalizing, forward FCF could reach ~$12B as AI accelerator volume scales and FCF margins expand. Premium multiple (~90x) holds given hypergrowth and record $2.6B quarterly FCF.\n\n## Bear Case\nComponent/DRAM inflation cuts H2 PC/gaming (gaming down >20% H/H), China export restrictions (MI308) cap TAM, and opex rose 42% YoY compressing margins. Nvidia dominance limits AI GPU share. FCF growth decelerates sharply toward ~$9-10B, and the rich multiple compresses toward historical norms (~70-80x), pressuring market cap.\n\n## Logic\n- TTM FCF = $8,536M. Growth is decelerating from the extraordinary +210% YoY. I apply a moderated forward growth of ~25% (blending AI/data-center strength against consumer softness and rising opex), giving forward FCF \u2248 $10,670M.\n- Current EV/FCF = 839,855 / 8,536 \u2248 98x. This is elevated. I apply a modestly compressed forward multiple of ~85x, reflecting continued growth premium but some multiple normalization as FCF scales.\n- Forward EV = 85 \u00d7 10,670 \u2248 $907,000M.\n- EV-to-market-cap gap: current MC (841,569) \u2212 current EV (839,855) = +1,714 (net cash position). Forward MC = forward EV + 1,714 \u2248 $908,700M.\n- Forward net income scaled with FCF (~25% growth): 5,009 \u00d7 1.25 \u2248 $6,261M.\n\n```json\n{\"forward_market_cap_musd\": 908714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 10670.0, \"forward_netinc_musd\": 6261.0, \"applied_multiple\": 85.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 908714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 10670.0,
+        "forward_netinc_musd": 6261.0,
+        "applied_multiple": 85.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD's data-center AI ramp (MI450/Helios in H2 2026, EPYC share gains to 46% of server CPU revenue) sustains ~35-40% revenue growth. TTM FCF grew from $2.75B to $8.54B YoY (+210%); even normalizing, forward FCF could reach ~$12B as AI accelerator volume scales and FCF margins expand. Premium multiple (~90x) holds given hypergrowth and record $2.6B quarterly FCF.\n\n## Bear Case\nComponent/DRAM inflation cuts H2 PC/gaming (gaming down >20% H/H), China export restrictions (MI308) cap TAM, and opex rose 42% YoY compressing margins. Nvidia dominance limits AI GPU share. FCF growth decelerates sharply toward ~$9-10B, and the rich multiple compresses toward historical norms (~70-80x), pressuring market cap.\n\n## Logic\n- TTM FCF = $8,536M. Growth is decelerating from the extraordinary +210% YoY. I apply a moderated forward growth of ~25% (blending AI/data-center strength against consumer softness and rising opex), giving forward FCF \u2248 $10,670M.\n- Current EV/FCF = 839,855 / 8,536 \u2248 98x. This is elevated. I apply a modestly compressed forward multiple of ~85x, reflecting continued growth premium but some multiple normalization as FCF scales.\n- Forward EV = 85 \u00d7 10,670 \u2248 $907,000M.\n- EV-to-market-cap gap: current MC (841,569) \u2212 current EV (839,855) = +1,714 (net cash position). Forward MC = forward EV + 1,714 \u2248 $908,700M.\n- Forward net income scaled with FCF (~25% growth): 5,009 \u00d7 1.25 \u2248 $6,261M.\n\n```json\n{\"forward_market_cap_musd\": 908714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 10670.0, \"forward_netinc_musd\": 6261.0, \"applied_multiple\": 85.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD's data-center AI ramp (MI450/Helios in H2 2026, EPYC share gains to 46% of server CPU revenue) sustains ~35-40% revenue growth. TTM FCF grew from $2.75B to $8.54B YoY (+210%); even normalizing, forward FCF could reach ~$12B as AI accelerator volume scales and FCF margins expand. Premium multiple (~90x) holds given hypergrowth and record $2.6B quarterly FCF.",
+        "Bear Case": "Component/DRAM inflation cuts H2 PC/gaming (gaming down >20% H/H), China export restrictions (MI308) cap TAM, and opex rose 42% YoY compressing margins. Nvidia dominance limits AI GPU share. FCF growth decelerates sharply toward ~$9-10B, and the rich multiple compresses toward historical norms (~70-80x), pressuring market cap.",
+        "Logic": "- TTM FCF = $8,536M. Growth is decelerating from the extraordinary +210% YoY. I apply a moderated forward growth of ~25% (blending AI/data-center strength against consumer softness and rising opex), giving forward FCF \u2248 $10,670M.\n- Current EV/FCF = 839,855 / 8,536 \u2248 98x. This is elevated. I apply a modestly compressed forward multiple of ~85x, reflecting continued growth premium but some multiple normalization as FCF scales.\n- Forward EV = 85 \u00d7 10,670 \u2248 $907,000M.\n- EV-to-market-cap gap: current MC (841,569) \u2212 current EV (839,855) = +1,714 (net cash position). Forward MC = forward EV + 1,714 \u2248 $908,700M.\n- Forward net income scaled with FCF (~25% growth): 5,009 \u00d7 1.25 \u2248 $6,261M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMD",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:40+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 3180,
+        "completion_tokens": 821,
+        "total_tokens": 4001,
+        "cost": 0.036425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.036425,
+          "upstream_inference_prompt_cost": 0.0159,
+          "upstream_inference_completions_cost": 0.020525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD's Data Center segment is compounding rapidly (Q1 2026 DC revenue +57% YoY), with MI450/Helios ramping in H2 2026 and Meta-scale deployments providing multi-year visibility. TTM FCF nearly tripled YoY (from $2.75B to $8.54B). If FCF grows another ~40% to ~$12B on continued AI accelerator and EPYC share gains, and the market keeps assigning a premium AI-growth multiple (~85x FCF), EV could push well above $1T.\n\n## Bear Case\nConsumer/gaming faces >20% H2 revenue decline from memory/component inflation; opex rose 42% YoY compressing margins. Nvidia remains dominant in AI GPUs, and China export restrictions cap TAM. If FCF growth decelerates sharply (execution/qualification risk) and the multiple compresses toward the historical ~70\u201375x range as growth normalizes, EV/market cap could fall meaningfully below current levels.\n\n## Logic\n- Current TTM FCF = $8,536M; current FCF/EV yield = 1.02% (implied EV/FCF \u2248 98.4x). 1y avg yield 1.44% (~69x), 3y avg 1.04% (~96x).\n- Forward FCF: TTM FCF grew ~210% YoY (2025\u21922026) driven by DC ramp, but that base effect moderates. Apply a more sustainable ~40% forward growth given AI accelerator ramp offset by gaming decline and opex pressure: 8,536 \u00d7 1.40 \u2248 $11,950M.\n- Applied multiple: blend current elevated (~98x) toward 1y-avg (~69x) as growth normalizes \u2192 ~75x EV/FCF.\n- Forward EV = 11,950 \u00d7 75 \u2248 $896,250M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 841,569.3 \u2212 839,855.3 = +1,714M (net cash position). Forward MC = 896,250 + 1,714 \u2248 $897,964M.\n- Forward net income: applying similar ~40% growth to TTM net income (5,009) \u2248 $7,013M (informational).\n\n```json\n{\"forward_market_cap_musd\": 897964.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11950.0, \"forward_netinc_musd\": 7013.0, \"applied_multiple\": 75.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 897964.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11950.0,
+        "forward_netinc_musd": 7013.0,
+        "applied_multiple": 75.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD's Data Center segment is compounding rapidly (Q1 2026 DC revenue +57% YoY), with MI450/Helios ramping in H2 2026 and Meta-scale deployments providing multi-year visibility. TTM FCF nearly tripled YoY (from $2.75B to $8.54B). If FCF grows another ~40% to ~$12B on continued AI accelerator and EPYC share gains, and the market keeps assigning a premium AI-growth multiple (~85x FCF), EV could push well above $1T.\n\n## Bear Case\nConsumer/gaming faces >20% H2 revenue decline from memory/component inflation; opex rose 42% YoY compressing margins. Nvidia remains dominant in AI GPUs, and China export restrictions cap TAM. If FCF growth decelerates sharply (execution/qualification risk) and the multiple compresses toward the historical ~70\u201375x range as growth normalizes, EV/market cap could fall meaningfully below current levels.\n\n## Logic\n- Current TTM FCF = $8,536M; current FCF/EV yield = 1.02% (implied EV/FCF \u2248 98.4x). 1y avg yield 1.44% (~69x), 3y avg 1.04% (~96x).\n- Forward FCF: TTM FCF grew ~210% YoY (2025\u21922026) driven by DC ramp, but that base effect moderates. Apply a more sustainable ~40% forward growth given AI accelerator ramp offset by gaming decline and opex pressure: 8,536 \u00d7 1.40 \u2248 $11,950M.\n- Applied multiple: blend current elevated (~98x) toward 1y-avg (~69x) as growth normalizes \u2192 ~75x EV/FCF.\n- Forward EV = 11,950 \u00d7 75 \u2248 $896,250M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 841,569.3 \u2212 839,855.3 = +1,714M (net cash position). Forward MC = 896,250 + 1,714 \u2248 $897,964M.\n- Forward net income: applying similar ~40% growth to TTM net income (5,009) \u2248 $7,013M (informational).\n\n```json\n{\"forward_market_cap_musd\": 897964.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11950.0, \"forward_netinc_musd\": 7013.0, \"applied_multiple\": 75.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD's Data Center segment is compounding rapidly (Q1 2026 DC revenue +57% YoY), with MI450/Helios ramping in H2 2026 and Meta-scale deployments providing multi-year visibility. TTM FCF nearly tripled YoY (from $2.75B to $8.54B). If FCF grows another ~40% to ~$12B on continued AI accelerator and EPYC share gains, and the market keeps assigning a premium AI-growth multiple (~85x FCF), EV could push well above $1T.",
+        "Bear Case": "Consumer/gaming faces >20% H2 revenue decline from memory/component inflation; opex rose 42% YoY compressing margins. Nvidia remains dominant in AI GPUs, and China export restrictions cap TAM. If FCF growth decelerates sharply (execution/qualification risk) and the multiple compresses toward the historical ~70\u201375x range as growth normalizes, EV/market cap could fall meaningfully below current levels.",
+        "Logic": "- Current TTM FCF = $8,536M; current FCF/EV yield = 1.02% (implied EV/FCF \u2248 98.4x). 1y avg yield 1.44% (~69x), 3y avg 1.04% (~96x).\n- Forward FCF: TTM FCF grew ~210% YoY (2025\u21922026) driven by DC ramp, but that base effect moderates. Apply a more sustainable ~40% forward growth given AI accelerator ramp offset by gaming decline and opex pressure: 8,536 \u00d7 1.40 \u2248 $11,950M.\n- Applied multiple: blend current elevated (~98x) toward 1y-avg (~69x) as growth normalizes \u2192 ~75x EV/FCF.\n- Forward EV = 11,950 \u00d7 75 \u2248 $896,250M.\n- EV\u2192MC bridge: current gap = market_cap \u2212 EV = 841,569.3 \u2212 839,855.3 = +1,714M (net cash position). Forward MC = 896,250 + 1,714 \u2248 $897,964M.\n- Forward net income: applying similar ~40% growth to TTM net income (5,009) \u2248 $7,013M (informational)."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMD",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:27+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2064,
+        "completion_tokens": 1543,
+        "total_tokens": 3607,
+        "cost": 0.05661,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05661,
+          "upstream_inference_prompt_cost": 0.01032,
+          "upstream_inference_completions_cost": 0.04629
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1032,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD converts AI/data-center momentum into sustained FCF acceleration. If forward FCF reaches roughly **$13,500M** and the market sustains an elevated **85x EV/FCF** multiple, forward EV would be **$1,147,500M**. Using the current EV less market-cap gap of **-$1,714M**, forward market cap would be about **$1,149,214M**.\n\n## Bear Case\nAI accelerator share gains disappoint, gaming/client pressure weighs on mix, and elevated R&D/go-to-market spend limits operating leverage. If forward FCF is closer to **$10,000M** and the multiple compresses to **55x EV/FCF**, forward EV would be **$550,000M**, implying market cap of about **$551,714M** after the same bridge.\n\n## Logic\nTTM FCF is **$8,536M**. Given Q1 2026 revenue growth of **38% YoY**, Q2 guidance implying about **46% YoY** growth, record Q1 FCF of **$2,600M**, and strong Data Center/server CPU momentum, I estimate 12-month forward FCF at **$12,000M**, or about **41% growth** versus TTM FCF.\n\nCurrent EV/FCF is about **98x** based on EV of **$839,855M** and TTM FCF of **$8,536M**. I apply a lower but still growth-stock multiple of **75x EV/FCF**, reflecting strong AI/data-center growth offset by Nvidia competition, export-control risk, gaming weakness, and rising operating investment.\n\nValuation bridge:\n- Forward FCF: **$12,000M**\n- Applied EV/FCF multiple: **75.0x**\n- Forward EV: **$900,000M**\n- Current EV minus market cap: **$839,855.3M - $841,569.3M = -$1,714.0M**\n- Forward market cap: **$900,000M - (-$1,714M) = $901,714M**\n\n```json\n{\"forward_market_cap_musd\": 901714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 901714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 75.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD converts AI/data-center momentum into sustained FCF acceleration. If forward FCF reaches roughly **$13,500M** and the market sustains an elevated **85x EV/FCF** multiple, forward EV would be **$1,147,500M**. Using the current EV less market-cap gap of **-$1,714M**, forward market cap would be about **$1,149,214M**.\n\n## Bear Case\nAI accelerator share gains disappoint, gaming/client pressure weighs on mix, and elevated R&D/go-to-market spend limits operating leverage. If forward FCF is closer to **$10,000M** and the multiple compresses to **55x EV/FCF**, forward EV would be **$550,000M**, implying market cap of about **$551,714M** after the same bridge.\n\n## Logic\nTTM FCF is **$8,536M**. Given Q1 2026 revenue growth of **38% YoY**, Q2 guidance implying about **46% YoY** growth, record Q1 FCF of **$2,600M**, and strong Data Center/server CPU momentum, I estimate 12-month forward FCF at **$12,000M**, or about **41% growth** versus TTM FCF.\n\nCurrent EV/FCF is about **98x** based on EV of **$839,855M** and TTM FCF of **$8,536M**. I apply a lower but still growth-stock multiple of **75x EV/FCF**, reflecting strong AI/data-center growth offset by Nvidia competition, export-control risk, gaming weakness, and rising operating investment.\n\nValuation bridge:\n- Forward FCF: **$12,000M**\n- Applied EV/FCF multiple: **75.0x**\n- Forward EV: **$900,000M**\n- Current EV minus market cap: **$839,855.3M - $841,569.3M = -$1,714.0M**\n- Forward market cap: **$900,000M - (-$1,714M) = $901,714M**\n\n```json\n{\"forward_market_cap_musd\": 901714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD converts AI/data-center momentum into sustained FCF acceleration. If forward FCF reaches roughly **$13,500M** and the market sustains an elevated **85x EV/FCF** multiple, forward EV would be **$1,147,500M**. Using the current EV less market-cap gap of **-$1,714M**, forward market cap would be about **$1,149,214M**.",
+        "Bear Case": "AI accelerator share gains disappoint, gaming/client pressure weighs on mix, and elevated R&D/go-to-market spend limits operating leverage. If forward FCF is closer to **$10,000M** and the multiple compresses to **55x EV/FCF**, forward EV would be **$550,000M**, implying market cap of about **$551,714M** after the same bridge.",
+        "Logic": "TTM FCF is **$8,536M**. Given Q1 2026 revenue growth of **38% YoY**, Q2 guidance implying about **46% YoY** growth, record Q1 FCF of **$2,600M**, and strong Data Center/server CPU momentum, I estimate 12-month forward FCF at **$12,000M**, or about **41% growth** versus TTM FCF.\n\nCurrent EV/FCF is about **98x** based on EV of **$839,855M** and TTM FCF of **$8,536M**. I apply a lower but still growth-stock multiple of **75x EV/FCF**, reflecting strong AI/data-center growth offset by Nvidia competition, export-control risk, gaming weakness, and rising operating investment.\n\nValuation bridge:\n- Forward FCF: **$12,000M**\n- Applied EV/FCF multiple: **75.0x**\n- Forward EV: **$900,000M**\n- Current EV minus market cap: **$839,855.3M - $841,569.3M = -$1,714.0M**\n- Forward market cap: **$900,000M - (-$1,714M) = $901,714M**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMD",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:16:28+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2064,
+        "completion_tokens": 1534,
+        "total_tokens": 3598,
+        "cost": 0.048276,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.048276,
+          "upstream_inference_prompt_cost": 0.002256,
+          "upstream_inference_completions_cost": 0.04602
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1034,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD sustains Data Center momentum, server CPU share gains, and begins converting MI450/Helios demand into higher-scale AI revenue. Forward FCF could reach ~$14,000\u2013$15,000 million, and the market could continue valuing AMD near a premium AI-growth multiple of ~75\u201380x EV/FCF, implying a forward market cap above $1,050,000 million.\n\n## Bear Case\nAI accelerator share gains are slower, Nvidia competition remains intense, China/export limits persist, and PC/gaming weakness plus higher component costs pressure margins. Forward FCF could be closer to ~$10,000\u2013$11,000 million, with the multiple compressing toward ~55\u201360x EV/FCF, implying a forward market cap around $550,000\u2013$660,000 million.\n\n## Logic\nTTM FCF is $8,536 million. Q1 2026 FCF was a record $2,600 million, or a ~$10,400 million annualized run-rate, before the guided Q2 revenue step-up to ~$11,200 million and continued Data Center growth. I estimate 12-month forward FCF at $12,500 million, reflecting revenue growth, improving Data Center mix, but also elevated AI R&D/go-to-market spend and some PC/gaming pressure.\n\nThe current EV/FCF multiple is about 98x based on $839,855.3 million EV and $8,536 million TTM FCF. I apply a lower but still premium 70.0x forward EV/FCF multiple, broadly consistent with AMD\u2019s high-growth AI/server optionality while allowing for execution and competitive risk.\n\nForward EV = $12,500 million \u00d7 70.0 = $875,000 million.\n\nCurrent EV minus market cap gap = $839,855.3 million \u2212 $841,569.3 million = -$1,714.0 million. Holding that bridge constant:\n\nForward market cap = Forward EV \u2212 Current EV-minus-market-cap gap  \n= $875,000 million \u2212 (-$1,714 million)  \n= $876,714 million.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 876714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 70.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD sustains Data Center momentum, server CPU share gains, and begins converting MI450/Helios demand into higher-scale AI revenue. Forward FCF could reach ~$14,000\u2013$15,000 million, and the market could continue valuing AMD near a premium AI-growth multiple of ~75\u201380x EV/FCF, implying a forward market cap above $1,050,000 million.\n\n## Bear Case\nAI accelerator share gains are slower, Nvidia competition remains intense, China/export limits persist, and PC/gaming weakness plus higher component costs pressure margins. Forward FCF could be closer to ~$10,000\u2013$11,000 million, with the multiple compressing toward ~55\u201360x EV/FCF, implying a forward market cap around $550,000\u2013$660,000 million.\n\n## Logic\nTTM FCF is $8,536 million. Q1 2026 FCF was a record $2,600 million, or a ~$10,400 million annualized run-rate, before the guided Q2 revenue step-up to ~$11,200 million and continued Data Center growth. I estimate 12-month forward FCF at $12,500 million, reflecting revenue growth, improving Data Center mix, but also elevated AI R&D/go-to-market spend and some PC/gaming pressure.\n\nThe current EV/FCF multiple is about 98x based on $839,855.3 million EV and $8,536 million TTM FCF. I apply a lower but still premium 70.0x forward EV/FCF multiple, broadly consistent with AMD\u2019s high-growth AI/server optionality while allowing for execution and competitive risk.\n\nForward EV = $12,500 million \u00d7 70.0 = $875,000 million.\n\nCurrent EV minus market cap gap = $839,855.3 million \u2212 $841,569.3 million = -$1,714.0 million. Holding that bridge constant:\n\nForward market cap = Forward EV \u2212 Current EV-minus-market-cap gap  \n= $875,000 million \u2212 (-$1,714 million)  \n= $876,714 million.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD sustains Data Center momentum, server CPU share gains, and begins converting MI450/Helios demand into higher-scale AI revenue. Forward FCF could reach ~$14,000\u2013$15,000 million, and the market could continue valuing AMD near a premium AI-growth multiple of ~75\u201380x EV/FCF, implying a forward market cap above $1,050,000 million.",
+        "Bear Case": "AI accelerator share gains are slower, Nvidia competition remains intense, China/export limits persist, and PC/gaming weakness plus higher component costs pressure margins. Forward FCF could be closer to ~$10,000\u2013$11,000 million, with the multiple compressing toward ~55\u201360x EV/FCF, implying a forward market cap around $550,000\u2013$660,000 million.",
+        "Logic": "TTM FCF is $8,536 million. Q1 2026 FCF was a record $2,600 million, or a ~$10,400 million annualized run-rate, before the guided Q2 revenue step-up to ~$11,200 million and continued Data Center growth. I estimate 12-month forward FCF at $12,500 million, reflecting revenue growth, improving Data Center mix, but also elevated AI R&D/go-to-market spend and some PC/gaming pressure.\n\nThe current EV/FCF multiple is about 98x based on $839,855.3 million EV and $8,536 million TTM FCF. I apply a lower but still premium 70.0x forward EV/FCF multiple, broadly consistent with AMD\u2019s high-growth AI/server optionality while allowing for execution and competitive risk.\n\nForward EV = $12,500 million \u00d7 70.0 = $875,000 million.\n\nCurrent EV minus market cap gap = $839,855.3 million \u2212 $841,569.3 million = -$1,714.0 million. Holding that bridge constant:\n\nForward market cap = Forward EV \u2212 Current EV-minus-market-cap gap  \n= $875,000 million \u2212 (-$1,714 million)  \n= $876,714 million."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMD",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:17:01+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2064,
+        "completion_tokens": 1830,
+        "total_tokens": 3894,
+        "cost": 0.06522,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.06522,
+          "upstream_inference_prompt_cost": 0.01032,
+          "upstream_inference_completions_cost": 0.0549
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1260,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- Data Center momentum persists, EPYC share gains and MI450/Helios ramps validate AMD as a larger AI infrastructure supplier.\n- Forward FCF could reach ~$14.5B\u2013$15.0B if revenue growth remains near recent Q1/Q2 levels and FCF margins expand with scale.\n- A bull EV/FCF multiple of ~80x\u201385x would imply an EV of roughly $1.16T\u2013$1.28T, or market cap slightly higher after the current EV-to-market-cap bridge.\n\n## Bear Case\n- AI accelerator execution lags Nvidia, ROCm/rack-scale adoption is slower, export controls pressure China-related demand, and PC/gaming weakness weighs on mix.\n- Forward FCF could be closer to ~$9.5B\u2013$10.5B.\n- A bear EV/FCF multiple of ~50x\u201355x would imply an EV of roughly $475B\u2013$578B, before adding the current market-cap premium to EV.\n\n## Logic\n- Current TTM FCF: $8,536M.\n- Q1 2026 FCF was $2,600M, already a ~$10,400M annualized run-rate.\n- Given Q1 revenue growth of 38%, Q2 guide implying ~46% YoY growth, and Data Center strength, I estimate 12-month forward FCF at **$12,500M**.\n- Current EV/FCF multiple is about **98.4x** based on EV of $839,855M and TTM FCF of $8,536M.\n- The 1-year average FCF yield of 1.44% implies a normalized EV/FCF multiple of about **69.5x**.\n- I apply a rounded **70.0x EV/FCF** multiple: high enough for strong AI/data-center growth, but below the current spot multiple to reflect execution, competition, export-control and consumer-cycle risks.\n- Forward EV = $12,500M \u00d7 70.0 = **$875,000M**.\n- Current EV minus market-cap gap = $839,855.3M \u2212 $841,569.3M = **-$1,714.0M**.\n- Bridge to market cap: forward market cap = forward EV \u2212 current EV/market-cap gap = $875,000M \u2212 (-$1,714M) = **$876,714M**.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 876714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 12500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 70.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- Data Center momentum persists, EPYC share gains and MI450/Helios ramps validate AMD as a larger AI infrastructure supplier.\n- Forward FCF could reach ~$14.5B\u2013$15.0B if revenue growth remains near recent Q1/Q2 levels and FCF margins expand with scale.\n- A bull EV/FCF multiple of ~80x\u201385x would imply an EV of roughly $1.16T\u2013$1.28T, or market cap slightly higher after the current EV-to-market-cap bridge.\n\n## Bear Case\n- AI accelerator execution lags Nvidia, ROCm/rack-scale adoption is slower, export controls pressure China-related demand, and PC/gaming weakness weighs on mix.\n- Forward FCF could be closer to ~$9.5B\u2013$10.5B.\n- A bear EV/FCF multiple of ~50x\u201355x would imply an EV of roughly $475B\u2013$578B, before adding the current market-cap premium to EV.\n\n## Logic\n- Current TTM FCF: $8,536M.\n- Q1 2026 FCF was $2,600M, already a ~$10,400M annualized run-rate.\n- Given Q1 revenue growth of 38%, Q2 guide implying ~46% YoY growth, and Data Center strength, I estimate 12-month forward FCF at **$12,500M**.\n- Current EV/FCF multiple is about **98.4x** based on EV of $839,855M and TTM FCF of $8,536M.\n- The 1-year average FCF yield of 1.44% implies a normalized EV/FCF multiple of about **69.5x**.\n- I apply a rounded **70.0x EV/FCF** multiple: high enough for strong AI/data-center growth, but below the current spot multiple to reflect execution, competition, export-control and consumer-cycle risks.\n- Forward EV = $12,500M \u00d7 70.0 = **$875,000M**.\n- Current EV minus market-cap gap = $839,855.3M \u2212 $841,569.3M = **-$1,714.0M**.\n- Bridge to market cap: forward market cap = forward EV \u2212 current EV/market-cap gap = $875,000M \u2212 (-$1,714M) = **$876,714M**.\n\n```json\n{\"forward_market_cap_musd\": 876714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 12500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 70.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- Data Center momentum persists, EPYC share gains and MI450/Helios ramps validate AMD as a larger AI infrastructure supplier.\n- Forward FCF could reach ~$14.5B\u2013$15.0B if revenue growth remains near recent Q1/Q2 levels and FCF margins expand with scale.\n- A bull EV/FCF multiple of ~80x\u201385x would imply an EV of roughly $1.16T\u2013$1.28T, or market cap slightly higher after the current EV-to-market-cap bridge.",
+        "Bear Case": "- AI accelerator execution lags Nvidia, ROCm/rack-scale adoption is slower, export controls pressure China-related demand, and PC/gaming weakness weighs on mix.\n- Forward FCF could be closer to ~$9.5B\u2013$10.5B.\n- A bear EV/FCF multiple of ~50x\u201355x would imply an EV of roughly $475B\u2013$578B, before adding the current market-cap premium to EV.",
+        "Logic": "- Current TTM FCF: $8,536M.\n- Q1 2026 FCF was $2,600M, already a ~$10,400M annualized run-rate.\n- Given Q1 revenue growth of 38%, Q2 guide implying ~46% YoY growth, and Data Center strength, I estimate 12-month forward FCF at **$12,500M**.\n- Current EV/FCF multiple is about **98.4x** based on EV of $839,855M and TTM FCF of $8,536M.\n- The 1-year average FCF yield of 1.44% implies a normalized EV/FCF multiple of about **69.5x**.\n- I apply a rounded **70.0x EV/FCF** multiple: high enough for strong AI/data-center growth, but below the current spot multiple to reflect execution, competition, export-control and consumer-cycle risks.\n- Forward EV = $12,500M \u00d7 70.0 = **$875,000M**.\n- Current EV minus market-cap gap = $839,855.3M \u2212 $841,569.3M = **-$1,714.0M**.\n- Bridge to market cap: forward market cap = forward EV \u2212 current EV/market-cap gap = $875,000M \u2212 (-$1,714M) = **$876,714M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMD",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:16+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2144,
+        "completion_tokens": 3267,
+        "total_tokens": 5411,
+        "cost": 0.0173764,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0173764,
+          "upstream_inference_prompt_cost": 0.0030016,
+          "upstream_inference_completions_cost": 0.0143748
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1855,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n\nAMD's data-center momentum is the dominant driver. Q1 2026 revenue grew 38% YoY to $10.3B with Data Center up 57%, and Q2 guidance of ~$11.2B implies ~46% YoY growth. The MI450/Helios rack-scale platform ships in H2 2026, with Meta deploying up to 6 GW of capacity\u2014this could meaningfully accelerate Instinct GPU revenue and pull forward FCF. Server CPU share reached 46% of x86 revenue, and management expects server CPU revenue to grow 70%+ YoY in Q2. If FCF margins hold near the Q1 2026 level of ~25% on ~$50B forward revenue, forward FCF could reach $12\u201313B. With AI-infrastructure enthusiasm sustaining a premium multiple of 80\u201385x forward FCF, forward EV could approach $1.0T+, and bridging with the ~$1.7B net-cash gap yields a market cap well above $1.0T.\n\n## Bear Case\n\nMultiple risks compress both FCF and the multiple. Gaming revenue is guided to decline >20% in H2 2026 versus H1, component/memory inflation pressures consumer margins, and non-GAAP OpEx rose 42% YoY, squeezing operating leverage. Nvidia remains the dominant AI accelerator incumbent; ROCm maturity, customer qualification, and rack-scale execution are unresolved dependencies. Export restrictions on China (e.g., MI308) remain an overhang. If forward FCF only reaches ~$10B and growth deceleration plus competitive risk compress the multiple to 55\u201360x, forward EV could fall to ~$550\u2013600B, implying a market cap around ~$552\u2013602B.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF is $8,536M on $37,454M revenue (22.8% margin). Q1 2026 alone generated $2.6B FCF (25.2% margin) on $10.3B revenue. Annualizing the Q2 guidance of $11.2B and projecting continued data-center growth (offset by H2 gaming weakness and rising OpEx) suggests forward 12-month revenue of ~$49\u201350B. Applying a blended FCF margin of ~23% (slightly below Q1 due to component cost pressure and OpEx growth) yields forward FCF of approximately **$11,500M**\u2014a ~35% increase over TTM, credible given the 38\u201346% revenue growth trajectory but tempered by margin headwinds.\n\n**Applied multiple:** The current EV/FCF on TTM FCF is ~98x ($839,855M / $8,536M). On the forward FCF estimate, the current implied multiple is ~73x ($839,855M / $11,500M). I apply **73.0x**, anchoring to the market's current forward valuation rather than extending the TTM multiple, reflecting respect for AMD's AI growth narrative while acknowledging competitive, cost, and geopolitical risks that prevent multiple expansion.\n\n**EV-to-MC bridge:** Current EV ($839,855.3M) is below current market cap ($841,569.3M) by $1,714.0M, indicating a net-cash position. Forward EV = $11,500M \u00d7 73.0 = $839,500M. Forward market cap = Forward EV + $1,714M (net cash) = **$841,214M**. This implies the stock is roughly fairly valued at current levels if FCF grows ~35% and the forward multiple holds.\n\n```json\n{\"forward_market_cap_musd\": 841214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 73.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 841214.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 73.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n\nAMD's data-center momentum is the dominant driver. Q1 2026 revenue grew 38% YoY to $10.3B with Data Center up 57%, and Q2 guidance of ~$11.2B implies ~46% YoY growth. The MI450/Helios rack-scale platform ships in H2 2026, with Meta deploying up to 6 GW of capacity\u2014this could meaningfully accelerate Instinct GPU revenue and pull forward FCF. Server CPU share reached 46% of x86 revenue, and management expects server CPU revenue to grow 70%+ YoY in Q2. If FCF margins hold near the Q1 2026 level of ~25% on ~$50B forward revenue, forward FCF could reach $12\u201313B. With AI-infrastructure enthusiasm sustaining a premium multiple of 80\u201385x forward FCF, forward EV could approach $1.0T+, and bridging with the ~$1.7B net-cash gap yields a market cap well above $1.0T.\n\n## Bear Case\n\nMultiple risks compress both FCF and the multiple. Gaming revenue is guided to decline >20% in H2 2026 versus H1, component/memory inflation pressures consumer margins, and non-GAAP OpEx rose 42% YoY, squeezing operating leverage. Nvidia remains the dominant AI accelerator incumbent; ROCm maturity, customer qualification, and rack-scale execution are unresolved dependencies. Export restrictions on China (e.g., MI308) remain an overhang. If forward FCF only reaches ~$10B and growth deceleration plus competitive risk compress the multiple to 55\u201360x, forward EV could fall to ~$550\u2013600B, implying a market cap around ~$552\u2013602B.\n\n## Logic\n\n**Forward FCF estimate:** TTM FCF is $8,536M on $37,454M revenue (22.8% margin). Q1 2026 alone generated $2.6B FCF (25.2% margin) on $10.3B revenue. Annualizing the Q2 guidance of $11.2B and projecting continued data-center growth (offset by H2 gaming weakness and rising OpEx) suggests forward 12-month revenue of ~$49\u201350B. Applying a blended FCF margin of ~23% (slightly below Q1 due to component cost pressure and OpEx growth) yields forward FCF of approximately **$11,500M**\u2014a ~35% increase over TTM, credible given the 38\u201346% revenue growth trajectory but tempered by margin headwinds.\n\n**Applied multiple:** The current EV/FCF on TTM FCF is ~98x ($839,855M / $8,536M). On the forward FCF estimate, the current implied multiple is ~73x ($839,855M / $11,500M). I apply **73.0x**, anchoring to the market's current forward valuation rather than extending the TTM multiple, reflecting respect for AMD's AI growth narrative while acknowledging competitive, cost, and geopolitical risks that prevent multiple expansion.\n\n**EV-to-MC bridge:** Current EV ($839,855.3M) is below current market cap ($841,569.3M) by $1,714.0M, indicating a net-cash position. Forward EV = $11,500M \u00d7 73.0 = $839,500M. Forward market cap = Forward EV + $1,714M (net cash) = **$841,214M**. This implies the stock is roughly fairly valued at current levels if FCF grows ~35% and the forward multiple holds.\n\n```json\n{\"forward_market_cap_musd\": 841214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 73.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD's data-center momentum is the dominant driver. Q1 2026 revenue grew 38% YoY to $10.3B with Data Center up 57%, and Q2 guidance of ~$11.2B implies ~46% YoY growth. The MI450/Helios rack-scale platform ships in H2 2026, with Meta deploying up to 6 GW of capacity\u2014this could meaningfully accelerate Instinct GPU revenue and pull forward FCF. Server CPU share reached 46% of x86 revenue, and management expects server CPU revenue to grow 70%+ YoY in Q2. If FCF margins hold near the Q1 2026 level of ~25% on ~$50B forward revenue, forward FCF could reach $12\u201313B. With AI-infrastructure enthusiasm sustaining a premium multiple of 80\u201385x forward FCF, forward EV could approach $1.0T+, and bridging with the ~$1.7B net-cash gap yields a market cap well above $1.0T.",
+        "Bear Case": "Multiple risks compress both FCF and the multiple. Gaming revenue is guided to decline >20% in H2 2026 versus H1, component/memory inflation pressures consumer margins, and non-GAAP OpEx rose 42% YoY, squeezing operating leverage. Nvidia remains the dominant AI accelerator incumbent; ROCm maturity, customer qualification, and rack-scale execution are unresolved dependencies. Export restrictions on China (e.g., MI308) remain an overhang. If forward FCF only reaches ~$10B and growth deceleration plus competitive risk compress the multiple to 55\u201360x, forward EV could fall to ~$550\u2013600B, implying a market cap around ~$552\u2013602B.",
+        "Logic": "**Forward FCF estimate:** TTM FCF is $8,536M on $37,454M revenue (22.8% margin). Q1 2026 alone generated $2.6B FCF (25.2% margin) on $10.3B revenue. Annualizing the Q2 guidance of $11.2B and projecting continued data-center growth (offset by H2 gaming weakness and rising OpEx) suggests forward 12-month revenue of ~$49\u201350B. Applying a blended FCF margin of ~23% (slightly below Q1 due to component cost pressure and OpEx growth) yields forward FCF of approximately **$11,500M**\u2014a ~35% increase over TTM, credible given the 38\u201346% revenue growth trajectory but tempered by margin headwinds.\n\n**Applied multiple:** The current EV/FCF on TTM FCF is ~98x ($839,855M / $8,536M). On the forward FCF estimate, the current implied multiple is ~73x ($839,855M / $11,500M). I apply **73.0x**, anchoring to the market's current forward valuation rather than extending the TTM multiple, reflecting respect for AMD's AI growth narrative while acknowledging competitive, cost, and geopolitical risks that prevent multiple expansion.\n\n**EV-to-MC bridge:** Current EV ($839,855.3M) is below current market cap ($841,569.3M) by $1,714.0M, indicating a net-cash position. Forward EV = $11,500M \u00d7 73.0 = $839,500M. Forward market cap = Forward EV + $1,714M (net cash) = **$841,214M**. This implies the stock is roughly fairly valued at current levels if FCF grows ~35% and the forward multiple holds."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMD",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:17:03+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2144,
+        "completion_tokens": 1682,
+        "total_tokens": 3826,
+        "cost": 0.007350749,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1539,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.007350749,
+          "upstream_inference_prompt_cost": 0.001060069,
+          "upstream_inference_completions_cost": 0.00629068
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1078,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAMD's AI infrastructure ramp is inflecting: Q1 2026 FCF hit a record $2.6B, data-center revenue grew 57% YoY, and Q2 guidance implies ~46% revenue growth. With MI450/Helios shipments on track for H2 2026, Meta's multi-GW deployments, and server CPU share at 46% of x86 revenue, the forward FCF run-rate could materially exceed the TTM $8.5B. Annualizing Q1's $2.6B alone yields ~$10.4B before any H2 ramp. A forward FCF of $11.5B at a 75x multiple\u2014still below the current ~98x TTM multiple\u2014would support an EV of ~$862B.\n\n## Bear Case\nNvidia remains the dominant AI accelerator incumbent; AMD's ROCm maturity, customer qualification cycles, and rack-scale execution remain unproven at hyperscale. Gaming revenue is guided down 20%+ H2 vs H1, component inflation pressures PC/gaming margins, and export restrictions on China-bound Instinct products limit TAM. OpEx rose 42% YoY, compressing sequential operating margins. A deceleration in AI capex or a MI450 delay could stall the FCF ramp, and the current ~98x TTM FCF multiple leaves little room for error.\n\n## Logic\n1. **Forward FCF**: TTM FCF is $8,536M. Q1 2026 FCF was $2.6B (record). Annualizing Q1 gives ~$10.4B; incorporating guided H2 ramp and Data Center growth, I estimate 12-month forward FCF at ~$11,500M.\n2. **Applied EV/FCF multiple**: Current TTM EV/FCF is ~98x ($839,855 / $8,536). The 1-year average is ~70x and 3-year average ~96x. I apply **75x** on forward FCF\u2014discounting the current multiple for expected FCF growth while reflecting continued AI momentum.\n3. **Forward EV**: $11,500M \u00d7 75 = $862,500M.\n4. **EV-to-MC bridge**: Current EV \u2212 MC gap = $839,855.3 \u2212 $841,569.3 = \u2212$1,714M (net cash). Applying the same gap to forward EV: $862,500M + $1,714M \u2248 $864,214M.\n\n```json\n{\"forward_market_cap_musd\": 864214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 864214.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11500.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 75.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAMD's AI infrastructure ramp is inflecting: Q1 2026 FCF hit a record $2.6B, data-center revenue grew 57% YoY, and Q2 guidance implies ~46% revenue growth. With MI450/Helios shipments on track for H2 2026, Meta's multi-GW deployments, and server CPU share at 46% of x86 revenue, the forward FCF run-rate could materially exceed the TTM $8.5B. Annualizing Q1's $2.6B alone yields ~$10.4B before any H2 ramp. A forward FCF of $11.5B at a 75x multiple\u2014still below the current ~98x TTM multiple\u2014would support an EV of ~$862B.\n\n## Bear Case\nNvidia remains the dominant AI accelerator incumbent; AMD's ROCm maturity, customer qualification cycles, and rack-scale execution remain unproven at hyperscale. Gaming revenue is guided down 20%+ H2 vs H1, component inflation pressures PC/gaming margins, and export restrictions on China-bound Instinct products limit TAM. OpEx rose 42% YoY, compressing sequential operating margins. A deceleration in AI capex or a MI450 delay could stall the FCF ramp, and the current ~98x TTM FCF multiple leaves little room for error.\n\n## Logic\n1. **Forward FCF**: TTM FCF is $8,536M. Q1 2026 FCF was $2.6B (record). Annualizing Q1 gives ~$10.4B; incorporating guided H2 ramp and Data Center growth, I estimate 12-month forward FCF at ~$11,500M.\n2. **Applied EV/FCF multiple**: Current TTM EV/FCF is ~98x ($839,855 / $8,536). The 1-year average is ~70x and 3-year average ~96x. I apply **75x** on forward FCF\u2014discounting the current multiple for expected FCF growth while reflecting continued AI momentum.\n3. **Forward EV**: $11,500M \u00d7 75 = $862,500M.\n4. **EV-to-MC bridge**: Current EV \u2212 MC gap = $839,855.3 \u2212 $841,569.3 = \u2212$1,714M (net cash). Applying the same gap to forward EV: $862,500M + $1,714M \u2248 $864,214M.\n\n```json\n{\"forward_market_cap_musd\": 864214.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11500.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AMD's AI infrastructure ramp is inflecting: Q1 2026 FCF hit a record $2.6B, data-center revenue grew 57% YoY, and Q2 guidance implies ~46% revenue growth. With MI450/Helios shipments on track for H2 2026, Meta's multi-GW deployments, and server CPU share at 46% of x86 revenue, the forward FCF run-rate could materially exceed the TTM $8.5B. Annualizing Q1's $2.6B alone yields ~$10.4B before any H2 ramp. A forward FCF of $11.5B at a 75x multiple\u2014still below the current ~98x TTM multiple\u2014would support an EV of ~$862B.",
+        "Bear Case": "Nvidia remains the dominant AI accelerator incumbent; AMD's ROCm maturity, customer qualification cycles, and rack-scale execution remain unproven at hyperscale. Gaming revenue is guided down 20%+ H2 vs H1, component inflation pressures PC/gaming margins, and export restrictions on China-bound Instinct products limit TAM. OpEx rose 42% YoY, compressing sequential operating margins. A deceleration in AI capex or a MI450 delay could stall the FCF ramp, and the current ~98x TTM FCF multiple leaves little room for error.",
+        "Logic": "1. **Forward FCF**: TTM FCF is $8,536M. Q1 2026 FCF was $2.6B (record). Annualizing Q1 gives ~$10.4B; incorporating guided H2 ramp and Data Center growth, I estimate 12-month forward FCF at ~$11,500M.\n2. **Applied EV/FCF multiple**: Current TTM EV/FCF is ~98x ($839,855 / $8,536). The 1-year average is ~70x and 3-year average ~96x. I apply **75x** on forward FCF\u2014discounting the current multiple for expected FCF growth while reflecting continued AI momentum.\n3. **Forward EV**: $11,500M \u00d7 75 = $862,500M.\n4. **EV-to-MC bridge**: Current EV \u2212 MC gap = $839,855.3 \u2212 $841,569.3 = \u2212$1,714M (net cash). Applying the same gap to forward EV: $862,500M + $1,714M \u2248 $864,214M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMD",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:46+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "e3adafee8de47ee6ac3fd03509bebac349d0b2bd5f9a780847206eba60aecf12",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2170,
+        "completion_tokens": 1866,
+        "total_tokens": 4036,
+        "cost": 0.00763283,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1990,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00763283,
+          "upstream_inference_prompt_cost": 0.00065399,
+          "upstream_inference_completions_cost": 0.00697884
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1469,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nData Center revenue is surging, up 57% YoY in Q1 2026, with server CPU revenue guided to grow >70% in Q2. AMD is gaining x86 server CPU revenue share (46%) and has major AI accelerator deployments (e.g., Meta) and Helios rack-scale shipments on track for H2 2026. Record free cash flow of $2.6B in Q1 alone points to materially higher forward FCF generation.\n\n## Bear Case\nNvidia remains the dominant AI accelerator incumbent, leaving AMD exposed to ROCm software maturity, customer qualification, and supply execution risks. Geopolitical export restrictions on chips like the MI308 for China present a persistent overhang. Consumer-facing businesses face pressure from memory/component inflation, with H2 gaming revenue expected to decline >20% versus H1.\n\n## Logic\nQ1 2026 FCF was a record $2.6B; annualizing this and accounting for continued Data Center growth implies a 12-month forward FCF of roughly $11,000M. Given the high growth profile and AI infrastructure optionality, an EV/FCF multiple of 80.0x is applied, yielding a forward EV of $880,000M. The current EV-minus-market-cap gap is $839,855.3M - $841,569.3M = -$1,714.0M (indicating net cash). Adding this bridge to forward EV gives a forward market cap of $880,000M + $1,714M = $881,714M.\n\n```json\n{\"forward_market_cap_musd\": 881714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 881714.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 11000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 80.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [],
+          "text": "## Bull Case\nData Center revenue is surging, up 57% YoY in Q1 2026, with server CPU revenue guided to grow >70% in Q2. AMD is gaining x86 server CPU revenue share (46%) and has major AI accelerator deployments (e.g., Meta) and Helios rack-scale shipments on track for H2 2026. Record free cash flow of $2.6B in Q1 alone points to materially higher forward FCF generation.\n\n## Bear Case\nNvidia remains the dominant AI accelerator incumbent, leaving AMD exposed to ROCm software maturity, customer qualification, and supply execution risks. Geopolitical export restrictions on chips like the MI308 for China present a persistent overhang. Consumer-facing businesses face pressure from memory/component inflation, with H2 gaming revenue expected to decline >20% versus H1.\n\n## Logic\nQ1 2026 FCF was a record $2.6B; annualizing this and accounting for continued Data Center growth implies a 12-month forward FCF of roughly $11,000M. Given the high growth profile and AI infrastructure optionality, an EV/FCF multiple of 80.0x is applied, yielding a forward EV of $880,000M. The current EV-minus-market-cap gap is $839,855.3M - $841,569.3M = -$1,714.0M (indicating net cash). Adding this bridge to forward EV gives a forward market cap of $880,000M + $1,714M = $881,714M.\n\n```json\n{\"forward_market_cap_musd\": 881714.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 11000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Data Center revenue is surging, up 57% YoY in Q1 2026, with server CPU revenue guided to grow >70% in Q2. AMD is gaining x86 server CPU revenue share (46%) and has major AI accelerator deployments (e.g., Meta) and Helios rack-scale shipments on track for H2 2026. Record free cash flow of $2.6B in Q1 alone points to materially higher forward FCF generation.",
+        "Bear Case": "Nvidia remains the dominant AI accelerator incumbent, leaving AMD exposed to ROCm software maturity, customer qualification, and supply execution risks. Geopolitical export restrictions on chips like the MI308 for China present a persistent overhang. Consumer-facing businesses face pressure from memory/component inflation, with H2 gaming revenue expected to decline >20% versus H1.",
+        "Logic": "Q1 2026 FCF was a record $2.6B; annualizing this and accounting for continued Data Center growth implies a 12-month forward FCF of roughly $11,000M. Given the high growth profile and AI infrastructure optionality, an EV/FCF multiple of 80.0x is applied, yielding a forward EV of $880,000M. The current EV-minus-market-cap gap is $839,855.3M - $841,569.3M = -$1,714.0M (indicating net cash). Adding this bridge to forward EV gives a forward market cap of $880,000M + $1,714M = $881,714M."
+      }
+    }
+  ]
+}

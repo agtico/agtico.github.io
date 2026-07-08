@@ -1,0 +1,875 @@
+{
+  "asset_id": "AMZN",
+  "aggregate_row": {
+    "asset_id": "AMZN",
+    "name": "AMAZON COM INC",
+    "kind": "stock",
+    "bucket": "operating",
+    "current_market_cap": 2646033.8,
+    "std_pct_of_mean": 0.19668088697962569,
+    "models": {
+      "Fable": {
+        "forward_mc": 2741928.0,
+        "pct_upside": 0.03624073131643302,
+        "bullishness": 0.18426158165631631,
+        "n_samples": 3,
+        "forward_mc_iqr": 75000.0
+      },
+      "Opus 4.8": {
+        "forward_mc": 2691928.0,
+        "pct_upside": 0.01734452522866503,
+        "bullishness": 0.08818612471715039,
+        "n_samples": 3,
+        "forward_mc_iqr": 395000.0
+      },
+      "GPT 5.5": {
+        "forward_mc": 2761928.0,
+        "pct_upside": 0.04379921375154017,
+        "bullishness": 0.22269176443198244,
+        "n_samples": 3,
+        "forward_mc_iqr": 62500.0
+      },
+      "GLM 5.2": {
+        "forward_mc": 2591928.0,
+        "pct_upside": -0.020447886946871163,
+        "bullishness": -0.10396478916118257,
+        "n_samples": 3,
+        "forward_mc_iqr": 150000.0
+      }
+    },
+    "consensus_bullishness": 0.13622385318673336,
+    "consensus_bullishness_mean": 0.09779367041106665,
+    "consensus_pct_upside": 0.026792628272549024,
+    "n_models": 4,
+    "sanity_flags": []
+  },
+  "primer_markdown": "## What The Business Is\nAmazon.com, Inc. is a global technology and retail platform company spanning online and physical retail, third-party marketplace services, Prime subscriptions, logistics, cloud computing, digital advertising, streaming/media, consumer devices, healthcare, autonomous vehicles, and satellite connectivity. Although classified here as **Consumer Cyclical / Internet Retail**, a large share of operating profit comes from **AWS**, Amazon\u2019s cloud infrastructure and AI services business. In Q1 2026, Amazon reported **$181.5B** in revenue, up **17% year over year**, and **$23.9B** in operating income. ([ir.aboutamazon.com](https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?utm_source=openai))\n\n## What It Does\nAmazon sells first-party goods and enables third-party sellers on its marketplace; provides fulfillment, payments, advertising, and subscription services; operates Prime Video and other media assets; and runs AWS for compute, storage, databases, analytics, security, AI model access, and custom silicon. The transcript emphasized three main engines: **Stores** unit growth and faster delivery, **AWS** acceleration from AI and core cloud workloads, and **Ads** growth. AWS revenue was **$37.6B**, up **28% YoY**, while Amazon Ads revenue was **$17.2B**, up **22% YoY**, according to the Q1 call excerpt and Amazon\u2019s Q1 release. ([ir.aboutamazon.com](https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?utm_source=openai))\n\n## Recent Highlights (Positive)\nAmazon\u2019s Q1 print showed broad operating leverage: North America revenue reached **$104.1B**, International revenue **$39.8B**, and company operating margin hit **13.1%**, described in the transcript as Amazon\u2019s highest ever. AWS growth accelerated to the fastest pace in 15 quarters, aided by AI demand, Bedrock adoption, and custom silicon momentum; Amazon also highlighted a chips business above a **$20B annual revenue run rate**. ([ir.aboutamazon.com](https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?utm_source=openai))\n\nAWS continued to broaden AI distribution and partnerships. In June, Amazon said OpenAI\u2019s **GPT-5.5, GPT-5.4, and Codex** were available on Amazon Bedrock, and separately highlighted Trainium adoption, including OpenAI\u2019s commitment to consume about **2 GW** of future Trainium capacity. ([aboutamazon.com](https://www.aboutamazon.com/news/aws/bedrock-openai-models?hp=h1m&utm_source=openai))\n\nRetail demand and Prime engagement also remained active. Amazon scheduled **Prime Day 2026** for **June 23\u201326**, expanding the event to four days with deals across more than 35 categories; management also cited more than **1B** same-day or overnight items delivered so far in 2026. ([aboutamazon.com](https://www.aboutamazon.com/news/retail/amazon-prime-day-june-2026?utm_source=openai))\n\n## Recent Highlights (Negative)\nThe main financial pressure point is capital intensity. In the transcript, management said **Q1 cash capex was $43.2B**, primarily tied to AWS and generative AI, and warned that in periods of very high AWS growth, capex can outpace revenue and pressure early free cash flow until new capacity is monetized. Amazon\u2019s Q1 materials also flag uncertainty around investment levels, timing, demand, and the returns from new business opportunities. ([aboutamazon.com](https://www.aboutamazon.com/news/company-news/amazon-earnings-q1-2026-report?utm_source=openai))\n\nRegulatory and litigation risk remains material. On **June 30, 2026**, the FTC announced Amazon would pay **$2.25M** to resolve charges that it knowingly violated the Fair Credit Reporting Act. Separately, the FTC\u2019s current planning materials continue to reference the Amazon monopolization case concerning marketplace conduct and Prime/Fulfillment-related practices. ([ftc.gov](https://www.ftc.gov/legal-library/browse/cases-proceedings/amazoncom-inc-us-v-timeline-item-2026-06-30?utm_source=openai))\n\nConsumer and marketplace risks remain cyclical. Amazon\u2019s own forward-looking language points to potential impacts from tariffs and trade policy, recession fears, inflation, interest rates, energy prices, foreign exchange, and resource volatility, including memory chips. These factors matter because Amazon is simultaneously expanding retail selection, delivery speed, AI infrastructure, and satellite/other long-duration projects.\n",
+  "primer_meta": {
+    "asset_id": "AMZN",
+    "created_at_utc": "2026-07-08T15:02:08+00:00",
+    "model": "gpt-5.5",
+    "prompt_version": "m69_llm_asset_consensus_v1",
+    "prompt_sha256": "bacddc0df710f25444deab5032842f71eab931b8998a4aa7c480898c82516ca7",
+    "sources": [
+      {
+        "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?utm_source=openai",
+        "title": "Amazon.com, Inc. - Amazon.com Announces First Quarter Results"
+      },
+      {
+        "url": "https://www.aboutamazon.com/news/aws/bedrock-openai-models?hp=h1m&utm_source=openai",
+        "title": "OpenAI Models on Amazon Bedrock: OpenAI models GPT-5.5 and GPT-5.4\u2014and Codex\u2014now on Amazon Bedrock"
+      },
+      {
+        "url": "https://www.aboutamazon.com/news/retail/amazon-prime-day-june-2026?utm_source=openai",
+        "title": "Prime Day 2026: Amazon\u2019s 4-day deal event starts June 23"
+      },
+      {
+        "url": "https://www.aboutamazon.com/news/company-news/amazon-earnings-q1-2026-report?utm_source=openai",
+        "title": "Amazon Q1 2026 earnings report: Read the release"
+      },
+      {
+        "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/amazoncom-inc-us-v-timeline-item-2026-06-30?utm_source=openai",
+        "title": "Amazon.com, Inc., U.S. v. (timeline item) - June 30, 2026 | Federal Trade Commission"
+      }
+    ],
+    "transcript_used": {
+      "transcript_code": "AMZN__earnings_call_transcript__2026-04-29__1__2026",
+      "provider": "fmp",
+      "transcript_date": "2026-04-29",
+      "source_tier": "m50_fmp_body_cache",
+      "source_url": ""
+    },
+    "response_id": "resp_0a8276c4dcff108d016a4e6650d86481a3b5836615fb60e462",
+    "usage": {
+      "input_tokens": 22452,
+      "input_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "output_tokens": 1205,
+      "output_tokens_details": {
+        "reasoning_tokens": 332
+      },
+      "total_tokens": 23657
+    }
+  },
+  "details": {
+    "asset_id": "AMZN",
+    "detail_source_ticker": "AMZN",
+    "kind": "stock",
+    "bucket": "operating",
+    "as_of": "2026-07-07",
+    "name": "AMAZON COM INC",
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "market_cap_musd": 2646033.8,
+    "ev_musd": 2754105.8,
+    "ttm_revenue_musd": 742776.0,
+    "ttm_fcf_musd": 1232.0,
+    "ttm_netinc_musd": 90798.0,
+    "fcf_ev": {
+      "current": 0.0004473321250040576,
+      "avg_1y": 0.005291822263861891,
+      "std_1y": 0.0027654376156152943,
+      "avg_3y": 0.01309679659717663,
+      "std_3y": 0.00851116034382857
+    },
+    "ni_mc": {
+      "current": 0.03431475440714325,
+      "avg_1y": 0.03111294231354481,
+      "std_1y": 0.002527566311868841,
+      "avg_3y": 0.023196163749165895,
+      "std_3y": 0.008222030913993948
+    },
+    "annual_samples": [
+      {
+        "as_of": "2026-07-07",
+        "source_datekey": "2026-04-30",
+        "ttm_revenue_musd": 742776.0,
+        "ttm_fcf_musd": 1232.0,
+        "ttm_netinc_musd": 90798.0
+      },
+      {
+        "as_of": "2025-07-07",
+        "source_datekey": "2025-05-02",
+        "ttm_revenue_musd": 650313.0,
+        "ttm_fcf_musd": 25925.0,
+        "ttm_netinc_musd": 65944.0
+      },
+      {
+        "as_of": "2024-07-07",
+        "source_datekey": "2024-05-01",
+        "ttm_revenue_musd": 590740.0,
+        "ttm_fcf_musd": 50149.0,
+        "ttm_netinc_musd": 37684.0
+      }
+    ],
+    "mc_history_3y": {
+      "mean_musd": 2075387.8812250334,
+      "std_musd": 408189.1293061056,
+      "std_pct_of_mean": 0.19668088697962569,
+      "window_days": 751
+    }
+  },
+  "responses": [
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMZN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:19+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 1531,
+        "total_tokens": 4274,
+        "cost": 0.10398,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.10398,
+          "upstream_inference_prompt_cost": 0.02743,
+          "upstream_inference_completions_cost": 0.07655
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 342,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS is re-accelerating (28% YoY, fastest in 15 quarters) with AI demand, Bedrock/OpenAI model distribution, and a $20B+ run-rate chips business. Ads grew 22% and company operating margin hit a record 13.1%. TTM net income of ~$90.8B shows the earnings engine is intact; the collapse in TTM FCF to $1.2B is a capex timing issue, not a demand problem. As the ~$170B+ annualized capex begins to monetize, FCF can snap back sharply toward the $50B+ level seen in 2024 \u2014 and potentially well beyond, given revenue is now ~$743B and growing mid-teens. In this scenario forward FCF of $60\u201370B and a premium multiple support a market cap above $3.2T.\n\n## Bear Case\nCapex ($43.2B in Q1 alone) may keep outpacing revenue, keeping FCF near zero for longer than expected. AI capacity monetization is uncertain, and returns on Trainium, satellites, and other long-duration bets are unproven. Regulatory overhang persists (FTC monopolization case), and consumer/tariff/macro risks pressure the retail segment. If FCF stays below $25B and the market re-rates on cash generation rather than earnings, the market cap could compress toward $2.2\u20132.4T, near the 3-year mean of ~$2.08T plus one standard deviation.\n\n## Logic\n- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by AI capex. Revenue is growing ~15\u201317% and operating income margins are at record highs (~13%). Assuming capex growth moderates relative to revenue and depreciation catches up, I model forward FCF recovering toward the 2024 level plus growth: **~$50,000M** over the next 12 months (a partial, not full, normalization given management's warning that capex may keep outpacing revenue).\n- **Applied multiple:** Amazon's normalized FCF understates earnings power (net income ~$91B TTM, forward ~$105B). Given mid-teens growth, AWS/Ads mix shift, and still-recovering FCF conversion, an **EV/FCF of 60x** on the partially-normalized $50B FCF is appropriate (implying ~28\u201330x forward earnings, in line with quality mega-cap growth).\n- **EV:** 50,000 \u00d7 60 = **$3,000,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,106 \u2212 2,646,034 = **$108,072M** (net debt). Forward market cap = 3,000,000 \u2212 108,072 = **$2,891,928M** (~9% above current), within one standard deviation of the 3-year history band and consistent with FCF recovery being partially anticipated.\n\n```json\n{\"forward_market_cap_musd\": 2891928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": 105000.0, \"applied_multiple\": 60.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2891928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 50000.0,
+        "forward_netinc_musd": 105000.0,
+        "applied_multiple": 60.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS is re-accelerating (28% YoY, fastest in 15 quarters) with AI demand, Bedrock/OpenAI model distribution, and a $20B+ run-rate chips business. Ads grew 22% and company operating margin hit a record 13.1%. TTM net income of ~$90.8B shows the earnings engine is intact; the collapse in TTM FCF to $1.2B is a capex timing issue, not a demand problem. As the ~$170B+ annualized capex begins to monetize, FCF can snap back sharply toward the $50B+ level seen in 2024 \u2014 and potentially well beyond, given revenue is now ~$743B and growing mid-teens. In this scenario forward FCF of $60\u201370B and a premium multiple support a market cap above $3.2T.\n\n## Bear Case\nCapex ($43.2B in Q1 alone) may keep outpacing revenue, keeping FCF near zero for longer than expected. AI capacity monetization is uncertain, and returns on Trainium, satellites, and other long-duration bets are unproven. Regulatory overhang persists (FTC monopolization case), and consumer/tariff/macro risks pressure the retail segment. If FCF stays below $25B and the market re-rates on cash generation rather than earnings, the market cap could compress toward $2.2\u20132.4T, near the 3-year mean of ~$2.08T plus one standard deviation.\n\n## Logic\n- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by AI capex. Revenue is growing ~15\u201317% and operating income margins are at record highs (~13%). Assuming capex growth moderates relative to revenue and depreciation catches up, I model forward FCF recovering toward the 2024 level plus growth: **~$50,000M** over the next 12 months (a partial, not full, normalization given management's warning that capex may keep outpacing revenue).\n- **Applied multiple:** Amazon's normalized FCF understates earnings power (net income ~$91B TTM, forward ~$105B). Given mid-teens growth, AWS/Ads mix shift, and still-recovering FCF conversion, an **EV/FCF of 60x** on the partially-normalized $50B FCF is appropriate (implying ~28\u201330x forward earnings, in line with quality mega-cap growth).\n- **EV:** 50,000 \u00d7 60 = **$3,000,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,106 \u2212 2,646,034 = **$108,072M** (net debt). Forward market cap = 3,000,000 \u2212 108,072 = **$2,891,928M** (~9% above current), within one standard deviation of the 3-year history band and consistent with FCF recovery being partially anticipated.\n\n```json\n{\"forward_market_cap_musd\": 2891928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 50000.0, \"forward_netinc_musd\": 105000.0, \"applied_multiple\": 60.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS is re-accelerating (28% YoY, fastest in 15 quarters) with AI demand, Bedrock/OpenAI model distribution, and a $20B+ run-rate chips business. Ads grew 22% and company operating margin hit a record 13.1%. TTM net income of ~$90.8B shows the earnings engine is intact; the collapse in TTM FCF to $1.2B is a capex timing issue, not a demand problem. As the ~$170B+ annualized capex begins to monetize, FCF can snap back sharply toward the $50B+ level seen in 2024 \u2014 and potentially well beyond, given revenue is now ~$743B and growing mid-teens. In this scenario forward FCF of $60\u201370B and a premium multiple support a market cap above $3.2T.",
+        "Bear Case": "Capex ($43.2B in Q1 alone) may keep outpacing revenue, keeping FCF near zero for longer than expected. AI capacity monetization is uncertain, and returns on Trainium, satellites, and other long-duration bets are unproven. Regulatory overhang persists (FTC monopolization case), and consumer/tariff/macro risks pressure the retail segment. If FCF stays below $25B and the market re-rates on cash generation rather than earnings, the market cap could compress toward $2.2\u20132.4T, near the 3-year mean of ~$2.08T plus one standard deviation.",
+        "Logic": "- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by AI capex. Revenue is growing ~15\u201317% and operating income margins are at record highs (~13%). Assuming capex growth moderates relative to revenue and depreciation catches up, I model forward FCF recovering toward the 2024 level plus growth: **~$50,000M** over the next 12 months (a partial, not full, normalization given management's warning that capex may keep outpacing revenue).\n- **Applied multiple:** Amazon's normalized FCF understates earnings power (net income ~$91B TTM, forward ~$105B). Given mid-teens growth, AWS/Ads mix shift, and still-recovering FCF conversion, an **EV/FCF of 60x** on the partially-normalized $50B FCF is appropriate (implying ~28\u201330x forward earnings, in line with quality mega-cap growth).\n- **EV:** 50,000 \u00d7 60 = **$3,000,000M**.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,106 \u2212 2,646,034 = **$108,072M** (net debt). Forward market cap = 3,000,000 \u2212 108,072 = **$2,891,928M** (~9% above current), within one standard deviation of the 3-year history band and consistent with FCF recovery being partially anticipated."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMZN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:22+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 1674,
+        "total_tokens": 4417,
+        "cost": 0.11113,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.11113,
+          "upstream_inference_prompt_cost": 0.02743,
+          "upstream_inference_completions_cost": 0.0837
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 286,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AWS reaccelerated to +28% YoY (fastest in 15 quarters) on AI demand, Bedrock (now hosting OpenAI GPT-5.5/5.4/Codex), and Trainium momentum (chips business >$20B run rate; OpenAI committed ~2 GW of Trainium capacity).\n- Record 13.1% company operating margin, Ads +22% YoY, and revenue +17% YoY show operating leverage across all three profit engines.\n- TTM net income of $90.8B (up 38% YoY) demonstrates that the near-zero FCF is a capex-timing artifact, not a profitability problem. As AI capacity monetizes, FCF should snap back sharply, justifying a premium multiple.\n\n## Bear Case\n- Capital intensity is extreme: Q1 capex of $43.2B (~$170B+ annualized) crushed TTM FCF to just $1.2B, down from $26B a year ago and $50B two years ago. If AI monetization lags, FCF recovery could stall for multiple years.\n- FTC monopolization case and other regulatory/litigation overhangs remain unresolved.\n- Consumer cyclicality: tariffs, inflation, rates, and recession risk directly hit the Stores segment; memory-chip and energy cost volatility pressures AWS build-out economics.\n- Market cap of $2.65T already sits well above its 3-year mean ($2.08T), leaving limited margin of safety if AWS growth or AI ROI disappoints.\n\n## Logic\n- **Forward FCF:** TTM FCF is $1.2B, artificially depressed by the capex surge. Operating cash flow (net income ~$91B plus large D&A) is likely ~$160\u2013180B and growing ~15% with revenue (~$850B forward). Assuming capex plateaus near ~$175\u2013185B while OCF grows, I estimate a partial FCF recovery to roughly **$30,000M** over the next 12 months \u2014 well below the $50B of two years ago but a meaningful rebound off the trough.\n- **Applied multiple:** With FCF in a transitional trough but earnings power intact ($90B+ net income), the market prices Amazon on normalized FCF. I apply **~95x EV/forward-FCF** \u2014 very high on the depressed forward number but consistent with the current implied valuation (current EV/TTM FCF is >2,000x) and the market's look-through to post-capex-cycle FCF of $80\u2013100B+ (implying ~30x normalized).\n- **Bridge:** Forward EV = 30,000 \u00d7 95 = **$2,850,000M**. Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M**, roughly +3.6% versus today's $2,646,034M \u2014 modest upside reflecting strong fundamentals offset by an already-full valuation and capex overhang.\n- Forward net income estimate: ~$105,000M (continued margin expansion on ~14\u201315% revenue growth).\n\n```json\n{\"forward_market_cap_musd\": 2741928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 30000.0, \"forward_netinc_musd\": 105000.0, \"applied_multiple\": 95.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2741928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 30000.0,
+        "forward_netinc_musd": 105000.0,
+        "applied_multiple": 95.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AWS reaccelerated to +28% YoY (fastest in 15 quarters) on AI demand, Bedrock (now hosting OpenAI GPT-5.5/5.4/Codex), and Trainium momentum (chips business >$20B run rate; OpenAI committed ~2 GW of Trainium capacity).\n- Record 13.1% company operating margin, Ads +22% YoY, and revenue +17% YoY show operating leverage across all three profit engines.\n- TTM net income of $90.8B (up 38% YoY) demonstrates that the near-zero FCF is a capex-timing artifact, not a profitability problem. As AI capacity monetizes, FCF should snap back sharply, justifying a premium multiple.\n\n## Bear Case\n- Capital intensity is extreme: Q1 capex of $43.2B (~$170B+ annualized) crushed TTM FCF to just $1.2B, down from $26B a year ago and $50B two years ago. If AI monetization lags, FCF recovery could stall for multiple years.\n- FTC monopolization case and other regulatory/litigation overhangs remain unresolved.\n- Consumer cyclicality: tariffs, inflation, rates, and recession risk directly hit the Stores segment; memory-chip and energy cost volatility pressures AWS build-out economics.\n- Market cap of $2.65T already sits well above its 3-year mean ($2.08T), leaving limited margin of safety if AWS growth or AI ROI disappoints.\n\n## Logic\n- **Forward FCF:** TTM FCF is $1.2B, artificially depressed by the capex surge. Operating cash flow (net income ~$91B plus large D&A) is likely ~$160\u2013180B and growing ~15% with revenue (~$850B forward). Assuming capex plateaus near ~$175\u2013185B while OCF grows, I estimate a partial FCF recovery to roughly **$30,000M** over the next 12 months \u2014 well below the $50B of two years ago but a meaningful rebound off the trough.\n- **Applied multiple:** With FCF in a transitional trough but earnings power intact ($90B+ net income), the market prices Amazon on normalized FCF. I apply **~95x EV/forward-FCF** \u2014 very high on the depressed forward number but consistent with the current implied valuation (current EV/TTM FCF is >2,000x) and the market's look-through to post-capex-cycle FCF of $80\u2013100B+ (implying ~30x normalized).\n- **Bridge:** Forward EV = 30,000 \u00d7 95 = **$2,850,000M**. Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M**, roughly +3.6% versus today's $2,646,034M \u2014 modest upside reflecting strong fundamentals offset by an already-full valuation and capex overhang.\n- Forward net income estimate: ~$105,000M (continued margin expansion on ~14\u201315% revenue growth).\n\n```json\n{\"forward_market_cap_musd\": 2741928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 30000.0, \"forward_netinc_musd\": 105000.0, \"applied_multiple\": 95.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AWS reaccelerated to +28% YoY (fastest in 15 quarters) on AI demand, Bedrock (now hosting OpenAI GPT-5.5/5.4/Codex), and Trainium momentum (chips business >$20B run rate; OpenAI committed ~2 GW of Trainium capacity).\n- Record 13.1% company operating margin, Ads +22% YoY, and revenue +17% YoY show operating leverage across all three profit engines.\n- TTM net income of $90.8B (up 38% YoY) demonstrates that the near-zero FCF is a capex-timing artifact, not a profitability problem. As AI capacity monetizes, FCF should snap back sharply, justifying a premium multiple.",
+        "Bear Case": "- Capital intensity is extreme: Q1 capex of $43.2B (~$170B+ annualized) crushed TTM FCF to just $1.2B, down from $26B a year ago and $50B two years ago. If AI monetization lags, FCF recovery could stall for multiple years.\n- FTC monopolization case and other regulatory/litigation overhangs remain unresolved.\n- Consumer cyclicality: tariffs, inflation, rates, and recession risk directly hit the Stores segment; memory-chip and energy cost volatility pressures AWS build-out economics.\n- Market cap of $2.65T already sits well above its 3-year mean ($2.08T), leaving limited margin of safety if AWS growth or AI ROI disappoints.",
+        "Logic": "- **Forward FCF:** TTM FCF is $1.2B, artificially depressed by the capex surge. Operating cash flow (net income ~$91B plus large D&A) is likely ~$160\u2013180B and growing ~15% with revenue (~$850B forward). Assuming capex plateaus near ~$175\u2013185B while OCF grows, I estimate a partial FCF recovery to roughly **$30,000M** over the next 12 months \u2014 well below the $50B of two years ago but a meaningful rebound off the trough.\n- **Applied multiple:** With FCF in a transitional trough but earnings power intact ($90B+ net income), the market prices Amazon on normalized FCF. I apply **~95x EV/forward-FCF** \u2014 very high on the depressed forward number but consistent with the current implied valuation (current EV/TTM FCF is >2,000x) and the market's look-through to post-capex-cycle FCF of $80\u2013100B+ (implying ~30x normalized).\n- **Bridge:** Forward EV = 30,000 \u00d7 95 = **$2,850,000M**. Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M**, roughly +3.6% versus today's $2,646,034M \u2014 modest upside reflecting strong fundamentals offset by an already-full valuation and capex overhang.\n- Forward net income estimate: ~$105,000M (continued margin expansion on ~14\u201315% revenue growth)."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMZN",
+      "model_label": "Fable",
+      "model_slug": "anthropic/claude-fable-5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:22+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 1371,
+        "total_tokens": 4114,
+        "cost": 0.09598,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.09598,
+          "upstream_inference_prompt_cost": 0.02743,
+          "upstream_inference_completions_cost": 0.06855
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 99,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS accelerated to 28% YoY growth (fastest in 15 quarters), Ads grew 22%, and company operating margin hit a record 13.1%. If AI capacity currently being built (Trainium, Bedrock, the ~$20B run-rate chip business, OpenAI's 2 GW commitment) starts monetizing over the next 12 months, operating cash flow should scale sharply while capex growth flattens. Net income of ~$91B TTM shows the underlying earnings power; FCF conversion should partially normalize, supporting a premium multiple and an EV above $3T.\n\n## Bear Case\nCapex intensity is extreme \u2014 $43.2B in Q1 alone (~$173B annualized) \u2014 and management explicitly warned FCF stays pressured until new capacity monetizes. TTM FCF has collapsed to just $1.2B from $25.9B a year ago. Add FTC/antitrust overhang, tariff and consumer-cycle risk, and memory-chip cost volatility, and the market could de-rate the stock toward its 3-year mean cap (~$2.08T) if AI returns disappoint or AWS growth decelerates.\n\n## Logic\n- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by the AI capex surge. With revenue growing ~15% (to ~$850B), record operating margins driving operating cash flow toward ~$145\u2013155B, and capex plateauing near current run-rate rather than growing, I estimate a partial FCF recovery to roughly **$38B** over the next 12 months \u2014 well below the FY2024 conversion but consistent with early monetization of new AWS capacity.\n- **Multiple:** The 3-year average FCF/EV yield is ~1.31%, implying ~76x EV/FCF. Given accelerating AWS/Ads growth but continued capex uncertainty, I apply **75x** to forward FCF.\n- **EV:** 38,000 \u00d7 75 = **$2,850,000M** enterprise value.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt/other). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M** (~$2.74T), a modest ~3.6% premium to the current cap, reflecting FCF recovery offset by capex and regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 2741928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 38000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2741928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 38000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 75.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS accelerated to 28% YoY growth (fastest in 15 quarters), Ads grew 22%, and company operating margin hit a record 13.1%. If AI capacity currently being built (Trainium, Bedrock, the ~$20B run-rate chip business, OpenAI's 2 GW commitment) starts monetizing over the next 12 months, operating cash flow should scale sharply while capex growth flattens. Net income of ~$91B TTM shows the underlying earnings power; FCF conversion should partially normalize, supporting a premium multiple and an EV above $3T.\n\n## Bear Case\nCapex intensity is extreme \u2014 $43.2B in Q1 alone (~$173B annualized) \u2014 and management explicitly warned FCF stays pressured until new capacity monetizes. TTM FCF has collapsed to just $1.2B from $25.9B a year ago. Add FTC/antitrust overhang, tariff and consumer-cycle risk, and memory-chip cost volatility, and the market could de-rate the stock toward its 3-year mean cap (~$2.08T) if AI returns disappoint or AWS growth decelerates.\n\n## Logic\n- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by the AI capex surge. With revenue growing ~15% (to ~$850B), record operating margins driving operating cash flow toward ~$145\u2013155B, and capex plateauing near current run-rate rather than growing, I estimate a partial FCF recovery to roughly **$38B** over the next 12 months \u2014 well below the FY2024 conversion but consistent with early monetization of new AWS capacity.\n- **Multiple:** The 3-year average FCF/EV yield is ~1.31%, implying ~76x EV/FCF. Given accelerating AWS/Ads growth but continued capex uncertainty, I apply **75x** to forward FCF.\n- **EV:** 38,000 \u00d7 75 = **$2,850,000M** enterprise value.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt/other). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M** (~$2.74T), a modest ~3.6% premium to the current cap, reflecting FCF recovery offset by capex and regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 2741928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 38000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 75.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS accelerated to 28% YoY growth (fastest in 15 quarters), Ads grew 22%, and company operating margin hit a record 13.1%. If AI capacity currently being built (Trainium, Bedrock, the ~$20B run-rate chip business, OpenAI's 2 GW commitment) starts monetizing over the next 12 months, operating cash flow should scale sharply while capex growth flattens. Net income of ~$91B TTM shows the underlying earnings power; FCF conversion should partially normalize, supporting a premium multiple and an EV above $3T.",
+        "Bear Case": "Capex intensity is extreme \u2014 $43.2B in Q1 alone (~$173B annualized) \u2014 and management explicitly warned FCF stays pressured until new capacity monetizes. TTM FCF has collapsed to just $1.2B from $25.9B a year ago. Add FTC/antitrust overhang, tariff and consumer-cycle risk, and memory-chip cost volatility, and the market could de-rate the stock toward its 3-year mean cap (~$2.08T) if AI returns disappoint or AWS growth decelerates.",
+        "Logic": "- **Forward FCF:** TTM FCF of $1.2B is artificially depressed by the AI capex surge. With revenue growing ~15% (to ~$850B), record operating margins driving operating cash flow toward ~$145\u2013155B, and capex plateauing near current run-rate rather than growing, I estimate a partial FCF recovery to roughly **$38B** over the next 12 months \u2014 well below the FY2024 conversion but consistent with early monetization of new AWS capacity.\n- **Multiple:** The 3-year average FCF/EV yield is ~1.31%, implying ~76x EV/FCF. Given accelerating AWS/Ads growth but continued capex uncertainty, I apply **75x** to forward FCF.\n- **EV:** 38,000 \u00d7 75 = **$2,850,000M** enterprise value.\n- **Bridge to market cap:** Current EV \u2212 market cap gap = 2,754,105.8 \u2212 2,646,033.8 = **$108,072M** (net debt/other). Forward market cap = 2,850,000 \u2212 108,072 \u2248 **$2,741,928M** (~$2.74T), a modest ~3.6% premium to the current cap, reflecting FCF recovery offset by capex and regulatory risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMZN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:55+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 929,
+        "total_tokens": 3672,
+        "cost": 0.03694,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03694,
+          "upstream_inference_prompt_cost": 0.013715,
+          "upstream_inference_completions_cost": 0.023225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS reacceleration (28% YoY), Ads (22% YoY), and record 13.1% operating margins signal strong earnings power. Net income TTM is $90.8B and growing. The FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex for AI/AWS buildout; as capacity monetizes, FCF should normalize sharply toward prior levels ($25\u201350B). If capex intensity moderates and AWS AI demand converts, normalized forward FCF could rebound to ~$45B, supporting a premium EV/FCF multiple and continued market-cap expansion toward $3.0\u20133.3T.\n\n## Bear Case\nCapital intensity remains structurally elevated\u2014management explicitly warns capex can outpace revenue and suppress FCF for extended periods. Current FCF/EV yield is near zero (0.045%). Regulatory overhang (FTC monopolization case), tariff/macro cyclicality, and memory-chip cost volatility pressure margins. If the AI capex cycle continues without near-term FCF payoff, forward FCF stays depressed (~$15\u201320B) and the multiple compresses, pulling market cap back toward the 3-year mean (~$2.08T).\n\n## Logic\n- TTM FCF ($1,232M) is anomalously depressed by AI/AWS capex; using it directly is not representative. I blend toward a mid-cycle recovery: 1y avg FCF/EV (0.529%) and 3y avg (1.310%) imply normalized FCF of ~$14.6B\u2013$36.1B on current EV.\n- Forward FCF estimate: partial capex normalization + revenue growth \u2192 ~$28,000M (between 1y and 3y average-implied levels, reflecting gradual monetization of AI capacity).\n- Applied EV/FCF multiple: given depressed-but-recovering FCF and strong net income backing, I apply a premium normalized multiple of ~100x forward FCF (consistent with mid-cycle FCF conversion; current EV/normalized-FCF is compressed by transient capex). 28,000 \u00d7 100 = $2,800,000M EV.\n- EV\u2192market cap bridge: current EV ($2,754,106M) \u2212 current market cap ($2,646,034M) = net debt/adjustment of $108,072M. Forward market cap = forward EV \u2212 gap = 2,800,000 \u2212 108,072 = $2,691,928M.\n- This sits modestly above current market cap, reflecting expected FCF recovery balanced against capex and regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 2691928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": 98000.0, \"applied_multiple\": 100.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2691928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 28000.0,
+        "forward_netinc_musd": 98000.0,
+        "applied_multiple": 100.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS reacceleration (28% YoY), Ads (22% YoY), and record 13.1% operating margins signal strong earnings power. Net income TTM is $90.8B and growing. The FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex for AI/AWS buildout; as capacity monetizes, FCF should normalize sharply toward prior levels ($25\u201350B). If capex intensity moderates and AWS AI demand converts, normalized forward FCF could rebound to ~$45B, supporting a premium EV/FCF multiple and continued market-cap expansion toward $3.0\u20133.3T.\n\n## Bear Case\nCapital intensity remains structurally elevated\u2014management explicitly warns capex can outpace revenue and suppress FCF for extended periods. Current FCF/EV yield is near zero (0.045%). Regulatory overhang (FTC monopolization case), tariff/macro cyclicality, and memory-chip cost volatility pressure margins. If the AI capex cycle continues without near-term FCF payoff, forward FCF stays depressed (~$15\u201320B) and the multiple compresses, pulling market cap back toward the 3-year mean (~$2.08T).\n\n## Logic\n- TTM FCF ($1,232M) is anomalously depressed by AI/AWS capex; using it directly is not representative. I blend toward a mid-cycle recovery: 1y avg FCF/EV (0.529%) and 3y avg (1.310%) imply normalized FCF of ~$14.6B\u2013$36.1B on current EV.\n- Forward FCF estimate: partial capex normalization + revenue growth \u2192 ~$28,000M (between 1y and 3y average-implied levels, reflecting gradual monetization of AI capacity).\n- Applied EV/FCF multiple: given depressed-but-recovering FCF and strong net income backing, I apply a premium normalized multiple of ~100x forward FCF (consistent with mid-cycle FCF conversion; current EV/normalized-FCF is compressed by transient capex). 28,000 \u00d7 100 = $2,800,000M EV.\n- EV\u2192market cap bridge: current EV ($2,754,106M) \u2212 current market cap ($2,646,034M) = net debt/adjustment of $108,072M. Forward market cap = forward EV \u2212 gap = 2,800,000 \u2212 108,072 = $2,691,928M.\n- This sits modestly above current market cap, reflecting expected FCF recovery balanced against capex and regulatory risk.\n\n```json\n{\"forward_market_cap_musd\": 2691928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 28000.0, \"forward_netinc_musd\": 98000.0, \"applied_multiple\": 100.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS reacceleration (28% YoY), Ads (22% YoY), and record 13.1% operating margins signal strong earnings power. Net income TTM is $90.8B and growing. The FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex for AI/AWS buildout; as capacity monetizes, FCF should normalize sharply toward prior levels ($25\u201350B). If capex intensity moderates and AWS AI demand converts, normalized forward FCF could rebound to ~$45B, supporting a premium EV/FCF multiple and continued market-cap expansion toward $3.0\u20133.3T.",
+        "Bear Case": "Capital intensity remains structurally elevated\u2014management explicitly warns capex can outpace revenue and suppress FCF for extended periods. Current FCF/EV yield is near zero (0.045%). Regulatory overhang (FTC monopolization case), tariff/macro cyclicality, and memory-chip cost volatility pressure margins. If the AI capex cycle continues without near-term FCF payoff, forward FCF stays depressed (~$15\u201320B) and the multiple compresses, pulling market cap back toward the 3-year mean (~$2.08T).",
+        "Logic": "- TTM FCF ($1,232M) is anomalously depressed by AI/AWS capex; using it directly is not representative. I blend toward a mid-cycle recovery: 1y avg FCF/EV (0.529%) and 3y avg (1.310%) imply normalized FCF of ~$14.6B\u2013$36.1B on current EV.\n- Forward FCF estimate: partial capex normalization + revenue growth \u2192 ~$28,000M (between 1y and 3y average-implied levels, reflecting gradual monetization of AI capacity).\n- Applied EV/FCF multiple: given depressed-but-recovering FCF and strong net income backing, I apply a premium normalized multiple of ~100x forward FCF (consistent with mid-cycle FCF conversion; current EV/normalized-FCF is compressed by transient capex). 28,000 \u00d7 100 = $2,800,000M EV.\n- EV\u2192market cap bridge: current EV ($2,754,106M) \u2212 current market cap ($2,646,034M) = net debt/adjustment of $108,072M. Forward market cap = forward EV \u2212 gap = 2,800,000 \u2212 108,072 = $2,691,928M.\n- This sits modestly above current market cap, reflecting expected FCF recovery balanced against capex and regulatory risk."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMZN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:56+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 896,
+        "total_tokens": 3639,
+        "cost": 0.036115,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.036115,
+          "upstream_inference_prompt_cost": 0.013715,
+          "upstream_inference_completions_cost": 0.0224
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS reaccelerated to 28% YoY with AI/Trainium demand, ads growing 22%, and record 13.1% operating margins. The collapse in TTM FCF ($1.2B vs $25.9B prior year) is a capex artifact from heavy AI infrastructure buildout, not deteriorating economics. As new capacity monetizes over the next 12 months, FCF should normalize sharply back toward $40\u201355B levels seen in prior years. Net income remains robust at $90.8B TTM. A recovery to ~$45B forward FCF, combined with continued revenue growth (~15%) and a premium EV/FCF multiple justified by AWS/AI positioning, supports a materially higher market cap.\n\n## Bear Case\nManagement explicitly warns capex can outpace revenue during high-AWS-growth periods, pressuring FCF for an extended stretch. Q1 cash capex was $43.2B \u2014 an annualized pace near $170B \u2014 which could keep FCF depressed well below historical norms. Regulatory overhang (FTC monopolization case) and cyclical retail/tariff risks add downside. If FCF only partially recovers to ~$25\u201330B and the multiple compresses, market cap stays flat or declines from current elevated ~$2.65T levels.\n\n## Logic\n- Current EV = $2,754,106M; Market cap = $2,646,034M. EV\u2013MC gap = **+$108,072M** (net debt/other), applied as market cap = EV \u2212 108,072.\n- Forward FCF: TTM FCF of $1,232M is anomalously depressed by AI capex. Normalizing toward a blend of the 3-year history ($25.9B, $50.1B) discounted for elevated ongoing capex, I estimate a partial recovery to **~$40,000M** forward FCF (below prior peak given ~$170B annualized capex pace, but well above the trough).\n- Applied multiple: Historical 3y avg FCF/EV \u2248 1.31%, implying ~76x EV/FCF; current implies ~2,235x (distorted). Using normalized FCF, a reasonable premium multiple reflecting AWS/AI growth is **~72x EV/FCF** (FCF yield \u2248 1.39%).\n- Forward EV = 40,000 \u00d7 72 = $2,880,000M.\n- Forward market cap = EV \u2212 gap = 2,880,000 \u2212 108,072 \u2248 **$2,771,928M**.\n\n```json\n{\"forward_market_cap_musd\": 2771928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 40000.0, \"forward_netinc_musd\": 95000.0, \"applied_multiple\": 72.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2771928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 40000.0,
+        "forward_netinc_musd": 95000.0,
+        "applied_multiple": 72.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS reaccelerated to 28% YoY with AI/Trainium demand, ads growing 22%, and record 13.1% operating margins. The collapse in TTM FCF ($1.2B vs $25.9B prior year) is a capex artifact from heavy AI infrastructure buildout, not deteriorating economics. As new capacity monetizes over the next 12 months, FCF should normalize sharply back toward $40\u201355B levels seen in prior years. Net income remains robust at $90.8B TTM. A recovery to ~$45B forward FCF, combined with continued revenue growth (~15%) and a premium EV/FCF multiple justified by AWS/AI positioning, supports a materially higher market cap.\n\n## Bear Case\nManagement explicitly warns capex can outpace revenue during high-AWS-growth periods, pressuring FCF for an extended stretch. Q1 cash capex was $43.2B \u2014 an annualized pace near $170B \u2014 which could keep FCF depressed well below historical norms. Regulatory overhang (FTC monopolization case) and cyclical retail/tariff risks add downside. If FCF only partially recovers to ~$25\u201330B and the multiple compresses, market cap stays flat or declines from current elevated ~$2.65T levels.\n\n## Logic\n- Current EV = $2,754,106M; Market cap = $2,646,034M. EV\u2013MC gap = **+$108,072M** (net debt/other), applied as market cap = EV \u2212 108,072.\n- Forward FCF: TTM FCF of $1,232M is anomalously depressed by AI capex. Normalizing toward a blend of the 3-year history ($25.9B, $50.1B) discounted for elevated ongoing capex, I estimate a partial recovery to **~$40,000M** forward FCF (below prior peak given ~$170B annualized capex pace, but well above the trough).\n- Applied multiple: Historical 3y avg FCF/EV \u2248 1.31%, implying ~76x EV/FCF; current implies ~2,235x (distorted). Using normalized FCF, a reasonable premium multiple reflecting AWS/AI growth is **~72x EV/FCF** (FCF yield \u2248 1.39%).\n- Forward EV = 40,000 \u00d7 72 = $2,880,000M.\n- Forward market cap = EV \u2212 gap = 2,880,000 \u2212 108,072 \u2248 **$2,771,928M**.\n\n```json\n{\"forward_market_cap_musd\": 2771928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 40000.0, \"forward_netinc_musd\": 95000.0, \"applied_multiple\": 72.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS reaccelerated to 28% YoY with AI/Trainium demand, ads growing 22%, and record 13.1% operating margins. The collapse in TTM FCF ($1.2B vs $25.9B prior year) is a capex artifact from heavy AI infrastructure buildout, not deteriorating economics. As new capacity monetizes over the next 12 months, FCF should normalize sharply back toward $40\u201355B levels seen in prior years. Net income remains robust at $90.8B TTM. A recovery to ~$45B forward FCF, combined with continued revenue growth (~15%) and a premium EV/FCF multiple justified by AWS/AI positioning, supports a materially higher market cap.",
+        "Bear Case": "Management explicitly warns capex can outpace revenue during high-AWS-growth periods, pressuring FCF for an extended stretch. Q1 cash capex was $43.2B \u2014 an annualized pace near $170B \u2014 which could keep FCF depressed well below historical norms. Regulatory overhang (FTC monopolization case) and cyclical retail/tariff risks add downside. If FCF only partially recovers to ~$25\u201330B and the multiple compresses, market cap stays flat or declines from current elevated ~$2.65T levels.",
+        "Logic": "- Current EV = $2,754,106M; Market cap = $2,646,034M. EV\u2013MC gap = **+$108,072M** (net debt/other), applied as market cap = EV \u2212 108,072.\n- Forward FCF: TTM FCF of $1,232M is anomalously depressed by AI capex. Normalizing toward a blend of the 3-year history ($25.9B, $50.1B) discounted for elevated ongoing capex, I estimate a partial recovery to **~$40,000M** forward FCF (below prior peak given ~$170B annualized capex pace, but well above the trough).\n- Applied multiple: Historical 3y avg FCF/EV \u2248 1.31%, implying ~76x EV/FCF; current implies ~2,235x (distorted). Using normalized FCF, a reasonable premium multiple reflecting AWS/AI growth is **~72x EV/FCF** (FCF yield \u2248 1.39%).\n- Forward EV = 40,000 \u00d7 72 = $2,880,000M.\n- Forward market cap = EV \u2212 gap = 2,880,000 \u2212 108,072 \u2248 **$2,771,928M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMZN",
+      "model_label": "Opus 4.8",
+      "model_slug": "anthropic/claude-opus-4.8",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:01+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 2743,
+        "completion_tokens": 903,
+        "total_tokens": 3646,
+        "cost": 0.03629,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03629,
+          "upstream_inference_prompt_cost": 0.013715,
+          "upstream_inference_completions_cost": 0.022575
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS reaccelerated to 28% YoY with AI/Trainium tailwinds, ads growing 22%, and company operating margin at a record 13.1%. The TTM FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex tied to AI capacity buildout. As new capacity monetizes, FCF normalizes back toward the 3-year trend ($25\u201350B). If capex plateaus while AWS/ads revenue compounds, FCF could rebound to ~$45\u201355B within 12 months, supporting a premium EV/FCF multiple.\n\n## Bear Case\nCapex is outpacing revenue and could stay elevated (satellite, autonomous, AI silicon) with uncertain returns. FCF may remain depressed well below historical norms through the horizon. Regulatory overhang (FTC monopolization case), tariff/trade risk, memory-chip cost volatility, and cyclical consumer softness pressure retail margins. If FCF only partially recovers to ~$30\u201335B, the market re-rates lower given the capital intensity.\n\n## Logic\n- **Forward FCF:** TTM FCF ($1,232M) is anomalously low due to peak AI capex. Blending toward the 3-yr history (~$25.9B last year, ~$50B prior) but haircutting for continued heavy capex, I estimate forward FCF recovers to ~$38,000M \u2014 a partial normalization, not a full snap-back.\n- **Applied EV/FCF multiple:** Current FCF/EV yield is distorted (0.045%). Using a normalized-FCF framing consistent with a high-growth cloud/ads mix, I apply ~55x forward FCF (reciprocal ~1.8% FCF yield), reasonable for AWS/ads-weighted profit growth.\n- **Forward EV:** 38,000 \u00d7 55 = **2,090,000M**.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 2,646,033.8 \u2212 2,754,105.8 = **\u2212108,072M** (net-debt/EV adjustments exceed cash). Forward MC = forward EV \u2212 108,072 = 2,090,000 \u2212 108,072 \u2248 **1,981,928M**.\n- This sits above the 3-yr mean MC ($2.075T) roughly in line, reflecting recovery optimism tempered by capex risk. Net income (~$90.8B TTM) is not used directly for the EV/FCF valuation.\n\n```json\n{\"forward_market_cap_musd\": 1981928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 38000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 55.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 1981928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 38000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 55.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS reaccelerated to 28% YoY with AI/Trainium tailwinds, ads growing 22%, and company operating margin at a record 13.1%. The TTM FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex tied to AI capacity buildout. As new capacity monetizes, FCF normalizes back toward the 3-year trend ($25\u201350B). If capex plateaus while AWS/ads revenue compounds, FCF could rebound to ~$45\u201355B within 12 months, supporting a premium EV/FCF multiple.\n\n## Bear Case\nCapex is outpacing revenue and could stay elevated (satellite, autonomous, AI silicon) with uncertain returns. FCF may remain depressed well below historical norms through the horizon. Regulatory overhang (FTC monopolization case), tariff/trade risk, memory-chip cost volatility, and cyclical consumer softness pressure retail margins. If FCF only partially recovers to ~$30\u201335B, the market re-rates lower given the capital intensity.\n\n## Logic\n- **Forward FCF:** TTM FCF ($1,232M) is anomalously low due to peak AI capex. Blending toward the 3-yr history (~$25.9B last year, ~$50B prior) but haircutting for continued heavy capex, I estimate forward FCF recovers to ~$38,000M \u2014 a partial normalization, not a full snap-back.\n- **Applied EV/FCF multiple:** Current FCF/EV yield is distorted (0.045%). Using a normalized-FCF framing consistent with a high-growth cloud/ads mix, I apply ~55x forward FCF (reciprocal ~1.8% FCF yield), reasonable for AWS/ads-weighted profit growth.\n- **Forward EV:** 38,000 \u00d7 55 = **2,090,000M**.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 2,646,033.8 \u2212 2,754,105.8 = **\u2212108,072M** (net-debt/EV adjustments exceed cash). Forward MC = forward EV \u2212 108,072 = 2,090,000 \u2212 108,072 \u2248 **1,981,928M**.\n- This sits above the 3-yr mean MC ($2.075T) roughly in line, reflecting recovery optimism tempered by capex risk. Net income (~$90.8B TTM) is not used directly for the EV/FCF valuation.\n\n```json\n{\"forward_market_cap_musd\": 1981928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 38000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 55.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS reaccelerated to 28% YoY with AI/Trainium tailwinds, ads growing 22%, and company operating margin at a record 13.1%. The TTM FCF collapse to $1.2B is a temporary artifact of ~$43B/quarter capex tied to AI capacity buildout. As new capacity monetizes, FCF normalizes back toward the 3-year trend ($25\u201350B). If capex plateaus while AWS/ads revenue compounds, FCF could rebound to ~$45\u201355B within 12 months, supporting a premium EV/FCF multiple.",
+        "Bear Case": "Capex is outpacing revenue and could stay elevated (satellite, autonomous, AI silicon) with uncertain returns. FCF may remain depressed well below historical norms through the horizon. Regulatory overhang (FTC monopolization case), tariff/trade risk, memory-chip cost volatility, and cyclical consumer softness pressure retail margins. If FCF only partially recovers to ~$30\u201335B, the market re-rates lower given the capital intensity.",
+        "Logic": "- **Forward FCF:** TTM FCF ($1,232M) is anomalously low due to peak AI capex. Blending toward the 3-yr history (~$25.9B last year, ~$50B prior) but haircutting for continued heavy capex, I estimate forward FCF recovers to ~$38,000M \u2014 a partial normalization, not a full snap-back.\n- **Applied EV/FCF multiple:** Current FCF/EV yield is distorted (0.045%). Using a normalized-FCF framing consistent with a high-growth cloud/ads mix, I apply ~55x forward FCF (reciprocal ~1.8% FCF yield), reasonable for AWS/ads-weighted profit growth.\n- **Forward EV:** 38,000 \u00d7 55 = **2,090,000M**.\n- **EV\u2192MC bridge:** Current gap = MC \u2212 EV = 2,646,033.8 \u2212 2,754,105.8 = **\u2212108,072M** (net-debt/EV adjustments exceed cash). Forward MC = forward EV \u2212 108,072 = 2,090,000 \u2212 108,072 \u2248 **1,981,928M**.\n- This sits above the 3-yr mean MC ($2.075T) roughly in line, reflecting recovery optimism tempered by capex risk. Net income (~$90.8B TTM) is not used directly for the EV/FCF valuation."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMZN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:41+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1758,
+        "completion_tokens": 1569,
+        "total_tokens": 3327,
+        "cost": 0.05586,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.05586,
+          "upstream_inference_prompt_cost": 0.00879,
+          "upstream_inference_completions_cost": 0.04707
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1034,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS AI demand, Ads growth, and retail operating leverage let Amazon monetize recent capex faster than expected. Forward FCF could recover toward the prior-cycle range, around $45,000\u2013$50,000M, and the market could sustain a premium EV/FCF multiple of ~90x given AWS acceleration and high-margin Ads growth. That implies upside forward market cap potential above $3,900,000M.\n\n## Bear Case\nAI infrastructure capex remains elevated, with Q1 cash capex of $43,200M signaling continued FCF suppression. If forward FCF only improves modestly to ~$15,000\u2013$20,000M and investors compress the multiple toward ~65x\u201370x due to capex intensity, regulation, and consumer cyclicality, forward market cap could fall materially below current levels.\n\n## Logic\nCurrent EV is $2,754,105.8M and current market cap is $2,646,033.8M, so the EV minus market-cap gap is $108,072.0M.\n\nTTM FCF is only $1,232M, but this is distorted by unusually high AWS/generative-AI capex. Prior TTM FCF was $25,925M in 2025 and $50,149M in 2024, while TTM net income is $90,798M and revenue continues growing strongly. I estimate 12-month forward FCF at $35,000M: a recovery from the depressed current level, but still below the 2024 peak because capex remains heavy.\n\nFor the multiple, current FCF/EV is not useful because FCF is temporarily compressed. The 3-year average FCF/EV yield of ~1.31% implies ~76x EV/FCF, while the 1-year average yield implies a much higher multiple. I apply 82x EV/FCF, modestly above the 3-year average inverse yield to reflect AWS/Ads growth and high operating leverage, but with a discount for capex intensity.\n\nForward EV = $35,000M \u00d7 82.0 = $2,870,000M.  \nForward market cap = $2,870,000M - $108,072M = $2,761,928M.\n\n```json\n{\"forward_market_cap_musd\": 2761928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 35000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 82.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2761928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 35000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 82.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS AI demand, Ads growth, and retail operating leverage let Amazon monetize recent capex faster than expected. Forward FCF could recover toward the prior-cycle range, around $45,000\u2013$50,000M, and the market could sustain a premium EV/FCF multiple of ~90x given AWS acceleration and high-margin Ads growth. That implies upside forward market cap potential above $3,900,000M.\n\n## Bear Case\nAI infrastructure capex remains elevated, with Q1 cash capex of $43,200M signaling continued FCF suppression. If forward FCF only improves modestly to ~$15,000\u2013$20,000M and investors compress the multiple toward ~65x\u201370x due to capex intensity, regulation, and consumer cyclicality, forward market cap could fall materially below current levels.\n\n## Logic\nCurrent EV is $2,754,105.8M and current market cap is $2,646,033.8M, so the EV minus market-cap gap is $108,072.0M.\n\nTTM FCF is only $1,232M, but this is distorted by unusually high AWS/generative-AI capex. Prior TTM FCF was $25,925M in 2025 and $50,149M in 2024, while TTM net income is $90,798M and revenue continues growing strongly. I estimate 12-month forward FCF at $35,000M: a recovery from the depressed current level, but still below the 2024 peak because capex remains heavy.\n\nFor the multiple, current FCF/EV is not useful because FCF is temporarily compressed. The 3-year average FCF/EV yield of ~1.31% implies ~76x EV/FCF, while the 1-year average yield implies a much higher multiple. I apply 82x EV/FCF, modestly above the 3-year average inverse yield to reflect AWS/Ads growth and high operating leverage, but with a discount for capex intensity.\n\nForward EV = $35,000M \u00d7 82.0 = $2,870,000M.  \nForward market cap = $2,870,000M - $108,072M = $2,761,928M.\n\n```json\n{\"forward_market_cap_musd\": 2761928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 35000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 82.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS AI demand, Ads growth, and retail operating leverage let Amazon monetize recent capex faster than expected. Forward FCF could recover toward the prior-cycle range, around $45,000\u2013$50,000M, and the market could sustain a premium EV/FCF multiple of ~90x given AWS acceleration and high-margin Ads growth. That implies upside forward market cap potential above $3,900,000M.",
+        "Bear Case": "AI infrastructure capex remains elevated, with Q1 cash capex of $43,200M signaling continued FCF suppression. If forward FCF only improves modestly to ~$15,000\u2013$20,000M and investors compress the multiple toward ~65x\u201370x due to capex intensity, regulation, and consumer cyclicality, forward market cap could fall materially below current levels.",
+        "Logic": "Current EV is $2,754,105.8M and current market cap is $2,646,033.8M, so the EV minus market-cap gap is $108,072.0M.\n\nTTM FCF is only $1,232M, but this is distorted by unusually high AWS/generative-AI capex. Prior TTM FCF was $25,925M in 2025 and $50,149M in 2024, while TTM net income is $90,798M and revenue continues growing strongly. I estimate 12-month forward FCF at $35,000M: a recovery from the depressed current level, but still below the 2024 peak because capex remains heavy.\n\nFor the multiple, current FCF/EV is not useful because FCF is temporarily compressed. The 3-year average FCF/EV yield of ~1.31% implies ~76x EV/FCF, while the 1-year average yield implies a much higher multiple. I apply 82x EV/FCF, modestly above the 3-year average inverse yield to reflect AWS/Ads growth and high operating leverage, but with a discount for capex intensity.\n\nForward EV = $35,000M \u00d7 82.0 = $2,870,000M.  \nForward market cap = $2,870,000M - $108,072M = $2,761,928M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMZN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:18:42+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1758,
+        "completion_tokens": 1550,
+        "total_tokens": 3308,
+        "cost": 0.04953,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.04953,
+          "upstream_inference_prompt_cost": 0.00303,
+          "upstream_inference_completions_cost": 0.0465
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1034,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\n- AWS AI demand, Ads growth, and retail operating leverage continue, while capex begins converting into monetized capacity.\n- Forward FCF could recover toward the prior high sample of **$50,149**.\n- Applying a premium growth multiple of **90x EV/FCF** implies EV of about **$4,500,000**, or market cap of **$4,391,928** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\n- AI/AWS capex remains ahead of revenue monetization, keeping FCF structurally depressed despite strong net income.\n- Forward FCF could remain closer to **$15,000\u2013$20,000**.\n- At a lower **60x EV/FCF**, EV would be **$900,000\u2013$1,200,000**, implying market cap of **$791,928\u2013$1,091,928**.\n\n## Logic\n- Current EV: **$2,754,105.8**\n- Current market cap: **$2,646,033.8**\n- EV minus market-cap gap: **$108,072.0**\n- TTM FCF is only **$1,232**, but this appears temporarily compressed by very high AI/AWS capex, including Q1 cash capex of **$43,200**.\n- Historical FCF samples were **$50,149** in 2024, **$25,925** in 2025, and **$1,232** in 2026. Given revenue growth, AWS acceleration, Ads growth, and capex pressure, I use a forward FCF estimate of **$35,000**.\n- I apply an **80x EV/FCF** multiple, above the 3-year average implied multiple of roughly **76x**, reflecting Amazon\u2019s AWS/AI growth and high operating leverage, but below a full bull-case premium because capex intensity remains a major drag.\n- Forward EV = **$35,000 \u00d7 80.0 = $2,800,000**\n- Forward market cap = **$2,800,000 - $108,072 = $2,691,928**\n\n```json\n{\"forward_market_cap_musd\": 2691928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 35000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2691928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 35000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 80.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\n- AWS AI demand, Ads growth, and retail operating leverage continue, while capex begins converting into monetized capacity.\n- Forward FCF could recover toward the prior high sample of **$50,149**.\n- Applying a premium growth multiple of **90x EV/FCF** implies EV of about **$4,500,000**, or market cap of **$4,391,928** after subtracting the current EV-to-market-cap gap.\n\n## Bear Case\n- AI/AWS capex remains ahead of revenue monetization, keeping FCF structurally depressed despite strong net income.\n- Forward FCF could remain closer to **$15,000\u2013$20,000**.\n- At a lower **60x EV/FCF**, EV would be **$900,000\u2013$1,200,000**, implying market cap of **$791,928\u2013$1,091,928**.\n\n## Logic\n- Current EV: **$2,754,105.8**\n- Current market cap: **$2,646,033.8**\n- EV minus market-cap gap: **$108,072.0**\n- TTM FCF is only **$1,232**, but this appears temporarily compressed by very high AI/AWS capex, including Q1 cash capex of **$43,200**.\n- Historical FCF samples were **$50,149** in 2024, **$25,925** in 2025, and **$1,232** in 2026. Given revenue growth, AWS acceleration, Ads growth, and capex pressure, I use a forward FCF estimate of **$35,000**.\n- I apply an **80x EV/FCF** multiple, above the 3-year average implied multiple of roughly **76x**, reflecting Amazon\u2019s AWS/AI growth and high operating leverage, but below a full bull-case premium because capex intensity remains a major drag.\n- Forward EV = **$35,000 \u00d7 80.0 = $2,800,000**\n- Forward market cap = **$2,800,000 - $108,072 = $2,691,928**\n\n```json\n{\"forward_market_cap_musd\": 2691928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 35000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 80.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "- AWS AI demand, Ads growth, and retail operating leverage continue, while capex begins converting into monetized capacity.\n- Forward FCF could recover toward the prior high sample of **$50,149**.\n- Applying a premium growth multiple of **90x EV/FCF** implies EV of about **$4,500,000**, or market cap of **$4,391,928** after subtracting the current EV-to-market-cap gap.",
+        "Bear Case": "- AI/AWS capex remains ahead of revenue monetization, keeping FCF structurally depressed despite strong net income.\n- Forward FCF could remain closer to **$15,000\u2013$20,000**.\n- At a lower **60x EV/FCF**, EV would be **$900,000\u2013$1,200,000**, implying market cap of **$791,928\u2013$1,091,928**.",
+        "Logic": "- Current EV: **$2,754,105.8**\n- Current market cap: **$2,646,033.8**\n- EV minus market-cap gap: **$108,072.0**\n- TTM FCF is only **$1,232**, but this appears temporarily compressed by very high AI/AWS capex, including Q1 cash capex of **$43,200**.\n- Historical FCF samples were **$50,149** in 2024, **$25,925** in 2025, and **$1,232** in 2026. Given revenue growth, AWS acceleration, Ads growth, and capex pressure, I use a forward FCF estimate of **$35,000**.\n- I apply an **80x EV/FCF** multiple, above the 3-year average implied multiple of roughly **76x**, reflecting Amazon\u2019s AWS/AI growth and high operating leverage, but below a full bull-case premium because capex intensity remains a major drag.\n- Forward EV = **$35,000 \u00d7 80.0 = $2,800,000**\n- Forward market cap = **$2,800,000 - $108,072 = $2,691,928**"
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMZN",
+      "model_label": "GPT 5.5",
+      "model_slug": "openai/gpt-5.5",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:13+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1758,
+        "completion_tokens": 2566,
+        "total_tokens": 4324,
+        "cost": 0.08577,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.08577,
+          "upstream_inference_prompt_cost": 0.00879,
+          "upstream_inference_completions_cost": 0.07698
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2070,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS growth, AI infrastructure utilization, Ads growth, and retail operating leverage lift cash generation faster than capex. Forward FCF could normalize toward **$60B+**, and the market could sustain a premium **70x+ EV/FCF** multiple given AWS/AI optionality, implying upside to a **$4T+** market cap.\n\n## Bear Case\nAI/AWS capex remains ahead of monetization, keeping FCF structurally depressed despite strong net income. If forward FCF is only **$20B\u2013$25B** and the market applies a lower **50x\u201355x EV/FCF** multiple, the FCF-based valuation would compress materially.\n\n## Logic\n- TTM FCF is only **$1,232M**, but this is distorted by heavy investment, including **$43,200M** of Q1 cash capex.\n- TTM net income is much stronger at **$90,798M**, with revenue growth, AWS growth, Ads growth, and operating margin expansion supporting materially better underlying earning power than current FCF suggests.\n- I use **$45,000M** forward FCF as a middle case: above the current depressed TTM level, below a full normalization scenario, and still reflecting elevated AI/AWS capex.\n- Current FCF/EV metrics imply very high multiples because current FCF is trough-like. The 3-year average FCF/EV of **1.31%** implies about **76x EV/FCF**. I apply a more conservative **65x EV/FCF** to reflect capex risk while still recognizing Amazon\u2019s growth profile.\n- Forward EV = **$45,000M \u00d7 65.0 = $2,925,000M**.\n- Current EV minus market cap gap = **$2,754,105.8M \u2212 $2,646,033.8M = $108,072.0M**.\n- Forward market cap = **$2,925,000M \u2212 $108,072M = $2,816,928M**.\n\n```json\n{\"forward_market_cap_musd\": 2816928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2816928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 45000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 65.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS growth, AI infrastructure utilization, Ads growth, and retail operating leverage lift cash generation faster than capex. Forward FCF could normalize toward **$60B+**, and the market could sustain a premium **70x+ EV/FCF** multiple given AWS/AI optionality, implying upside to a **$4T+** market cap.\n\n## Bear Case\nAI/AWS capex remains ahead of monetization, keeping FCF structurally depressed despite strong net income. If forward FCF is only **$20B\u2013$25B** and the market applies a lower **50x\u201355x EV/FCF** multiple, the FCF-based valuation would compress materially.\n\n## Logic\n- TTM FCF is only **$1,232M**, but this is distorted by heavy investment, including **$43,200M** of Q1 cash capex.\n- TTM net income is much stronger at **$90,798M**, with revenue growth, AWS growth, Ads growth, and operating margin expansion supporting materially better underlying earning power than current FCF suggests.\n- I use **$45,000M** forward FCF as a middle case: above the current depressed TTM level, below a full normalization scenario, and still reflecting elevated AI/AWS capex.\n- Current FCF/EV metrics imply very high multiples because current FCF is trough-like. The 3-year average FCF/EV of **1.31%** implies about **76x EV/FCF**. I apply a more conservative **65x EV/FCF** to reflect capex risk while still recognizing Amazon\u2019s growth profile.\n- Forward EV = **$45,000M \u00d7 65.0 = $2,925,000M**.\n- Current EV minus market cap gap = **$2,754,105.8M \u2212 $2,646,033.8M = $108,072.0M**.\n- Forward market cap = **$2,925,000M \u2212 $108,072M = $2,816,928M**.\n\n```json\n{\"forward_market_cap_musd\": 2816928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 45000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 65.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS growth, AI infrastructure utilization, Ads growth, and retail operating leverage lift cash generation faster than capex. Forward FCF could normalize toward **$60B+**, and the market could sustain a premium **70x+ EV/FCF** multiple given AWS/AI optionality, implying upside to a **$4T+** market cap.",
+        "Bear Case": "AI/AWS capex remains ahead of monetization, keeping FCF structurally depressed despite strong net income. If forward FCF is only **$20B\u2013$25B** and the market applies a lower **50x\u201355x EV/FCF** multiple, the FCF-based valuation would compress materially.",
+        "Logic": "- TTM FCF is only **$1,232M**, but this is distorted by heavy investment, including **$43,200M** of Q1 cash capex.\n- TTM net income is much stronger at **$90,798M**, with revenue growth, AWS growth, Ads growth, and operating margin expansion supporting materially better underlying earning power than current FCF suggests.\n- I use **$45,000M** forward FCF as a middle case: above the current depressed TTM level, below a full normalization scenario, and still reflecting elevated AI/AWS capex.\n- Current FCF/EV metrics imply very high multiples because current FCF is trough-like. The 3-year average FCF/EV of **1.31%** implies about **76x EV/FCF**. I apply a more conservative **65x EV/FCF** to reflect capex risk while still recognizing Amazon\u2019s growth profile.\n- Forward EV = **$45,000M \u00d7 65.0 = $2,925,000M**.\n- Current EV minus market cap gap = **$2,754,105.8M \u2212 $2,646,033.8M = $108,072.0M**.\n- Forward market cap = **$2,925,000M \u2212 $108,072M = $2,816,928M**."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 0,
+      "asset_id": "AMZN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:31+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1829,
+        "completion_tokens": 4264,
+        "total_tokens": 6093,
+        "cost": 0.049193,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.049193,
+          "upstream_inference_prompt_cost": 0.005487,
+          "upstream_inference_completions_cost": 0.043706
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3536,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS AI infrastructure investments begin monetizing at scale\u2014Trainium capacity (2 GW committed by OpenAI), Bedrock model breadth (GPT-5.5/5.4/Codex), and a >$20B chip run-rate drive accelerating cloud revenue and operating leverage. Company operating margin expands beyond the Q1 record of 13.1% as high-margin AWS and Ads mix shifts further. Capex intensity moderates from the Q1 $43.2B spike as initial capacity comes online and converts to revenue, allowing FCF to partially recover toward the $20\u201330B range seen in prior cycles. Retail momentum from the expanded 4-day Prime Day and 1B+ same-day deliveries supports top-line growth near 17%. Forward FCF recovers to ~$25B; at a 115x multiple (still elevated vs. 3-yr avg ~77x but discounting the depressed base), implied EV ~$2,875B; less the $108B EV-to-MC gap, forward MC ~$2,767B.\n\n## Bear Case\nCapex remains at $40B+/quarter as AI infrastructure build-out continues with uncertain returns and demand timing. Management's own warnings that capex can outpace revenue in high-AWS-growth periods prove prescient, keeping forward FCF near $2\u20135B. The FTC monopolization case and $2.25M FCRA settlement signal ongoing regulatory drag. Consumer cyclicality\u2014tariffs, inflation, recession risk\u2014pressures retail margins while massive AI capex consumes cash. With FCF barely positive and the market less willing to extend an extreme multiple, forward FCF ~$5B at 350x (generous given growth-optionality premium) yields EV ~$1,750B; less the $108B gap, forward MC ~$1,642B.\n\n## Logic\nTTM FCF has collapsed from $50.1B (2024) \u2192 $25.9B (2025) \u2192 $1.2B (2026), driven by Q1 cash capex of $43.2B. The market is clearly looking through this cycle\u2014current EV/FCF on TTM is ~2,236x\u2014so any straightforward multiple on current FCF is distorted. I estimate forward 12m FCF at $15B, splitting the difference between the bull ($25B, partial capex moderation as AWS capacity monetizes) and bear ($5B, capex stays elevated). I apply 180x EV/FCF, consistent with the 1-year average FCF yield (~0.53% \u2192 ~189x) but slightly lower to reflect partial FCF recovery. Forward EV = $15,000M \u00d7 180 = $2,700,000M. Bridging to market cap using the packet's EV-minus-MC gap of $108,072M: forward MC = $2,700,000M \u2212 $108,072M = $2,591,928M\u2014roughly flat to the current $2,646,034M, balancing strong operating income ($23.9B/quarter) against extreme capex pressure.\n\n```json\n{\"forward_market_cap_musd\": 2591928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 180.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2591928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 15000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 180.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS AI infrastructure investments begin monetizing at scale\u2014Trainium capacity (2 GW committed by OpenAI), Bedrock model breadth (GPT-5.5/5.4/Codex), and a >$20B chip run-rate drive accelerating cloud revenue and operating leverage. Company operating margin expands beyond the Q1 record of 13.1% as high-margin AWS and Ads mix shifts further. Capex intensity moderates from the Q1 $43.2B spike as initial capacity comes online and converts to revenue, allowing FCF to partially recover toward the $20\u201330B range seen in prior cycles. Retail momentum from the expanded 4-day Prime Day and 1B+ same-day deliveries supports top-line growth near 17%. Forward FCF recovers to ~$25B; at a 115x multiple (still elevated vs. 3-yr avg ~77x but discounting the depressed base), implied EV ~$2,875B; less the $108B EV-to-MC gap, forward MC ~$2,767B.\n\n## Bear Case\nCapex remains at $40B+/quarter as AI infrastructure build-out continues with uncertain returns and demand timing. Management's own warnings that capex can outpace revenue in high-AWS-growth periods prove prescient, keeping forward FCF near $2\u20135B. The FTC monopolization case and $2.25M FCRA settlement signal ongoing regulatory drag. Consumer cyclicality\u2014tariffs, inflation, recession risk\u2014pressures retail margins while massive AI capex consumes cash. With FCF barely positive and the market less willing to extend an extreme multiple, forward FCF ~$5B at 350x (generous given growth-optionality premium) yields EV ~$1,750B; less the $108B gap, forward MC ~$1,642B.\n\n## Logic\nTTM FCF has collapsed from $50.1B (2024) \u2192 $25.9B (2025) \u2192 $1.2B (2026), driven by Q1 cash capex of $43.2B. The market is clearly looking through this cycle\u2014current EV/FCF on TTM is ~2,236x\u2014so any straightforward multiple on current FCF is distorted. I estimate forward 12m FCF at $15B, splitting the difference between the bull ($25B, partial capex moderation as AWS capacity monetizes) and bear ($5B, capex stays elevated). I apply 180x EV/FCF, consistent with the 1-year average FCF yield (~0.53% \u2192 ~189x) but slightly lower to reflect partial FCF recovery. Forward EV = $15,000M \u00d7 180 = $2,700,000M. Bridging to market cap using the packet's EV-minus-MC gap of $108,072M: forward MC = $2,700,000M \u2212 $108,072M = $2,591,928M\u2014roughly flat to the current $2,646,034M, balancing strong operating income ($23.9B/quarter) against extreme capex pressure.\n\n```json\n{\"forward_market_cap_musd\": 2591928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 180.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS AI infrastructure investments begin monetizing at scale\u2014Trainium capacity (2 GW committed by OpenAI), Bedrock model breadth (GPT-5.5/5.4/Codex), and a >$20B chip run-rate drive accelerating cloud revenue and operating leverage. Company operating margin expands beyond the Q1 record of 13.1% as high-margin AWS and Ads mix shifts further. Capex intensity moderates from the Q1 $43.2B spike as initial capacity comes online and converts to revenue, allowing FCF to partially recover toward the $20\u201330B range seen in prior cycles. Retail momentum from the expanded 4-day Prime Day and 1B+ same-day deliveries supports top-line growth near 17%. Forward FCF recovers to ~$25B; at a 115x multiple (still elevated vs. 3-yr avg ~77x but discounting the depressed base), implied EV ~$2,875B; less the $108B EV-to-MC gap, forward MC ~$2,767B.",
+        "Bear Case": "Capex remains at $40B+/quarter as AI infrastructure build-out continues with uncertain returns and demand timing. Management's own warnings that capex can outpace revenue in high-AWS-growth periods prove prescient, keeping forward FCF near $2\u20135B. The FTC monopolization case and $2.25M FCRA settlement signal ongoing regulatory drag. Consumer cyclicality\u2014tariffs, inflation, recession risk\u2014pressures retail margins while massive AI capex consumes cash. With FCF barely positive and the market less willing to extend an extreme multiple, forward FCF ~$5B at 350x (generous given growth-optionality premium) yields EV ~$1,750B; less the $108B gap, forward MC ~$1,642B.",
+        "Logic": "TTM FCF has collapsed from $50.1B (2024) \u2192 $25.9B (2025) \u2192 $1.2B (2026), driven by Q1 cash capex of $43.2B. The market is clearly looking through this cycle\u2014current EV/FCF on TTM is ~2,236x\u2014so any straightforward multiple on current FCF is distorted. I estimate forward 12m FCF at $15B, splitting the difference between the bull ($25B, partial capex moderation as AWS capacity monetizes) and bear ($5B, capex stays elevated). I apply 180x EV/FCF, consistent with the 1-year average FCF yield (~0.53% \u2192 ~189x) but slightly lower to reflect partial FCF recovery. Forward EV = $15,000M \u00d7 180 = $2,700,000M. Bridging to market cap using the packet's EV-minus-MC gap of $108,072M: forward MC = $2,700,000M \u2212 $108,072M = $2,591,928M\u2014roughly flat to the current $2,646,034M, balancing strong operating income ($23.9B/quarter) against extreme capex pressure."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 1,
+      "asset_id": "AMZN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:21:31+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 2966,
+        "total_tokens": 4821,
+        "cost": 0.01360452,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01360452,
+          "upstream_inference_prompt_cost": 0.00055412,
+          "upstream_inference_completions_cost": 0.0130504
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2284,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAmazon's Q1 2026 results demonstrated record 13.1% operating margins and 17% revenue growth, with AWS accelerating to 28% YoY ($37.6B) on AI demand, Bedrock adoption, and Trainium momentum (chips business at >$20B run-rate). Ads grew 22% to $17.2B. OpenAI's commitment to ~2 GW of Trainium capacity signals durable multi-year cloud backlog. As AWS capacity from the current $43B+ quarterly capex cycle gets monetized, FCF should inflect sharply upward from the depressed $1.2B TTM level, potentially reverting toward the $26\u201350B historical range by late 2027. Prime Day expansion to four days and >1B same-day deliveries reinforce retail flywheel strength, supporting margins and cash conversion once capex normalizes.\n\n## Bear Case\nTTM FCF collapsed to $1.2B from $25.9B a year ago and $50.1B two years ago, driven by extreme capex intensity ($43.2B in Q1 alone). Management explicitly warned that during periods of very high AWS growth, capex can outpace revenue and pressure early FCF. If AI infrastructure demand proves slower to monetize than expected\u2014given competition, custom-schip supply constraints, or enterprise AI adoption lagging\u2014FCF recovery could be deferred beyond 12 months, keeping the EV/FCF multiple at extreme levels. Regulatory risks (FTC monopolization case, $2.25M FCRA settlement) and macro/cyclical headwinds (tariffs, FX, consumer spending) add uncertainty. A 12-month forward FCF estimate must haircut for the likelihood that the capex cycle persists through mid-2027.\n\n## Logic\nTTM FCF of $1.2B is artificially depressed by the AWS/AI buildout cycle; historical TTM FCF ran $26\u201350B. For a 12-month forward estimate, I model a partial recovery to ~$18,000M\u2014above current trough but well below normalized levels, reflecting management's guidance that capex pressure persists as new capacity is brought online. The applied EV/FCF multiple of 150x is elevated versus the 3-year average implied multiple of ~76x (from avg_3y FCF/EV of 1.31%), justified by: (1) the temporary nature of the FCF compression, (2) AWS acceleration and AI optionality, and (3) operating margin expansion to record levels. Forward EV = $18,000M \u00d7 150 = $2,700,000M. Bridging to market cap using the current EV-minus-MC gap of $108,072M ($2,754,106M \u2212 $2,646,034M): Forward Market Cap = $2,700,000M \u2212 $108,072M = $2,591,928M.\n\n```json\n{\"forward_market_cap_musd\": 2591928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 18000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 150.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2591928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 18000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 150.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 1,
+          "validation_errors": [
+            "missing JSON object"
+          ]
+        },
+        {
+          "attempt": 2,
+          "validation_errors": [],
+          "text": "## Bull Case\nAmazon's Q1 2026 results demonstrated record 13.1% operating margins and 17% revenue growth, with AWS accelerating to 28% YoY ($37.6B) on AI demand, Bedrock adoption, and Trainium momentum (chips business at >$20B run-rate). Ads grew 22% to $17.2B. OpenAI's commitment to ~2 GW of Trainium capacity signals durable multi-year cloud backlog. As AWS capacity from the current $43B+ quarterly capex cycle gets monetized, FCF should inflect sharply upward from the depressed $1.2B TTM level, potentially reverting toward the $26\u201350B historical range by late 2027. Prime Day expansion to four days and >1B same-day deliveries reinforce retail flywheel strength, supporting margins and cash conversion once capex normalizes.\n\n## Bear Case\nTTM FCF collapsed to $1.2B from $25.9B a year ago and $50.1B two years ago, driven by extreme capex intensity ($43.2B in Q1 alone). Management explicitly warned that during periods of very high AWS growth, capex can outpace revenue and pressure early FCF. If AI infrastructure demand proves slower to monetize than expected\u2014given competition, custom-schip supply constraints, or enterprise AI adoption lagging\u2014FCF recovery could be deferred beyond 12 months, keeping the EV/FCF multiple at extreme levels. Regulatory risks (FTC monopolization case, $2.25M FCRA settlement) and macro/cyclical headwinds (tariffs, FX, consumer spending) add uncertainty. A 12-month forward FCF estimate must haircut for the likelihood that the capex cycle persists through mid-2027.\n\n## Logic\nTTM FCF of $1.2B is artificially depressed by the AWS/AI buildout cycle; historical TTM FCF ran $26\u201350B. For a 12-month forward estimate, I model a partial recovery to ~$18,000M\u2014above current trough but well below normalized levels, reflecting management's guidance that capex pressure persists as new capacity is brought online. The applied EV/FCF multiple of 150x is elevated versus the 3-year average implied multiple of ~76x (from avg_3y FCF/EV of 1.31%), justified by: (1) the temporary nature of the FCF compression, (2) AWS acceleration and AI optionality, and (3) operating margin expansion to record levels. Forward EV = $18,000M \u00d7 150 = $2,700,000M. Bridging to market cap using the current EV-minus-MC gap of $108,072M ($2,754,106M \u2212 $2,646,034M): Forward Market Cap = $2,700,000M \u2212 $108,072M = $2,591,928M.\n\n```json\n{\"forward_market_cap_musd\": 2591928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 18000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 150.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "Amazon's Q1 2026 results demonstrated record 13.1% operating margins and 17% revenue growth, with AWS accelerating to 28% YoY ($37.6B) on AI demand, Bedrock adoption, and Trainium momentum (chips business at >$20B run-rate). Ads grew 22% to $17.2B. OpenAI's commitment to ~2 GW of Trainium capacity signals durable multi-year cloud backlog. As AWS capacity from the current $43B+ quarterly capex cycle gets monetized, FCF should inflect sharply upward from the depressed $1.2B TTM level, potentially reverting toward the $26\u201350B historical range by late 2027. Prime Day expansion to four days and >1B same-day deliveries reinforce retail flywheel strength, supporting margins and cash conversion once capex normalizes.",
+        "Bear Case": "TTM FCF collapsed to $1.2B from $25.9B a year ago and $50.1B two years ago, driven by extreme capex intensity ($43.2B in Q1 alone). Management explicitly warned that during periods of very high AWS growth, capex can outpace revenue and pressure early FCF. If AI infrastructure demand proves slower to monetize than expected\u2014given competition, custom-schip supply constraints, or enterprise AI adoption lagging\u2014FCF recovery could be deferred beyond 12 months, keeping the EV/FCF multiple at extreme levels. Regulatory risks (FTC monopolization case, $2.25M FCRA settlement) and macro/cyclical headwinds (tariffs, FX, consumer spending) add uncertainty. A 12-month forward FCF estimate must haircut for the likelihood that the capex cycle persists through mid-2027.",
+        "Logic": "TTM FCF of $1.2B is artificially depressed by the AWS/AI buildout cycle; historical TTM FCF ran $26\u201350B. For a 12-month forward estimate, I model a partial recovery to ~$18,000M\u2014above current trough but well below normalized levels, reflecting management's guidance that capex pressure persists as new capacity is brought online. The applied EV/FCF multiple of 150x is elevated versus the 3-year average implied multiple of ~76x (from avg_3y FCF/EV of 1.31%), justified by: (1) the temporary nature of the FCF compression, (2) AWS acceleration and AI optionality, and (3) operating margin expansion to record levels. Forward EV = $18,000M \u00d7 150 = $2,700,000M. Bridging to market cap using the current EV-minus-MC gap of $108,072M ($2,754,106M \u2212 $2,646,034M): Forward Market Cap = $2,700,000M \u2212 $108,072M = $2,591,928M."
+      }
+    },
+    {
+      "run_id": "m69_20260708_prod",
+      "sample_idx": 2,
+      "asset_id": "AMZN",
+      "model_label": "GLM 5.2",
+      "model_slug": "z-ai/glm-5.2",
+      "provider": "openrouter",
+      "created_at_utc": "2026-07-08T15:19:53+00:00",
+      "prompt_version": "m69_llm_asset_consensus_v1",
+      "prompt_sha256": "b261832397ef0e6ace800e642304a231230efae5f45aaa180fcc6616be8fac8e",
+      "request_metadata": {
+        "max_tokens": 5000,
+        "temperature": null
+      },
+      "usage": {
+        "prompt_tokens": 1829,
+        "completion_tokens": 3815,
+        "total_tokens": 5644,
+        "cost": 0.01730372,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1792,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01730372,
+          "upstream_inference_prompt_cost": 0.00051772,
+          "upstream_inference_completions_cost": 0.016786
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3014,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_text": "## Bull Case\nAWS acceleration continues as AI demand and Bedrock/Trainium adoption drive outsized revenue growth. Capex moderates as new capacity comes online and monetizes, allowing FCF to recover toward the $25B+ range seen in prior years. Operating margin expansion (Q1 hit a record 13.1%) provides further cushion, and advertising grows at 20%+ with minimal incremental capex. If forward FCF recovers to ~$25,000M and the market applies a still-elevated 120x multiple (reflecting AI growth optionality), forward EV could reach ~$3,000,000M, implying a forward market cap of ~$2,892,000M after the $108,072M EV-to-MC gap.\n\n## Bear Case\nCapital intensity remains extreme\u2014Q1 2026 cash capex of $43.2B annualizes to over $170B, and management explicitly warned capex can outpace revenue in high-AWS-growth periods. Forward FCF could stay near $5,000M or lower if AI infrastructure build-out continues without commensurate monetization. Regulatory overhang (FTC monopolization case, FCRA settlement) and consumer cyclical risk (tariffs, recession, FX) add pressure. If forward FCF is only ~$5,000M and the market applies a still-elevated 150x multiple, forward EV would be ~$750,000M, implying a forward market cap of ~$642,000M.\n\n## Logic\n**Forward FCF estimate: $15,000M.** TTM FCF collapsed to $1,232M from $25,925M a year ago, driven by massive AWS/AI capex ($43.2B in Q1 alone). For the next 12 months, I expect continued elevated capex but partial normalization as some new capacity begins generating revenue. Operating income is annualizing near $95B+ with strong margin leverage, so OCF should remain robust (~$130\u2013150B). Assuming capex moderates modestly to ~$115\u2013135B for the year, FCF should recover to roughly $15,000M\u2014not a full return to historical levels but meaningfully above current depressed TTM.\n\n**Applied EV/FCF multiple: 160x.** The 1-year average FCF/EV ratio of 0.0053 implies ~189x; the 3-year average of 0.0131 implies ~76x. I weight toward the 1-year figure given the current investment-cycle dynamics but apply a discount to reflect expected FCF improvement, landing at 160x. This remains very high in absolute terms but is consistent with a market pricing in future FCF recovery once the AI infrastructure build matures.\n\n**EV-to-MC bridge:** Current EV is $2,754,105.8M and current market cap is $2,646,033.8M, yielding a gap of $108,072.0M (net cash, minority interest, and other adjustments). I hold this gap constant for the forward estimate.\n\n**Forward EV** = $15,000M \u00d7 160 = $2,400,000M\n**Forward market cap** = $2,400,000M \u2212 $108,072M = **$2,291,928M**\n\nThis sits ~13% below the current market cap, reflecting the risk that FCF remains structurally depressed through the next 12 months even as operating performance stays strong.\n\n```json\n{\"forward_market_cap_musd\": 2291928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 160.0}\n```",
+      "parsed": {
+        "valid": true,
+        "forward_market_cap_musd": 2291928.0,
+        "horizon": "12m",
+        "forward_fcf_musd": 15000.0,
+        "forward_netinc_musd": null,
+        "applied_multiple": 160.0
+      },
+      "attempts": [
+        {
+          "attempt": 0,
+          "validation_errors": [],
+          "text": "## Bull Case\nAWS acceleration continues as AI demand and Bedrock/Trainium adoption drive outsized revenue growth. Capex moderates as new capacity comes online and monetizes, allowing FCF to recover toward the $25B+ range seen in prior years. Operating margin expansion (Q1 hit a record 13.1%) provides further cushion, and advertising grows at 20%+ with minimal incremental capex. If forward FCF recovers to ~$25,000M and the market applies a still-elevated 120x multiple (reflecting AI growth optionality), forward EV could reach ~$3,000,000M, implying a forward market cap of ~$2,892,000M after the $108,072M EV-to-MC gap.\n\n## Bear Case\nCapital intensity remains extreme\u2014Q1 2026 cash capex of $43.2B annualizes to over $170B, and management explicitly warned capex can outpace revenue in high-AWS-growth periods. Forward FCF could stay near $5,000M or lower if AI infrastructure build-out continues without commensurate monetization. Regulatory overhang (FTC monopolization case, FCRA settlement) and consumer cyclical risk (tariffs, recession, FX) add pressure. If forward FCF is only ~$5,000M and the market applies a still-elevated 150x multiple, forward EV would be ~$750,000M, implying a forward market cap of ~$642,000M.\n\n## Logic\n**Forward FCF estimate: $15,000M.** TTM FCF collapsed to $1,232M from $25,925M a year ago, driven by massive AWS/AI capex ($43.2B in Q1 alone). For the next 12 months, I expect continued elevated capex but partial normalization as some new capacity begins generating revenue. Operating income is annualizing near $95B+ with strong margin leverage, so OCF should remain robust (~$130\u2013150B). Assuming capex moderates modestly to ~$115\u2013135B for the year, FCF should recover to roughly $15,000M\u2014not a full return to historical levels but meaningfully above current depressed TTM.\n\n**Applied EV/FCF multiple: 160x.** The 1-year average FCF/EV ratio of 0.0053 implies ~189x; the 3-year average of 0.0131 implies ~76x. I weight toward the 1-year figure given the current investment-cycle dynamics but apply a discount to reflect expected FCF improvement, landing at 160x. This remains very high in absolute terms but is consistent with a market pricing in future FCF recovery once the AI infrastructure build matures.\n\n**EV-to-MC bridge:** Current EV is $2,754,105.8M and current market cap is $2,646,033.8M, yielding a gap of $108,072.0M (net cash, minority interest, and other adjustments). I hold this gap constant for the forward estimate.\n\n**Forward EV** = $15,000M \u00d7 160 = $2,400,000M\n**Forward market cap** = $2,400,000M \u2212 $108,072M = **$2,291,928M**\n\nThis sits ~13% below the current market cap, reflecting the risk that FCF remains structurally depressed through the next 12 months even as operating performance stays strong.\n\n```json\n{\"forward_market_cap_musd\": 2291928.0, \"horizon\": \"12m\", \"forward_fcf_musd\": 15000.0, \"forward_netinc_musd\": null, \"applied_multiple\": 160.0}\n```"
+        }
+      ],
+      "sections": {
+        "Bull Case": "AWS acceleration continues as AI demand and Bedrock/Trainium adoption drive outsized revenue growth. Capex moderates as new capacity comes online and monetizes, allowing FCF to recover toward the $25B+ range seen in prior years. Operating margin expansion (Q1 hit a record 13.1%) provides further cushion, and advertising grows at 20%+ with minimal incremental capex. If forward FCF recovers to ~$25,000M and the market applies a still-elevated 120x multiple (reflecting AI growth optionality), forward EV could reach ~$3,000,000M, implying a forward market cap of ~$2,892,000M after the $108,072M EV-to-MC gap.",
+        "Bear Case": "Capital intensity remains extreme\u2014Q1 2026 cash capex of $43.2B annualizes to over $170B, and management explicitly warned capex can outpace revenue in high-AWS-growth periods. Forward FCF could stay near $5,000M or lower if AI infrastructure build-out continues without commensurate monetization. Regulatory overhang (FTC monopolization case, FCRA settlement) and consumer cyclical risk (tariffs, recession, FX) add pressure. If forward FCF is only ~$5,000M and the market applies a still-elevated 150x multiple, forward EV would be ~$750,000M, implying a forward market cap of ~$642,000M.",
+        "Logic": "**Forward FCF estimate: $15,000M.** TTM FCF collapsed to $1,232M from $25,925M a year ago, driven by massive AWS/AI capex ($43.2B in Q1 alone). For the next 12 months, I expect continued elevated capex but partial normalization as some new capacity begins generating revenue. Operating income is annualizing near $95B+ with strong margin leverage, so OCF should remain robust (~$130\u2013150B). Assuming capex moderates modestly to ~$115\u2013135B for the year, FCF should recover to roughly $15,000M\u2014not a full return to historical levels but meaningfully above current depressed TTM.\n\n**Applied EV/FCF multiple: 160x.** The 1-year average FCF/EV ratio of 0.0053 implies ~189x; the 3-year average of 0.0131 implies ~76x. I weight toward the 1-year figure given the current investment-cycle dynamics but apply a discount to reflect expected FCF improvement, landing at 160x. This remains very high in absolute terms but is consistent with a market pricing in future FCF recovery once the AI infrastructure build matures.\n\n**EV-to-MC bridge:** Current EV is $2,754,105.8M and current market cap is $2,646,033.8M, yielding a gap of $108,072.0M (net cash, minority interest, and other adjustments). I hold this gap constant for the forward estimate.\n\n**Forward EV** = $15,000M \u00d7 160 = $2,400,000M\n**Forward market cap** = $2,400,000M \u2212 $108,072M = **$2,291,928M**\n\nThis sits ~13% below the current market cap, reflecting the risk that FCF remains structurally depressed through the next 12 months even as operating performance stays strong."
+      }
+    }
+  ]
+}
