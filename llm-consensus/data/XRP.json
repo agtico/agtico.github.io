@@ -13,34 +13,70 @@
         "pct_upside": 0.0964295728986122,
         "bullishness": 0.15219910363341502,
         "n_samples": 3,
-        "forward_mc_iqr": 1000000000.0
+        "forward_mc_iqr": 1000000000.0,
+        "source_run_ids": [
+          "m69_20260708_prod"
+        ],
+        "source_run_id": "m69_20260708_prod",
+        "current_multiple": null,
+        "applied_multiple": null,
+        "multiple_direction": null,
+        "multiple_direction_counts": {}
       },
       "Opus 4.8": {
         "forward_mc": 66000000000.0,
         "pct_upside": -0.022103353901237854,
         "bullishness": -0.03488671109844731,
         "n_samples": 3,
-        "forward_mc_iqr": 4000000000.0
+        "forward_mc_iqr": 4000000000.0,
+        "source_run_ids": [
+          "m69_20260708_prod"
+        ],
+        "source_run_id": "m69_20260708_prod",
+        "current_multiple": null,
+        "applied_multiple": null,
+        "multiple_direction": null,
+        "multiple_direction_counts": {}
       },
       "GPT 5.5": {
         "forward_mc": 78000000000.0,
         "pct_upside": 0.15569603629853712,
         "bullishness": 0.245742010999346,
         "n_samples": 3,
-        "forward_mc_iqr": 1000000000.0
+        "forward_mc_iqr": 1000000000.0,
+        "source_run_ids": [
+          "m69_20260708_prod"
+        ],
+        "source_run_id": "m69_20260708_prod",
+        "current_multiple": null,
+        "applied_multiple": null,
+        "multiple_direction": null,
+        "multiple_direction_counts": {}
       },
       "GLM 5.2": {
         "forward_mc": 70000000000.0,
         "pct_upside": 0.037163109498687064,
         "bullishness": 0.058656196267483675,
         "n_samples": 3,
-        "forward_mc_iqr": 4500000000.0
+        "forward_mc_iqr": 4500000000.0,
+        "source_run_ids": [
+          "m69_20260708_prod"
+        ],
+        "source_run_id": "m69_20260708_prod",
+        "current_multiple": null,
+        "applied_multiple": null,
+        "multiple_direction": null,
+        "multiple_direction_counts": {}
       }
     },
     "consensus_bullishness": 0.10542764995044934,
     "consensus_bullishness_mean": 0.10542764995044936,
     "consensus_pct_upside": 0.06679634119864963,
     "n_models": 4,
+    "source_run_ids": [
+      "m69_20260708_prod"
+    ],
+    "source_run_id": "m69_20260708_prod",
     "sanity_flags": []
   },
   "primer_markdown": "## What The Business Is\n\nXRP is the native asset of the XRP Ledger, a public blockchain associated with Ripple\u2019s payments ecosystem. It is not equity in Ripple; rather, it is a transferable digital asset used for fees, liquidity, and settlement on the ledger. As of July 8, 2026, XRP trades around **$1.06** in the crypto market. \n\n## What It Does\n\nXRP is designed for fast, low-cost value transfer, with the XRP Ledger supporting payments, token issuance, and liquidity functions. Ripple and related market participants continue to frame XRP around cross-border settlement and institutional crypto infrastructure, while U.S.-listed XRP ETFs now provide regulated exchange-traded exposure for investors that do not want to custody tokens directly. ([cryptoetf.today](https://cryptoetf.today/en/xrp-etf-flows?utm_source=openai))\n\n## Recent Highlights (Positive)\n\nSpot XRP ETF demand has been the clearest positive flow story: one ETF-flow tracker reports roughly **$1.4 billion** of cumulative net inflows and about **$1.38 billion** in AUM across four issuers, while CoinDesk reported that five U.S.-listed spot XRP funds took in **$25.8 million** on May 12, 2026, their largest single-day net inflow since January 5. ([cryptoetf.today](https://cryptoetf.today/en/xrp-etf-flows?utm_source=openai))\n\nRegulatory infrastructure also appears to be expanding. A July 2026 market update reported that Ripple obtained a license enabling regulated cryptoasset services across the European Economic Area, adding to a stated base of more than 75 global regulatory licenses. ([coinstats.app](https://coinstats.app/ai/a/latest-news-for-ripple?utm_source=openai))\n\nSupply dynamics remain somewhat predictable: Ripple\u2019s escrow program continues to release up to **1 billion XRP monthly**, but reports note that unused amounts are often returned to escrow, reducing the effective net supply addition versus the headline unlock. ([lbank.com](https://www.lbank.com/explore/xrp-ripple-treasury-buyback-activity-decline-2026?utm_source=openai))\n\n## Recent Highlights (Negative)\n\nETF demand has not fully offset price weakness. CoinDesk noted in May that XRP was still down about **39% over the prior six months**, despite ETF inflows, and other market commentary described XRP as down roughly **40% in 2026** and still well below its 2025 high. ([coindesk.com](https://www.coindesk.com/markets/2026/05/12/spot-xrp-etfs-attract-biggest-inflows-since-january?utm_source=openai))\n\nSupply remains a persistent overhang: Ripple\u2019s scheduled escrow unlocks can release up to **1 billion XRP** in a month, and June reporting highlighted a 1 billion XRP unlock while noting roughly **61.85 billion XRP** in circulating supply. Even if much is re-escrowed, the recurring unlock cycle keeps dilution and sale-risk questions active. ([coincentral.com](https://coincentral.com/ripple-unlocks-1-3b-in-xrp-as-burn-speculation-grows/?utm_source=openai))\n\nMacro sensitivity is another negative driver. Recent commentary described XRP as a high-beta crypto asset tied to the broader risk tape, with Federal Reserve signals and crypto-wide sentiment affecting whether ETF demand translates into a sustained re-rating. ([investing.com](https://www.investing.com/analysis/xrp-needs-clarity-act-certainty-to-turn-etf-demand-into-a-rerating-200682354?utm_source=openai))\n",
@@ -177,6 +213,7 @@
       "sections": {
         "Bull Case": "ETF infrastructure is maturing: ~$1.4B cumulative net inflows across four issuers, plus new regulated products could accelerate institutional allocation if the macro tape turns risk-on. Ripple's expanding regulatory footprint (EEA license, 75+ licenses) supports the institutional settlement narrative. Escrow unlocks are largely re-escrowed, so effective dilution is modest (~200-300M XRP/month net). With XRP down ~40% in 2026 and well below its 2025 high, mean reversion in a crypto bull leg could push price toward $1.80\u2013$2.20, implying a market cap of $115\u2013140B (circulating supply drifting toward ~63B).",
         "Bear Case": "ETF inflows (~$1.4B) are small relative to a ~$67B market cap and have failed to arrest a 39\u201340% drawdown \u2014 demand is insufficient versus recurring escrow supply and legacy holder selling. XRP remains a high-beta risk asset; a hawkish Fed or crypto-wide de-risking could push price to $0.55\u2013$0.70, implying $35\u201345B market cap. Utility-driven demand (actual settlement flows) remains unproven as a price driver, and the 1B XRP monthly unlock cycle keeps a persistent overhang.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap is ~$67.5B at $1.06. The 3-year history (mean ~$89B, std ~63% of mean) shows extreme volatility, so wide scenario bands are appropriate. Base case: crypto markets stabilize, ETF flows continue at a modest pace, and XRP roughly tracks beta with slight supply growth (~2-4% circulating increase). I weight: bear (35%) at ~$42B, base (40%) at ~$70B (price roughly flat around $1.05\u20131.10 on slightly higher supply), bull (25%) at ~$120B. Probability-weighted: 0.35\u00d742 + 0.40\u00d770 + 0.25\u00d7120 \u2248 $72.7B. Given momentum is negative but ETF and regulatory tailwinds are real, I set the 12-month forward market cap at ~$72B \u2014 modestly above spot, reflecting supply growth plus slight expected price recovery, but well below the 3-year mean."
       }
     },
@@ -236,6 +273,7 @@
       "sections": {
         "Bull Case": "- Spot XRP ETF inflows (~$1.4B cumulative, best single-day flows since January) provide a persistent regulated demand channel that could accelerate in a risk-on tape or a Fed easing cycle.\n- Ripple's EEA license and 75+ global licenses expand institutional payment rails; any tangible utility-driven demand (ODL volumes, tokenization) could catalyze a re-rating from depressed levels.\n- XRP is already down ~40% in 2026 and well below its 2025 high; high-beta assets bouncing off cyclical lows historically deliver outsized 12-month returns. A recovery toward the 3-year mean market cap (~$89B) implies 30%+ upside, and a full risk-on cycle could push toward $110\u2013130B.",
         "Bear Case": "- Monthly escrow unlocks of up to 1B XRP keep a structural supply/dilution overhang; circulating supply (~62B) grows even as price weakens.\n- ETF flows ($1.4B cumulative) are small relative to a $67B market cap and have failed to arrest a 39% six-month decline \u2014 demand is not absorbing supply.\n- As a high-beta crypto asset, XRP would underperform in a risk-off macro environment; a continuation of 2026's downtrend could take market cap to $40\u201350B, and the 3-year volatility (std ~63% of mean) makes deep drawdowns entirely plausible.",
+        "Multiple Re-Rating": "",
         "Logic": "- Anchor: current market cap ~$67.5B at ~$1.06.\n- Supply: net effective dilution of ~3\u20134%/yr after re-escrow, adding modestly to circulating base.\n- Price path: momentum is negative but flows are stabilizing (ETFs, licensing progress). I weight scenarios: bear (35%) \u2192 ~$48B; base (45%) \u2192 ~$75B (partial mean reversion, price ~$1.15 on higher supply); bull (20%) \u2192 ~$115B.\n- Probability-weighted: 0.35\u00d748 + 0.45\u00d775 + 0.20\u00d7115 \u2248 $73.6B. Rounding to ~$74B, roughly +10% versus spot \u2014 reflecting mild mean reversion tempered by supply overhang and weak momentum.\n- No cash flows or earnings apply to a spot token; multiple fields are null."
       }
     },
@@ -295,6 +333,7 @@
       "sections": {
         "Bull Case": "ETF adoption accelerates: ~$1.4B cumulative inflows across four issuers could compound as allocators add XRP alongside BTC/ETH products. Ripple's expanding regulatory footprint (EEA license, 75+ global licenses) supports institutional payment adoption. If the risk tape turns favorable (Fed easing, crypto beta rally), XRP's high beta cuts both ways\u2014a recovery toward its 3-year mean market cap (~$89B) or beyond is plausible. Escrow re-locking means net supply growth is modest. A retrace to even half the 2025 highs implies $100\u2013130B market cap (~$1.60\u20132.00/token).",
         "Bear Case": "XRP is down ~40% in 2026 despite ETF flows\u2014demand is not absorbing supply. Monthly 1B XRP escrow unlocks keep dilution overhang alive; circulating supply drifts up toward ~63\u201364B. ETF inflows ($1.4B cumulative) are small relative to a $67B cap and are decelerating. If macro tightens or crypto sentiment sours, high-beta XRP could revisit $0.60\u20130.70, implying $40\u201345B market cap. Utility-driven demand remains unproven at scale.",
+        "Multiple Re-Rating": "",
         "Logic": "- Current cap: ~$67.5B at ~$1.06.\n- 3-year mean cap ($88.7B) sits above spot, but momentum is negative (\u221240% YTD); mean reversion is not guaranteed.\n- ETF flows are supportive but modest (~2% of cap cumulatively); regulatory wins are incremental positives.\n- Supply grows ~2\u20134% over 12 months net of re-escrow, a mild drag.\n- Base case: partial stabilization/recovery as ETF infrastructure matures and macro eases modestly, offset by supply drag and weak trend. I weight: bear $45B (30%), base $70B (45%), bull $105B (25%) \u2192 ~$76B. Shading slightly toward spot given persistent downtrend: **~$74B** (~$1.13\u20131.15/token on ~64\u201365B supply)."
       }
     },
@@ -354,6 +393,7 @@
       "sections": {
         "Bull Case": "XRP ETF adoption deepens, with cumulative inflows scaling beyond the current ~$1.4B base as more issuers and institutional allocators enter. Ripple's expanding regulatory footprint (EEA license, 75+ global licenses) supports legitimacy and cross-border settlement use. A dovish Fed pivot lifts the broader crypto risk tape, and XRP's high beta amplifies gains. Effective supply pressure stays muted as unused escrow is re-locked. In this scenario price recovers toward $1.80\u2013$2.20, implying a market cap of roughly $115B\u2013$140B on ~62B+ circulating supply.",
         "Bear Case": "XRP continues its 2026 downtrend (already down ~40% YTD), with ETF inflows too small to offset the recurring 1B/month escrow unlock overhang and broader risk-off sentiment. Macro tightening or crypto-wide drawdown drags this high-beta asset down disproportionately. Price slides toward $0.60\u2013$0.75, implying a market cap of ~$38B\u2013$47B.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap is ~$67.5B at ~$1.06 on ~62B circulating supply. The 3-year mean cap (~$88.7B) sits above current levels, but momentum is clearly negative (down ~39\u201340% over recent windows), and the std is very high (~63% of mean), signaling extreme volatility. ETF flows are a modest positive but insufficient to force a re-rating on their own; supply dilution and macro beta are persistent headwinds. I weight the bear/neutral outcome more heavily given the confirmed downtrend, but ETF structural demand provides a floor. Centering the forward estimate slightly below current cap\u2014modestly recovering price offset by ongoing supply dilution\u2014gives a base case around $1.02\u2013$1.06 with slightly higher circulating supply, netting roughly flat-to-slightly-down at ~$66B. For a spot crypto asset, no earnings multiple applies."
       }
     },
@@ -413,6 +453,7 @@
       "sections": {
         "Bull Case": "XRP re-rates as spot ETF inflows accelerate beyond the current ~$1.4B AUM, drawing sustained institutional demand. Expanding regulatory clarity (EEA license, 75+ global licenses) reduces the discount and reinforces the cross-border settlement narrative. In a risk-on macro environment with Fed easing, this high-beta asset could recover a meaningful chunk of its 2026 drawdown. A move back toward $1.70\u2013$2.00 with re-escrowing limiting effective dilution implies a market cap of roughly $105\u2013125B.",
         "Bear Case": "Escrow unlocks (up to 1B XRP/month) keep dilution and sell-pressure overhangs active, and ETF inflows have so far failed to offset a ~40% YTD decline. High-beta sensitivity means a risk-off macro turn or crypto-wide drawdown could push XRP back toward $0.70\u2013$0.80, implying a market cap near $45\u201350B. 3-year history shows high volatility (std ~63% of mean), so downside is material.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap ~$67.5B at $1.06 on ~61.85B circulating supply. The 3-year mean cap (~$88.7B) sits well above the current level, but recent momentum is negative and supply is gradually rising. Weighting persistent unlock dilution and macro/beta risk against genuine but modest ETF/regulatory tailwinds, I center the 12-month forward estimate roughly flat-to-slightly-up from spot, near $70B \u2014 reflecting stabilization without a full re-rating. This is a spot asset, so no earnings/FCF multiple applies."
       }
     },
@@ -472,6 +513,7 @@
       "sections": {
         "Bull Case": "XRP ETF adoption accelerates, with cumulative inflows building from the current ~$1.4B base as more issuers gain traction and institutional allocation broadens. Ripple's expanding regulatory footprint (EEA license, 75+ global licenses) supports a re-rating narrative around compliant cross-border settlement. If crypto-wide risk sentiment turns favorable (dovish Fed, broad risk-on), high-beta XRP could recover a meaningful portion of its 2026 drawdown, plausibly reclaiming $1.80\u2013$2.00, implying a market cap of ~$115\u2013125B against a modestly growing circulating supply.",
         "Bear Case": "XRP remains down ~40% YTD, and ETF demand has failed to offset selling pressure. Persistent escrow unlocks (up to 1B XRP/month) keep dilution and sale-risk overhangs active even if partially re-escrowed. As a high-beta asset, XRP is vulnerable to broader crypto drawdowns and macro tightening. A continued grind lower toward $0.70\u2013$0.80 would put market cap around $45\u201350B.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap ~$67.5B at ~$1.06. The 3-year mean market cap (~$88.7B) sits above current levels, but recent trend is strongly negative and volatility is extreme (std ~63% of mean). ETF inflows are real but small relative to the $67B cap and haven't stopped the decline. Balancing modest structural positives (ETF, licenses) against ongoing supply dilution and macro/high-beta risk, I weight toward roughly flat-to-slightly-lower base case. Centering near current levels with a slight downward bias for dilution and momentum: ~$1.00 price on ~62.5B supply gives a forward cap near $62B. No earnings/FCF apply for a spot token."
       }
     },
@@ -531,6 +573,7 @@
       "sections": {
         "Bull Case": "XRP\u2019s regulated access channel has improved through U.S.-listed spot ETFs, with reported cumulative inflows around $1.4B. If ETF demand persists, macro risk appetite improves, and Ripple\u2019s licensing footprint supports institutional use cases, XRP could re-rate back toward or above its 3-year average market cap of about $88.7B. A stronger bull outcome would be roughly $95B\u2013$110B.",
         "Bear Case": "Price momentum has been weak, with XRP reportedly down around 39%\u201340% over recent periods despite ETF inflows. Recurring escrow unlocks remain a supply and sentiment overhang, even if much is re-escrowed. If crypto beta weakens or ETF inflows stall, XRP could fall meaningfully below current market cap, plausibly toward $45B\u2013$55B.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap is about $67.5B. The 3-year average market cap is materially higher at about $88.7B, but volatility is high and the supply-overhang/macro-risk issues argue against assuming a full mean reversion. I estimate a moderate 12-month forward market cap of **$78.0B**, implying partial recovery from current levels but still below the 3-year average."
       }
     },
@@ -590,6 +633,7 @@
       "sections": {
         "Bull Case": "ETF inflows remain durable, regulated access broadens, and Ripple\u2019s expanding licensing footprint supports institutional confidence. If risk appetite improves and XRP partially mean-reverts toward or above its 3-year average market cap, XRP could trade into the roughly **$95B\u2013$120B** market cap range over 12 months.",
         "Bear Case": "ETF demand fails to offset macro weakness, XRP remains high-beta to crypto sentiment, and recurring escrow unlocks keep supply/sale-risk concerns elevated. In that case, XRP could remain pressured around **$45B\u2013$60B**, especially if the 2026 drawdown continues.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap is about **$67.5B**, versus a 3-year average of about **$88.7B**. XRP has positive flow/regulatory catalysts, but the asset is still down materially and faces ongoing supply overhang. A reasonable 12-month forward estimate is a modest re-rating above current levels but below the 3-year mean, reflecting ETF support without assuming a full bull-market recovery."
       }
     },
@@ -649,6 +693,7 @@
       "sections": {
         "Bull Case": "ETF inflows continue and broaden institutional access, Ripple\u2019s regulatory footprint improves, and escrow releases remain mostly re-escrowed rather than sold. In that setup, XRP could re-rate closer to its 3-year average market cap of about $88.7B, with upside into the $95B\u2013$110B range if broader crypto risk appetite improves.",
         "Bear Case": "XRP remains a high-beta crypto asset, and recent price weakness shows ETF demand has not been enough to drive sustained appreciation. Ongoing escrow unlocks keep supply/sale-risk concerns active. If macro sentiment weakens or flows slow, market cap could fall toward $45B\u2013$55B.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap is about $67.5B. The asset has positive flow/regulatory catalysts, but also meaningful supply overhang and recent underperformance. A balanced 12-month estimate should sit above current value but below the 3-year mean, reflecting partial recovery rather than a full bull-market re-rating. I estimate a forward market cap of **$80B**, roughly 19% above spot."
       }
     },
@@ -708,6 +753,7 @@
       "sections": {
         "Bull Case": "ETF adoption is the strongest structural positive: $1.4B cumulative net inflows and expanding AUM across four issuers create a regulated demand sink. Single-day inflow records ($25.8M on May 12) suggest accelerating institutional adoption. Ripple's EEA license and 75+ global regulatory approvals reduce binary regulatory risk. Escrow re-locking mechanics partially neutralize the 1B monthly unlock, constraining net supply growth. The 3-year mean market cap of ~$88.7B sits well above current levels, implying mean-reversion upside if sentiment improves.",
         "Bear Case": "XRP is down ~40% in 2026 and ~39% over six months despite ETF inflows, signaling that demand hasn't offset broader selling pressure. The recurring 1B XRP monthly escrow unlock\u2014 even partially re-locked\u2014keeps dilution risk front-of-mind for investors. High-beta macro sensitivity means Fed tightening or risk-off episodes hit XRP disproportionately. ETF flows may be cannibalizing spot demand rather than adding net new demand. The wide 3-year standard deviation (63% of mean) underscores extreme volatility and downside tail risk.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap of ~$67.5B already reflects a ~24% discount to the 3-year mean of ~$88.7B and is down sharply from 2025 highs. Over the next 12 months, the tug-of-war between ETF-driven structural demand and persistent supply overhang plus macro sensitivity likely produces a modestly lower or range-bound valuation. The downtrend momentum, persistent escrow unlocks (~1B/month), and the fact that ETF inflows have not yet translated into price stability argue for a slight discount to current levels. I estimate a 12-month forward market cap of approximately $63B, representing roughly a 7% decline from current, balancing ETF support against supply and macro headwinds."
       }
     },
@@ -767,6 +813,7 @@
       "sections": {
         "Bull Case": "Spot XRP ETFs are a genuine structural demand channel, with ~$1.4B cumulative net inflows and growing AUM across four issuers. Ripple's expanded regulatory footprint (EEA license, 75+ global licenses) improves institutional adoption runway. Escrow re-locking practices partially mitigate the headline 1B XRP monthly unlock. Current market cap (~$67.5B) sits well below the 3-year mean (~$88.7B), suggesting mean-reversion upside if sentiment stabilizes.",
         "Bear Case": "XRP is down ~39-40% over six months despite ETF inflows, indicating demand is insufficient to offset broader selling pressure. Recurring 1B XRP monthly escrow unlocks keep dilution risk front and center, with ~61.85B tokens already in circulation. As a high-beta crypto asset, XRP remains highly sensitive to Fed policy and macro risk appetite. ETF flows have not yet translated into a sustained re-rating, and regulatory clarity (e.g., CLARITY Act) remains uncertain.",
+        "Multiple Re-Rating": "",
         "Logic": "XRP trades below its 3-year mean market cap, but the combination of persistent escrow supply overhang, macro sensitivity, and the failure of ETF inflows to reverse the downtrend argues against a sharp recovery. Over a 12-month horizon, modest ETF-driven demand growth and regulatory progress could lift the cap slightly above current levels, but dilution and macro risk cap the upside. I estimate a forward market cap of approximately $72B, representing a ~7% uplift from current\u2014reflecting guarded optimism tempered by structural headwinds. No FCF, net income, or equity multiple applies to this spot digital asset."
       }
     },
@@ -826,6 +873,7 @@
       "sections": {
         "Bull Case": "Spot XRP ETFs have accumulated ~$1.4B in net inflows and ~$1.38B AUM, providing a structural demand bid that did not exist in prior cycles. Ripple's expanding regulatory footprint (75+ licenses, new EEA authorization) reduces operational risk and could unlock institutional adoption. Escrow mechanics partially mitigate net supply additions, and current market cap sits ~24% below the 3-year mean of ~$88.7B, suggesting mean-reversion upside if sentiment improves.",
         "Bear Case": "XRP is down ~39-40% in 2026 despite ETF inflows, indicating demand is insufficient to offset broader selling pressure. Monthly escrow unlocks of up to 1B XRP persist as a structural dilution overhang. XRP behaves as a high-beta asset to macro risk sentiment, so Fed uncertainty and crypto-wide deleveraging could drive further downside. The 3-year standard deviation is ~63% of mean, underscoring extreme volatility and downside risk.",
+        "Multiple Re-Rating": "",
         "Logic": "Current market cap of ~$67.5B is below the 3-year mean of ~$88.7B, but negative momentum (down 40% YTD) and persistent supply overhang weigh on the forward outlook. ETF inflows are encouraging but have not yet translated into price stability. Balancing modest ETF-driven demand recovery against supply dilution and macro sensitivity, I estimate a 12-month forward market cap roughly flat to slightly above current, reflecting uncertainty in both directions."
       }
     }
