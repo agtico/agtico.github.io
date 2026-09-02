@@ -41,12 +41,12 @@ tags:
   <div class="pearl-scorecard good">
     <span class="label">Verdict</span>
     <span class="value">Participate, conditional, venture size</span>
-    <span class="hint">Conditions: senior 1x preference and an executed Harlingen lease at or before close. Google-guaranteed leases plus the preference bound the loss case; upside if Indiana and Harlingen land is 4-10x.</span>
+    <span class="hint">Conditions: a preference senior to the Series A, and an executed, Google-guaranteed Harlingen lease at or before close. Google-guaranteed leases plus the preference bound the loss case; upside if the pipeline converts is 3-7.5x after dilution.</span>
   </div>
   <div class="pearl-scorecard warn">
     <span class="label">Price vs fair value</span>
-    <span class="value">$18B ask vs $10-14B fair</span>
-    <span class="hint">Fair value is 10-12x schedule-adjusted 2027E EBITDA plus owned development equity (bridge in section 6). The $18B ask is ~18x the same EBITDA; the premium buys the Anthropic spread and the unsigned pipeline.</span>
+    <span class="value">$18B ask vs ~$11B fair</span>
+    <span class="hint">Fair value is $8-15B, midpoint ~$11B: 10-12x schedule-adjusted 2027E EBITDA plus owned development equity (bridge in section 6). The $18B ask is ~18x the same EBITDA; the premium buys the Anthropic spread and the unsigned pipeline.</span>
   </div>
   <div class="pearl-scorecard bad">
     <span class="label">Walk triggers</span>
@@ -57,7 +57,7 @@ tags:
 
 <div class="pearl-verdict-banner">
   <strong>AGTI bottom line</strong>
-  <p>Fluidstack is a credit-tenant operator with a small owned asset base, priced as a landlord. Its cost-of-capital edge is real and visible in the bond market (Google-guaranteed leases fund at 6.7-7.6%; CoreWeave's balance-sheet model at 12-13%). The March 2026 round materials overstate per-GW equity by 2-4x, the anchor Indiana site has slipped 6-12 months, Anthropic now signs landlords directly, and Google has opened a second TPU channel. At $18B with a senior 1x preference the probability-weighted return is ~2.8x. Participate, conditional on Harlingen executing by close, at a size you can lose. Valuation basis throughout: $18B pre-money, $19B post-money after the ~$1B primary, with post-money equity used as the enterprise-value proxy because consolidated net debt (a GPU-collateralized facility, drawn balance undisclosed) is small relative to it and project debt sits in non-recourse JVs [14].</p>
+  <p>Fluidstack is a credit-tenant operator with a small owned asset base, priced as a landlord. Its cost-of-capital edge is real and visible in the bond market (Google-guaranteed leases fund at 6.7-7.6%; CoreWeave's balance-sheet model at 12-13%). The March 2026 round materials overstate per-GW equity by 2-4x, the anchor Indiana site has slipped 6-12 months, Anthropic now signs landlords directly, and Google has opened a second TPU channel. At $18B with a senior 1x preference, after ~25% dilution from later rounds, the probability-weighted return is ~2.3x with a floor near capital back. Participate, conditional on an executed, Google-guaranteed Harlingen lease at close, at a size you can lose. Valuation basis throughout: $18B pre-money, $19B post-money after the ~$1B primary, with post-money equity used as the enterprise-value proxy because consolidated net debt (a GPU-collateralized facility, drawn balance undisclosed) is small relative to it and project debt sits in non-recourse JVs [14].</p>
 </div>
 
 ## 0. Start here
@@ -418,7 +418,7 @@ Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digit
   <ul>
     <li>The materials claim $12.2B of equity per owned GW; the evidence supports $3-5.5B.</li>
     <li>The gap is the cap rate (6% vs 8-9%) and a 40x software multiple on a managed-service layer.</li>
-    <li>Fair value today is ~$10-14B; $18B needs the unsigned Indiana remainder and Harlingen to close at the stated terms.</li>
+    <li>Fair value today is $8-15B, midpoint ~$11B; $18B needs the unsigned Indiana remainder and Harlingen to close at the stated terms.</li>
   </ul>
 </div>
 
@@ -473,84 +473,110 @@ Yield reconciliation: $1.25B of NOI per GW on a $12-13M/MW build is a 10% yield 
 
 ### Fair-value bridge
 
+EBITDA basis: Fluidstack's consolidated EBITDA covers the tenant/operator business (compute and TPU services on ~1.1 GW-IT of leased capacity plus operations at owned sites). The JVs that hold Indiana Phase 1 and Abernathy are unconsolidated, so their equity is added separately; there is no double count.
+
 <div class="fs-tablewrap"><table class="fs-table">
-<thead><tr><th>Component</th><th>Basis</th><th>Value</th></tr></thead>
+<thead><tr><th>Component</th><th>Basis</th><th>Low</th><th>High</th></tr></thead>
 <tbody>
-<tr><td>Operating business (tenant spread on ~1.1 GW-IT plus owned-site operations)</td><td class="txt">Schedule-adjusted 2027E EBITDA $0.9-1.2B x 10-12x</td><td class="txt">$9-14B enterprise value</td></tr>
-<tr><td>Less consolidated net debt</td><td class="txt">GPU facility, drawn balance undisclosed; assume $1-2B</td><td class="txt">($1-2B)</td></tr>
-<tr><td>Owned development equity</td><td class="txt">0.3 GW-IT x $3-5.5B per GW</td><td class="txt">$1-1.6B</td></tr>
-<tr><td>Unfinanced pipeline (Indiana remainder, Harlingen)</td><td class="txt">Option value, zero until leased and financed</td><td class="txt">0</td></tr>
-<tr><td><strong>Equity value today</strong></td><td class="txt"></td><td class="txt"><strong>~$10-14B</strong></td></tr>
+<tr><td>Operating business</td><td class="txt">Schedule-adjusted 2027E EBITDA $0.9-1.2B x 10-12x</td><td>$9.0B</td><td>$14.4B</td></tr>
+<tr><td>Less consolidated net debt</td><td class="txt">GPU-collateralized facility, drawn balance undisclosed; assume $1-2B</td><td>($2.0B)</td><td>($1.0B)</td></tr>
+<tr><td>Owned development equity (unconsolidated JVs)</td><td class="txt">0.3 GW-IT x $3-5.5B per GW</td><td>$0.9B</td><td>$1.6B</td></tr>
+<tr><td>Unfinanced pipeline (Indiana remainder, Harlingen)</td><td class="txt">Zero until leased and financed</td><td>0</td><td>0</td></tr>
+<tr><td><strong>Equity value today</strong></td><td class="txt"></td><td><strong>$7.9B</strong></td><td><strong>$15.0B</strong></td></tr>
+<tr><td>Midpoint</td><td class="txt">EBITDA $1.05B x 11x, net debt $1.5B, dev equity $1.25B</td><td></td><td><strong>~$11.3B</strong></td></tr>
 </tbody>
 </table></div>
 
-The 10-12x range sits between neoclouds (7.4x) and its own landlords (20x) because the business is a mix of the two. $18B requires the Indiana remainder and Harlingen to close at the terms in the materials, which is why an executed Harlingen lease is a closing condition rather than a nice-to-have.
+Fair value is $8-15B with a midpoint near $11B. The 10-12x range sits between neoclouds (7.4x) and its own landlords (20x) because the business is a mix of the two. $18B requires the Indiana remainder and Harlingen to close at the terms in the materials, which is why an executed, Google-guaranteed Harlingen lease is a closing condition rather than a nice-to-have.
 
 ## 7. Scenarios
 
 <div class="fs-summary">
   <span class="fs-summary-label">Management summary</span>
   <ul>
-    <li>Probability-weighted ~2.8x on a senior 1x preferred, 2.7x on common, over 3-4 years.</li>
-    <li>The most likely single outcome (40%) is anchors-only at ~1.3x.</li>
-    <li>The preference lifts the bust case from 0.2x to 0.5-1.0x; the waterfall below shows why it is a range.</li>
+    <li>Conditioned on the closing terms (senior preference, Harlingen lease executed and guaranteed) and after ~25% dilution from later primaries: ~2.3x on the preferred, ~2.1x on common, over 3-4 years.</li>
+    <li>The most likely single outcome (40%) is anchors plus Harlingen delivered late with no further pipeline, roughly 1.0x.</li>
+    <li>A senior preference recovers ~0.9x in the bust case; pari passu recovers ~0.5x; junior recovers near zero.</li>
   </ul>
 </div>
 
-Entry $19B post-money, exit 2029-30. Exit multiple 10x forward EBITDA, between neoclouds (4-7x on 2028) and REITs (18x), for a mix that is mostly long-dated leases by 2030. Exit equity is enterprise value less ~$8B of consolidated debt, the compute facility peak in the materials. 2030E EBITDA by case: plan as stated; half of plan with a one-year slip; anchors only equals stabilized Indiana Phase 1 and Abernathy at Fluidstack's share plus the tenant spread on ~1.1 GW-IT; bust assumes Anthropic renews direct with landlords and the JV equity is impaired.
+Entry $19B post-money, exit 2029-30. Exit multiple 10x forward EBITDA, between neoclouds (4-7x on 2028) and REITs (18x), for a mix that is mostly long-dated leases by 2030. Exit equity is enterprise value less ~$8B of consolidated debt, the compute facility peak in the materials. Dilution: assume ~25% from two further primaries before exit (a $2B round at $19B post is ~10% on its own), applied to every case. Scenarios are conditioned on the closing terms, so Harlingen is signed in all of them; what varies is delivery and what follows it.
+
+2030E EBITDA build by case, Fluidstack share, using $1.25B of infrastructure NOI per owned GW-IT and ~$0.2B of services EBITDA per operated GW-IT from the materials [19]:
 
 <div class="fs-tablewrap"><table class="fs-table">
-<thead><tr><th>Case</th><th>Probability</th><th>2030E EBITDA</th><th>Exit equity</th><th>MOIC common</th><th>MOIC 1x pref</th></tr></thead>
+<thead><tr><th>Case</th><th>Infrastructure (owned share)</th><th>Services (operated)</th><th>Compute</th><th>2030E EBITDA</th></tr></thead>
 <tbody>
-<tr><td>Plan delivered</td><td>10%</td><td>$20B</td><td>~$190B</td><td>10x</td><td>10x</td></tr>
-<tr><td>Half of plan, one-year slip</td><td>30%</td><td>$8B</td><td>~$72B</td><td>3.8x</td><td>3.8x</td></tr>
-<tr><td>Anchors only; Harlingen and pipeline stall</td><td>40%</td><td>$3B</td><td>~$25B</td><td>1.3x</td><td>1.3x</td></tr>
-<tr><td>Anthropic shifts direct, Google support capped, JV equity impaired</td><td>20%</td><td>under $1B</td><td>~$1-3B</td><td>0.1x</td><td>0.5-1.0x</td></tr>
-<tr><td><strong>Probability-weighted</strong></td><td></td><td></td><td></td><td><strong>2.7x</strong></td><td><strong>~2.8x</strong></td></tr>
+<tr><td>Plan delivered</td><td class="txt">Materials: 13 GW-IT operated, pipeline at 80/20</td><td class="txt">included</td><td class="txt">included</td><td>$20B</td></tr>
+<tr><td>Half of plan, one-year slip</td><td class="txt">Anchors $2.4B (IN Ph1 0.43 GW x 49.9%, IN remainder 1.17 x 50%, Harlingen 1.1 x 80%, Abernathy 0.5 x 51%) plus 3 GW pipeline x 80% = $3.0B</td><td class="txt">7 GW x $0.2B = $1.4B</td><td class="txt">~$1B</td><td>~$8B</td></tr>
+<tr><td>Anchors and Harlingen only, delivered late</td><td class="txt">$2.4B</td><td class="txt">4 GW x $0.2B = $0.8B</td><td class="txt">0</td><td>~$3B</td></tr>
+<tr><td>Anthropic renews direct, Google support capped, JV equity impaired</td><td class="txt">Re-let at lower rents; JV equity written down</td><td class="txt">shrinks with Anthropic</td><td class="txt">0</td><td>under $1B</td></tr>
+</tbody>
+</table></div>
+
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Case</th><th>Probability</th><th>2030E EBITDA</th><th>Exit equity</th><th>MOIC common, after dilution</th><th>MOIC senior 1x pref, after dilution</th></tr></thead>
+<tbody>
+<tr><td>Plan delivered</td><td>10%</td><td>$20B</td><td>~$190B</td><td>7.5x</td><td>7.5x</td></tr>
+<tr><td>Half of plan, one-year slip</td><td>35%</td><td>~$8B</td><td>~$72B</td><td>2.8x</td><td>2.8x</td></tr>
+<tr><td>Anchors and Harlingen only, delivered late</td><td>40%</td><td>~$3B</td><td>~$25B</td><td>1.0x</td><td>1.0x</td></tr>
+<tr><td>Anthropic renews direct, Google support capped, JV equity impaired</td><td>15%</td><td>under $1B</td><td>~$1-3B</td><td>~0.05x</td><td>~0.9x</td></tr>
+<tr><td><strong>Probability-weighted</strong></td><td></td><td></td><td></td><td><strong>~2.1x</strong></td><td><strong>~2.3x</strong></td></tr>
 </tbody>
 </table></div>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
-    <h3>MOIC on a 1x preferred, by scenario</h3>
+    <h3>MOIC on a senior 1x preferred, by scenario, after dilution</h3>
     <span class="tag">Outcome map</span>
   </div>
   <div class="pearl-bar-chart">
     <div class="pearl-bar-row">
       <span class="name">Plan delivered (10%)</span>
       <div class="pearl-bar-track"><div class="pearl-bar-fill green" style="width:100%"></div></div>
-      <span class="pct" style="color:#6ee58f">10x</span>
+      <span class="pct" style="color:#6ee58f">7.5x</span>
     </div>
     <div class="pearl-bar-row">
-      <span class="name">Half plan, 1-yr slip (30%)</span>
-      <div class="pearl-bar-track"><div class="pearl-bar-fill green" style="width:38%"></div></div>
-      <span class="pct" style="color:#6ee58f">3.8x</span>
+      <span class="name">Half plan, 1-yr slip (35%)</span>
+      <div class="pearl-bar-track"><div class="pearl-bar-fill green" style="width:37%"></div></div>
+      <span class="pct" style="color:#6ee58f">2.8x</span>
     </div>
     <div class="pearl-bar-row">
-      <span class="name">Anchors only (40%)</span>
+      <span class="name">Anchors + Harlingen late (40%)</span>
       <div class="pearl-bar-track"><div class="pearl-bar-fill amber" style="width:13%"></div></div>
-      <span class="pct" style="color:#ffb347">1.3x</span>
+      <span class="pct" style="color:#ffb347">1.0x</span>
     </div>
     <div class="pearl-bar-row">
-      <span class="name">Bust (20%)</span>
-      <div class="pearl-bar-track"><div class="pearl-bar-fill muted" style="width:8%"></div></div>
-      <span class="pct">0.5-1.0x</span>
+      <span class="name">Bust (15%)</span>
+      <div class="pearl-bar-track"><div class="pearl-bar-fill muted" style="width:12%"></div></div>
+      <span class="pct">~0.9x</span>
     </div>
   </div>
-  <p class="pearl-figure-caption">The preference lifts the bust case from 0.1x to 0.5-1.0x. The range comes from the waterfall below.</p>
+  <p class="pearl-figure-caption">Weighted: 0.10 x 7.5 + 0.35 x 2.8 + 0.40 x 1.0 + 0.15 x 0.9 = 2.27x on the senior preferred. The preference adds ~0.13x of expected value and removes most of the loss case; that is its whole job.</p>
 </div>
 
 ### Liquidation waterfall in the bust case
 
-Project debt (Meridian $5.7B, landlord bonds) is non-recourse to the parent and sits ahead of JV equity, so in a bust the parent's claim on Indiana and Abernathy is close to zero. What remains at the parent: cash from this round (~$1B less what is spent on JV buy-ins), the Solis Arx land bank, the ~$1.06B Abernathy equity at a distressed mark, tenant contracts (worthless or negative if Anthropic leaves), and GPU collateral pledged to the Macquarie facility [14]. Realizable parent value: ~$1-3B. Preference stack: roughly $2B of prior rounds plus this $1B. A senior Series B recovers 0.5-1.0x across that range; pari passu with the Series A recovers 0.3-0.7x; junior recovers near zero. Seniority is the whole difference between a venture loss and a return of most capital, which is why it is a condition.
+Project debt (Meridian $5.7B, landlord bonds) is non-recourse to the parent and sits ahead of JV equity, so in a bust the parent's claim on Indiana and Abernathy is close to zero. What remains at the parent: cash from this round (~$1B less what is spent on JV buy-ins), the Solis Arx land bank, the ~$1.06B Abernathy equity at a distressed mark, tenant contracts (worthless or negative if Anthropic leaves), and GPU collateral pledged to the Macquarie facility [14]. Realizable parent value: ~$1-3B. Preference stack: roughly $2B of prior rounds plus this $1B, ~$3B in total.
+
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Series B position</th><th>Parent value $1B</th><th>Parent value $2B</th><th>Parent value $3B</th><th>Used in the table</th></tr></thead>
+<tbody>
+<tr><td>Senior to Series A (condition)</td><td>~0.9x (after wind-down costs)</td><td>1.0x</td><td>1.0x</td><td>~0.9x</td></tr>
+<tr><td>Pari passu with Series A (~$3B stack)</td><td>0.3x</td><td>0.6x</td><td>0.9x</td><td>~0.5x</td></tr>
+<tr><td>Junior</td><td>0</td><td>0</td><td>0.3x</td><td>~0.1x</td></tr>
+</tbody>
+</table></div>
+
+Seniority is the difference between a venture loss and a return of most capital, which is why it is a closing condition rather than a preference.
 
 ## 8. Verdict and conditions
 
 <div class="fs-summary">
   <span class="fs-summary-label">Management summary</span>
   <ul>
-    <li>Participate with a senior 1x preference and an executed Harlingen lease at close, sized as venture.</li>
-    <li>Walk on a junior pref, post-money above ~$20B, or Harlingen unsigned at close.</li>
+    <li>Participate with a preference senior to the Series A and an executed, Google-guaranteed Harlingen lease at close, sized as venture.</li>
+    <li>Walk on a junior or pari passu preference, post-money above ~$20B, or Harlingen unsigned at close.</li>
     <li>First diligence item: tenor, caps and step-in rights of the Google guarantee at Indiana.</li>
   </ul>
 </div>
@@ -563,15 +589,15 @@ Project debt (Meridian $5.7B, landlord bonds) is non-recourse to the parent and 
       <li>Google is a guarantor on Indiana, not a handshake; Fitch rated the bond on that basis.</li>
       <li>Anthropic's compute deficit is real; 15-year NNN leases turn it into bond-like cash flow.</li>
       <li>Its own landlords trade at 12-20x 2027 EBITDA with a fraction of the growth.</li>
-      <li>A senior 1x pref converts the bust case into roughly a return of capital.</li>
+      <li>A senior 1x preference converts the bust case into ~0.9x instead of a wipeout.</li>
     </ul>
   </div>
   <div class="pearl-panel bad">
     <h4>Walk if</h4>
     <ul>
-      <li>The preference is junior to the Series A, or pari passu without pro-rata (waterfall in section 7).</li>
+      <li>The preference is junior or pari passu to the Series A (waterfall in section 7).</li>
       <li>Post-money above ~$20B.</li>
-      <li>Harlingen is still an LOI at close; participate only on a signed, Google-guaranteed lease or a price near the $10-14B fair range.</li>
+      <li>Harlingen is still an LOI at close; participate only on an executed, Google-guaranteed lease or a price inside the $8-15B fair range.</li>
       <li>The Google guarantee at Indiana is capped, 5-year, or carries step-in rights the materials omit.</li>
       <li>Indiana first-hall energization slips past Q1 2028.</li>
     </ul>
@@ -580,7 +606,7 @@ Project debt (Meridian $5.7B, landlord bonds) is non-recourse to the parent and 
 
 ### Diligence before wiring
 
-1. Executed Harlingen lease, JV percentage, tenant, Google guarantee, utility-approved MW and energization date.
+1. Executed, Google-guaranteed Harlingen lease: JV percentage, tenant, guarantee tenor and caps, utility-approved MW and energization date.
 2. Tenor, caps and termination triggers of the Google guarantee at Indiana (Phase 1 vs full campus); any Google warrants or step-in rights in Meridian or Abernathy.
 3. Anthropic contract form at each site: take-or-pay compute (5-year) vs NNN colo (15-year); termination for convenience; what happens when Anthropic signs the next campus direct.
 4. Completion guarantees and equity-contribution schedule on Meridian, Abernathy and future JVs; parent GPU facility drawn balance and covenants.
