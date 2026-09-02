@@ -116,7 +116,7 @@ tags:
     <text x="235" y="60" fill="#6ee58f" text-anchor="middle" font-family="monospace" font-size="11">+127% in 2 months</text>
     <text x="715" y="60" fill="#ff5a42" text-anchor="middle" font-family="monospace" font-size="11">+140% in 8 months</text>
   </svg>
-  <p class="pearl-figure-caption">A Series B preferred class exists (a listed fund disclosed a $15M SPV purchase dated July 16, 2026). The $18B print itself has not been publicly confirmed.</p>
+  <p class="pearl-figure-caption">A Series B preferred class exists (a listed fund disclosed a $15M SPV purchase dated July 16, 2026) [14]. The $18B print itself has not been publicly confirmed [1][2].</p>
 </div>
 
 ## 2. Multiples: premium to neoclouds, discount to its own landlords
@@ -130,7 +130,7 @@ tags:
   </ul>
 </div>
 
-Consensus fiscal-year estimates for 22 public peers were pulled September 2, 2026 (full tables in the <a href="#appendix-expanded-public-comps">appendix</a>). Fluidstack is shown on both the management plan from the round materials and a schedule-adjusted case that cuts 2027 by a third for the slippage documented in <a href="#5-what-the-landlords-said-on-their-earnings-calls">section 5</a>.
+Consensus fiscal-year estimates for 22 public peers were pulled September 2, 2026 [17] (full tables in the <a href="#appendix-expanded-public-comps">appendix</a>). Fluidstack is shown on both the management plan from the round materials and a schedule-adjusted case that cuts 2027 by a third for the slippage documented in <a href="#5-what-the-landlords-said-on-their-earnings-calls">section 5</a>.
 
 <div class="fs-tablewrap"><table class="fs-table">
 <thead><tr><th>Bucket (median)</th><th>EV/Sales 2027E</th><th>EV/EBITDA 2027E</th><th>EV/EBITDA 2028E</th><th>Rev growth 2027E</th></tr></thead>
@@ -186,7 +186,7 @@ Buckets: neoclouds CRWV, NBIS, IREN, DOCN, ORCL; powered-land developers APLD, W
   <p class="pearl-figure-caption">On the plan, $18B sits between the model Fluidstack is leaving (neoclouds) and the model it is becoming (developers, REITs). Schedule-adjusted, it lands on top of TeraWulf (19.6x) and Cipher (20.4x), the companies that own the buildings Fluidstack rents.</p>
 </div>
 
-Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contracted, about $6.1B per contracted GW. Fluidstack at $18B on ~1.41 GW-IT operated is ~$12.8B per contracted GW, roughly twice Crusoe, while owning only ~0.3 GW-IT of it.
+Private cross-section [18]: Crusoe is reported in talks near $30B on ~4.9 GW contracted, about $6.1B per contracted GW. Fluidstack at $18B on ~1.41 GW-IT operated is ~$12.8B per contracted GW, roughly twice Crusoe, while owning only ~0.3 GW-IT of it.
 
 ## 3. What Fluidstack operates vs what it owns
 
@@ -248,23 +248,23 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
 <div class="fs-tablewrap"><table class="fs-table">
 <thead><tr><th>Site / landlord</th><th>MW-IT</th><th>Fluidstack role</th><th>Status</th><th>Google support</th></tr></thead>
 <tbody>
-<tr><td>Meridian, New Lebanon IN</td><td>430</td><td class="txt">Tenant + 49.9% owner</td><td class="txt">First hall Jul 2027</td><td class="txt">Full lease guarantee (basis for BB)</td></tr>
-<tr><td>TeraWulf Lake Mariner NY (CB-3/4/5)</td><td>~360</td><td class="txt">Tenant</td><td class="txt">CB-3 online Jul 2026; CB-4 commissioning; CB-5 Jan 2027</td><td class="txt">$3.2B backstop; ~14% TeraWulf equity to Google</td></tr>
-<tr><td>Cipher Barber Lake TX</td><td>207</td><td class="txt">Tenant</td><td class="txt">Phase 1 Sep/Oct 2026</td><td class="txt">$1.73B backstop; 5.4% Cipher warrants</td></tr>
-<tr><td>Abernathy TX</td><td class="txt">168 (to ~500)</td><td class="txt">Majority owner + tenant</td><td class="txt">H2 2026, sequencing open</td><td class="txt">$1.3B backstop</td></tr>
-<tr><td>Hut 8 River Bend LA</td><td>245</td><td class="txt">Tenant; ROFO on +1 GW</td><td class="txt">First hall Q2 2027</td><td class="txt">Full 15-year base-term backstop</td></tr>
-<tr><td>Harlingen / Cameron County TX</td><td class="txt">guided 1.1 GW-IT</td><td class="txt">Developer</td><td class="txt">LOI / permitting</td><td class="txt">none located</td></tr>
+<tr><td>Meridian, New Lebanon IN [3][4]</td><td>430</td><td class="txt">Tenant + 49.9% owner</td><td class="txt">First hall Jul 2027</td><td class="txt">Full lease guarantee (basis for BB)</td></tr>
+<tr><td>TeraWulf Lake Mariner NY (CB-3/4/5) [7]</td><td>~360</td><td class="txt">Tenant</td><td class="txt">CB-3 online Jul 2026; CB-4 commissioning; CB-5 Jan 2027</td><td class="txt">$3.2B backstop; ~14% TeraWulf equity to Google</td></tr>
+<tr><td>Cipher Barber Lake TX [9]</td><td>207</td><td class="txt">Tenant</td><td class="txt">Phase 1 Sep/Oct 2026</td><td class="txt">$1.73B backstop; 5.4% Cipher warrants</td></tr>
+<tr><td>Abernathy TX [7]</td><td class="txt">168 (to ~500)</td><td class="txt">Majority owner + tenant</td><td class="txt">H2 2026, sequencing open</td><td class="txt">$1.3B backstop</td></tr>
+<tr><td>Hut 8 River Bend LA [8]</td><td>245</td><td class="txt">Tenant; ROFO on +1 GW</td><td class="txt">First hall Q2 2027</td><td class="txt">Full 15-year base-term backstop</td></tr>
+<tr><td>Harlingen / Cameron County TX [6]</td><td class="txt">guided 1.1 GW-IT</td><td class="txt">Developer</td><td class="txt">LOI / permitting</td><td class="txt">none located</td></tr>
 </tbody>
 </table></div>
 
 ### What changed since the March round materials
 
 <div class="pearl-flow">
-  <div class="pearl-flow-step"><span class="num">1</span><strong>Indiana financed, not sold</strong><span>$5.7B 6.25% 2031 notes; 49.9% Fluidstack / 50.1% Coatue Next Frontier; Google-guaranteed 15-year NNN. Replaces the Blue Owl sale in the materials.</span></div>
-  <div class="pearl-flow-step"><span class="num">2</span><strong>Phase 1 slipped 6-12 months</strong><span>Guided Q4 2026 / Q1 2027. County and rating-agency timetable: first 65 MW hall July 2027, full Phase 1 end-2027 / early 2028.</span></div>
-  <div class="pearl-flow-step"><span class="num">3</span><strong>Harlingen unsigned</strong><span>No executed lease, JV percentage, tenant or guarantee on the public record. City drainage approval described as critical.</span></div>
-  <div class="pearl-flow-step"><span class="num">4</span><strong>Anthropic goes direct</strong><span>TeraWulf 401 MW / 20-year / ~$19B; Nscale ~$45B; Hut 8 1 GW diligence; CoreWeave added. Anthropic is seeking Google guarantees directly.</span></div>
-  <div class="pearl-flow-step"><span class="num">5</span><strong>TPU exclusivity refuted</strong><span>Google-Blackstone "TPU Co." ($5B, 500 MW in 2027); Google now ships TPU systems into customers' own data centers.</span></div>
+  <div class="pearl-flow-step"><span class="num">1</span><strong>Indiana financed, not sold</strong><span>$5.7B 6.25% 2031 notes; 49.9% Fluidstack / 50.1% Coatue Next Frontier; Google-guaranteed 15-year NNN. Replaces the Blue Owl sale in the materials [3][4].</span></div>
+  <div class="pearl-flow-step"><span class="num">2</span><strong>Phase 1 slipped 6-12 months</strong><span>Guided Q4 2026 / Q1 2027. County and rating-agency timetable: first 65 MW hall July 2027, full Phase 1 end-2027 / early 2028 [4][5].</span></div>
+  <div class="pearl-flow-step"><span class="num">3</span><strong>Harlingen unsigned</strong><span>No executed lease, JV percentage, tenant or guarantee on the public record. City drainage approval described as critical [6].</span></div>
+  <div class="pearl-flow-step"><span class="num">4</span><strong>Anthropic goes direct</strong><span>TeraWulf 401 MW / 20-year / ~$19B; Nscale ~$45B; Hut 8 1 GW diligence; CoreWeave added. Anthropic is seeking Google guarantees directly [7][8][13][16].</span></div>
+  <div class="pearl-flow-step"><span class="num">5</span><strong>TPU exclusivity refuted</strong><span>Google-Blackstone "TPU Co." ($5B, 500 MW in 2027); Google now ships TPU systems into customers' own data centers [12].</span></div>
 </div>
 
 ## 4. The credit market already priced this
@@ -280,7 +280,7 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
-    <h3>Yield to maturity, dealer mid quotes, September 2, 2026</h3>
+    <h3>Yield to maturity, dealer mid quotes, September 2, 2026 [17]</h3>
     <span class="tag">Credit ladder</span>
   </div>
   <div class="pearl-bar-chart">
@@ -352,7 +352,7 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
 </tbody>
 </table></div>
 
-Two cautions. The gap is narrowing: CoreWeave cut its weighted average cost of debt ~300bp in a year, and Applied Digital refinanced CoreWeave-tenant paper at 7% behind an A3-rated SPV. And the window is tightening: AI-infrastructure high-yield issuance reached ~$32B by early July, the year's largest prints (Meridian Arc, Core Scientific, Tract) trade below par, and data-center HY spreads have re-widened since June. Meridian's 5-point drop in four months is the cleanest signal.
+Two cautions. The gap is narrowing: CoreWeave cut its weighted average cost of debt ~300bp in a year, and Applied Digital refinanced CoreWeave-tenant paper at 7% behind an A3-rated SPV. And the window is tightening: AI-infrastructure high-yield issuance reached ~$32B by early July, the year's largest prints (Meridian Arc, Core Scientific, Tract) trade below par, and data-center HY spreads have re-widened since June. Meridian's 5-point drop in four months is the cleanest signal [15][17].
 
 ## 5. What the landlords said on their earnings calls
 
@@ -366,46 +366,46 @@ Two cautions. The gap is narrowing: CoreWeave cut its weighted average cost of d
   </ul>
 </div>
 
-Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digital, CoreWeave, Nebius, IREN, Core Scientific, Hut 8, Galaxy, Equinix, Digital Realty, Oracle, Alphabet and Vertiv.
+Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digital, CoreWeave, Nebius, IREN, Core Scientific, Hut 8, Galaxy, Equinix, Digital Realty, Oracle, Alphabet and Vertiv [7]-[12][16].
 
 <div class="pearl-source-grid">
   <div class="pearl-source-card">
-    <span class="src-label">TeraWulf Q1 vs Q2 2026</span>
+    <span class="src-label">TeraWulf Q1 vs Q2 2026 [7]</span>
     <span class="src-stat">Every Fluidstack building slipped 1-3 quarters</span>
     <span class="src-note">May: CB-3 end of May, CB-4 Q3, CB-5 Q4, timelines "unchanged." August: CB-3 live early July, leases amended hall by hall, CB-5 first hall "very early January." Cause: the reference design "has changed over time, particularly as our clients get more experience running the hardware," plus electrician shortages.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">TeraWulf Q2 2026</span>
+    <span class="src-label">TeraWulf Q2 2026 [7]</span>
     <span class="src-stat">Anthropic direct: 401 MW, 20 years, ~$19B</span>
     <span class="src-note">"We get to deal direct now with our customer in Anthropic, and it just makes things that much more efficient." TeraWulf also sold its 50.1% of Abernathy to Fluidstack for ~$530M, a 20% IRR in about nine months.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">Applied Digital Q4 FY26</span>
+    <span class="src-label">Applied Digital Q4 FY26 [10], Hut 8 [8], Core Scientific [11]</span>
     <span class="src-stat">Backstop leases "face uncertainty after the initial 5-year tenor"</span>
     <span class="src-note">Why Applied now prefers direct hyperscaler leases. Hut 8 says Google covers the full 15-year base term at River Bend; Core Scientific says AMD's support has no equity step-in "as you've seen included in some other deals." Tenor and step-in at Fluidstack's owned sites are the first diligence item.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">Alphabet Q1 and Q2 2026</span>
+    <span class="src-label">Alphabet Q1 and Q2 2026 [12]</span>
     <span class="src-stat">TPU systems delivered into customers' own data centers</span>
     <span class="src-note">First deliveries in Q2, revenue mostly 2027, inside the $514B cloud backlog. Google is also "expanding the use of third-party capacity in Q3 as a bridging strategy," which is direct Google demand for Fluidstack-type sites.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">Build cost, five landlords</span>
+    <span class="src-label">Build cost, five landlords [3][7][8][9][11][16]</span>
     <span class="src-stat">$9-13M per MW-IT and rising</span>
     <span class="src-note">TeraWulf $9.1M/MW; Cipher and Hut 8 $9-11M; Core Scientific $11-12M for AMD; Vertiv content alone $3.25-3.75M; Meridian implied $13.3M including land, substation and reserves. The round materials assume $10-11M.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">Lease economics</span>
+    <span class="src-label">Lease economics [7][9][16]</span>
     <span class="src-stat">Mid-teens yield on cost, and Fluidstack pays it</span>
     <span class="src-note">TeraWulf targets mid-teens and achieved it with both Fluidstack and Anthropic. Digital Realty develops at 11.5% stabilized yield with 25%+ renewal spreads. The $130/kW-month rate in the materials holds for turnkey; on ~1.1 GW-IT Fluidstack is the one paying it.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">IREN Q4 FY26, Nebius Q2 2026</span>
+    <span class="src-label">IREN Q4 FY26, Nebius Q2 2026 [16]</span>
     <span class="src-stat">GPU contracts at $20-25M per MW, 2-year payback</span>
     <span class="src-note">3-year contract pricing up ~125% since November; prepayments fund 45-60% of GPU capex. Fluidstack's retreat from chip ownership gives up the highest-return segment in the current market. The materials present it as a pure upgrade.</span>
   </div>
   <div class="pearl-source-card">
-    <span class="src-label">Hut 8 Q2, Core Scientific Q4</span>
+    <span class="src-label">Hut 8 Q2, Core Scientific Q4 [8][11]</span>
     <span class="src-stat">"Credit committees do not finance ambition"</span>
     <span class="src-note">Project debt is deep only behind investment-grade support. Google has priced its support in equity (TeraWulf ~14%, Cipher 5.4%). Expect the same in Fluidstack's JVs.</span>
   </div>
@@ -467,7 +467,7 @@ Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digit
 </tbody>
 </table></div>
 
-Cross-check: ~$530M for 50.1% of Abernathy (168 MW-IT scaling toward ~500, pre-commencement) implies ~$1.06B of JV equity, or $2-6M per MW depending on the capacity basis, consistent with the evidence column.
+Cross-check [7]: ~$530M for 50.1% of Abernathy (168 MW-IT scaling toward ~500, pre-commencement) implies ~$1.06B of JV equity, or $2-6M per MW depending on the capacity basis, consistent with the evidence column.
 
 Yield reconciliation: $1.25B of NOI per GW on a $12-13M/MW build is a 10% yield on cost, which matches the 10-12% lease yield in the materials. TeraWulf's mid-teens yield is earned on a $9.1M/MW turnkey cost at Lake Mariner rates [7]; a greenfield at $12-13M/MW earns the same rent at 10-12%.
 
@@ -732,20 +732,24 @@ UST 5Y 4.53%, 10Y 4.77% on the pull date.
 
 Public filings, press and data:
 
-- Fluidstack, "Fluidstack raised $830M Series A," July 20, 2026.
-- Bloomberg News, "Fluidstack Seeks $1 Billion in New Funding at $18 Billion Valuation," April 14, 2026.
-- Latham & Watkins, Cahill, Cooley deal notices on the Meridian Arc HoldCo $5.7B 6.25% senior secured notes due 2031, April 16-17, 2026.
-- LCD, "Meridian Arc inks $5.7B of high-yield bonds for data center build at 6.25%," April 17, 2026.
-- New Project Media, "Data center start-up Potentia behind 2.1 GW Indiana project now backed by Fluidstack and Google," May 12, 2026.
-- Sullivan County, Indiana board records and Fitch construction timetable via New Project Media; DCD and WTHI coverage of the August 5, 2026 open house.
-- MyRGV, "Data center developer requesting Harlingen drainage agreement," September 1, 2026.
-- TeraWulf Form 8-K, July 6, 2026, Anthropic lease at Justified Data campus and sale of Abernathy JV interest to Fluidstack.
-- Hut 8 press release December 17, 2025 and Q2 2026 results on River Bend; Cipher Mining and TeraWulf filings on Google backstops and warrants.
-- Destiny Tech100 Form 424B3 disclosing a July 16, 2026 purchase of Fluidstack Series B preferred shares.
-- Google-Blackstone TPU Co. announcement, May 18, 2026; The Information (June 2026) on Anthropic developer LOIs and direct Google guarantees.
-- PitchBook, Morningstar and Penn Mutual Asset Management commentary on AI-infrastructure high-yield issuance and spreads, April to August 2026.
-- Bond identifiers: Meridian Arc US58990CAA18; WULF Compute US982911AA70; Cipher Compute US17253NAA54; Applied Digital US00202DAA54; CoreWeave US21873SAB43 / US21873SAG30. Prices are dealer mid quotes as of September 2, 2026.
-- Earnings-call transcripts: TeraWulf Q1/Q2 2026; Cipher Mining Q1/Q2 2026; Applied Digital Q3/Q4 FY26; CoreWeave Q1/Q2 2026; Nebius Q2 2026; IREN Q4 FY26; Core Scientific Q4 2025 and Q2 2026; Hut 8 Q1/Q2 2026; Digital Realty Q2 2026; Equinix Q2 2026; Alphabet Q1/Q2 2026; Oracle Q4 FY26; Vertiv Q2 2026.
-- Management plan figures (2026E-2030E revenue, EBITDA, FCF) are from investor materials circulated with the round in March 2026.
+1. Fluidstack, "Fluidstack raised $830M Series A," July 20, 2026.
+2. Bloomberg News, "Fluidstack Seeks $1 Billion in New Funding at $18 Billion Valuation," April 14, 2026.
+3. Latham & Watkins, Cahill and Cooley deal notices on the Meridian Arc HoldCo $5.7B 6.25% senior secured notes due 2031, April 16-17, 2026; LCD, "Meridian Arc inks $5.7B of high-yield bonds for data center build at 6.25%," April 17, 2026.
+4. New Project Media, "Data center start-up Potentia behind 2.1 GW Indiana project now backed by Fluidstack and Google," May 12, 2026 (JV split, Fitch construction timetable).
+5. Sullivan County, Indiana board records; DCD and WTHI coverage of the August 5, 2026 open house.
+6. MyRGV, "Data center developer requesting Harlingen drainage agreement," September 1, 2026; ValleyCentral coverage of the Cameron County site, 2026.
+7. TeraWulf Form 8-K, July 6, 2026 (Anthropic lease at Justified Data campus; sale of Abernathy JV interest to Fluidstack); TeraWulf Q1 2026 (May 8) and Q2 2026 (August 5) earnings calls.
+8. Hut 8 press release December 17, 2025 and Q1 (May 6) and Q2 2026 (August 4) earnings calls on River Bend and the Anthropic diligence agreement.
+9. Cipher Mining Q1 (May 5) and Q2 2026 (August 4) earnings calls and filings on the Barber Lake lease, Google backstop and warrants.
+10. Applied Digital Q3 FY26 (April 8) and Q4 FY26 (July 27, 2026) earnings calls.
+11. Core Scientific Q4 2025 (March 2) and Q2 2026 (August) earnings calls.
+12. Alphabet Q1 (April 29) and Q2 2026 (July 22) earnings calls; Google-Blackstone TPU Co. announcement, May 18, 2026.
+13. The Information, June 2026, on Anthropic developer LOIs, direct Google guarantees, and Google approaches to Crusoe and CoreWeave; Nscale-Anthropic announcement, August 26, 2026.
+14. Destiny Tech100 Form 424B3 (July 16, 2026 purchase of Fluidstack Series B preferred shares); Sacra on the Macquarie GPU-collateralized facility; Moelis on the Solis Arx acquisition (June 2, 2026).
+15. PitchBook, Morningstar and Penn Mutual Asset Management commentary on AI-infrastructure high-yield issuance and spreads, April to August 2026.
+16. CoreWeave Q1 (May 7) and Q2 2026 (August 11) earnings calls; Nebius Q2 2026 (August 12); IREN Q4 FY26 (August 27); Digital Realty Q2 2026 (July 23); Equinix Q2 2026 (July 29); Oracle Q4 FY26 (June 10); Vertiv Q2 2026 (July 29).
+17. Consensus estimates and trailing fundamentals for 22 public companies, and dealer mid quotes for the reference bonds, as of September 2, 2026. Bond identifiers: Meridian Arc US58990CAA18; WULF Compute US982911AA70; Cipher Compute US17253NAA54; Applied Digital US00202DAA54; CoreWeave US21873SAB43 / US21873SAG30.
+18. Crusoe, Nscale and Lambda private valuation reports, 2026 (Bloomberg, The Information, Reuters).
+19. Management plan figures (2026E-2030E revenue, EBITDA, FCF) and site economics are from investor materials circulated with the round in March 2026.
 
 *This is research, not investment advice. AGTI may hold positions in securities discussed.*
