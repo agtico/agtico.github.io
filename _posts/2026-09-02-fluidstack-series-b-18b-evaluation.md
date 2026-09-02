@@ -63,7 +63,7 @@ tags:
 ## The gates we applied
 
 <div class="pearl-primer-box">
-  <p><strong>Method:</strong> the memo below was run through the Kravis Protocol, a private-equity underwriting persona maintained in the Post Fiat Task Node prompt library, on two independent models. Each ran the six-gate Sequence and returned a verdict and a 100-point scorecard. Both returned PASS (25/100 and 30/100). The principle, what we tested, and the output for each gate follow; the sections after that hold the evidence.</p>
+  <p>Six gates, in Kravis order: downside first, then price and structure, people, the value-creation plan, the exit, and the walk-away test. A deal must pass all six. The principle, what we tested, and the result for each gate follow; the sections after that hold the evidence.</p>
 </div>
 
 <div class="pearl-source-grid">
@@ -100,14 +100,14 @@ tags:
 </div>
 
 <div class="fs-tablewrap"><table class="fs-table">
-<thead><tr><th>Kravis scorecard (100 points)</th><th>Weight</th><th>Run A</th><th>Run B</th><th>Why</th></tr></thead>
+<thead><tr><th>Scorecard (100 points)</th><th>Weight</th><th>Score</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td>Downside resilience</td><td>30</td><td>8</td><td>10</td><td class="txt">Preference floor rests on parent value that project lenders, landlords, Google (by subrogation) and the GPU lender stand ahead of.</td></tr>
-<tr><td>Price and capital structure</td><td>25</td><td>6</td><td>6</td><td class="txt">64% above own fair value; 15-year fixed obligations against 5-year revenue; future senior rounds unrestricted.</td></tr>
-<tr><td>Value-creation control</td><td>20</td><td>2</td><td>7</td><td class="txt">Passenger seat; capital plan does not reconcile with ownership claims.</td></tr>
-<tr><td>Management and alignment</td><td>15</td><td>4</td><td>3</td><td class="txt">Not underwritten; retail SPVs setting the mark.</td></tr>
-<tr><td>Exit clarity</td><td>10</td><td>5</td><td>4</td><td class="txt">IPO-only at the upside values; no named strategic buyer; $4B+ of dilution before liquidity.</td></tr>
-<tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>25</strong></td><td><strong>30</strong></td><td class="txt"><strong>Below 60: pass.</strong></td></tr>
+<tr><td>Downside resilience</td><td>30</td><td>9</td><td class="txt">Preference floor rests on parent value that project lenders, landlords, Google (by subrogation) and the GPU lender stand ahead of.</td></tr>
+<tr><td>Price and capital structure</td><td>25</td><td>6</td><td class="txt">64% above own fair value; 15-year fixed obligations against 5-year revenue; future senior rounds unrestricted.</td></tr>
+<tr><td>Value-creation control</td><td>20</td><td>4</td><td class="txt">Passenger seat; capital plan does not reconcile with ownership claims.</td></tr>
+<tr><td>Management and alignment</td><td>15</td><td>4</td><td class="txt">Not underwritten; retail SPVs setting the mark.</td></tr>
+<tr><td>Exit clarity</td><td>10</td><td>4</td><td class="txt">IPO-only at the upside values; no named strategic buyer; $4B+ of dilution before liquidity.</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>27</strong></td><td class="txt"><strong>Below 60: pass.</strong></td></tr>
 </tbody>
 </table></div>
 
@@ -140,14 +140,14 @@ tags:
   <p style="margin-top:12px"><strong>Read next:</strong> <a href="#3-what-fluidstack-operates-vs-what-it-owns">Asset map</a> · <a href="#4-the-credit-market-already-priced-this">Credit ladder</a> · <a href="#6-re-underwriting-the-per-gw-math">Per-GW re-underwriting</a> · <a href="#7-scenarios">Scenarios</a> · <a href="#appendix-expanded-public-comps">Full comp tables</a></p>
 </div>
 
-## 1. Where the valuation actually is
+## 1. The valuation walk
 
 <div class="fs-summary">
   <span class="fs-summary-label">Management summary</span>
   <ul>
-    <li>Last confirmed price is $7.5B (January 2026). The $18B is a target first reported in April; a Series B preferred class exists and is placing through SPVs.</li>
-    <li>That is a 140% step-up in eight months on a company whose anchor project has since slipped.</li>
-    <li>Treat $18B as the asking price, not a cleared mark.</li>
+    <li>The deal on the table is a ~$1B Series B preferred at $18B pre-money, $19B post. The last round was $7.5B in January 2026.</li>
+    <li>That is a 140% step-up in eight months on a company whose anchor project has since slipped 6-12 months.</li>
+    <li>The step-up is a market mark, not a business mark: the pipeline that justifies it is unsigned and the owned asset base is ~0.3 GW-IT.</li>
   </ul>
 </div>
 
@@ -156,7 +156,7 @@ tags:
     <h3>Valuation walk, January to September 2026</h3>
     <span class="tag">Timeline</span>
   </div>
-  <svg viewBox="0 0 920 230" role="img" aria-label="Fluidstack valuation timeline from $7.5B Series A to $18B target">
+  <svg viewBox="0 0 920 230" role="img" aria-label="Fluidstack valuation timeline from $7.5B Series A to the $18B Series B">
     <line x1="60" y1="150" x2="880" y2="150" stroke="#3a4a44" stroke-width="2"/>
     <g>
       <circle cx="110" cy="150" r="8" fill="#6ee58f"/>
@@ -174,7 +174,7 @@ tags:
     </g>
     <g>
       <circle cx="600" cy="150" r="8" fill="#ffb347"/>
-      <text x="600" y="120" fill="#ffd38a" text-anchor="middle" font-size="18" font-weight="800">$18B target</text>
+      <text x="600" y="120" fill="#ffd38a" text-anchor="middle" font-size="18" font-weight="800">$18B</text>
       <text x="600" y="180" fill="#8aa898" text-anchor="middle" font-size="11">Apr 14, 2026</text>
       <text x="600" y="196" fill="#8aa898" text-anchor="middle" font-size="11">~$1B, Jane Street +</text>
       <text x="600" y="212" fill="#8aa898" text-anchor="middle" font-size="11">Situational Awareness</text>
@@ -184,12 +184,12 @@ tags:
       <text x="830" y="120" fill="#ffb4a8" text-anchor="middle" font-size="18" font-weight="800">$18B pref</text>
       <text x="830" y="180" fill="#8aa898" text-anchor="middle" font-size="11">Sep 2026</text>
       <text x="830" y="196" fill="#8aa898" text-anchor="middle" font-size="11">Series B preferred</text>
-      <text x="830" y="212" fill="#8aa898" text-anchor="middle" font-size="11">placing via SPVs</text>
+      <text x="830" y="212" fill="#8aa898" text-anchor="middle" font-size="11">the deal on the table</text>
     </g>
     <text x="235" y="60" fill="#6ee58f" text-anchor="middle" font-family="monospace" font-size="11">+127% in 2 months</text>
     <text x="715" y="60" fill="#ff5a42" text-anchor="middle" font-family="monospace" font-size="11">+140% in 8 months</text>
   </svg>
-  <p class="pearl-figure-caption">A Series B preferred class exists (a listed fund disclosed a $15M SPV purchase dated July 16, 2026) [14]. The $18B print itself has not been publicly confirmed [1][2].</p>
+  <p class="pearl-figure-caption">Series B preferred strips are also placing into a listed retail vehicle through SPVs [14]; the retail buyer of a $15M strip validates the mark, it does not set it.</p>
 </div>
 
 ## 2. Multiples: premium to neoclouds, discount to its own landlords
@@ -569,7 +569,7 @@ Fair value is $8-15B with a midpoint near $11B. The 10-12x range sits between ne
   <ul>
     <li>With project debt netted consistently, an 8x exit multiple and ~25% dilution, the probability-weighted return on a senior 1x preferred at $19B post is ~0.8x; on common ~0.6x.</li>
     <li>The same cases at $12B post-money return ~1.3x on the preferred: a marginal venture outcome with the downside partly protected, which is why the file reopens there rather than closes.</li>
-    <li>The earlier draft of this memo showed 2.3x. The difference is one error: capitalizing project NOI at 10x without subtracting the project debt behind it.</li>
+    <li>Capitalizing project NOI at a headline multiple without subtracting the project debt behind it is the single adjustment that separates a 2x-plus story from these numbers.</li>
   </ul>
 </div>
 
