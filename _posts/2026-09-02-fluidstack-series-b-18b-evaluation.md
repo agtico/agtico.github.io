@@ -1,7 +1,7 @@
 ---
 layout: report
 title: "Fluidstack at $18B | Series B Evaluation"
-date: "2026-09-02 16:00:00 +0000"
+date: "2026-09-02 12:00:00 +0000"
 summary: "AGTI evaluation of the reported $18B Fluidstack preferred round: expanded public comps, credit-market read, landlord earnings-call evidence, per-GW re-underwriting, scenarios, and a verdict."
 category: AGTI Research
 pearl_report: true
