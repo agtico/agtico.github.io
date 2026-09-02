@@ -15,6 +15,24 @@ tags:
   - Private Markets
 ---
 
+<style>
+.fs-summary{border:1px solid rgba(110,229,143,0.35);border-left:4px solid #6ee58f;background:rgba(10,14,14,0.96);padding:14px 18px 12px;margin:0 0 22px}
+.fs-summary-label{display:block;color:#6ee58f;font:900 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.fs-summary ul{margin:0;padding-left:18px}
+.fs-summary li{margin:0 0 6px;font-size:14px;line-height:1.5;color:rgba(220,229,224,0.9)}
+.fs-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 22px;border:1px solid var(--line-strong)}
+.fs-table{width:100%;min-width:100%;border-collapse:collapse;table-layout:auto;font-size:13px;display:table}
+.fs-table thead{display:table-header-group}
+.fs-table tbody{display:table-row-group}
+.fs-table th{background:rgba(255,45,32,0.08);color:var(--red-2,#ff5a42);font:900 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.fs-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top;white-space:nowrap;color:rgba(220,229,224,0.92)}
+.fs-table td:first-child{white-space:normal;min-width:180px}
+.fs-table th:not(:first-child),.fs-table td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+.fs-table tr.fs-group td{background:rgba(110,229,143,0.07);color:#9dffc8;font-weight:700;border-top:1px solid rgba(110,229,143,0.3)}
+.fs-table tr.fs-median td{color:#ffb347;font-style:italic}
+.fs-table tbody tr:hover td{background:rgba(255,255,255,0.03)}
+</style>
+
 <div class="pearl-hero-grid">
   <div class="pearl-scorecard good">
     <span class="label">Verdict</span>
@@ -46,6 +64,15 @@ tags:
 </div>
 
 ## 1. Where the valuation actually is
+
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Last confirmed price is $7.5B (January 2026). The $18B is a target first reported in April; a Series B preferred class exists and is placing through SPVs.</li>
+    <li>That is a 140% step-up in eight months on a company whose anchor project has since slipped.</li>
+    <li>Treat $18B as the asking price, not a cleared mark.</li>
+  </ul>
+</div>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
@@ -90,16 +117,30 @@ tags:
 
 ## 2. Multiples: premium to neoclouds, discount to its own landlords
 
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>On the plan, $18B is 12x 2027E EBITDA: above neoclouds (7x), below developers and REITs (19-20x).</li>
+    <li>Schedule-adjusted, it is ~18x, level with TeraWulf and Cipher, the companies that own the buildings Fluidstack rents.</li>
+    <li>Per contracted GW, Fluidstack is priced at about twice Crusoe.</li>
+  </ul>
+</div>
+
 Consensus fiscal-year estimates for 22 public peers were pulled September 2, 2026 (full tables in the <a href="#appendix-expanded-public-comps">appendix</a>). Fluidstack is shown on both the management plan from the round materials and a schedule-adjusted case that cuts 2027 by a third for the slippage documented in <a href="#5-what-the-landlords-said-on-their-earnings-calls">section 5</a>.
 
-| Bucket | EV/Sales 2027E | EV/EBITDA 2027E | EV/EBITDA 2028E | Revenue growth 2027E |
-|---|---|---|---|---|
-| Neocloud (CRWV, NBIS, IREN, DOCN, ORCL) | 4.2x | 7.4x | 4.0x | 106% |
-| Powered land / HPC developers (APLD, WULF, CIFR, CORZ, HUT, GLXY) | 9.0x | 20.0x | 11.9x | 121% |
-| Data center REITs / operators (EQIX, DLR, IRM, GDS, NXT, KDCREIT, DBRG) | 9.1x | 19.2x | 17.8x | 10% |
-| Infra software (DDOG, NET, NOW, DT) | 11.0x | 38.6x | 31.1x | 21% |
-| **Fluidstack @ $19B post, management plan** | **7.4x** | **12.3x** | **4.2x** | **286%** |
-| **Fluidstack @ $19B post, schedule-adjusted** | **~11x** | **~18x** | **~6x** | **~160%** |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Bucket (median)</th><th>EV/Sales 2027E</th><th>EV/EBITDA 2027E</th><th>EV/EBITDA 2028E</th><th>Rev growth 2027E</th></tr></thead>
+<tbody>
+<tr><td>Neoclouds</td><td>4.2x</td><td>7.4x</td><td>4.0x</td><td>106%</td></tr>
+<tr><td>Powered-land developers</td><td>9.0x</td><td>20.0x</td><td>11.9x</td><td>121%</td></tr>
+<tr><td>DC REITs / operators</td><td>9.1x</td><td>19.2x</td><td>17.8x</td><td>10%</td></tr>
+<tr><td>Infra software</td><td>11.0x</td><td>38.6x</td><td>31.1x</td><td>21%</td></tr>
+<tr><td><strong>Fluidstack, plan</strong></td><td><strong>7.4x</strong></td><td><strong>12.3x</strong></td><td><strong>4.2x</strong></td><td><strong>286%</strong></td></tr>
+<tr><td><strong>Fluidstack, adjusted</strong></td><td><strong>~11x</strong></td><td><strong>~18x</strong></td><td><strong>~6x</strong></td><td><strong>~160%</strong></td></tr>
+</tbody>
+</table></div>
+
+Buckets: neoclouds CRWV, NBIS, IREN, DOCN, ORCL; powered-land developers APLD, WULF, CIFR, CORZ, HUT, GLXY; DC REITs / operators EQIX, DLR, IRM, GDS, NXT, KDCREIT, DBRG; infra software DDOG, NET, NOW, DT. Fluidstack rows use $19B post-money.
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
@@ -144,6 +185,16 @@ Consensus fiscal-year estimates for 22 public peers were pulled September 2, 202
 Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contracted, about $6.1B per contracted GW. Fluidstack at $18B on ~1.41 GW-IT operated is ~$12.8B per contracted GW, roughly twice Crusoe, while owning only ~0.3 GW-IT of it.
 
 ## 3. What Fluidstack operates vs what it owns
+
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Fluidstack operates ~1.41 GW-IT but owns only ~0.30 GW-IT (half of Indiana Phase 1, majority of Abernathy).</li>
+    <li>Roughly 80% of the business is a tenant/operator spread on Anthropic volume, guaranteed by Google.</li>
+    <li>Harlingen, the largest capacity claim, has no executed lease on the public record.</li>
+    <li>Since March: Indiana financed by a $5.7B bond instead of sold, Phase 1 slipped 6-12 months, Anthropic signing landlords direct, Google opened a second TPU channel.</li>
+  </ul>
+</div>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
@@ -190,14 +241,17 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
   <p class="pearl-figure-caption">About 80% of contracted capacity is a tenant/operator spread on Anthropic volume, guaranteed by Google. About 20% is owned development equity. The round materials value the whole as a landlord.</p>
 </div>
 
-| Site / landlord | MW-IT | Fluidstack role | Status | Google support |
-|---|---|---|---|---|
-| Meridian, New Lebanon IN | 430 | Tenant + 49.9% owner | First hall Jul 2027 | Full lease guarantee (basis for BB) |
-| TeraWulf Lake Mariner NY (CB-3/4/5) | ~360 | Tenant | CB-3 online Jul 2026; CB-4 commissioning; CB-5 Jan 2027 | $3.2B backstop; ~14% TeraWulf equity to Google |
-| Cipher Barber Lake TX | 207 | Tenant | Phase 1 Sep/Oct 2026 | $1.73B backstop; 5.4% Cipher warrants |
-| Abernathy TX | 168 (to ~500) | Majority owner + tenant | H2 2026, sequencing open | $1.3B backstop |
-| Hut 8 River Bend LA | 245 | Tenant; ROFO on +1 GW | First hall Q2 2027 | Full 15-year base-term backstop |
-| Harlingen / Cameron County TX | guided 1.1 GW-IT | Developer | LOI / permitting | none located |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Site / landlord</th><th>MW-IT</th><th>Fluidstack role</th><th>Status</th><th>Google support</th></tr></thead>
+<tbody>
+<tr><td>Meridian, New Lebanon IN</td><td>430</td><td>Tenant + 49.9% owner</td><td>First hall Jul 2027</td><td>Full lease guarantee (basis for BB)</td></tr>
+<tr><td>TeraWulf Lake Mariner NY (CB-3/4/5)</td><td>~360</td><td>Tenant</td><td>CB-3 online Jul 2026; CB-4 commissioning; CB-5 Jan 2027</td><td>$3.2B backstop; ~14% TeraWulf equity to Google</td></tr>
+<tr><td>Cipher Barber Lake TX</td><td>207</td><td>Tenant</td><td>Phase 1 Sep/Oct 2026</td><td>$1.73B backstop; 5.4% Cipher warrants</td></tr>
+<tr><td>Abernathy TX</td><td>168 (to ~500)</td><td>Majority owner + tenant</td><td>H2 2026, sequencing open</td><td>$1.3B backstop</td></tr>
+<tr><td>Hut 8 River Bend LA</td><td>245</td><td>Tenant; ROFO on +1 GW</td><td>First hall Q2 2027</td><td>Full 15-year base-term backstop</td></tr>
+<tr><td>Harlingen / Cameron County TX</td><td>guided 1.1 GW-IT</td><td>Developer</td><td>LOI / permitting</td><td>none located</td></tr>
+</tbody>
+</table></div>
 
 ### What changed since the March round materials
 
@@ -210,6 +264,15 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
 </div>
 
 ## 4. The credit market already priced this
+
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Google-guaranteed Fluidstack leases fund at 6.7-7.6%; CoreWeave's balance sheet funds at 12-13%. That gap is the moat.</li>
+    <li>The 6% cap rate in the round materials is below Fluidstack's own project debt cost (7.55%).</li>
+    <li>Meridian's bond has dropped 5 points since April; the AI high-yield window is tightening.</li>
+  </ul>
+</div>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
@@ -271,20 +334,33 @@ Private cross-section: Crusoe is reported in talks near $30B on ~4.9 GW contract
   <p class="pearl-figure-caption">Three tiers: Google-guaranteed Fluidstack leases (6.7-7.6%), CoreWeave-tenant secured paper (7.8%), CoreWeave's own unsecured balance sheet (12-13%, 5Y CDS ~848bp). The pivot from chips to buildings is validated by the debt market. The 6% cap rate in the round materials sits below the project's own cost of debt.</p>
 </div>
 
-| Bond | YTM | Spread vs 5Y UST | Rating |
-|---|---|---|---|
-| Meridian Arc 6.25% 2031 (Fluidstack's Indiana Phase 1; Google-guaranteed lease) | 7.55% (px 95.0; par at issue Apr 24) | 301bp | BB- / Ba2 / BB |
-| WULF Compute 7.75% 2030 (Fluidstack tenant, Google backstop) | 6.68% | 214bp | BB / Ba2 |
-| Cipher Compute 7.125% 2030 (Fluidstack tenant, Google backstop) | 6.73% | 220bp | Ba3 |
-| Applied Digital 9.25% 2030 (CoreWeave tenant) | 7.80% | 327bp | BB- |
-| CoreWeave 9.25% 2030 / 9.75% 2031 unsecured | 11.9% / 12.8% | 736 / 830bp | B / B1 |
-| Oracle 6.25% 2032 (5Y CDS 212bp) | 6.39% | 185bp | BBB- |
-| Equinix 3.9% 2032 / Digital Realty 5.55% 2028 | 5.49% / 4.85% | 96 / 32bp | BBB+ |
-| Alphabet 4.5% 2035 (the guarantor) | 5.29% | 75bp | AA+ |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Bond</th><th>YTM</th><th>Spread vs 5Y UST</th><th>Rating</th></tr></thead>
+<tbody>
+<tr><td>Meridian Arc 6.25% 2031 (Fluidstack's Indiana Phase 1; Google-guaranteed lease)</td><td>7.55% (px 95.0; par at issue Apr 24)</td><td>301bp</td><td>BB- / Ba2 / BB</td></tr>
+<tr><td>WULF Compute 7.75% 2030 (Fluidstack tenant, Google backstop)</td><td>6.68%</td><td>214bp</td><td>BB / Ba2</td></tr>
+<tr><td>Cipher Compute 7.125% 2030 (Fluidstack tenant, Google backstop)</td><td>6.73%</td><td>220bp</td><td>Ba3</td></tr>
+<tr><td>Applied Digital 9.25% 2030 (CoreWeave tenant)</td><td>7.80%</td><td>327bp</td><td>BB-</td></tr>
+<tr><td>CoreWeave 9.25% 2030 / 9.75% 2031 unsecured</td><td>11.9% / 12.8%</td><td>736 / 830bp</td><td>B / B1</td></tr>
+<tr><td>Oracle 6.25% 2032 (5Y CDS 212bp)</td><td>6.39%</td><td>185bp</td><td>BBB-</td></tr>
+<tr><td>Equinix 3.9% 2032 / Digital Realty 5.55% 2028</td><td>5.49% / 4.85%</td><td>96 / 32bp</td><td>BBB+</td></tr>
+<tr><td>Alphabet 4.5% 2035 (the guarantor)</td><td>5.29%</td><td>75bp</td><td>AA+</td></tr>
+</tbody>
+</table></div>
 
 Two cautions. The gap is narrowing: CoreWeave cut its weighted average cost of debt ~300bp in a year, and Applied Digital refinanced CoreWeave-tenant paper at 7% behind an A3-rated SPV. And the window is tightening: AI-infrastructure high-yield issuance reached ~$32B by early July, the year's largest prints (Meridian Arc, Core Scientific, Tract) trade below par, and data-center HY spreads have re-widened since June. Meridian's 5-point drop in four months is the cleanest signal.
 
 ## 5. What the landlords said on their earnings calls
+
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Every Fluidstack building at TeraWulf slipped 1-3 quarters between May and August; design changes and electrician shortages.</li>
+    <li>Anthropic signed TeraWulf directly for 401 MW / $19B, and the landlord prefers it that way.</li>
+    <li>Build cost is $9-13M per MW and rising; landlords earn mid-teens on cost, which Fluidstack pays as tenant.</li>
+    <li>Google now ships TPUs into customers' own data centers; the exclusivity claim is gone.</li>
+  </ul>
+</div>
 
 Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digital, CoreWeave, Nebius, IREN, Core Scientific, Hut 8, Galaxy, Equinix, Digital Realty, Oracle, Alphabet and Vertiv.
 
@@ -333,6 +409,15 @@ Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digit
 
 ## 6. Re-underwriting the per-GW math
 
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>The materials claim $12.2B of equity per owned GW; the evidence supports $3-5.5B.</li>
+    <li>The gap is the cap rate (6% vs 8-9%) and a 40x software multiple on a managed-service layer.</li>
+    <li>Fair value today is ~$10-14B; $18B needs the unsigned Indiana remainder and Harlingen to close at the stated terms.</li>
+  </ul>
+</div>
+
 <div class="pearl-figure">
   <div class="pearl-figure-head">
     <h3>Equity value per owned GW-IT: round materials vs evidence</h3>
@@ -363,17 +448,20 @@ Thirty-one transcripts, latest two quarters, for TeraWulf, Cipher, Applied Digit
   </svg>
 </div>
 
-| Item | Round materials | Evidence | Basis |
-|---|---|---|---|
-| Build cost per MW-IT | ~$10-11M | $11-13M | Five landlords; Meridian implied |
-| NOI per GW ($130/kW-mo, ~80% margin) | $1.25B | $1.25B | TeraWulf mid-teens yield on cost |
-| Cap rate | 6% | 8-9% | Meridian YTM 7.55%; NNN range mid-4% to ~8% |
-| Gross asset value per GW | $20.8B | $14-15.6B | |
-| Debt per GW | 80% LTV of value = $16.6B | ~$13B on cost | Meridian: $5.7B on 430 MW |
-| Infra equity per GW | $4.2B | $1-2.6B | |
-| Google equity step-in / warrants | none | expect dilution | TeraWulf, Cipher precedents |
-| Software EBITDA multiple ($200M) | 40x = $8B | 10-15x = $2-3B | TPUs procured by Anthropic/Broadcom; Google selling direct |
-| **Equity per owned GW** | **$12.2B** | **$3-5.5B** | |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Item</th><th>Round materials</th><th>Evidence</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td>Build cost per MW-IT</td><td>~$10-11M</td><td>$11-13M</td><td>Five landlords; Meridian implied</td></tr>
+<tr><td>NOI per GW ($130/kW-mo, ~80% margin)</td><td>$1.25B</td><td>$1.25B</td><td>TeraWulf mid-teens yield on cost</td></tr>
+<tr><td>Cap rate</td><td>6%</td><td>8-9%</td><td>Meridian YTM 7.55%; NNN range mid-4% to ~8%</td></tr>
+<tr><td>Gross asset value per GW</td><td>$20.8B</td><td>$14-15.6B</td><td></td></tr>
+<tr><td>Debt per GW</td><td>80% LTV of value = $16.6B</td><td>~$13B on cost</td><td>Meridian: $5.7B on 430 MW</td></tr>
+<tr><td>Infra equity per GW</td><td>$4.2B</td><td>$1-2.6B</td><td></td></tr>
+<tr><td>Google equity step-in / warrants</td><td>none</td><td>expect dilution</td><td>TeraWulf, Cipher precedents</td></tr>
+<tr><td>Software EBITDA multiple ($200M)</td><td>40x = $8B</td><td>10-15x = $2-3B</td><td>TPUs procured by Anthropic/Broadcom; Google selling direct</td></tr>
+<tr><td><strong>Equity per owned GW</strong></td><td><strong>$12.2B</strong></td><td><strong>$3-5.5B</strong></td><td></td></tr>
+</tbody>
+</table></div>
 
 Cross-check: ~$530M for 50.1% of Abernathy (168 MW-IT scaling toward ~500, pre-commencement) implies ~$1.06B of JV equity, or $2-6M per MW depending on the capacity basis, consistent with the evidence column.
 
@@ -381,15 +469,27 @@ Attributable today: ~0.3 GW-IT owned. The Indiana remainder (~1.17 GW at 50%) an
 
 ## 7. Scenarios
 
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Probability-weighted 2.9x on a 1x preferred, 2.7x on common, over 3-4 years.</li>
+    <li>The most likely single outcome (40%) is anchors-only at ~1.3x.</li>
+    <li>The preference lifts the bust case from 0.2x to roughly capital back.</li>
+  </ul>
+</div>
+
 Entry $19B post, exit 2029-30, 10x forward EBITDA for a landlord-heavy mix, net of ~$8B consolidated debt.
 
-| Case | Probability | 2030E EBITDA | Exit equity | MOIC common | MOIC 1x pref |
-|---|---|---|---|---|---|
-| Plan delivered | 10% | $20B | ~$190B | 10x | 10x |
-| Half of plan, one-year slip | 30% | $8B | ~$72B | 3.8x | 3.8x |
-| Anchors only; Harlingen and pipeline stall | 40% | $3B | ~$25B | 1.3x | 1.3x |
-| Anthropic shifts direct, Google support capped, JV equity impaired | 20% | <$1B | ~$3-5B | 0.2x | ~1.0x |
-| **Probability-weighted** | | | | **2.7x** | **2.9x** |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Case</th><th>Probability</th><th>2030E EBITDA</th><th>Exit equity</th><th>MOIC common</th><th>MOIC 1x pref</th></tr></thead>
+<tbody>
+<tr><td>Plan delivered</td><td>10%</td><td>$20B</td><td>~$190B</td><td>10x</td><td>10x</td></tr>
+<tr><td>Half of plan, one-year slip</td><td>30%</td><td>$8B</td><td>~$72B</td><td>3.8x</td><td>3.8x</td></tr>
+<tr><td>Anchors only; Harlingen and pipeline stall</td><td>40%</td><td>$3B</td><td>~$25B</td><td>1.3x</td><td>1.3x</td></tr>
+<tr><td>Anthropic shifts direct, Google support capped, JV equity impaired</td><td>20%</td><td><$1B</td><td>~$3-5B</td><td>0.2x</td><td>~1.0x</td></tr>
+<tr><td><strong>Probability-weighted</strong></td><td></td><td></td><td></td><td><strong>2.7x</strong></td><td><strong>2.9x</strong></td></tr>
+</tbody>
+</table></div>
 
 <div class="pearl-figure">
   <div class="pearl-figure-head">
@@ -422,6 +522,15 @@ Entry $19B post, exit 2029-30, 10x forward EBITDA for a landlord-heavy mix, net 
 </div>
 
 ## 8. Verdict and conditions
+
+<div class="fs-summary">
+  <span class="fs-summary-label">Management summary</span>
+  <ul>
+    <li>Participate with a senior 1x preference, sized as venture.</li>
+    <li>Walk on a junior pref, post-money above ~$20B, or Harlingen unsigned at close.</li>
+    <li>First diligence item: tenor, caps and step-in rights of the Google guarantee at Indiana.</li>
+  </ul>
+</div>
 
 <div class="pearl-split">
   <div class="pearl-panel good">
@@ -458,122 +567,143 @@ Entry $19B post, exit 2029-30, 10x forward EBITDA for a landlord-heavy mix, net 
 
 ## Appendix: expanded public comps
 
+<div class="fs-summary">
+  <span class="fs-summary-label">How to read the appendix</span>
+  <ul>
+    <li>Table A: size, growth and forward multiples. Table B: EBITDA, net income, capex and free cash flow. Table C: leverage, ratings, CDS. Table D: reference bonds.</li>
+    <li>Bucket medians are shown in italics. Galaxy's revenue line is gross trading revenue, so its EV/Sales is not meaningful.</li>
+    <li>Non-USD reporters (NEXTDC, Keppel DC REIT, GDS) are converted at spot for size columns only.</li>
+  </ul>
+</div>
+
 Consensus fiscal-year estimates and trailing fundamentals for 22 public peers, pulled September 2, 2026. USD millions unless noted; non-USD reporters converted at spot for size columns only; ratios are currency-neutral. FY1/FY2/FY3 are consensus fiscal years and fiscal year ends differ (Applied Digital May, IREN June, most others December).
 
 ### A. Size, growth, multiples
 
-| Ticker | Name | Mkt cap | EV | LTM sales | Rev g FY1 | Rev g FY2 | Rev g FY3 | EV/S FY1 | EV/S FY2 | EV/EBITDA FY1 | EV/EBITDA FY2 | EV/EBITDA FY3 | P/E FY2 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Neocloud / GPU compute (FS 2025 model)** | | | | | | | | | | | | | |
-| CRWV US | CoreWeave | 45.7B | 91.8B | 7.6B | 152% | 106% | 60% | 7.1x | 3.5x | 12.1x | 5.5x | 3.3x | na |
-| NBIS US | Nebius | 57.4B | 59.4B | 1.4B | 521% | 245% | 100% | 18.1x | 5.2x | 44.3x | 9.4x | 4.0x | na |
-| IREN US | IREN | 14.5B | 16.5B | 707M | 300% | 147% | 69% | 5.8x | 2.4x | 9.3x | 3.2x | 1.8x | 27.2x |
-| DOCN US | DigitalOcean | 12.8B | 13.4B | 1.0B | 31% | 54% | 48% | 11.4x | 7.4x | 29.2x | 18.4x | 12.0x | 61.0x |
-| ORCL US | Oracle | 407.1B | 548.2B | 67.4B | 33% | 45% | 41% | 6.1x | 4.2x | 10.6x | 7.4x | 5.2x | 13.3x |
-| *median* | | | | | 152% | 106% | 60% | 7.1x | 4.2x | 12.1x | 7.4x | 4.0x | 27.2x |
-| **Powered land / HPC developers (FS landlords + 2026 model peers)** | | | | | | | | | | | | | |
-| APLD US | Applied Digital | 7.1B | 12.6B | 611M | 34% | 148% | 49% | 15.4x | 6.2x | 34.5x | 11.2x | 6.7x | na |
-| WULF US | TeraWulf | 7.3B | 9.9B | 165M | 48% | 252% | 81% | 39.8x | 11.3x | 167.3x | 19.6x | 9.8x | na |
-| CIFR US | Cipher Mining | 6.1B | 10.8B | 191M | -4% | 273% | 17% | 50.3x | 13.5x | na | 20.4x | 14.1x | na |
-| CORZ US | Core Scientific | 5.2B | 7.8B | 440M | 116% | 70% | 50% | 11.3x | 6.7x | 36.2x | 12.0x | 6.9x | 108.6x |
-| HUT US | Hut 8 | 9.6B | 17.3B | 318M | 24% | 93% | 144% | 59.2x | 30.6x | na | 55.2x | 16.8x | na |
-| GLXY US | Galaxy Digital | 9.2B | 15.2B | 58.4B | -39% | 18% | 14% | 0.4x | 0.3x | na | 35.1x | 17.9x | na |
-| *median* | | | | | 29% | 121% | 50% | 27.6x | 9.0x | 36.2x | 20.0x | 11.9x | 108.6x |
-| **Data center REITs / operators (FS 2026 identity)** | | | | | | | | | | | | | |
-| EQIX US | Equinix | 101.4B | 122.5B | 9.8B | 11% | 10% | 11% | 11.9x | 10.8x | 23.4x | 20.8x | 18.5x | 52.5x |
-| DLR US | Digital Realty | 69.0B | 87.1B | 6.8B | 16% | 11% | 14% | 12.2x | 11.0x | 22.6x | 20.2x | 17.8x | 57.9x |
-| IRM US | Iron Mountain | 34.0B | 54.1B | 7.6B | 16% | 9% | 8% | 6.8x | 6.2x | 18.3x | 16.6x | 15.3x | 41.5x |
-| GDS US | GDS Holdings | 6.3B | 11.7B | 12.3B | 11% | 10% | 22% | 6.2x | 5.6x | 13.2x | 12.7x | 10.5x | 181.3x |
-| NXT AU | NEXTDC | 6.9B | 8.7B | 496M | 60% | 67% | 29% | 15.3x | 9.1x | 30.4x | 16.1x | 12.3x | na |
-| KDCREIT SP | Keppel DC REIT | 4.2B | 5.8B | 472M | 9% | 7% | 4% | 15.4x | 14.4x | 20.3x | 19.2x | 18.6x | 17.2x |
-| DBRG US | DigitalBridge | 3.0B | 3.9B | 633M | 294% | 15% | 16% | 10.5x | 9.1x | 32.1x | 25.3x | 18.6x | 24.9x |
-| *median* | | | | | 16% | 10% | 14% | 11.9x | 9.1x | 22.6x | 19.2x | 17.8x | 47.0x |
-| **Infra software (memo's software bucket)** | | | | | | | | | | | | | |
-| DDOG US | Datadog | 80.6B | 76.9B | 4.0B | 30% | 23% | 22% | 17.2x | 14.0x | 71.5x | 56.9x | 45.4x | 72.9x |
-| NET US | Cloudflare | 101.7B | 101.1B | 2.5B | 33% | 29% | 28% | 35.2x | 27.3x | 143.0x | 103.2x | 78.8x | 167.1x |
-| NOW US | ServiceNow | 147.8B | 151.5B | 14.7B | 22% | 19% | 18% | 9.3x | 7.9x | 24.4x | 20.3x | 16.7x | 28.4x |
-| DT US | Dynatrace | 15.3B | 14.3B | 2.1B | 15% | 15% | 15% | 6.2x | 5.4x | 20.5x | 17.5x | 14.6x | 23.3x |
-| *median* | | | | | 26% | 21% | 20% | 13.3x | 11.0x | 47.9x | 38.6x | 31.1x | 50.7x |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Ticker</th><th>Name</th><th>Mkt cap</th><th>EV</th><th>LTM sales</th><th>Rev g FY1</th><th>Rev g FY2</th><th>Rev g FY3</th><th>EV/S FY1</th><th>EV/S FY2</th><th>EV/EBITDA FY1</th><th>EV/EBITDA FY2</th><th>EV/EBITDA FY3</th><th>P/E FY2</th></tr></thead>
+<tbody>
+<tr class="fs-group"><td><strong>Neocloud / GPU compute (FS 2025 model)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>CRWV US</td><td>CoreWeave</td><td>45.7B</td><td>91.8B</td><td>7.6B</td><td>152%</td><td>106%</td><td>60%</td><td>7.1x</td><td>3.5x</td><td>12.1x</td><td>5.5x</td><td>3.3x</td><td>na</td></tr>
+<tr><td>NBIS US</td><td>Nebius</td><td>57.4B</td><td>59.4B</td><td>1.4B</td><td>521%</td><td>245%</td><td>100%</td><td>18.1x</td><td>5.2x</td><td>44.3x</td><td>9.4x</td><td>4.0x</td><td>na</td></tr>
+<tr><td>IREN US</td><td>IREN</td><td>14.5B</td><td>16.5B</td><td>707M</td><td>300%</td><td>147%</td><td>69%</td><td>5.8x</td><td>2.4x</td><td>9.3x</td><td>3.2x</td><td>1.8x</td><td>27.2x</td></tr>
+<tr><td>DOCN US</td><td>DigitalOcean</td><td>12.8B</td><td>13.4B</td><td>1.0B</td><td>31%</td><td>54%</td><td>48%</td><td>11.4x</td><td>7.4x</td><td>29.2x</td><td>18.4x</td><td>12.0x</td><td>61.0x</td></tr>
+<tr><td>ORCL US</td><td>Oracle</td><td>407.1B</td><td>548.2B</td><td>67.4B</td><td>33%</td><td>45%</td><td>41%</td><td>6.1x</td><td>4.2x</td><td>10.6x</td><td>7.4x</td><td>5.2x</td><td>13.3x</td></tr>
+<tr class="fs-median"><td><em>median</em></td><td></td><td></td><td></td><td></td><td>152%</td><td>106%</td><td>60%</td><td>7.1x</td><td>4.2x</td><td>12.1x</td><td>7.4x</td><td>4.0x</td><td>27.2x</td></tr>
+<tr class="fs-group"><td><strong>Powered land / HPC developers (FS landlords + 2026 model peers)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>APLD US</td><td>Applied Digital</td><td>7.1B</td><td>12.6B</td><td>611M</td><td>34%</td><td>148%</td><td>49%</td><td>15.4x</td><td>6.2x</td><td>34.5x</td><td>11.2x</td><td>6.7x</td><td>na</td></tr>
+<tr><td>WULF US</td><td>TeraWulf</td><td>7.3B</td><td>9.9B</td><td>165M</td><td>48%</td><td>252%</td><td>81%</td><td>39.8x</td><td>11.3x</td><td>167.3x</td><td>19.6x</td><td>9.8x</td><td>na</td></tr>
+<tr><td>CIFR US</td><td>Cipher Mining</td><td>6.1B</td><td>10.8B</td><td>191M</td><td>-4%</td><td>273%</td><td>17%</td><td>50.3x</td><td>13.5x</td><td>na</td><td>20.4x</td><td>14.1x</td><td>na</td></tr>
+<tr><td>CORZ US</td><td>Core Scientific</td><td>5.2B</td><td>7.8B</td><td>440M</td><td>116%</td><td>70%</td><td>50%</td><td>11.3x</td><td>6.7x</td><td>36.2x</td><td>12.0x</td><td>6.9x</td><td>108.6x</td></tr>
+<tr><td>HUT US</td><td>Hut 8</td><td>9.6B</td><td>17.3B</td><td>318M</td><td>24%</td><td>93%</td><td>144%</td><td>59.2x</td><td>30.6x</td><td>na</td><td>55.2x</td><td>16.8x</td><td>na</td></tr>
+<tr><td>GLXY US</td><td>Galaxy Digital</td><td>9.2B</td><td>15.2B</td><td>58.4B</td><td>-39%</td><td>18%</td><td>14%</td><td>0.4x</td><td>0.3x</td><td>na</td><td>35.1x</td><td>17.9x</td><td>na</td></tr>
+<tr class="fs-median"><td><em>median</em></td><td></td><td></td><td></td><td></td><td>29%</td><td>121%</td><td>50%</td><td>27.6x</td><td>9.0x</td><td>36.2x</td><td>20.0x</td><td>11.9x</td><td>108.6x</td></tr>
+<tr class="fs-group"><td><strong>Data center REITs / operators (FS 2026 identity)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>EQIX US</td><td>Equinix</td><td>101.4B</td><td>122.5B</td><td>9.8B</td><td>11%</td><td>10%</td><td>11%</td><td>11.9x</td><td>10.8x</td><td>23.4x</td><td>20.8x</td><td>18.5x</td><td>52.5x</td></tr>
+<tr><td>DLR US</td><td>Digital Realty</td><td>69.0B</td><td>87.1B</td><td>6.8B</td><td>16%</td><td>11%</td><td>14%</td><td>12.2x</td><td>11.0x</td><td>22.6x</td><td>20.2x</td><td>17.8x</td><td>57.9x</td></tr>
+<tr><td>IRM US</td><td>Iron Mountain</td><td>34.0B</td><td>54.1B</td><td>7.6B</td><td>16%</td><td>9%</td><td>8%</td><td>6.8x</td><td>6.2x</td><td>18.3x</td><td>16.6x</td><td>15.3x</td><td>41.5x</td></tr>
+<tr><td>GDS US</td><td>GDS Holdings</td><td>6.3B</td><td>11.7B</td><td>12.3B</td><td>11%</td><td>10%</td><td>22%</td><td>6.2x</td><td>5.6x</td><td>13.2x</td><td>12.7x</td><td>10.5x</td><td>181.3x</td></tr>
+<tr><td>NXT AU</td><td>NEXTDC</td><td>6.9B</td><td>8.7B</td><td>496M</td><td>60%</td><td>67%</td><td>29%</td><td>15.3x</td><td>9.1x</td><td>30.4x</td><td>16.1x</td><td>12.3x</td><td>na</td></tr>
+<tr><td>KDCREIT SP</td><td>Keppel DC REIT</td><td>4.2B</td><td>5.8B</td><td>472M</td><td>9%</td><td>7%</td><td>4%</td><td>15.4x</td><td>14.4x</td><td>20.3x</td><td>19.2x</td><td>18.6x</td><td>17.2x</td></tr>
+<tr><td>DBRG US</td><td>DigitalBridge</td><td>3.0B</td><td>3.9B</td><td>633M</td><td>294%</td><td>15%</td><td>16%</td><td>10.5x</td><td>9.1x</td><td>32.1x</td><td>25.3x</td><td>18.6x</td><td>24.9x</td></tr>
+<tr class="fs-median"><td><em>median</em></td><td></td><td></td><td></td><td></td><td>16%</td><td>10%</td><td>14%</td><td>11.9x</td><td>9.1x</td><td>22.6x</td><td>19.2x</td><td>17.8x</td><td>47.0x</td></tr>
+<tr class="fs-group"><td><strong>Infra software (memo's software bucket)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>DDOG US</td><td>Datadog</td><td>80.6B</td><td>76.9B</td><td>4.0B</td><td>30%</td><td>23%</td><td>22%</td><td>17.2x</td><td>14.0x</td><td>71.5x</td><td>56.9x</td><td>45.4x</td><td>72.9x</td></tr>
+<tr><td>NET US</td><td>Cloudflare</td><td>101.7B</td><td>101.1B</td><td>2.5B</td><td>33%</td><td>29%</td><td>28%</td><td>35.2x</td><td>27.3x</td><td>143.0x</td><td>103.2x</td><td>78.8x</td><td>167.1x</td></tr>
+<tr><td>NOW US</td><td>ServiceNow</td><td>147.8B</td><td>151.5B</td><td>14.7B</td><td>22%</td><td>19%</td><td>18%</td><td>9.3x</td><td>7.9x</td><td>24.4x</td><td>20.3x</td><td>16.7x</td><td>28.4x</td></tr>
+<tr><td>DT US</td><td>Dynatrace</td><td>15.3B</td><td>14.3B</td><td>2.1B</td><td>15%</td><td>15%</td><td>15%</td><td>6.2x</td><td>5.4x</td><td>20.5x</td><td>17.5x</td><td>14.6x</td><td>23.3x</td></tr>
+<tr class="fs-median"><td><em>median</em></td><td></td><td></td><td></td><td></td><td>26%</td><td>21%</td><td>20%</td><td>13.3x</td><td>11.0x</td><td>47.9x</td><td>38.6x</td><td>31.1x</td><td>50.7x</td></tr>
+</tbody>
+</table></div>
 
 ### B. EBITDA, net income, capex, FCF (reporting currency)
 
-| Ticker | Ccy | LTM EBITDA | EBITDA FY1 | EBITDA FY2 | EBITDA mgn LTM | EBITDA mgn FY2 | LTM NI | NI FY1 | NI FY2 | LTM capex | Capex FY1 | Capex FY2 | Capex/Sales FY1 | LTM FCF |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Neocloud / GPU compute (FS 2025 model)** | | | | | | | | | | | | | | |
-| CRWV US | USD | 4.9B | 7.6B | 16.7B | 64% | 63% | -1.9B | -2.2B | -1.1B | -21.5B | -35.5B | -48.0B | 275% | -14.5B |
-| NBIS US | USD | 83M | 1.3B | 6.3B | 6% | 56% | 62M | -686M | -848M | -11.1B | -22.7B | -29.0B | 690% | -5.9B |
-| IREN US | USD | -629M | 1.8B | 5.1B | -89% | 73% | -703M | -417M | 345M | -3.0B | -15.3B | -15.0B | 543% | -908M |
-| DOCN US | USD | 322M | 460M | 730M | 32% | 40% | 235M | 177M | 236M | -270M | -216M | -323M | 18% | 40M |
-| ORCL US | USD | 32.7B | 51.7B | 73.9B | 49% | 57% | 17.1B | 24.1B | 33.0B | -55.7B | -91.7B | -104.0B | 103% | -23.7B |
-| **Powered land / HPC developers (FS landlords + 2026 model peers)** | | | | | | | | | | | | | | |
-| APLD US | USD | -161M | 366M | 1.1B | -26% | 55% | -244M | -319M | -164M | -2.9B | -5.9B | -5.2B | 714% | -2.8B |
-| WULF US | USD | -301M | 59M | 507M | -182% | 58% | -1.9B | -1.4B | -121M | -2.2B | -3.5B | -3.5B | 1422% | -2.5B |
-| CIFR US | USD | -362M | -193M | 532M | -190% | 66% | -1.1B | -458M | -2M | -1.2B | -3.5B | -1.4B | 1628% | -1.5B |
-| CORZ US | USD | -473M | 216M | 651M | -108% | 56% | -1.4B | -1.5B | 93M | -1.5B | -2.1B | -4.2B | 309% | -958M |
-| HUT US | USD | -792M | -213M | 313M | -249% | 55% | -600M | -616M | -554M | -707M | -2.2B | -3.8B | 736% | -796M |
-| GLXY US | USD | -274M | -138M | 432M | -0% | 1% | -209M | -248M | -79M | -1.4B | -1.6B | -2.2B | 4% | -2.2B |
-| **Data center REITs / operators (FS 2026 identity)** | | | | | | | | | | | | | | |
-| EQIX US | USD | 4.5B | 5.2B | 5.9B | 46% | 52% | 1.5B | 1.7B | 1.9B | -6.5B | -5.7B | -6.0B | 56% | -2.6B |
-| DLR US | USD | 3.0B | 3.8B | 4.3B | 45% | 54% | 799M | 1.0B | 1.0B | -5.7B | -4.1B | -4.6B | 58% | -2.8B |
-| IRM US | USD | 3.0B | 3.0B | 3.3B | 40% | 37% | 419M | 613M | 717M | -2.1B | -2.2B | -2.1B | 27% | -491M |
-| GDS US | CNY | 3.9B | 6.0B | 6.2B | 32% | 44% | 3.7B | 2.5B | 1.2B | -4.4B | -9.5B | -11.7B | 75% | -853M |
-| NXT AU | AUD | 373M | 399M | 756M | 75% | 57% | 82M | -164M | -154M | -2.1B | -5.4B | -3.2B | 684% | -2.0B |
-| KDCREIT SP | SGD | 362M | 365M | 387M | 77% | 75% | 445M | 285M | 304M | -1.2B | -41M | -36M | 9% | -919M |
-| DBRG US | USD | 180M | 121M | 154M | 28% | 36% | 344M | na | na | -1M | na | na | na | 255M |
-| **Infra software (memo's software bucket)** | | | | | | | | | | | | | | |
-| DDOG US | USD | 142M | 1.1B | 1.4B | 4% | 25% | 178M | 956M | 1.2B | -156M | -67M | -95M | 1% | 1.1B |
-| NET US | USD | -51M | 707M | 980M | -2% | 26% | -206M | 472M | 645M | -319M | -403M | -521M | 14% | 315M |
-| NOW US | USD | 2.9B | 6.2B | 7.5B | 20% | 39% | 1.7B | 4.2B | 5.2B | -728M | -711M | -945M | 4% | 4.6B |
-| DT US | USD | 298M | 700M | 817M | 14% | 31% | 151M | 582M | 686M | -28M | -27M | -35M | 1% | 571M |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Ticker</th><th>Ccy</th><th>LTM EBITDA</th><th>EBITDA FY1</th><th>EBITDA FY2</th><th>EBITDA mgn LTM</th><th>EBITDA mgn FY2</th><th>LTM NI</th><th>NI FY1</th><th>NI FY2</th><th>LTM capex</th><th>Capex FY1</th><th>Capex FY2</th><th>Capex/Sales FY1</th><th>LTM FCF</th></tr></thead>
+<tbody>
+<tr class="fs-group"><td><strong>Neocloud / GPU compute (FS 2025 model)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>CRWV US</td><td>USD</td><td>4.9B</td><td>7.6B</td><td>16.7B</td><td>64%</td><td>63%</td><td>-1.9B</td><td>-2.2B</td><td>-1.1B</td><td>-21.5B</td><td>-35.5B</td><td>-48.0B</td><td>275%</td><td>-14.5B</td></tr>
+<tr><td>NBIS US</td><td>USD</td><td>83M</td><td>1.3B</td><td>6.3B</td><td>6%</td><td>56%</td><td>62M</td><td>-686M</td><td>-848M</td><td>-11.1B</td><td>-22.7B</td><td>-29.0B</td><td>690%</td><td>-5.9B</td></tr>
+<tr><td>IREN US</td><td>USD</td><td>-629M</td><td>1.8B</td><td>5.1B</td><td>-89%</td><td>73%</td><td>-703M</td><td>-417M</td><td>345M</td><td>-3.0B</td><td>-15.3B</td><td>-15.0B</td><td>543%</td><td>-908M</td></tr>
+<tr><td>DOCN US</td><td>USD</td><td>322M</td><td>460M</td><td>730M</td><td>32%</td><td>40%</td><td>235M</td><td>177M</td><td>236M</td><td>-270M</td><td>-216M</td><td>-323M</td><td>18%</td><td>40M</td></tr>
+<tr><td>ORCL US</td><td>USD</td><td>32.7B</td><td>51.7B</td><td>73.9B</td><td>49%</td><td>57%</td><td>17.1B</td><td>24.1B</td><td>33.0B</td><td>-55.7B</td><td>-91.7B</td><td>-104.0B</td><td>103%</td><td>-23.7B</td></tr>
+<tr class="fs-group"><td><strong>Powered land / HPC developers (FS landlords + 2026 model peers)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>APLD US</td><td>USD</td><td>-161M</td><td>366M</td><td>1.1B</td><td>-26%</td><td>55%</td><td>-244M</td><td>-319M</td><td>-164M</td><td>-2.9B</td><td>-5.9B</td><td>-5.2B</td><td>714%</td><td>-2.8B</td></tr>
+<tr><td>WULF US</td><td>USD</td><td>-301M</td><td>59M</td><td>507M</td><td>-182%</td><td>58%</td><td>-1.9B</td><td>-1.4B</td><td>-121M</td><td>-2.2B</td><td>-3.5B</td><td>-3.5B</td><td>1422%</td><td>-2.5B</td></tr>
+<tr><td>CIFR US</td><td>USD</td><td>-362M</td><td>-193M</td><td>532M</td><td>-190%</td><td>66%</td><td>-1.1B</td><td>-458M</td><td>-2M</td><td>-1.2B</td><td>-3.5B</td><td>-1.4B</td><td>1628%</td><td>-1.5B</td></tr>
+<tr><td>CORZ US</td><td>USD</td><td>-473M</td><td>216M</td><td>651M</td><td>-108%</td><td>56%</td><td>-1.4B</td><td>-1.5B</td><td>93M</td><td>-1.5B</td><td>-2.1B</td><td>-4.2B</td><td>309%</td><td>-958M</td></tr>
+<tr><td>HUT US</td><td>USD</td><td>-792M</td><td>-213M</td><td>313M</td><td>-249%</td><td>55%</td><td>-600M</td><td>-616M</td><td>-554M</td><td>-707M</td><td>-2.2B</td><td>-3.8B</td><td>736%</td><td>-796M</td></tr>
+<tr><td>GLXY US</td><td>USD</td><td>-274M</td><td>-138M</td><td>432M</td><td>-0%</td><td>1%</td><td>-209M</td><td>-248M</td><td>-79M</td><td>-1.4B</td><td>-1.6B</td><td>-2.2B</td><td>4%</td><td>-2.2B</td></tr>
+<tr class="fs-group"><td><strong>Data center REITs / operators (FS 2026 identity)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>EQIX US</td><td>USD</td><td>4.5B</td><td>5.2B</td><td>5.9B</td><td>46%</td><td>52%</td><td>1.5B</td><td>1.7B</td><td>1.9B</td><td>-6.5B</td><td>-5.7B</td><td>-6.0B</td><td>56%</td><td>-2.6B</td></tr>
+<tr><td>DLR US</td><td>USD</td><td>3.0B</td><td>3.8B</td><td>4.3B</td><td>45%</td><td>54%</td><td>799M</td><td>1.0B</td><td>1.0B</td><td>-5.7B</td><td>-4.1B</td><td>-4.6B</td><td>58%</td><td>-2.8B</td></tr>
+<tr><td>IRM US</td><td>USD</td><td>3.0B</td><td>3.0B</td><td>3.3B</td><td>40%</td><td>37%</td><td>419M</td><td>613M</td><td>717M</td><td>-2.1B</td><td>-2.2B</td><td>-2.1B</td><td>27%</td><td>-491M</td></tr>
+<tr><td>GDS US</td><td>CNY</td><td>3.9B</td><td>6.0B</td><td>6.2B</td><td>32%</td><td>44%</td><td>3.7B</td><td>2.5B</td><td>1.2B</td><td>-4.4B</td><td>-9.5B</td><td>-11.7B</td><td>75%</td><td>-853M</td></tr>
+<tr><td>NXT AU</td><td>AUD</td><td>373M</td><td>399M</td><td>756M</td><td>75%</td><td>57%</td><td>82M</td><td>-164M</td><td>-154M</td><td>-2.1B</td><td>-5.4B</td><td>-3.2B</td><td>684%</td><td>-2.0B</td></tr>
+<tr><td>KDCREIT SP</td><td>SGD</td><td>362M</td><td>365M</td><td>387M</td><td>77%</td><td>75%</td><td>445M</td><td>285M</td><td>304M</td><td>-1.2B</td><td>-41M</td><td>-36M</td><td>9%</td><td>-919M</td></tr>
+<tr><td>DBRG US</td><td>USD</td><td>180M</td><td>121M</td><td>154M</td><td>28%</td><td>36%</td><td>344M</td><td>na</td><td>na</td><td>-1M</td><td>na</td><td>na</td><td>na</td><td>255M</td></tr>
+<tr class="fs-group"><td><strong>Infra software (memo's software bucket)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>DDOG US</td><td>USD</td><td>142M</td><td>1.1B</td><td>1.4B</td><td>4%</td><td>25%</td><td>178M</td><td>956M</td><td>1.2B</td><td>-156M</td><td>-67M</td><td>-95M</td><td>1%</td><td>1.1B</td></tr>
+<tr><td>NET US</td><td>USD</td><td>-51M</td><td>707M</td><td>980M</td><td>-2%</td><td>26%</td><td>-206M</td><td>472M</td><td>645M</td><td>-319M</td><td>-403M</td><td>-521M</td><td>14%</td><td>315M</td></tr>
+<tr><td>NOW US</td><td>USD</td><td>2.9B</td><td>6.2B</td><td>7.5B</td><td>20%</td><td>39%</td><td>1.7B</td><td>4.2B</td><td>5.2B</td><td>-728M</td><td>-711M</td><td>-945M</td><td>4%</td><td>4.6B</td></tr>
+<tr><td>DT US</td><td>USD</td><td>298M</td><td>700M</td><td>817M</td><td>14%</td><td>31%</td><td>151M</td><td>582M</td><td>686M</td><td>-28M</td><td>-27M</td><td>-35M</td><td>1%</td><td>571M</td></tr>
+</tbody>
+</table></div>
 
 ### C. Leverage and credit
 
-| Ticker | Net debt | Net debt / EBITDA FY1 | Tot debt / LTM EBITDA | LTM interest | Cost of debt | S&P | Moody's | 5Y CDS (bp) | Model 1y default prob |
-|---|---|---|---|---|---|---|---|---|---|
-| **Neocloud / GPU compute (FS 2025 model)** | | | | | | | | | |
-| CRWV US | 26.7B | 3.5x | 10.6x | 1.2B | 10.48% | B+ | Ba3 | 848 | 6.07% |
-| NBIS US | 1.3B | 1.0x | 121.5x | 62M | 4.09% | NR | nan | na | 1.66% |
-| IREN US | 1.9B | 1.1x | na | 59M | 7.20% | nan | nan | na | 3.35% |
-| DOCN US | 1.3B | 2.9x | 4.4x | 18M | 5.32% | nan | nan | na | 0.25% |
-| ORCL US | 135.5B | 2.6x | 5.1x | 4.6B | 6.54% | BBB- | Baa2 | 212 | 0.41% |
-| **Powered land / HPC developers (FS landlords + 2026 model peers)** | | | | | | | | | |
-| APLD US | 3.5B | 9.6x | na | 30M | 7.94% | B+ | nan | na | 6.10% |
-| WULF US | 1.4B | 24.3x | na | 80M | 6.71% | BB- | nan | na | 5.89% |
-| CIFR US | 2.1B | na | na | 37M | 5.71% | nan | nan | na | 8.21% |
-| CORZ US | 851M | 3.9x | na | na | 8.35% | B+ | nan | na | 3.02% |
-| HUT US | 384M | na | na | 30M | 6.58% | nan | nan | na | 7.11% |
-| GLXY US | 5.2B | na | 711.9x | 59M | 5.18% | nan | nan | na | 3.17% |
-| **Data center REITs / operators (FS 2026 identity)** | | | | | | | | | |
-| EQIX US | 19.5B | 3.7x | 5.1x | 527M | 5.21% | BBB+ | Baa1 | 118 | 0.00% |
-| DLR US | 16.2B | 4.2x | 6.6x | 438M | 4.50% | BBB+ | Baa2 | na | 0.01% |
-| IRM US | 18.9B | 6.4x | 6.6x | 846M | 5.66% | BB- | Ba3 | 124 | 0.05% |
-| GDS US | 33.2B | 5.6x | 12.0x | 1.8B | 2.03% | nan | nan | na | 1.99% |
-| NXT AU | 2.5B | 6.2x | 9.0x | 178M | 6.28% | nan | nan | na | 0.13% |
-| KDCREIT SP | 2.0B | 5.5x | 6.3x | 51M | 3.05% | nan | nan | na | 0.00% |
-| DBRG US | -84M | -0.7x | 1.6x | na | 5.60% | nan | nan | na | 0.02% |
-| **Infra software (memo's software bucket)** | | | | | | | | | |
-| DDOG US | -3.2B | -3.0x | 9.0x | 11M | 5.06% | nan | nan | na | 0.00% |
-| NET US | -583M | -0.8x | 57.4x | 9M | 5.22% | nan | nan | na | 0.02% |
-| NOW US | -3.9B | -0.6x | 2.9x | 23M | 3.84% | A | A2 | na | 0.03% |
-| DT US | -1.0B | -1.4x | 0.5x | 0M | 2.81% | NR | nan | 100 | 0.00% |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Ticker</th><th>Net debt</th><th>Net debt / EBITDA FY1</th><th>Tot debt / LTM EBITDA</th><th>LTM interest</th><th>Cost of debt</th><th>S&P</th><th>Moody's</th><th>5Y CDS (bp)</th><th>Model 1y default prob</th></tr></thead>
+<tbody>
+<tr class="fs-group"><td><strong>Neocloud / GPU compute (FS 2025 model)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>CRWV US</td><td>26.7B</td><td>3.5x</td><td>10.6x</td><td>1.2B</td><td>10.48%</td><td>B+</td><td>Ba3</td><td>848</td><td>6.07%</td></tr>
+<tr><td>NBIS US</td><td>1.3B</td><td>1.0x</td><td>121.5x</td><td>62M</td><td>4.09%</td><td>NR</td><td>nan</td><td>na</td><td>1.66%</td></tr>
+<tr><td>IREN US</td><td>1.9B</td><td>1.1x</td><td>na</td><td>59M</td><td>7.20%</td><td>nan</td><td>nan</td><td>na</td><td>3.35%</td></tr>
+<tr><td>DOCN US</td><td>1.3B</td><td>2.9x</td><td>4.4x</td><td>18M</td><td>5.32%</td><td>nan</td><td>nan</td><td>na</td><td>0.25%</td></tr>
+<tr><td>ORCL US</td><td>135.5B</td><td>2.6x</td><td>5.1x</td><td>4.6B</td><td>6.54%</td><td>BBB-</td><td>Baa2</td><td>212</td><td>0.41%</td></tr>
+<tr class="fs-group"><td><strong>Powered land / HPC developers (FS landlords + 2026 model peers)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>APLD US</td><td>3.5B</td><td>9.6x</td><td>na</td><td>30M</td><td>7.94%</td><td>B+</td><td>nan</td><td>na</td><td>6.10%</td></tr>
+<tr><td>WULF US</td><td>1.4B</td><td>24.3x</td><td>na</td><td>80M</td><td>6.71%</td><td>BB-</td><td>nan</td><td>na</td><td>5.89%</td></tr>
+<tr><td>CIFR US</td><td>2.1B</td><td>na</td><td>na</td><td>37M</td><td>5.71%</td><td>nan</td><td>nan</td><td>na</td><td>8.21%</td></tr>
+<tr><td>CORZ US</td><td>851M</td><td>3.9x</td><td>na</td><td>na</td><td>8.35%</td><td>B+</td><td>nan</td><td>na</td><td>3.02%</td></tr>
+<tr><td>HUT US</td><td>384M</td><td>na</td><td>na</td><td>30M</td><td>6.58%</td><td>nan</td><td>nan</td><td>na</td><td>7.11%</td></tr>
+<tr><td>GLXY US</td><td>5.2B</td><td>na</td><td>711.9x</td><td>59M</td><td>5.18%</td><td>nan</td><td>nan</td><td>na</td><td>3.17%</td></tr>
+<tr class="fs-group"><td><strong>Data center REITs / operators (FS 2026 identity)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>EQIX US</td><td>19.5B</td><td>3.7x</td><td>5.1x</td><td>527M</td><td>5.21%</td><td>BBB+</td><td>Baa1</td><td>118</td><td>0.00%</td></tr>
+<tr><td>DLR US</td><td>16.2B</td><td>4.2x</td><td>6.6x</td><td>438M</td><td>4.50%</td><td>BBB+</td><td>Baa2</td><td>na</td><td>0.01%</td></tr>
+<tr><td>IRM US</td><td>18.9B</td><td>6.4x</td><td>6.6x</td><td>846M</td><td>5.66%</td><td>BB-</td><td>Ba3</td><td>124</td><td>0.05%</td></tr>
+<tr><td>GDS US</td><td>33.2B</td><td>5.6x</td><td>12.0x</td><td>1.8B</td><td>2.03%</td><td>nan</td><td>nan</td><td>na</td><td>1.99%</td></tr>
+<tr><td>NXT AU</td><td>2.5B</td><td>6.2x</td><td>9.0x</td><td>178M</td><td>6.28%</td><td>nan</td><td>nan</td><td>na</td><td>0.13%</td></tr>
+<tr><td>KDCREIT SP</td><td>2.0B</td><td>5.5x</td><td>6.3x</td><td>51M</td><td>3.05%</td><td>nan</td><td>nan</td><td>na</td><td>0.00%</td></tr>
+<tr><td>DBRG US</td><td>-84M</td><td>-0.7x</td><td>1.6x</td><td>na</td><td>5.60%</td><td>nan</td><td>nan</td><td>na</td><td>0.02%</td></tr>
+<tr class="fs-group"><td><strong>Infra software (memo's software bucket)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>DDOG US</td><td>-3.2B</td><td>-3.0x</td><td>9.0x</td><td>11M</td><td>5.06%</td><td>nan</td><td>nan</td><td>na</td><td>0.00%</td></tr>
+<tr><td>NET US</td><td>-583M</td><td>-0.8x</td><td>57.4x</td><td>9M</td><td>5.22%</td><td>nan</td><td>nan</td><td>na</td><td>0.02%</td></tr>
+<tr><td>NOW US</td><td>-3.9B</td><td>-0.6x</td><td>2.9x</td><td>23M</td><td>3.84%</td><td>A</td><td>A2</td><td>na</td><td>0.03%</td></tr>
+<tr><td>DT US</td><td>-1.0B</td><td>-1.4x</td><td>0.5x</td><td>0M</td><td>2.81%</td><td>NR</td><td>nan</td><td>100</td><td>0.00%</td></tr>
+</tbody>
+</table></div>
 
 ### D. Reference bonds
 
 UST 5Y 4.53%, 10Y 4.77% on the pull date.
 
-| Bond | Rank | Maturity | Size | Px | YTM | Spread vs 5Y UST | S&P | Moody's |
-|---|---|---|---|---|---|---|---|---|
-| Meridian Arc HoldCo 6.25% 2031 sr sec (Fluidstack Indiana Ph1, 49.9% FS / 50.1% Coatue NF, Google-guaranteed lease) | Secured | 2031-04-30 | 5.7B | 95.0 | 7.55% | 301bp | BB- | Ba2 |
-| WULF Compute 7.75% 2030 sr sec (Fluidstack lease, Google backstop) | Secured | 2030-10-15 | 3.2B | 103.8 | 6.68% | 214bp | BB | Ba2 |
-| Cipher Compute 7.125% 2030 1st lien (Fluidstack lease, Google backstop) | 1st lien | 2030-11-15 | 1.7B | 101.4 | 6.73% | 220bp | nan | Ba3 |
-| Applied Digital 9.25% 2030 sr sec (CoreWeave leases) | Secured | 2030-12-15 | 2.4B | 105.2 | 7.80% | 327bp | BB- | nan |
-| CoreWeave 9.25% 2030 sr unsec | Sr Unsecured | 2030-06-01 | 2.0B | 92.2 | 11.89% | 736bp | B | B1 |
-| CoreWeave 9.75% 2031 sr unsec | Sr Unsecured | 2031-10-01 | 2.8B | 88.7 | 12.83% | 830bp | B | B1 |
-| Oracle 6.25% 2032 sr unsec | Sr Unsecured | 2032-11-09 | 2.2B | 99.3 | 6.39% | 185bp | BBB- | Baa2 |
-| Iron Mountain 5.25% 2030 sr unsec | Sr Unsecured | 2030-07-15 | 1.3B | 97.9 | 5.85% | 132bp | BB- | Ba3 |
-| Equinix 3.9% 2032 sr unsec | Sr Unsecured | 2032-04-15 | 1.2B | 92.4 | 5.49% | 96bp | BBB+ | Baa1 |
-| Digital Realty 5.55% 2028 sr unsec | Sr Unsecured | 2028-01-15 | 900M | 100.9 | 4.85% | 32bp | BBB+ | Baa2 |
-| Alphabet 4.5% 2035 sr unsec (credit-tenant reference) | Sr Unsecured | 2035-05-15 | 1.2B | 94.6 | 5.29% | 75bp | AA+ | Aa2 |
+<div class="fs-tablewrap"><table class="fs-table">
+<thead><tr><th>Bond</th><th>Rank</th><th>Maturity</th><th>Size</th><th>Px</th><th>YTM</th><th>Spread vs 5Y UST</th><th>S&P</th><th>Moody's</th></tr></thead>
+<tbody>
+<tr><td>Meridian Arc HoldCo 6.25% 2031 sr sec (Fluidstack Indiana Ph1, 49.9% FS / 50.1% Coatue NF, Google-guaranteed lease)</td><td>Secured</td><td>2031-04-30</td><td>5.7B</td><td>95.0</td><td>7.55%</td><td>301bp</td><td>BB-</td><td>Ba2</td></tr>
+<tr><td>WULF Compute 7.75% 2030 sr sec (Fluidstack lease, Google backstop)</td><td>Secured</td><td>2030-10-15</td><td>3.2B</td><td>103.8</td><td>6.68%</td><td>214bp</td><td>BB</td><td>Ba2</td></tr>
+<tr><td>Cipher Compute 7.125% 2030 1st lien (Fluidstack lease, Google backstop)</td><td>1st lien</td><td>2030-11-15</td><td>1.7B</td><td>101.4</td><td>6.73%</td><td>220bp</td><td>nan</td><td>Ba3</td></tr>
+<tr><td>Applied Digital 9.25% 2030 sr sec (CoreWeave leases)</td><td>Secured</td><td>2030-12-15</td><td>2.4B</td><td>105.2</td><td>7.80%</td><td>327bp</td><td>BB-</td><td>nan</td></tr>
+<tr><td>CoreWeave 9.25% 2030 sr unsec</td><td>Sr Unsecured</td><td>2030-06-01</td><td>2.0B</td><td>92.2</td><td>11.89%</td><td>736bp</td><td>B</td><td>B1</td></tr>
+<tr><td>CoreWeave 9.75% 2031 sr unsec</td><td>Sr Unsecured</td><td>2031-10-01</td><td>2.8B</td><td>88.7</td><td>12.83%</td><td>830bp</td><td>B</td><td>B1</td></tr>
+<tr><td>Oracle 6.25% 2032 sr unsec</td><td>Sr Unsecured</td><td>2032-11-09</td><td>2.2B</td><td>99.3</td><td>6.39%</td><td>185bp</td><td>BBB-</td><td>Baa2</td></tr>
+<tr><td>Iron Mountain 5.25% 2030 sr unsec</td><td>Sr Unsecured</td><td>2030-07-15</td><td>1.3B</td><td>97.9</td><td>5.85%</td><td>132bp</td><td>BB-</td><td>Ba3</td></tr>
+<tr><td>Equinix 3.9% 2032 sr unsec</td><td>Sr Unsecured</td><td>2032-04-15</td><td>1.2B</td><td>92.4</td><td>5.49%</td><td>96bp</td><td>BBB+</td><td>Baa1</td></tr>
+<tr><td>Digital Realty 5.55% 2028 sr unsec</td><td>Sr Unsecured</td><td>2028-01-15</td><td>900M</td><td>100.9</td><td>4.85%</td><td>32bp</td><td>BBB+</td><td>Baa2</td></tr>
+<tr><td>Alphabet 4.5% 2035 sr unsec (credit-tenant reference)</td><td>Sr Unsecured</td><td>2035-05-15</td><td>1.2B</td><td>94.6</td><td>5.29%</td><td>75bp</td><td>AA+</td><td>Aa2</td></tr>
+</tbody>
+</table></div>
 
 ## Sources
 
