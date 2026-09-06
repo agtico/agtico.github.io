@@ -1,10 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 import { normalizeTxHash, buildExplorerUrl } from '../src/links/pftl.js';
 import { redactText, hasPublicLeak } from '../src/privacy/redaction.js';
 import { anonymizeEvent } from '../src/privacy/anonymize.js';
 import { extractTickers } from '../src/tickers/extract.js';
 import { resolveEventTickers } from '../src/pipeline.js';
+import { loadRowsWithFallback } from '../src/ingest/postgres.js';
+import { remoteScriptForTest } from '../src/ingest/fly.js';
 
 test('redacts direct identifiers before public rendering', () => {
   const redacted = redactText('Client: Acme Capital. Email me@test.com. Wallet rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN. Task 6f2d0db5-7d28-41d0-a088-cc0cf3c49f7b.');
@@ -108,4 +111,75 @@ test('validates and formats PFTL explorer links', () => {
     buildExplorerUrl(hash, 'https://explorer.test/tx/{hash}'),
     `https://explorer.test/tx/${hash.toUpperCase()}`
   );
+});
+
+test('postgres ingester falls back to recent tasks when activity channel is empty', async () => {
+  const fallbackRows = [{
+    id: 'task-1',
+    title: 'Fallback task',
+    status: 'submitted',
+  }];
+  const queries = [];
+  const pool = {
+    async query(sql, params) {
+      queries.push({ sql, params });
+      return queries.length === 1 ? { rows: [] } : { rows: fallbackRows };
+    },
+  };
+
+  const rows = await loadRowsWithFallback(pool, 24, 14);
+
+  assert.equal(rows, fallbackRows);
+  assert.equal(queries.length, 2);
+  assert.match(queries[0].sql, /FROM public\.activity_channel_events ace/);
+  assert.match(queries[1].sql, /FROM public\.tasks t/);
+  assert.match(queries[1].sql, /public\.task_submissions ts/);
+  assert.deepEqual(queries[1].params, [24, 14]);
+});
+
+test('fly ingester remote script falls back to recent tasks when activity channel is empty', async () => {
+  const fallbackRows = [{
+    id: 'task-2',
+    title: 'Remote fallback task',
+    status: 'verified',
+  }];
+  const queries = [];
+  const logs = [];
+  class Pool {
+    async query(sql, params) {
+      queries.push({ sql, params });
+      return queries.length === 1 ? { rows: [] } : { rows: fallbackRows };
+    }
+
+    end() {}
+  }
+  const context = {
+    require(name) {
+      assert.equal(name, 'pg');
+      return { Pool };
+    },
+    process: {
+      argv: ['node', '24', '14'],
+      env: { DATABASE_URL: 'postgres://example.invalid/db' },
+      exitCode: 0,
+    },
+    console: {
+      log(value) {
+        logs.push(String(value));
+      },
+      error(value) {
+        throw new Error(String(value));
+      },
+    },
+  };
+
+  vm.runInNewContext(remoteScriptForTest(), context);
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.equal(queries.length, 2);
+  assert.match(queries[0].sql, /FROM public\.activity_channel_events ace/);
+  assert.match(queries[1].sql, /FROM public\.tasks t/);
+  assert.match(queries[1].sql, /public\.task_submissions ts/);
+  assert.deepEqual(Array.from(queries[1].params), [96, 14]);
+  assert.deepEqual(logs.slice(-2), ['__TASKNODE_FEED_JSON__', JSON.stringify(fallbackRows)]);
 });

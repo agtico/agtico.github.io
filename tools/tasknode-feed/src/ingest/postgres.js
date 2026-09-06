@@ -58,6 +58,67 @@ ORDER BY ace.posted_at DESC, ace.created_at DESC
 LIMIT $1::int
 `;
 
+export const RECENT_FALLBACK_QUERY = `
+SELECT
+  t.id,
+  t.id AS task_id,
+  t.user_id,
+  t.title,
+  t.description,
+  t.status,
+  t.task_category,
+  t.task_metadata,
+  t.created_at,
+  t.accepted_at,
+  t.submitted_at,
+  t.verified_at,
+  COALESCE(t.submitted_at, t.verified_at, latest_submission.created_at, t.accepted_at, t.created_at) AS feed_timestamp,
+  t.reward_summary,
+  t.reward_tx_hash,
+  NULL::text AS verification_tx_hash,
+  t.board_task_id,
+  bt.department AS board_department,
+  bt.user_title AS board_user_title,
+  bt.user_description AS board_user_description,
+  bt.task_details AS board_task_details,
+  bt.expected_impact AS board_expected_impact,
+  NULL::jsonb AS board_metadata,
+  latest_submission.pftl_tx_hash AS submission_pftl_tx_hash,
+  latest_submission.reward_tx_hash AS submission_reward_tx_hash,
+  latest_submission.verification_tx_hash AS submission_verification_tx_hash,
+  latest_submission.created_at AS submission_created_at,
+  NULL::text AS activity_anonymized_summary,
+  NULL::jsonb AS activity_tickers,
+  NULL::text AS activity_pftl_tx_hash,
+  NULL::text AS activity_task_tag,
+  NULL::text AS activity_action_type,
+  NULL::text AS activity_event_type,
+  NULL::numeric AS activity_relevance_score,
+  NULL::timestamptz AS activity_created_at
+FROM public.tasks t
+LEFT JOIN public.board_tasks bt ON bt.id = t.board_task_id
+LEFT JOIN LATERAL (
+  SELECT ts.pftl_tx_hash, ts.reward_tx_hash, ts.verification_tx_hash, ts.created_at
+  FROM public.task_submissions ts
+  WHERE ts.task_id = t.id
+  ORDER BY ts.created_at DESC
+  LIMIT 1
+) latest_submission ON true
+WHERE COALESCE(t.status, '') NOT IN ('cancelled', 'expired', 'rejected')
+  AND COALESCE(t.submitted_at, t.verified_at, latest_submission.created_at, t.accepted_at, t.created_at) >= now() - ($2::int * interval '1 day')
+ORDER BY feed_timestamp DESC
+LIMIT $1::int
+`;
+
+export async function loadRowsWithFallback(pool, queryLimit, lookbackDays) {
+  const result = await pool.query(RECENT_ACTIVITY_QUERY, [queryLimit, lookbackDays]);
+  if (result.rows.length > 0) {
+    return result.rows;
+  }
+  const fallback = await pool.query(RECENT_FALLBACK_QUERY, [queryLimit, lookbackDays]);
+  return fallback.rows;
+}
+
 export async function loadPostgresEvents(config) {
   if (!config.databaseUrl) {
     throw new Error('TASKNODE_DATABASE_URL, PFTASKS_DATABASE_URL, or DATABASE_URL is required for postgres source');
@@ -72,8 +133,7 @@ export async function loadPostgresEvents(config) {
 
   try {
     const queryLimit = Math.min(Math.max(config.limit * 4, config.limit), 100);
-    const result = await pool.query(RECENT_ACTIVITY_QUERY, [queryLimit, config.lookbackDays]);
-    return result.rows;
+    return await loadRowsWithFallback(pool, queryLimit, config.lookbackDays);
   } finally {
     await pool.end();
   }
