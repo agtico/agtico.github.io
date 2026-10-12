@@ -99,14 +99,14 @@ One pool above half of block production can reorder recent history at will. The 
     <span class="tag">pearl-research-labs/pearl</span>
   </div>
 
-| Date | Change | Type | What it closes |
+| Date | Change | Kind | What it closes |
 |---|---|---|---|
 | Jun 22 | [#207](https://github.com/pearl-research-labs/pearl/pull/207) Hadamard-quantized models | Miner | Mining-layer threshold drops to n ≥ 256 |
-| Jul 23 | [#260](https://github.com/pearl-research-labs/pearl/pull/260) Dense-only softfork (mainnet ~91,600) | Consensus | Rejects MoE certificates |
-| Aug 5 | [#275](https://github.com/pearl-research-labs/pearl/pull/275) Rank-penalty softfork | Consensus | Noise rank ≥ 128, with the jackpot bound scaled by 128/rank. Removes the large-rank discount. |
-| Aug 11 | [#280](https://github.com/pearl-research-labs/pearl/pull/280) Salted noise-seed hardfork (98,900) | Consensus | V3 certificates. Domain-separated seeds bound to the declared dimensions. |
-| Aug 13 | [#281](https://github.com/pearl-research-labs/pearl/pull/281) Merkle leaf-count pinning | Consensus | "Carousel" reuse of one committed tree under several dimensions |
-| Aug 30 | [#299](https://github.com/pearl-research-labs/pearl/pull/299) Dimension-narrowing fix | Security | Wraparound that reopened work amplification (GHSA-vq6h-p843-m7c8) |
+| Jul 23 | [#260](https://github.com/pearl-research-labs/pearl/pull/260) Dense-only softfork (mainnet ~91,600) | Fork | Rejects MoE certificates |
+| Aug 5 | [#275](https://github.com/pearl-research-labs/pearl/pull/275) Rank-penalty softfork | Fork | Noise rank ≥ 128, with the jackpot bound scaled by 128/rank. Removes the large-rank discount. |
+| Aug 11 | [#280](https://github.com/pearl-research-labs/pearl/pull/280) Salted noise-seed hardfork (98,900) | Fork | V3 certificates. Domain-separated seeds bound to the declared dimensions. |
+| Aug 13 | [#281](https://github.com/pearl-research-labs/pearl/pull/281) Merkle leaf-count pinning | Fork | "Carousel" reuse of one committed tree under several dimensions |
+| Aug 30 | [#299](https://github.com/pearl-research-labs/pearl/pull/299) Dimension-narrowing fix | Fix | Wraparound that reopened work amplification (GHSA-vq6h-p843-m7c8) |
 | Sep–Oct | Checkpoints at 100K and 120K, DNS seeds moved to pearlnetwork.net, bounty tiers | Ops | Faster syncing, less dependence on Pearl's own domain, paid disclosure |
 
 </div>
